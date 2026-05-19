@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peak Contractors — Houston TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --blue: #1d4ed8; --navy: #0f172a; --light: #f8fafc; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--navy); }
+
+    nav { position: fixed; top: 0; width: 100%; background: rgba(15,23,42,0.97); backdrop-filter: blur(8px); z-index: 100; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Barlow', sans-serif; font-size: 22px; font-weight: 800; color: #fff; }
+    .logo span { color: #60a5fa; }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--blue) !important; color: #fff !important; padding: 10px 22px; border-radius: 4px; }
+
+    .hero { min-height: 100vh; background: linear-gradient(to right, rgba(15,23,42,0.92) 50%, rgba(15,23,42,0.4) 100%), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') right/cover; display: flex; align-items: center; padding: 120px 60px 60px; color: #fff; }
+    .hero-content { max-width: 620px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(96,165,250,0.15); border: 1px solid rgba(96,165,250,0.3); color: #93c5fd; font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 20px; margin-bottom: 24px; }
+    .hero h1 { font-family: 'Barlow', sans-serif; font-size: clamp(42px, 6vw, 68px); font-weight: 900; line-height: 1.05; margin-bottom: 20px; }
+    .hero h1 span { color: #60a5fa; }
+    .hero p { font-size: 17px; opacity: 0.75; margin-bottom: 36px; line-height: 1.7; font-weight: 300; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-blue { background: var(--blue); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-blue:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(29,78,216,0.5); }
+    .btn-ghost { border: 2px solid rgba(255,255,255,0.35); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-size: 15px; transition: all 0.2s; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.7); }
+    .stats { display: flex; gap: 36px; flex-wrap: wrap; }
+    .stat { }
+    .stat .num { font-family: 'Barlow', sans-serif; font-size: 32px; font-weight: 800; color: #60a5fa; }
+    .stat .label { font-size: 12px; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px; }
+
+    .services { padding: 90px 40px; background: var(--light); }
+    .services-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 10px; }
+    .services h2 { font-family: 'Barlow', sans-serif; font-size: 42px; font-weight: 800; margin-bottom: 8px; }
+    .services-sub { color: #64748b; margin-bottom: 50px; font-size: 15px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .service-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.06); display: flex; flex-direction: column; transition: transform 0.2s; }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-card img { width: 100%; height: 200px; object-fit: cover; }
+    .service-body { padding: 26px; flex: 1; }
+    .service-body h3 { font-family: 'Barlow', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .service-body p { font-size: 14px; color: #64748b; line-height: 1.7; }
+    .service-tag { display: inline-block; background: #eff6ff; color: var(--blue); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; }
+
+    .process { padding: 90px 40px; background: #fff; text-align: center; }
+    .process h2 { font-family: 'Barlow', sans-serif; font-size: 42px; font-weight: 800; margin-bottom: 8px; }
+    .process-sub { color: #64748b; margin-bottom: 60px; font-size: 15px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
+    .step { position: relative; }
+    .step-num { width: 52px; height: 52px; background: var(--blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow', sans-serif; font-size: 22px; font-weight: 800; margin: 0 auto 16px; }
+    .step h4 { font-family: 'Barlow', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: #64748b; line-height: 1.6; }
+
+    .cta { background: var(--navy); color: #fff; padding: 90px 40px; text-align: center; }
+    .cta h2 { font-family: 'Barlow', sans-serif; font-size: 46px; font-weight: 900; margin-bottom: 14px; }
+    .cta h2 span { color: #60a5fa; }
+    .cta p { font-size: 17px; opacity: 0.7; margin-bottom: 36px; }
+    .cta-btn { display: inline-block; background: var(--blue); color: #fff; padding: 18px 50px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 18px; font-family: 'Barlow', sans-serif; transition: transform 0.2s, box-shadow 0.2s; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(29,78,216,0.5); }
+
+    .contact-strip { background: var(--blue); padding: 40px; }
+    .contact-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center; color: #fff; }
+    .c-item .icon { font-size: 24px; margin-bottom: 8px; }
+    .c-item h4 { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; margin-bottom: 4px; }
+    .c-item p { font-size: 16px; font-weight: 600; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.3); text-align: center; padding: 24px; font-size: 13px; }
+    footer span { color: #60a5fa; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 100px 24px 50px; }
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Peak<span>Contractors</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="tel:+18321234567" class="nav-cta">Free Quote</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">⭐ Licensed & Insured · Houston, TX</div>
+      <h1>Quality Work<br>You Can <span>Trust</span></h1>
+      <p>Houston's go-to contractors for roofing, remodeling, and home repairs. We show up on time, do the job right, and stand behind our work.</p>
+      <div class="hero-btns">
+        <a href="tel:+18321234567" class="btn-blue">📞 Get a Free Quote</a>
+        <a href="#services" class="btn-ghost">Our Services</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">500+</div><div class="label">Jobs Completed</div></div>
+        <div class="stat"><div class="num">10yr</div><div class="label">In Business</div></div>
+        <div class="stat"><div class="num">4.9★</div><div class="label">Avg Rating</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="services-inner">
+      <p class="section-tag">What We Do</p>
+      <h2>Our Services</h2>
+      <p class="services-sub">No job too big or too small — we handle it all</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Roofing">
+          <div class="service-body">
+            <span class="service-tag">Most Popular</span>
+            <h3>Roofing</h3>
+            <p>Full roof replacement, repairs, and inspections. We work with all materials and handle insurance claims.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600" alt="Remodeling">
+          <div class="service-body">
+            <h3>Home Remodeling</h3>
+            <p>Kitchen, bathroom, or full home remodels. We turn your vision into reality on time and on budget.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600" alt="General">
+          <div class="service-body">
+            <h3>General Repairs</h3>
+            <p>Drywall, painting, flooring, doors, windows — if it needs fixing, we can handle it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <p class="section-tag">How It Works</p>
+    <h2>Simple & Stress-Free</h2>
+    <p class="process-sub">From first call to finished job — we make it easy</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h4>Call or Text Us</h4><p>Tell us what you need. We'll schedule a free walkthrough at your convenience.</p></div>
+      <div class="step"><div class="step-num">2</div><h4>Get Your Quote</h4><p>We give you a clear, honest estimate — no fluff, no hidden fees.</p></div>
+      <div class="step"><div class="step-num">3</div><h4>We Get to Work</h4><p>Our crew shows up on time and gets the job done right the first time.</p></div>
+      <div class="step"><div class="step-num">4</div><h4>You're Happy</h4><p>We don't leave until you're satisfied. That's our promise.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to Get<br><span>Started?</span></h2>
+    <p>Call us today for a free estimate — no pressure, no obligation.</p>
+    <a href="tel:+18321234567" class="cta-btn">📞 Call (832) 000-0000</a>
+  </section>
+
+  <div class="contact-strip" id="contact">
+    <div class="contact-inner">
+      <div class="c-item"><div class="icon">📍</div><h4>Location</h4><p>Houston, TX</p></div>
+      <div class="c-item"><div class="icon">🕐</div><h4>Hours</h4><p>Mon–Sat 7am–7pm</p></div>
+      <div class="c-item"><div class="icon">📞</div><h4>Phone</h4><p>(832) 000-0000</p></div>
+      <div class="c-item"><div class="icon">✉️</div><h4>Email</h4><p>info@peakcontractors.com</p></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Peak Contractors · Houston, TX · Website by <span>JF Web Studios</span></p>
+  </footer>
+</body>
+</html>
