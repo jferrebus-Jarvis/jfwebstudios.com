@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JF Web Studios | Professional Web Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #2563eb;
+      --blue-light: #3b82f6;
+      --navy: #0f172a;
+      --dark: #111827;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 60px;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--white);
+    }
+    .logo span { color: var(--blue-light); }
+
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--blue);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--blue-light) !important; color: var(--white) !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 60px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0f172a 0%, #0f172a 50%, #0d1f3c 100%);
+      z-index: 0;
+    }
+
+    /* Champagne photo on the right */
+    .hero-photo {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 55%;
+      background: url('https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/e5e252054_imessage_media_4dacf48c069e.jpg') center top / cover no-repeat;
+      z-index: 1;
+    }
+
+    /* Fade left edge into navy */
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #0f172a 0%, rgba(15,23,42,0.55) 35%, rgba(15,23,42,0.05) 100%);
+    }
+
+    /* Fade bottom into navy */
+    .hero-photo::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 35%;
+      background: linear-gradient(to top, #0f172a, transparent);
+      z-index: 2;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%);
+      top: 50%; left: 20%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 560px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37,99,235,0.15);
+      border: 1px solid rgba(59,130,246,0.3);
+      color: var(--blue-light);
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 68px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span { color: var(--blue-light); }
+
+    .hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.07);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: left; }
+    .stat-num { font-size: 30px; font-weight: 800; color: var(--white); }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; font-weight: 500; }
+
+    /* SECTION BASE */
+    section { padding: 100px 60px; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--blue-light);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.55);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* SERVICES */
+    .services { background: var(--dark); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 36px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-card:hover { border-color: rgba(59,130,246,0.4); transform: translateY(-4px); }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      background: rgba(37,99,235,0.15);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+    /* PRICING */
+    .pricing { background: var(--navy); text-align: center; }
+
+    .pricing-cards {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    .pricing-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 44px 40px;
+      width: 320px;
+      text-align: left;
+      transition: transform 0.2s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+
+    .pricing-card.featured {
+      background: var(--blue);
+      border-color: var(--blue-light);
+    }
+
+    .pricing-tag {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 16px;
+    }
+    .pricing-card.featured .pricing-tag { color: rgba(255,255,255,0.8); }
+
+    .pricing-price {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 6px;
+    }
+    .pricing-period { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 28px; }
+
+    .pricing-features { list-style: none; margin-bottom: 36px; }
+    .pricing-features li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pricing-features li::before { content: '✓'; color: #4ade80; font-weight: 700; }
+    .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.15); }
+
+    /* PROCESS */
+    .process { background: var(--dark); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .step {
+      position: relative;
+      padding: 32px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .step-num {
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(37,99,235,0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .step p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    /* CTA */
+    .cta-section {
+      background: var(--blue);
+      text-align: center;
+      padding: 100px 40px;
+    }
+    .cta-section h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .cta-section p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 40px;
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--blue);
+      padding: 16px 40px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: #080f1e;
+      padding: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-logo { font-size: 20px; font-weight: 800; }
+    .footer-logo span { color: var(--blue-light); }
+    .footer-text { font-size: 13px; color: rgba(255,255,255,0.35); }
+    .footer-contact { font-size: 14px; color: rgba(255,255,255,0.55); }
+    .footer-contact a { color: var(--blue-light); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 120px 24px 80px; }
+      .hero-photo { width: 100%; opacity: 0.25; }
+      section { padding: 70px 24px; }
+      footer { padding: 40px 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">JF <span>Web Studios</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-photo"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="badge">⚡ Professional Web Design — Texas & Nationwide</div>
+      <h1>Your Business<br/>Deserves a<br/><span>Real Website</span></h1>
+      <p>We build fast, modern websites that get you found online and turn visitors into paying customers. Starting at just $400.</p>
+      <div class="hero-btns">
+        <a href="mailto:jferrebus@jfwebstudios.com" class="btn-primary">Get Your Free Demo →</a>
+        <a href="#pricing" class="btn-secondary">See Pricing</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">48h</div>
+          <div class="stat-label">Delivery Time</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">$400</div>
+          <div class="stat-label">Starting Price</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Industries</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Everything Your Business<br/>Needs Online</h2>
+    <p class="section-sub">From design to launch in 48 hours. No tech knowledge needed — we handle everything.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Custom Web Design</h3>
+        <p>A professionally designed website built specifically for your business and industry. No templates, no generic layouts.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Mobile Friendly</h3>
+        <p>Your site looks perfect on phones, tablets, and desktops. Over 70% of customers search on mobile — we've got you covered.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>SEO Optimized</h3>
+        <p>Built to rank on Google so local customers can find your business when they search for your services.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Fast & Reliable</h3>
+        <p>Lightning fast load times and 99.9% uptime. Slow websites lose customers — yours won't.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3>Ongoing Maintenance</h3>
+        <p>We keep your site updated, secure, and running smoothly every month so you can focus on your business.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📞</div>
+        <h3>Lead Generation</h3>
+        <p>Contact forms, click-to-call buttons, and Google Maps integration to turn your website into a customer magnet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="section-label">Simple Pricing</div>
+    <h2 class="section-title">No Hidden Fees. Ever.</h2>
+    <p class="section-sub" style="margin: 0 auto;">Straightforward pricing that makes sense for small businesses.</p>
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="pricing-tag">One Time</div>
+        <div class="pricing-price">$400</div>
+        <div class="pricing-period">Website Design & Launch</div>
+        <ul class="pricing-features">
+          <li>Custom designed website</li>
+          <li>Mobile responsive</li>
+          <li>Contact form included</li>
+          <li>SEO basics setup</li>
+          <li>Delivered in 48 hours</li>
+          <li>Free revisions</li>
+        </ul>
+        <a href="mailto:jferrebus@jfwebstudios.com" class="btn-secondary" style="display:block; text-align:center;">Get Started</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="pricing-tag">Monthly</div>
+        <div class="pricing-price">$75</div>
+        <div class="pricing-period">Hosting & Maintenance / mo</div>
+        <ul class="pricing-features">
+          <li>Fast, reliable hosting</li>
+          <li>Monthly updates</li>
+          <li>Security monitoring</li>
+          <li>Google Analytics</li>
+          <li>Priority support</li>
+          <li>Content changes anytime</li>
+        </ul>
+        <a href="mailto:jferrebus@jfwebstudios.com" class="btn-white" style="display:block; text-align:center;">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Live in 48 Hours</h2>
+    <p class="section-sub">Simple, fast, and stress-free. Here's exactly what happens when you work with us.</p>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>You Reach Out</h3>
+        <p>Send us a quick email or call. Tell us about your business and what you need. Takes 5 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>We Show You a Demo</h3>
+        <p>We build a free demo site for your business so you can see exactly what it'll look like before you pay anything.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>You Approve It</h3>
+        <p>Like what you see? We finalize it with your info, photos, and anything else you want. Easy revisions.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>We Launch It</h3>
+        <p>Your site goes live on your domain within 48 hours. We handle everything — you just watch it go live.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <h2>Ready to Get Online?</h2>
+    <p>Join hundreds of local businesses that finally have a website that works for them.</p>
+    <a href="mailto:jferrebus@jfwebstudios.com" class="btn-white">Email Us Now — It's Free to Start</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">JF <span>Web Studios</span></div>
+      <div class="footer-text" style="margin-top:8px;">Professional Web Design for Local Businesses</div>
+    </div>
+    <div class="footer-contact">
+      📧 <a href="mailto:jferrebus@jfwebstudios.com">jferrebus@jfwebstudios.com</a><br/>
+      📞 <a href="tel:8329812967">(832) 981-2967</a>
+    </div>
+    <div class="footer-text">© 2026 JF Web Studios LLC. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
