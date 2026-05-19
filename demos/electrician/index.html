@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volt Electric | Houston, TX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; color: #1a1a1a; background: #fff; }
+    nav { background: #1c1c1c; padding: 18px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 24px; font-weight: 800; color: #fbbf24; }
+    .logo span { color: #fff; }
+    .nav-links a { color: #aaa; text-decoration: none; margin-left: 30px; font-size: 14px; }
+    .nav-links a:hover { color: #fbbf24; }
+    .btn-nav { background: #fbbf24; color: #1c1c1c; padding: 10px 24px; border-radius: 5px; text-decoration: none; font-weight: 800; font-size: 14px; margin-left: 20px; }
+    .hero { background: #1c1c1c; padding: 90px 50px; min-height: 88vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero::before { content: '⚡'; position: absolute; right: 8%; top: 50%; transform: translateY(-50%); font-size: 350px; opacity: 0.04; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; z-index: 1; }
+    .hero-badge { display: inline-block; background: rgba(251,191,36,0.15); border: 1px solid #fbbf24; color: #fbbf24; font-size: 12px; font-weight: 700; padding: 7px 18px; border-radius: 4px; margin-bottom: 25px; }
+    .hero h1 { font-size: 56px; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 span { color: #fbbf24; }
+    .hero p { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 35px; }
+    .btn-yellow { background: #fbbf24; color: #1c1c1c; padding: 17px 40px; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-block; transition: all 0.3s; box-shadow: 0 8px 25px rgba(251,191,36,0.4); }
+    .btn-yellow:hover { background: #f59e0b; transform: translateY(-2px); }
+    .btn-outline { border: 2px solid rgba(255,255,255,0.25); color: #fff; padding: 15px 35px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; display: inline-block; margin-left: 12px; }
+    .hero-features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .feature { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 20px; }
+    .feature-icon { font-size: 28px; margin-bottom: 10px; }
+    .feature-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .feature-sub { font-size: 12px; color: #666; }
+    .services { padding: 100px 50px; background: #fff; }
+    .section-label { text-align: center; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #fbbf24; margin-bottom: 12px; font-weight: 700; }
+    .section-title { text-align: center; font-size: 42px; font-weight: 800; color: #1c1c1c; margin-bottom: 60px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .service-card { background: #fafafa; border-radius: 12px; padding: 32px 25px; transition: all 0.3s; border-bottom: 4px solid #fbbf24; }
+    .service-card:hover { box-shadow: 0 10px 35px rgba(0,0,0,0.1); transform: translateY(-4px); background: #fff; }
+    .service-icon { font-size: 40px; margin-bottom: 15px; }
+    .service-name { font-size: 19px; font-weight: 700; color: #1c1c1c; margin-bottom: 10px; }
+    .service-desc { font-size: 14px; color: #555; line-height: 1.6; }
+    .cta { background: #fbbf24; padding: 80px 50px; text-align: center; }
+    .cta h2 { font-size: 44px; font-weight: 800; color: #1c1c1c; margin-bottom: 12px; }
+    .cta p { font-size: 18px; color: rgba(0,0,0,0.6); margin-bottom: 30px; }
+    .btn-dark { background: #1c1c1c; color: #fbbf24; padding: 18px 50px; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: 17px; display: inline-block; }
+    footer { background: #1c1c1c; padding: 40px 50px; text-align: center; }
+    footer p { color: #555; font-size: 13px; }
+    footer span { color: #fbbf24; }
+    @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } .hero h1 { font-size: 38px; } .nav-links { display: none; } .hero-features { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">⚡ Volt <span>Electric</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="tel:+18329812967" class="btn-nav">📞 Free Estimate</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">⚡ Licensed Master Electrician · Houston TX</div>
+        <h1>Power Done<br><span>Right.</span></h1>
+        <p>Residential and commercial electrical services in Houston. Safe, fast, and up to code — every time.</p>
+        <a href="tel:+18329812967" class="btn-yellow">📞 Get Free Estimate</a>
+        <a href="#services" class="btn-outline">Our Services</a>
+      </div>
+      <div class="hero-features">
+        <div class="feature"><div class="feature-icon">🔒</div><div class="feature-title">Licensed & Insured</div><div class="feature-sub">Master electrician on every job</div></div>
+        <div class="feature"><div class="feature-icon">⚡</div><div class="feature-title">Same-Day Service</div><div class="feature-sub">Available 7 days a week</div></div>
+        <div class="feature"><div class="feature-icon">💰</div><div class="feature-title">Flat-Rate Pricing</div><div class="feature-sub">No hidden fees ever</div></div>
+        <div class="feature"><div class="feature-icon">⭐</div><div class="feature-title">5-Star Rated</div><div class="feature-sub">400+ verified reviews</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <p class="section-label">Electrical Services</p>
+    <h2 class="section-title">What We Do</h2>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🔌</div><div class="service-name">Panel Upgrades</div><div class="service-desc">Upgrade your electrical panel to handle modern power demands safely and efficiently.</div></div>
+      <div class="service-card"><div class="service-icon">💡</div><div class="service-name">Lighting Installation</div><div class="service-desc">Recessed lighting, ceiling fans, outdoor lighting, and smart lighting systems.</div></div>
+      <div class="service-card"><div class="service-icon">🏠</div><div class="service-name">Residential Wiring</div><div class="service-desc">New construction, rewiring, and outlet installation for homes of any size.</div></div>
+      <div class="service-card"><div class="service-icon">🚗</div><div class="service-name">EV Charger Install</div><div class="service-desc">Level 2 EV charger installation for your home or business. Fast and clean.</div></div>
+      <div class="service-card"><div class="service-icon">⚠️</div><div class="service-name">Electrical Repairs</div><div class="service-desc">Tripped breakers, flickering lights, dead outlets — diagnosed and fixed fast.</div></div>
+      <div class="service-card"><div class="service-icon">🏢</div><div class="service-name">Commercial Electric</div><div class="service-desc">Full commercial electrical services for offices, restaurants, and warehouses.</div></div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <h2>Need an Electrician?</h2>
+    <p>Call now for a free estimate — same day service available.</p>
+    <a href="tel:+18329812967" class="btn-dark">📞 (832) 555-0600</a>
+  </section>
+
+  <footer>
+    <p>© 2024 Volt Electric · Houston, TX · <span>Master Electrician License #TX-54321</span></p>
+    <p style="margin-top:8px;font-size:11px;">Website by <span>JF Web Studios</span></p>
+  </footer>
+</body>
+</html>
