@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ms Barber Dog Katy – Pet Grooming</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; color: #1a1a1a; }
+
+    nav {
+      background: #6a1b9a;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo { color: #fff; font-size: 1.4rem; font-weight: 700; }
+    nav .logo span { color: #ce93d8; }
+    nav a { color: #fff; text-decoration: none; margin-left: 24px; font-size: 0.95rem; font-weight: 500; }
+
+    .hero {
+      background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 60%, #ce93d8 100%);
+      color: #fff;
+      padding: 80px 32px;
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #fff3e0;
+      color: #6a1b9a;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; }
+    .hero h1 span { color: #fff176; }
+    .hero p { font-size: 1.2rem; max-width: 580px; margin: 0 auto 32px; opacity: 0.9; }
+    .btn {
+      display: inline-block;
+      background: #fff176;
+      color: #6a1b9a;
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin: 8px;
+      transition: transform 0.2s;
+    }
+    .btn:hover { transform: scale(1.05); }
+    .btn.outline {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    .services {
+      padding: 64px 32px;
+      background: #fce4ec;
+      text-align: center;
+    }
+    .services h2 { font-size: 2rem; font-weight: 700; color: #6a1b9a; margin-bottom: 12px; }
+    .services p.sub { color: #777; margin-bottom: 40px; }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px 24px;
+      width: 180px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .card h3 { font-size: 1rem; font-weight: 600; color: #6a1b9a; }
+
+    .why {
+      padding: 64px 32px;
+      background: #fff;
+      text-align: center;
+    }
+    .why h2 { font-size: 2rem; font-weight: 700; color: #6a1b9a; margin-bottom: 40px; }
+    .why-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .why-item { width: 200px; }
+    .why-item .num { font-size: 2.5rem; font-weight: 800; color: #9c27b0; }
+    .why-item p { color: #555; font-size: 0.95rem; margin-top: 4px; }
+
+    .reviews {
+      background: #6a1b9a;
+      color: #fff;
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .reviews h2 { font-size: 2rem; font-weight: 700; margin-bottom: 40px; }
+    .review-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 24px;
+      width: 260px;
+      text-align: left;
+    }
+    .stars { color: #fff176; font-size: 1.2rem; margin-bottom: 8px; }
+    .review-card p { font-size: 0.9rem; opacity: 0.9; }
+    .reviewer { margin-top: 12px; font-weight: 600; font-size: 0.85rem; opacity: 0.7; }
+
+    .cta {
+      background: #fff176;
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .cta h2 { font-size: 2rem; font-weight: 800; color: #6a1b9a; margin-bottom: 12px; }
+    .cta p { color: #333; margin-bottom: 28px; font-size: 1.1rem; }
+
+    footer {
+      background: #4a0072;
+      color: #aaa;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.85rem;
+    }
+    footer span { color: #ce93d8; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      nav .links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Ms Barber <span>Dog Katy</span></div>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Book Now</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="badge">🐾 4.2 Stars · 24 Reviews · Katy, TX</div>
+    <h1>Katy's Favorite<br/><span>Pet Grooming</span> Studio</h1>
+    <p>We treat your fur baby like royalty. Professional grooming with love and care in the heart of Katy, Texas.</p>
+    <a href="tel:9562581629" class="btn">📞 Call (956) 258-1629</a>
+    <a href="#contact" class="btn outline">Book Appointment</a>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Grooming Services</h2>
+    <p class="sub">Full-service pet grooming for dogs of all breeds and sizes</p>
+    <div class="cards">
+      <div class="card"><div class="icon">✂️</div><h3>Full Groom</h3></div>
+      <div class="card"><div class="icon">🛁</div><h3>Bath & Dry</h3></div>
+      <div class="card"><div class="icon">💅</div><h3>Nail Trim</h3></div>
+      <div class="card"><div class="icon">🎀</div><h3>Styling</h3></div>
+      <div class="card"><div class="icon">🦷</div><h3>Teeth Brushing</h3></div>
+      <div class="card"><div class="icon">👂</div><h3>Ear Cleaning</h3></div>
+    </div>
+  </section>
+
+  <section class="why">
+    <h2>Why Pet Parents Love Us</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="num">4.2⭐</div>
+        <p>Highly rated by 24+ pet parents in Katy</p>
+      </div>
+      <div class="why-item">
+        <div class="num">Safe</div>
+        <p>Gentle, stress-free environment for your pet</p>
+      </div>
+      <div class="why-item">
+        <div class="num">Affordable</div>
+        <p>Competitive pricing for premium grooming</p>
+      </div>
+      <div class="why-item">
+        <div class="num">Local</div>
+        <p>Proudly serving Katy, TX and surrounding areas</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <h2>🐶 What Pet Parents Say</h2>
+    <div class="review-cards">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"I take my pup here for grooming and they always do a fantastic job!"</p>
+        <div class="reviewer">— Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"They are super affordable and very nice to work with. My dog always comes out looking amazing."</p>
+        <div class="reviewer">— Google Review</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★</div>
+        <p>"Great grooming service in Katy. My dog actually enjoys going there — that says everything!"</p>
+        <div class="reviewer">— Maria G., Katy TX</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <h2>Book Your Pet's Appointment Today!</h2>
+    <p>Call us or stop by — located at 5122 E 5th St, Katy, TX 77493</p>
+    <a href="tel:9562581629" class="btn">📞 Call (956) 258-1629</a>
+  </section>
+
+  <footer>
+    <p>© 2026 Ms Barber Dog Katy · 5122 E 5th St, Katy, TX 77493</p>
+    <p style="margin-top:6px;">Website by <span>JF Web Studios</span></p>
+  </footer>
+
+</body>
+</html>
