@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxe Nails & Spa | Houston, TX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Georgia', serif; color: #2d2d2d; background: #fff; }
+    nav { background: #fff; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 22px; font-weight: 700; color: #b5698a; letter-spacing: 2px; }
+    .logo span { color: #2d2d2d; }
+    .nav-links a { color: #666; text-decoration: none; margin-left: 30px; font-size: 14px; }
+    .nav-links a:hover { color: #b5698a; }
+    .hero { background: linear-gradient(135deg, #fdf4f8 0%, #fce8f0 50%, #f8e0ee 100%); padding: 100px 50px; display: flex; align-items: center; justify-content: center; min-height: 90vh; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hero-tag { display: inline-block; background: #b5698a; color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 6px 18px; border-radius: 20px; margin-bottom: 25px; }
+    .hero h1 { font-size: 58px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; color: #1a1a1a; }
+    .hero h1 span { color: #b5698a; }
+    .hero p { font-size: 18px; color: #777; line-height: 1.7; margin-bottom: 35px; }
+    .btn-pink { background: #b5698a; color: #fff; padding: 16px 40px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 15px; display: inline-block; transition: all 0.3s; box-shadow: 0 8px 25px rgba(181,105,138,0.35); }
+    .btn-pink:hover { background: #9a4f72; transform: translateY(-2px); }
+    .btn-ghost { border: 2px solid #b5698a; color: #b5698a; padding: 14px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-left: 12px; transition: all 0.3s; }
+    .btn-ghost:hover { background: #b5698a; color: #fff; }
+    .hero-visual { background: linear-gradient(135deg, #f8d7e8, #f0b8d0); border-radius: 20px; height: 450px; display: flex; align-items: center; justify-content: center; font-size: 100px; box-shadow: 0 20px 60px rgba(181,105,138,0.2); }
+    .services { background: #fff; padding: 100px 50px; }
+    .section-tag { text-align: center; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #b5698a; margin-bottom: 12px; }
+    .section-title { text-align: center; font-size: 40px; color: #1a1a1a; margin-bottom: 60px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+    .service-card { background: #fdf4f8; border-radius: 16px; padding: 35px 25px; text-align: center; transition: all 0.3s; border: 2px solid transparent; }
+    .service-card:hover { border-color: #b5698a; transform: translateY(-5px); box-shadow: 0 15px 40px rgba(181,105,138,0.15); }
+    .service-icon { font-size: 40px; margin-bottom: 15px; }
+    .service-name { font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+    .service-price { font-size: 26px; font-weight: 700; color: #b5698a; margin-bottom: 8px; }
+    .service-desc { font-size: 13px; color: #888; line-height: 1.5; }
+    .gallery { background: #fdf4f8; padding: 80px 50px; text-align: center; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 900px; margin: 40px auto 0; }
+    .gallery-item { background: linear-gradient(135deg, #f8d7e8, #f0b8d0); border-radius: 12px; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 50px; transition: transform 0.3s; }
+    .gallery-item:hover { transform: scale(1.05); }
+    .testimonials { background: #fff; padding: 80px 50px; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 900px; margin: 40px auto 0; }
+    .testimonial { background: #fdf4f8; border-radius: 16px; padding: 30px; }
+    .stars { color: #b5698a; font-size: 18px; margin-bottom: 12px; }
+    .testimonial p { font-size: 15px; color: #555; line-height: 1.6; font-style: italic; margin-bottom: 15px; }
+    .testimonial-name { font-size: 14px; font-weight: 600; color: #b5698a; }
+    .cta { background: linear-gradient(135deg, #b5698a, #9a4f72); padding: 80px 50px; text-align: center; }
+    .cta h2 { font-size: 44px; color: #fff; margin-bottom: 15px; }
+    .cta p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 35px; }
+    .btn-white { background: #fff; color: #b5698a; padding: 16px 45px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 16px; display: inline-block; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+    footer { background: #1a1a1a; padding: 40px 50px; text-align: center; }
+    footer p { color: #666; font-size: 13px; }
+    footer span { color: #b5698a; }
+    @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } .hero h1 { font-size: 38px; } .gallery-grid { grid-template-columns: repeat(2,1fr); } .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Luxe <span>Nails & Spa</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#book">Book Now</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">Houston's #1 Nail Studio</div>
+        <h1>Beautiful Nails.<br><span>Every Time.</span></h1>
+        <p>Luxury nail care in a relaxing, clean, and welcoming environment. Gel, acrylics, pedicures, and more.</p>
+        <a href="#book" class="btn-pink">Book Appointment</a>
+        <a href="#services" class="btn-ghost">Our Services</a>
+      </div>
+      <div class="hero-visual">💅</div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <p class="section-tag">Treatments</p>
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">💅</div><div class="service-name">Gel Manicure</div><div class="service-price">$45</div><div class="service-desc">Long-lasting gel with premium polish</div></div>
+      <div class="service-card"><div class="service-icon">✨</div><div class="service-name">Acrylic Full Set</div><div class="service-price">$55</div><div class="service-desc">Full acrylic set with design of choice</div></div>
+      <div class="service-card"><div class="service-icon">🦶</div><div class="service-name">Spa Pedicure</div><div class="service-price">$40</div><div class="service-desc">Soak, scrub, massage & polish</div></div>
+      <div class="service-card"><div class="service-icon">👑</div><div class="service-name">Mani + Pedi Combo</div><div class="service-price">$75</div><div class="service-desc">Full hands and feet treatment</div></div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <p class="section-tag">Our Work</p>
+    <h2 class="section-title">Nail Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">🌸</div>
+      <div class="gallery-item">🌺</div>
+      <div class="gallery-item">💎</div>
+      <div class="gallery-item">🦋</div>
+      <div class="gallery-item">🌙</div>
+      <div class="gallery-item">⭐</div>
+      <div class="gallery-item">🌷</div>
+      <div class="gallery-item">💜</div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="reviews">
+    <p class="section-tag">Happy Clients</p>
+    <h2 class="section-title">What They Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial"><div class="stars">★★★★★</div><p>"Best nail salon in Houston hands down. My nails last 3+ weeks every time."</p><div class="testimonial-name">— Sarah M.</div></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>"So clean, so relaxing. The staff makes you feel like royalty. Won't go anywhere else."</p><div class="testimonial-name">— Jessica T.</div></div>
+      <div class="testimonial"><div class="stars">★★★★★</div><p>"Amazing designs and super affordable. I bring all my friends here now!"</p><div class="testimonial-name">— Maria G.</div></div>
+    </div>
+  </section>
+
+  <section class="cta" id="book">
+    <h2>Treat Yourself Today 💅</h2>
+    <p>Walk-ins welcome · Appointments recommended</p>
+    <a href="tel:+18329812967" class="btn-white">📞 Book Now</a>
+  </section>
+
+  <footer>
+    <p>© 2024 Luxe Nails & Spa · Houston, TX · <span>(832) 555-0200</span></p>
+    <p style="margin-top:8px;font-size:11px;">Website by <span>JF Web Studios</span></p>
+  </footer>
+</body>
+</html>
