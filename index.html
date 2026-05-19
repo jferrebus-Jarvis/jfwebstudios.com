@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
       --blue: #2563eb;
       --blue-light: #3b82f6;
@@ -17,14 +16,34 @@
       --light: #f9fafb;
       --white: #ffffff;
     }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
 
-    body {
+    /* LANG TOGGLE */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 4px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
       font-family: 'Inter', sans-serif;
-      background: var(--navy);
+    }
+    .lang-btn.active {
+      background: var(--blue);
       color: var(--white);
-      overflow-x: hidden;
     }
 
     /* NAV */
@@ -40,366 +59,97 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--white);
-    }
+    .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--white); }
     .logo span { color: var(--blue-light); }
-
+    .nav-right { display: flex; align-items: center; gap: 24px; }
     .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
-
-    .nav-cta {
-      background: var(--blue);
-      color: var(--white) !important;
-      padding: 10px 22px;
-      border-radius: 8px;
-      font-weight: 600 !important;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--blue-light) !important; color: var(--white) !important; }
+    .nav-cta { background: var(--blue); color: var(--white) !important; padding: 10px 22px; border-radius: 8px; font-weight: 600 !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--blue-light) !important; }
 
     /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 60px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #0f172a 0%, #0f172a 50%, #0d1f3c 100%);
-      z-index: 0;
-    }
-
-    /* Champagne photo on the right */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 60px 80px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #0f172a 0%, #0f172a 50%, #0d1f3c 100%); z-index: 0; }
     .hero-photo {
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 55%;
+      position: absolute; right: 0; top: 0; bottom: 0; width: 55%;
       background: url('https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/e5e252054_imessage_media_4dacf48c069e.jpg') center top / cover no-repeat;
       z-index: 1;
     }
-
-    /* Fade left edge into navy */
-    .hero-photo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, #0f172a 0%, rgba(15,23,42,0.55) 35%, rgba(15,23,42,0.05) 100%);
-    }
-
-    /* Fade bottom into navy */
-    .hero-photo::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 35%;
-      background: linear-gradient(to top, #0f172a, transparent);
-      z-index: 2;
-    }
-
-    .hero-glow {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%);
-      top: 50%; left: 20%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      max-width: 560px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(37,99,235,0.15);
-      border: 1px solid rgba(59,130,246,0.3);
-      color: var(--blue-light);
-      padding: 8px 18px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 28px;
-      letter-spacing: 0.5px;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 5vw, 68px);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 24px;
-    }
-
+    .hero-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, #0f172a 0%, rgba(15,23,42,0.55) 35%, rgba(15,23,42,0.05) 100%); }
+    .hero-photo::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: linear-gradient(to top, #0f172a, transparent); z-index: 2; }
+    .hero-glow { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%); top: 50%; left: 20%; transform: translate(-50%, -50%); pointer-events: none; z-index: 2; }
+    .hero-content { position: relative; z-index: 3; max-width: 560px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(37,99,235,0.15); border: 1px solid rgba(59,130,246,0.3); color: var(--blue-light); padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 600; margin-bottom: 28px; letter-spacing: 0.5px; }
+    .hero h1 { font-size: clamp(38px, 5vw, 68px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; }
     .hero h1 span { color: var(--blue-light); }
-
-    .hero p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.7;
-      margin-bottom: 40px;
-    }
-
+    .hero p { font-size: 17px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 40px; }
     .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    .btn-primary {
-      background: var(--blue);
-      color: var(--white);
-      padding: 16px 36px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-      display: inline-block;
-    }
+    .btn-primary { background: var(--blue); color: var(--white); padding: 16px 36px; border-radius: 10px; font-size: 16px; font-weight: 700; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-block; }
     .btn-primary:hover { background: var(--blue-light); transform: translateY(-2px); }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.07);
-      color: var(--white);
-      padding: 16px 36px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: background 0.2s;
-      display: inline-block;
-    }
+    .btn-secondary { background: rgba(255,255,255,0.07); color: var(--white); padding: 16px 36px; border-radius: 10px; font-size: 16px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.12); transition: background 0.2s; display: inline-block; }
     .btn-secondary:hover { background: rgba(255,255,255,0.12); }
-
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-      margin-top: 56px;
-      flex-wrap: wrap;
-    }
+    .hero-stats { display: flex; gap: 40px; margin-top: 56px; flex-wrap: wrap; }
     .stat { text-align: left; }
     .stat-num { font-size: 30px; font-weight: 800; color: var(--white); }
     .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 4px; font-weight: 500; }
 
-    /* SECTION BASE */
+    /* SECTIONS */
     section { padding: 100px 60px; }
-
-    .section-label {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--blue-light);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 800;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .section-sub {
-      font-size: 17px;
-      color: rgba(255,255,255,0.55);
-      max-width: 520px;
-      line-height: 1.7;
-    }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--blue-light); text-transform: uppercase; margin-bottom: 16px; }
+    .section-title { font-size: clamp(32px, 4vw, 52px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; }
+    .section-sub { font-size: 17px; color: rgba(255,255,255,0.55); max-width: 520px; line-height: 1.7; }
 
     /* SERVICES */
     .services { background: var(--dark); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 56px;
-    }
-
-    .service-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 36px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 56px; }
+    .service-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 36px; transition: border-color 0.2s, transform 0.2s; }
     .service-card:hover { border-color: rgba(59,130,246,0.4); transform: translateY(-4px); }
-
-    .service-icon {
-      width: 52px; height: 52px;
-      background: rgba(37,99,235,0.15);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
+    .service-icon { width: 52px; height: 52px; background: rgba(37,99,235,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
     .service-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
     .service-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
 
     /* PRICING */
     .pricing { background: var(--navy); text-align: center; }
-
-    .pricing-cards {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-top: 56px;
-      flex-wrap: wrap;
-    }
-
-    .pricing-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 44px 40px;
-      width: 320px;
-      text-align: left;
-      transition: transform 0.2s;
-    }
+    .pricing-cards { display: flex; justify-content: center; gap: 24px; margin-top: 56px; flex-wrap: wrap; }
+    .pricing-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 44px 40px; width: 320px; text-align: left; transition: transform 0.2s; }
     .pricing-card:hover { transform: translateY(-4px); }
-
-    .pricing-card.featured {
-      background: var(--blue);
-      border-color: var(--blue-light);
-    }
-
-    .pricing-tag {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--blue-light);
-      margin-bottom: 16px;
-    }
+    .pricing-card.featured { background: var(--blue); border-color: var(--blue-light); }
+    .pricing-tag { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 16px; }
     .pricing-card.featured .pricing-tag { color: rgba(255,255,255,0.8); }
-
-    .pricing-price {
-      font-size: 52px;
-      font-weight: 900;
-      letter-spacing: -2px;
-      margin-bottom: 6px;
-    }
+    .pricing-price { font-size: 52px; font-weight: 900; letter-spacing: -2px; margin-bottom: 6px; }
     .pricing-period { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 28px; }
-
     .pricing-features { list-style: none; margin-bottom: 36px; }
-    .pricing-features li {
-      font-size: 14px;
-      color: rgba(255,255,255,0.75);
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .pricing-features li { font-size: 14px; color: rgba(255,255,255,0.75); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 10px; }
     .pricing-features li::before { content: '✓'; color: #4ade80; font-weight: 700; }
     .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.15); }
 
     /* PROCESS */
     .process { background: var(--dark); }
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-      margin-top: 56px;
-    }
-
-    .step {
-      position: relative;
-      padding: 32px;
-      background: rgba(255,255,255,0.03);
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .step-num {
-      font-size: 48px;
-      font-weight: 900;
-      color: rgba(37,99,235,0.2);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-
+    .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 56px; }
+    .step { position: relative; padding: 32px; background: rgba(255,255,255,0.03); border-radius: 16px; border: 1px solid rgba(255,255,255,0.06); }
+    .step-num { font-size: 48px; font-weight: 900; color: rgba(37,99,235,0.2); line-height: 1; margin-bottom: 16px; }
     .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
     .step p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
     /* CTA */
-    .cta-section {
-      background: var(--blue);
-      text-align: center;
-      padding: 100px 40px;
-    }
-    .cta-section h2 {
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 900;
-      letter-spacing: -1.5px;
-      margin-bottom: 20px;
-    }
-    .cta-section p {
-      font-size: 18px;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 40px;
-    }
-    .btn-white {
-      background: var(--white);
-      color: var(--blue);
-      padding: 16px 40px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 800;
-      text-decoration: none;
-      display: inline-block;
-      transition: transform 0.2s;
-    }
+    .cta-section { background: var(--blue); text-align: center; padding: 100px 40px; }
+    .cta-section h2 { font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 20px; }
+    .cta-section p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+    .btn-white { background: var(--white); color: var(--blue); padding: 16px 40px; border-radius: 10px; font-size: 16px; font-weight: 800; text-decoration: none; display: inline-block; transition: transform 0.2s; }
     .btn-white:hover { transform: translateY(-2px); }
 
     /* FOOTER */
-    footer {
-      background: #080f1e;
-      padding: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
+    footer { background: #080d1a; padding: 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; border-top: 1px solid rgba(255,255,255,0.06); }
     .footer-logo { font-size: 20px; font-weight: 800; }
     .footer-logo span { color: var(--blue-light); }
-    .footer-text { font-size: 13px; color: rgba(255,255,255,0.35); }
-    .footer-contact { font-size: 14px; color: rgba(255,255,255,0.55); }
-    .footer-contact a { color: var(--blue-light); text-decoration: none; }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.35); }
 
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
-      .hero { padding: 120px 24px 80px; }
-      .hero-photo { width: 100%; opacity: 0.25; }
+      .hero { padding: 100px 24px 60px; }
+      .hero-photo { width: 100%; opacity: 0.3; }
       section { padding: 70px 24px; }
       footer { padding: 40px 24px; flex-direction: column; text-align: center; }
     }
@@ -407,170 +157,189 @@
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="logo">JF <span>Web Studios</span></div>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#contact" class="nav-cta">Get Started</a></li>
-    </ul>
-  </nav>
+<!-- NAV -->
+<nav>
+  <div class="logo">JF <span>Web Studios</span></div>
+  <ul class="nav-links">
+    <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+    <li><a href="#pricing" data-en="Pricing" data-es="Precios">Pricing</a></li>
+    <li><a href="#process" data-en="Process" data-es="Proceso">Process</a></li>
+    <li><a href="mailto:jferrebus@jfwebstudios.com" class="nav-cta" data-en="Get Started" data-es="Empezar">Get Started</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+      <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+    </div>
+  </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-photo"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-content">
-      <div class="badge">⚡ Professional Web Design — Texas & Nationwide</div>
-      <h1>Your Business<br/>Deserves a<br/><span>Real Website</span></h1>
-      <p>We build fast, modern websites that get you found online and turn visitors into paying customers. Starting at just $400.</p>
-      <div class="hero-btns">
-        <a href="mailto:jferrebus@jfwebstudios.com" class="btn-primary">Get Your Free Demo →</a>
-        <a href="#pricing" class="btn-secondary">See Pricing</a>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-photo"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="badge">🚀 <span data-en="Texas-Based Web Design Agency" data-es="Agencia de Diseño Web en Texas">Texas-Based Web Design Agency</span></div>
+    <h1 data-en="Your Business <span>Deserves</span> a Website." data-es="Tu Negocio <span>Merece</span> un Sitio Web.">Your Business <span>Deserves</span> a Website.</h1>
+    <p data-en="We build fast, professional websites for local businesses — restaurants, contractors, salons, and more. Get online in days, not months." data-es="Construimos sitios web rápidos y profesionales para negocios locales — restaurantes, contratistas, salones y más. Empieza a brillar en días, no en meses.">We build fast, professional websites for local businesses — restaurants, contractors, salons, and more. Get online in days, not months.</p>
+    <div class="hero-btns">
+      <a href="mailto:jferrebus@jfwebstudios.com" class="btn-primary" data-en="Get My Free Demo" data-es="Ver Mi Demo Gratis">Get My Free Demo</a>
+      <a href="#pricing" class="btn-secondary" data-en="See Pricing" data-es="Ver Precios">See Pricing</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">$400</div>
+        <div class="stat-label" data-en="One-Time Setup" data-es="Pago Único">One-Time Setup</div>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">48h</div>
-          <div class="stat-label">Delivery Time</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">$400</div>
-          <div class="stat-label">Starting Price</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">10+</div>
-          <div class="stat-label">Industries</div>
-        </div>
+      <div class="stat">
+        <div class="stat-num">7</div>
+        <div class="stat-label" data-en="Days to Launch" data-es="Días para Lanzar">Days to Launch</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$75</div>
+        <div class="stat-label" data-en="Per Month Hosting" data-es="Por Mes Hospedaje">Per Month Hosting</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="section-label">What We Do</div>
-    <h2 class="section-title">Everything Your Business<br/>Needs Online</h2>
-    <p class="section-sub">From design to launch in 48 hours. No tech knowledge needed — we handle everything.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🎨</div>
-        <h3>Custom Web Design</h3>
-        <p>A professionally designed website built specifically for your business and industry. No templates, no generic layouts.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📱</div>
-        <h3>Mobile Friendly</h3>
-        <p>Your site looks perfect on phones, tablets, and desktops. Over 70% of customers search on mobile — we've got you covered.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🔍</div>
-        <h3>SEO Optimized</h3>
-        <p>Built to rank on Google so local customers can find your business when they search for your services.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">⚡</div>
-        <h3>Fast & Reliable</h3>
-        <p>Lightning fast load times and 99.9% uptime. Slow websites lose customers — yours won't.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🛠️</div>
-        <h3>Ongoing Maintenance</h3>
-        <p>We keep your site updated, secure, and running smoothly every month so you can focus on your business.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📞</div>
-        <h3>Lead Generation</h3>
-        <p>Contact forms, click-to-call buttons, and Google Maps integration to turn your website into a customer magnet.</p>
-      </div>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label" data-en="WHAT WE DO" data-es="LO QUE HACEMOS">WHAT WE DO</div>
+  <h2 class="section-title" data-en="Everything you need to get online." data-es="Todo lo que necesitas para estar en línea.">Everything you need to get online.</h2>
+  <p class="section-sub" data-en="From design to launch, we handle it all. No tech knowledge needed on your end." data-es="Desde el diseño hasta el lanzamiento, nosotros lo manejamos todo. No necesitas saber de tecnología.">From design to launch, we handle it all. No tech knowledge needed on your end.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3 data-en="Custom Web Design" data-es="Diseño Web Personalizado">Custom Web Design</h3>
+      <p data-en="Beautiful, mobile-ready websites tailored to your industry and brand." data-es="Sitios web hermosos y adaptados para móvil, diseñados para tu industria y marca.">Beautiful, mobile-ready websites tailored to your industry and brand.</p>
     </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="pricing" id="pricing">
-    <div class="section-label">Simple Pricing</div>
-    <h2 class="section-title">No Hidden Fees. Ever.</h2>
-    <p class="section-sub" style="margin: 0 auto;">Straightforward pricing that makes sense for small businesses.</p>
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <div class="pricing-tag">One Time</div>
-        <div class="pricing-price">$400</div>
-        <div class="pricing-period">Website Design & Launch</div>
-        <ul class="pricing-features">
-          <li>Custom designed website</li>
-          <li>Mobile responsive</li>
-          <li>Contact form included</li>
-          <li>SEO basics setup</li>
-          <li>Delivered in 48 hours</li>
-          <li>Free revisions</li>
-        </ul>
-        <a href="mailto:jferrebus@jfwebstudios.com" class="btn-secondary" style="display:block; text-align:center;">Get Started</a>
-      </div>
-      <div class="pricing-card featured">
-        <div class="pricing-tag">Monthly</div>
-        <div class="pricing-price">$75</div>
-        <div class="pricing-period">Hosting & Maintenance / mo</div>
-        <ul class="pricing-features">
-          <li>Fast, reliable hosting</li>
-          <li>Monthly updates</li>
-          <li>Security monitoring</li>
-          <li>Google Analytics</li>
-          <li>Priority support</li>
-          <li>Content changes anytime</li>
-        </ul>
-        <a href="mailto:jferrebus@jfwebstudios.com" class="btn-white" style="display:block; text-align:center;">Get Started</a>
-      </div>
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3 data-en="Fast Launch" data-es="Lanzamiento Rápido">Fast Launch</h3>
+      <p data-en="We move fast. Your site goes live in 7 days or less — guaranteed." data-es="Nos movemos rápido. Tu sitio estará en línea en 7 días o menos — garantizado.">We move fast. Your site goes live in 7 days or less — guaranteed.</p>
     </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="process" id="process">
-    <div class="section-label">How It Works</div>
-    <h2 class="section-title">Live in 48 Hours</h2>
-    <p class="section-sub">Simple, fast, and stress-free. Here's exactly what happens when you work with us.</p>
-    <div class="process-steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>You Reach Out</h3>
-        <p>Send us a quick email or call. Tell us about your business and what you need. Takes 5 minutes.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>We Show You a Demo</h3>
-        <p>We build a free demo site for your business so you can see exactly what it'll look like before you pay anything.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>You Approve It</h3>
-        <p>Like what you see? We finalize it with your info, photos, and anything else you want. Easy revisions.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3>We Launch It</h3>
-        <p>Your site goes live on your domain within 48 hours. We handle everything — you just watch it go live.</p>
-      </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <h3 data-en="Mobile First" data-es="Primero el Móvil">Mobile First</h3>
+      <p data-en="Over 70% of customers search on their phones. Your site will look perfect on any device." data-es="Más del 70% de los clientes buscan en sus teléfonos. Tu sitio se verá perfecto en cualquier dispositivo.">Over 70% of customers search on their phones. Your site will look perfect on any device.</p>
     </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section" id="contact">
-    <h2>Ready to Get Online?</h2>
-    <p>Join hundreds of local businesses that finally have a website that works for them.</p>
-    <a href="mailto:jferrebus@jfwebstudios.com" class="btn-white">Email Us Now — It's Free to Start</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div>
-      <div class="footer-logo">JF <span>Web Studios</span></div>
-      <div class="footer-text" style="margin-top:8px;">Professional Web Design for Local Businesses</div>
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <h3 data-en="SEO Ready" data-es="Listo para SEO">SEO Ready</h3>
+      <p data-en="Built to rank on Google so local customers can find you easily." data-es="Construido para posicionarse en Google para que los clientes locales te encuentren fácilmente.">Built to rank on Google so local customers can find you easily.</p>
     </div>
-    <div class="footer-contact">
-      📧 <a href="mailto:jferrebus@jfwebstudios.com">jferrebus@jfwebstudios.com</a><br/>
-      📞 <a href="tel:8329812967">(832) 981-2967</a>
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <h3 data-en="Ongoing Support" data-es="Soporte Continuo">Ongoing Support</h3>
+      <p data-en="We handle updates, security, and hosting every month so you don't have to." data-es="Manejamos actualizaciones, seguridad y hospedaje cada mes para que no tengas que hacerlo.">We handle updates, security, and hosting every month so you don't have to.</p>
     </div>
-    <div class="footer-text">© 2026 JF Web Studios LLC. All rights reserved.</div>
-  </footer>
+    <div class="service-card">
+      <div class="service-icon">📞</div>
+      <h3 data-en="Real Human Support" data-es="Soporte Humano Real">Real Human Support</h3>
+      <p data-en="Talk to a real person. No bots, no automated emails — just honest help." data-es="Habla con una persona real. Sin bots, sin correos automatizados — solo ayuda honesta.">Talk to a real person. No bots, no automated emails — just honest help.</p>
+    </div>
+  </div>
+</section>
 
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-label" data-en="SIMPLE PRICING" data-es="PRECIOS SIMPLES">SIMPLE PRICING</div>
+  <h2 class="section-title" data-en="No hidden fees. Ever." data-es="Sin tarifas ocultas. Nunca.">No hidden fees. Ever.</h2>
+  <p class="section-sub" style="margin: 0 auto;" data-en="Two straightforward plans designed for small business owners." data-es="Dos planes sencillos diseñados para dueños de pequeños negocios.">Two straightforward plans designed for small business owners.</p>
+  <div class="pricing-cards">
+    <div class="pricing-card">
+      <div class="pricing-tag" data-en="WEBSITE BUILD" data-es="CONSTRUCCIÓN DE SITIO">WEBSITE BUILD</div>
+      <div class="pricing-price">$400</div>
+      <div class="pricing-period" data-en="one-time payment" data-es="pago único">one-time payment</div>
+      <ul class="pricing-features">
+        <li data-en="Custom design for your business" data-es="Diseño personalizado para tu negocio">Custom design for your business</li>
+        <li data-en="Mobile & desktop optimized" data-es="Optimizado para móvil y escritorio">Mobile & desktop optimized</li>
+        <li data-en="Contact form & Google Maps" data-es="Formulario de contacto y Google Maps">Contact form & Google Maps</li>
+        <li data-en="5 pages included" data-es="5 páginas incluidas">5 pages included</li>
+        <li data-en="Launched in 7 days" data-es="Lanzado en 7 días">Launched in 7 days</li>
+      </ul>
+      <a href="mailto:jferrebus@jfwebstudios.com" class="btn-primary" style="width:100%;text-align:center;" data-en="Get Started" data-es="Empezar">Get Started</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-tag" data-en="HOSTING + MAINTENANCE" data-es="HOSPEDAJE + MANTENIMIENTO">HOSTING + MAINTENANCE</div>
+      <div class="pricing-price">$75</div>
+      <div class="pricing-period" data-en="per month" data-es="por mes">per month</div>
+      <ul class="pricing-features">
+        <li data-en="Secure hosting & SSL certificate" data-es="Hospedaje seguro y certificado SSL">Secure hosting & SSL certificate</li>
+        <li data-en="Monthly content updates" data-es="Actualizaciones de contenido mensuales">Monthly content updates</li>
+        <li data-en="24/7 uptime monitoring" data-es="Monitoreo de disponibilidad 24/7">24/7 uptime monitoring</li>
+        <li data-en="Priority email support" data-es="Soporte prioritario por correo">Priority email support</li>
+        <li data-en="Cancel anytime" data-es="Cancela en cualquier momento">Cancel anytime</li>
+      </ul>
+      <a href="mailto:jferrebus@jfwebstudios.com" class="btn-white" style="width:100%;text-align:center;" data-en="Get Started" data-es="Empezar">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-label" data-en="HOW IT WORKS" data-es="CÓMO FUNCIONA">HOW IT WORKS</div>
+  <h2 class="section-title" data-en="Simple. Fast. Done." data-es="Simple. Rápido. Listo.">Simple. Fast. Done.</h2>
+  <p class="section-sub" data-en="From first call to live site in less than a week." data-es="Desde la primera llamada hasta el sitio en vivo en menos de una semana.">From first call to live site in less than a week.</p>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3 data-en="We Talk" data-es="Hablamos">We Talk</h3>
+      <p data-en="Quick 15-minute call. We learn about your business, goals, and style." data-es="Llamada de 15 minutos. Aprendemos sobre tu negocio, metas y estilo.">Quick 15-minute call. We learn about your business, goals, and style.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3 data-en="We Build" data-es="Construimos">We Build</h3>
+      <p data-en="Our team designs and builds your custom site within 7 days." data-es="Nuestro equipo diseña y construye tu sitio personalizado en 7 días.">Our team designs and builds your custom site within 7 days.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3 data-en="You Approve" data-es="Tú Apruebas">You Approve</h3>
+      <p data-en="We send you a preview. You give feedback. We make it perfect." data-es="Te enviamos una vista previa. Nos das retroalimentación. Lo hacemos perfecto.">We send you a preview. You give feedback. We make it perfect.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3 data-en="Go Live" data-es="Salir en Vivo">Go Live</h3>
+      <p data-en="Your site launches and you start getting found by new customers." data-es="Tu sitio se lanza y los nuevos clientes empiezan a encontrarte.">Your site launches and you start getting found by new customers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 data-en="Ready to get your business online?" data-es="¿Listo para poner tu negocio en línea?">Ready to get your business online?</h2>
+  <p data-en="Email us today and we'll send you a free demo site built for your industry." data-es="Escríbenos hoy y te enviaremos un sitio demo gratis hecho para tu industria.">Email us today and we'll send you a free demo site built for your industry.</p>
+  <a href="mailto:jferrebus@jfwebstudios.com" class="btn-white" data-en="Get My Free Demo →" data-es="Ver Mi Demo Gratis →">Get My Free Demo →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">JF <span>Web Studios</span></div>
+  <p data-en="© 2026 JF Web Studios LLC. All rights reserved." data-es="© 2026 JF Web Studios LLC. Todos los derechos reservados.">© 2026 JF Web Studios LLC. All rights reserved.</p>
+  <p><a href="mailto:jferrebus@jfwebstudios.com" style="color: var(--blue-light); text-decoration: none;">jferrebus@jfwebstudios.com</a></p>
+</footer>
+
+<script>
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) {
+        if (el.tagName === 'H1' || el.innerHTML.includes('<span>')) {
+          el.innerHTML = text;
+        } else {
+          el.textContent = text;
+        }
+      }
+    });
+  }
+</script>
 </body>
 </html>
