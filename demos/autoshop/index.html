@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pro Auto Repair — Houston TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --red: #dc2626; --dark: #0f0f0f; --gray: #1e1e1e; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--dark); }
+
+    nav { position: fixed; top: 0; width: 100%; background: var(--dark); z-index: 100; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Barlow', sans-serif; font-size: 22px; font-weight: 800; color: #fff; }
+    .logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--red) !important; color: #fff !important; padding: 10px 22px; border-radius: 4px; opacity: 1 !important; }
+
+    .hero { min-height: 100vh; background: linear-gradient(135deg, rgba(15,15,15,0.9) 0%, rgba(15,15,15,0.6) 100%), url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1600') center/cover; display: flex; align-items: center; padding: 120px 60px 60px; color: #fff; }
+    .hero-content { max-width: 650px; }
+    .hero-tag { display: inline-block; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 3px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Barlow', sans-serif; font-size: clamp(44px, 6vw, 72px); font-weight: 800; line-height: 1.05; margin-bottom: 20px; }
+    .hero h1 span { color: var(--red); }
+    .hero p { font-size: 17px; opacity: 0.8; margin-bottom: 36px; line-height: 1.7; font-weight: 300; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-red { background: var(--red); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 15px; font-family: 'Barlow', sans-serif; letter-spacing: 0.5px; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-red:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(220,38,38,0.4); }
+    .btn-ghost { border: 2px solid rgba(255,255,255,0.4); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-size: 15px; transition: all 0.2s; }
+    .btn-ghost:hover { border-color: #fff; }
+
+    .trust-bar { background: var(--red); padding: 18px 40px; display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
+    .trust-item { color: #fff; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+
+    .services { padding: 90px 40px; background: #f9f9f9; text-align: center; }
+    .section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 10px; }
+    .services h2 { font-family: 'Barlow', sans-serif; font-size: 42px; font-weight: 800; margin-bottom: 8px; }
+    .services-sub { color: #777; margin-bottom: 50px; font-size: 15px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .service-card { background: #fff; border-radius: 10px; padding: 32px 28px; text-align: left; box-shadow: 0 2px 15px rgba(0,0,0,0.06); border-top: 4px solid var(--red); transition: transform 0.2s; }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-icon { font-size: 32px; margin-bottom: 16px; }
+    .service-card h3 { font-family: 'Barlow', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { font-size: 14px; color: #666; line-height: 1.7; }
+
+    .why-us { background: var(--dark); color: #fff; padding: 90px 40px; }
+    .why-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .why-text h2 { font-family: 'Barlow', sans-serif; font-size: 40px; font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+    .why-text h2 span { color: var(--red); }
+    .why-text p { font-size: 15px; opacity: 0.7; line-height: 1.8; margin-bottom: 30px; }
+    .why-list { list-style: none; }
+    .why-list li { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 15px; display: flex; align-items: center; gap: 12px; }
+    .why-list li::before { content: "✓"; color: var(--red); font-weight: 700; font-size: 16px; }
+    .why-img { border-radius: 12px; overflow: hidden; height: 400px; background: url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800') center/cover; }
+
+    .cta-section { background: var(--red); color: #fff; padding: 80px 40px; text-align: center; }
+    .cta-section h2 { font-family: 'Barlow', sans-serif; font-size: 44px; font-weight: 800; margin-bottom: 14px; }
+    .cta-section p { font-size: 17px; opacity: 0.9; margin-bottom: 36px; }
+    .cta-btn { display: inline-block; background: #fff; color: var(--red); padding: 18px 50px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 18px; font-family: 'Barlow', sans-serif; transition: transform 0.2s; }
+    .cta-btn:hover { transform: translateY(-2px); }
+
+    .contact-bar { background: var(--gray); color: #fff; padding: 50px 40px; }
+    .contact-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+    .contact-item .icon { font-size: 28px; margin-bottom: 10px; }
+    .contact-item h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+    .contact-item p { font-size: 16px; font-weight: 500; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.35); text-align: center; padding: 24px; font-size: 13px; }
+    footer span { color: var(--red); }
+
+    @media (max-width: 768px) {
+      .why-inner { grid-template-columns: 1fr; }
+      .why-img { height: 250px; }
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 24px 50px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Pro<span>Auto</span> Repair</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="tel:+18321234567" class="nav-cta">Call Now</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">🔧 Houston's Trusted Auto Shop</span>
+      <h1>We Fix It <span>Right</span><br>The First Time</h1>
+      <p>From oil changes to full engine rebuilds — honest pricing, fast turnaround, and work you can count on. Serving Houston for over 10 years.</p>
+      <div class="hero-btns">
+        <a href="tel:+18321234567" class="btn-red">📞 Call for a Quote</a>
+        <a href="#services" class="btn-ghost">See Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="trust-item">✅ Free Estimates</div>
+    <div class="trust-item">⚡ Same-Day Service Available</div>
+    <div class="trust-item">🔒 12-Month Warranty</div>
+    <div class="trust-item">⭐ 4.9 Star Rating</div>
+  </div>
+
+  <section class="services" id="services">
+    <p class="section-tag">What We Do</p>
+    <h2>Our Services</h2>
+    <p class="services-sub">Full-service auto repair for all makes and models</p>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🛢️</div><h3>Oil Change & Lube</h3><p>Quick, clean, and affordable. In and out in under 30 minutes with quality oil every time.</p></div>
+      <div class="service-card"><div class="service-icon">🔧</div><h3>Engine Repair</h3><p>From minor tune-ups to full engine rebuilds. We diagnose the problem and fix it right.</p></div>
+      <div class="service-card"><div class="service-icon">🛑</div><h3>Brake Service</h3><p>Brake inspection, pad replacement, rotor resurfacing. We keep you safe on the road.</p></div>
+      <div class="service-card"><div class="service-icon">❄️</div><h3>A/C & Heating</h3><p>Recharge, repair, or replace your A/C system. Houston summers are no joke — stay cool.</p></div>
+      <div class="service-card"><div class="service-icon">🔋</div><h3>Battery & Electrical</h3><p>Battery testing, replacement, and full electrical diagnostics for any issue.</p></div>
+      <div class="service-card"><div class="service-icon">🔍</div><h3>Free Diagnostics</h3><p>Check engine light on? We'll scan and diagnose the problem for free — no surprises.</p></div>
+    </div>
+  </section>
+
+  <section class="why-us" id="why">
+    <div class="why-inner">
+      <div class="why-text">
+        <p class="section-tag">Why Choose Us</p>
+        <h2>Honest Work.<br><span>Fair Prices.</span></h2>
+        <p>We've been in Houston long enough to know that trust is everything. We'll never sell you something you don't need and we'll always explain exactly what we're doing and why.</p>
+        <ul class="why-list">
+          <li>ASE Certified Mechanics</li>
+          <li>Upfront pricing — no hidden fees</li>
+          <li>12-month / 12,000 mile warranty on all repairs</li>
+          <li>Same-day service on most jobs</li>
+          <li>Family-owned and operated</li>
+        </ul>
+      </div>
+      <div class="why-img"></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to Bring Your Car In?</h2>
+    <p>Call us now for a free estimate — we'll get you back on the road fast.</p>
+    <a href="tel:+18321234567" class="cta-btn">📞 (832) 000-0000</a>
+  </section>
+
+  <div class="contact-bar" id="contact">
+    <div class="contact-inner">
+      <div class="contact-item"><div class="icon">📍</div><h4>Location</h4><p>Houston, TX</p></div>
+      <div class="contact-item"><div class="icon">🕐</div><h4>Hours</h4><p>Mon–Sat 8am–6pm</p></div>
+      <div class="contact-item"><div class="icon">📞</div><h4>Phone</h4><p>(832) 000-0000</p></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Pro Auto Repair · Houston, TX · Website by <span>JF Web Studios</span></p>
+  </footer>
+</body>
+</html>
