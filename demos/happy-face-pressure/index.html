@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Face Pressure Washing – Katy, TX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; color: #1a1a1a; }
+
+    /* NAV */
+    nav {
+      background: #0a3d8f;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo { color: #fff; font-size: 1.4rem; font-weight: 700; }
+    nav .logo span { color: #4fc3f7; }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0a3d8f 0%, #1565c0 60%, #4fc3f7 100%);
+      color: #fff;
+      padding: 80px 32px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; }
+    .hero h1 span { color: #ffe082; }
+    .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 32px; opacity: 0.9; }
+    .hero .badge {
+      display: inline-block;
+      background: #ffe082;
+      color: #0a3d8f;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      font-size: 0.9rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #ffe082;
+      color: #0a3d8f;
+      padding: 16px 36px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin: 8px;
+      transition: transform 0.2s;
+    }
+    .btn:hover { transform: scale(1.05); }
+    .btn.outline {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 64px 32px;
+      background: #f5f9ff;
+      text-align: center;
+    }
+    .services h2 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; color: #0a3d8f; }
+    .services p.sub { color: #555; margin-bottom: 40px; }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px 24px;
+      width: 200px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .card h3 { font-size: 1rem; font-weight: 600; color: #0a3d8f; }
+
+    /* WHY US */
+    .why {
+      padding: 64px 32px;
+      text-align: center;
+      background: #fff;
+    }
+    .why h2 { font-size: 2rem; font-weight: 700; color: #0a3d8f; margin-bottom: 40px; }
+    .why-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .why-item { width: 200px; }
+    .why-item .num { font-size: 2.5rem; font-weight: 800; color: #4fc3f7; }
+    .why-item p { color: #555; font-size: 0.95rem; margin-top: 4px; }
+
+    /* REVIEWS */
+    .reviews {
+      background: #0a3d8f;
+      color: #fff;
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .reviews h2 { font-size: 2rem; font-weight: 700; margin-bottom: 40px; }
+    .review-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 24px;
+      width: 260px;
+      text-align: left;
+    }
+    .stars { color: #ffe082; font-size: 1.2rem; margin-bottom: 8px; }
+    .review-card p { font-size: 0.9rem; opacity: 0.9; }
+    .reviewer { margin-top: 12px; font-weight: 600; font-size: 0.85rem; opacity: 0.7; }
+
+    /* CTA */
+    .cta {
+      background: #ffe082;
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .cta h2 { font-size: 2rem; font-weight: 800; color: #0a3d8f; margin-bottom: 12px; }
+    .cta p { color: #333; margin-bottom: 28px; font-size: 1.1rem; }
+
+    /* FOOTER */
+    footer {
+      background: #071f45;
+      color: #aaa;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.85rem;
+    }
+    footer span { color: #4fc3f7; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      nav .links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Happy Face <span>Pressure Washing</span></div>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">⭐ 5.0 Stars on Google · Katy, TX</div>
+    <h1>Katy's Most Trusted<br/><span>Pressure Washing</span> Service</h1>
+    <p>We make driveways, homes, and commercial properties look brand new. Fast, affordable, and open 24 hours.</p>
+    <a href="tel:3467246650" class="btn">📞 Call (346) 724-6650</a>
+    <a href="#contact" class="btn outline">Get a Free Quote</a>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <h2>What We Clean</h2>
+    <p class="sub">Residential & commercial pressure washing in Katy and surrounding areas</p>
+    <div class="cards">
+      <div class="card"><div class="icon">🏠</div><h3>Driveways</h3></div>
+      <div class="card"><div class="icon">🏢</div><h3>Commercial</h3></div>
+      <div class="card"><div class="icon">🚗</div><h3>Parking Lots</h3></div>
+      <div class="card"><div class="icon">🪟</div><h3>Sidewalks</h3></div>
+      <div class="card"><div class="icon">🏗️</div><h3>Patios & Decks</h3></div>
+      <div class="card"><div class="icon">🏪</div><h3>Storefronts</h3></div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why">
+    <h2>Why Choose Happy Face?</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="num">5.0⭐</div>
+        <p>Perfect rating from 37+ happy customers</p>
+      </div>
+      <div class="why-item">
+        <div class="num">24/7</div>
+        <p>Open around the clock for your convenience</p>
+      </div>
+      <div class="why-item">
+        <div class="num">100%</div>
+        <p>Satisfaction guaranteed on every job</p>
+      </div>
+      <div class="why-item">
+        <div class="num">Fast</div>
+        <p>Same-day service available in Katy, TX</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews" id="reviews">
+    <h2>⭐ What Our Customers Say</h2>
+    <div class="review-cards">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Amazing job on my driveway — looked brand new in under an hour. Will definitely book again!"</p>
+        <div class="reviewer">— Maria R., Katy TX</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Super professional and fast. My storefront has never looked this clean. Highly recommend!"</p>
+        <div class="reviewer">— James T., Katy TX</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"Best pressure washing service in Katy. Fair pricing and great results every time."</p>
+        <div class="reviewer">— Sandra L., Katy TX</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>Ready for a Spotless Property?</h2>
+    <p>Call or text us anytime — we're open 24 hours in Katy, TX</p>
+    <a href="tel:3467246650" class="btn">📞 Call (346) 724-6650</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Happy Face Pressure Washing · 6335 Mountain Pines Ln, Katy, TX 77449</p>
+    <p style="margin-top:6px;">Website by <span>JF Web Studios</span></p>
+  </footer>
+
+</body>
+</html>
