@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProFlow Plumbing | Houston, TX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; color: #1a1a1a; background: #fff; }
+    nav { background: #1a2744; padding: 18px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 22px; font-weight: 800; color: #fff; }
+    .logo span { color: #f0a500; }
+    .nav-links a { color: #ccc; text-decoration: none; margin-left: 30px; font-size: 14px; }
+    .nav-links a:hover { color: #f0a500; }
+    .btn-nav { background: #f0a500; color: #fff; padding: 10px 24px; border-radius: 5px; text-decoration: none; font-weight: 700; font-size: 14px; margin-left: 20px; }
+    .emergency-bar { background: #e53935; padding: 12px 50px; text-align: center; }
+    .emergency-bar p { color: #fff; font-size: 14px; font-weight: 600; }
+    .emergency-bar span { font-size: 16px; font-weight: 800; }
+    .hero { background: linear-gradient(135deg, #1a2744 0%, #243660 100%); padding: 80px 50px; min-height: 85vh; display: flex; align-items: center; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero-badge { display: inline-block; background: rgba(240,165,0,0.15); border: 1px solid #f0a500; color: #f0a500; font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 7px 18px; border-radius: 4px; margin-bottom: 25px; }
+    .hero h1 { font-size: 56px; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 span { color: #f0a500; }
+    .hero p { font-size: 18px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 35px; }
+    .btn-yellow { background: #f0a500; color: #fff; padding: 17px 40px; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-block; transition: all 0.3s; box-shadow: 0 8px 25px rgba(240,165,0,0.4); }
+    .btn-yellow:hover { background: #d4920a; transform: translateY(-2px); }
+    .btn-outline { border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 15px 35px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; display: inline-block; margin-left: 12px; transition: all 0.3s; }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .hero-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; backdrop-filter: blur(10px); }
+    .hero-card-title { color: #f0a500; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 25px; }
+    .feature-list { list-style: none; }
+    .feature-list li { display: flex; align-items: center; gap: 12px; color: #fff; font-size: 16px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .feature-list li:last-child { border-bottom: none; }
+    .check { color: #f0a500; font-size: 18px; }
+    .services { padding: 100px 50px; background: #fff; }
+    .section-label { text-align: center; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #f0a500; margin-bottom: 12px; font-weight: 700; }
+    .section-title { text-align: center; font-size: 42px; font-weight: 800; color: #1a1a1a; margin-bottom: 60px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .service-card { border-left: 4px solid #f0a500; padding: 30px 25px; background: #f8f9fc; border-radius: 0 12px 12px 0; transition: all 0.3s; }
+    .service-card:hover { background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateX(4px); }
+    .service-icon { font-size: 36px; margin-bottom: 15px; }
+    .service-name { font-size: 18px; font-weight: 700; color: #1a2744; margin-bottom: 8px; }
+    .service-desc { font-size: 14px; color: #666; line-height: 1.6; }
+    .cta-section { background: #f0a500; padding: 80px 50px; text-align: center; }
+    .cta-section h2 { font-size: 44px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    .cta-section p { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 30px; }
+    .btn-dark { background: #1a2744; color: #fff; padding: 18px 50px; border-radius: 6px; text-decoration: none; font-weight: 800; font-size: 18px; display: inline-block; }
+    footer { background: #1a2744; padding: 40px 50px; text-align: center; }
+    footer p { color: #666; font-size: 13px; }
+    footer span { color: #f0a500; }
+    @media(max-width:768px) { .hero-inner { grid-template-columns: 1fr; } .hero h1 { font-size: 38px; } .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="emergency-bar"><p>🚨 24/7 Emergency Plumbing — Call Now: <span>(832) 555-0400</span></p></div>
+  <nav>
+    <div class="logo">Pro<span>Flow</span> Plumbing</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="tel:+18329812967" class="btn-nav">📞 Call Now</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">⭐ Licensed Master Plumber · Houston, TX</div>
+        <h1>Fast. Reliable.<br><span>Affordable.</span></h1>
+        <p>Houston's trusted plumbing experts. From leaky faucets to full remodels — we fix it right the first time.</p>
+        <a href="tel:+18329812967" class="btn-yellow">📞 Call for Free Estimate</a>
+        <a href="#services" class="btn-outline">Our Services</a>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-title">✅ Why Choose ProFlow</div>
+        <ul class="feature-list">
+          <li><span class="check">⚡</span> Same-day & emergency service</li>
+          <li><span class="check">🔒</span> Licensed, bonded & insured</li>
+          <li><span class="check">💰</span> Upfront flat-rate pricing</li>
+          <li><span class="check">⭐</span> 500+ five-star reviews</li>
+          <li><span class="check">🛠️</span> All work guaranteed</li>
+          <li><span class="check">🏠</span> Residential & commercial</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <p class="section-label">What We Fix</p>
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">🚰</div><div class="service-name">Leak Repair</div><div class="service-desc">Faucets, pipes, and fixtures. We find and fix leaks fast before they become expensive damage.</div></div>
+      <div class="service-card"><div class="service-icon">🚿</div><div class="service-name">Drain Cleaning</div><div class="service-desc">Clogged drains cleared with professional equipment. Sinks, tubs, showers, and sewer lines.</div></div>
+      <div class="service-card"><div class="service-icon">🔥</div><div class="service-name">Water Heater</div><div class="service-desc">Install, repair, and replace water heaters. Tankless systems available for maximum efficiency.</div></div>
+      <div class="service-card"><div class="service-icon">🏗️</div><div class="service-name">Remodel Plumbing</div><div class="service-desc">Kitchen and bathroom remodel plumbing. New installations done right the first time.</div></div>
+      <div class="service-card"><div class="service-icon">🚨</div><div class="service-name">Emergency Service</div><div class="service-desc">Burst pipes, flooding, and plumbing emergencies. We're available 24/7, including holidays.</div></div>
+      <div class="service-card"><div class="service-icon">🏢</div><div class="service-name">Commercial Plumbing</div><div class="service-desc">Full-service commercial plumbing for restaurants, offices, and retail spaces.</div></div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <h2>Plumbing Problem? Call Now.</h2>
+    <p>Free estimates · Same-day service available · No hidden fees</p>
+    <a href="tel:+18329812967" class="btn-dark">📞 (832) 555-0400</a>
+  </section>
+
+  <footer>
+    <p>© 2024 ProFlow Plumbing · Houston, TX · <span>Licensed Master Plumber #TX-12345</span></p>
+    <p style="margin-top:8px;font-size:11px;">Website by <span>JF Web Studios</span></p>
+  </footer>
+</body>
+</html>
