@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kings Cut Barbershop | Houston, TX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Georgia', serif; color: #1a1a1a; background: #0a0a0a; }
+    nav { background: #0a0a0a; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2a2a2a; position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 24px; font-weight: 700; color: #c9a84c; letter-spacing: 3px; text-transform: uppercase; }
+    .nav-links a { color: #ccc; text-decoration: none; margin-left: 30px; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+    .nav-links a:hover { color: #c9a84c; }
+    .hero { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: '✂'; position: absolute; font-size: 400px; opacity: 0.03; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .hero-content { z-index: 1; }
+    .hero-badge { display: inline-block; background: #c9a84c; color: #0a0a0a; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 6px 20px; border-radius: 2px; margin-bottom: 30px; }
+    .hero h1 { font-size: 72px; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
+    .hero h1 span { color: #c9a84c; }
+    .hero p { font-size: 20px; color: #888; margin-bottom: 40px; max-width: 500px; line-height: 1.6; }
+    .btn-gold { background: #c9a84c; color: #0a0a0a; padding: 18px 45px; border-radius: 3px; text-decoration: none; font-weight: 700; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; transition: all 0.3s; }
+    .btn-gold:hover { background: #e0c070; transform: translateY(-2px); }
+    .btn-outline { border: 2px solid #c9a84c; color: #c9a84c; padding: 16px 40px; border-radius: 3px; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-left: 15px; transition: all 0.3s; }
+    .btn-outline:hover { background: #c9a84c; color: #0a0a0a; }
+    .services { background: #111; padding: 100px 40px; }
+    .section-label { text-align: center; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #c9a84c; margin-bottom: 15px; }
+    .section-title { text-align: center; font-size: 42px; color: #fff; margin-bottom: 60px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; max-width: 900px; margin: 0 auto; }
+    .service-card { background: #1a1a1a; padding: 40px 30px; text-align: center; transition: all 0.3s; }
+    .service-card:hover { background: #222; transform: translateY(-4px); }
+    .service-icon { font-size: 36px; margin-bottom: 15px; }
+    .service-name { font-size: 18px; color: #fff; font-weight: 600; margin-bottom: 8px; }
+    .service-price { font-size: 28px; color: #c9a84c; font-weight: 700; margin-bottom: 8px; }
+    .service-desc { font-size: 13px; color: #666; line-height: 1.5; }
+    .about { background: #0a0a0a; padding: 100px 40px; }
+    .about-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-text h2 { font-size: 42px; color: #fff; margin-bottom: 20px; line-height: 1.2; }
+    .about-text h2 span { color: #c9a84c; }
+    .about-text p { color: #888; font-size: 16px; line-height: 1.8; margin-bottom: 20px; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+    .stat { border-left: 3px solid #c9a84c; padding-left: 20px; }
+    .stat-num { font-size: 36px; font-weight: 700; color: #c9a84c; }
+    .stat-label { font-size: 13px; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+    .about-visual { background: #1a1a1a; border-radius: 4px; height: 400px; display: flex; align-items: center; justify-content: center; font-size: 120px; }
+    .booking { background: #c9a84c; padding: 80px 40px; text-align: center; }
+    .booking h2 { font-size: 48px; color: #0a0a0a; font-weight: 700; margin-bottom: 15px; }
+    .booking p { font-size: 18px; color: #5a4a20; margin-bottom: 40px; }
+    .btn-dark { background: #0a0a0a; color: #c9a84c; padding: 18px 50px; border-radius: 3px; text-decoration: none; font-weight: 700; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; display: inline-block; }
+    .hours { background: #111; padding: 80px 40px; }
+    .hours-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 40px; }
+    .hour-row { background: #1a1a1a; padding: 15px 20px; border-radius: 4px; display: flex; justify-content: space-between; }
+    .hour-day { color: #888; font-size: 14px; }
+    .hour-time { color: #c9a84c; font-size: 14px; font-weight: 600; }
+    footer { background: #0a0a0a; padding: 40px; text-align: center; border-top: 1px solid #1a1a1a; }
+    footer p { color: #444; font-size: 13px; }
+    footer span { color: #c9a84c; }
+    @media(max-width:768px) { .hero h1 { font-size: 42px; } .about-inner { grid-template-columns: 1fr; } .nav-links { display: none; } .hours-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Kings Cut</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#hours">Hours</a>
+      <a href="#book">Book Now</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Est. 2018 · Houston, TX</div>
+      <h1>Look Sharp.<br><span>Feel Sharp.</span></h1>
+      <p>Premium cuts, fades, and beard trims by master barbers. Walk-ins welcome.</p>
+      <a href="#book" class="btn-gold">Book Appointment</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon">✂️</div><div class="service-name">Classic Cut</div><div class="service-price">$30</div><div class="service-desc">Precision haircut with finish & style</div></div>
+      <div class="service-card"><div class="service-icon">💈</div><div class="service-name">Fade</div><div class="service-price">$35</div><div class="service-desc">Skin, low, mid, or high fade</div></div>
+      <div class="service-card"><div class="service-icon">🧔</div><div class="service-name">Beard Trim</div><div class="service-price">$20</div><div class="service-desc">Shape, line up, and condition</div></div>
+      <div class="service-card"><div class="service-icon">👑</div><div class="service-name">Full Service</div><div class="service-price">$50</div><div class="service-desc">Cut + beard + hot towel treatment</div></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>Houston's <span>Premier</span> Barbershop</h2>
+        <p>Kings Cut has been serving Houston men since 2018. Our master barbers bring years of experience and a passion for the craft to every single cut.</p>
+        <p>We believe every man deserves to look and feel his best. That's why we take our time, pay attention to detail, and make sure you leave satisfied every time.</p>
+        <div class="stats">
+          <div class="stat"><div class="stat-num">5,000+</div><div class="stat-label">Clients Served</div></div>
+          <div class="stat"><div class="stat-num">6</div><div class="stat-label">Master Barbers</div></div>
+          <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Google Rating</div></div>
+          <div class="stat"><div class="stat-num">6 yrs</div><div class="stat-label">In Business</div></div>
+        </div>
+      </div>
+      <div class="about-visual">💈</div>
+    </div>
+  </section>
+
+  <section class="hours" id="hours">
+    <div class="hours-inner">
+      <p class="section-label">We're Open</p>
+      <h2 class="section-title">Hours</h2>
+      <div class="hours-grid">
+        <div class="hour-row"><span class="hour-day">Monday</span><span class="hour-time">9am – 7pm</span></div>
+        <div class="hour-row"><span class="hour-day">Tuesday</span><span class="hour-time">9am – 7pm</span></div>
+        <div class="hour-row"><span class="hour-day">Wednesday</span><span class="hour-time">9am – 7pm</span></div>
+        <div class="hour-row"><span class="hour-day">Thursday</span><span class="hour-time">9am – 8pm</span></div>
+        <div class="hour-row"><span class="hour-day">Friday</span><span class="hour-time">9am – 8pm</span></div>
+        <div class="hour-row"><span class="hour-day">Saturday</span><span class="hour-time">8am – 6pm</span></div>
+        <div class="hour-row"><span class="hour-day">Sunday</span><span class="hour-time">10am – 4pm</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="book">
+    <h2>Ready for a Fresh Cut?</h2>
+    <p>Book your appointment online or just walk in — we'll take care of you.</p>
+    <a href="tel:+18329812967" class="btn-dark">📞 Call to Book</a>
+  </section>
+
+  <footer>
+    <p>© 2024 Kings Cut Barbershop · Houston, TX · <span>(832) 555-0100</span></p>
+    <p style="margin-top:8px;font-size:11px;">Website by <span>JF Web Studios</span></p>
+  </footer>
+</body>
+</html>
