@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Bella — Houston's Favorite Restaurant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --gold: #c9a84c; --dark: #1a1008; --cream: #faf6ef; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; background: rgba(26,16,8,0.95); backdrop-filter: blur(10px); z-index: 100; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); }
+    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-links a { color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; transition: opacity 0.2s; }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+    .nav-cta { background: var(--gold); color: var(--dark) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; opacity: 1 !important; }
+
+    /* HERO */
+    .hero { height: 100vh; background: linear-gradient(rgba(26,16,8,0.55), rgba(26,16,8,0.7)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding: 20px; }
+    .hero-badge { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(42px, 7vw, 80px); line-height: 1.1; margin-bottom: 20px; }
+    .hero p { font-size: 18px; opacity: 0.85; margin-bottom: 36px; font-weight: 300; max-width: 500px; }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--gold); color: var(--dark); padding: 16px 36px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-outline { border: 2px solid rgba(255,255,255,0.6); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-size: 15px; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ABOUT */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 500px; }
+    .about-img { background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800') center/cover; }
+    .about-text { background: var(--dark); color: #fff; padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+    .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .about-text h2 { font-family: 'Playfair Display', serif; font-size: 38px; line-height: 1.2; margin-bottom: 20px; }
+    .about-text p { font-size: 15px; line-height: 1.8; opacity: 0.75; margin-bottom: 14px; }
+
+    /* MENU */
+    .menu { padding: 90px 40px; text-align: center; background: var(--cream); }
+    .menu h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 10px; }
+    .menu-subtitle { color: #888; margin-bottom: 50px; font-size: 15px; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
+    .menu-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.07); text-align: left; transition: transform 0.2s; }
+    .menu-card:hover { transform: translateY(-4px); }
+    .menu-card img { width: 100%; height: 200px; object-fit: cover; }
+    .menu-card-body { padding: 22px; }
+    .menu-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 8px; }
+    .menu-card p { font-size: 14px; color: #777; line-height: 1.6; }
+    .menu-card .price { color: var(--gold); font-weight: 600; font-size: 17px; margin-top: 12px; }
+
+    /* HOURS */
+    .hours-section { background: var(--dark); color: #fff; padding: 80px 40px; text-align: center; }
+    .hours-section h2 { font-family: 'Playfair Display', serif; font-size: 38px; margin-bottom: 40px; }
+    .hours-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto 50px; }
+    .hours-card { background: rgba(255,255,255,0.07); border-radius: 10px; padding: 24px; }
+    .hours-card h4 { color: var(--gold); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+    .hours-card p { font-size: 18px; font-weight: 300; }
+
+    /* CONTACT */
+    .contact { padding: 90px 40px; text-align: center; background: var(--cream); }
+    .contact h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 10px; }
+    .contact p { color: #777; margin-bottom: 40px; font-size: 15px; }
+    .contact-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+    .contact-card { background: #fff; border-radius: 12px; padding: 28px 36px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); min-width: 180px; }
+    .contact-card .icon { font-size: 28px; margin-bottom: 10px; }
+    .contact-card h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #999; margin-bottom: 6px; }
+    .contact-card p { font-size: 16px; font-weight: 500; }
+    .call-btn { display: inline-block; background: var(--gold); color: var(--dark); padding: 18px 50px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 17px; transition: transform 0.2s; }
+    .call-btn:hover { transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: rgba(255,255,255,0.4); text-align: center; padding: 30px; font-size: 13px; }
+    footer span { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .about { grid-template-columns: 1fr; }
+      .about-img { height: 300px; }
+      .about-text { padding: 50px 30px; }
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Casa Bella</div>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#hours">Hours</a></li>
+      <li><a href="#contact">Location</a></li>
+      <li><a href="tel:+18321234567" class="nav-cta">Reserve a Table</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <p class="hero-badge">⭐ Houston's Hidden Gem Since 2010</p>
+      <h1>Fresh Food,<br>Warm Welcome</h1>
+      <p>Authentic flavors, family recipes, and a dining experience you'll come back for.</p>
+      <div class="hero-btns">
+        <a href="tel:+18321234567" class="btn-primary">📞 Call to Reserve</a>
+        <a href="#menu" class="btn-outline">View Our Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-img"></div>
+    <div class="about-text">
+      <p class="section-label">Our Story</p>
+      <h2>Cooking with heart since day one</h2>
+      <p>Casa Bella started with one family, one kitchen, and one goal — to serve food that feels like home. Every dish is made fresh daily using recipes passed down through generations.</p>
+      <p>We source our ingredients locally whenever possible and believe great food should be accessible to everyone. Come hungry, leave happy.</p>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <p class="section-label">What We Serve</p>
+    <h2>Our Menu</h2>
+    <p class="menu-subtitle">Made fresh every day — no frozen shortcuts</p>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400" alt="Tacos">
+        <div class="menu-card-body">
+          <h3>Street Tacos</h3>
+          <p>Three corn tortillas with your choice of protein, fresh cilantro, onion, and our house salsa verde.</p>
+          <p class="price">From $11.99</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143?w=400" alt="Enchiladas">
+        <div class="menu-card-body">
+          <h3>Enchiladas Rojas</h3>
+          <p>Three corn tortillas stuffed with seasoned beef, topped with red chile sauce and melted cheese.</p>
+          <p class="price">From $13.99</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <img src="https://images.unsplash.com/photo-1582196016295-f8c8a4cd5e5b?w=400" alt="Soup">
+        <div class="menu-card-body">
+          <h3>Caldo de Res</h3>
+          <p>Traditional slow-cooked beef soup with fresh vegetables, served with warm tortillas on the side.</p>
+          <p class="price">From $12.99</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hours-section" id="hours">
+    <p class="section-label">When We're Open</p>
+    <h2>Hours & Location</h2>
+    <div class="hours-grid">
+      <div class="hours-card"><h4>Mon – Thu</h4><p>10am – 9pm</p></div>
+      <div class="hours-card"><h4>Fri – Sat</h4><p>10am – 10pm</p></div>
+      <div class="hours-card"><h4>Sunday</h4><p>11am – 8pm</p></div>
+    </div>
+    <a href="tel:+18321234567" class="btn-primary">📞 Call Us Now</a>
+  </section>
+
+  <section class="contact" id="contact">
+    <p class="section-label">Find Us</p>
+    <h2>Come Visit Us</h2>
+    <p>We'd love to see you. Walk-ins welcome, reservations recommended on weekends.</p>
+    <div class="contact-cards">
+      <div class="contact-card"><div class="icon">📍</div><h4>Address</h4><p>Houston, TX</p></div>
+      <div class="contact-card"><div class="icon">📞</div><h4>Phone</h4><p>(832) 000-0000</p></div>
+      <div class="contact-card"><div class="icon">✉️</div><h4>Email</h4><p>hello@casabella.com</p></div>
+    </div>
+    <a href="tel:+18321234567" class="call-btn">📞 Call to Reserve a Table</a>
+  </section>
+
+  <footer>
+    <p>© 2026 Casa Bella Restaurant · Houston, TX · Website by <span>JF Web Studios</span></p>
+  </footer>
+</body>
+</html>
