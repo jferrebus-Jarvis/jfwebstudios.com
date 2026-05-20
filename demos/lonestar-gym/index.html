@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lonestar Athletics — Katy, TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --red: #dc2626; --black: #0a0a0a; --dark: #111111; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--black); }
+    nav { position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.97); backdrop-filter: blur(8px); z-index: 100; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 900; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+    .logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { background: var(--red) !important; color: #fff !important; padding: 10px 22px; border-radius: 4px; }
+    .hero { min-height: 100vh; background: linear-gradient(to right, rgba(10,10,10,0.95) 55%, rgba(10,10,10,0.4) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') right/cover; display: flex; align-items: center; padding: 120px 60px 60px; color: #fff; }
+    .hero-content { max-width: 640px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.4); color: #f87171; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 20px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(52px, 7vw, 84px); font-weight: 900; line-height: 1.0; margin-bottom: 20px; text-transform: uppercase; }
+    .hero h1 span { color: var(--red); }
+    .hero p { font-size: 17px; opacity: 0.75; margin-bottom: 36px; line-height: 1.7; font-weight: 300; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+    .btn-red { background: var(--red); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-ghost { border: 2px solid rgba(255,255,255,0.35); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+    .stats { display: flex; gap: 36px; flex-wrap: wrap; }
+    .stat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; color: var(--red); }
+    .stat .label { font-size: 12px; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px; }
+    .tagline-bar { background: var(--red); padding: 18px 40px; text-align: center; }
+    .tagline-bar p { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+    .about { padding: 90px 40px; background: var(--dark); color: #fff; }
+    .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-img img { width: 100%; border-radius: 8px; object-fit: cover; height: 500px; }
+    .section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 10px; }
+    .about-text h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
+    .about-text p { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+    .values-list { list-style: none; margin-top: 24px; }
+    .values-list li { color: rgba(255,255,255,0.8); font-size: 14px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 10px; }
+    .values-list li::before { content: 'star'; font-family: 'Material Icons'; color: var(--red); font-size: 14px; }
+    .programs { padding: 90px 40px; background: #f9fafb; }
+    .programs-inner { max-width: 1100px; margin: 0 auto; }
+    .programs h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; }
+    .programs-sub { color: #64748b; margin-bottom: 50px; font-size: 15px; }
+    .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .program-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 15px rgba(0,0,0,0.06); border-top: 4px solid var(--red); transition: transform 0.2s; padding: 30px; }
+    .program-card:hover { transform: translateY(-4px); }
+    .program-icon { font-size: 36px; margin-bottom: 16px; }
+    .program-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+    .program-card p { font-size: 14px; color: #64748b; line-height: 1.7; }
+    .sessions { padding: 90px 40px; background: var(--black); color: #fff; }
+    .sessions-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .sessions h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; }
+    .sessions-sub { color: rgba(255,255,255,0.6); margin-bottom: 50px; font-size: 15px; }
+    .sessions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 30px; }
+    .session-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; text-align: left; }
+    .session-time { font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 900; color: var(--red); line-height: 1; margin-bottom: 8px; }
+    .session-label { font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .session-group { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .pricing-note { background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.3); border-radius: 8px; padding: 20px 30px; }
+    .pricing-note p { color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.8; }
+    .pricing-note strong { color: var(--red); }
+    .quote-section { background: var(--red); padding: 70px 40px; text-align: center; }
+    .quote-section blockquote { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(24px, 4vw, 40px); font-weight: 700; color: #fff; max-width: 800px; margin: 0 auto; line-height: 1.3; text-transform: uppercase; letter-spacing: 1px; }
+    .cta { background: var(--dark); color: #fff; padding: 90px 40px; text-align: center; }
+    .cta h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 54px; font-weight: 900; margin-bottom: 14px; text-transform: uppercase; line-height: 1.1; }
+    .cta p { font-size: 17px; opacity: 0.7; margin-bottom: 36px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn { display: inline-block; background: var(--red); color: #fff; padding: 18px 50px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 18px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+    .cta-btn-outline { display: inline-block; border: 2px solid rgba(255,255,255,0.4); color: #fff; padding: 18px 50px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 18px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+    .contact-strip { background: #111; padding: 40px; }
+    .contact-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center; color: #fff; }
+    .c-item .icon { font-size: 24px; margin-bottom: 8px; }
+    .c-item h4 { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.5; margin-bottom: 6px; }
+    .c-item p { font-size: 14px; font-weight: 600; }
+    .c-item a { color: #fff; text-decoration: none; }
+    footer { background: var(--black); color: rgba(255,255,255,0.3); text-align: center; padding: 24px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); }
+    footer span { color: var(--red); }
+    @media (max-width: 768px) {
+      .hero { padding: 100px 24px 50px; }
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .about-inner { grid-template-columns: 1fr; }
+      .sessions-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">LONESTAR <span>ATHLETICS</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#sessions">Sessions</a></li>
+      <li><a href="tel:3344343464" class="nav-cta">Call Now</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">⭐ Katy, TX — Compete. Grow. Thrive.</div>
+      <h1>More Than<br>Just <span>Practice.</span></h1>
+      <p>A training environment built for athletes who want more. We develop discipline, skill, and confidence — from youth to college level.</p>
+      <div class="hero-btns">
+        <a href="tel:3344343464" class="btn-red">📞 Reserve Your Spot</a>
+        <a href="#programs" class="btn-ghost">View Programs</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">Daily</div><div class="label">Sessions Available</div></div>
+        <div class="stat"><div class="num">All Ages</div><div class="label">Welcome</div></div>
+        <div class="stat"><div class="num">5★</div><div class="label">Rated Facility</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tagline-bar">
+    <p>No Shortcuts. No Excuses. Just Work. — We Build Discipline.</p>
+  </div>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800" alt="Lonestar Athletics Facility">
+      </div>
+      <div class="about-text">
+        <p class="section-tag">Who We Are</p>
+        <h2>Built for<br>Athletes.</h2>
+        <p>Lonestar Athletics is a premier training facility in Katy, TX designed to give young athletes the competitive edge they need. A fair, fun, and positive environment where athletes grow and compete.</p>
+        <p>Our coaches develop not just better athletes — but better people. Skill, confidence, and a championship mindset are built into every session.</p>
+        <ul class="values-list">
+          <li>Fair, Fun & Positive Environment</li>
+          <li>Develop Skill, Confidence & Mindset</li>
+          <li>Youth to High School Athletes</li>
+          <li>College Prep & Recruiting Support</li>
+          <li>Sport-Specific Coaching</li>
+          <li>Discipline-First Culture</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs" id="programs">
+    <div class="programs-inner">
+      <p class="section-tag">What We Offer</p>
+      <h2>Training Programs</h2>
+      <p class="programs-sub">Programs designed for every level — elementary through high school</p>
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-icon">🏈</div>
+          <h3>Sport Specific Training</h3>
+          <p>Football, basketball, baseball and more. We train the movements your sport demands so you're ready when it matters most.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-icon">⚡</div>
+          <h3>Speed & Agility</h3>
+          <p>First-step quickness, lateral speed, and 40-yard dash improvement. Our athletes have hit 11.8 MPH top speed and 0.869s first-5 splits.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-icon">💪</div>
+          <h3>Strength & Conditioning</h3>
+          <p>Build the foundation of athleticism. Functional strength, power development, and conditioning that transfers to the field.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-icon">🎓</div>
+          <h3>College Athlete Program</h3>
+          <p>Built specifically for athletes ready to take the next step. Custom programming, film prep, and recruiting guidance.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-icon">🛡️</div>
+          <h3>Injury Prevention</h3>
+          <p>Movement screening and corrective work to keep athletes healthy all season long. Train hard, stay on the field.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-icon">🧠</div>
+          <h3>Mental Performance</h3>
+          <p>Discipline, focus, and a winning mindset are built into every session at Lonestar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sessions" id="sessions">
+    <div class="sessions-inner">
+      <p class="section-tag">Daily Training Sessions</p>
+      <h2>Sessions & Pricing</h2>
+      <p class="sessions-sub">Limited spots — reserve yours before they fill up</p>
+      <div class="sessions-grid">
+        <div class="session-card">
+          <div class="session-time">5:00 PM</div>
+          <div class="session-label">Daily Session</div>
+          <div class="session-group">👦 Elementary / Middle School</div>
+        </div>
+        <div class="session-card">
+          <div class="session-time">6:00 PM</div>
+          <div class="session-label">Daily Session</div>
+          <div class="session-group">🏃 Middle / High School</div>
+        </div>
+      </div>
+      <div class="pricing-note">
+        <p><strong>$50 deposit</strong> required to reserve your spot · Sessions run June & July<br>
+        Members auto-enroll in August · <strong>$200/wk or $500/mo</strong><br>
+        DM "COLLEGE" on Instagram to get started</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="quote-section">
+    <blockquote>"Every rep, every sprint, every set matters. We don't wait for motivation — we build discipline."</blockquote>
+  </div>
+
+  <section class="cta">
+    <h2>Give Your Kid More<br><span style="color:var(--red)">Than Just Practice.</span></h2>
+    <p>Spots are limited. Reserve your athlete's spot today.</p>
+    <div class="cta-btns">
+      <a href="tel:3344343464" class="cta-btn">📞 Call Now</a>
+      <a href="mailto:info@lonestarath.com" class="cta-btn-outline">📧 Email Us</a>
+    </div>
+  </section>
+
+  <div class="contact-strip" id="contact">
+    <div class="contact-inner">
+      <div class="c-item"><div class="icon">📍</div><h4>Location</h4><p>5010 E. Fifth Street<br>Katy, TX 77493</p></div>
+      <div class="c-item"><div class="icon">📞</div><h4>Phone</h4><p><a href="tel:3344343464">(334) 434-3464</a></p></div>
+      <div class="c-item"><div class="icon">📧</div><h4>Email</h4><p><a href="mailto:info@lonestarath.com">info@lonestarath.com</a></p></div>
+      <div class="c-item"><div class="icon">📱</div><h4>Instagram</h4><p><a href="https://instagram.com/lonestarath" target="_blank">@lonestarath</a></p></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 <span>Lonestar Athletics</span> · Katy, TX · Demo site built by <span>JF Web Studios</span></p>
+  </footer>
+</body>
+</html>
