@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Suites Relocation — Furnished Apartments Houston</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --champagne: #f0e6d0; --deep: #2c1810; --warm: #c4923a; --off: #faf7f2; --muted: #8a7060; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--deep); }
+
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 22px 60px; display: flex; justify-content: space-between; align-items: center; transition: background 0.3s; background: rgba(250,247,242,0.97); border-bottom: 1px solid rgba(44,24,16,0.08); }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--deep); letter-spacing: 0.5px; }
+    .logo em { color: var(--warm); font-style: normal; }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.3px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--deep); }
+    .nav-cta { background: var(--deep) !important; color: #fff !important; padding: 11px 26px; border-radius: 3px; font-weight: 500 !important; letter-spacing: 0.5px; }
+
+    /* FULL SCREEN HERO */
+    .hero { height: 100vh; position: relative; overflow: hidden; }
+    .hero img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(44,24,16,0.8) 0%, rgba(44,24,16,0.3) 60%); }
+    .hero-content { position: absolute; bottom: 80px; left: 80px; color: #fff; max-width: 620px; }
+    .hero-eyebrow { font-size: 12px; font-weight: 500; color: var(--champagne); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 24px; opacity: 0.8; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 76px); font-weight: 600; line-height: 1.1; margin-bottom: 24px; }
+    .hero h1 em { color: var(--champagne); font-style: italic; }
+    .hero p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.9; margin-bottom: 40px; font-weight: 300; max-width: 500px; }
+    .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .btn-warm { background: var(--warm); color: #fff; padding: 16px 40px; border-radius: 3px; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; }
+    .btn-outline-white { border: 1px solid rgba(255,255,255,0.45); color: #fff; padding: 16px 40px; border-radius: 3px; text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.5px; }
+    .hero-phone { position: absolute; top: 100px; right: 60px; text-align: right; color: #fff; }
+    .hero-phone p { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+    .hero-phone a { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--champagne); text-decoration: none; }
+
+    /* INTRO */
+    .intro { padding: 90px 80px; background: var(--off); display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+    .intro-left { position: sticky; top: 120px; }
+    .intro-label { font-size: 11px; font-weight: 600; color: var(--warm); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; }
+    .intro-left h2 { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 600; color: var(--deep); line-height: 1.15; }
+    .intro-right p { font-size: 16px; color: var(--muted); line-height: 2; margin-bottom: 24px; }
+    .intro-right p:last-child { margin: 0; }
+    .intro-features { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+    .feat { border-top: 2px solid var(--champagne); padding-top: 20px; }
+    .feat h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--deep); margin-bottom: 8px; }
+    .feat p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+
+    /* SERVICES STRIP */
+    .svc-strip { background: var(--deep); padding: 60px 80px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+    .svc-item { color: #fff; border-left: 2px solid rgba(196,146,58,0.4); padding-left: 24px; }
+    .svc-item .icon { font-size: 28px; margin-bottom: 14px; }
+    .svc-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--champagne); margin-bottom: 10px; }
+    .svc-item p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+
+    /* PROPERTIES */
+    .props { padding: 90px 80px; background: #fff; }
+    .props-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+    .props-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 600; color: var(--deep); }
+    .props-header a { font-size: 13px; color: var(--warm); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--warm); padding-bottom: 2px; }
+    .props-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .prop { position: relative; overflow: hidden; cursor: pointer; }
+    .prop img { width: 100%; height: 400px; object-fit: cover; transition: transform 0.5s; display: block; }
+    .prop:hover img { transform: scale(1.05); }
+    .prop-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(44,24,16,0.85) 30%, transparent 70%); display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; color: #fff; }
+    .prop-tag { font-size: 10px; color: var(--champagne); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .prop-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; margin-bottom: 4px; }
+    .prop-sub { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 18px; }
+    .prop-btn { display: inline-block; border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 8px 20px; border-radius: 2px; font-size: 12px; text-decoration: none; font-weight: 500; transition: all 0.2s; }
+    .prop-btn:hover { background: var(--warm); border-color: var(--warm); }
+
+    /* TESTIMONIAL */
+    .testimonial { background: var(--off); padding: 90px 80px; text-align: center; }
+    .quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 100px; color: var(--champagne); line-height: 0.5; margin-bottom: 30px; }
+    .testimonial blockquote { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: var(--deep); line-height: 1.5; max-width: 800px; margin: 0 auto 28px; font-style: italic; }
+    .testimonial cite { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; font-style: normal; }
+    .testimonial cite span { color: var(--warm); }
+
+    /* CTA */
+    .cta { display: grid; grid-template-columns: 1fr 1fr; min-height: 400px; }
+    .cta-left { background: var(--deep); padding: 80px; display: flex; flex-direction: column; justify-content: center; }
+    .cta-left h2 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 600; color: #fff; line-height: 1.15; margin-bottom: 20px; }
+    .cta-left h2 em { color: var(--champagne); font-style: italic; }
+    .cta-left p { font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.9; margin-bottom: 36px; }
+    .cta-btn-warm { display: inline-block; background: var(--warm); color: #fff; padding: 16px 40px; border-radius: 3px; text-decoration: none; font-weight: 600; font-size: 15px; }
+    .cta-right { background: var(--champagne); padding: 80px; display: flex; flex-direction: column; justify-content: center; }
+    .cta-right h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: var(--deep); margin-bottom: 24px; }
+    .contact-detail { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .contact-detail .icon { font-size: 20px; }
+    .contact-detail div h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 4px; }
+    .contact-detail div a, .contact-detail div p { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--deep); text-decoration: none; }
+
+    footer { background: #1a0f08; color: rgba(255,255,255,0.3); text-align: center; padding: 28px; font-size: 13px; }
+    footer em { color: var(--warm); font-style: normal; }
+
+    @media (max-width: 900px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero-content { left: 24px; bottom: 40px; }
+      .hero-phone { display: none; }
+      .intro { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+      .svc-strip { grid-template-columns: 1fr 1fr; padding: 50px 24px; gap: 30px; }
+      .props { padding: 60px 24px; }
+      .props-grid { grid-template-columns: 1fr; }
+      .cta { grid-template-columns: 1fr; }
+      .cta-left, .cta-right { padding: 60px 24px; }
+      .testimonial { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Executive Suites <em>Relocation</em></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="tel:2813955005" class="nav-cta">Call Now</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600" alt="Luxury Home">
+    <div class="hero-overlay"></div>
+    <div class="hero-phone">
+      <p>Call Anytime</p>
+      <a href="tel:2813955005">(281) 395-5005</a>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Houston's Premier Corporate Housing</p>
+      <h1>A Home Built<br>Around <em>Your Life.</em></h1>
+      <p>Fully furnished executive suites for professionals relocating, in-between homes, or seeking short-term luxury stays. Nightly, weekly, or monthly — always customized.</p>
+      <div class="hero-actions">
+        <a href="tel:2813955005" class="btn-warm">📞 Call (281) 395-5005</a>
+        <a href="#properties" class="btn-outline-white">View Properties</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro" id="about">
+    <div class="intro-left">
+      <p class="intro-label">Who We Are</p>
+      <h2>Where Comfort Meets Professionalism</h2>
+    </div>
+    <div class="intro-right">
+      <p>Executive Suites Relocation has been Houston's most trusted name in corporate and relocation housing. Whether you're moving for business, navigating a personal transition, or simply need a high-end temporary home — we handle every detail.</p>
+      <p>Our team works directly with you to build a fully customized package. Knowledgeable, experienced, and deeply committed to making every stay feel exactly like home — which is why our repeat client rate speaks for itself.</p>
+      <div class="intro-features">
+        <div class="feat">
+          <h4>Fully Furnished</h4>
+          <p>Move in with just your suitcase. Everything is already taken care of.</p>
+        </div>
+        <div class="feat">
+          <h4>Flexible Terms</h4>
+          <p>Nightly, weekly, or monthly stays — all available on your schedule.</p>
+        </div>
+        <div class="feat">
+          <h4>Custom Packages</h4>
+          <p>Every stay is tailored to your specific needs and budget.</p>
+        </div>
+        <div class="feat">
+          <h4>Corporate Accounts</h4>
+          <p>Direct billing, group bookings, and corporate rates available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="svc-strip" id="services">
+    <div class="svc-item">
+      <div class="icon">🏢</div>
+      <h3>Corporate Housing</h3>
+      <p>Premium furnished suites for business travelers with direct corporate billing and flexible lease terms.</p>
+    </div>
+    <div class="svc-item">
+      <div class="icon">📦</div>
+      <h3>Relocation Stays</h3>
+      <p>Comfortable temporary housing while you settle into your new city, neighborhood, or home.</p>
+    </div>
+    <div class="svc-item">
+      <div class="icon">🌙</div>
+      <h3>Short-Term & Nightly</h3>
+      <p>Executive-level furnished apartments for short stays — with all utilities and amenities included.</p>
+    </div>
+    <div class="svc-item">
+      <div class="icon">🏡</div>
+      <h3>Real Estate Services</h3>
+      <p>Looking to buy or rent permanently in Houston? Our experienced team connects you to the best options.</p>
+    </div>
+  </div>
+
+  <section class="props" id="properties">
+    <div class="props-header">
+      <h2>Featured Properties</h2>
+      <a href="tel:2813955005">Call to View All →</a>
+    </div>
+    <div class="props-grid">
+      <div class="prop">
+        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=700" alt="Avana Sterling Ridge">
+        <div class="prop-overlay">
+          <div class="prop-tag">Featured Property</div>
+          <div class="prop-title">Avana Sterling Ridge</div>
+          <div class="prop-sub">📍 Houston, TX — Fully Furnished</div>
+          <a href="tel:2813955005" class="prop-btn">Inquire →</a>
+        </div>
+      </div>
+      <div class="prop">
+        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=700" alt="Corporate Suite">
+        <div class="prop-overlay">
+          <div class="prop-tag">Corporate Suite</div>
+          <div class="prop-title">West Houston Executive</div>
+          <div class="prop-sub">📍 Katy, TX</div>
+          <a href="tel:2813955005" class="prop-btn">Inquire →</a>
+        </div>
+      </div>
+      <div class="prop">
+        <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700" alt="Luxury Apt">
+        <div class="prop-overlay">
+          <div class="prop-tag">Short-Term Stay</div>
+          <div class="prop-title">Luxury Short Stay</div>
+          <div class="prop-sub">📍 Houston Metro Area</div>
+          <a href="tel:2813955005" class="prop-btn">Inquire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <div class="quote-mark">"</div>
+    <blockquote>Executive Suites Relocation made my move to Houston completely stress-free. The suite was beautiful, the team was professional, and everything felt like home from day one.</blockquote>
+    <cite>— Corporate Client, <span>Houston, TX</span></cite>
+  </section>
+
+  <section class="cta">
+    <div class="cta-left">
+      <h2>Ready to Find<br>Your <em>Perfect Suite?</em></h2>
+      <p>Let our team build a package tailored to your exact needs — location, size, duration, and budget. No one-size-fits-all here.</p>
+      <a href="tel:2813955005" class="cta-btn-warm">📞 Call Us Today</a>
+    </div>
+    <div class="cta-right">
+      <h3>Get In Touch</h3>
+      <div class="contact-detail">
+        <div class="icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <a href="tel:2813955005">(281) 395-5005</a>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📧</div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:info@esrelo.com">info@esrelo.com</a>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="icon">📍</div>
+        <div>
+          <h4>Location</h4>
+          <p>Houston Metro Area, TX</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 <em>Executive Suites Relocation</em> — Houston, TX. All rights reserved. | Website by <em>JF Web Studios</em></p>
+  </footer>
+
+</body>
+</html>
