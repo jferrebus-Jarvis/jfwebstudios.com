@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barberia Y Salon | Houston, TX</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #0a0a0a; color: #fff; }
+  .lang-toggle { position: fixed; top: 15px; right: 20px; z-index: 999; display: flex; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 3px; }
+  .lang-btn { padding: 5px 14px; border-radius: 17px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s; background: transparent; color: #fff; }
+  .lang-btn.active { background: #C9A84C; color: #000; }
+  .hero { min-height: 100vh; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 60%, #2a1f0a 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; position: relative; overflow: hidden; }
+  .hero::before { content: '✂️'; font-size: 200px; position: absolute; top: -20px; right: -40px; opacity: 0.05; }
+  .badge { background: rgba(201,168,76,0.2); border: 1px solid #C9A84C; padding: 8px 20px; border-radius: 20px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; color: #C9A84C; }
+  .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 15px; }
+  .hero h1 span { color: #C9A84C; }
+  .hero p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 30px; max-width: 500px; }
+  .stars { color: #C9A84C; font-size: 1.3rem; margin-bottom: 20px; }
+  .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { background: #C9A84C; color: #000; padding: 15px 35px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
+  .btn-secondary { background: transparent; color: #fff; padding: 15px 35px; border-radius: 30px; font-weight: 700; font-size: 1.1rem; text-decoration: none; border: 2px solid rgba(255,255,255,0.3); }
+  .services { background: #111; padding: 80px 20px; }
+  .section-title { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; }
+  .section-sub { text-align: center; color: #888; margin-bottom: 50px; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  .service-card { background: #1a1a1a; border-radius: 15px; padding: 30px 20px; text-align: center; border-top: 3px solid #C9A84C; }
+  .service-card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+  .service-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; color: #C9A84C; }
+  .service-card p { color: #888; font-size: 0.9rem; }
+  .service-card .price { color: #fff; font-weight: 800; font-size: 1.1rem; margin-top: 10px; }
+  .contact { background: #C9A84C; color: #000; padding: 80px 20px; text-align: center; }
+  .contact h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 30px; }
+  .contact-info { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 35px; font-size: 1.1rem; font-weight: 600; }
+  .contact-info a { color: #000; text-decoration: none; }
+  .cta-big { background: #000; color: #C9A84C; padding: 18px 50px; border-radius: 35px; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: inline-block; }
+  footer { background: #050505; padding: 25px; text-align: center; color: #444; font-size: 0.85rem; }
+  .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 999; }
+</style>
+</head>
+<body>
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+<section class="hero">
+  <div class="badge">⭐ 4.6 Estrellas en Google</div>
+  <h1>Barberia <span>Y Salon</span></h1>
+  <p data-es="Cortes de cabello y servicios de salon de primera clase en Houston, TX." data-en="First-class haircuts and salon services in Houston, TX.">Cortes de cabello y servicios de salon de primera clase en Houston, TX.</p>
+  <div class="stars">★★★★½</div>
+  <div class="hero-btns">
+    <a href="tel:2816769825" class="btn-primary" data-es="📞 Reservar Cita" data-en="📞 Book Appointment">📞 Reservar Cita</a>
+    <a href="#services" class="btn-secondary" data-es="Ver Servicios" data-en="See Services">Ver Servicios</a>
+  </div>
+</section>
+<section class="services" id="services">
+  <h2 class="section-title" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</h2>
+  <p class="section-sub" data-es="Estilo profesional para hombres y mujeres" data-en="Professional styling for men and women">Estilo profesional para hombres y mujeres</p>
+  <div class="services-grid">
+    <div class="service-card"><div class="icon">💈</div><h3 data-es="Corte de Caballero" data-en="Men's Cut">Corte de Caballero</h3><p data-es="Corte clásico o moderno con acabado perfecto" data-en="Classic or modern cut with perfect finish">Corte clásico o moderno con acabado perfecto</p><div class="price">Desde $20</div></div>
+    <div class="service-card"><div class="icon">🪒</div><h3 data-es="Barba y Rasurado" data-en="Beard & Shave">Barba y Rasurado</h3><p data-es="Perfilado de barba y rasurado con navaja" data-en="Beard trim and straight razor shave">Perfilado de barba y rasurado con navaja</p><div class="price">Desde $15</div></div>
+    <div class="service-card"><div class="icon">💇‍♀️</div><h3 data-es="Corte Dama" data-en="Women's Cut">Corte Dama</h3><p data-es="Corte, lavado y peinado profesional" data-en="Professional cut, wash and styling">Corte, lavado y peinado profesional</p><div class="price">Desde $35</div></div>
+    <div class="service-card"><div class="icon">🎨</div><h3 data-es="Color y Tinte" data-en="Color & Highlights">Color y Tinte</h3><p data-es="Tintes, mechas y tratamientos de color" data-en="Dye, highlights and color treatments">Tintes, mechas y tratamientos de color</p><div class="price">Desde $60</div></div>
+  </div>
+</section>
+<section class="contact">
+  <h2 data-es="¡Visítanos Hoy!" data-en="Visit Us Today!">¡Visítanos Hoy!</h2>
+  <div class="contact-info">
+    <span>📍 3802 S Gessner Rd, Houston TX 77042</span>
+    <span>📞 <a href="tel:2816769825">(281) 676-9825</a></span>
+  </div>
+  <a href="tel:2816769825" class="cta-big" data-es="💈 Llamar y Reservar" data-en="💈 Call & Book">💈 Llamar y Reservar</a>
+</section>
+<footer>© 2026 Barberia Y Salon — Houston, TX | Sitio web por JF Web Studios</footer>
+<a href="https://wa.me/12816769825" class="whatsapp" target="_blank">💬</a>
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) el.innerHTML = text;
+  });
+}
+</script>
+</body>
+</html>
