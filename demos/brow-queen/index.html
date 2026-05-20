@@ -3,435 +3,849 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Brow Queen | Brows · Micropigmentation · Waxing · Brow Lamination</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <title>Brow Queen | Anabel Gómez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --gold: #c9a96e; --dark: #0a0a0a; --soft: #1a1a1a; --cream: #f5f0eb; --text: #e8e0d8; }
+
+    :root {
+      --pink: #f4a7b9;
+      --pink-light: #fce4ec;
+      --pink-soft: #fdf0f4;
+      --pink-dark: #e8829a;
+      --black: #1a1a1a;
+      --white: #ffffff;
+    }
+
     html { scroll-behavior: smooth; }
-    body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: var(--text); overflow-x: hidden; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
 
     /* LANG TOGGLE */
-    .lang-toggle {
+    .lang-toggle-fixed {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      z-index: 9999;
       display: flex;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.95);
+      border: 2px solid var(--pink);
       border-radius: 50px;
       padding: 3px;
       gap: 2px;
+      box-shadow: 0 2px 15px rgba(244,167,185,0.4);
     }
     .lang-btn {
-      padding: 6px 14px;
+      padding: 5px 13px;
       border-radius: 50px;
       border: none;
       cursor: pointer;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-family: 'Montserrat', sans-serif;
-      letter-spacing: 2px;
-      font-weight: 600;
+      letter-spacing: 1px;
+      font-weight: 700;
       background: transparent;
-      color: rgba(255,255,255,0.5);
+      color: var(--pink-dark);
       transition: all 0.3s;
     }
-    .lang-btn.active { background: var(--gold); color: #000; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 40px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
-    }
-    nav .lang-toggle {
-      position: absolute;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      display: flex !important;
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(201,169,110,0.4);
-      border-radius: 50px;
-      padding: 3px;
-      gap: 2px;
-      z-index: 200;
-    }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: var(--gold); letter-spacing: 2px; }
-    .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
-    .nav-links a { color: var(--text); text-decoration: none; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.85; transition: opacity 0.3s, color 0.3s; }
-    .nav-links a:hover { opacity: 1; color: var(--gold); }
-    .nav-book { background: var(--gold); color: #000 !important; padding: 10px 24px; opacity: 1 !important; font-weight: 600 !important; }
+    .lang-btn.active { background: var(--pink); color: #fff; }
 
     /* HERO */
-    .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #0a0a0a; }
-    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(201,169,110,0.12) 0%, transparent 60%), radial-gradient(ellipse at 30% 80%, rgba(201,169,110,0.06) 0%, transparent 50%); }
-    .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 20px; }
-    .hero-tag { font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
-    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 300; line-height: 0.95; margin-bottom: 10px; letter-spacing: -1px; }
-    .hero-title em { font-style: italic; color: var(--gold); }
-    .hero-subtitle { font-size: 0.65rem; letter-spacing: 6px; text-transform: uppercase; opacity: 0.6; margin: 25px 0; }
-    .hero-services { display: flex; gap: 30px; justify-content: center; margin: 30px 0 40px; flex-wrap: wrap; }
-    .hero-service-pill { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; padding: 8px 18px; border: 1px solid rgba(201,169,110,0.4); color: var(--gold); }
-    .forbes-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.3); padding: 10px 20px; margin-bottom: 40px; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
-    .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--gold); color: #000; padding: 16px 40px; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: opacity 0.3s; }
-    .btn-primary:hover { opacity: 0.85; }
-    .btn-outline { border: 1px solid rgba(201,169,110,0.5); color: var(--gold); padding: 16px 40px; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; text-decoration: none; transition: all 0.3s; }
-    .btn-outline:hover { background: rgba(201,169,110,0.1); }
-    .scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.4; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; }
-    .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollDown 1.5s infinite; }
-    @keyframes scrollDown { 0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom} }
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 40%, #fce4ec 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 80px 20px 40px;
+    }
 
-    /* STATS */
-    .stats { background: var(--soft); padding: 60px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; border-top: 1px solid rgba(201,169,110,0.2); border-bottom: 1px solid rgba(201,169,110,0.2); }
-    .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1; }
-    .stat-label { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.5; margin-top: 8px; }
+    /* Decorative circles like her template */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+    }
 
-    /* ABOUT */
-    .about { padding: 120px 40px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-label { font-size: 0.6rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-    .about-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 300; line-height: 1.1; margin-bottom: 30px; }
-    .about-title em { font-style: italic; color: var(--gold); }
-    .about-text { font-size: 0.85rem; line-height: 1.9; opacity: 0.7; margin-bottom: 20px; }
-    .about-visual { position: relative; }
-    .about-img-placeholder { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(201,169,110,0.2); position: relative; overflow: hidden; }
-    .about-img-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,110,0.1), transparent 70%); }
-    .about-img-icon { font-size: 4rem; opacity: 0.3; }
-    .about-accent { position: absolute; bottom: -20px; right: -20px; width: 120px; height: 120px; border: 1px solid rgba(201,169,110,0.3); }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1000px;
+      width: 100%;
+      align-items: center;
+    }
+
+    /* Left: Eye image circle */
+    .hero-img-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-img-circle {
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f8bbd0, #fce4ec);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 6px solid rgba(255,255,255,0.7);
+      box-shadow: 0 20px 60px rgba(233,30,99,0.2);
+      font-size: 8rem;
+      position: relative;
+    }
+
+    .hero-img-circle::before {
+      content: '👁️';
+      font-size: 9rem;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+
+    /* Brush stroke overlay */
+    .brush-stroke {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 60px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+    }
+
+    /* Right: Text content */
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .hero-brand {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      color: var(--black);
+      line-height: 1;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .hero-crown {
+      font-size: 1.5rem;
+      vertical-align: super;
+    }
+
+    .hero-headline {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--black);
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+    }
+
+    .hero-headline span {
+      display: block;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      color: var(--black);
+      letter-spacing: 1px;
+    }
+
+    .hero-sub {
+      font-size: 0.8rem;
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    .sparkles {
+      font-size: 1.5rem;
+      letter-spacing: 5px;
+      color: var(--pink-dark);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: rgba(180,180,180,0.3);
+      color: var(--black);
+      padding: 14px 30px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid rgba(0,0,0,0.15);
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .hero-cta:hover { background: var(--pink); color: #fff; border-color: var(--pink); }
+
+    /* Pink phone bar */
+    .phone-bar {
+      width: 100%;
+      background: var(--pink);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 2;
+      margin-top: 40px;
+    }
+
+    .phone-bar a {
+      color: var(--black);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    /* PRESS BAR */
+    .press-bar {
+      background: var(--black);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .press-bar span {
+      color: var(--pink);
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .press-dot { color: var(--pink) !important; font-size: 0.4rem !important; }
 
     /* SERVICES */
-    .services { background: var(--soft); padding: 120px 40px; }
-    .section-header { text-align: center; margin-bottom: 70px; }
-    .section-label { font-size: 0.6rem; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 300; }
-    .section-title em { font-style: italic; color: var(--gold); }
-    .services-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
-    .service-card { background: var(--dark); padding: 50px 40px; position: relative; overflow: hidden; transition: all 0.3s; cursor: pointer; }
-    .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.4s; }
-    .service-card:hover::before { height: 100%; }
-    .service-card:hover { background: #111; }
-    .service-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
-    .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 15px; color: var(--cream); }
-    .service-desc { font-size: 0.8rem; line-height: 1.8; opacity: 0.6; margin-bottom: 25px; }
-    .service-price { font-size: 0.7rem; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
+    .services {
+      background: var(--pink-soft);
+      padding: 80px 40px;
+    }
 
-    /* GALLERY */
-    .gallery { padding: 120px 40px; }
-    .gallery-grid { max-width: 1100px; margin: 50px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
-    .gallery-item { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(201,169,110,0.1); flex-direction: column; gap: 8px; }
+    .section-tag {
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--pink-dark);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      color: var(--black);
+      margin-bottom: 50px;
+    }
+
+    .services-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 35px 30px;
+      border: 2px solid var(--pink-light);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--pink), var(--pink-dark));
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(244,167,185,0.3);
+      border-color: var(--pink);
+    }
+
+    .service-emoji { font-size: 2rem; margin-bottom: 15px; display: block; }
+
+    .service-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: var(--black);
+    }
+
+    .service-desc {
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: #666;
+    }
+
+    .service-book {
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--pink-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* ABOUT */
+    .about {
+      background: var(--white);
+      padding: 80px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--pink-light), var(--pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      box-shadow: 0 20px 60px rgba(244,167,185,0.4);
+    }
+
+    .about-label {
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--pink-dark);
+      margin-bottom: 15px;
+    }
+
+    .about-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+
+    .about-text {
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* STATS */
+    .stats {
+      background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+      padding: 60px 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .stat-lbl {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      margin-top: 8px;
+    }
 
     /* TESTIMONIALS */
-    .testimonials { background: var(--soft); padding: 120px 40px; }
-    .testimonials-grid { max-width: 1100px; margin: 60px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-    .testimonial-card { background: var(--dark); padding: 40px; border: 1px solid rgba(201,169,110,0.15); }
-    .testimonial-quote { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: var(--gold); opacity: 0.3; line-height: 0.5; margin-bottom: 20px; }
-    .testimonial-text { font-size: 0.82rem; line-height: 1.8; opacity: 0.75; margin-bottom: 25px; font-style: italic; }
-    .testimonial-author { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+    .testimonials {
+      background: var(--pink-soft);
+      padding: 80px 40px;
+    }
+
+    .testi-grid {
+      max-width: 1000px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 30px;
+      border: 2px solid var(--pink-light);
+    }
+
+    .testi-stars {
+      color: var(--pink-dark);
+      font-size: 1rem;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .testi-text {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .testi-author {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--pink-dark);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
     /* BOOKING */
-    .booking { padding: 120px 40px; text-align: center; position: relative; overflow: hidden; }
-    .booking::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,169,110,0.08), transparent 70%); }
-    .booking-content { position: relative; z-index: 1; }
-    .booking-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 6rem); font-weight: 300; margin-bottom: 20px; }
-    .booking-title em { font-style: italic; color: var(--gold); }
-    .booking-sub { font-size: 0.8rem; opacity: 0.6; margin-bottom: 15px; letter-spacing: 1px; }
-    .booking-address { font-size: 0.75rem; color: var(--gold); letter-spacing: 2px; margin-bottom: 50px; opacity: 0.8; }
+    .booking {
+      background: var(--white);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .booking-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 10px;
+    }
+
+    .booking-sub {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .booking-address {
+      font-size: 0.8rem;
+      color: var(--pink-dark);
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    .booking-btns {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: #fff;
+      padding: 16px 35px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+    }
+    .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(37,211,102,0.4); }
+
+    .btn-ig {
+      background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7);
+      color: #fff;
+      padding: 16px 35px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      box-shadow: 0 8px 25px rgba(238,42,123,0.3);
+    }
+    .btn-ig:hover { transform: translateY(-2px); }
+
+    .btn-call {
+      background: var(--pink);
+      color: var(--black);
+      padding: 16px 35px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    .btn-call:hover { background: var(--pink-dark); color: #fff; }
 
     /* FOOTER */
-    footer { background: #050505; padding: 60px 40px 30px; border-top: 1px solid rgba(201,169,110,0.15); }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 50px; max-width: 1100px; margin-left: auto; margin-right: auto; }
-    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; color: var(--gold); margin-bottom: 15px; }
-    .footer-tagline { font-size: 0.75rem; opacity: 0.5; line-height: 1.7; }
-    .footer-heading { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 10px; font-size: 0.8rem; opacity: 0.5; }
-    .footer-bottom { max-width: 1100px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; opacity: 0.3; }
+    footer {
+      background: var(--black);
+      padding: 50px 40px 25px;
+      color: #fff;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      color: var(--pink);
+      margin-bottom: 12px;
+    }
+
+    .footer-tag { font-size: 0.75rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
+
+    .footer-heading {
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 15px;
+    }
+
+    .footer-list { list-style: none; }
+    .footer-list li { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* FLOATING WA */
+    .float-wa {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 999;
+      background: #25D366;
+      color: #fff;
+      width: 62px; height: 62px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.9rem;
+      box-shadow: 0 6px 25px rgba(37,211,102,0.5);
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .float-wa:hover { transform: scale(1.1); }
 
     /* MOBILE */
     @media (max-width: 768px) {
-      nav { padding: 15px 20px; }
-      .nav-links { display: none; }
-      nav .lang-toggle { display: flex !important; right: 15px; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .about { grid-template-columns: 1fr; gap: 40px; }
-      .about-visual { order: -1; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-img-circle { width: 240px; height: 240px; margin: 0 auto; }
+      .hero-img-wrap { justify-content: center; }
       .services-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 30px; }
-      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .about { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 25px; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .press-bar { gap: 20px; }
     }
 
-    /* Hidden lang content */
+    /* LANG */
     [data-lang="es"] { display: none; }
     body.es [data-lang="es"] { display: unset; }
     body.es [data-lang="en"] { display: none; }
     body.es .block-es { display: block; }
     body.es .block-en { display: none; }
     .block-es { display: none; }
+    body.es .flex-es { display: flex; }
+    body.es .flex-en { display: none; }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">The Brow Queen</div>
-  <ul class="nav-links">
-    <li><a href="#services"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a></li>
-    <li><a href="#about"><span data-lang="en">About</span><span data-lang="es">Acerca</span></a></li>
-    <li><a href="#gallery"><span data-lang="en">Gallery</span><span data-lang="es">Galería</span></a></li>
-    <li><a href="#contact"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></a></li>
-    <li><a href="#booking" class="nav-book"><span data-lang="en">Book Now</span><span data-lang="es">Reservar</span></a></li>
-  </ul>
-  <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('es')">ES</button>
-  </div>
-</nav>
+<!-- LANG TOGGLE TOP RIGHT -->
+<div class="lang-toggle-fixed">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('es')">ES</button>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <span class="hero-tag">✦ Anabel Gómez · <span data-lang="en">Luxury Brow Artistry · Orlando, FL</span><span data-lang="es">Arte de Cejas de Lujo · Orlando, FL</span></span>
-    <h1 class="hero-title">The Brow<br/><em>Queen</em></h1>
-    <p class="hero-subtitle">Brows · Micropigmentación · Waxing · Brow Lamination</p>
-
-    <div class="forbes-badge">
-      ✦ &nbsp; Forbes · Diario de México · Women's Summit LATAM
+  <div class="hero-inner">
+    <!-- Left: Circle image -->
+    <div class="hero-img-wrap">
+      <div class="hero-img-circle"></div>
     </div>
 
-    <div class="hero-services">
-      <span class="hero-service-pill">Microblading</span>
-      <span class="hero-service-pill">Micropigmentación</span>
-      <span class="hero-service-pill">Brow Lamination</span>
-      <span class="hero-service-pill">Waxing</span>
-    </div>
+    <!-- Right: Text -->
+    <div class="hero-text">
+      <div class="hero-brand">Brow Queen <span class="hero-crown">👑</span></div>
 
-    <div class="hero-btns">
-      <a href="https://wa.me/14072323727?text=Hi%20Anabel!%20I%20found%20your%20profile%20and%20would%20love%20to%20book%20an%20appointment%20with%20The%20Brow%20Queen!" target="_blank" class="btn-primary" style="background:#25D366;color:#fff;">💬 <span data-lang="en">Book via WhatsApp</span><span data-lang="es">Reservar por WhatsApp</span></a>
-      <a href="#services" class="btn-outline"><span data-lang="en">View Services</span><span data-lang="es">Ver Servicios</span></a>
+      <div class="hero-headline">
+        <span data-lang="en">PERFECTLY</span><span data-lang="es">CEJAS</span>
+        <span data-lang="en">DEFINED BROWS</span><span data-lang="es">PERFECTAMENTE</span>
+      </div>
+
+      <p class="hero-sub">
+        <span data-lang="en">Defined with our Henna & Micropigmentation services</span>
+        <span data-lang="es">Definidas con nuestro servicio HENNA & Micropigmentación</span>
+      </p>
+
+      <div class="sparkles">✦ ✦ ✦</div>
+
+      <a href="https://wa.me/14072323727?text=Hola%20Anabel!%20Me%20gustaría%20agendar%20mi%20cita%20con%20Brow%20Queen!" target="_blank" class="hero-cta">
+        <span data-lang="en">📅 BOOK YOUR APPOINTMENT</span>
+        <span data-lang="es">📅 AGENDA TU CITA</span>
+      </a>
+
+      <div style="font-size:0.65rem;letter-spacing:2px;color:#666;margin-top:5px;">
+        Forbes · Diario de México · Women's Summit LATAM
+      </div>
     </div>
   </div>
-  <div class="scroll-indicator">
-    <div class="scroll-line"></div>
-    scroll
+
+  <!-- Pink phone bar -->
+  <div class="phone-bar">
+    <span>💬</span>
+    <a href="https://wa.me/14072323727">(407) 232-3727</a>
+  </div>
+</section>
+
+<!-- PRESS BAR -->
+<div class="press-bar">
+  <span>Forbes Style & Beauty</span>
+  <span class="press-dot">●</span>
+  <span>Diario de México</span>
+  <span class="press-dot">●</span>
+  <span>Women's Summit · Mujeres Más Poderosas de LATAM</span>
+  <span class="press-dot">●</span>
+  <span>Morpheus8 · InMode · ELLE</span>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-tag">✦ <span data-lang="en">What We Offer</span><span data-lang="es">Lo Que Ofrecemos</span></p>
+  <h2 class="section-title"><span data-lang="en">Our Services</span><span data-lang="es">Nuestros Servicios</span></h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-emoji">✨</span>
+      <div class="service-name">Micropigmentación</div>
+      <p class="service-desc block-en">Semi-permanent brow artistry that mimics natural hair strokes. Wake up with perfect brows every single day.</p>
+      <p class="service-desc block-es">Arte de cejas semipermanente que imita trazos naturales del cabello. Despierta con cejas perfectas todos los días.</p>
+      <a href="https://wa.me/14072323727?text=Hola!%20Quiero%20info%20sobre%20micropigmentación" target="_blank" class="service-book">→ <span data-lang="en">Book Now</span><span data-lang="es">Reservar Ahora</span></a>
+    </div>
+    <div class="service-card">
+      <span class="service-emoji">🌸</span>
+      <div class="service-name">Brow Lamination</div>
+      <p class="service-desc block-en">Restructures your brow hairs for a sleek, brushed-up full-brow effect that lasts weeks.</p>
+      <p class="service-desc block-es">Reestructura tus vellos para un efecto de ceja llena y cepillada que dura semanas.</p>
+      <a href="https://wa.me/14072323727?text=Hola!%20Quiero%20info%20sobre%20brow%20lamination" target="_blank" class="service-book">→ <span data-lang="en">Book Now</span><span data-lang="es">Reservar Ahora</span></a>
+    </div>
+    <div class="service-card">
+      <span class="service-emoji">💫</span>
+      <div class="service-name"><span data-lang="en">Henna Brows</span><span data-lang="es">Cejas con Henna</span></div>
+      <p class="service-desc block-en">Natural henna tinting that defines and fills brows beautifully. Perfect full look with zero commitment.</p>
+      <p class="service-desc block-es">Tinte natural con henna que define y llena las cejas perfectamente. Look lleno sin compromiso.</p>
+      <a href="https://wa.me/14072323727?text=Hola!%20Quiero%20info%20sobre%20cejas%20con%20henna" target="_blank" class="service-book">→ <span data-lang="en">Book Now</span><span data-lang="es">Reservar Ahora</span></a>
+    </div>
+    <div class="service-card">
+      <span class="service-emoji">👁️</span>
+      <div class="service-name"><span data-lang="en">Precision Waxing</span><span data-lang="es">Depilación de Precisión</span></div>
+      <p class="service-desc block-en">Expert shaping with clean lines, defined arches, and a polished finish that frames your face.</p>
+      <p class="service-desc block-es">Modelado experto con líneas limpias y arcos definidos que enmarcan tu rostro perfectamente.</p>
+      <a href="https://wa.me/14072323727?text=Hola!%20Quiero%20info%20sobre%20depilación%20de%20cejas" target="_blank" class="service-book">→ <span data-lang="en">Book Now</span><span data-lang="es">Reservar Ahora</span></a>
+    </div>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats">
   <div>
-    <div class="stat-number">42K+</div>
-    <div class="stat-label"><span data-lang="en">Instagram Followers</span><span data-lang="es">Seguidores</span></div>
+    <div class="stat-num">42K+</div>
+    <div class="stat-lbl"><span data-lang="en">Instagram Followers</span><span data-lang="es">Seguidoras</span></div>
   </div>
   <div>
-    <div class="stat-number">462</div>
-    <div class="stat-label"><span data-lang="en">Portfolio Posts</span><span data-lang="es">Publicaciones</span></div>
+    <div class="stat-num">462</div>
+    <div class="stat-lbl"><span data-lang="en">Portfolio Posts</span><span data-lang="es">Publicaciones</span></div>
   </div>
   <div>
-    <div class="stat-number">5★</div>
-    <div class="stat-label"><span data-lang="en">Client Rating</span><span data-lang="es">Calificación</span></div>
+    <div class="stat-num">5★</div>
+    <div class="stat-lbl"><span data-lang="en">Client Rating</span><span data-lang="es">Calificación</span></div>
   </div>
   <div>
-    <div class="stat-number">LATAM</div>
-    <div class="stat-label"><span data-lang="en">Women's Summit Honoree</span><span data-lang="es">Mujer Poderosa LATAM</span></div>
-  </div>
-</div>
-
-<!-- PRESS -->
-<div style="background:#0a0a0a; padding:50px 40px; text-align:center; border-bottom:1px solid rgba(201,169,110,0.15);">
-  <p style="font-size:0.6rem;letter-spacing:5px;text-transform:uppercase;color:#c9a96e;opacity:0.6;margin-bottom:30px;">✦ <span data-lang="en">As Seen In</span><span data-lang="es">Apariciones en Medios</span></p>
-  <div style="display:flex;gap:50px;justify-content:center;align-items:center;flex-wrap:wrap;opacity:0.5;">
-    <span style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:#e8e0d8;letter-spacing:2px;">Forbes</span>
-    <span style="color:#c9a96e;font-size:1rem;">✦</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:#e8e0d8;letter-spacing:1px;">Diario de México</span>
-    <span style="color:#c9a96e;font-size:1rem;">✦</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:#e8e0d8;letter-spacing:1px;">Women's Summit LATAM</span>
+    <div class="stat-num">LATAM</div>
+    <div class="stat-lbl"><span data-lang="en">Women's Summit Honoree</span><span data-lang="es">Mujer Poderosa</span></div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-text-col">
-    <p class="about-label">✦ <span data-lang="en">About the Artist</span><span data-lang="es">Sobre la Artista</span></p>
-    <h2 class="about-title"><span data-lang="en">Precision.<br/>Artistry.<br/><em>Perfection.</em></span><span data-lang="es">Precisión.<br/>Arte.<br/><em>Perfección.</em></span></h2>
-    <p class="about-text block-en">Anabel Gómez is an internationally recognized brow artist — featured in Forbes Style & Beauty, Diario de México, and named one of the Most Powerful Women in Latin America at the Women's Summit.</p>
-    <p class="about-text block-es">Anabel Gómez es una artista de cejas reconocida internacionalmente — destacada en Forbes Style & Beauty, Diario de México, y nombrada una de las Mujeres Más Poderosas de Latinoamérica en el Women's Summit.</p>
-    <p class="about-text block-en">With over 42,000 followers and hundreds of stunning transformations, Anabel creates brows that are naturally flawless — tailored to your unique face shape and personal style.</p>
-    <p class="about-text block-es">Con más de 42,000 seguidores y cientos de transformaciones impresionantes, Anabel crea cejas naturalmente perfectas — adaptadas a tu forma de rostro y estilo personal.</p>
-    <p class="about-text block-en">Located at Deerfield Shopping Center, her studio is an intimate luxury experience from the moment you walk in.</p>
-    <p class="about-text block-es">Ubicada en el Deerfield Shopping Center, su estudio es una experiencia de lujo íntima desde el momento en que entras.</p>
-  </div>
-  <div class="about-visual">
-    <div class="about-img-placeholder">
-      <span class="about-img-icon">👁️</span>
-    </div>
-    <div class="about-accent"></div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="section-header">
-    <span class="section-label">✦ <span data-lang="en">What We Offer</span><span data-lang="es">Nuestros Servicios</span></span>
-    <h2 class="section-title"><span data-lang="en">Luxury <em>Services</em></span><span data-lang="es">Servicios de <em>Lujo</em></span></h2>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <span class="service-icon">✦</span>
-      <h3 class="service-name">Micropigmentación</h3>
-      <p class="service-desc block-en">Semi-permanent brow artistry that mimics natural hair strokes for a full, defined look that lasts. Wake up with perfect brows every single day.</p>
-      <p class="service-desc block-es">Arte de cejas semipermanente que imita trazos naturales del cabello para un look lleno y definido que dura. Despierta con cejas perfectas todos los días.</p>
-      <span class="service-price">→ <span data-lang="en">Book a Consultation</span><span data-lang="es">Reservar Consulta</span></span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">◈</span>
-      <h3 class="service-name">Brow Lamination</h3>
-      <p class="service-desc block-en">The ultimate brow grooming treatment. Restructures your brow hairs into a uniform shape, tamed and brushed up for a sleek, full-brow effect.</p>
-      <p class="service-desc block-es">El tratamiento definitivo para cejas. Reestructura tus vellos en una forma uniforme, domados y cepillados hacia arriba para un efecto de ceja llena y elegante.</p>
-      <span class="service-price">→ <span data-lang="en">Book Now</span><span data-lang="es">Reservar Ahora</span></span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">◇</span>
-      <h3 class="service-name"><span data-lang="en">Precision Waxing</span><span data-lang="es">Depilación de Precisión</span></h3>
-      <p class="service-desc block-en">Expert brow shaping using professional wax. Clean lines, defined arches, and a polished finish that frames your face beautifully.</p>
-      <p class="service-desc block-es">Modelado experto de cejas con cera profesional. Líneas limpias, arcos definidos y un acabado impecable que enmarca tu rostro a la perfección.</p>
-      <span class="service-price">→ <span data-lang="en">Book Now</span><span data-lang="es">Reservar Ahora</span></span>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">✧</span>
-      <h3 class="service-name"><span data-lang="en">Brow Design & Tinting</span><span data-lang="es">Diseño y Tinte de Cejas</span></h3>
-      <p class="service-desc block-en">Custom brow mapping and tinting tailored to your face structure. Fuller, darker, defined brows that look effortlessly natural.</p>
-      <p class="service-desc block-es">Mapeo y tinte de cejas personalizado según tu estructura facial. Cejas más llenas, oscuras y definidas con apariencia natural y sin esfuerzo.</p>
-      <span class="service-price">→ <span data-lang="en">Book Now</span><span data-lang="es">Reservar Ahora</span></span>
+<section id="about" style="background:var(--white);padding:80px 40px;">
+  <div class="about">
+    <div class="about-img">👑</div>
+    <div>
+      <p class="about-label">✦ <span data-lang="en">About the Artist</span><span data-lang="es">Sobre la Artista</span></p>
+      <h2 class="about-title">Anabel Gómez</h2>
+      <p class="about-text block-en">An internationally recognized brow artist featured in Forbes Style & Beauty, Diario de México, and named one of the Most Powerful Women in Latin America at the Women's Summit.</p>
+      <p class="about-text block-es">Artista de cejas reconocida internacionalmente, destacada en Forbes Style & Beauty, Diario de México y nombrada una de las Mujeres Más Poderosas de Latinoamérica en el Women's Summit.</p>
+      <p class="about-text block-en">With 42K+ followers and hundreds of stunning transformations, Anabel creates brows tailored to your unique face shape and style.</p>
+      <p class="about-text block-es">Con más de 42K seguidoras y cientos de transformaciones impresionantes, Anabel crea cejas adaptadas a tu rostro y estilo único.</p>
+      <div class="about-badges">
+        <span class="badge">Forbes</span>
+        <span class="badge">Diario de México</span>
+        <span class="badge">Women's Summit</span>
+        <span class="badge">Morpheus8</span>
+        <span class="badge">ELLE</span>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- GALLERY -->
-<section class="gallery" id="gallery">
-  <div class="section-header">
-    <span class="section-label">✦ <span data-lang="en">Portfolio</span><span data-lang="es">Portafolio</span></span>
-    <h2 class="section-title"><span data-lang="en">The <em>Work</em></span><span data-lang="es">El <em>Trabajo</em></span></h2>
-  </div>
-  <div class="gallery-grid">
-    <div class="gallery-item" style="background:linear-gradient(135deg,#1a1a1a,#2a2020);">
-      <span style="font-size:1.5rem;">✦</span>
-      <span style="font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:#c9a96e;opacity:0.8;">Micropigmentación</span>
-    </div>
-    <div class="gallery-item" style="background:linear-gradient(135deg,#1a1812,#2a2515);">
-      <span style="font-size:1.5rem;">◈</span>
-      <span style="font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:#c9a96e;opacity:0.8;">Brow Lamination</span>
-    </div>
-    <div class="gallery-item" style="background:linear-gradient(135deg,#121a1a,#152525);">
-      <span style="font-size:1.5rem;">◇</span>
-      <span style="font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:#c9a96e;opacity:0.8;"><span data-lang="en">Natural Design</span><span data-lang="es">Diseño Natural</span></span>
-    </div>
-    <div class="gallery-item" style="background:linear-gradient(135deg,#1a1a1a,#201a20);">
-      <span style="font-size:1.5rem;">✧</span>
-      <span style="font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:#c9a96e;opacity:0.8;"><span data-lang="en">Before & After</span><span data-lang="es">Antes y Después</span></span>
-    </div>
-    <div class="gallery-item" style="background:linear-gradient(135deg,#1a1812,#201e10);">
-      <span style="font-size:1.5rem;">⬡</span>
-      <span style="font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:#c9a96e;opacity:0.8;"><span data-lang="en">Precision Waxing</span><span data-lang="es">Depilación</span></span>
-    </div>
-    <div class="gallery-item" style="background:linear-gradient(135deg,#121518,#151a20);">
-      <span style="font-size:1.5rem;">✦</span>
-      <span style="font-size:0.55rem;letter-spacing:2px;text-transform:uppercase;color:#c9a96e;opacity:0.8;"><span data-lang="en">Brow Tinting</span><span data-lang="es">Tinte de Cejas</span></span>
-    </div>
-  </div>
-  <p style="text-align:center;margin-top:30px;font-size:0.65rem;letter-spacing:2px;opacity:0.4;text-transform:uppercase;"><span data-lang="en">Follow @thebrow_queen_ on Instagram to see all transformations</span><span data-lang="es">Sigue @thebrow_queen_ en Instagram para ver todas las transformaciones</span></p>
-</section>
-
-<!-- PARTNER -->
-<div style="background:#0f0f0f;padding:30px 40px;text-align:center;border-bottom:1px solid rgba(201,169,110,0.1);">
-  <p style="font-size:0.55rem;letter-spacing:4px;text-transform:uppercase;color:#c9a96e;opacity:0.5;margin-bottom:15px;">✦ <span data-lang="en">Official Partner</span><span data-lang="es">Socia Oficial</span></p>
-  <span style="font-family:'Montserrat',sans-serif;font-size:0.9rem;letter-spacing:4px;text-transform:uppercase;color:#e8e0d8;opacity:0.6;">MORPHEUS8 · INMODE · ELLE</span>
-</div>
 
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
-  <div class="section-header">
-    <span class="section-label">✦ <span data-lang="en">Client Love</span><span data-lang="es">Lo Que Dicen</span></span>
-    <h2 class="section-title"><span data-lang="en">What They <em>Say</em></span><span data-lang="es">Sus <em>Opiniones</em></span></h2>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <div class="testimonial-quote">"</div>
-      <p class="testimonial-text block-en">Anabel is absolutely the best! My brows have never looked this good. She took the time to understand exactly what I wanted and delivered beyond my expectations.</p>
-      <p class="testimonial-text block-es">¡Anabel es absolutamente la mejor! Mis cejas nunca habían lucido tan bien. Se tomó el tiempo para entender exactamente lo que quería y superó mis expectativas.</p>
-      <span class="testimonial-author">— Maria G., Orlando</span>
+  <p class="section-tag">✦ <span data-lang="en">Client Love</span><span data-lang="es">Lo Que Dicen</span></p>
+  <h2 class="section-title"><span data-lang="en">Happy Clients</span><span data-lang="es">Clientas Felices</span></h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text block-en">"Anabel is absolutely the best! My brows have never looked this good. She exceeded every expectation."</p>
+      <p class="testi-text block-es">"¡Anabel es absolutamente la mejor! Mis cejas nunca habían lucido tan bien. Superó todas mis expectativas."</p>
+      <span class="testi-author">— Maria G., Orlando</span>
     </div>
-    <div class="testimonial-card">
-      <div class="testimonial-quote">"</div>
-      <p class="testimonial-text block-en">I drove 2 hours to see her and it was 100% worth it. The micropigmentation looks so natural — everyone thinks they're my real brows. Life-changing!</p>
-      <p class="testimonial-text block-es">Manejé 2 horas para verla y valió 100% la pena. La micropigmentación se ve tan natural — todos creen que son mis cejas reales. ¡Un antes y después en mi vida!</p>
-      <span class="testimonial-author">— Stephanie R., Miami</span>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text block-en">"I drove 2 hours and it was 100% worth it. The micropigmentation looks so natural — life changing!"</p>
+      <p class="testi-text block-es">"Manejé 2 horas y valió 100% la pena. La micropigmentación se ve tan natural. ¡Un cambio de vida!"</p>
+      <span class="testi-author">— Stephanie R., Miami</span>
     </div>
-    <div class="testimonial-card">
-      <div class="testimonial-quote">"</div>
-      <p class="testimonial-text block-en">Forbes featured her for a reason. She's an artist. My brow lamination looks incredible and lasted so much longer than anywhere else I've been.</p>
-      <p class="testimonial-text block-es">Forbes la destacó por algo. Es una artista. Mi laminación de cejas se ve increíble y duró mucho más que en cualquier otro lugar al que haya ido.</p>
-      <span class="testimonial-author">— Camila V., Tampa</span>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text block-en">"Forbes featured her for a reason. She's an artist. My lamination lasted so much longer than anywhere else."</p>
+      <p class="testi-text block-es">"Forbes la destacó por algo. Es una artista. Mi laminación duró mucho más que en cualquier otro lugar."</p>
+      <span class="testi-author">— Camila V., Tampa</span>
     </div>
   </div>
 </section>
 
 <!-- BOOKING -->
 <section class="booking" id="booking">
-  <div class="booking-content">
-    <span class="section-label">✦ <span data-lang="en">Ready for Your Transformation?</span><span data-lang="es">¿Lista para tu Transformación?</span></span>
-    <h2 class="booking-title"><span data-lang="en">Book Your<br/><em>Appointment</em></span><span data-lang="es">Reserva tu<br/><em>Cita</em></span></h2>
-    <p class="booking-sub">Deerfield Shopping Center</p>
-    <p class="booking-address">📍 12701 S John Young Pkwy, Orlando, FL</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://wa.me/14072323727?text=Hola%20Anabel!%20Me%20gustar%C3%ADa%20reservar%20una%20cita%20con%20The%20Brow%20Queen!" target="_blank" class="btn-primary" style="background:#25D366;color:#fff;">💬 WhatsApp</a>
-      <a href="https://www.instagram.com/thebrow_queen_/" target="_blank" class="btn-primary">📸 Instagram</a>
-      <a href="tel:+1" class="btn-outline">📞 <span data-lang="en">Call</span><span data-lang="es">Llamar</span></a>
-    </div>
+  <p class="section-tag">✦ <span data-lang="en">Ready for Your Transformation?</span><span data-lang="es">¿Lista para tu Transformación?</span></p>
+  <h2 class="booking-title"><span data-lang="en">Book Your Appointment</span><span data-lang="es">Agenda Tu Cita</span></h2>
+  <p class="booking-sub">Deerfield Shopping Center</p>
+  <p class="booking-address">📍 12701 S John Young Pkwy, Orlando, FL</p>
+  <div class="booking-btns">
+    <a href="https://wa.me/14072323727?text=Hola%20Anabel!%20Quiero%20agendar%20mi%20cita%20con%20Brow%20Queen!" target="_blank" class="btn-wa">💬 WhatsApp</a>
+    <a href="https://www.instagram.com/thebrow_queen_/" target="_blank" class="btn-ig">📸 Instagram</a>
+    <a href="tel:+14072323727" class="btn-call">📞 <span data-lang="en">Call Us</span><span data-lang="es">Llámanos</span></a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer id="contact">
-  <div class="footer-top">
+  <div class="footer-inner">
     <div>
-      <div class="footer-brand">The Brow Queen</div>
-      <p class="footer-tagline block-en">Luxury brow artistry in Orlando, FL.<br/>Forbes-featured. 42K+ followers.<br/>Results that speak for themselves.</p>
-      <p class="footer-tagline block-es">Arte de cejas de lujo en Orlando, FL.<br/>Destacada en Forbes. +42K seguidores.<br/>Resultados que hablan por sí solos.</p>
+      <div class="footer-brand">Brow Queen 👑</div>
+      <p class="footer-tag block-en">Luxury brow artistry by Anabel Gómez.<br/>Forbes-featured · 42K+ followers · Orlando, FL</p>
+      <p class="footer-tag block-es">Arte de cejas de lujo por Anabel Gómez.<br/>Destacada en Forbes · +42K seguidoras · Orlando, FL</p>
     </div>
     <div>
       <p class="footer-heading"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></p>
-      <ul class="footer-links">
+      <ul class="footer-list">
         <li>Micropigmentación</li>
         <li>Brow Lamination</li>
-        <li><span data-lang="en">Precision Waxing</span><span data-lang="es">Depilación de Precisión</span></li>
-        <li><span data-lang="en">Brow Tinting</span><span data-lang="es">Tinte de Cejas</span></li>
+        <li><span data-lang="en">Henna Brows</span><span data-lang="es">Cejas con Henna</span></li>
+        <li><span data-lang="en">Waxing</span><span data-lang="es">Depilación</span></li>
       </ul>
     </div>
     <div>
-      <p class="footer-heading"><span data-lang="en">Find Us</span><span data-lang="es">Encuéntranos</span></p>
-      <ul class="footer-links">
-        <li>Deerfield Shopping Center</li>
-        <li>12701 S John Young Pkwy</li>
+      <p class="footer-heading"><span data-lang="en">Contact</span><span data-lang="es">Contacto</span></p>
+      <ul class="footer-list">
+        <li>📍 12701 S John Young Pkwy</li>
         <li>Orlando, FL</li>
+        <li>📞 (407) 232-3727</li>
         <li>@thebrow_queen_</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 The Brow Queen · <span data-lang="en">All Rights Reserved</span><span data-lang="es">Todos los Derechos Reservados</span></span>
+    <span>© 2025 Brow Queen · Anabel Gómez</span>
     <span><span data-lang="en">Website by</span><span data-lang="es">Página Web por</span> JF Web Studios</span>
   </div>
 </footer>
 
 <!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/14072323727?text=Hola%20Anabel!%20Me%20gustar%C3%ADa%20reservar%20una%20cita%20con%20The%20Brow%20Queen!" target="_blank"
-   style="position:fixed;bottom:30px;right:30px;z-index:999;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;box-shadow:0 4px 20px rgba(37,211,102,0.4);text-decoration:none;transition:transform 0.2s;"
-   onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-  💬
-</a>
+<a href="https://wa.me/14072323727?text=Hola%20Anabel!%20Quiero%20agendar%20mi%20cita%20con%20Brow%20Queen!" target="_blank" class="float-wa">💬</a>
 
-<!-- LANG SCRIPT -->
 <script>
   function setLang(lang) {
     document.body.classList.remove('en', 'es');
