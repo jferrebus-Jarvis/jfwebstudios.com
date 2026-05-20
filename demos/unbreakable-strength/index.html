@@ -3,178 +3,349 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unbreakable Strength & Athletic Development — Katy, TX</title>
+  <title>Unbreakable Strength LLC — Elite Athletic Development | Katy, TX</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --gold: #C9920A; --black: #0a0a0a; --dark: #111111; }
-    body { font-family: 'Inter', sans-serif; background: #222; color: var(--black); }
-    nav { position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.97); backdrop-filter: blur(8px); z-index: 100; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 1px; }
-    .logo span { color: var(--gold); }
+    :root { --gold: #C9920A; --gold-light: #FFD700; --black: #0a0a0a; --dark: #111111; --dark2: #1a1a1a; }
+    body { font-family: 'Inter', sans-serif; background: var(--dark); color: #fff; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.97); backdrop-filter: blur(10px); z-index: 100; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(201,146,10,0.2); }
+    .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+    .logo span { color: var(--gold-light); }
     .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
-    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-    .nav-cta { background: var(--gold) !important; color: #fff !important; padding: 10px 22px; border-radius: 4px; }
-    .hero { min-height: 100vh; background: linear-gradient(to right, rgba(10,10,10,0.95) 55%, rgba(10,10,10,0.5) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') right/cover; display: flex; align-items: center; padding: 120px 60px 60px; color: #fff; }
-    .hero-content { max-width: 640px; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,146,10,0.18); border: 1px solid rgba(201,146,10,0.5); color: #FFD700; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 20px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
-    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(48px, 7vw, 80px); font-weight: 900; line-height: 1.0; margin-bottom: 20px; text-transform: uppercase; }
-    .hero h1 span { color: var(--gold); }
-    .hero p { font-size: 17px; opacity: 0.75; margin-bottom: 36px; line-height: 1.7; font-weight: 300; }
-    .credentials { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
-    .cred-badge { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
-    .btn-gold { background: var(--gold); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
-    .btn-ghost { border: 2px solid rgba(255,255,255,0.35); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
-    .stats { display: flex; gap: 36px; flex-wrap: wrap; }
-    .stat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; color: var(--gold); }
-    .stat .label { font-size: 12px; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px; }
-    .about { padding: 90px 40px; background: var(--dark); color: #fff; }
-    .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .about-img img { width: 100%; border-radius: 8px; object-fit: cover; height: 500px; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-cta { background: linear-gradient(135deg, #B8860B, #FFD700) !important; color: #000 !important; padding: 10px 22px; border-radius: 4px; font-weight: 700 !important; }
+
+    /* HERO */
+    .hero { min-height: 100vh; background: linear-gradient(to right, rgba(10,10,10,0.97) 50%, rgba(10,10,10,0.6) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') right/cover; display: flex; align-items: center; padding: 130px 60px 60px; }
+    .hero-content { max-width: 660px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,146,10,0.15); border: 1px solid rgba(201,146,10,0.45); color: var(--gold-light); font-size: 12px; font-weight: 700; padding: 8px 18px; border-radius: 20px; margin-bottom: 28px; text-transform: uppercase; letter-spacing: 1.5px; }
+    .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(52px, 7vw, 88px); font-weight: 900; line-height: 0.95; margin-bottom: 24px; text-transform: uppercase; }
+    .hero h1 .gold { background: linear-gradient(135deg, #B8860B, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 16px; color: rgba(255,255,255,0.65); margin-bottom: 20px; line-height: 1.7; font-weight: 300; }
+    .hero-tagline { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 32px; font-style: italic; }
+
+    /* CREDENTIAL BADGES */
+    .credentials { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+    .cred-badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.8); font-size: 11px; font-weight: 600; padding: 6px 14px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* BUTTONS */
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; }
+    .btn-gold { background: linear-gradient(135deg, #B8860B 0%, #FFD700 100%); color: #0a0a0a; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.2s; }
+    .btn-gold:hover { opacity: 0.9; }
+    .btn-ghost { border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; transition: border-color 0.2s; }
+    .btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+    /* STATS */
+    .stats { display: flex; gap: 40px; flex-wrap: wrap; }
+    .stat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 38px; font-weight: 900; color: var(--gold-light); line-height: 1; }
+    .stat .label { font-size: 11px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }
+
+    /* PROS TICKER */
+    .pros-bar { background: linear-gradient(90deg, #B8860B, #C9920A, #FFD700, #C9920A, #B8860B); padding: 16px 40px; overflow: hidden; }
+    .pros-bar-inner { display: flex; gap: 60px; animation: scroll 20s linear infinite; white-space: nowrap; }
+    .pros-bar span { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: #0a0a0a; text-transform: uppercase; letter-spacing: 2px; }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* CLIENTS / SOCIAL PROOF */
+    .clients { padding: 80px 40px; background: var(--dark2); }
+    .clients-inner { max-width: 1100px; margin: 0 auto; }
     .section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
-    .about-text h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
+    .clients h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 46px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; }
+    .clients-sub { color: rgba(255,255,255,0.55); font-size: 15px; margin-bottom: 50px; }
+    .clients-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .client-card { background: #111; border: 1px solid rgba(201,146,10,0.25); border-radius: 12px; padding: 30px; position: relative; overflow: hidden; }
+    .client-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #B8860B, #FFD700); }
+    .client-sport { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+    .client-name { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 900; color: #fff; margin-bottom: 6px; text-transform: uppercase; }
+    .client-org { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+    .client-desc { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+    .client-emoji { font-size: 36px; margin-bottom: 12px; }
+
+    /* ABOUT */
+    .about { padding: 90px 40px; background: var(--dark); }
+    .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-img { position: relative; }
+    .about-img img { width: 100%; border-radius: 8px; object-fit: cover; height: 520px; border: 2px solid rgba(201,146,10,0.3); }
+    .ig-badge { position: absolute; bottom: 20px; left: 20px; background: rgba(10,10,10,0.9); border: 1px solid rgba(201,146,10,0.4); border-radius: 8px; padding: 12px 18px; }
+    .ig-badge span { font-size: 13px; color: var(--gold-light); font-weight: 700; display: block; }
+    .ig-badge small { font-size: 11px; color: rgba(255,255,255,0.5); }
+    .about-text h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 50px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; line-height: 1.0; }
     .about-text p { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
     .cert-list { list-style: none; margin-top: 24px; }
-    .cert-list li { color: rgba(255,255,255,0.8); font-size: 14px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 10px; }
-    .cert-list li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 16px; }
-    .services { padding: 90px 40px; background: #1a1a1a; }
+    .cert-list li { color: rgba(255,255,255,0.8); font-size: 14px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 12px; }
+    .cert-list li::before { content: '✦'; color: var(--gold-light); font-size: 12px; }
+
+    /* PROGRAMS */
+    .services { padding: 90px 40px; background: var(--dark2); }
     .services-inner { max-width: 1100px; margin: 0 auto; }
     .services h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; }
-    .services-sub { color: rgba(255,255,255,0.6); margin-bottom: 50px; font-size: 15px; }
+    .services-sub { color: rgba(255,255,255,0.55); margin-bottom: 50px; font-size: 15px; }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .service-card { background: #222; border-radius: 12px; box-shadow: 0 2px 15px rgba(0,0,0,0.4); border-top: 4px solid var(--gold); transition: transform 0.2s; padding: 26px; }
-    .service-card:hover { transform: translateY(-4px); }
-    .service-icon { font-size: 32px; margin-bottom: 14px; }
-    .service-card h3 { color: #fff; }  .service-card h3_ORIG { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+    .service-card { background: #111; border-radius: 12px; border-top: 4px solid var(--gold); transition: transform 0.2s, border-color 0.2s; padding: 28px; }
+    .service-card:hover { transform: translateY(-5px); border-top-color: var(--gold-light); }
+    .service-icon { font-size: 34px; margin-bottom: 16px; }
+    .service-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; color: #fff; }
     .service-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
-    .results { padding: 90px 40px; background: var(--dark); color: #fff; text-align: center; }
+
+    /* RESULTS */
+    .results { padding: 90px 40px; background: var(--dark); text-align: center; }
     .results h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; }
-    .results-sub { color: rgba(255,255,255,0.6); margin-bottom: 60px; font-size: 15px; }
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
-    .result-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 36px 24px; }
-    .result-num { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 8px; }
-    .result-label { font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
-    .cta { background: linear-gradient(135deg, #B8860B 0%, #FFD700 50%, #B8860B 100%); color: #1a1a1a; padding: 90px 40px; text-align: center; }
-    .cta h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 54px; font-weight: 900; margin-bottom: 14px; text-transform: uppercase; line-height: 1.1; }
-    .cta p { font-size: 17px; opacity: 0.85; margin-bottom: 36px; }
-    .cta-btn { display: inline-block; background: #222; color: var(--gold); padding: 18px 50px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 18px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
-    .contact-strip { background: var(--black); padding: 40px; }
+    .results-sub { color: rgba(255,255,255,0.55); margin-bottom: 60px; font-size: 15px; }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+    .result-card { background: rgba(201,146,10,0.08); border: 1px solid rgba(201,146,10,0.25); border-radius: 12px; padding: 36px 20px; }
+    .result-num { font-family: 'Barlow Condensed', sans-serif; font-size: 54px; font-weight: 900; background: linear-gradient(135deg, #B8860B, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 8px; }
+    .result-label { font-size: 13px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 1px; }
+
+    /* CTA */
+    .cta { background: linear-gradient(135deg, #0a0a0a 0%, #1a1400 50%, #0a0a0a 100%); border-top: 1px solid rgba(201,146,10,0.3); border-bottom: 1px solid rgba(201,146,10,0.3); color: #fff; padding: 90px 40px; text-align: center; }
+    .cta-gold-line { width: 60px; height: 3px; background: linear-gradient(90deg, #B8860B, #FFD700); margin: 0 auto 30px; border-radius: 2px; }
+    .cta h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 58px; font-weight: 900; margin-bottom: 14px; text-transform: uppercase; line-height: 1.05; }
+    .cta h2 span { background: linear-gradient(135deg, #B8860B, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta p { font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn { display: inline-block; background: linear-gradient(135deg, #B8860B 0%, #FFD700 100%); color: #0a0a0a; padding: 18px 50px; border-radius: 4px; text-decoration: none; font-weight: 900; font-size: 18px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+    .cta-btn-outline { display: inline-block; border: 2px solid rgba(201,146,10,0.6); color: var(--gold-light); padding: 18px 50px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 18px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* CONTACT */
+    .contact-strip { background: #050505; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
     .contact-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center; color: #fff; }
-    .c-item .icon { font-size: 24px; margin-bottom: 8px; }
-    .c-item h4 { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.5; margin-bottom: 6px; }
-    .c-item p { font-size: 14px; font-weight: 600; }
-    .c-item a { color: #fff; text-decoration: none; }
-    footer { background: var(--black); color: rgba(255,255,255,0.3); text-align: center; padding: 24px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .c-item .icon { font-size: 22px; margin-bottom: 8px; }
+    .c-item h4 { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+    .c-item p, .c-item a { font-size: 14px; font-weight: 600; color: #fff; text-decoration: none; }
+    footer { background: #050505; color: rgba(255,255,255,0.25); text-align: center; padding: 24px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.04); }
     footer span { color: var(--gold); }
+
     @media (max-width: 768px) {
       .hero { padding: 100px 24px 50px; }
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
       .about-inner { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+
   <nav>
     <div class="logo">UNBREAKABLE <span>STRENGTH</span></div>
     <ul class="nav-links">
-      <li><a href="#about">About Coach Paul</a></li>
+      <li><a href="#clients">Pro Clients</a></li>
+      <li><a href="#about">Coach Paul</a></li>
       <li><a href="#services">Programs</a></li>
-      <li><a href="#results">Results</a></li>
-      <li><a href="mailto:info@lonestarath.com" class="nav-cta">Get Started</a></li>
+      <li><a href="mailto:info@lonestarath.com" class="nav-cta">Start Training</a></li>
     </ul>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">🏋️ Katy, TX — Elite Athletic Development</div>
-      <h1>Train Like<br>An <span>Athlete.</span><br>Perform Like One.</h1>
-      <p>Science-based strength and conditioning for athletes and everyday champions. Custom programming. Real results. No excuses.</p>
+      <div class="hero-badge">💪 Strength Coach — Pros & Rising Athletes</div>
+      <h1>Where <span class="gold">Champions</span><br>Are Built.</h1>
+      <p class="hero-sub">Elite strength and conditioning for professional athletes, college prospects, and those who refuse to settle. Backed by science. Proven by results.</p>
+      <p class="hero-tagline">🔥 Backed by Science | Proven Results</p>
       <div class="credentials">
         <span class="cred-badge">BS — Bachelor of Science</span>
         <span class="cred-badge">CSCS Certified</span>
-        <span class="cred-badge">Strength & Conditioning Specialist</span>
+        <span class="cred-badge">Pro & College Athletes</span>
+        <span class="cred-badge">Katy, TX</span>
       </div>
       <div class="hero-btns">
-        <a href="mailto:info@lonestarath.com" class="btn-gold">🏆 Start Training</a>
-        <a href="#services" class="btn-ghost">View Programs</a>
+        <a href="mailto:info@lonestarath.com" class="btn-gold">🏆 Start Training Now</a>
+        <a href="#clients" class="btn-ghost">See Pro Clients</a>
       </div>
       <div class="stats">
-        <div class="stat"><div class="num">100+</div><div class="label">Athletes Trained</div></div>
-        <div class="stat"><div class="num">CSCS</div><div class="label">Certified Coach</div></div>
-        <div class="stat"><div class="num">5★</div><div class="label">Rated Coach</div></div>
+        <div class="stat"><div class="num">1,000+</div><div class="label">Followers</div></div>
+        <div class="stat"><div class="num">Pro</div><div class="label">Level Clients</div></div>
+        <div class="stat"><div class="num">CSCS</div><div class="label">Certified</div></div>
       </div>
     </div>
   </section>
 
+  <!-- SCROLLING TICKER -->
+  <div class="pros-bar">
+    <div class="pros-bar-inner">
+      <span>⭐ Pro Boxer Lorenzo "Truck" Simpson</span>
+      <span>⚾ Ronaiker Palma — Colorado Rockies</span>
+      <span>💪 College Athlete Performance Program</span>
+      <span>🏋️ Road to 4.0 — Speed & Agility</span>
+      <span>🔥 Science-Based Training</span>
+      <span>⭐ Pro Boxer Lorenzo "Truck" Simpson</span>
+      <span>⚾ Ronaiker Palma — Colorado Rockies</span>
+      <span>💪 College Athlete Performance Program</span>
+      <span>🏋️ Road to 4.0 — Speed & Agility</span>
+      <span>🔥 Science-Based Training</span>
+    </div>
+  </div>
+
+  <!-- PRO CLIENTS -->
+  <section class="clients" id="clients">
+    <div class="clients-inner">
+      <p class="section-tag">Real Clients. Real Results.</p>
+      <h2>Trusted By Professionals</h2>
+      <p class="clients-sub">Coach Paul doesn't just train athletes — he builds careers. Here's who he's worked with.</p>
+      <div class="clients-grid">
+        <div class="client-card">
+          <div class="client-emoji">🥊</div>
+          <div class="client-sport">Professional Boxing</div>
+          <div class="client-name">Lorenzo "Truck" Simpson</div>
+          <div class="client-org">Pro Boxer — Featured on Prime Time</div>
+          <p class="client-desc">Professional heavyweight boxer trained by Coach Paul for elite performance. Strength, conditioning, and explosive power — built right here at Unbreakable Strength.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-emoji">⚾</div>
+          <div class="client-sport">MLB — Professional Baseball</div>
+          <div class="client-name">Ronaiker Palma</div>
+          <div class="client-org">Colorado Rockies</div>
+          <p class="client-desc">Major League Baseball player who trusted Coach Paul's proven system to develop the strength, speed, and athleticism needed to compete at the highest level in professional baseball.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-emoji">🎓</div>
+          <div class="client-sport">College Athlete Program</div>
+          <div class="client-name">Built For College Athletes</div>
+          <div class="client-org">Sport-Specific | Custom Programming | Injury Mitigation</div>
+          <p class="client-desc">Limited summer training spots available. If you're a college athlete who wants more — faster, stronger, more explosive — this program was built for you. DM "COLLEGE" to get started.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
   <section class="about" id="about">
     <div class="about-inner">
       <div class="about-img">
         <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800" alt="Coach Paul Training">
+        <div class="ig-badge">
+          <span>@unbreakable.strength_</span>
+          <small>1,019 followers on Instagram</small>
+        </div>
       </div>
       <div class="about-text">
         <p class="section-tag">Meet Your Coach</p>
-        <h2>Coach Paul<br>Leads the Way</h2>
-        <p>Coach Paul is a Bachelor of Science graduate and a Certified Strength & Conditioning Specialist (CSCS) with a passion for developing athletes at every level — from high school players to adult fitness warriors.</p>
-        <p>Every program is built around your goals, your body, and your timeline. No cookie-cutter workouts. Just results.</p>
+        <h2>Coach Paul.<br><span style="color:var(--gold-light)">No Shortcuts.</span></h2>
+        <p>Coach Paul is the founder of Unbreakable Strength LLC — an elite performance training company based in Katy, TX. He holds a Bachelor of Science degree and is a Certified Strength & Conditioning Specialist (CSCS).</p>
+        <p>His client roster speaks for itself: Professional boxer Lorenzo "Truck" Simpson and MLB Colorado Rockies player Ronaiker Palma have both trusted Coach Paul to build the performance edge that separates good athletes from great ones.</p>
+        <p>Whether you're a pro, a college prospect, or a serious athlete ready to level up — Coach Paul builds programs that deliver real, measurable results.</p>
         <ul class="cert-list">
-          <li>Bachelor of Science (BS) Degree</li>
-          <li>Certified Strength & Conditioning Specialist (CSCS)</li>
-          <li>Custom Programming for All Levels</li>
-          <li>Sport Specific Training</li>
-          <li>Injury Mitigation & Prevention</li>
-          <li>Increase Strength, Power & Speed</li>
+          <li>Bachelor of Science — Exercise Science</li>
+          <li>CSCS — Certified Strength & Conditioning Specialist</li>
+          <li>Trains Professional & College-Level Athletes</li>
+          <li>Sport-Specific Programming & Injury Mitigation</li>
+          <li>Boxing, Baseball, Football & Multi-Sport Athletes</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- PROGRAMS -->
   <section class="services" id="services">
     <div class="services-inner">
       <p class="section-tag">What We Offer</p>
       <h2>Training Programs</h2>
-      <p class="services-sub">Built for athletes. Designed for results.</p>
+      <p class="services-sub">Every program is custom-built around your sport, your goals, and your body.</p>
       <div class="services-grid">
-        <div class="service-card"><div class="service-icon">🏈</div><h3>Sport Specific Training</h3><p>Tailored programs for football, basketball, baseball, and more. We train the movements, speed, and power your sport demands.</p></div>
-        <div class="service-card"><div class="service-icon">⚡</div><h3>Strength & Power</h3><p>Science-based programming to maximize your strength, explosive power, and athletic performance on the field or in the gym.</p></div>
-        <div class="service-card"><div class="service-icon">🛡️</div><h3>Injury Mitigation</h3><p>Movement screening and corrective programming to keep you healthy, reduce injury risk, and extend your athletic career.</p></div>
-        <div class="service-card"><div class="service-icon">📋</div><h3>Custom Programming</h3><p>Fully individualized training plans delivered to your phone. Train on your schedule, with a program built just for you.</p></div>
-        <div class="service-card"><div class="service-icon">🎓</div><h3>College Prep</h3><p>We prepare high school athletes for college combines, showcases, and D1 tryouts.</p></div>
-        <div class="service-card"><div class="service-icon">🏃</div><h3>Speed & Agility</h3><p>Improve your 40-yard dash, lateral quickness, and first-step explosiveness with targeted speed development training.</p></div>
+        <div class="service-card">
+          <div class="service-icon">🏋️</div>
+          <h3>1-on-1 Private Training</h3>
+          <p>Fully personalized sessions built around your sport and goals. Direct coaching from Coach Paul with real-time feedback and custom weekly programming.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎓</div>
+          <h3>College Athlete Performance</h3>
+          <p>Built specifically for college athletes who want more. Sport-specific testing, custom programming, and injury mitigation. Limited summer spots available.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏃</div>
+          <h3>Road to 4.0 — Speed Program</h3>
+          <p>Explosive speed and agility development for athletes chasing their fastest 40-yard dash. Proven results: 0.869 second improvements, 11.8 MPH top speed gains.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🥊</div>
+          <h3>Boxing & Combat S&C</h3>
+          <p>Strength and conditioning designed for combat athletes. Power, explosiveness, endurance, and fight-specific conditioning at the professional level.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚾</div>
+          <h3>Baseball Athletic Development</h3>
+          <p>From high school prospects to MLB-level players. Rotational power, arm strength, and full-body conditioning built for the diamond.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Online Programming</h3>
+          <p>Custom training plans delivered remotely for athletes who need elite programming without geographic limits. Check-ins, video review, and ongoing adjustments included.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- RESULTS -->
   <section class="results" id="results">
-    <p class="section-tag">The Numbers</p>
+    <p class="section-tag" style="color:var(--gold)">The Numbers</p>
     <h2>Results That Speak</h2>
-    <p class="results-sub">Athletes we've developed — from youth to college level</p>
+    <p class="results-sub">Real metrics from real athletes trained by Coach Paul.</p>
     <div class="results-grid">
-      <div class="result-card"><div class="result-num">100+</div><div class="result-label">Athletes Trained</div></div>
-      <div class="result-card"><div class="result-num">0.869s</div><div class="result-label">10-Yard Split</div></div>
-      <div class="result-card"><div class="result-num">11.8mph</div><div class="result-label">Top Speed</div></div>
-      <div class="result-card"><div class="result-num">D1</div><div class="result-label">Athletes Developed</div></div>
+      <div class="result-card">
+        <div class="result-num">2+</div>
+        <div class="result-label">Pro Athletes Trained</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">MLB</div>
+        <div class="result-label">Level Clientele</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">0.86s</div>
+        <div class="result-label">Speed Improvement</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num">CSCS</div>
+        <div class="result-label">Certified Coach</div>
+      </div>
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="cta">
-    <h2>Ready to Become<br>Unbreakable?</h2>
-    <p>Limited spots available. Serious athletes only.</p>
-    <a href="mailto:info@lonestarath.com" class="cta-btn">📧 Contact Coach Paul</a>
+    <div class="cta-gold-line"></div>
+    <h2>Ready to Train Like<br>A <span>Pro?</span></h2>
+    <p>Limited spots available. Book your first session with Coach Paul today.</p>
+    <div class="cta-btns">
+      <a href="mailto:info@lonestarath.com" class="cta-btn">📧 Email Coach Paul</a>
+      <a href="https://www.instagram.com/unbreakable.strength_" target="_blank" class="cta-btn-outline">📸 Follow on Instagram</a>
+    </div>
   </section>
 
-  <div class="contact-strip" id="contact">
+  <!-- CONTACT -->
+  <div class="contact-strip">
     <div class="contact-inner">
-      <div class="c-item"><div class="icon">📍</div><h4>Location</h4><p>5018 East 5th Street<br>Katy, TX 77493</p></div>
-      <div class="c-item"><div class="icon">📧</div><h4>Email</h4><p><a href="mailto:info@lonestarath.com">info@lonestarath.com</a></p></div>
-      <div class="c-item"><div class="icon">📱</div><h4>Instagram</h4><p><a href="https://instagram.com/unbreakable.strength_" target="_blank">@unbreakable.strength_</a></p></div>
-      <div class="c-item"><div class="icon">📞</div><h4>Phone / Text</h4><p><a href="sms:8323410422">(832) 341-0422</a></p></div>
+      <div class="c-item">
+        <div class="icon">📍</div>
+        <h4>Location</h4>
+        <p>Katy, TX 77493</p>
+      </div>
+      <div class="c-item">
+        <div class="icon">📧</div>
+        <h4>Email</h4>
+        <p><a href="mailto:info@lonestarath.com">info@lonestarath.com</a></p>
+      </div>
+      <div class="c-item">
+        <div class="icon">📱</div>
+        <h4>Instagram</h4>
+        <p><a href="https://www.instagram.com/unbreakable.strength_" target="_blank">@unbreakable.strength_</a></p>
+      </div>
+      <div class="c-item">
+        <div class="icon">🌐</div>
+        <h4>Linktree</h4>
+        <p><a href="https://linktr.ee/unbreakable_strength" target="_blank">linktr.ee/unbreakable_strength</a></p>
+      </div>
     </div>
   </div>
 
   <footer>
-    <p>© 2025 <span>Unbreakable Strength & Athletic Development</span> · Katy, TX · Demo site built by <span>JF Web Studios</span></p>
+    <p>© 2026 <span>Unbreakable Strength LLC</span> — Katy, TX. All rights reserved. | Website by <span>JF Web Studios</span></p>
   </footer>
+
 </body>
 </html>
