@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthony The Barber | Houston, TX</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #0d0d0d; color: #fff; }
+  .lang-toggle { position: fixed; top: 15px; right: 20px; z-index: 999; display: flex; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 3px; }
+  .lang-btn { padding: 5px 14px; border-radius: 17px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s; background: transparent; color: #fff; }
+  .lang-btn.active { background: #e74c3c; color: #fff; }
+  .hero { min-height: 100vh; background: linear-gradient(160deg, #0d0d0d 0%, #1a0000 70%, #2d0000 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; }
+  .rating-badge { background: rgba(231,76,60,0.2); border: 1px solid #e74c3c; padding: 8px 20px; border-radius: 20px; font-size: 13px; color: #e74c3c; font-weight: 700; margin-bottom: 25px; letter-spacing: 1px; }
+  .hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; margin-bottom: 10px; }
+  .hero h1 .highlight { color: #e74c3c; }
+  .tagline { font-size: 1.3rem; opacity: 0.7; margin-bottom: 15px; font-style: italic; }
+  .stars { color: #FFD700; font-size: 1.5rem; margin-bottom: 25px; }
+  .perfect { color: #FFD700; font-weight: 700; font-size: 0.9rem; letter-spacing: 2px; }
+  .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 25px; }
+  .btn-primary { background: #e74c3c; color: #fff; padding: 16px 40px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
+  .btn-secondary { border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 16px 40px; border-radius: 30px; font-weight: 700; font-size: 1.1rem; text-decoration: none; }
+  .services { background: #111; padding: 80px 20px; }
+  .section-title { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 50px; }
+  .section-title span { color: #e74c3c; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+  .scard { background: #1a1a1a; border-radius: 12px; padding: 30px; text-align: center; border-bottom: 3px solid #e74c3c; }
+  .scard .icon { font-size: 2.8rem; margin-bottom: 15px; }
+  .scard h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
+  .scard p { color: #777; font-size: 0.9rem; line-height: 1.5; }
+  .scard .price { color: #e74c3c; font-weight: 800; font-size: 1.2rem; margin-top: 12px; }
+  .cta-section { background: #e74c3c; padding: 80px 20px; text-align: center; }
+  .cta-section h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; }
+  .cta-section p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
+  .info-bar { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 35px; font-size: 1rem; font-weight: 600; }
+  .book-btn { background: #fff; color: #e74c3c; padding: 18px 55px; border-radius: 35px; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: inline-block; }
+  footer { background: #050505; padding: 25px; text-align: center; color: #444; font-size: 0.85rem; }
+  .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 999; }
+</style>
+</head>
+<body>
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('es')">ES</button>
+</div>
+<section class="hero">
+  <div class="rating-badge">⭐ 4.9 STARS — HOUSTON'S BEST</div>
+  <h1><span class="highlight">Anthony</span> The Barber</h1>
+  <p class="tagline" data-en="Precision cuts. Clean fades. Every time." data-es="Cortes de precisión. Fades perfectos. Siempre.">Precision cuts. Clean fades. Every time.</p>
+  <div class="stars">★★★★★</div>
+  <div class="perfect" data-en="PERFECT 4.9 RATING" data-es="CALIFICACIÓN PERFECTA 4.9">PERFECT 4.9 RATING</div>
+  <div class="hero-btns">
+    <a href="tel:8323385601" class="btn-primary" data-en="📞 Book Now" data-es="📞 Reservar Ahora">📞 Book Now</a>
+    <a href="#services" class="btn-secondary" data-en="View Services" data-es="Ver Servicios">View Services</a>
+  </div>
+</section>
+<section class="services" id="services">
+  <h2 class="section-title" data-en="The <span>Services</span>" data-es="Los <span>Servicios</span>">The <span>Services</span></h2>
+  <div class="services-grid">
+    <div class="scard"><div class="icon">💈</div><h3 data-en="Classic Cut" data-es="Corte Clásico">Classic Cut</h3><p data-en="Clean, sharp cuts tailored to your style" data-es="Cortes limpios y precisos a tu estilo">Clean, sharp cuts tailored to your style</p><div class="price">$25+</div></div>
+    <div class="scard"><div class="icon">⚡</div><h3 data-en="Fade & Taper" data-es="Fade y Taper">Fade & Taper</h3><p data-en="Skin fades, mid fades, high fades — flawless" data-es="Skin fades, mid fades, high fades — impecables">Skin fades, mid fades, high fades — flawless</p><div class="price">$30+</div></div>
+    <div class="scard"><div class="icon">🪒</div><h3 data-en="Beard Lineup" data-es="Diseño de Barba">Beard Lineup</h3><p data-en="Sharp edges, clean lines, perfect shape" data-es="Bordes definidos, líneas limpias, forma perfecta">Sharp edges, clean lines, perfect shape</p><div class="price">$15+</div></div>
+    <div class="scard"><div class="icon">👑</div><h3 data-en="Full Package" data-es="Paquete Completo">Full Package</h3><p data-en="Cut + beard + hot towel treatment" data-es="Corte + barba + toalla caliente">Cut + beard + hot towel treatment</p><div class="price">$45+</div></div>
+  </div>
+</section>
+<section class="cta-section">
+  <h2 data-en="Ready for a Fresh Cut?" data-es="¿Listo para un Corte Fresco?">Ready for a Fresh Cut?</h2>
+  <p data-en="Located at 1507 W 18th St, Suite 207 — Houston's Heights neighborhood" data-es="Ubicado en 1507 W 18th St, Suite 207 — Houston Heights">Located at 1507 W 18th St, Suite 207 — Houston's Heights neighborhood</p>
+  <div class="info-bar">
+    <span>📍 1507 W 18th St Ste 207, Houston TX 77008</span>
+    <span>📞 <a href="tel:8323385601" style="color:#fff">(832) 338-5601</a></span>
+  </div>
+  <a href="tel:8323385601" class="book-btn" data-en="✂️ Call to Book" data-es="✂️ Llamar y Reservar">✂️ Call to Book</a>
+</section>
+<footer>© 2026 Anthony The Barber — Houston, TX | Website by JF Web Studios</footer>
+<a href="https://wa.me/18323385601" class="whatsapp" target="_blank">💬</a>
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) el.innerHTML = text;
+  });
+}
+</script>
+</body>
+</html>
