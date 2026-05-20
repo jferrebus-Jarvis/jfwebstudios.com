@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sala De Belleza Colombiana | Houston, TX</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #1a0020; color: #fff; }
+  .lang-toggle { position: fixed; top: 15px; right: 20px; z-index: 999; display: flex; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 3px; }
+  .lang-btn { padding: 5px 14px; border-radius: 17px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s; background: transparent; color: #fff; }
+  .lang-btn.active { background: #e91e8c; color: #fff; }
+  .hero { min-height: 100vh; background: linear-gradient(135deg, #1a0020 0%, #4a0050 50%, #e91e8c 150%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; position: relative; overflow: hidden; }
+  .hero::before { content: '💄'; font-size: 200px; position: absolute; top: -20px; right: -40px; opacity: 0.08; }
+  .badge { background: rgba(233,30,140,0.2); border: 1px solid #e91e8c; padding: 8px 20px; border-radius: 20px; font-size: 13px; color: #ff80c8; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(2rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 15px; line-height: 1.1; }
+  .hero h1 span { color: #FFD700; }
+  .hero p { font-size: 1.15rem; opacity: 0.85; margin-bottom: 25px; max-width: 500px; }
+  .stars { color: #FFD700; font-size: 1.4rem; margin-bottom: 25px; }
+  .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { background: #e91e8c; color: #fff; padding: 15px 35px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
+  .btn-secondary { border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 15px 35px; border-radius: 30px; font-weight: 700; font-size: 1.1rem; text-decoration: none; }
+  .services { background: #fff; color: #1a0020; padding: 80px 20px; }
+  .section-title { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; }
+  .section-sub { text-align: center; color: #888; margin-bottom: 50px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  .card { background: #fff0f8; border-radius: 15px; padding: 25px; text-align: center; border-top: 4px solid #e91e8c; }
+  .card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .card h3 { font-size: 1.1rem; font-weight: 800; color: #1a0020; margin-bottom: 8px; }
+  .card p { color: #666; font-size: 0.9rem; line-height: 1.5; }
+  .card .price { color: #e91e8c; font-weight: 800; margin-top: 10px; }
+  .contact { background: linear-gradient(135deg, #e91e8c, #c2185b); padding: 80px 20px; text-align: center; }
+  .contact h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 25px; }
+  .info { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 35px; font-size: 1rem; font-weight: 600; }
+  .cta-big { background: #fff; color: #e91e8c; padding: 18px 50px; border-radius: 35px; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: inline-block; }
+  footer { background: #0d0010; padding: 25px; text-align: center; color: #555; font-size: 0.85rem; }
+  .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 999; }
+</style>
+</head>
+<body>
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+<section class="hero">
+  <div class="badge">⭐ 5 Estrellas en Google — ¡Perfecta!</div>
+  <h1>Sala De Belleza <span>Colombiana</span></h1>
+  <p data-es="Tu destino de belleza latina en Houston. Servicios premium con el toque colombiano." data-en="Your Latin beauty destination in Houston. Premium services with a Colombian touch.">Tu destino de belleza latina en Houston. Servicios premium con el toque colombiano.</p>
+  <div class="stars">★★★★★</div>
+  <div class="hero-btns">
+    <a href="tel:5615844316" class="btn-primary" data-es="📞 Reservar Cita" data-en="📞 Book Appointment">📞 Reservar Cita</a>
+    <a href="#services" class="btn-secondary" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</a>
+  </div>
+</section>
+<section class="services" id="services">
+  <h2 class="section-title" data-es="Servicios de Belleza" data-en="Beauty Services">Servicios de Belleza</h2>
+  <p class="section-sub" data-es="Calidad colombiana, corazón latino" data-en="Colombian quality, Latin heart">Calidad colombiana, corazón latino</p>
+  <div class="grid">
+    <div class="card"><div class="icon">💇‍♀️</div><h3 data-es="Corte y Peinado" data-en="Cut & Style">Corte y Peinado</h3><p data-es="Cortes modernos y clásicos para toda ocasión" data-en="Modern and classic cuts for every occasion">Cortes modernos y clásicos para toda ocasión</p><div class="price">Desde $35</div></div>
+    <div class="card"><div class="icon">🎨</div><h3 data-es="Color y Mechas" data-en="Color & Highlights">Color y Mechas</h3><p data-es="Tintes, balayage, mechas y más" data-en="Dye, balayage, highlights and more">Tintes, balayage, mechas y más</p><div class="price">Desde $70</div></div>
+    <div class="card"><div class="icon">💅</div><h3 data-es="Manicure y Pedicure" data-en="Manicure & Pedicure">Manicure y Pedicure</h3><p data-es="Uñas perfectas con los mejores productos" data-en="Perfect nails with the best products">Uñas perfectas con los mejores productos</p><div class="price">Desde $25</div></div>
+    <div class="card"><div class="icon">✨</div><h3 data-es="Tratamientos" data-en="Treatments">Tratamientos</h3><p data-es="Keratina, hidratación y tratamientos especiales" data-en="Keratin, hydration and special treatments">Keratina, hidratación y tratamientos especiales</p><div class="price">Desde $80</div></div>
+  </div>
+</section>
+<section class="contact">
+  <h2 data-es="¡Te Esperamos!" data-en="We're Waiting for You!">¡Te Esperamos!</h2>
+  <div class="info">
+    <span>📍 13329 Veterans Memorial Dr, Houston TX 77014</span>
+    <span>📞 <a href="tel:5615844316" style="color:#fff">(561) 584-4316</a></span>
+  </div>
+  <a href="tel:5615844316" class="cta-big" data-es="💄 Llamar y Reservar" data-en="💄 Call & Book">💄 Llamar y Reservar</a>
+</section>
+<footer>© 2026 Sala De Belleza Colombiana — Houston, TX | Página web por JF Web Studios</footer>
+<a href="https://wa.me/15615844316" class="whatsapp" target="_blank">💬</a>
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) el.innerHTML = text;
+  });
+}
+</script>
+</body>
+</html>
