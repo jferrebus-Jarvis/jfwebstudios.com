@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hair & Beauty Specialists | Houston, TX</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #0d0d0d; color: #fff; }
+  .lang-toggle { position: fixed; top: 15px; right: 20px; z-index: 999; display: flex; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 3px; }
+  .lang-btn { padding: 5px 14px; border-radius: 17px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; background: transparent; color: #fff; }
+  .lang-btn.active { background: #16a085; color: #fff; }
+  .hero { min-height: 100vh; background: linear-gradient(135deg, #0d0d0d, #0e6655 80%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; }
+  .badge { background: rgba(255,255,255,0.1); border: 1px solid #16a085; padding: 8px 20px; border-radius: 20px; font-size: 13px; color: #16a085; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(2rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 15px; line-height: 1.1; }
+  .hero h1 span { color: #16a085; }
+  .hero p { font-size: 1.15rem; opacity: 0.8; margin-bottom: 25px; max-width: 500px; }
+  .stars { color: #FFD700; font-size: 1.3rem; margin-bottom: 25px; }
+  .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+  .btn-p { background: #16a085; color: #fff; padding: 15px 35px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
+  .btn-s { border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 15px 35px; border-radius: 30px; font-weight: 700; font-size: 1rem; text-decoration: none; }
+  .services { background: #111; padding: 80px 20px; }
+  .st { text-align: center; font-size: 2.2rem; font-weight: 900; margin-bottom: 40px; }
+  .st span { color: #16a085; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+  .card { background: #1a1a1a; border-radius: 12px; padding: 25px; text-align: center; border-top: 3px solid #16a085; }
+  .card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .card h3 { font-size: 1.1rem; font-weight: 800; color: #16a085; margin-bottom: 8px; }
+  .card p { color: #777; font-size: 0.9rem; line-height: 1.5; }
+  .card .price { color: #fff; font-weight: 800; margin-top: 10px; }
+  .cta { background: #16a085; padding: 80px 20px; text-align: center; }
+  .cta h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 20px; }
+  .info { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 30px; font-size: 1rem; font-weight: 600; }
+  .big-btn { background: #fff; color: #16a085; padding: 18px 50px; border-radius: 35px; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: inline-block; }
+  footer { background: #050505; padding: 25px; text-align: center; color: #444; font-size: 0.85rem; }
+  .wa { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 999; }
+</style>
+</head>
+<body>
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+<section class="hero">
+  <div class="badge">⭐ 4.7 Estrellas en Google</div>
+  <h1><span>Hair & Beauty Specialists</span></h1>
+  <p data-es="Servicios de belleza profesionales en Houston, TX. Calidad y estilo garantizados." data-en="Professional beauty services in Houston, TX. Quality and style guaranteed.">Servicios de belleza profesionales en Houston, TX.</p>
+  <div class="stars">★★★★★</div>
+  <div class="hero-btns">
+    <a href="tel:8324463883" class="btn-p" data-es="📞 Reservar Cita" data-en="📞 Book Now">📞 Reservar Cita</a>
+    <a href="#services" class="btn-s" data-es="Ver Servicios" data-en="View Services">Ver Servicios</a>
+  </div>
+</section>
+<section class="services" id="services">
+  <h2 class="st" data-es="Nuestros <span>Servicios</span>" data-en="Our <span>Services</span>">Nuestros <span>Servicios</span></h2>
+  <div class="grid">
+    <div class="card"><div class="icon">💇‍♀️</div><h3 data-es="Corte y Estilo" data-en="Cut & Style">Corte y Estilo</h3><p data-es="Cortes modernos para todo tipo de cabello" data-en="Modern cuts for all hair types">Cortes modernos para todo tipo de cabello</p><div class="price">Desde $30</div></div>
+    <div class="card"><div class="icon">🎨</div><h3 data-es="Color" data-en="Color">Color</h3><p data-es="Tintes, mechas, balayage y más" data-en="Dye, highlights, balayage and more">Tintes, mechas, balayage y más</p><div class="price">Desde $65</div></div>
+    <div class="card"><div class="icon">✨</div><h3 data-es="Tratamientos" data-en="Treatments">Tratamientos</h3><p data-es="Keratina, hidratación profunda y más" data-en="Keratin, deep hydration and more">Keratina, hidratación profunda y más</p><div class="price">Desde $75</div></div>
+    <div class="card"><div class="icon">💅</div><h3 data-es="Uñas" data-en="Nails">Uñas</h3><p data-es="Manicure y pedicure profesional" data-en="Professional manicure and pedicure">Manicure y pedicure profesional</p><div class="price">Desde $20</div></div>
+  </div>
+</section>
+<section class="cta">
+  <h2 data-es="¡Visítanos Hoy!" data-en="Visit Us Today!">¡Visítanos Hoy!</h2>
+  <div class="info">
+    <span>📍 14901 TX-249 #112, Houston, TX 77086</span>
+    <span>📞 <a href="tel:8324463883" style="color:#fff">(832) 446-3883</a></span>
+  </div>
+  <a href="tel:8324463883" class="big-btn" data-es="💄 Llamar y Reservar" data-en="💄 Call & Book">💄 Llamar y Reservar</a>
+</section>
+<footer>© 2026 Hair & Beauty Specialists — Houston, TX | Página web por JF Web Studios</footer>
+<a href="https://wa.me/18324463883" class="wa" target="_blank">💬</a>
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('.lang-btn[onclick="setLang(\''+lang+'\')"]').classList.add('active');
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) el.innerHTML = text;
+  });
+}
+</script>
+</body>
+</html>
