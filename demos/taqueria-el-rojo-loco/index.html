@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taqueria El Rojo Loco | Houston, TX</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #1a0a00; color: #fff; }
+  
+  /* Language Toggle */
+  .lang-toggle { position: fixed; top: 15px; right: 20px; z-index: 999; display: flex; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 3px; backdrop-filter: blur(10px); }
+  .lang-btn { padding: 5px 14px; border-radius: 17px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.3s; background: transparent; color: #fff; }
+  .lang-btn.active { background: #c0392b; color: #fff; }
+
+  /* Hero */
+  .hero { min-height: 100vh; background: linear-gradient(135deg, #1a0a00 0%, #8B0000 50%, #c0392b 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; position: relative; overflow: hidden; }
+  .hero::before { content: '🌮'; font-size: 200px; position: absolute; top: -20px; right: -40px; opacity: 0.08; }
+  .hero::after { content: '🌶️'; font-size: 150px; position: absolute; bottom: -20px; left: -30px; opacity: 0.08; }
+  .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); padding: 8px 20px; border-radius: 20px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 15px; text-shadow: 3px 3px 20px rgba(0,0,0,0.5); }
+  .hero h1 span { color: #FFD700; }
+  .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; max-width: 500px; }
+  .stars { color: #FFD700; font-size: 1.3rem; margin-bottom: 10px; }
+  .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { background: #FFD700; color: #1a0a00; padding: 15px 35px; border-radius: 30px; font-weight: 800; font-size: 1.1rem; text-decoration: none; transition: transform 0.2s; }
+  .btn-primary:hover { transform: scale(1.05); }
+  .btn-secondary { background: transparent; color: #fff; padding: 15px 35px; border-radius: 30px; font-weight: 700; font-size: 1.1rem; text-decoration: none; border: 2px solid rgba(255,255,255,0.5); transition: all 0.2s; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+  /* Menu */
+  .menu-section { background: #fff; color: #1a0a00; padding: 80px 20px; }
+  .section-title { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; }
+  .section-sub { text-align: center; color: #888; margin-bottom: 50px; font-size: 1.1rem; }
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+  .menu-card { background: #fff9f0; border-radius: 15px; padding: 25px; border-left: 5px solid #c0392b; box-shadow: 0 5px 20px rgba(0,0,0,0.08); }
+  .menu-card .emoji { font-size: 2.5rem; margin-bottom: 10px; }
+  .menu-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; color: #1a0a00; }
+  .menu-card p { color: #555; font-size: 0.95rem; line-height: 1.5; }
+  .menu-card .price { color: #c0392b; font-weight: 800; font-size: 1.2rem; margin-top: 10px; }
+
+  /* About */
+  .about { background: #1a0a00; padding: 80px 20px; text-align: center; }
+  .about h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 20px; }
+  .about p { font-size: 1.1rem; opacity: 0.85; max-width: 600px; margin: 0 auto 30px; line-height: 1.8; }
+  .stats { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; margin-top: 40px; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 2.5rem; font-weight: 900; color: #FFD700; }
+  .stat .label { font-size: 0.9rem; opacity: 0.7; margin-top: 5px; }
+
+  /* Contact */
+  .contact { background: #c0392b; padding: 80px 20px; text-align: center; }
+  .contact h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 30px; }
+  .contact-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 40px; }
+  .contact-item { font-size: 1.1rem; }
+  .contact-item a { color: #FFD700; text-decoration: none; font-weight: 700; }
+  .cta-big { background: #FFD700; color: #1a0a00; padding: 18px 50px; border-radius: 35px; font-weight: 900; font-size: 1.2rem; text-decoration: none; display: inline-block; }
+
+  /* Footer */
+  footer { background: #0d0500; padding: 30px; text-align: center; opacity: 0.6; font-size: 0.85rem; }
+
+  /* WhatsApp */
+  .whatsapp { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 999; }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<section class="hero">
+  <div class="badge" data-es="⭐ 4.5 Estrellas en Google" data-en="⭐ 4.5 Stars on Google">⭐ 4.5 Estrellas en Google</div>
+  <h1 data-es="Taqueria <span>El Rojo Loco</span>" data-en="Taqueria <span>El Rojo Loco</span>">Taqueria <span>El Rojo Loco</span></h1>
+  <p data-es="Sabor auténtico mexicano en el corazón de Houston. Tacos, burritos y más — hechos con amor." data-en="Authentic Mexican flavor in the heart of Houston. Tacos, burritos and more — made with love.">Sabor auténtico mexicano en el corazón de Houston. Tacos, burritos y más — hechos con amor.</p>
+  <div class="stars">★★★★½</div>
+  <div class="hero-btns">
+    <a href="tel:7132271572" class="btn-primary" data-es="📞 Ordenar Ahora" data-en="📞 Order Now">📞 Ordenar Ahora</a>
+    <a href="#menu" class="btn-secondary" data-es="Ver Menú" data-en="View Menu">Ver Menú</a>
+  </div>
+</section>
+
+<section class="menu-section" id="menu">
+  <h2 class="section-title" data-es="Nuestro Menú" data-en="Our Menu">Nuestro Menú</h2>
+  <p class="section-sub" data-es="Ingredientes frescos, sabores auténticos" data-en="Fresh ingredients, authentic flavors">Ingredientes frescos, sabores auténticos</p>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="emoji">🌮</div>
+      <h3 data-es="Tacos al Pastor" data-en="Al Pastor Tacos">Tacos al Pastor</h3>
+      <p data-es="Carne marinada a la perfección, piña, cilantro y cebolla" data-en="Perfectly marinated pork, pineapple, cilantro and onion">Carne marinada a la perfección, piña, cilantro y cebolla</p>
+      <div class="price">$3.50 c/u</div>
+    </div>
+    <div class="menu-card">
+      <div class="emoji">🌯</div>
+      <h3 data-es="Burritos" data-en="Burritos">Burritos</h3>
+      <p data-es="Rellenos de carne asada, frijoles, arroz y crema" data-en="Filled with grilled beef, beans, rice and sour cream">Rellenos de carne asada, frijoles, arroz y crema</p>
+      <div class="price">$10.99</div>
+    </div>
+    <div class="menu-card">
+      <div class="emoji">🥘</div>
+      <h3 data-es="Platos Especiales" data-en="Special Plates">Platos Especiales</h3>
+      <p data-es="Enchiladas, tamales, pozole — la cocina de mamá" data-en="Enchiladas, tamales, pozole — just like mom's cooking">Enchiladas, tamales, pozole — la cocina de mamá</p>
+      <div class="price">Desde $12.99</div>
+    </div>
+    <div class="menu-card">
+      <div class="emoji">🥤</div>
+      <h3 data-es="Aguas Frescas" data-en="Fresh Waters">Aguas Frescas</h3>
+      <p data-es="Jamaica, horchata, tamarindo — bebidas naturales" data-en="Jamaica, horchata, tamarind — natural drinks">Jamaica, horchata, tamarindo — bebidas naturales</p>
+      <div class="price">$3.00</div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <h2 data-es="Tradición y Sabor" data-en="Tradition & Flavor">Tradición y Sabor</h2>
+  <p data-es="En El Rojo Loco, cada platillo es preparado con recetas familiares y los ingredientes más frescos. Somos parte del corazón de Houston desde hace años." data-en="At El Rojo Loco, every dish is prepared with family recipes and the freshest ingredients. We've been part of Houston's heart for years.">En El Rojo Loco, cada platillo es preparado con recetas familiares y los ingredientes más frescos. Somos parte del corazón de Houston desde hace años.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">4.5⭐</div><div class="label" data-es="Calificación Google" data-en="Google Rating">Calificación Google</div></div>
+    <div class="stat"><div class="num">100%</div><div class="label" data-es="Ingredientes Frescos" data-en="Fresh Ingredients">Ingredientes Frescos</div></div>
+    <div class="stat"><div class="num">❤️</div><div class="label" data-es="Hecho con Amor" data-en="Made with Love">Hecho con Amor</div></div>
+  </div>
+</section>
+
+<section class="contact">
+  <h2 data-es="Visítanos Hoy" data-en="Visit Us Today">Visítanos Hoy</h2>
+  <div class="contact-grid">
+    <div class="contact-item">📍 2833 Collingsworth St, Houston TX 77026</div>
+    <div class="contact-item">📞 <a href="tel:7132271572">(713) 227-1572</a></div>
+  </div>
+  <a href="tel:7132271572" class="cta-big" data-es="🌮 Llámanos a Ordenar" data-en="🌮 Call Us to Order">🌮 Llámanos a Ordenar</a>
+</section>
+
+<footer>© 2026 Taqueria El Rojo Loco — Houston, TX | Sitio web por JF Web Studios</footer>
+
+<a href="https://wa.me/17132271572" class="whatsapp" target="_blank">💬</a>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) el.innerHTML = text;
+  });
+}
+</script>
+</body>
+</html>
