@@ -7,58 +7,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    :root { --green: #16a34a; --black: #0a0a0a; --dark: #111111; }
-    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--black); }
+    :root { --gold: #C9920A; --black: #0a0a0a; --dark: #111111; }
+    body { font-family: 'Inter', sans-serif; background: #222; color: var(--black); }
     nav { position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.97); backdrop-filter: blur(8px); z-index: 100; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; }
     .logo { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 900; color: #fff; letter-spacing: 1px; }
-    .logo span { color: var(--green); }
+    .logo span { color: var(--gold); }
     .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
     .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-    .nav-cta { background: var(--green) !important; color: #fff !important; padding: 10px 22px; border-radius: 4px; }
+    .nav-cta { background: var(--gold) !important; color: #fff !important; padding: 10px 22px; border-radius: 4px; }
     .hero { min-height: 100vh; background: linear-gradient(to right, rgba(10,10,10,0.95) 55%, rgba(10,10,10,0.5) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600') right/cover; display: flex; align-items: center; padding: 120px 60px 60px; color: #fff; }
     .hero-content { max-width: 640px; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(22,163,74,0.15); border: 1px solid rgba(22,163,74,0.4); color: #4ade80; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 20px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,146,10,0.18); border: 1px solid rgba(201,146,10,0.5); color: #FFD700; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 20px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
     .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(48px, 7vw, 80px); font-weight: 900; line-height: 1.0; margin-bottom: 20px; text-transform: uppercase; }
-    .hero h1 span { color: var(--green); }
+    .hero h1 span { color: var(--gold); }
     .hero p { font-size: 17px; opacity: 0.75; margin-bottom: 36px; line-height: 1.7; font-weight: 300; }
     .credentials { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
     .cred-badge { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 600; padding: 6px 14px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
     .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
-    .btn-green { background: var(--green); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
+    .btn-gold { background: var(--gold); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; }
     .btn-ghost { border: 2px solid rgba(255,255,255,0.35); color: #fff; padding: 16px 36px; border-radius: 4px; text-decoration: none; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
     .stats { display: flex; gap: 36px; flex-wrap: wrap; }
-    .stat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; color: var(--green); }
+    .stat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 900; color: var(--gold); }
     .stat .label { font-size: 12px; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px; }
     .about { padding: 90px 40px; background: var(--dark); color: #fff; }
     .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .about-img img { width: 100%; border-radius: 8px; object-fit: cover; height: 500px; }
-    .section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 10px; }
+    .section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
     .about-text h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; line-height: 1.1; }
     .about-text p { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
     .cert-list { list-style: none; margin-top: 24px; }
     .cert-list li { color: rgba(255,255,255,0.8); font-size: 14px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 10px; }
-    .cert-list li::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 16px; }
-    .services { padding: 90px 40px; background: #f9fafb; }
+    .cert-list li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 16px; }
+    .services { padding: 90px 40px; background: #1a1a1a; }
     .services-inner { max-width: 1100px; margin: 0 auto; }
     .services h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; }
-    .services-sub { color: #64748b; margin-bottom: 50px; font-size: 15px; }
+    .services-sub { color: rgba(255,255,255,0.6); margin-bottom: 50px; font-size: 15px; }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .service-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 15px rgba(0,0,0,0.06); border-top: 4px solid var(--green); transition: transform 0.2s; padding: 26px; }
+    .service-card { background: #222; border-radius: 12px; box-shadow: 0 2px 15px rgba(0,0,0,0.4); border-top: 4px solid var(--gold); transition: transform 0.2s; padding: 26px; }
     .service-card:hover { transform: translateY(-4px); }
     .service-icon { font-size: 32px; margin-bottom: 14px; }
-    .service-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
-    .service-card p { font-size: 14px; color: #64748b; line-height: 1.7; }
+    .service-card h3 { color: #fff; }  .service-card h3_ORIG { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+    .service-card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
     .results { padding: 90px 40px; background: var(--dark); color: #fff; text-align: center; }
     .results h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; }
     .results-sub { color: rgba(255,255,255,0.6); margin-bottom: 60px; font-size: 15px; }
     .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
     .result-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 36px 24px; }
-    .result-num { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 900; color: var(--green); line-height: 1; margin-bottom: 8px; }
+    .result-num { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 8px; }
     .result-label { font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; }
-    .cta { background: var(--green); color: #fff; padding: 90px 40px; text-align: center; }
+    .cta { background: linear-gradient(135deg, #B8860B 0%, #FFD700 50%, #B8860B 100%); color: #1a1a1a; padding: 90px 40px; text-align: center; }
     .cta h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 54px; font-weight: 900; margin-bottom: 14px; text-transform: uppercase; line-height: 1.1; }
     .cta p { font-size: 17px; opacity: 0.85; margin-bottom: 36px; }
-    .cta-btn { display: inline-block; background: #fff; color: var(--green); padding: 18px 50px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 18px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+    .cta-btn { display: inline-block; background: #222; color: var(--gold); padding: 18px 50px; border-radius: 4px; text-decoration: none; font-weight: 800; font-size: 18px; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
     .contact-strip { background: var(--black); padding: 40px; }
     .contact-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center; color: #fff; }
     .c-item .icon { font-size: 24px; margin-bottom: 8px; }
@@ -66,7 +66,7 @@
     .c-item p { font-size: 14px; font-weight: 600; }
     .c-item a { color: #fff; text-decoration: none; }
     footer { background: var(--black); color: rgba(255,255,255,0.3); text-align: center; padding: 24px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.05); }
-    footer span { color: var(--green); }
+    footer span { color: var(--gold); }
     @media (max-width: 768px) {
       .hero { padding: 100px 24px 50px; }
       nav { padding: 14px 20px; }
@@ -97,7 +97,7 @@
         <span class="cred-badge">Strength & Conditioning Specialist</span>
       </div>
       <div class="hero-btns">
-        <a href="mailto:info@lonestarath.com" class="btn-green">🏆 Start Training</a>
+        <a href="mailto:info@lonestarath.com" class="btn-gold">🏆 Start Training</a>
         <a href="#services" class="btn-ghost">View Programs</a>
       </div>
       <div class="stats">
