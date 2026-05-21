@@ -161,6 +161,72 @@
     .shop-insta-link { color:var(--text-mid); font-size:13px; text-decoration:none; letter-spacing:1px; }
     .shop-insta-link:hover { color:var(--dark); }
 
+  
+    .buy-btn {
+      background: linear-gradient(135deg, #8E6A6A, #C19595);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.5px;
+      width: 100%;
+    }
+    .buy-btn:hover {
+      background: linear-gradient(135deg, #7a5858, #a87f7f);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(142,106,106,0.4);
+    }
+    .buy-btn:active { transform: translateY(0); }
+    .buy-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    /* Checkout modal overlay */
+    #checkout-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #checkout-overlay.active { display: flex; }
+    #checkout-modal {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+    #checkout-modal h3 { color: #8E6A6A; margin-bottom: 8px; }
+    #checkout-modal p { color: #666; margin-bottom: 20px; font-size: 0.9rem; }
+    .checkout-price { font-size: 2rem; font-weight: 700; color: #8E6A6A; margin: 12px 0; }
+    .checkout-confirm-btn {
+      background: linear-gradient(135deg, #8E6A6A, #C19595);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .checkout-cancel-btn {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 10px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      color: #999;
+      width: 100%;
+    }
+
   </style>
 </head>
 <body>
@@ -247,9 +313,9 @@
           <h3>Nina Gold Crystal Mesh Evening Clutch</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/6a0b5fa8ff0320916dd90363" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gMbJ31O58Zc18u37d1cl1A" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -260,9 +326,9 @@
           <h3>Patricia Nash Meka leather Tote</h3>
           <div class="product-bottom">
             <span class="price">$125</span>
-            <a href="https://poshmark.com/listing/6a0b5d5421bd42e251d8aeb3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AcN7csJ7V82cyePV1cl1B" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -273,9 +339,9 @@
           <h3>Aqua Tan Woven Tote with Blue Scarf Detail / The white lotus Edition</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69b472baa9a4482e93513eae" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cI3cx2S92AOdVgcHN1cl1C" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -286,9 +352,9 @@
           <h3>Style & Co Woven straw tote with round top handles</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69b857fc44ad4d895346dbc0" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x26oJ3Wd0sG8AW4bh1cl1D" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -299,9 +365,9 @@
           <h3>Woven Straw Tote Bag - Tan, Pink, and Red</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69b996cfc71ba1d2935d23a3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/28E5kF50h0sG18u6jp1cl1E" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -312,9 +378,9 @@
           <h3>ON-2-NO Pink and Blue Beaded Clutch and Wristlet</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69b98c43d8024c65c8a796a1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oUcN79gx6R43gC8rx1cl1F" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="beaded">
         <div class="product-img">
@@ -325,9 +391,9 @@
           <h3>Pink Beaded Coin Purse with Bow Design</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69b1d52aed788d8e652da7a1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ7sNdwN3ESdVg37d1cl1G" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="beaded">
         <div class="product-img">
@@ -338,9 +404,9 @@
           <h3>ON·34TH Navy and Peach Beaded Wristlet Pouch with Tassel</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69d41bbddc3b4638ef7df8ac" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/28E8wR50h7V89F0dLR1cl1H" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -351,9 +417,9 @@
           <h3>Black Beaded Crystal-Embellished Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69c43d28ed788d9b53fa4d1b" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/28E6oJgIZ6R4bN8dLR1cl1I" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="beaded">
         <div class="product-img">
@@ -364,9 +430,9 @@
           <h3>Elegant Black Beaded Coin purse with Crystal Accents</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69b4aebcfe4c68ee61ce14b7" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oU8wR64ldfs2cybDJ1cl1J" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -377,9 +443,9 @@
           <h3>Elegant Black Beaded Shoulder Bag and coin purse</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69bedfff243dae8a8fc26ba1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRm00l8ct7V84kGdLR1cl1K" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="beaded">
         <div class="product-img">
@@ -390,9 +456,9 @@
           <h3>ON:34TH Lemon Beaded Coin Purse - White, Yellow, and Green</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69cdc3f2310f1cd4046286ab" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oUdRb0K1grE2cybDJ1cl1L" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -403,9 +469,9 @@
           <h3>Beaded Coral and Navy Shoulder Hobo Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69d9199e49e17b9110570d7d" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00wdRb0K11wKbN8gY31cl1M" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -416,9 +482,9 @@
           <h3>Elegant Beaded Clutch and Wristlet Set</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69b98d6224d2e74f10fb474d" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu6oJ8ctcbo2cy6jp1cl1N" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="beaded">
         <div class="product-img">
@@ -429,9 +495,9 @@
           <h3>Green and White Beaded Women Bag Set</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69bef08a05deb34d05d683a6" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa8wR2S98Zc3gCcHN1cl1O" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -442,9 +508,9 @@
           <h3>Style & Co. Beige and Tan Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69bad1ffb09b7ce706ef0c16" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVq14p64l1wKg3ofTZ1cl1P" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -455,9 +521,9 @@
           <h3>Style & Co. Woven Cream Shoulder Bag with Brown Trim</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69d91778bd4ce32842b21294" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRm7sNakBcbo18udLR1cl1Q" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -468,9 +534,9 @@
           <h3>Elegant Tan and White Woven Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69bc2e31a95105bb5c81a064" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRm9AV8ct5N08AWePV1cl1R" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -481,9 +547,9 @@
           <h3>INC International Concepts Black Net Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69dd257aed788d3d4b4a0ee5" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi00l78pgrE6sObDJ1cl1S" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -494,9 +560,9 @@
           <h3>Style & Co. Multicolor Woven Crossbody with Tan Trim</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69d943a7310f1ca69caf072b" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gM8wR3Wd4IWaJ4bDJ1cl1T" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -507,9 +573,9 @@
           <h3>Elegant Woven Clutch in Cream and Tan</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69987e6bb14a06aa783260cc" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ3cx2S9cboeZkazF1cl1U" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -520,9 +586,9 @@
           <h3>Woven Beige and Gray Clutch</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/6997768be9c77dc2789e540f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00wfZj9gx6R4cRcgY31cl1V" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -533,9 +599,9 @@
           <h3>Nanette Lepore Straw Tote with White Trim and Pink Scarf</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69d68f65ed788df9623e928d" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQeVf64ldfsaJ42391cl1W" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -546,9 +612,9 @@
           <h3>Crystal-Embellished Straw Clutch in Natural Straw</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69d6a5e721bd4212919bdcec" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gM8wR8cta3g18udLR1cl1X" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -559,9 +625,9 @@
           <h3>Aqua Multicolor Woven Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69f8ea4449e17bd57a12d13e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x27sNfEV0sG9F09vB1cl1Y" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -572,9 +638,9 @@
           <h3>I.N.C Zavaa Straw Tote</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69eb91e249e17b2d8e578120" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gM6oJfEV5N0cRccHN1cl1Z" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -585,9 +651,9 @@
           <h3>Style & Co. Two-Tone Woven Straw Tote - Natural & Brown</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69c2b2ab21bd42559b292c2f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRmaEZdwN0sGaJ4azF1cl20" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -598,9 +664,9 @@
           <h3>INC International Concepts Knotted Macrame Shoulder Bag in Tan</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69d7f7d8ff0320e8d3baae13" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu3cx1O52AOeZkbDJ1cl21" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -611,9 +677,9 @@
           <h3>Coach Pebble Light Beige Leather Tote</h3>
           <div class="product-bottom">
             <span class="price">$185</span>
-            <a href="https://poshmark.com/listing/69bef2d05919e0576b0503d5" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sY4gB8ctfnA18ubDJ1cl22" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -624,9 +690,9 @@
           <h3>Michael Kors Camel/Tan Raven Leather Shoulder Tote</h3>
           <div class="product-bottom">
             <span class="price">$150</span>
-            <a href="https://poshmark.com/listing/69d69a8b88849a3734f58763" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14A3cxdwNfnAcRcdLR1cl23" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -637,9 +703,9 @@
           <h3>Michael Kors Beige MK Logo Shoulder Bag with Brown Trim</h3>
           <div class="product-bottom">
             <span class="price">$150</span>
-            <a href="https://poshmark.com/listing/69d6acbfd7555dec9b978ec0" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu9AV0K14IWg3o8rx1cl24" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -650,9 +716,9 @@
           <h3>DonnaKaran New York Amagansett Soft-Rolled Leather Satchel</h3>
           <div class="product-bottom">
             <span class="price">$200</span>
-            <a href="https://poshmark.com/listing/69e3c439bedd3474701bf989" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gM3cx2S9fnAg3ocHN1cl25" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -663,9 +729,9 @@
           <h3>DKNY Brown Suede & Pebbled Leather Tote</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69e3c2755df8e7360c50e0dd" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ8wRakB1wK8AW8rx1cl26" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -676,9 +742,9 @@
           <h3>DKNY Beige/Tan Drawstring Bucket Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$125</span>
-            <a href="https://poshmark.com/listing/69c56c041986c2b8d03646cc" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B6bJ3fEV4IW4kGbDJ1cl27" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -689,9 +755,9 @@
           <h3>Coach Bella Dove Gray Leather Tote</h3>
           <div class="product-bottom">
             <span class="price">$250</span>
-            <a href="https://poshmark.com/listing/69b5c0a74a072b2ff0aa2896" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B6dRbakBa3g18u9vB1cl28" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -702,9 +768,9 @@
           <h3>VEE Collective Black Medium Porter Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$200</span>
-            <a href="https://poshmark.com/listing/69c1a9a2b6af9259b2de10a1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi5kFdwN4IW04q6jp1cl29" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="coach">
         <div class="product-img">
@@ -715,9 +781,9 @@
           <h3>Coach Tabby 26 With Signature Canvas</h3>
           <div class="product-bottom">
             <span class="price">$260</span>
-            <a href="https://poshmark.com/listing/69ac68a01493770d23a71c84" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x24gB64l0sG2cy0Z51cl2a" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -728,9 +794,9 @@
           <h3>Coach Legay Pebbled Leather Tote with Gold Hardware</h3>
           <div class="product-bottom">
             <span class="price">$170</span>
-            <a href="https://poshmark.com/listing/69e105e29936d684b4062700" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa4gBboF4IW9F02391cl2b" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="coach">
         <div class="product-img">
@@ -741,9 +807,9 @@
           <h3>Coach Legacy In Colorblock Leather Carryall 28</h3>
           <div class="product-bottom">
             <span class="price">$300</span>
-            <a href="https://poshmark.com/listing/69c44e5644ad4da49b20939c" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi8wRfEVgrE04q37d1cl2c" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -754,9 +820,9 @@
           <h3>Coach Canvas Rainbow Tote Bag in Beige</h3>
           <div class="product-bottom">
             <span class="price">$250</span>
-            <a href="https://poshmark.com/listing/69d3d087bedd34ade79f69c1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQeVffEVb7k7wSfTZ1cl2d" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -767,9 +833,9 @@
           <h3>Coach Signature Chaise Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$180</span>
-            <a href="https://poshmark.com/listing/69d3d4d72981af7cf1ee5aee" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14A5kFeAR2AO2cy37d1cl2e" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -780,9 +846,9 @@
           <h3>Coach Swing Zip  Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$320</span>
-            <a href="https://poshmark.com/listing/69e016465df8e735b9a76918" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi28takB3ES04qcHN1cl2f" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -793,9 +859,9 @@
           <h3>VEE Collective Quilted Black and Cream Tote</h3>
           <div class="product-bottom">
             <span class="price">$250</span>
-            <a href="https://poshmark.com/listing/69bc5127dc3b467e4f124a4e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sY28t2S94IWbN89vB1cl2g" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -806,9 +872,9 @@
           <h3>VEE Collective Elegant Cream Tote Bag with Brown Accents</h3>
           <div class="product-bottom">
             <span class="price">$245</span>
-            <a href="https://poshmark.com/listing/69b6322e310f1cca6f0dcb0e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRmeVf9gx8Zc7wS0Z51cl2h" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -819,9 +885,9 @@
           <h3>VEE Collective Porter Vanity Case</h3>
           <div class="product-bottom">
             <span class="price">$125</span>
-            <a href="https://poshmark.com/listing/69b5c4c9a9a4482e935ab164" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ4gBboF2AO4kG7nt1cl2i" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -832,9 +898,9 @@
           <h3>VEE Collective Leopard Print Clutch with Black Accent</h3>
           <div class="product-bottom">
             <span class="price">$140</span>
-            <a href="https://poshmark.com/listing/69b5c80aff0320e2dc1ad907" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14A5kF64l7V88AW7nt1cl2j" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -845,9 +911,9 @@
           <h3>VEE Collective Green Porter Messenger Mini</h3>
           <div class="product-bottom">
             <span class="price">$140</span>
-            <a href="https://poshmark.com/listing/69b5d15d3509d137678e8aff" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B6dRb64lgrE5oK8rx1cl2k" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -858,9 +924,9 @@
           <h3>VEE Collective Ivy Plaid Micro Porter Tote</h3>
           <div class="product-bottom">
             <span class="price">$100</span>
-            <a href="https://poshmark.com/listing/69b630adf59cc43b1e434927" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZucN7dwNb7k7wS7nt1cl2l" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -871,9 +937,9 @@
           <h3>VEE Collective Ivy plaid Small Porter Tote</h3>
           <div class="product-bottom">
             <span class="price">$169</span>
-            <a href="https://poshmark.com/listing/69b5d324ff0320fcfb1b4b94" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oU5kFgIZcbobN82391cl2m" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -884,9 +950,9 @@
           <h3>VEE Collective Deep Sea Porter Basque Clutch</h3>
           <div class="product-bottom">
             <span class="price">$160</span>
-            <a href="https://poshmark.com/listing/69b5c964f59cc4dbdb3f8905" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gMdRbfEVgrE6sO5fl1cl2n" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -897,9 +963,9 @@
           <h3>VEE collective PORTER TOTE MEDIUM SILVER GREY</h3>
           <div class="product-bottom">
             <span class="price">$130</span>
-            <a href="https://poshmark.com/listing/69f0c1a9ed788d8567af5fc7" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B64gB0K17V8dVg9vB1cl2o" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -910,9 +976,9 @@
           <h3>Anne Klein Black East/West Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69ed5b051986c29b7e6fbcbf" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi7sN9gx5N0g3o37d1cl2p" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -923,9 +989,9 @@
           <h3>Duxbury Medium Leather Melbourne Satchel Medium Bag</h3>
           <div class="product-bottom">
             <span class="price">$225</span>
-            <a href="https://poshmark.com/listing/69ac856f24d2e7ec4f598d2a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w8wRdwNfnA7wS37d1cl2q" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -936,9 +1002,9 @@
           <h3>RADLEY LONDON Black Leather Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$285</span>
-            <a href="https://poshmark.com/listing/69ac6fcb88849acc9975b7a6" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJe14p50hdfs3gCbDJ1cl2r" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -949,9 +1015,9 @@
           <h3>INC Bawdii Croc-Embossed Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69ed4eec850012caab8cf989" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sY6oJ2S94IWcRcgY31cl2s" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -962,9 +1028,9 @@
           <h3>Black Leatherette Chain-Handle Crossbody Tote</h3>
           <div class="product-bottom">
             <span class="price">$18</span>
-            <a href="https://poshmark.com/listing/69ed4daf006e43660e9c87df" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x2aEZ0K12AO04q6jp1cl2t" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -975,9 +1041,9 @@
           <h3>Olive Canvas Tote Bag with Brown Leather Handles</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69ed4bb33509d118bc50ed21" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AdRb78p4IW9F0ePV1cl2u" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -988,9 +1054,9 @@
           <h3>Calvin Klein Audrey Floral Emboss Crossbody</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69ed3f00ed788dac509e5302" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ00lboF7V84kGbDJ1cl2v" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1001,9 +1067,9 @@
           <h3>Style&Co Double Compartment Crossbody Bag in Light Beige</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69ed3c20c4e7b44ce5defcbb" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa6oJboFgrE6sO9vB1cl2w" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1014,9 +1080,9 @@
           <h3>Style & Co. Black Braided Flap Leather Backpack</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69e10a3bc71ba1ddbaa25548" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sYdRb1O55N06sObDJ1cl2x" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1027,9 +1093,9 @@
           <h3>Style&Co Navy Backpack with Front Zip Pocket</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69ed17a4420644ee5309d00a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gMbJ350ha3g04qePV1cl2y" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1040,9 +1106,9 @@
           <h3>Inc Tollann Quilted Mini Crossbody</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69ed19592326c86ddf8fdece" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRm6oJ50h2AO5oK9vB1cl2z" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1053,9 +1119,9 @@
           <h3>Style&Co Women&#39;s Blue Leather Backpack - Sleek Everyday Carry</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69ed13eaa95105c96c1139d3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi4gB1O56R47wS8rx1cl2A" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1066,9 +1132,9 @@
           <h3>On 34th Somynn Solid Large Handbag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69ed0f109f034cf5cf009081" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x2bJ31O5a3g18u5fl1cl2B" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1079,9 +1145,9 @@
           <h3>Like dreams Olive Crescent Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$15</span>
-            <a href="https://poshmark.com/listing/69ed059e9f19e2de03322a2f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRm5kFfEV2AO2cy8rx1cl2C" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1092,9 +1158,9 @@
           <h3>Steve Madden Black Quilted Tote with Silver Chain Handles</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69eb8f29850012e62eb8b53a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oUdRb0K1a3g5oKdLR1cl2D" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1105,9 +1171,9 @@
           <h3>Inc International Concepts Averry Mesh Crystal Crossbody</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69ece1e49b2158d38725cf96" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJe00lakB5N0eZk7nt1cl2E" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1118,9 +1184,9 @@
           <h3>Style&Co Cream Women&#39;s Backpack</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69ece55a2326c84b9e8dc2d9" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B6dRbgIZ8Zc9F06jp1cl2F" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1131,9 +1197,9 @@
           <h3>kate spade Serena Pop Trim Chain Leather Wallet</h3>
           <div class="product-bottom">
             <span class="price">$125</span>
-            <a href="https://poshmark.com/listing/69d418769b215857c1c38adc" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oUfZj9gxgrE8AW7nt1cl2G" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1144,9 +1210,9 @@
           <h3>Ralph Lauren Chocolate Leather Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$180</span>
-            <a href="https://poshmark.com/listing/69b5d5f321b80179ca53b2e7" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B6cN70K1dfs4kG4bh1cl2H" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1157,9 +1223,9 @@
           <h3>RADLEY London St Pancras Lane medium open top handle bag</h3>
           <div class="product-bottom">
             <span class="price">$295</span>
-            <a href="https://poshmark.com/listing/69ac617d2fa054e17bf016d3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oU4gB8ctgrE04q37d1cl2I" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -1170,9 +1236,9 @@
           <h3>I.N.C Luci Envelope Clutch</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69eb976849e17bf8b557b9a0" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00wbJ3fEV4IW5oKdLR1cl2J" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1183,9 +1249,9 @@
           <h3>Badgley Mischka Diana Quilted Travel Weekender Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69eb8d35f6035a448f4d56af" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w8wRcsJfnA18ubDJ1cl2K" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1196,9 +1262,9 @@
           <h3>Michael Kors Kensington Large White Pebbled Leather Shoulder Bag — Like New</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/6961278efe4c68af48a414c5" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oUcN778p0sGdVg6jp1cl2L" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1209,9 +1275,9 @@
           <h3>On 34th Jasmii Pink Heart-Shaped Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69e7bce5e9c77d5200ed483e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B65kFdwNfnAdVggY31cl2M" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1222,9 +1288,9 @@
           <h3>Pink Crochet Tote Bag with Pom Accent</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69d69bf7f59cc42588695dd3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQcN7eARb7k3gC2391cl2N" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1235,9 +1301,9 @@
           <h3>Kate Spade Serena Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$135</span>
-            <a href="https://poshmark.com/listing/69b5d7fdd8024c310979e5cd" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQcN764l5N08AW8rx1cl2O" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1248,9 +1314,9 @@
           <h3>Calvin Klein Light Pink Pebbled Leather Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69d7d7395df8e7b484c6eb64" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w6oJcsJdfsdVg9vB1cl2P" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1261,9 +1327,9 @@
           <h3>Pink Tote Bag with Brown Trim and Stud Accents</h3>
           <div class="product-bottom">
             <span class="price">$120</span>
-            <a href="https://poshmark.com/listing/69d7d177b09b7cbc021c87ce" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa6oJ0K18Zc9F06jp1cl2Q" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1274,9 +1340,9 @@
           <h3>Sequin Rose Gold Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69bacf88ff353addf0db7eef" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVq4gBboF0sGcRcazF1cl2R" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1287,9 +1353,9 @@
           <h3>INC International Concepts Rose Gold Metallic Pouch</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69dabcadbd4ce3519ebeb511" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cI5kF50h5N018u6jp1cl2S" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1300,9 +1366,9 @@
           <h3>I.N.C Sparkling Pink Crystal Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69cbf877149377834acae83b" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/28E14p64l6R49F037d1cl2T" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -1313,9 +1379,9 @@
           <h3>Jewel Badgley Mischka Vibrant Purple Crystal Clutch</h3>
           <div class="product-bottom">
             <span class="price">$100</span>
-            <a href="https://poshmark.com/listing/69ac501c1986c2a4571d7d55" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ00lcsJb7k2cycHN1cl2U" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1326,9 +1392,9 @@
           <h3>DKNY Burgundy Leather Tote with Logo Charm</h3>
           <div class="product-bottom">
             <span class="price">$100</span>
-            <a href="https://poshmark.com/listing/69c56e1d2981af80e8091abc" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJecN7eAR2AO6sOcHN1cl2V" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1339,9 +1405,9 @@
           <h3>Style & Co. Plum Leather Crossbody with Gold Accents</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69d3e3eb24b20b9a71e4affd" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRmaEZ0K1b7k3gCazF1cl2W" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -1352,9 +1418,9 @@
           <h3>Women&#39;s Quilted Crossbody Clutch Crossbody in Magenta Purple with Gold Hardware</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69c56ae9850012d0bb9fb7f8" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa8wRakBb7k7wS8rx1cl2X" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1365,9 +1431,9 @@
           <h3>INC International Concepts magenta purple Shoulder Bag with Gold Chain</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69c5642fbdcb047813d583a5" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi9AV50hfnA2cyfTZ1cl2Y" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1378,9 +1444,9 @@
           <h3>Brahmin Deep Red Crocodile Embossed Wristlet</h3>
           <div class="product-bottom">
             <span class="price">$200</span>
-            <a href="https://poshmark.com/listing/69ac6e0ef59cc4707e93ced2" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJeaEZ64lcbo9F09vB1cl2Z" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1391,9 +1457,9 @@
           <h3>Aqua Light Blue Suede Hobo Bag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69e0fad7d7555d666fbed433" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B63cxgIZcbo9F0fTZ1cl30" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1404,9 +1470,9 @@
           <h3>Stylish Navy Handbag</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69977dcdb6af9241f74d96f2" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFaeVf64lfnA18u8rx1cl31" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1417,9 +1483,9 @@
           <h3>Style & Co. Blue Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69b6f3f6e9c77d7b2db045bb" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu6oJeARdfscRc2391cl32" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -1430,9 +1496,9 @@
           <h3>INC International Concepts Sparkling Navy Clutch</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69bad42314937793ffa2100e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14A14pdwN7V8aJ47nt1cl33" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1443,9 +1509,9 @@
           <h3>Travelon anti theft Mini asymmetric crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69b20c1d9b215886d1e223d8" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQeVfgIZa3g5oKbDJ1cl34" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1456,9 +1522,9 @@
           <h3>True Religion Blue and Cream Striped Canvas Tote with Red Trim</h3>
           <div class="product-bottom">
             <span class="price">$70</span>
-            <a href="https://poshmark.com/listing/69d68dd1f6035af3576a69ff" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AaEZboFdfs04qcHN1cl35" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1469,9 +1535,9 @@
           <h3>On 34th Navy Quilted Crossbody Bag with Blue Trim</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69d7ce99ff032093edb905ba" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AbJ3akB7V8g3oePV1cl36" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1482,9 +1548,9 @@
           <h3>On 34th Quilted Navy Blue Crossbody Belt Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69d7f99f0015421b6696ba88" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNicN72S9grE8AWePV1cl37" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1495,9 +1561,9 @@
           <h3>On 34th Dyanne Light Blue Women’s Shoulder Bag - Stylish Everyday Carry</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69d7ff7121b801a3166b9fca" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B68wR8ctfnA5oK6jp1cl38" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1508,9 +1574,9 @@
           <h3>Old trend bucket Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$160</span>
-            <a href="https://poshmark.com/listing/69b62b44420644a7a11655d8" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVqeVf50h5N0cRcbDJ1cl39" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1521,9 +1587,9 @@
           <h3>Green Women&#39;s Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/6998811c2fa054d908ce13e4" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cI6oJ2S92AO9F05fl1cl3a" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1534,9 +1600,9 @@
           <h3>Elegant Olive Green Woven Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$38</span>
-            <a href="https://poshmark.com/listing/69bacc73fe4c681aae49a49e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu28tfEV4IWdVggY31cl3b" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1547,9 +1613,9 @@
           <h3>Olive Green Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69c04814b6af92372ed31345" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B614pakBgrE4kGePV1cl3c" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1560,9 +1626,9 @@
           <h3>Larkspur Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$180</span>
-            <a href="https://poshmark.com/listing/69ac76e8b7f0ac6a9de46323" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJeaEZgIZ7V804q8rx1cl3d" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1573,9 +1639,9 @@
           <h3>Madden Girl Olive Green Backpack with lunchbox</h3>
           <div class="product-bottom">
             <span class="price">$36</span>
-            <a href="https://poshmark.com/listing/69b62d227ac6290180f17655" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFaeVfboFb7kbN8dLR1cl3e" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1586,9 +1652,9 @@
           <h3>Radley Oak Street Small Ziptop Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$125</span>
-            <a href="https://poshmark.com/listing/69e0358ffe4c687715dc25ca" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w5kF0K12AO9F05fl1cl3f" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1599,9 +1665,9 @@
           <h3>Michael Kors Marilyn Brown and Beige  Satchel - crossbody</h3>
           <div class="product-bottom">
             <span class="price">$160</span>
-            <a href="https://poshmark.com/listing/69e03931bd4ce33a13b7a1be" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gM14p3Wdcbo4kG0Z51cl3g" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1612,9 +1678,9 @@
           <h3>JW PEI Tan Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$90</span>
-            <a href="https://poshmark.com/listing/69ac75255919e0eecc9b1405" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cIfZj2S9dfs7wS4bh1cl3h" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1625,9 +1691,9 @@
           <h3>Chic Black Leather Shoulder Bag Set</h3>
           <div class="product-bottom">
             <span class="price">$70</span>
-            <a href="https://poshmark.com/listing/69b9a6ce21bd425f92510905" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFaaEZ3Wd8Zc6sO7nt1cl3i" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1638,9 +1704,9 @@
           <h3>💯Stella McCartney Dark Grey Studded Logo Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$850</span>
-            <a href="https://poshmark.com/listing/69e019f4b09b7cb18869b81e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa8wR9gx1wKbN82391cl3j" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1651,9 +1717,9 @@
           <h3>London Fog Black Woven Tote</h3>
           <div class="product-bottom">
             <span class="price">$100</span>
-            <a href="https://poshmark.com/listing/69e03b0bc71ba1f20d9d5f36" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x29AVfEVa3geZk8rx1cl3k" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1664,9 +1730,9 @@
           <h3>Style & Co. Olive Green Woven Sling Crossbody with Gold Hardware</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69c44685a9510538f9aa396b" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sY28t64lb7k5oKazF1cl3l" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1677,9 +1743,9 @@
           <h3>Elegant Green Hobo Bag</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69bc2fd04a072b73afe02325" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cIfZjakB8ZccRc4bh1cl3m" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1690,9 +1756,9 @@
           <h3>Sam Edelman Evelyn Woven Cream Shoulder Bag with Gold Hardware</h3>
           <div class="product-bottom">
             <span class="price">$80</span>
-            <a href="https://poshmark.com/listing/69e0fce1bd4ce3244cbc278d" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVq9AVcsJ8Zcg3o37d1cl3n" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1703,9 +1769,9 @@
           <h3>On 34th Reddelle Cream Crossbody Bag with Gold Accent</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69dd57ba24d2e78c5b8dbc54" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gM28t8ct3ES7wSazF1cl3o" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -1716,9 +1782,9 @@
           <h3>INC International Concepts vanilla Faux Leather Wristlet Clutch</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69daab0a1986c2b9d8199e1a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFabJ350hb7k3gC9vB1cl3p" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1729,9 +1795,9 @@
           <h3>Heart-Shaped White Crossbody Bag with Top Handle</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69d7fb2f21bd42172b589ae1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/28E4gB2S93ES2cydLR1cl3q" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1742,9 +1808,9 @@
           <h3>On 34th White Tweed Heart Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69d7cd5a9f19e20109999752" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x2bJ3akBb7keZk6jp1cl3r" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1755,9 +1821,9 @@
           <h3>Elegant White Shoulder Bag with Gold Accent</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69d6a7f1c71ba1b172732eff" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu7sNfEV2AO9F02391cl3s" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1768,9 +1834,9 @@
           <h3>White Crochet Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69d69ccfb6af92bbfee802e5" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRmaEZcsJdfs04q6jp1cl3t" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1783,9 +1849,9 @@ Rachell Mini Crossbody" loading="lazy">
 Rachell Mini Crossbody</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69cc14139936d61a7eaa2052" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cI3cxcsJgrE9F07nt1cl3u" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1796,9 +1862,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co White Laser-Cut Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69cc12f7bd4ce3945fe245a7" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQcN71O53ES4kG0Z51cl3v" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1809,9 +1875,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. White Floral Cutout Crossbody Bag with Gold Hardware</h3>
           <div class="product-bottom">
             <span class="price">$38</span>
-            <a href="https://poshmark.com/listing/69cbf738420644494df0ac96" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AbJ3gIZa3gg3o4bh1cl3w" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1822,9 +1888,9 @@ Rachell Mini Crossbody</h3>
           <h3>White Leather Shoulder Bag with Decorative Cutouts</h3>
           <div class="product-bottom">
             <span class="price">$15</span>
-            <a href="https://poshmark.com/listing/69c2d79a7ac6299080c8be77" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14A00lboF7V8dVg5fl1cl3x" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1835,9 +1901,9 @@ Rachell Mini Crossbody</h3>
           <h3>Sam Edelman Ivory Woven Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$80</span>
-            <a href="https://poshmark.com/listing/69b5d9e4a0dc2b033e1bb602" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gMdRbfEVgrE9F04bh1cl3y" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1848,9 +1914,9 @@ Rachell Mini Crossbody</h3>
           <h3>Elegant White Heart Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69b859b514937742af906252" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sYeVf3WdgrE7wSgY31cl3z" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1861,9 +1927,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. Cream Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69bad1601986c283268e2030" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B600l9gx8ZceZk7nt1cl3A" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -1874,9 +1940,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. Cream Leather Wristlet</h3>
           <div class="product-bottom">
             <span class="price">$32</span>
-            <a href="https://poshmark.com/listing/69b89f59b09b7c7b07e04ca7" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNidRb9gxa3g8AWePV1cl3B" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1887,9 +1953,9 @@ Rachell Mini Crossbody</h3>
           <h3>On 34th Neutral Cream Saddle Crossbody Bag with Gold Hardware</h3>
           <div class="product-bottom">
             <span class="price">$15</span>
-            <a href="https://poshmark.com/listing/69d95df524b20b8beef4b44e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu9AV78pdfs5oKfTZ1cl3C" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -1900,9 +1966,9 @@ Rachell Mini Crossbody</h3>
           <h3>Chic Tan Woven Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69b89dd37ac62958fc490218" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AcN7eARb7k3gC7nt1cl3D" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1913,9 +1979,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC Quilted Beige Stud-Accent Top-Handle Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69d3d9262326c804db3e1ff5" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi5kF8ct0sGbN8cHN1cl3E" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1926,9 +1992,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Croc-Embossed Cream Crossbody Bag with Gold Chain</h3>
           <div class="product-bottom">
             <span class="price">$55</span>
-            <a href="https://poshmark.com/listing/69c4518e243daef58afeddcc" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQaEZboF1wK2cycHN1cl3F" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1939,9 +2005,9 @@ Rachell Mini Crossbody</h3>
           <h3>Stylish Taupe Crossbody Bag with Gold Chain</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69b1c7fe24d2e78aed5ad20a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJe8wRdwN4IW18ucHN1cl3G" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1952,9 +2018,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Cream Shoulder Bag Set</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69b8a38c24b20b9b88f0a8d3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oUfZjdwN7V8bN8azF1cl3H" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1965,9 +2031,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style &Co Beige Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69bacdb649e17b021232ab70" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14A7sN64l3ES2cy6jp1cl3I" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -1978,9 +2044,9 @@ Rachell Mini Crossbody</h3>
           <h3>Patricia Nash Ithaca Small Leather Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69e7a65c955383f9b9c76457" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w28tgIZ8Zc7wScHN1cl3J" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -1991,9 +2057,9 @@ Rachell Mini Crossbody</h3>
           <h3>Classic Black Leather Drawstring Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69c5704d21b8013d567afb66" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa3cxakB3ES4kG37d1cl3K" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2004,9 +2070,9 @@ Rachell Mini Crossbody</h3>
           <h3>On 34th Black Quilted Crossbody Bag with Adjustable Strap</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69d7c76e4a072bccfc0231db" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cIfZj9gxgrE7wS4bh1cl3L" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2017,9 +2083,9 @@ Rachell Mini Crossbody</h3>
           <h3>On 34th Stylish Black Soft Shoulder Bag for Women</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69d69821b09b7c2aea89b724" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x2dRbboF8Zc9F00Z51cl3M" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2030,9 +2096,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Black Decorative Clamshell Accent with Gold Clasp</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69d3e589ff353a3a8006e91e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVqaEZakB4IW18u0Z51cl3N" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2043,9 +2109,9 @@ Rachell Mini Crossbody</h3>
           <h3>Classic Quilted Black Shoulder Bag with Gold Hardware</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69d3e11442064472fa052993" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ00lcsJ4IW7wS37d1cl3O" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -2056,9 +2122,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Black Glitter Clutch with Bow Clasp</h3>
           <div class="product-bottom">
             <span class="price">$18</span>
-            <a href="https://poshmark.com/listing/69d3de16bedd346bee9fecf1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w8wReAR5N04kG37d1cl3P" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2069,9 +2135,9 @@ Rachell Mini Crossbody</h3>
           <h3>On 34th Nylon Belt Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69cc5eebb9449195533033c1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ9AV78p3ES6sOcHN1cl3Q" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2082,9 +2148,9 @@ Rachell Mini Crossbody</h3>
           <h3>On 34th Classic Black Crossbody Bag with Gold Trim</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69cbf4a4001542e0ade9d4a6" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gMeVf9gxb7k18ucHN1cl3R" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2095,9 +2161,9 @@ Rachell Mini Crossbody</h3>
           <h3>Structured Black Top-Handle Satchel with Gold Accents</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69c566ab21b80189e77a954a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gM5kF0K10sG4kG5fl1cl3S" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2108,9 +2174,9 @@ Rachell Mini Crossbody</h3>
           <h3>Sam Edelman Black Leather Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69b349cf955383c362368c8e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w3cx9gx0sG04q9vB1cl3T" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2121,9 +2187,9 @@ Rachell Mini Crossbody</h3>
           <h3>Urban Expressions Black Mini crossbody Bag with Braided Handle</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69bc2bf6006e4338663f6f33" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w5kF0K1cbobN88rx1cl3U" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2134,9 +2200,9 @@ Rachell Mini Crossbody</h3>
           <h3>GUESS Black Satchel with Gold Hardware</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69c2dc6e3509d18f6b6e9c9a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cI9AVgIZejwg3o5fl1cl3V" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2147,9 +2213,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Black Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$70</span>
-            <a href="https://poshmark.com/listing/69b58dc72c9e44327999144a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B628t2S92AO8AW2391cl3W" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2160,9 +2226,9 @@ Rachell Mini Crossbody</h3>
           <h3>Black Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69bad32a9f034c4f771ae8bb" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa4gB2S9ejw2cyfTZ1cl3X" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2173,9 +2239,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Black and White Mesh Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69b633e6ff353a5b64b4e915" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJe8wR2S9fnAeZkdLR1cl3Y" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -2186,9 +2252,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. Black Leather Clutch with Whipstitch Detail</h3>
           <div class="product-bottom">
             <span class="price">$42</span>
-            <a href="https://poshmark.com/listing/69b8a0ba4a072bdfa5edf82b" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/28EaEZdwN7V87wSazF1cl3Z" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2199,9 +2265,9 @@ Rachell Mini Crossbody</h3>
           <h3>Sophisticated Black Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$22</span>
-            <a href="https://poshmark.com/listing/69bc2d0ac4e7b47d03f2ed0c" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRmdRbcsJ3ES4kG7nt1cl40" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2212,9 +2278,9 @@ Rachell Mini Crossbody</h3>
           <h3>Steve Madden Black Croc-Embossed Satchel</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69af23b021b801e7a79d957f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oUaEZcsJ8Zc9F0dLR1cl41" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2225,9 +2291,9 @@ Rachell Mini Crossbody</h3>
           <h3>Nine West Midnight Satchel with Charm</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69ad87be88849acc997dadbf" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi28tfEVdfsaJ40Z51cl42" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2238,9 +2304,9 @@ Rachell Mini Crossbody</h3>
           <h3>Calvin Klein Black Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$85</span>
-            <a href="https://poshmark.com/listing/69ac4e322c9e44254db83632" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B63cx9gx7V8bN86jp1cl43" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2251,9 +2317,9 @@ Rachell Mini Crossbody</h3>
           <h3>Grosci Black Bow Satchel for Women</h3>
           <div class="product-bottom">
             <span class="price">$28</span>
-            <a href="https://poshmark.com/listing/697fc954d7555d800b5a641c" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu28t64lcbo9F0ePV1cl44" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -2264,9 +2330,9 @@ Rachell Mini Crossbody</h3>
           <h3>Chic Black Leather Wristlet Clutch</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/699755ffa9a448e87d5a574c" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00wbJ364l7V8dVg5fl1cl45" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2277,9 +2343,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. Elegant Black Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/695ec10fb14a0605825a95c2" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa14p8ct1wKcRc2391cl46" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="michael kors">
         <div class="product-img">
@@ -2290,9 +2356,9 @@ Rachell Mini Crossbody</h3>
           <h3>Michael Kors Black Leather Wristlet</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69ab1513c71ba1b0a9a371b8" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sYcN7eARa3g7wS9vB1cl47" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2303,9 +2369,9 @@ Rachell Mini Crossbody</h3>
           <h3>Steve Madden Black Satchel</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69b2e5723509d125d578bb9a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVq5kFdwNb7k6sOgY31cm00" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2316,9 +2382,9 @@ Rachell Mini Crossbody</h3>
           <h3>Guess Black Tote with Gold Accents</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69bc3588001542a4aa3c0533" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJebJ30K1ejw3gC5fl1cm01" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2329,9 +2395,9 @@ Rachell Mini Crossbody</h3>
           <h3>Samsonite Black Duffel Bag</h3>
           <div class="product-bottom">
             <span class="price">$160</span>
-            <a href="https://poshmark.com/listing/69b3457c9936d6672eb347f4" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVqbJ38ctdfs6sO0Z51cm02" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2342,9 +2408,9 @@ Rachell Mini Crossbody</h3>
           <h3>DKNY Glossy Black Satchel</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69b1a97185001279add1b913" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oUaEZboF2AO8AWbDJ1cm03" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -2355,9 +2421,9 @@ Rachell Mini Crossbody</h3>
           <h3>Elegant Black Beaded Clutch</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69bad672bdcb040e5edbf57f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa4gBeARejw9F05fl1cm04" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2368,9 +2434,9 @@ Rachell Mini Crossbody</h3>
           <h3>Samsonite Black Bag with Gold Accents</h3>
           <div class="product-bottom">
             <span class="price">$130</span>
-            <a href="https://poshmark.com/listing/69b180b03509d1e8cf7d520a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oU5kFeAR5N06sO6jp1cm05" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2381,9 +2447,9 @@ Rachell Mini Crossbody</h3>
           <h3>Black Women&#39;s Bag with Cherry Charm</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69b4a4533509d115458675f1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa14p3WdfnA4kG8rx1cm06" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2394,9 +2460,9 @@ Rachell Mini Crossbody</h3>
           <h3>Chic Clear and Black Mini Bag with Gold Accents</h3>
           <div class="product-bottom">
             <span class="price">$23</span>
-            <a href="https://poshmark.com/listing/6997592621b8016cc6e8cde2" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ4gB1O5cbog3o8rx1cm07" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2407,9 +2473,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. Black Crossbody Bag with Front Zipper</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/698a56a1bedd342e0a521439" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZueVfdwN5N04kGgY31cm08" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2420,9 +2486,9 @@ Rachell Mini Crossbody</h3>
           <h3>Elegant Brown Transparent Handbag</h3>
           <div class="product-bottom">
             <span class="price">$23</span>
-            <a href="https://poshmark.com/listing/69987ed8b7f0ac55f689085d" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/28E14pboFb7k8AWfTZ1cm09" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2433,9 +2499,9 @@ Rachell Mini Crossbody</h3>
           <h3>Brown Leather Women&#39;s Bag</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69a8cb502fa0544728d6e35e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w6oJ78pfnA5oK9vB1cm0a" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2446,9 +2512,9 @@ Rachell Mini Crossbody</h3>
           <h3>Elegant Brown Handbag</h3>
           <div class="product-bottom">
             <span class="price">$28</span>
-            <a href="https://poshmark.com/listing/69987cf32981af3710bb67d3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B6eVf0K10sG3gCazF1cm0b" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2459,9 +2525,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. Studded Brown Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/696005bf24d2e7e3d14c7b6a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sYbJ364l0sG9F04bh1cm0c" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2472,9 +2538,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. Tan Corduroy Sling Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69b5885f05deb32003280406" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gM3cxdwNb7k3gCbDJ1cm0d" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2485,9 +2551,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. Brown Floral Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69b9aab224b20b0270f7617e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVq7sNfEV4IWeZk7nt1cm0e" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2498,9 +2564,9 @@ Rachell Mini Crossbody</h3>
           <h3>Anne Klein Dark Brown 3 pc Work Tote</h3>
           <div class="product-bottom">
             <span class="price">$80</span>
-            <a href="https://poshmark.com/listing/69b2e3eedc3b46824b54a054" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFadRbakB5N0cRc7nt1cm0f" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2511,9 +2577,9 @@ Rachell Mini Crossbody</h3>
           <h3>Anne Klein Brown and Tan Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69b6299c2fa054db24fb980f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJe9AV3Wd1wKaJ49vB1cm0g" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2524,9 +2590,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Leopard Print Studded Zip Around</h3>
           <div class="product-bottom">
             <span class="price">$18</span>
-            <a href="https://poshmark.com/listing/69c2eae4c4e7b49cc0238615" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa9AV64lejwbN8bDJ1cm0h" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -2537,9 +2603,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Snake Print Wristlet Clutch in Brown and Black</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69c444a4b14a066cd26e5b5d" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cIeVfgIZ8ZceZkfTZ1cm0i" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2550,9 +2616,9 @@ Rachell Mini Crossbody</h3>
           <h3>Style & Co. Brown Braided Leather Tote Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69c568240015428e2dbfa2b1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZueVf9gx4IWaJ42391cm0j" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2563,9 +2629,9 @@ Rachell Mini Crossbody</h3>
           <h3>On 34th Tan Leather Tote Bag with Zip Pouch</h3>
           <div class="product-bottom">
             <span class="price">$63</span>
-            <a href="https://poshmark.com/listing/69cc10337ac62965121e6938" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/4gM9AV9gx0sG18u9vB1cm0k" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2576,9 +2642,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Leopard Print Crossbody in Brown and Black</h3>
           <div class="product-bottom">
             <span class="price">$18</span>
-            <a href="https://poshmark.com/listing/69cc5a6b001542eb07edbe6f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRm4gB2S9b7k2cy7nt1cm0l" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2589,9 +2655,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC Classic Brown Leather Shoulder Bag with Gold Chain</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69d3dade9f034cbaad081b5f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00w28t0K18Zc04q4bh1cm0m" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2602,9 +2668,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Brown Crescent Hobo Bag with Gold Chain</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69d3dc35a0dc2b950b3a6317" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ14pgIZfnA5oK37d1cm0n" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2615,9 +2681,9 @@ Rachell Mini Crossbody</h3>
           <h3>TSD Red wood Canvas Tote with Leather Trim and Brown Leather Handles</h3>
           <div class="product-bottom">
             <span class="price">$80</span>
-            <a href="https://poshmark.com/listing/69d3deef24b20bcbc9e480eb" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14A7sNcsJ0sGeZkgY31cm0o" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2628,9 +2694,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC Snake-Print Hobo Shoulder Bag in Brown</h3>
           <div class="product-bottom">
             <span class="price">$55</span>
-            <a href="https://poshmark.com/listing/69d69672e9c77ded856ca51e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AdRb64lejwdVg5fl1cm0p" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2641,9 +2707,9 @@ Rachell Mini Crossbody</h3>
           <h3>INC International Concepts Snake Print Zip Wallet - Brown/Black</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69dab93d243dae9df7a2ef4e" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sYbJ3akBfnA4kGdLR1cm0q" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2654,9 +2720,9 @@ Rachell Mini Crossbody</h3>
           <h3>On 34th Classic Pebbled Mini Satchel Shoulder Bag in Camel</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69cc5cfe1986c243532583d5" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ3cx78pdfsdVgcHN1cm0r" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2669,9 +2735,9 @@ Ninah Sculpted Crossbody" loading="lazy">
 Ninah Sculpted Crossbody</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69cbef732326c8ca5f3f70ae" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJe4gB9gx8ZcdVgdLR1cm0s" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2682,9 +2748,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>INC International Concepts Tan Leather Hobo Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69c438dff59cc4782b4f00d0" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oU3cx64lb7kcRc4bh1cm0t" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2695,9 +2761,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>INC International Concepts Tan Woven Shoulder Bag with Wrist Pouch</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69c2b10d006e4351b48421d9" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNicN7csJfnA2cy0Z51cm0u" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2708,9 +2774,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Jimmy Choo Diamond Hobo Toffee/gold</h3>
           <div class="product-bottom">
             <span class="price">$980</span>
-            <a href="https://poshmark.com/listing/69bad9a42326c8393670921d" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x2dRbdwNejw5oKazF1cm0v" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2721,9 +2787,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Chic Tan Women&#39;s Tote Bag Set</h3>
           <div class="product-bottom">
             <span class="price">$70</span>
-            <a href="https://poshmark.com/listing/69b9a76dc4e7b4fd8c3aa04f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu6oJdwN5N06sOcHN1cm0w" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2734,9 +2800,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Elegant Tan and Cream Tote Bag Set</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69b9951649e17b9a372a25c2" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B67sN2S97V818u7nt1cm0x" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2747,9 +2813,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>The Sak Tan Leather Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69b20d05b7f0ac055b4c4b89" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14A28t2S96R46sOfTZ1cm0y" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2760,9 +2826,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Calvin Klein Cream Fay Pebbled Leather Shoulder Bag with Contrast Trim</h3>
           <div class="product-bottom">
             <span class="price">$80</span>
-            <a href="https://poshmark.com/listing/69e10083c71ba144b4a1f4a8" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZudRb3WdgrEbN8dLR1cm0z" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -2773,9 +2839,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Pink Beaded Cowgirl Clutch</h3>
           <div class="product-bottom">
             <span class="price">$22</span>
-            <a href="https://poshmark.com/listing/699755c42981afa89ef70cac" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa00l50h1wK2cy6jp1cm0A" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -2786,9 +2852,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Beaded Pink Clutch - Wifey For Lifey</h3>
           <div class="product-bottom">
             <span class="price">$24</span>
-            <a href="https://poshmark.com/listing/699754799f034ce8de8f6014" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi5kF78p4IWg3o37d1cm0B" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="beaded">
         <div class="product-img">
@@ -2799,9 +2865,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Patriotic Beaded Heart Pouch</h3>
           <div class="product-bottom">
             <span class="price">$15</span>
-            <a href="https://poshmark.com/listing/69987dc849e17b7d8391891d" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi5kF64l4IWbN85fl1cm0C" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -2812,9 +2878,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>ON-34TH Beaded Blue Clutch with Tassel</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69b4b054e9c77dc7a6ea45ff" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/28E4gB3Wd5N03gCePV1cm0D" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2825,9 +2891,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Floral Wristlet Wallet in Pink, Teal & Red</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69d6ab189f034cd5abad2671" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x2bJ39gx6R4bN86jp1cm0E" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2838,9 +2904,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>On 34th Metallic Silver Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69cc16491493778104cc0fef" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AaEZfEV7V804q4bh1cm0F" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2851,9 +2917,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Chloe Taupe Leather Marcie  Hobo Bag</h3>
           <div class="product-bottom">
             <span class="price">$1650</span>
-            <a href="https://poshmark.com/listing/69b4792405deb327c7213a9b" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cIbJ3akBcbo18u2391cm0G" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2864,9 +2930,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Elegant Silver Women&#39;s Handbag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/699752f31986c247bb847eeb" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x2fZjgIZ2AO04qbDJ1cm0H" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2877,9 +2943,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>INC International Concepts Quilted Red zip around wristle with Gold Accent</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69d6a9269553833bde954b77" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sY8wR64lb7k6sOePV1cm0I" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2890,9 +2956,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>The Sak Red Leather Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/696008fe9b2158f31ec349a1" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sY9AV0K15N05oK5fl1cm0J" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -2903,9 +2969,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Chic Red Satchel Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69b9a95fe9c77d94698b8038" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJe9AV2S91wK2cyazF1cm0K" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2916,9 +2982,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Forest island Tote \ 100% eco genuine Leather</h3>
           <div class="product-bottom">
             <span class="price">$250</span>
-            <a href="https://poshmark.com/listing/69b85c61f59cc4d4920671c5" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFafZj0K1dfsdVgbDJ1cm0L" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -2929,9 +2995,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>INC International Concepts Quilted Red Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$70</span>
-            <a href="https://poshmark.com/listing/69b17d7cbedd34c8408e8756" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ7sNfEV0sG8AWdLR1cm0M" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2942,9 +3008,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Red Crochet Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$30</span>
-            <a href="https://poshmark.com/listing/69d69dc295538363375f5209" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x2bJ32S9grEg3o6jp1cm0N" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="michael kors">
         <div class="product-img">
@@ -2955,9 +3021,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Michael Kors Black and Gold Wristlet</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/6960012621b801c3717dabca" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AeVfgIZb7k5oK9vB1cm0O" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -2968,9 +3034,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Giani Bernini Black, Cream & Tan Leather Tote</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69eb90739b2158e13697f30f" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oU6oJ50hdfs7wS6jp1cm0P" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2981,9 +3047,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Giani Bernini Cream Leather Crossbody Wristlet</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69ed59505df8e7ab87c89d18" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/dRm00l78p5N018uazF1cm0Q" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -2994,9 +3060,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Giani Bernini Nappa Leather Front Zip Crossbody</h3>
           <div class="product-bottom">
             <span class="price">$55</span>
-            <a href="https://poshmark.com/listing/69ed3367dbd8f0520780ec25" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFaeVf0K10sG7wS4bh1cm0R" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -3007,9 +3073,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Giani Bernini Dark Brown Pebbled Crossbody Bag with Silver-Tone Logo</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69ed043b4a072bafa868a6f3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu7sNeAR8Zcg3odLR1cm0S" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -3020,9 +3086,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Giani Bernini Nappa Leather Hobo Bag</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69eb9371ff353ad4af5408b6" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x200lcsJ0sG3gC2391cm0T" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -3033,9 +3099,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Saffiano Navy Blue Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$75</span>
-            <a href="https://poshmark.com/listing/69bc8940bdcb042ce350c828" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVqaEZeAR6R45oKazF1cm0U" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -3046,9 +3112,9 @@ Ninah Sculpted Crossbody</h3>
           <h3>Giani Bernini Folkstone Gray Leather Crossbody with Gold Hardware</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69c573573509d1e7aec795f3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x2aEZfEVb7k6sO7nt1cm0V" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -3061,9 +3127,9 @@ Saffiano Crossbody" loading="lazy">
 Saffiano Crossbody</h3>
           <div class="product-bottom">
             <span class="price">$45</span>
-            <a href="https://poshmark.com/listing/69cbf2f9850012ded67eceb7" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ14pboFfnA6sOcHN1cm0W" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -3074,9 +3140,9 @@ Saffiano Crossbody</h3>
           <h3>Giani Bernini White Wristlet Phone Crossbody</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69daa80ebdcb04c2ca4ee216" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/eVq3cx78p3ES7wS9vB1cm0X" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -3087,9 +3153,9 @@ Saffiano Crossbody</h3>
           <h3>Giani Bernini Crossbody Bag in Light Gray and Tan</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69cbf18d1493778177caa38c" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/28E3cx9gx7V86sOfTZ1cm0Y" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -3102,9 +3168,9 @@ Quilted Patent Medium Book Tote" loading="lazy">
 Quilted Patent Medium Book Tote</h3>
           <div class="product-bottom">
             <span class="price">$80</span>
-            <a href="https://poshmark.com/listing/69cbf0a9b94491e8ba2bf2f0" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/00waEZ64lfnA04q7nt1cm0Z" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -3115,9 +3181,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Giani Bernini small Quilted Saddle Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$55</span>
-            <a href="https://poshmark.com/listing/69c448e6f6035a31cbb2d265" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/9B65kFeAR6R42cyePV1cm10" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -3128,9 +3194,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Gianni Bini Black Croc-Embossed Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$55</span>
-            <a href="https://poshmark.com/listing/69c452824a072b5ca6357ad8" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oU8wRdwN4IW9F0fTZ1cm11" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -3141,9 +3207,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Giani Bernini framed indexer Wallet</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69c436054206448827940f55" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/aFa4gBcsJ7V87wS4bh1cm12" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -3154,9 +3220,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Giani Bernini Black Leather Shoulder Bag with Front Zip</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69c2f20524d2e7958cec463c" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sY4gB78p8ZccRc6jp1cm13" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -3167,9 +3233,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Giani Bernini Black Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$55</span>
-            <a href="https://poshmark.com/listing/69b8a21d9f034c01340c3a09" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ8wR2S9fnAeZk5fl1cm14" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -3180,9 +3246,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Navy Giani Bernini Nappa Leather Crossbody Bag</h3>
           <div class="product-bottom">
             <span class="price">$60</span>
-            <a href="https://poshmark.com/listing/69c2ccf2b944914a70e615e0" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu9AVgIZ4IWaJ45fl1cm15" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -3193,9 +3259,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Giani Bernini Black Leather Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$70</span>
-            <a href="https://poshmark.com/listing/69ad867342064494654fd3bf" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sY4gBgIZ7V84kG6jp1cm16" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -3206,9 +3272,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Giani Bernini Black Leather Tote</h3>
           <div class="product-bottom">
             <span class="price">$75</span>
-            <a href="https://poshmark.com/listing/69b4a2e9b09b7cd5e536ca19" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/cNi7sNakBb7k7wSePV1cm17" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="crossbody">
         <div class="product-img">
@@ -3219,9 +3285,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Giani Bernini Red Crossbody Leather Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69cbf5cd9936d6a613a8f483" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/fZu9AVakB6R43gC8rx1cm18" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="tote">
         <div class="product-img">
@@ -3232,9 +3298,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Elegant Green Woven Tote Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/69b9900cfe4c68dd0440f9a3" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJeaEZ78p8Zc2cyfTZ1cm19" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -3245,9 +3311,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>INC International Concepts Pale Yellow Zip Clutch with Front Pocket</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69d95ccfdc3b46af02a7a5e6" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oUeVf1O5dfsdVgePV1cm1a" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -3258,9 +3324,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>INC International Concepts Quilted Shoulder Bag in Light Yellow with Gold Chain</h3>
           <div class="product-bottom">
             <span class="price">$15</span>
-            <a href="https://poshmark.com/listing/69d95aedb94491ddc54bfaa7" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oU9AV8ct1wK4kG2391cm1b" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -3271,9 +3337,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Style&Co Metallic Beige Zip Wallet</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/69cc5ba37ac6292f98214ca2" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/5kQ4gB64lfnAaJ48rx1cm1c" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -3284,9 +3350,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>INC International Concepts Silver Crystal Shoulder  Bag</h3>
           <div class="product-bottom">
             <span class="price">$50</span>
-            <a href="https://poshmark.com/listing/69cbfa77bdcb04e8fa114210" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/6oU9AV64l3ES3gCgY31cm1d" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -3297,9 +3363,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Embellished Silver Beaded Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$40</span>
-            <a href="https://poshmark.com/listing/69c4407db6af92d5d0f0061b" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/14AdRbgIZ5N03gCazF1cm1e" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="other">
         <div class="product-img">
@@ -3310,9 +3376,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Kate Spade Two-Tone White and Tan Wallet</h3>
           <div class="product-bottom">
             <span class="price">$70</span>
-            <a href="https://poshmark.com/listing/69ac9bdab6af92cea6c71385" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/7sYbJ350hejw4kGazF1cm1f" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="clutch">
         <div class="product-img">
@@ -3323,9 +3389,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Elegant Gold Clutch Bag</h3>
           <div class="product-bottom">
             <span class="price">$35</span>
-            <a href="https://poshmark.com/listing/6997772bf59cc4dc1201a874" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/8x24gBboF0sG9F0gY31cm1g" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="beaded">
         <div class="product-img">
@@ -3336,9 +3402,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Round Black Beaded Mini Bag with Red Sequin Flower Accents</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69f8ea0021b801c247087ff0" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cI9AVakB5N018udLR1cm1h" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="beaded">
         <div class="product-img">
@@ -3349,9 +3415,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Floral Beaded Coin purse</h3>
           <div class="product-bottom">
             <span class="price">$20</span>
-            <a href="https://poshmark.com/listing/69f8eb0c9b21586f6a89151a" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/bJefZjboF4IW3gC37d1cm1i" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
       <div class="product-card" data-tag="shoulder">
         <div class="product-img">
@@ -3362,9 +3428,9 @@ Quilted Patent Medium Book Tote</h3>
           <h3>Style & Co. Classic Black Shoulder Bag</h3>
           <div class="product-bottom">
             <span class="price">$25</span>
-            <a href="https://poshmark.com/listing/696eba285919e05830b52967" target="_blank" class="shop-btn">Shop →</a>
+            <a href="https://buy.stripe.com/3cI7sNgIZgrE18ugY31cm1j" target="_blank" class="buy-btn" style="display:block;text-align:center;text-decoration:none;">Buy Now 🛒</a>
           </div>
-        </div>
+      </div>
       </div>
     </div></section>
 
@@ -3411,5 +3477,8 @@ Quilted Patent Medium Book Tote</h3>
       });
     });
   </script>
+
+  
+
 </body>
 </html>
