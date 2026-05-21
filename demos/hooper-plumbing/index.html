@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hooper Plumbing & Air Conditioning — Dallas, TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--orange:#ea580c;--dark:#1c1917;--light:#fafaf9}
+    body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark)}
+    nav{position:fixed;top:0;width:100%;background:rgba(28,25,23,0.97);backdrop-filter:blur(8px);z-index:100;padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;color:#fff;letter-spacing:1px}.logo span{color:#fb923c}
+    .nav-cta{background:var(--orange);color:#fff;padding:10px 24px;border-radius:4px;text-decoration:none;font-weight:700;font-size:14px}
+    .hero{min-height:100vh;background:linear-gradient(135deg,rgba(28,25,23,0.95) 55%,rgba(234,88,12,0.2)),url('https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1600') center/cover;display:flex;align-items:center;padding:120px 60px 60px;color:#fff}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(251,146,60,0.15);border:1px solid rgba(251,146,60,0.4);color:#fb923c;font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px;margin-bottom:24px;text-transform:uppercase;letter-spacing:1px}
+    h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(50px,8vw,88px);font-weight:900;line-height:1.0;margin-bottom:20px;text-transform:uppercase}
+    h1 span{color:#fb923c}
+    .hero p{font-size:18px;opacity:0.75;margin-bottom:36px;line-height:1.7;max-width:560px}
+    .btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+    .btn-primary{background:var(--orange);color:#fff;padding:16px 36px;border-radius:4px;text-decoration:none;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:1px}
+    .btn-ghost{border:2px solid rgba(255,255,255,0.4);color:#fff;padding:16px 36px;border-radius:4px;text-decoration:none;font-size:15px;font-weight:600;text-transform:uppercase}
+    .stats{display:flex;gap:40px;flex-wrap:wrap}
+    .stat .num{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:#fb923c}
+    .stat .label{font-size:12px;opacity:0.5;text-transform:uppercase;letter-spacing:1px}
+    .services{padding:90px 40px;background:var(--light)}
+    .services-inner{max-width:1100px;margin:0 auto}
+    .section-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:10px}
+    .services h2{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;text-transform:uppercase;margin-bottom:8px}
+    .sub{color:#78716c;margin-bottom:50px;font-size:15px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+    .card{background:#fff;border-radius:12px;box-shadow:0 2px 15px rgba(0,0,0,0.06);border-top:4px solid var(--orange);padding:28px;transition:transform 0.2s}
+    .card:hover{transform:translateY(-4px)}
+    .card-icon{font-size:36px;margin-bottom:14px}
+    .card h3{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;margin-bottom:10px;text-transform:uppercase}
+    .card p{font-size:14px;color:#78716c;line-height:1.7}
+    .guarantee{padding:90px 40px;background:var(--dark);color:#fff;text-align:center}
+    .guarantee h2{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;text-transform:uppercase;margin-bottom:50px}
+    .g-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;max-width:900px;margin:0 auto}
+    .g-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:36px 24px}
+    .g-num{font-family:'Barlow Condensed',sans-serif;font-size:54px;font-weight:900;color:#fb923c;line-height:1;margin-bottom:8px}
+    .g-label{font-size:14px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px}
+    .cta-section{background:var(--orange);color:#fff;padding:90px 40px;text-align:center}
+    .cta-section h2{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:900;text-transform:uppercase;margin-bottom:14px;line-height:1.1}
+    .cta-section p{font-size:18px;opacity:0.85;margin-bottom:36px}
+    .cta-btn{display:inline-block;background:#fff;color:var(--orange);padding:18px 50px;border-radius:4px;text-decoration:none;font-weight:800;font-size:18px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase}
+    .contact{background:var(--dark);padding:40px}
+    .contact-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center;color:#fff}
+    .c-item h4{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:0.5;margin-bottom:6px}
+    .c-item p{font-size:14px;font-weight:600}
+    .c-item a{color:#fb923c;text-decoration:none}
+    footer{background:#000;color:rgba(255,255,255,0.3);text-align:center;padding:24px;font-size:13px}
+    footer span{color:#fb923c}
+    @media(max-width:768px){nav{padding:14px 20px}.hero{padding:100px 24px 50px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">HOOPER <span>PLUMBING</span></div>
+    <a href="tel:+12143632543" class="nav-cta">📞 Call Now</a>
+  </nav>
+  <section class="hero">
+    <div>
+      <div class="badge">🔧 Dallas, TX — Licensed Plumber</div>
+      <h1>Plumbing Problems?<br>We Fix <span>Everything.</span></h1>
+      <p>Dallas's reliable plumbing and air conditioning experts. From leaky pipes to full installations — fast, honest, and done right.</p>
+      <div class="btns">
+        <a href="tel:+12143632543" class="btn-primary">📞 (214) 363-2543 — Call Now</a>
+        <a href="#services" class="btn-ghost">Our Services</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">20+</div><div class="label">Years Experience</div></div>
+        <div class="stat"><div class="num">24/7</div><div class="label">Emergency Calls</div></div>
+        <div class="stat"><div class="num">5★</div><div class="label">Rated Service</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="services" id="services">
+    <div class="services-inner">
+      <p class="section-tag">Our Services</p>
+      <h2>Full Plumbing & AC</h2>
+      <p class="sub">Everything from emergency repairs to full system replacements.</p>
+      <div class="grid">
+        <div class="card"><div class="card-icon">🚿</div><h3>Pipe Repair</h3><p>Burst pipes, leaks, and water damage fixed fast. Emergency service available 24/7.</p></div>
+        <div class="card"><div class="card-icon">🚽</div><h3>Drain Cleaning</h3><p>Clogged drains cleared quickly with professional equipment. No mess, no stress.</p></div>
+        <div class="card"><div class="card-icon">🔥</div><h3>Water Heaters</h3><p>Repair and replacement for all water heater types including tankless systems.</p></div>
+        <div class="card"><div class="card-icon">❄️</div><h3>AC Service</h3><p>Full HVAC service for Dallas homes. Repairs, installs, and seasonal tune-ups.</p></div>
+        <div class="card"><div class="card-icon">🏗️</div><h3>New Construction</h3><p>Plumbing rough-in and finish work for new builds and major renovations.</p></div>
+        <div class="card"><div class="card-icon">🔍</div><h3>Inspections</h3><p>Pre-purchase plumbing inspections and full home assessments.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="guarantee">
+    <h2>The Hooper Promise</h2>
+    <div class="g-grid">
+      <div class="g-card"><div class="g-num">24/7</div><div class="g-label">Emergency Service</div></div>
+      <div class="g-card"><div class="g-num">100%</div><div class="g-label">Satisfaction Guarantee</div></div>
+      <div class="g-card"><div class="g-num">Free</div><div class="g-label">Estimates Always</div></div>
+    </div>
+  </section>
+  <section class="cta-section">
+    <h2>Pipe Burst?<br>Don't Wait — Call Now.</h2>
+    <p>Every minute counts with plumbing emergencies. We're ready 24/7.</p>
+    <a href="tel:+12143632543" class="cta-btn">📞 (214) 363-2543</a>
+  </section>
+  <div class="contact">
+    <div class="contact-inner">
+      <div class="c-item"><h4>Phone</h4><p><a href="tel:+12143632543">(214) 363-2543</a></p></div>
+      <div class="c-item"><h4>Hours</h4><p>Mon–Fri 7AM–7PM<br>Emergency 24/7</p></div>
+      <div class="c-item"><h4>Location</h4><p>Dallas, TX</p></div>
+    </div>
+  </div>
+  <footer>© 2026 <span>Hooper Plumbing & Air Conditioning</span> — Dallas, TX. Site by JF Web Studios.</footer>
+</body>
+</html>
