@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Best Life — Bags & Accessories</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #CC44BB;
+      --primary-dark: #AA2299;
+      --rose-gold: #E8B4A0;
+      --rose-gold-light: #FFD4C0;
+      --cream: #FFF0FA;
+      --warm-white: #FFF8FE;
+      --blush: #FFD0F0;
+      --dark: #280020;
+      --muted: #9A60A0;
+      --border: rgba(204,68,187,0.2);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Jost',sans-serif; background:var(--warm-white); color:var(--dark); }
+    .topbar { background:linear-gradient(90deg,var(--primary-dark),var(--primary),#FF88EE,var(--primary),var(--primary-dark)); color:rgba(255,255,255,0.95); text-align:center; padding:10px 20px; font-size:11px; letter-spacing:2.5px; text-transform:uppercase; }
+    .topbar span { color:var(--rose-gold-light); font-weight:700; }
+    nav { position:sticky; top:0; z-index:999; background:var(--warm-white); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:0 48px; height:72px; }
+    .nav-logo { display:flex; align-items:center; gap:14px; }
+    .nav-logo img { height:52px; width:52px; object-fit:contain; border-radius:50%; border:2px solid var(--rose-gold); box-shadow:0 2px 20px rgba(204,68,187,0.35), 0 0 40px rgba(232,180,160,0.2); }
+    .nav-logo-text .brand { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--dark); }
+    .nav-logo-text .sub { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--primary); font-weight:500; }
+    .nav-links { display:flex; gap:32px; list-style:none; align-items:center; }
+    .nav-links a { color:var(--dark); text-decoration:none; font-size:12px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--primary); }
+    .nav-cta { background:linear-gradient(135deg,var(--primary),#FF88EE) !important; color:white !important; padding:11px 26px; }
+    .hero { min-height:92vh; background:linear-gradient(150deg,#FFE8FC 0%,var(--cream) 50%,#FFD8F8 100%); display:grid; grid-template-columns:1fr 1fr; align-items:center; overflow:hidden; }
+    .hero-text { padding:80px 60px 80px 80px; }
+    .hero-eyebrow { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--primary); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+    .hero-eyebrow::before { content:''; display:block; width:30px; height:1px; background:var(--primary); }
+    .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(48px,6vw,78px); font-weight:300; line-height:1.05; color:var(--dark); margin-bottom:28px; }
+    .hero h1 em { font-style:italic; background:linear-gradient(135deg,var(--primary),#FF88EE); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .hero-desc { font-size:15px; color:var(--muted); line-height:1.9; font-weight:300; margin-bottom:44px; max-width:420px; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+    .btn-fill { background:linear-gradient(135deg,var(--primary),#FF88EE); color:white; padding:14px 36px; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; text-decoration:none; transition:opacity 0.2s; }
+    .btn-fill:hover { opacity:0.85; }
+    .btn-ghost { background:transparent; color:var(--dark); padding:14px 36px; font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; text-decoration:none; border:1px solid rgba(204,68,187,0.3); transition:all 0.2s; }
+    .btn-ghost:hover { border-color:var(--primary); color:var(--primary); }
+    .hero-visual { height:92vh; position:relative; overflow:hidden; background:linear-gradient(180deg,#FFD0F8 0%,#CC44BB 50%,#AA2299 100%); display:flex; align-items:center; justify-content:center; }
+    .hero-logo-big { width:70%; object-fit:contain; border-radius:50%; box-shadow:0 0 60px rgba(204,68,187,0.5), 0 0 120px rgba(232,180,160,0.3); filter:drop-shadow(0 10px 40px rgba(170,34,153,0.5)); }
+    .hero-badge { position:absolute; bottom:40px; left:40px; background:rgba(255,255,255,0.95); padding:18px 24px; box-shadow:0 8px 32px rgba(204,68,187,0.2); }
+    .hero-badge p { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+    .hero-badge strong { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:var(--primary); }
+    .ticker { background:linear-gradient(90deg,var(--primary-dark),var(--primary),#FF88EE,var(--primary),var(--primary-dark)); padding:13px 0; overflow:hidden; white-space:nowrap; }
+    .ticker-track { display:inline-block; animation:ticker 22s linear infinite; }
+    .ticker-track span { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:white; font-weight:600; margin:0 28px; }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .about-strip { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .about-item { padding:48px 40px; text-align:center; border-right:1px solid var(--border); }
+    .about-item:last-child { border-right:none; }
+    .about-item .icon { font-size:28px; margin-bottom:14px; display:block; }
+    .about-item h3 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; margin-bottom:8px; }
+    .about-item p { font-size:13px; color:var(--muted); line-height:1.7; font-weight:300; }
+    .shop { padding:100px 60px; background:var(--cream); }
+    .section-label { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--primary); margin-bottom:12px; display:block; }
+    .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(30px,4vw,48px); font-weight:300; color:var(--dark); line-height:1.2; }
+    .section-title em { font-style:italic; background:linear-gradient(135deg,var(--primary),#FF88EE); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .shop-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:56px; }
+    .shop-header a { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--dark); text-decoration:none; border-bottom:1px solid var(--primary); padding-bottom:2px; }
+    .shop-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:28px; }
+    .product-card { background:var(--warm-white); cursor:pointer; transition:transform 0.3s; border:1px solid var(--border); }
+    .product-card:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(204,68,187,0.15); }
+    .product-img { aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; font-size:90px; position:relative; overflow:hidden; }
+    .product-tag { position:absolute; top:16px; left:16px; background:var(--primary); color:white; font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:5px 12px; font-weight:600; }
+    .product-tag.preloved { background:var(--rose-gold); color:var(--dark); }
+    .product-info { padding:18px 16px 20px; }
+    .product-info h3 { font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:400; margin-bottom:4px; }
+    .product-info .product-type { font-size:11px; color:var(--muted); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:10px; }
+    .product-info .product-bottom { display:flex; align-items:center; justify-content:space-between; }
+    .product-info .price { font-size:13px; font-weight:600; color:var(--rose-gold); }
+    .product-info .shop-btn { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--primary); text-decoration:none; border-bottom:1px solid var(--primary); padding-bottom:1px; font-weight:600; }
+    .story-wrap { background:linear-gradient(135deg,#FFE8FC,var(--cream)); padding:120px 60px; }
+    .story { display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:center; max-width:1200px; margin:0 auto; }
+    .story-visual { background:var(--blush); aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .story-visual img { width:75%; object-fit:contain; border-radius:50%; box-shadow:0 20px 60px rgba(204,68,187,0.35); }
+    .story-visual .quote-overlay { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(170,34,153,0.85)); padding:48px 32px 32px; }
+    .story-visual .quote-overlay p { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; color:rgba(255,255,255,0.95); line-height:1.6; }
+    .story-text p { font-size:15px; color:var(--muted); line-height:1.9; font-weight:300; margin-bottom:18px; }
+    .story-btns { display:flex; gap:14px; margin-top:36px; flex-wrap:wrap; }
+    .testimonials { padding:100px 60px; background:linear-gradient(135deg,var(--primary-dark),var(--primary)); }
+    .testimonials .section-label { color:var(--rose-gold-light); text-align:center; }
+    .testimonials .section-title { color:white; text-align:center; margin-bottom:60px; }
+    .testi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; max-width:1100px; margin:0 auto; }
+    .testi-card { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.25); padding:36px; backdrop-filter:blur(4px); }
+    .testi-stars { color:var(--rose-gold-light); letter-spacing:3px; font-size:13px; margin-bottom:18px; }
+    .testi-card p { font-family:'Cormorant Garamond',serif; font-size:17px; font-style:italic; color:rgba(255,255,255,0.9); line-height:1.7; margin-bottom:20px; }
+    .testi-author { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--rose-gold-light); }
+    .final-cta { padding:120px 40px; text-align:center; background:linear-gradient(135deg,#FFE8FC,var(--blush)); }
+    .final-cta h2 { margin-bottom:16px; }
+    .final-cta p { font-size:15px; color:var(--muted); max-width:480px; margin:0 auto 48px; line-height:1.8; }
+    .final-cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    footer { background:var(--dark); padding:48px 60px 32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer-left { display:flex; align-items:center; gap:14px; }
+    .footer-left img { height:44px; width:44px; border-radius:50%; border:1px solid rgba(204,68,187,0.3); }
+    .footer-brand { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:white; }
+    .footer-brand span { color:var(--primary); font-style:italic; font-size:12px; display:block; font-family:'Jost',sans-serif; margin-top:2px; letter-spacing:1px; }
+    footer nav a { color:rgba(255,255,255,0.3); text-decoration:none; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; margin-left:24px; }
+    .footer-copy { width:100%; text-align:center; font-size:11px; color:rgba(255,255,255,0.2); letter-spacing:1px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.06); margin-top:20px; }
+    .footer-copy a { color:var(--primary); text-decoration:none; }
+    @media(max-width:900px){
+      nav{padding:0 20px;} .nav-links{display:none;}
+      .hero{grid-template-columns:1fr;} .hero-text{padding:60px 24px;}
+      .hero-visual{height:60vw;min-height:280px;}
+      .about-strip{grid-template-columns:1fr;} .about-item{border-right:none;border-bottom:1px solid var(--border);}
+      .shop,.story-wrap,.testimonials,.final-cta{padding:60px 24px;}
+      .story{grid-template-columns:1fr;gap:40px;} .story-visual{display:none;}
+      footer{flex-direction:column;padding:40px 24px 24px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Free shipping on orders $75+ &nbsp;✦&nbsp; <span>New + Preloved Bags Available Now</span></div>
+  <nav>
+    <div class="nav-logo">
+      <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/764b79e71_generated_image.png" alt="My Best Life">
+      <div class="nav-logo-text"><span class="brand">My Best Life</span><span class="sub">Bags & Accessories</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#shop">Shop</a></li><li><a href="#story">Our Story</a></li>
+      <li><a href="https://www.instagram.com/mybestlife.store/" target="_blank">Instagram</a></li>
+      <li><a href="https://posh.mk/qLBdQfE3G2b" target="_blank" class="nav-cta">Shop Poshmark</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">New + Preloved Collection</p>
+      <h1>Your Soft Life<br>Starts with the<br><em>Right Bag</em></h1>
+      <p class="hero-desc">Designer vibes, spend smart. Curated handbags & accessories for the woman living her best life — without the designer price tag.</p>
+      <div class="hero-btns">
+        <a href="https://posh.mk/qLBdQfE3G2b" target="_blank" class="btn-fill">Shop the Collection</a>
+        <a href="https://www.instagram.com/mybestlife.store/" target="_blank" class="btn-ghost">Follow on Instagram</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-logo-big" src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/764b79e71_generated_image.png" alt="My Best Life">
+      <div class="hero-badge"><p>Now Available</p><strong>New Arrivals ✨</strong></div>
+    </div>
+  </section>
+  <div class="ticker"><div class="ticker-track"><span>Designer Vibes</span><span>✦ Spend Smart 💅</span><span>✦ New + Preloved</span><span>✦ Your Soft Life</span><span>✦ Shop My Best Life</span><span>✦ Free Shipping $75+</span><span>Designer Vibes</span><span>✦ Spend Smart 💅</span><span>✦ New + Preloved</span><span>✦ Your Soft Life</span><span>✦ Shop My Best Life</span><span>✦ Free Shipping $75+</span></div></div>
+  <div class="about-strip">
+    <div class="about-item"><span class="icon">✨</span><h3>Curated with Love</h3><p>Every bag is hand-selected for style, quality, and that "I need it" feeling.</p></div>
+    <div class="about-item"><span class="icon">♻️</span><h3>New + Preloved</h3><p>Fresh arrivals alongside gently loved gems — designer looks for less.</p></div>
+    <div class="about-item"><span class="icon">💌</span><h3>Personal Touch</h3><p>DM us on Instagram and we'll help you find the perfect bag for any occasion.</p></div>
+  </div>
+  <section class="shop" id="shop">
+    <div class="shop-header">
+      <div><span class="section-label">The Collection</span><h2 class="section-title">Shop the Latest <em>Arrivals</em></h2></div>
+      <a href="https://posh.mk/qLBdQfE3G2b" target="_blank">View All on Poshmark →</a>
+    </div>
+    <div class="shop-grid">
+      <div class="product-card"><div class="product-img" style="background:linear-gradient(135deg,#FFD0F0,#FFB8E8);">👜<span class="product-tag">New</span></div><div class="product-info"><h3>The Everyday Tote</h3><p class="product-type">Tote Bag</p><div class="product-bottom"><span class="price">Shop on Poshmark</span><a href="https://posh.mk/qLBdQfE3G2b" target="_blank" class="shop-btn">Shop →</a></div></div></div>
+      <div class="product-card"><div class="product-img" style="background:linear-gradient(135deg,#FFE8F8,#FFD0F0);">👛<span class="product-tag preloved">Preloved</span></div><div class="product-info"><h3>Mini Luxe Clutch</h3><p class="product-type">Clutch / Evening Bag</p><div class="product-bottom"><span class="price">Shop on Poshmark</span><a href="https://posh.mk/qLBdQfE3G2b" target="_blank" class="shop-btn">Shop →</a></div></div></div>
+      <div class="product-card"><div class="product-img" style="background:linear-gradient(135deg,#FFC0E8,#FF99D8);">💼<span class="product-tag">New</span></div><div class="product-info"><h3>The Structured Satchel</h3><p class="product-type">Satchel</p><div class="product-bottom"><span class="price">Shop on Poshmark</span><a href="https://posh.mk/qLBdQfE3G2b" target="_blank" class="shop-btn">Shop →</a></div></div></div>
+      <div class="product-card"><div class="product-img" style="background:linear-gradient(135deg,#FFD8F4,#FFC0E8);">🛍️<span class="product-tag preloved">Preloved</span></div><div class="product-info"><h3>Crossbody Dream</h3><p class="product-type">Crossbody</p><div class="product-bottom"><span class="price">Shop on Poshmark</span><a href="https://posh.mk/qLBdQfE3G2b" target="_blank" class="shop-btn">Shop →</a></div></div></div>
+    </div>
+  </section>
+  <section id="story" class="story-wrap">
+    <div class="story">
+      <div class="story-visual">
+        <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/764b79e71_generated_image.png" alt="My Best Life Logo">
+        <div class="quote-overlay"><p>"Every woman deserves to feel like the best version of herself — every single day."</p></div>
+      </div>
+      <div class="story-text">
+        <span class="section-label">Our Story</span>
+        <h2 class="section-title">More Than a Bag.<br><em>It's a Feeling.</em></h2>
+        <p>My Best Life started with one simple idea — you shouldn't have to choose between looking luxurious and being smart with your money.</p>
+        <p>We curate new and preloved handbags and accessories for the woman who knows her worth. Designer vibes, real-life prices. Because you deserve your best life — starting today.</p>
+        <div class="story-btns">
+          <a href="https://posh.mk/qLBdQfE3G2b" target="_blank" class="btn-fill">Shop the Collection</a>
+          <a href="https://www.instagram.com/mybestlife.store/" target="_blank" class="btn-ghost">@mybestlife.store</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="testimonials">
+    <span class="section-label">Happy Customers</span>
+    <h2 class="section-title">She's Obsessed.<br><em>You Will Be Too.</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"I get compliments every single time I carry my bag. Worth every penny — and then some."</p><div class="testi-author">— Jasmine R., Houston TX</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"Found the most gorgeous preloved Coach bag. It arrived perfectly and looked brand new!"</p><div class="testi-author">— Maria L., San Antonio TX</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p>"My Best Life is my go-to. Quality, style, and the best prices. I'm obsessed."</p><div class="testi-author">— Destiny M., Dallas TX</div></div>
+    </div>
+  </section>
+  <section class="final-cta">
+    <span class="section-label">Ready for Your Soft Life?</span>
+    <h2 class="section-title">Find Your<br><em>Perfect Bag</em></h2>
+    <p>Shop new arrivals and preloved gems — curated for the woman who deserves her best life every single day.</p>
+    <div class="final-cta-btns">
+      <a href="https://posh.mk/qLBdQfE3G2b" target="_blank" class="btn-fill">Shop on Poshmark</a>
+      <a href="https://www.instagram.com/mybestlife.store/" target="_blank" class="btn-ghost">Follow @mybestlife.store</a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-left">
+      <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/764b79e71_generated_image.png" alt="My Best Life">
+      <div class="footer-brand">My Best Life<span>Bags & Accessories</span></div>
+    </div>
+    <nav><a href="#shop">Shop</a><a href="#story">Our Story</a><a href="https://www.instagram.com/mybestlife.store/" target="_blank">Instagram</a></nav>
+    <div class="footer-copy">© 2025 My Best Life · <a href="https://jfwebstudios.com" target="_blank">Site by JF Web Studios</a></div>
+  </footer>
+</body>
+</html>
