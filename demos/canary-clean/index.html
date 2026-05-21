@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canary Clean — Austin, TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--yellow:#d97706;--dark:#1c1917;--light:#fffbeb}
+    body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark)}
+    nav{position:fixed;top:0;width:100%;background:rgba(28,25,23,0.97);backdrop-filter:blur(8px);z-index:100;padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
+    .logo{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;color:#fff;letter-spacing:2px}.logo span{color:#fcd34d}
+    .nav-cta{background:var(--yellow);color:#fff;padding:10px 24px;border-radius:4px;text-decoration:none;font-weight:700;font-size:14px}
+    .hero{min-height:100vh;background:linear-gradient(135deg,#1c1917 55%,#92400e 100%);display:flex;align-items:center;padding:120px 60px 60px;color:#fff}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(252,211,77,0.15);border:1px solid rgba(252,211,77,0.4);color:#fcd34d;font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px;margin-bottom:24px;text-transform:uppercase;letter-spacing:1px}
+    h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,8vw,88px);font-weight:900;line-height:1.0;margin-bottom:20px;text-transform:uppercase}
+    h1 span{color:#fcd34d}
+    .hero p{font-size:18px;opacity:0.75;margin-bottom:36px;line-height:1.7;max-width:560px}
+    .btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+    .btn-primary{background:var(--yellow);color:#fff;padding:16px 36px;border-radius:4px;text-decoration:none;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:1px}
+    .btn-ghost{border:2px solid rgba(255,255,255,0.4);color:#fff;padding:16px 36px;border-radius:4px;text-decoration:none;font-size:15px;font-weight:600;text-transform:uppercase}
+    .stats{display:flex;gap:40px;flex-wrap:wrap}
+    .stat .num{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:#fcd34d}
+    .stat .label{font-size:12px;opacity:0.5;text-transform:uppercase;letter-spacing:1px}
+    .services{padding:90px 40px;background:var(--light)}
+    .services-inner{max-width:1100px;margin:0 auto}
+    .section-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--yellow);font-weight:600;margin-bottom:10px}
+    .services h2{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;text-transform:uppercase;margin-bottom:8px}
+    .sub{color:#78716c;margin-bottom:50px;font-size:15px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+    .card{background:#fff;border-radius:12px;box-shadow:0 2px 15px rgba(0,0,0,0.06);border-top:4px solid var(--yellow);padding:28px;transition:transform 0.2s}
+    .card:hover{transform:translateY(-4px)}
+    .card-icon{font-size:36px;margin-bottom:14px}
+    .card h3{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;margin-bottom:10px;text-transform:uppercase}
+    .card p{font-size:14px;color:#78716c;line-height:1.7}
+    .cta-section{background:var(--yellow);color:#fff;padding:90px 40px;text-align:center}
+    .cta-section h2{font-family:'Barlow Condensed',sans-serif;font-size:56px;font-weight:900;text-transform:uppercase;margin-bottom:14px;line-height:1.1}
+    .cta-section p{font-size:18px;opacity:0.9;margin-bottom:36px}
+    .cta-btn{display:inline-block;background:#fff;color:var(--yellow);padding:18px 50px;border-radius:4px;text-decoration:none;font-weight:800;font-size:18px;font-family:'Barlow Condensed',sans-serif;letter-spacing:1px;text-transform:uppercase}
+    .contact{background:var(--dark);padding:40px}
+    .contact-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;text-align:center;color:#fff}
+    .c-item h4{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:0.5;margin-bottom:6px}
+    .c-item p{font-size:14px;font-weight:600}
+    .c-item a{color:#fcd34d;text-decoration:none}
+    footer{background:#000;color:rgba(255,255,255,0.3);text-align:center;padding:24px;font-size:13px}
+    footer span{color:#fcd34d}
+    @media(max-width:768px){nav{padding:14px 20px}.hero{padding:100px 24px 50px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">🐦 CANARY <span>CLEAN</span></div>
+    <a href="tel:+17372521111" class="nav-cta">📞 Book Now</a>
+  </nav>
+  <section class="hero">
+    <div>
+      <div class="badge">✨ Austin, TX — Eco-Friendly Cleaning</div>
+      <h1>A Cleaner Home.<br>A <span>Happier</span> You.</h1>
+      <p>Austin's eco-friendly residential and commercial cleaning service. Non-toxic products, thorough results, and a team you can trust.</p>
+      <div class="btns">
+        <a href="tel:+17372521111" class="btn-primary">📞 (737) 252-1111 — Book Now</a>
+        <a href="#services" class="btn-ghost">Our Services</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">400+</div><div class="label">Homes Cleaned</div></div>
+        <div class="stat"><div class="num">100%</div><div class="label">Eco Products</div></div>
+        <div class="stat"><div class="num">5★</div><div class="label">Austin Rated</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="services" id="services">
+    <div class="services-inner">
+      <p class="section-tag">Services</p>
+      <h2>Cleaning Packages</h2>
+      <p class="sub">Customized cleaning for every home and lifestyle in Austin.</p>
+      <div class="grid">
+        <div class="card"><div class="card-icon">🧹</div><h3>Regular Clean</h3><p>Scheduled weekly or bi-weekly cleaning. We become part of your routine — reliably.</p></div>
+        <div class="card"><div class="card-icon">✨</div><h3>Deep Clean</h3><p>Full top-to-bottom intensive clean. Perfect for a reset or before hosting guests.</p></div>
+        <div class="card"><div class="card-icon">🏠</div><h3>Move In/Out</h3><p>Leave your old place spotless or start fresh in your new one. We handle everything.</p></div>
+        <div class="card"><div class="card-icon">🌿</div><h3>Eco Clean</h3><p>100% non-toxic, pet-safe, and child-safe products. Clean without the chemicals.</p></div>
+        <div class="card"><div class="card-icon">🏢</div><h3>Office Cleaning</h3><p>Professional office and workspace cleaning. Keep your team in a clean environment.</p></div>
+        <div class="card"><div class="card-icon">🎁</div><h3>Gift Cleanings</h3><p>Give the gift of a clean home. Perfect for new parents, birthdays, and holidays.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section">
+    <h2>Book Your Canary<br>Clean Today.</h2>
+    <p>Austin's cleanest homes start here. Book online or call us now.</p>
+    <a href="tel:+17372521111" class="cta-btn">📞 (737) 252-1111</a>
+  </section>
+  <div class="contact">
+    <div class="contact-inner">
+      <div class="c-item"><h4>Phone</h4><p><a href="tel:+17372521111">(737) 252-1111</a></p></div>
+      <div class="c-item"><h4>Hours</h4><p>Mon–Sat 8AM–6PM</p></div>
+      <div class="c-item"><h4>Area</h4><p>Austin, TX</p></div>
+    </div>
+  </div>
+  <footer>© 2026 <span>Canary Clean</span> — Austin, TX. Site by JF Web Studios.</footer>
+</body>
+</html>
