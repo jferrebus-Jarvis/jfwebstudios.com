@@ -7,76 +7,83 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --navy: #0a1628;
       --blue: #1a3a6b;
-      --accent: #e8a020;
+      --red: #c0392b;
+      --accent: #1a3a6b;
       --light: #f4f7fc;
       --white: #ffffff;
       --gray: #6b7280;
       --border: #e5e7eb;
     }
-
     body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); }
+
+    /* LANG TOGGLE */
+    .lang-toggle {
+      position: fixed; top: 18px; right: 160px; z-index: 200;
+      display: flex; background: rgba(255,255,255,0.12); border-radius: 999px;
+      padding: 4px; gap: 2px; backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .lang-btn {
+      padding: 6px 16px; border-radius: 999px; border: none; cursor: pointer;
+      font-size: 13px; font-weight: 700; transition: all 0.2s; background: transparent; color: rgba(255,255,255,0.7);
+    }
+    .lang-btn.active { background: white; color: var(--navy); }
 
     /* NAV */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(10,22,40,0.95); backdrop-filter: blur(10px);
+      background: rgba(10,22,40,0.96); backdrop-filter: blur(10px);
       display: flex; justify-content: space-between; align-items: center;
-      padding: 16px 48px;
+      padding: 14px 48px;
     }
-    .logo { display: flex; align-items: center; gap: 12px; }
-    .logo-icon {
-      width: 42px; height: 42px; background: var(--accent); border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-    }
-    .logo-text { color: var(--white); font-size: 18px; font-weight: 700; }
-    .logo-text span { color: var(--accent); }
-    nav ul { list-style: none; display: flex; gap: 32px; }
+    .logo img { height: 46px; width: auto; }
+    nav ul { list-style: none; display: flex; gap: 28px; }
     nav ul a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
-    nav ul a:hover { color: var(--accent); }
+    nav ul a:hover { color: #fff; }
     .nav-cta {
-      background: var(--accent); color: var(--navy); padding: 10px 24px;
+      background: var(--red); color: white; padding: 10px 22px;
       border-radius: 6px; font-weight: 700; font-size: 14px; text-decoration: none;
       transition: opacity 0.2s;
     }
-    .nav-cta:hover { opacity: 0.9; }
+    .nav-cta:hover { opacity: 0.85; }
 
     /* HERO */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--navy) 0%, #0d2044 60%, #1a3a6b 100%);
+      background: linear-gradient(135deg, #0a1628 0%, #0d2044 55%, #1a3a6b 100%);
       display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 120px 24px 80px;
+      text-align: center; padding: 130px 24px 80px;
       position: relative; overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-    .hero-content { position: relative; max-width: 800px; }
+    .hero-content { position: relative; max-width: 820px; }
+    .hero-logo { margin-bottom: 36px; }
+    .hero-logo img { height: 70px; width: auto; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(232,160,32,0.15); border: 1px solid rgba(232,160,32,0.3);
-      color: var(--accent); padding: 8px 20px; border-radius: 999px;
-      font-size: 13px; font-weight: 600; margin-bottom: 28px; letter-spacing: 0.5px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9); padding: 8px 20px; border-radius: 999px;
+      font-size: 13px; font-weight: 600; margin-bottom: 28px;
     }
     .hero h1 {
-      font-size: clamp(36px, 6vw, 64px); font-weight: 800; color: var(--white);
+      font-size: clamp(34px, 6vw, 62px); font-weight: 800; color: var(--white);
       line-height: 1.1; margin-bottom: 24px;
     }
-    .hero h1 span { color: var(--accent); }
+    .hero h1 span { color: #e8e8e8; border-bottom: 3px solid var(--red); }
     .hero p {
-      font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.7;
-      max-width: 600px; margin: 0 auto 40px;
+      font-size: 18px; color: rgba(255,255,255,0.72); line-height: 1.7;
+      max-width: 620px; margin: 0 auto 40px;
     }
     .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
-      background: var(--accent); color: var(--navy); padding: 16px 36px;
+      background: var(--red); color: white; padding: 16px 36px;
       border-radius: 8px; font-weight: 700; font-size: 16px; text-decoration: none;
       transition: transform 0.2s, opacity 0.2s;
     }
@@ -84,23 +91,24 @@
     .btn-secondary {
       background: rgba(255,255,255,0.1); color: var(--white); padding: 16px 36px;
       border-radius: 8px; font-weight: 600; font-size: 16px; text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.2); transition: background 0.2s;
+      border: 1px solid rgba(255,255,255,0.25); transition: background 0.2s;
     }
-    .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.18); }
 
     /* STATS */
     .stats {
-      background: var(--accent); padding: 48px;
+      background: var(--navy); padding: 48px;
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+      border-top: 3px solid var(--red);
     }
     .stat { text-align: center; }
-    .stat-num { font-size: 40px; font-weight: 800; color: var(--navy); }
-    .stat-label { font-size: 14px; font-weight: 600; color: var(--navy); opacity: 0.75; margin-top: 4px; }
+    .stat-num { font-size: 40px; font-weight: 800; color: white; }
+    .stat-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.55); margin-top: 6px; }
 
     /* SECTION */
     .section { padding: 96px 48px; }
     .section-tag {
-      display: inline-block; background: rgba(26,58,107,0.08); color: var(--blue);
+      display: inline-block; background: rgba(192,57,43,0.1); color: var(--red);
       padding: 6px 16px; border-radius: 999px; font-size: 12px; font-weight: 700;
       letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;
     }
@@ -134,107 +142,132 @@
     .about-visual .big-icon { font-size: 80px; margin-bottom: 20px; }
     .about-visual h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
     .about-visual p { font-size: 14px; opacity: 0.8; line-height: 1.7; }
-    .about-text .section-tag { display: inline-block; }
     .about-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
     .about-list li { display: flex; align-items: flex-start; gap: 14px; font-size: 15px; color: var(--gray); }
     .check {
-      width: 24px; height: 24px; background: var(--accent); border-radius: 50%;
+      width: 24px; height: 24px; background: var(--red); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 12px; flex-shrink: 0; margin-top: 2px;
+      font-size: 12px; color: white; flex-shrink: 0; margin-top: 2px;
     }
+
+    /* COVERAGE */
+    .coverage-bg { background: var(--navy); }
+    .coverage-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .coverage-inner .section-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); }
+    .coverage-inner .section-title { color: white; }
+    .coverage-inner .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 40px; }
+    .cities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .city-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 20px; text-align: center; color: white;
+    }
+    .city-card .city-icon { font-size: 28px; margin-bottom: 8px; }
+    .city-card h4 { font-size: 14px; font-weight: 700; }
 
     /* MISSION / VISION */
     .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; }
-    .mv-card {
-      border-radius: 16px; padding: 40px; text-align: center;
-    }
+    .mv-card { border-radius: 16px; padding: 40px; text-align: center; }
     .mv-card.mission { background: var(--navy); color: white; }
-    .mv-card.vision { background: var(--accent); color: var(--navy); }
+    .mv-card.vision { background: var(--red); color: white; }
     .mv-card .mv-icon { font-size: 40px; margin-bottom: 20px; }
     .mv-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
     .mv-card p { font-size: 15px; line-height: 1.8; opacity: 0.9; font-style: italic; }
 
     /* TRAINING */
     .training-bg { background: var(--light); }
-    .training-inner { max-width: 800px; margin: 0 auto; text-align: center; }
-    .training-inner .section-sub { margin: 0 auto 40px; }
+    .training-inner { max-width: 860px; margin: 0 auto; text-align: center; }
     .training-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
-    .tf {
-      background: white; border-radius: 12px; padding: 28px 20px;
-      border: 1px solid var(--border); text-align: center;
-    }
+    .tf { background: white; border-radius: 12px; padding: 28px 20px; border: 1px solid var(--border); }
     .tf .tf-icon { font-size: 32px; margin-bottom: 12px; }
     .tf h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
     .tf p { font-size: 13px; color: var(--gray); line-height: 1.6; }
 
     /* CONTACT */
-    .contact-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-inner { max-width: 920px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     .contact-info { display: flex; flex-direction: column; gap: 24px; }
     .contact-item { display: flex; align-items: flex-start; gap: 16px; }
     .contact-icon {
       width: 44px; height: 44px; background: var(--light); border-radius: 10px;
       display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
     }
-    .contact-item h4 { font-size: 13px; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-    .contact-item p { font-size: 15px; font-weight: 500; }
+    .contact-item h4 { font-size: 12px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .contact-item p, .contact-item a { font-size: 15px; font-weight: 500; color: var(--navy); text-decoration: none; }
+    .contact-item a:hover { color: var(--red); }
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
     .contact-form input, .contact-form textarea, .contact-form select {
       width: 100%; padding: 14px 16px; border: 1px solid var(--border);
       border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 14px;
-      outline: none; transition: border-color 0.2s;
+      outline: none; transition: border-color 0.2s; background: white;
     }
-    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--blue); }
+    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--blue); }
     .contact-form textarea { resize: vertical; min-height: 120px; }
     .contact-form button {
-      background: var(--navy); color: white; padding: 16px;
+      background: var(--red); color: white; padding: 16px;
       border: none; border-radius: 8px; font-size: 15px; font-weight: 700;
-      cursor: pointer; transition: background 0.2s;
+      cursor: pointer; transition: opacity 0.2s;
     }
-    .contact-form button:hover { background: var(--blue); }
+    .contact-form button:hover { opacity: 0.85; }
 
     /* FOOTER */
     footer {
-      background: var(--navy); color: rgba(255,255,255,0.6);
-      text-align: center; padding: 40px 24px; font-size: 14px;
+      background: var(--navy); color: rgba(255,255,255,0.55);
+      text-align: center; padding: 48px 24px; font-size: 14px;
     }
-    footer strong { color: var(--accent); }
-    footer .social { margin-top: 12px; font-size: 13px; }
+    footer img { height: 52px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
+    footer strong { color: white; }
+    footer .social { margin-top: 14px; font-size: 13px; }
+    footer .divider { margin: 16px auto; width: 60px; height: 2px; background: var(--red); border-radius: 2px; }
 
     @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
+      nav { padding: 14px 20px; }
       nav ul, .nav-cta { display: none; }
+      .lang-toggle { right: 16px; top: 16px; }
       .stats { grid-template-columns: repeat(2, 1fr); padding: 32px 20px; }
       .section { padding: 64px 20px; }
-      .services-grid, .about-grid, .mv-grid, .contact-inner, .training-features { grid-template-columns: 1fr; }
+      .services-grid, .about-grid, .mv-grid, .contact-inner, .training-features, .cities-grid { grid-template-columns: 1fr; }
       .about-grid { gap: 40px; }
+      .cities-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
 
+<!-- LANG TOGGLE -->
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
 <!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/235b23d62_image.png" alt="Fast Cargo Services" style="height: 44px; width: auto;" />
+    <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/235b23d62_image.png" alt="Fast Cargo Services" />
   </div>
   <ul>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#capacitacion">Capacitación</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
+    <li><a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a></li>
+    <li><a href="#cobertura" data-es="Cobertura" data-en="Coverage">Cobertura</a></li>
+    <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
   </ul>
-  <a href="#contacto" class="nav-cta">Cotizar Ahora</a>
+  <a href="#contacto" class="nav-cta" data-es="Cotizar Ahora" data-en="Get a Quote">Cotizar Ahora</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge">✈️ Logística Internacional desde 2017</div>
-    <h1>Soluciones Logísticas <span>Sin Fronteras</span></h1>
-    <p>Coordinamos su carga por tierra, mar y aire. Nos integramos a su modelo de negocio para optimizar cada etapa de su cadena de suministro.</p>
+    <div class="hero-logo">
+      <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/235b23d62_image.png" alt="Fast Cargo Services" />
+    </div>
+    <div class="hero-badge">
+      ✈️ <span data-es="Logística Internacional desde 2017" data-en="International Logistics Since 2017">Logística Internacional desde 2017</span>
+    </div>
+    <h1>
+      <span data-es="Soluciones Logísticas Sin Fronteras" data-en="Logistics Solutions Without Borders">Soluciones Logísticas Sin Fronteras</span>
+    </h1>
+    <p data-es="Coordinamos su carga por tierra, mar y aire. Operadores logísticos aduaneros especializados en gestión de compras internacionales y almacenamiento nacional e internacional." data-en="We coordinate your cargo by land, sea, and air. Specialized customs logistics operators in international purchasing management and national/international storage.">Coordinamos su carga por tierra, mar y aire. Operadores logísticos aduaneros especializados en gestión de compras internacionales y almacenamiento nacional e internacional.</p>
     <div class="hero-btns">
-      <a href="#contacto" class="btn-primary">Solicitar Cotización</a>
-      <a href="#servicios" class="btn-secondary">Ver Servicios</a>
+      <a href="#contacto" class="btn-primary" data-es="Solicitar Cotización" data-en="Request a Quote">Solicitar Cotización</a>
+      <a href="#servicios" class="btn-secondary" data-es="Ver Servicios" data-en="Our Services">Ver Servicios</a>
     </div>
   </div>
 </section>
@@ -243,59 +276,59 @@
 <div class="stats">
   <div class="stat">
     <div class="stat-num">+20</div>
-    <div class="stat-label">Años de Experiencia</div>
+    <div class="stat-label" data-es="Años de Experiencia" data-en="Years of Experience">Años de Experiencia</div>
   </div>
   <div class="stat">
     <div class="stat-num">2017</div>
-    <div class="stat-label">Año de Fundación</div>
+    <div class="stat-label" data-es="Año de Fundación" data-en="Year Founded">Año de Fundación</div>
   </div>
   <div class="stat">
-    <div class="stat-num">3</div>
-    <div class="stat-label">Modos de Transporte</div>
+    <div class="stat-num">762</div>
+    <div class="stat-label" data-es="Seguidores en Instagram" data-en="Instagram Followers">Seguidores en Instagram</div>
   </div>
   <div class="stat">
-    <div class="stat-num">100%</div>
-    <div class="stat-label">Compromiso Total</div>
+    <div class="stat-num">93</div>
+    <div class="stat-label" data-es="Publicaciones" data-en="Posts">Publicaciones</div>
   </div>
 </div>
 
 <!-- SERVICES -->
 <section class="section services-bg" id="servicios">
   <div class="section-header">
-    <div class="section-tag">Nuestros Servicios</div>
-    <h2 class="section-title">Cobertura Total en Logística</h2>
-    <p class="section-sub">Ofrecemos soluciones integrales para el movimiento de su mercancía a nivel nacional e internacional.</p>
+    <div class="section-tag" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</div>
+    <h2 class="section-title" data-es="Cobertura Total en Logística" data-en="Full Logistics Coverage">Cobertura Total en Logística</h2>
+    <p class="section-sub" data-es="Soluciones integrales para el movimiento de su mercancía a nivel nacional e internacional." data-en="Comprehensive solutions for moving your goods nationally and internationally.">Soluciones integrales para el movimiento de su mercancía a nivel nacional e internacional.</p>
   </div>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">🚢</div>
-      <h3>Transporte Marítimo</h3>
-      <p>Coordinación y control de carga internacional por vía marítima. Gestión completa desde origen hasta destino con seguimiento en tiempo real.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">✈️</div>
-      <h3>Transporte Aéreo</h3>
-      <p>Soluciones rápidas y seguras para envíos urgentes. Cobertura global con alianzas estratégicas en los principales aeropuertos del mundo.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🚛</div>
-      <h3>Transporte Terrestre</h3>
-      <p>Red de transporte terrestre para distribución nacional e internacional, garantizando tiempos de entrega precisos y seguimiento constante.</p>
-    </div>
-    <div class="service-card">
       <div class="service-icon">🛃</div>
-      <h3>Gestión Aduanera</h3>
-      <p>Equipo especializado con más de 20 años en el sector aduanero. Tramitamos importaciones y exportaciones con precisión y cumplimiento total.</p>
+      <h3 data-es="Operadores Logísticos Aduaneros" data-en="Customs Logistics Operators">Operadores Logísticos Aduaneros</h3>
+      <p data-es="Equipo especializado con más de 20 años en el sector aduanero. Tramitamos importaciones y exportaciones con precisión y cumplimiento total." data-en="Specialized team with over 20 years in the customs sector. We handle imports and exports with precision and full compliance.">Equipo especializado con más de 20 años en el sector aduanero. Tramitamos importaciones y exportaciones con precisión y cumplimiento total.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌐</div>
+      <h3 data-es="Gestión de Compras Internacionales" data-en="International Purchasing Management">Gestión de Compras Internacionales</h3>
+      <p data-es="Coordinamos sus compras internacionales de forma estratégica, optimizando costos y tiempos de entrega en cada operación." data-en="We strategically coordinate your international purchases, optimizing costs and delivery times in every operation.">Coordinamos sus compras internacionales de forma estratégica, optimizando costos y tiempos de entrega en cada operación.</p>
     </div>
     <div class="service-card">
       <div class="service-icon">📦</div>
-      <h3>Manejo Integral de Carga</h3>
-      <p>Soluciones end-to-end para la cadena de suministro. Consolidación, almacenamiento y distribución optimizados para su negocio.</p>
+      <h3 data-es="Almacenamiento Nacional e Internacional" data-en="National & International Storage">Almacenamiento Nacional e Internacional</h3>
+      <p data-es="Soluciones de almacenamiento seguras y eficientes para su mercancía tanto a nivel local como en destinos internacionales." data-en="Safe and efficient storage solutions for your goods both locally and at international destinations.">Soluciones de almacenamiento seguras y eficientes para su mercancía tanto a nivel local como en destinos internacionales.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">📊</div>
-      <h3>Consultoría Logística</h3>
-      <p>Análisis y optimización de procesos logísticos. Ideas innovadoras que mejoran su operación y maximizan su rentabilidad.</p>
+      <div class="service-icon">🚢</div>
+      <h3 data-es="Transporte Marítimo" data-en="Maritime Transport">Transporte Marítimo</h3>
+      <p data-es="Coordinación y control de carga internacional por vía marítima con seguimiento en tiempo real desde origen hasta destino." data-en="Coordination and control of international cargo by sea with real-time tracking from origin to destination.">Coordinación y control de carga internacional por vía marítima con seguimiento en tiempo real desde origen hasta destino.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✈️</div>
+      <h3 data-es="Transporte Aéreo" data-en="Air Transport">Transporte Aéreo</h3>
+      <p data-es="Soluciones rápidas y seguras para envíos urgentes con cobertura global y alianzas estratégicas en los principales aeropuertos." data-en="Fast and safe solutions for urgent shipments with global coverage and strategic alliances at major airports.">Soluciones rápidas y seguras para envíos urgentes con cobertura global y alianzas estratégicas en los principales aeropuertos.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚛</div>
+      <h3 data-es="Transporte Terrestre" data-en="Ground Transport">Transporte Terrestre</h3>
+      <p data-es="Red de transporte terrestre para distribución nacional e internacional con tiempos de entrega precisos y seguimiento constante." data-en="Ground transport network for national and international distribution with precise delivery times and constant tracking.">Red de transporte terrestre para distribución nacional e internacional con tiempos de entrega precisos y seguimiento constante.</p>
     </div>
   </div>
 </section>
@@ -305,65 +338,92 @@
   <div class="about-grid">
     <div class="about-visual">
       <div class="big-icon">🌎</div>
-      <h3>Presencia Global</h3>
-      <p>Desde Maracaibo, Venezuela coordinamos operaciones logísticas a nivel mundial, integrando tierra, mar y aire en una sola solución.</p>
+      <h3 data-es="Presencia en Venezuela" data-en="Presence in Venezuela">Presencia en Venezuela</h3>
+      <p data-es="Con sede en Maracaibo, coordinamos operaciones logísticas en Maracaibo, Pto. Cabello, La Guaira y Guanta — cubriendo los principales puertos del país." data-en="Headquartered in Maracaibo, we coordinate logistics operations in Maracaibo, Pto. Cabello, La Guaira, and Guanta — covering the country's main ports.">Con sede en Maracaibo, coordinamos operaciones logísticas en Maracaibo, Pto. Cabello, La Guaira y Guanta — cubriendo los principales puertos del país.</p>
     </div>
     <div class="about-text">
-      <div class="section-tag">Sobre Nosotros</div>
-      <h2 class="section-title">Más de 20 Años Moviendo el Mundo</h2>
-      <p class="section-sub">Fast Cargo Services fue establecida en 2017, respaldada por un equipo de profesionales con décadas de experiencia en el sector logístico y aduanero.</p>
+      <div class="section-tag" data-es="Sobre Nosotros" data-en="About Us">Sobre Nosotros</div>
+      <h2 class="section-title" data-es="Más de 20 Años Moviendo el Mundo" data-en="Over 20 Years Moving the World">Más de 20 Años Moviendo el Mundo</h2>
+      <p class="section-sub" data-es="Fast Cargo Services fue establecida en 2017, respaldada por profesionales con décadas de experiencia en logística y aduanas." data-en="Fast Cargo Services was established in 2017, backed by professionals with decades of experience in logistics and customs.">Fast Cargo Services fue establecida en 2017, respaldada por profesionales con décadas de experiencia en logística y aduanas.</p>
       <ul class="about-list">
-        <li><div class="check">✓</div><span>Equipo con más de 20 años de trayectoria en logística y aduanas</span></li>
-        <li><div class="check">✓</div><span>Cobertura global: marítimo, aéreo y terrestre en un solo proveedor</span></li>
-        <li><div class="check">✓</div><span>Nos integramos al modelo de negocio de cada cliente</span></li>
-        <li><div class="check">✓</div><span>Programas de capacitación in-company para su equipo</span></li>
-        <li><div class="check">✓</div><span>Optimización de costos y gestión operativa impecable</span></li>
+        <li><div class="check">✓</div><span data-es="Más de 20 años de trayectoria en logística y aduanas" data-en="Over 20 years of experience in logistics and customs">Más de 20 años de trayectoria en logística y aduanas</span></li>
+        <li><div class="check">✓</div><span data-es="Cobertura multimodal: marítimo, aéreo y terrestre" data-en="Multimodal coverage: maritime, air, and ground">Cobertura multimodal: marítimo, aéreo y terrestre</span></li>
+        <li><div class="check">✓</div><span data-es="Presencia en los 4 principales puertos de Venezuela" data-en="Presence in Venezuela's 4 main ports">Presencia en los 4 principales puertos de Venezuela</span></li>
+        <li><div class="check">✓</div><span data-es="Programas de capacitación in-company para su equipo" data-en="In-company training programs for your team">Programas de capacitación in-company para su equipo</span></li>
+        <li><div class="check">✓</div><span data-es="Optimización de costos y gestión operativa impecable" data-en="Cost optimization and impeccable operational management">Optimización de costos y gestión operativa impecable</span></li>
       </ul>
     </div>
   </div>
 </section>
 
+<!-- COVERAGE -->
+<section class="section coverage-bg" id="cobertura">
+  <div class="coverage-inner">
+    <div class="section-tag" data-es="Nuestra Cobertura" data-en="Our Coverage">Nuestra Cobertura</div>
+    <h2 class="section-title" data-es="Principales Puertos de Venezuela" data-en="Main Ports of Venezuela">Principales Puertos de Venezuela</h2>
+    <p class="section-sub" data-es="Operamos en los cuatro puertos más importantes del país, garantizando cobertura total para sus operaciones de importación y exportación." data-en="We operate at the four most important ports in the country, ensuring full coverage for your import and export operations.">Operamos en los cuatro puertos más importantes del país, garantizando cobertura total para sus operaciones de importación y exportación.</p>
+    <div class="cities-grid">
+      <div class="city-card">
+        <div class="city-icon">⚓</div>
+        <h4>Maracaibo</h4>
+      </div>
+      <div class="city-card">
+        <div class="city-icon">🚢</div>
+        <h4>Pto. Cabello</h4>
+      </div>
+      <div class="city-card">
+        <div class="city-icon">🌊</div>
+        <h4>La Guaira</h4>
+      </div>
+      <div class="city-card">
+        <div class="city-icon">🏭</div>
+        <h4>Guanta</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MISSION / VISION -->
-<section class="section services-bg">
+<section class="section">
   <div class="section-header">
-    <div class="section-tag">Nuestra Filosofía</div>
-    <h2 class="section-title">Misión y Visión</h2>
+    <div class="section-tag" data-es="Nuestra Filosofía" data-en="Our Philosophy">Nuestra Filosofía</div>
+    <h2 class="section-title" data-es="Misión y Visión" data-en="Mission & Vision">Misión y Visión</h2>
   </div>
   <div class="mv-grid">
     <div class="mv-card mission">
       <div class="mv-icon">🎯</div>
-      <h3>Misión</h3>
-      <p>"Establecer relaciones de largo plazo con nuestros asociados, clientes y proveedores mediante el compromiso constante de apoyarlos a alcanzar sus metas."</p>
+      <h3 data-es="Misión" data-en="Mission">Misión</h3>
+      <p data-es='"Establecer relaciones de largo plazo con nuestros asociados, clientes y proveedores mediante el compromiso constante de apoyarlos a alcanzar sus metas."' data-en='"To establish long-term relationships with our partners, clients, and suppliers through a constant commitment to helping them achieve their goals."'>"Establecer relaciones de largo plazo con nuestros asociados, clientes y proveedores mediante el compromiso constante de apoyarlos a alcanzar sus metas."</p>
     </div>
     <div class="mv-card vision">
       <div class="mv-icon">🚀</div>
-      <h3>Visión</h3>
-      <p>"Ser reconocida como una firma líder en el manejo de carga, contribuyendo al desarrollo, crecimiento y expansión de los negocios y actividades de sus clientes."</p>
+      <h3 data-es="Visión" data-en="Vision">Visión</h3>
+      <p data-es='"Ser reconocida como una firma líder en el manejo de carga, contribuyendo al desarrollo, crecimiento y expansión de los negocios de sus clientes."' data-en='"To be recognized as a leading firm in cargo management, contributing to the development, growth, and expansion of our clients business."'>"Ser reconocida como una firma líder en el manejo de carga, contribuyendo al desarrollo, crecimiento y expansión de los negocios de sus clientes."</p>
     </div>
   </div>
 </section>
 
 <!-- TRAINING -->
-<section class="section training-bg" id="capacitacion">
+<section class="section training-bg">
   <div class="training-inner">
-    <div class="section-tag">Capacitación</div>
-    <h2 class="section-title">Programas In-Company</h2>
-    <p class="section-sub">Especializamos al personal de su organización en el manejo estratégico de operaciones logísticas de importación.</p>
+    <div class="section-tag" data-es="Capacitación" data-en="Training">Capacitación</div>
+    <h2 class="section-title" data-es="Programas In-Company" data-en="In-Company Programs">Programas In-Company</h2>
+    <p class="section-sub" data-es="Especializamos al personal de su organización en el manejo estratégico de operaciones logísticas de importación." data-en="We specialize your organization's staff in the strategic management of import logistics operations.">Especializamos al personal de su organización en el manejo estratégico de operaciones logísticas de importación.</p>
     <div class="training-features">
       <div class="tf">
         <div class="tf-icon">📚</div>
-        <h4>Formación Especializada</h4>
-        <p>Capacitación diseñada específicamente para su industria y necesidades operativas.</p>
+        <h4 data-es="Formación Especializada" data-en="Specialized Training">Formación Especializada</h4>
+        <p data-es="Capacitación diseñada para su industria y necesidades operativas específicas." data-en="Training designed for your industry and specific operational needs.">Capacitación diseñada para su industria y necesidades operativas específicas.</p>
       </div>
       <div class="tf">
         <div class="tf-icon">💰</div>
-        <h4>Optimización de Costos</h4>
-        <p>Empoderamos a su equipo para reducir costos logísticos de forma continua y sostenible.</p>
+        <h4 data-es="Optimización de Costos" data-en="Cost Optimization">Optimización de Costos</h4>
+        <p data-es="Empoderamos a su equipo para reducir costos logísticos de forma continua." data-en="We empower your team to continuously reduce logistics costs.">Empoderamos a su equipo para reducir costos logísticos de forma continua.</p>
       </div>
       <div class="tf">
         <div class="tf-icon">⚙️</div>
-        <h4>Gestión Operativa</h4>
-        <p>Procesos impecables y coordinados para maximizar la eficiencia en cada operación.</p>
+        <h4 data-es="Gestión Operativa" data-en="Operational Management">Gestión Operativa</h4>
+        <p data-es="Procesos coordinados para maximizar la eficiencia en cada operación." data-en="Coordinated processes to maximize efficiency in every operation.">Procesos coordinados para maximizar la eficiencia en cada operación.</p>
       </div>
     </div>
   </div>
@@ -372,75 +432,115 @@
 <!-- CONTACT -->
 <section class="section" id="contacto">
   <div class="section-header">
-    <div class="section-tag">Contacto</div>
-    <h2 class="section-title">Hablemos de su Carga</h2>
-    <p class="section-sub">Estamos listos para diseñar la solución logística ideal para su negocio.</p>
+    <div class="section-tag" data-es="Contacto" data-en="Contact">Contacto</div>
+    <h2 class="section-title" data-es="Hablemos de su Carga" data-en="Let's Talk About Your Cargo">Hablemos de su Carga</h2>
+    <p class="section-sub" data-es="Estamos listos para diseñar la solución logística ideal para su negocio." data-en="We're ready to design the ideal logistics solution for your business.">Estamos listos para diseñar la solución logística ideal para su negocio.</p>
   </div>
   <div class="contact-inner">
     <div class="contact-info">
       <div class="contact-item">
-        <div class="contact-icon">📍</div>
+        <div class="contact-icon">👤</div>
         <div>
-          <h4>Dirección</h4>
-          <p>Av. 4 Sector Bella Vista, Maracaibo, Estado Zulia, Venezuela</p>
+          <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+          <p>Jose Urdaneta</p>
         </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon">📞</div>
         <div>
-          <h4>Teléfono</h4>
-          <p>+58 414 600 4040</p>
+          <h4 data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</h4>
+          <a href="tel:+584146004040">+58 414 600 4040</a>
         </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon">✉️</div>
         <div>
           <h4>Email</h4>
-          <p>fastcargove@gmail.com</p>
+          <a href="mailto:fastcargove@gmail.com">fastcargove@gmail.com</a>
         </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon">📱</div>
         <div>
           <h4>Instagram</h4>
-          <p>@fastcargoservices</p>
+          <a href="https://instagram.com/fastcargoservices" target="_blank">@fastcargoservices</a>
         </div>
       </div>
       <div class="contact-item">
-        <div class="contact-icon">👤</div>
+        <div class="contact-icon">🔗</div>
         <div>
-          <h4>Contacto</h4>
-          <p>Jose Urdaneta</p>
+          <h4>Linktree</h4>
+          <a href="https://linktr.ee/fastcargoservices" target="_blank">linktr.ee/fastcargoservices</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4 data-es="Dirección" data-en="Address">Dirección</h4>
+          <p>Av. 4 Sector Bella Vista, Maracaibo, Estado Zulia</p>
         </div>
       </div>
     </div>
-    <form class="contact-form">
-      <input type="text" placeholder="Nombre completo" required/>
-      <input type="email" placeholder="Correo electrónico" required/>
-      <input type="text" placeholder="Empresa" />
+    <form class="contact-form" onsubmit="return false;">
+      <input type="text" data-placeholder-es="Nombre completo" data-placeholder-en="Full name" placeholder="Nombre completo" required/>
+      <input type="email" data-placeholder-es="Correo electrónico" data-placeholder-en="Email address" placeholder="Correo electrónico" required/>
+      <input type="text" data-placeholder-es="Empresa" data-placeholder-en="Company" placeholder="Empresa"/>
       <select>
-        <option value="" disabled selected>Tipo de servicio</option>
-        <option>Transporte Marítimo</option>
-        <option>Transporte Aéreo</option>
-        <option>Transporte Terrestre</option>
-        <option>Gestión Aduanera</option>
-        <option>Capacitación In-Company</option>
-        <option>Consultoría Logística</option>
+        <option value="" disabled selected data-es="Tipo de servicio" data-en="Type of service">Tipo de servicio</option>
+        <option data-es="Operaciones Aduaneras" data-en="Customs Operations">Operaciones Aduaneras</option>
+        <option data-es="Gestión de Compras Internacionales" data-en="International Purchasing">Gestión de Compras Internacionales</option>
+        <option data-es="Almacenamiento" data-en="Storage">Almacenamiento</option>
+        <option data-es="Transporte Marítimo" data-en="Maritime Transport">Transporte Marítimo</option>
+        <option data-es="Transporte Aéreo" data-en="Air Transport">Transporte Aéreo</option>
+        <option data-es="Transporte Terrestre" data-en="Ground Transport">Transporte Terrestre</option>
+        <option data-es="Capacitación In-Company" data-en="In-Company Training">Capacitación In-Company</option>
       </select>
-      <textarea placeholder="Cuéntenos sobre su necesidad logística..."></textarea>
-      <button type="submit">Enviar Solicitud →</button>
+      <textarea data-placeholder-es="Cuéntenos sobre su necesidad logística..." data-placeholder-en="Tell us about your logistics need..." placeholder="Cuéntenos sobre su necesidad logística..."></textarea>
+      <button type="submit" data-es="Enviar Solicitud →" data-en="Send Request →">Enviar Solicitud →</button>
     </form>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/235b23d62_image.png" alt="Fast Cargo Services" style="height: 50px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1);" /><br/>
-  <p><strong>Fast Cargo Services</strong> — Soluciones Integrales en Logística, Operaciones y Transporte de Mercancías</p>
-  <p style="margin-top:8px;">V-17461986-3 | Maracaibo, Estado Zulia, Venezuela</p>
-  <div class="social">📱 @fastcargoservices &nbsp;|&nbsp; ✉️ fastcargove@gmail.com &nbsp;|&nbsp; ☎️ +58 414 600 4040</div>
-  <p style="margin-top:16px; font-size:12px; opacity:0.5;">© 2026 Fast Cargo Services. Todos los derechos reservados. | Sitio web por JF Web Studios</p>
+  <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/235b23d62_image.png" alt="Fast Cargo Services" />
+  <div class="divider"></div>
+  <p><strong>Fast Cargo Services</strong></p>
+  <p style="margin-top:6px;" data-es="Soluciones Integrales en Logística, Operaciones y Transporte de Mercancías" data-en="Comprehensive Solutions in Logistics, Operations, and Cargo Transport">Soluciones Integrales en Logística, Operaciones y Transporte de Mercancías</p>
+  <div class="social">
+    📱 <a href="https://instagram.com/fastcargoservices" target="_blank" style="color:rgba(255,255,255,0.6);">@fastcargoservices</a>
+    &nbsp;|&nbsp; ✉️ fastcargove@gmail.com &nbsp;|&nbsp; ☎️ +58 414 600 4040
+  </div>
+  <p style="margin-top:20px; font-size:12px; opacity:0.4;" data-es="© 2026 Fast Cargo Services. Todos los derechos reservados. | Sitio web por JF Web Studios" data-en="© 2026 Fast Cargo Services. All rights reserved. | Website by JF Web Studios">© 2026 Fast Cargo Services. Todos los derechos reservados. | Sitio web por JF Web Studios</p>
 </footer>
 
+<script>
+  let currentLang = 'es';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+    // Update all data-es / data-en elements
+    document.querySelectorAll('[data-es]').forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = el.getAttribute(`data-placeholder-${lang}`) || el.placeholder;
+      } else {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      }
+    });
+
+    // Update select options
+    document.querySelectorAll('select option[data-es]').forEach(opt => {
+      opt.textContent = opt.getAttribute(`data-${lang}`);
+    });
+
+    // Update placeholders
+    document.querySelectorAll('[data-placeholder-es]').forEach(el => {
+      el.placeholder = el.getAttribute(`data-placeholder-${lang}`);
+    });
+  }
+</script>
 </body>
 </html>
