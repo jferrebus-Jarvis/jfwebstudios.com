@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1280px; height: 800px; background: #0f172a; font-family: 'Arial Black', Arial, sans-serif; overflow: hidden; }
+  .flyer { width: 1280px; height: 800px; background: #0f172a; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 70px; gap: 0; border: 6px solid #2f9cf0; }
+  .headline { color: white; font-size: 52px; font-weight: 900; line-height: 1.1; margin-bottom: 16px; }
+  .sub { color: white; font-size: 28px; font-weight: 600; margin-bottom: 10px; }
+  .sub span { color: #2f9cf0; font-weight: 900; }
+  .big-hrs { color: #2f9cf0; font-size: 110px; font-weight: 900; line-height: 1; margin-bottom: 36px; text-align: center; width: 100%; }
+  .middle { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 40px; margin-bottom: 40px; }
+  .bullets { display: flex; flex-direction: column; gap: 16px; }
+  .bullet { display: flex; align-items: center; gap: 14px; color: white; font-size: 22px; font-weight: 700; }
+  .check { width: 32px; height: 32px; background: #2f9cf0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; flex-shrink: 0; }
+  .badge { width: 220px; height: 220px; border: 4px solid #2f9cf0; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px; flex-shrink: 0; }
+  .badge .desde { font-size: 18px; font-weight: 700; color: #94a3b8; }
+  .badge .price { font-size: 58px; font-weight: 900; color: #2f9cf0; line-height: 1; }
+  .badge .domain { font-size: 14px; color: #94a3b8; margin-top: 4px; }
+  .badge .free { font-size: 20px; font-weight: 900; color: white; }
+  .footer { width: 100%; background: #2f9cf0; border-radius: 10px; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-left { color: white; font-size: 20px; font-weight: 700; }
+  .footer-right { color: white; font-size: 22px; font-weight: 900; }
+  .divider { color: white; font-size: 22px; opacity: 0.6; }
+</style>
+</head>
+<body>
+<div class="flyer">
+  <div class="headline">¿Tu Negocio No Tiene<br>Página Web?</div>
+  <div class="sub">Te la hacemos en <span>48 HORAS.</span></div>
+  <div class="big-hrs">48 HRS</div>
+  <div class="middle">
+    <div class="bullets">
+      <div class="bullet"><div class="check">✓</div> Diseño Profesional</div>
+      <div class="bullet"><div class="check">✓</div> Compatible con Celular</div>
+      <div class="bullet"><div class="check">✓</div> Optimizada para Google</div>
+      <div class="bullet"><div class="check">✓</div> Dominio GRATIS Incluido</div>
+      <div class="bullet"><div class="check">✓</div> Hosting $75/mes</div>
+    </div>
+    <div class="badge">
+      <div class="desde">Desde</div>
+      <div class="price">$400</div>
+      <div class="domain">Dominio Incluido</div>
+      <div class="free">GRATIS</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-left">JF Web Studios</div>
+    <div style="display:flex;gap:16px;align-items:center;">
+      <div class="footer-right">(832) 981-2967</div>
+      <div class="divider">|</div>
+      <div class="footer-right">jfwebstudios.com</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
