@@ -20,14 +20,24 @@
     body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); }
 
     /* LANG TOGGLE */
+    .nav-right {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .vzla-flag {
+      display: flex; flex-direction: column; width: 36px; height: 24px;
+      border-radius: 3px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.4); flex-shrink: 0;
+    }
+    .vzla-flag div { flex: 1; }
+    .vzla-flag div:nth-child(1) { background: #cf142b; }
+    .vzla-flag div:nth-child(2) { background: #ffd700; }
+    .vzla-flag div:nth-child(3) { background: #003087; }
     .lang-toggle {
-      position: fixed; top: 18px; right: 160px; z-index: 200;
       display: flex; background: rgba(255,255,255,0.12); border-radius: 999px;
       padding: 4px; gap: 2px; backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.2);
     }
     .lang-btn {
-      padding: 6px 16px; border-radius: 999px; border: none; cursor: pointer;
+      padding: 6px 14px; border-radius: 999px; border: none; cursor: pointer;
       font-size: 13px; font-weight: 700; transition: all 0.2s; background: transparent; color: rgba(255,255,255,0.7);
     }
     .lang-btn.active { background: white; color: var(--navy); }
@@ -221,7 +231,8 @@
     @media (max-width: 768px) {
       nav { padding: 14px 20px; }
       nav ul, .nav-cta { display: none; }
-      .lang-toggle { right: 16px; top: 16px; }
+      .lang-toggle { display: flex; }
+
       .stats { grid-template-columns: repeat(2, 1fr); padding: 32px 20px; }
       .section { padding: 64px 20px; }
       .services-grid, .about-grid, .mv-grid, .contact-inner, .training-features, .cities-grid { grid-template-columns: 1fr; }
@@ -260,12 +271,6 @@
 </head>
 <body>
 
-<!-- LANG TOGGLE -->
-<div class="lang-toggle">
-  <button class="lang-btn active" onclick="setLang('es')">ES</button>
-  <button class="lang-btn" onclick="setLang('en')">EN</button>
-</div>
-
 <!-- NAV -->
 <nav>
   <div class="logo">
@@ -277,11 +282,15 @@
     <li><a href="#cobertura" data-es="Cobertura" data-en="Coverage">Cobertura</a></li>
     <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:14px;">
-    <div style="display:flex;flex-direction:column;border-radius:4px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.4);width:38px;height:26px;flex-shrink:0;">
-      <div style="flex:1;background:#cf142b;"></div>
-      <div style="flex:1;background:#ffd700;"></div>
-      <div style="flex:1;background:#003087;"></div>
+  <div class="nav-right">
+    <!-- Venezuelan Flag -->
+    <div class="vzla-flag">
+      <div></div><div></div><div></div>
+    </div>
+    <!-- Lang Toggle -->
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
     <a href="#contacto" class="nav-cta" data-es="Cotizar Ahora" data-en="Get a Quote">Cotizar Ahora</a>
   </div>
@@ -418,4 +427,144 @@
   </div>
 </section>
 
+<!-- MISSION / VISION -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag" data-es="Nuestra Filosofía" data-en="Our Philosophy">Nuestra Filosofía</div>
+    <h2 class="section-title" data-es="Misión y Visión" data-en="Mission & Vision">Misión y Visión</h2>
+  </div>
+  <div class="mv-grid">
+    <div class="mv-card mission">
+      <div class="mv-icon">🎯</div>
+      <h3 data-es="Misión" data-en="Mission">Misión</h3>
+      <p data-es='"Establecer relaciones de largo plazo con nuestros asociados, clientes y proveedores mediante el compromiso constante de apoyarlos a alcanzar sus metas."' data-en='"To establish long-term relationships with our partners, clients, and suppliers through a constant commitment to helping them achieve their goals."'>"Establecer relaciones de largo plazo con nuestros asociados, clientes y proveedores mediante el compromiso constante de apoyarlos a alcanzar sus metas."</p>
+    </div>
+    <div class="mv-card vision">
+      <div class="mv-icon">🚀</div>
+      <h3 data-es="Visión" data-en="Vision">Visión</h3>
+      <p data-es='"Ser reconocida como una firma líder en el manejo de carga, contribuyendo al desarrollo, crecimiento y expansión de los negocios de sus clientes."' data-en='"To be recognized as a leading firm in cargo management, contributing to the development, growth, and expansion of our clients business."'>"Ser reconocida como una firma líder en el manejo de carga, contribuyendo al desarrollo, crecimiento y expansión de los negocios de sus clientes."</p>
+    </div>
+  </div>
+</section>
 
+<!-- TRAINING -->
+<section class="section training-bg">
+  <div class="training-inner">
+    <div class="section-tag" data-es="Capacitación" data-en="Training">Capacitación</div>
+    <h2 class="section-title" data-es="Programas In-Company" data-en="In-Company Programs">Programas In-Company</h2>
+    <p class="section-sub" data-es="Especializamos al personal de su organización en el manejo estratégico de operaciones logísticas de importación." data-en="We specialize your organization's staff in the strategic management of import logistics operations.">Especializamos al personal de su organización en el manejo estratégico de operaciones logísticas de importación.</p>
+    <div class="training-features">
+      <div class="tf"><div class="tf-icon">📚</div><h4 data-es="Formación Especializada" data-en="Specialized Training">Formación Especializada</h4><p data-es="Capacitación diseñada para su industria y necesidades operativas específicas." data-en="Training designed for your industry and specific operational needs.">Capacitación diseñada para su industria y necesidades operativas específicas.</p></div>
+      <div class="tf"><div class="tf-icon">💰</div><h4 data-es="Optimización de Costos" data-en="Cost Optimization">Optimización de Costos</h4><p data-es="Empoderamos a su equipo para reducir costos logísticos de forma continua." data-en="We empower your team to continuously reduce logistics costs.">Empoderamos a su equipo para reducir costos logísticos de forma continua.</p></div>
+      <div class="tf"><div class="tf-icon">⚙️</div><h4 data-es="Gestión Operativa" data-en="Operational Management">Gestión Operativa</h4><p data-es="Procesos coordinados para maximizar la eficiencia en cada operación." data-en="Coordinated processes to maximize efficiency in every operation.">Procesos coordinados para maximizar la eficiencia en cada operación.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contacto">
+  <div class="section-header">
+    <div class="section-tag" data-es="Contacto" data-en="Contact">Contacto</div>
+    <h2 class="section-title" data-es="Hablemos de su Carga" data-en="Let's Talk About Your Cargo">Hablemos de su Carga</h2>
+    <p class="section-sub" data-es="Estamos listos para diseñar la solución logística ideal para su negocio." data-en="We're ready to design the ideal logistics solution for your business.">Estamos listos para diseñar la solución logística ideal para su negocio.</p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">👤</div>
+        <div><h4 data-es="Contacto" data-en="Contact">Contacto</h4><p>Jose Urdaneta</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon" style="background:#25D366;color:white;font-size:20px;">💬</div>
+        <div>
+          <h4>WhatsApp</h4>
+          <a href="https://wa.me/18323501270" target="_blank">+1 (832) 350-1270</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4 data-es="Teléfono Venezuela" data-en="Venezuela Phone">Teléfono Venezuela</h4>
+          <a href="tel:+584146004040">+58 414 600 4040</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div><h4>Email</h4><a href="mailto:fastcargove@gmail.com">fastcargove@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div><h4>Instagram</h4><a href="https://instagram.com/fastcargoservices" target="_blank">@fastcargoservices</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🔗</div>
+        <div><h4>Linktree</h4><a href="https://linktr.ee/fastcargoservices" target="_blank">linktr.ee/fastcargoservices</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div><h4 data-es="Dirección" data-en="Address">Dirección</h4><p>Av. 4 Sector Bella Vista, Maracaibo, Edo. Zulia</p></div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="return false;">
+      <input type="text" placeholder="Nombre completo" data-placeholder-es="Nombre completo" data-placeholder-en="Full name" required/>
+      <input type="email" placeholder="Correo electrónico" data-placeholder-es="Correo electrónico" data-placeholder-en="Email address" required/>
+      <input type="text" placeholder="Empresa" data-placeholder-es="Empresa" data-placeholder-en="Company"/>
+      <select>
+        <option value="" disabled selected data-es="Tipo de servicio" data-en="Type of service">Tipo de servicio</option>
+        <option data-es="Operaciones Aduaneras" data-en="Customs Operations">Operaciones Aduaneras</option>
+        <option data-es="Gestión de Compras Internacionales" data-en="International Purchasing">Gestión de Compras Internacionales</option>
+        <option data-es="Almacenamiento" data-en="Storage">Almacenamiento</option>
+        <option data-es="Transporte Marítimo" data-en="Maritime Transport">Transporte Marítimo</option>
+        <option data-es="Transporte Aéreo" data-en="Air Transport">Transporte Aéreo</option>
+        <option data-es="Transporte Terrestre" data-en="Ground Transport">Transporte Terrestre</option>
+        <option data-es="Capacitación In-Company" data-en="In-Company Training">Capacitación In-Company</option>
+      </select>
+      <textarea placeholder="Cuéntenos sobre su necesidad logística..." data-placeholder-es="Cuéntenos sobre su necesidad logística..." data-placeholder-en="Tell us about your logistics need..."></textarea>
+      <button type="submit" data-es="Enviar Solicitud →" data-en="Send Request →">Enviar Solicitud →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/235b23d62_image.png" alt="Fast Cargo Services" style="filter:brightness(0) invert(1);"/>
+  <div class="divider"></div>
+  <p><strong>Fast Cargo Services</strong></p>
+  <p style="margin-top:6px;" data-es="Soluciones Integrales en Logística, Operaciones y Transporte de Mercancías" data-en="Comprehensive Solutions in Logistics, Operations, and Cargo Transport">Soluciones Integrales en Logística, Operaciones y Transporte de Mercancías</p>
+  <div class="social">
+    📱 <a href="https://instagram.com/fastcargoservices" target="_blank" style="color:rgba(255,255,255,0.6);">@fastcargoservices</a>
+    &nbsp;|&nbsp; ✉️ fastcargove@gmail.com
+    &nbsp;|&nbsp; 💬 <a href="https://wa.me/18323501270" style="color:rgba(255,255,255,0.6);">+1 (832) 350-1270</a>
+  </div>
+  <p style="margin-top:20px;font-size:12px;opacity:0.4;" data-es="© 2026 Fast Cargo Services. Todos los derechos reservados. | Sitio web por JF Web Studios" data-en="© 2026 Fast Cargo Services. All rights reserved. | Website by JF Web Studios">© 2026 Fast Cargo Services. Todos los derechos reservados. | Sitio web por JF Web Studios</p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-label" data-es="¡Escríbenos por WhatsApp!" data-en="Chat with us on WhatsApp!">¡Escríbenos por WhatsApp!</div>
+<a href="https://wa.me/18323501270" target="_blank" class="wa-float" title="WhatsApp">
+  <svg viewBox="0 0 24 24" width="32" height="32" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  let currentLang = 'es';
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+    document.querySelectorAll('[data-es]').forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
+    document.querySelectorAll('[data-placeholder-es]').forEach(el => {
+      el.placeholder = el.getAttribute(`data-placeholder-${lang}`);
+    });
+    document.querySelectorAll('select option[data-es]').forEach(opt => {
+      opt.textContent = opt.getAttribute(`data-${lang}`);
+    });
+  }
+</script>
+
+</body>
+</html>
