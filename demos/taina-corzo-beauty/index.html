@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taina Corzo Stylist | Beauty Salon · Katy, TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --black: #080808;
+      --dark: #0e0e0e;
+      --card: #141414;
+      --rose: #C4956A;
+      --rose-light: #dbb08a;
+      --cream: #F5EDE0;
+      --white: #ffffff;
+      --gray: #777;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(8,8,8,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(196,149,106,0.15);
+      padding: 16px 48px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--rose); letter-spacing: 1px; }
+    .nav-logo span { color: var(--white); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-book { background: var(--rose); color: var(--white); padding: 10px 24px; border-radius: 6px; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+    .nav-book:hover { background: var(--rose-light); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; background: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 24px 80px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '✦';
+      position: absolute; font-size: 600px; opacity: 0.02;
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      color: var(--rose); pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(196,149,106,0.1); border: 1px solid rgba(196,149,106,0.3);
+      color: var(--rose); font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; padding: 8px 20px; border-radius: 100px; margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 900; line-height: 1.0; margin-bottom: 24px; letter-spacing: -1px;
+    }
+    .hero h1 .rose { color: var(--rose); }
+    .hero-sub { font-size: 18px; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto 48px; line-height: 1.7; }
+    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-rose { background: var(--rose); color: var(--white); padding: 18px 44px; border-radius: 8px; font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-rose:hover { background: var(--rose-light); transform: translateY(-2px); }
+    .btn-outline { border: 2px solid rgba(196,149,106,0.4); color: var(--rose); padding: 16px 40px; border-radius: 8px; font-size: 15px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--rose); background: rgba(196,149,106,0.08); }
+
+    /* STATS */
+    .stats-bar {
+      background: var(--dark); border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 40px 48px; display: grid; grid-template-columns: repeat(4,1fr); text-align: center;
+    }
+    .stat-item { padding: 0 20px; border-right: 1px solid rgba(255,255,255,0.05); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--rose); margin-bottom: 4px; }
+    .stat-label { font-size: 12px; color: var(--gray); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* ABOUT */
+    .about { padding: 100px 48px; background: var(--black); }
+    .about-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-img { background: var(--card); border-radius: 20px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; font-size: 100px; border: 1px solid rgba(196,149,106,0.15); }
+    .about-tag { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--rose); margin-bottom: 16px; }
+    .about h2 { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; margin-bottom: 20px; line-height: 1.1; }
+    .about p { color: rgba(255,255,255,0.6); font-size: 16px; line-height: 1.8; margin-bottom: 16px; }
+    .about-creds { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+    .cred-item { display: flex; align-items: center; gap: 12px; }
+    .cred-dot { width: 6px; height: 6px; background: var(--rose); border-radius: 50%; flex-shrink: 0; }
+    .cred-text { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 500; }
+
+    /* SERVICES */
+    .services { padding: 100px 48px; background: var(--dark); }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--rose); text-align: center; margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 900; text-align: center; margin-bottom: 60px; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .service-card { background: var(--card); border-radius: 16px; padding: 36px 28px; border: 1px solid rgba(255,255,255,0.04); transition: all 0.3s; border-top: 3px solid var(--rose); }
+    .service-card:hover { transform: translateY(-6px); border-color: rgba(196,149,106,0.3); }
+    .service-icon { font-size: 40px; margin-bottom: 16px; }
+    .service-name { font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+    .service-price { font-size: 22px; font-weight: 900; color: var(--rose); margin-bottom: 8px; }
+    .service-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+    /* GALLERY STRIP */
+    .gallery { padding: 80px 48px; background: var(--black); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; max-width: 900px; margin: 0 auto; }
+    .gallery-item { aspect-ratio: 1; background: var(--card); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 60px; overflow: hidden; }
+
+    /* HOURS */
+    .hours { padding: 80px 48px; background: var(--dark); }
+    .hours-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+    .hours-grid { margin-top: 40px; display: flex; flex-direction: column; gap: 8px; }
+    .hour-row { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; background: var(--card); border-radius: 8px; }
+    .hour-day { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 500; }
+    .hour-time { font-size: 14px; color: var(--rose); font-weight: 700; }
+
+    /* CTA */
+    .book-cta { background: var(--rose); padding: 100px 48px; text-align: center; }
+    .book-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(36px,5vw,56px); font-weight: 900; color: var(--white); margin-bottom: 12px; }
+    .book-cta p { font-size: 18px; color: rgba(255,255,255,0.75); margin-bottom: 40px; }
+    .btn-dark { background: var(--black); color: var(--rose); padding: 18px 44px; border-radius: 8px; font-size: 15px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; display: inline-block; margin: 8px; transition: all 0.2s; }
+    .btn-dark:hover { transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.04); padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--rose); }
+    footer p { font-size: 12px; color: #333; }
+    footer a { color: var(--rose); text-decoration: none; }
+
+    /* WHATSAPP */
+    .wa { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); z-index: 999; transition: transform 0.2s; }
+    .wa:hover { transform: scale(1.1); }
+
+    @media(max-width:768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .stats-bar { grid-template-columns: repeat(2,1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 16px; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-img { max-width: 280px; margin: 0 auto; }
+      .services, .about, .gallery, .hours { padding: 60px 24px; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Taina <span>Corzo</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#hours">Hours</a>
+      <a href="https://www.instagram.com/estilistaina" target="_blank">@estilistaina</a>
+      <a href="tel:3468439458" class="nav-book">Book Now</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div style="position:relative;z-index:1;">
+      <div class="hero-badge">💄 Katy, TX · Hair & Beauty Specialist</div>
+      <h1>Beauty<br>Elevated.<br><span class="rose">By Taina.</span></h1>
+      <p class="hero-sub">Professional hair styling, color, extensions & beauty services in Katy, Texas. 9,700+ happy clients follow the transformation.</p>
+      <div class="hero-ctas">
+        <a href="tel:3468439458" class="btn-rose">📞 Book Appointment</a>
+        <a href="#services" class="btn-outline">View Services</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-num">9.7K</div><div class="stat-label">Instagram Followers</div></div>
+    <div class="stat-item"><div class="stat-num">1,158</div><div class="stat-label">Posts & Transformations</div></div>
+    <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-item"><div class="stat-num">TDLR</div><div class="stat-label">Licensed Stylist</div></div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-img">👩‍🦰</div>
+      <div>
+        <p class="about-tag">Your Stylist</p>
+        <h2>Taina Corzo</h2>
+        <p>Venezuelan-born hair stylist and cosmetology instructor with a passion for transformations. Based at Uptown Institute in Katy, TX — where beauty meets education.</p>
+        <p>From bold color transformations to silk-smooth extensions, Taina brings precision and artistry to every appointment. Also a certified distributor for premium beauty products.</p>
+        <div class="about-creds">
+          <div class="cred-item"><div class="cred-dot"></div><div class="cred-text">TDLR Licensed Cosmetologist & Instructor</div></div>
+          <div class="cred-item"><div class="cred-dot"></div><div class="cred-text">829 S Mason Rd, Suite 257, Katy TX</div></div>
+          <div class="cred-item"><div class="cred-dot"></div><div class="cred-text">Hair · Color · Extensions · Lashes · Brows</div></div>
+          <div class="cred-item"><div class="cred-dot"></div><div class="cred-text">Authorized Beauty Product Distributor</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <p class="section-eyebrow">What We Offer</p>
+    <h2 class="section-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💇‍♀️</div>
+        <div class="service-name">Cut & Style</div>
+        <div class="service-price">From $45</div>
+        <div class="service-desc">Precision cuts, blowouts & styling for all hair types</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <div class="service-name">Color & Highlights</div>
+        <div class="service-price">From $80</div>
+        <div class="service-desc">Full color, balayage, ombre, highlights & creative coloring</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <div class="service-name">Hair Extensions</div>
+        <div class="service-price">From $150</div>
+        <div class="service-desc">Tape-in, sew-in & fusion extensions for length & volume</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💆‍♀️</div>
+        <div class="service-name">Keratin Treatment</div>
+        <div class="service-price">From $120</div>
+        <div class="service-desc">Smoothing, frizz control & deep hydration treatments</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👁</div>
+        <div class="service-name">Lash Extensions</div>
+        <div class="service-price">From $75</div>
+        <div class="service-desc">Classic, volume & hybrid lash sets. Natural to dramatic looks.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🖤</div>
+        <div class="service-name">Brow Styling</div>
+        <div class="service-price">From $25</div>
+        <div class="service-desc">Waxing, tinting & shaping for perfectly defined brows</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <p class="section-eyebrow">Transformations</p>
+    <h2 class="section-title">Our Work</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">💇‍♀️</div>
+      <div class="gallery-item">🎨</div>
+      <div class="gallery-item">✨</div>
+      <div class="gallery-item">👁</div>
+    </div>
+    <p style="text-align:center;margin-top:32px;color:var(--gray);font-size:14px;">Follow <a href="https://www.instagram.com/estilistaina" target="_blank" style="color:var(--rose);font-weight:700;">@estilistaina</a> for daily transformations</p>
+  </section>
+
+  <section class="hours" id="hours">
+    <div class="hours-inner">
+      <p class="section-eyebrow">Visit Us</p>
+      <h2 class="section-title">Hours & Location</h2>
+      <p style="color:var(--gray);margin-bottom:6px;">829 S Mason Rd, Suite 257</p>
+      <p style="color:var(--rose);font-weight:700;margin-bottom:4px;">Katy, Texas 77450</p>
+      <p style="color:var(--gray);font-size:14px;margin-bottom:8px;">@ Uptown Institute</p>
+      <div class="hours-grid">
+        <div class="hour-row"><span class="hour-day">Monday – Friday</span><span class="hour-time">9:00 AM – 7:00 PM</span></div>
+        <div class="hour-row"><span class="hour-day">Saturday</span><span class="hour-time">9:00 AM – 5:00 PM</span></div>
+        <div class="hour-row"><span class="hour-day">Sunday</span><span class="hour-time" style="color:var(--gray);">Closed</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book-cta" id="book">
+    <h2>Book Your Appointment</h2>
+    <p>Call, text or WhatsApp — we're ready for you.</p>
+    <a href="tel:3468439458" class="btn-dark">📞 (346) 843-9458</a>
+    <a href="https://wa.me/13468439458" class="btn-dark">💬 WhatsApp</a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Taina Corzo</div>
+    <p>829 S Mason Rd Suite 257, Katy TX · (346) 843-9458</p>
+    <p>Website by <a href="https://jfwebstudios.com">JF Web Studios</a></p>
+  </footer>
+
+  <a href="https://wa.me/13468439458" class="wa" target="_blank">💬</a>
+
+</body>
+</html>
