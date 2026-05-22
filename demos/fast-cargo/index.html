@@ -23,14 +23,7 @@
     .nav-right {
       display: flex; align-items: center; gap: 12px;
     }
-    .vzla-flag {
-      display: flex; flex-direction: column; width: 36px; height: 24px;
-      border-radius: 3px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.4); flex-shrink: 0;
-    }
-    .vzla-flag div { flex: 1; }
-    .vzla-flag div:nth-child(1) { background: #ffd700; }
-    .vzla-flag div:nth-child(2) { background: #002ead; }
-    .vzla-flag div:nth-child(3) { background: #cc0001; }
+
     .lang-toggle {
       display: flex; background: rgba(255,255,255,0.12); border-radius: 999px;
       padding: 4px; gap: 2px; backdrop-filter: blur(10px);
@@ -284,9 +277,7 @@
   </ul>
   <div class="nav-right">
     <!-- Venezuelan Flag -->
-    <div class="vzla-flag">
-      <div></div><div></div><div></div>
-    </div>
+    <span style="font-size:28px;line-height:1;">🇻🇪</span>
     <!-- Lang Toggle -->
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('es')">ES</button>
