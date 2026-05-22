@@ -229,6 +229,21 @@
       .cities-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
+
+    /* GLOBE / MAP */
+    .globe-wrapper { margin: 40px auto 0; max-width: 800px; }
+    #globe-svg { width: 100%; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); }
+    .route-legend {
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 20px;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 600;
+    }
+    .legend-item span:first-child {
+      width: 12px; height: 12px; border-radius: 50%; display: inline-block; flex-shrink: 0;
+    }
+
     /* WHATSAPP FLOAT */
     .wa-float {
       position: fixed; bottom: 28px; right: 28px; z-index: 999;
@@ -385,10 +400,155 @@
 <!-- COVERAGE -->
 <section class="section coverage-bg" id="cobertura">
   <div class="coverage-inner">
-    <div class="section-tag" data-es="Nuestra Cobertura" data-en="Our Coverage">Nuestra Cobertura</div>
-    <h2 class="section-title" data-es="Principales Puertos de Venezuela" data-en="Main Ports of Venezuela">Principales Puertos de Venezuela</h2>
-    <p class="section-sub" data-es="Operamos en los cuatro puertos más importantes del país, garantizando cobertura total para sus operaciones de importación y exportación." data-en="We operate at the four most important ports in the country, ensuring full coverage for your import and export operations.">Operamos en los cuatro puertos más importantes del país, garantizando cobertura total para sus operaciones de importación y exportación.</p>
-    <div class="cities-grid">
+    <div class="section-tag" data-es="Alcance Global" data-en="Global Reach">Alcance Global</div>
+    <h2 class="section-title" data-es="Rutas hacia Venezuela desde Todo el Mundo" data-en="Routes to Venezuela from Around the World">Rutas hacia Venezuela desde Todo el Mundo</h2>
+    <p class="section-sub" data-es="Coordinamos carga desde los principales centros logísticos del mundo directamente a los puertos venezolanos." data-en="We coordinate cargo from the world's main logistics hubs directly to Venezuelan ports.">Coordinamos carga desde los principales centros logísticos del mundo directamente a los puertos venezolanos.</p>
+
+    <!-- GLOBE SVG -->
+    <div class="globe-wrapper">
+      <svg id="globe-svg" viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ocean background -->
+        <rect width="800" height="480" fill="#0a1628" rx="16"/>
+
+        <!-- Simple world landmasses -->
+        <!-- North America -->
+        <path d="M80,80 L160,70 L200,90 L220,130 L200,170 L170,200 L150,220 L120,240 L100,220 L80,200 L70,160 L60,130 Z" fill="#1a3a6b" opacity="0.8"/>
+        <!-- South America -->
+        <path d="M160,240 L200,230 L230,250 L240,290 L230,340 L210,380 L190,400 L170,380 L155,340 L150,300 L155,260 Z" fill="#1a3a6b" opacity="0.8"/>
+        <!-- Venezuela highlight -->
+        <path d="M185,242 L210,236 L225,248 L228,262 L215,268 L200,265 L188,258 Z" fill="#cf142b" opacity="0.9"/>
+        <!-- Venezuela flag mini -->
+        <rect x="194" y="247" width="22" height="5" fill="#cf142b" rx="1"/>
+        <rect x="194" y="252" width="22" height="5" fill="#ffd700" rx="1"/>
+        <rect x="194" y="257" width="22" height="5" fill="#003087" rx="1"/>
+
+        <!-- Europe -->
+        <path d="M370,60 L430,55 L460,70 L470,100 L450,120 L420,130 L390,120 L370,100 Z" fill="#1a3a6b" opacity="0.8"/>
+        <!-- Africa -->
+        <path d="M390,130 L440,125 L470,150 L480,200 L470,260 L450,300 L420,310 L400,290 L385,250 L380,200 L385,160 Z" fill="#1a3a6b" opacity="0.8"/>
+        <!-- Asia -->
+        <path d="M470,50 L600,40 L680,60 L700,100 L680,140 L640,160 L580,170 L540,150 L500,130 L470,100 Z" fill="#1a3a6b" opacity="0.8"/>
+        <!-- China/Southeast Asia extension -->
+        <path d="M580,140 L650,150 L680,180 L670,210 L640,220 L600,210 L575,185 Z" fill="#1a3a6b" opacity="0.8"/>
+        <!-- Australia -->
+        <path d="M620,280 L700,270 L730,300 L720,340 L690,360 L650,355 L620,330 L610,300 Z" fill="#1a3a6b" opacity="0.8"/>
+
+        <!-- ANIMATED SHIPPING ROUTES to Venezuela (205,255) -->
+        <!-- From USA (120,180) -->
+        <path id="r1" d="M120,180 Q160,210 205,255" fill="none" stroke="#25D366" stroke-width="2" stroke-dasharray="6,4" opacity="0.9">
+          <animate attributeName="stroke-dashoffset" values="100;0" dur="2s" repeatCount="indefinite"/>
+        </path>
+        <!-- From Europe (420,95) -->
+        <path id="r2" d="M420,95 Q350,160 205,255" fill="none" stroke="#e8a020" stroke-width="2" stroke-dasharray="6,4" opacity="0.9">
+          <animate attributeName="stroke-dashoffset" values="100;0" dur="2.5s" repeatCount="indefinite"/>
+        </path>
+        <!-- From China (620,110) -->
+        <path id="r3" d="M620,110 Q500,80 350,160 Q280,200 205,255" fill="none" stroke="#00b4d8" stroke-width="2" stroke-dasharray="6,4" opacity="0.9">
+          <animate attributeName="stroke-dashoffset" values="150;0" dur="3.5s" repeatCount="indefinite"/>
+        </path>
+        <!-- From Africa (430,220) -->
+        <path id="r4" d="M430,220 Q340,230 205,255" fill="none" stroke="#ff6b35" stroke-width="2" stroke-dasharray="6,4" opacity="0.9">
+          <animate attributeName="stroke-dashoffset" values="100;0" dur="2.8s" repeatCount="indefinite"/>
+        </path>
+        <!-- From Brazil (210,350) -->
+        <path id="r5" d="M210,350 Q208,310 205,255" fill="none" stroke="#a8dadc" stroke-width="2" stroke-dasharray="6,4" opacity="0.9">
+          <animate attributeName="stroke-dashoffset" values="60;0" dur="1.8s" repeatCount="indefinite"/>
+        </path>
+        <!-- From Mexico (100,160) -->
+        <path id="r6" d="M100,160 Q150,195 205,255" fill="none" stroke="#f72585" stroke-width="2" stroke-dasharray="6,4" opacity="0.9">
+          <animate attributeName="stroke-dashoffset" values="80;0" dur="2.2s" repeatCount="indefinite"/>
+        </path>
+        <!-- From Japan (700,120) -->
+        <path id="r7" d="M700,120 Q560,100 420,150 Q310,190 205,255" fill="none" stroke="#b5e48c" stroke-width="2" stroke-dasharray="6,4" opacity="0.9">
+          <animate attributeName="stroke-dashoffset" values="180;0" dur="4s" repeatCount="indefinite"/>
+        </path>
+
+        <!-- Moving ships/planes on routes -->
+        <!-- Ship on route 1 (USA) -->
+        <circle r="5" fill="#25D366">
+          <animateMotion dur="2s" repeatCount="indefinite">
+            <mpath href="#r1"/>
+          </animateMotion>
+        </circle>
+        <!-- Ship on route 2 (Europe) -->
+        <circle r="5" fill="#e8a020">
+          <animateMotion dur="2.5s" repeatCount="indefinite">
+            <mpath href="#r2"/>
+          </animateMotion>
+        </circle>
+        <!-- Ship on route 3 (China) -->
+        <circle r="5" fill="#00b4d8">
+          <animateMotion dur="3.5s" repeatCount="indefinite">
+            <mpath href="#r3"/>
+          </animateMotion>
+        </circle>
+        <!-- Ship on route 4 (Africa) -->
+        <circle r="5" fill="#ff6b35">
+          <animateMotion dur="2.8s" repeatCount="indefinite">
+            <mpath href="#r4"/>
+          </animateMotion>
+        </circle>
+        <!-- Ship on route 5 (Brazil) -->
+        <circle r="5" fill="#a8dadc">
+          <animateMotion dur="1.8s" repeatCount="indefinite">
+            <mpath href="#r5"/>
+          </animateMotion>
+        </circle>
+        <!-- Ship on route 6 (Mexico) -->
+        <circle r="5" fill="#f72585">
+          <animateMotion dur="2.2s" repeatCount="indefinite">
+            <mpath href="#r6"/>
+          </animateMotion>
+        </circle>
+        <!-- Ship on route 7 (Japan) -->
+        <circle r="5" fill="#b5e48c">
+          <animateMotion dur="4s" repeatCount="indefinite">
+            <mpath href="#r7"/>
+          </animateMotion>
+        </circle>
+
+        <!-- Origin city dots -->
+        <circle cx="120" cy="180" r="5" fill="#25D366" opacity="0.9"/>
+        <circle cx="100" cy="160" r="4" fill="#f72585" opacity="0.9"/>
+        <circle cx="420" cy="95" r="5" fill="#e8a020" opacity="0.9"/>
+        <circle cx="620" cy="110" r="5" fill="#00b4d8" opacity="0.9"/>
+        <circle cx="700" cy="120" r="4" fill="#b5e48c" opacity="0.9"/>
+        <circle cx="430" cy="220" r="4" fill="#ff6b35" opacity="0.9"/>
+        <circle cx="210" cy="350" r="4" fill="#a8dadc" opacity="0.9"/>
+
+        <!-- Venezuela destination dot (pulsing) -->
+        <circle cx="205" cy="255" r="8" fill="#cf142b" opacity="0.3">
+          <animate attributeName="r" values="8;16;8" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="205" cy="255" r="7" fill="#cf142b"/>
+        <circle cx="205" cy="255" r="4" fill="white"/>
+
+        <!-- City labels -->
+        <text x="125" y="175" fill="white" font-size="10" font-family="Inter,sans-serif" opacity="0.8">🇺🇸 USA</text>
+        <text x="425" y="90" fill="white" font-size="10" font-family="Inter,sans-serif" opacity="0.8">🇪🇺 Europa</text>
+        <text x="615" y="105" fill="white" font-size="10" font-family="Inter,sans-serif" opacity="0.8">🇨🇳 China</text>
+        <text x="695" y="115" fill="white" font-size="10" font-family="Inter,sans-serif" opacity="0.8">🇯🇵 Japón</text>
+        <text x="435" y="215" fill="white" font-size="10" font-family="Inter,sans-serif" opacity="0.8">🌍 África</text>
+        <text x="215" y="355" fill="white" font-size="10" font-family="Inter,sans-serif" opacity="0.8">🇧🇷 Brasil</text>
+        <text x="55" y="158" fill="white" font-size="10" font-family="Inter,sans-serif" opacity="0.8">🇲🇽 México</text>
+        <text x="168" y="278" fill="white" font-size="11" font-weight="bold" font-family="Inter,sans-serif" fill="#ffd700">🇻🇪 Venezuela</text>
+      </svg>
+
+      <!-- Legend -->
+      <div class="route-legend">
+        <div class="legend-item"><span style="background:#25D366"></span> <span data-es="EE.UU." data-en="USA">EE.UU.</span></div>
+        <div class="legend-item"><span style="background:#e8a020"></span> <span data-es="Europa" data-en="Europe">Europa</span></div>
+        <div class="legend-item"><span style="background:#00b4d8"></span> China</div>
+        <div class="legend-item"><span style="background:#b5e48c"></span> <span data-es="Japón" data-en="Japan">Japón</span></div>
+        <div class="legend-item"><span style="background:#ff6b35"></span> <span data-es="África" data-en="Africa">África</span></div>
+        <div class="legend-item"><span style="background:#f72585"></span> <span data-es="México" data-en="Mexico">México</span></div>
+        <div class="legend-item"><span style="background:#a8dadc"></span> Brasil</div>
+      </div>
+    </div>
+
+    <!-- Port cities -->
+    <div class="cities-grid" style="margin-top:40px;">
       <div class="city-card">
         <div class="city-icon">⚓</div>
         <h4>Maracaibo</h4>
