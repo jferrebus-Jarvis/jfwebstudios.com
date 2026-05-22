@@ -141,23 +141,17 @@
     .about-visual {
       border-radius: 20px; padding: 48px; color: white; text-align: center;
       position: relative; overflow: hidden;
-    }
-    .about-visual::before {
-      content: '';
-      position: absolute; inset: 0;
       background: linear-gradient(
         to bottom,
-        #cf0001 0%, #cf0001 33.33%,
+        #cc0000 0%, #cc0000 33.33%,
         #ffd700 33.33%, #ffd700 66.66%,
-        #002ea5 66.66%, #002ea5 100%
+        #00247d 66.66%, #00247d 100%
       );
-      opacity: 0.18;
-      z-index: 0;
     }
     .about-visual::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(0,10,40,0.82), rgba(0,20,60,0.75));
+      background: rgba(0, 5, 25, 0.62);
       z-index: 1;
     }
     .about-visual > * { position: relative; z-index: 2; }
