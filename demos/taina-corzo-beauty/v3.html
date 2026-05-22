@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taina Corzo Beauty | Katy TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--cream:#faf7f2;--warm:#e8ddd0;--brown:#6b4c35;--dark:#1c1410;--accent:#c17f4a;--white:#fff}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark)}
+
+    nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;transition:all 0.3s}
+    nav.scrolled{background:rgba(250,247,242,0.97);border-bottom:1px solid var(--warm);backdrop-filter:blur(10px)}
+    .nav-logo{font-family:'DM Serif Display',serif;font-size:20px;color:var(--dark)}
+    .nav-links{display:flex;gap:32px;align-items:center}
+    .nav-links a{color:#666;text-decoration:none;font-size:13px;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover{color:var(--accent)}
+    .nav-book{background:var(--accent);color:var(--white);padding:12px 28px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none}
+
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:var(--cream)}
+    .hero-left{padding:160px 60px 80px;display:flex;flex-direction:column;justify-content:center}
+    .hero-label{display:inline-flex;align-items:center;gap:8px;background:var(--warm);color:var(--brown);font-size:12px;font-weight:600;padding:8px 18px;border-radius:100px;margin-bottom:32px;width:fit-content}
+    .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(48px,5vw,72px);line-height:1.1;margin-bottom:24px;color:var(--dark)}
+    .hero h1 em{color:var(--accent);font-style:italic}
+    .hero-desc{font-size:16px;color:#777;line-height:1.8;margin-bottom:40px;max-width:380px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-fill{background:var(--dark);color:var(--white);padding:16px 36px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s}
+    .btn-fill:hover{background:var(--accent)}
+    .btn-ghost{border:2px solid var(--warm);color:var(--dark);padding:14px 32px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
+    .hero-right{background:linear-gradient(160deg,var(--warm),#d4b896);display:flex;align-items:center;justify-content:center;font-size:120px;position:relative;overflow:hidden}
+    .hero-right::after{content:'TC';position:absolute;bottom:-20px;right:-20px;font-family:'DM Serif Display',serif;font-size:200px;color:rgba(255,255,255,0.08);font-style:italic}
+
+    .stats{background:var(--dark);padding:48px 60px;display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:20px}
+    .stat-val{font-family:'DM Serif Display',serif;font-size:40px;color:var(--accent);margin-bottom:4px}
+    .stat-lbl{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase}
+
+    .services{padding:100px 60px;background:var(--white)}
+    .sec-label{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+    .sec-title{font-family:'DM Serif Display',serif;font-size:clamp(32px,3vw,48px);color:var(--dark);margin-bottom:16px}
+    .sec-sub{font-size:15px;color:#888;margin-bottom:60px;max-width:500px}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .svc-card{background:var(--cream);border-radius:20px;padding:36px 28px;border:2px solid transparent;transition:all 0.3s;cursor:default}
+    .svc-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+    .svc-emoji{font-size:36px;margin-bottom:16px}
+    .svc-name{font-family:'DM Serif Display',serif;font-size:22px;color:var(--dark);margin-bottom:8px}
+    .svc-desc{font-size:13px;color:#888;line-height:1.7;margin-bottom:16px}
+    .svc-price{font-size:18px;font-weight:700;color:var(--accent)}
+
+    .about{padding:100px 60px;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .about-visual{background:linear-gradient(160deg,#d4b896,var(--accent));border-radius:24px;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;font-size:100px}
+    .about-content .sec-label{margin-bottom:12px}
+    .about-content h2{font-family:'DM Serif Display',serif;font-size:40px;margin-bottom:20px;line-height:1.2}
+    .about-content p{font-size:15px;color:#666;line-height:1.8;margin-bottom:14px}
+    .about-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+    .pill{background:var(--warm);color:var(--brown);font-size:12px;font-weight:600;padding:8px 16px;border-radius:100px}
+
+    .hours{padding:80px 60px;background:var(--dark);text-align:center}
+    .hours .sec-title{color:var(--white)}
+    .hours .sec-label{color:var(--accent)}
+    .hours-cards{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+    .hour-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 32px;min-width:160px}
+    .hc-day{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+    .hc-time{font-size:15px;font-weight:600;color:var(--white)}
+
+    .cta-section{padding:100px 60px;background:var(--accent);text-align:center}
+    .cta-section h2{font-family:'DM Serif Display',serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:16px}
+    .cta-section p{font-size:16px;color:rgba(255,255,255,0.75);margin-bottom:40px}
+    .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-white{background:var(--white);color:var(--accent);padding:18px 44px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none}
+    .btn-outline-w{border:2px solid rgba(255,255,255,0.5);color:var(--white);padding:16px 40px;border-radius:100px;font-size:14px;font-weight:600;text-decoration:none}
+
+    footer{background:#111;padding:40px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+    .fl{font-family:'DM Serif Display',serif;font-size:18px;color:var(--accent)}
+    footer p{font-size:12px;color:#444}
+    footer a{color:var(--accent);text-decoration:none}
+
+    .wa{position:fixed;bottom:25px;right:25px;background:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 5px 20px rgba(37,211,102,0.4);z-index:999}
+
+    @media(max-width:768px){
+      nav{padding:16px 24px}.nav-links{display:none}
+      .hero{grid-template-columns:1fr}.hero-right{height:300px}
+      .hero-left{padding:100px 24px 60px}
+      .stats{grid-template-columns:repeat(2,1fr);padding:40px 24px}
+      .services-grid{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .services,.about,.hours,.cta-section{padding:60px 24px}
+    }
+  </style>
+</head>
+<body>
+  <nav id="nav">
+    <div class="nav-logo">Taina Corzo</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#hours">Hours</a>
+      <a href="https://instagram.com/estilistaina" target="_blank">@estilistaina</a>
+      <a href="tel:3468439458" class="nav-book">Book Now</a>
+    </div>
+  </nav>
+  <script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)})</script>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-label">✂️ Katy, TX · Uptown Institute</div>
+      <h1>Hair That Makes You <em>Feel</em> Beautiful</h1>
+      <p class="hero-desc">Expert color, cuts, and transformations. Book your appointment with Taina and walk out feeling like the best version of you.</p>
+      <div class="hero-actions">
+        <a href="tel:3468439458" class="btn-fill">📞 Book Appointment</a>
+        <a href="https://wa.me/13468439458" class="btn-ghost">💬 WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-right">💇‍♀️</div>
+  </section>
+
+  <div class="stats">
+    <div><div class="stat-val">500+</div><div class="stat-lbl">Happy Clients</div></div>
+    <div><div class="stat-val">5★</div><div class="stat-lbl">Rated Service</div></div>
+    <div><div class="stat-val">8+</div><div class="stat-lbl">Years Experience</div></div>
+    <div><div class="stat-val">100%</div><div class="stat-lbl">Satisfaction</div></div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="sec-label">What I Do</div>
+    <div class="sec-title">Services & Pricing</div>
+    <div class="sec-sub">Every service is tailored to your hair type, lifestyle, and goals.</div>
+    <div class="services-grid">
+      <div class="svc-card"><div class="svc-emoji">🎨</div><div class="svc-name">Full Color</div><div class="svc-desc">All-over single process color, customized to your skin tone</div><div class="svc-price">From $80</div></div>
+      <div class="svc-card"><div class="svc-emoji">✨</div><div class="svc-name">Highlights & Balayage</div><div class="svc-desc">Partial or full, sun-kissed natural blends</div><div class="svc-price">From $120</div></div>
+      <div class="svc-card"><div class="svc-emoji">✂️</div><div class="svc-name">Haircut & Blowout</div><div class="svc-desc">Precision cut, blow dry, and finish</div><div class="svc-price">From $45</div></div>
+      <div class="svc-card"><div class="svc-emoji">💆‍♀️</div><div class="svc-name">Keratin Treatment</div><div class="svc-desc">Frizz control, smoothing, long-lasting results</div><div class="svc-price">From $150</div></div>
+      <div class="svc-card"><div class="svc-emoji">💎</div><div class="svc-name">Gloss & Toning</div><div class="svc-desc">Refresh, neutralize brassiness, add shine</div><div class="svc-price">From $60</div></div>
+      <div class="svc-card"><div class="svc-emoji">🌿</div><div class="svc-name">Deep Conditioning</div><div class="svc-desc">Restore moisture, repair damage</div><div class="svc-price">From $40</div></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-visual">👩‍🦰</div>
+    <div class="about-content">
+      <div class="sec-label">About Me</div>
+      <h2>Certified Stylist. Color Expert. Your Person.</h2>
+      <p>I'm Taina — a passionate hair stylist at Uptown Institute in Katy, TX. I've dedicated my career to helping women express themselves through their hair.</p>
+      <p>From bold transformations to subtle enhancements, every client leaves my chair feeling confident and beautiful. My specialty is color — let's create your perfect shade together.</p>
+      <div class="about-pills">
+        <span class="pill">Color Specialist</span>
+        <span class="pill">Balayage Expert</span>
+        <span class="pill">Keratin Certified</span>
+        <span class="pill">Katy, TX</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="hours" id="hours">
+    <div class="sec-label">Visit Us</div>
+    <div class="sec-title" style="color:var(--white)">Hours & Location</div>
+    <p style="color:rgba(255,255,255,0.4);margin-top:8px;font-size:14px">829 S Mason Rd Suite 257, Katy TX</p>
+    <div class="hours-cards">
+      <div class="hour-card"><div class="hc-day">Mon – Fri</div><div class="hc-time">9AM – 7PM</div></div>
+      <div class="hour-card"><div class="hc-day">Saturday</div><div class="hc-time">9AM – 5PM</div></div>
+      <div class="hour-card"><div class="hc-day">Sunday</div><div class="hc-time">By Appt.</div></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Let's Book Your Appointment</h2>
+    <p>Call, text, or WhatsApp — I'm here for you</p>
+    <div class="cta-btns">
+      <a href="tel:3468439458" class="btn-white">📞 (346) 843-9458</a>
+      <a href="https://wa.me/13468439458" class="btn-outline-w">💬 WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fl">Taina Corzo</div>
+    <p>829 S Mason Rd Suite 257, Katy TX · <a href="https://instagram.com/estilistaina">@estilistaina</a></p>
+    <p>Site by <a href="https://jfwebstudios.com">JF Web Studios</a></p>
+  </footer>
+
+  <a href="https://wa.me/13468439458" class="wa" target="_blank">💬</a>
+</body>
+</html>
