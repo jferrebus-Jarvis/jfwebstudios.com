@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detail Cleaning Services | Houston, TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--blue:#1A56DB;--navy:#0D2B6B;--light:#F0F4FF;--dark:#0a0f1e;--gray:#555}
+    body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark)}
+    nav{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:18px 52px;box-shadow:0 2px 16px rgba(0,0,0,0.06);position:sticky;top:0;z-index:100}
+    .nav-name{font-size:18px;font-weight:800;color:var(--navy)}
+    nav ul{list-style:none;display:flex;gap:32px}
+    nav ul a{text-decoration:none;color:#555;font-size:13px;font-weight:600;transition:color 0.2s}
+    nav ul a:hover{color:var(--blue)}
+    .nav-cta{background:var(--blue);color:#fff;padding:11px 24px;font-size:13px;font-weight:700;text-decoration:none;border-radius:6px}
+    .hero{min-height:100vh;background:linear-gradient(rgba(13,43,107,0.72),rgba(13,43,107,0.85)),url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&q=80')center/cover;display:flex;align-items:center;padding:100px 52px}
+    .hero-inner{max-width:680px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:6px;padding:8px 18px;font-size:12px;color:rgba(255,255,255,0.85);font-weight:600;letter-spacing:1px;margin-bottom:28px}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,90px);font-weight:600;color:#fff;line-height:1.0;margin-bottom:22px}
+    .hero h1 em{font-style:italic;display:block}
+    .hero p{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:500px;margin-bottom:40px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-white{background:#fff;color:var(--navy);padding:16px 36px;font-size:13px;font-weight:700;text-decoration:none;border-radius:6px;transition:opacity 0.2s}
+    .btn-white:hover{opacity:0.9}
+    .btn-outline{border:1px solid rgba(255,255,255,0.4);color:#fff;padding:16px 36px;font-size:13px;font-weight:600;text-decoration:none;border-radius:6px}
+    .band{background:var(--blue);display:grid;grid-template-columns:repeat(4,1fr)}
+    .bd{padding:40px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.1)}
+    .bd:last-child{border-right:none}
+    .bd-n{font-size:44px;font-weight:900;color:#fff}
+    .bd-l{font-size:12px;color:rgba(255,255,255,0.6);font-weight:600;margin-top:6px;text-transform:uppercase;letter-spacing:1px}
+    .services{padding:90px 52px;background:var(--light)}
+    .sh{text-align:center;margin-bottom:60px}
+    .sh .tag{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+    .sh h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,54px);font-weight:600}
+    .sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
+    .sv{background:#fff;border-radius:12px;padding:36px 28px;border-top:3px solid var(--blue);transition:transform 0.2s,box-shadow 0.2s}
+    .sv:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(26,86,219,0.1)}
+    .sv-ic{font-size:32px;margin-bottom:16px}
+    .sv h3{font-size:16px;font-weight:700;margin-bottom:8px}
+    .sv p{font-size:14px;color:var(--gray);line-height:1.7}
+    .cta{background:var(--dark);padding:80px 52px;text-align:center}
+    .cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:600;color:#fff;margin-bottom:14px}
+    .cta p{font-size:17px;color:rgba(255,255,255,0.5);margin-bottom:36px}
+    .btn-blue{background:var(--blue);color:#fff;padding:17px 44px;font-size:13px;font-weight:700;text-decoration:none;border-radius:6px;display:inline-block}
+    .contact{padding:80px 52px;background:#fff}
+    .c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:800px;margin:48px auto 0}
+    .c-item{background:var(--light);border-radius:12px;padding:32px;text-align:center}
+    .c-ic{font-size:28px;margin-bottom:12px}
+    .c-item h4{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+    .c-item p{font-size:15px;color:var(--dark);font-weight:500}
+    footer{background:var(--dark);color:rgba(255,255,255,0.3);text-align:center;padding:24px;font-size:12px}
+    @media(max-width:768px){nav{padding:14px 20px}nav ul{display:none}.hero{padding:100px 20px 60px}.services,.contact{padding:60px 20px}.sv-grid,.c-grid{grid-template-columns:1fr}.band{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-name">Detail Cleaning Services</div>
+  <ul><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="tel:8324835721" class="nav-cta">Get a Quote</a>
+</nav>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">⭐ 4.9 · 1,396 Reviews · Houston, TX</div>
+    <h1>Spotless.<em>Every Time.</em></h1>
+    <p>Houston's trusted cleaning professionals. Homes, offices, and commercial spaces — we deliver a deep clean that speaks for itself.</p>
+    <div class="hero-btns">
+      <a href="tel:8324835721" class="btn-white">📞 Get a Free Quote</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+</section>
+<div class="band">
+  <div class="bd"><div class="bd-n">4.9★</div><div class="bd-l">Rating</div></div>
+  <div class="bd"><div class="bd-n">1K+</div><div class="bd-l">Reviews</div></div>
+  <div class="bd"><div class="bd-n">100%</div><div class="bd-l">Satisfaction</div></div>
+  <div class="bd"><div class="bd-n">24h</div><div class="bd-l">Availability</div></div>
+</div>
+<section id="services" class="services">
+  <div class="sh"><div class="tag">— What We Do</div><h2>Our Cleaning Services</h2></div>
+  <div class="sv-grid">
+    <div class="sv"><div class="sv-ic">🏠</div><h3>Residential Cleaning</h3><p>Weekly, bi-weekly, or one-time deep cleans. Your home sparkling from top to bottom.</p></div>
+    <div class="sv"><div class="sv-ic">🏢</div><h3>Commercial Cleaning</h3><p>Office and commercial space maintenance. First impressions matter — we make sure yours counts.</p></div>
+    <div class="sv"><div class="sv-ic">✨</div><h3>Deep Cleaning</h3><p>Full-detail cleaning for move-ins, move-outs, or seasonal refreshes. No corner left untouched.</p></div>
+  </div>
+</section>
+<section class="cta">
+  <h2>Ready for a Spotless Space?</h2>
+  <p>Free quotes · Flexible scheduling · Insured & bonded</p>
+  <a href="tel:8324835721" class="btn-blue">📞 (832) 483-5721</a>
+</section>
+<section id="contact" class="contact">
+  <div style="text-align:center"><div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:12px">— Contact</div><h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:600">Let's Get Started</h2></div>
+  <div class="c-grid">
+    <div class="c-item"><div class="c-ic">📍</div><h4>Location</h4><p>9427 Clay Rd, Houston TX</p></div>
+    <div class="c-item"><div class="c-ic">📞</div><h4>Phone</h4><p>(832) 483-5721</p></div>
+    <div class="c-item"><div class="c-ic">🕐</div><h4>Hours</h4><p>Mon–Sat 8AM–6PM</p></div>
+  </div>
+</section>
+<footer>© 2025 Detail Cleaning Services · Houston, Texas · Website by JF Web Studios</footer>
+</body>
+</html>
