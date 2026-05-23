@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>D'Limo Nail Lounge | Houston, TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--rose:#C4748A;--blush:#F9EEF0;--dark:#1a1a1a;--gray:#666}
+    body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark)}
+    nav{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:18px 52px;border-bottom:1px solid #f0e8ea;position:sticky;top:0;z-index:100}
+    .nav-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--dark);letter-spacing:1px}
+    nav ul{list-style:none;display:flex;gap:32px}
+    nav ul a{text-decoration:none;color:#888;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+    nav ul a:hover{color:var(--rose)}
+    .nav-book{background:var(--rose);color:#fff;padding:11px 24px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:30px}
+    .hero{min-height:100vh;background:linear-gradient(rgba(26,26,26,0.45),rgba(26,26,26,0.65)),url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&q=80')center/cover;display:flex;flex-direction:column;justify-content:flex-end;padding:0 52px 80px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:30px;padding:8px 20px;font-size:12px;color:#fff;font-weight:600;letter-spacing:1px;margin-bottom:24px;width:fit-content}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,100px);font-weight:600;color:#fff;line-height:1.0;margin-bottom:24px}
+    .hero h1 em{font-style:italic;color:rgba(255,255,255,0.85);display:block}
+    .hero p{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:480px;margin-bottom:40px}
+    .hero-btns{display:flex;gap:14px}
+    .btn-rose{background:var(--rose);color:#fff;padding:16px 36px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:30px;transition:opacity 0.2s}
+    .btn-rose:hover{opacity:0.85}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.4);color:#fff;padding:16px 36px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:30px}
+    .stats{background:var(--rose);display:grid;grid-template-columns:repeat(3,1fr)}
+    .st{padding:44px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.15)}
+    .st:last-child{border-right:none}
+    .st-n{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:#fff}
+    .st-l{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:6px;font-weight:600}
+    .services{padding:90px 52px;background:var(--blush)}
+    .sh{text-align:center;margin-bottom:60px}
+    .sh .tag{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+    .sh h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,54px);font-weight:600}
+    .sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
+    .sv{background:#fff;border-radius:16px;padding:36px 28px;text-align:center;transition:transform 0.2s,box-shadow 0.2s}
+    .sv:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(196,116,138,0.12)}
+    .sv-ic{font-size:36px;margin-bottom:16px}
+    .sv h3{font-size:16px;font-weight:700;margin-bottom:8px}
+    .sv p{font-size:14px;color:var(--gray);line-height:1.7}
+    .sv-price{font-size:20px;font-weight:700;color:var(--rose);margin-top:14px}
+    .cta{background:var(--dark);padding:80px 52px;text-align:center}
+    .cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:600;color:#fff;margin-bottom:14px}
+    .cta p{font-size:17px;color:rgba(255,255,255,0.55);margin-bottom:36px}
+    .btn-rose2{background:var(--rose);color:#fff;padding:17px 44px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:30px;display:inline-block}
+    .contact{padding:80px 52px;background:#fff}
+    .c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:800px;margin:48px auto 0}
+    .c-item{background:var(--blush);border-radius:12px;padding:32px;text-align:center}
+    .c-ic{font-size:28px;margin-bottom:12px}
+    .c-item h4{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
+    .c-item p{font-size:15px;color:var(--dark);font-weight:500}
+    footer{background:var(--dark);color:rgba(255,255,255,0.3);text-align:center;padding:24px;font-size:12px}
+    @media(max-width:768px){nav{padding:14px 20px}nav ul{display:none}.hero{padding:80px 20px 60px}.services,.contact{padding:60px 20px}.sv-grid,.c-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-name">D'Limo Nail Lounge</div>
+  <ul><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="tel:3467997799" class="nav-book">Book Now</a>
+</nav>
+<section class="hero">
+  <div class="hero-badge">⭐ 4.9 · 4,192 Reviews · Houston, TX</div>
+  <h1>Nails That<em>Tell Your Story.</em></h1>
+  <p>Houston's most-loved nail lounge. From classic manicures to custom nail art — we make every visit an experience worth coming back for.</p>
+  <div class="hero-btns">
+    <a href="tel:3467997799" class="btn-rose">📞 Book Appointment</a>
+    <a href="#services" class="btn-ghost">See Services</a>
+  </div>
+</section>
+<div class="stats">
+  <div class="st"><div class="st-n">4.9★</div><div class="st-l">Google Rating</div></div>
+  <div class="st"><div class="st-n">4K+</div><div class="st-l">Happy Clients</div></div>
+  <div class="st"><div class="st-n">Houston</div><div class="st-l">Heights Area</div></div>
+</div>
+<section id="services" class="services">
+  <div class="sh"><div class="tag">— Our Services</div><h2>Treat Yourself</h2></div>
+  <div class="sv-grid">
+    <div class="sv"><div class="sv-ic">💅</div><h3>Manicure</h3><p>Classic, gel, or dip powder. Your nails perfected with care and precision.</p><div class="sv-price">From $35</div></div>
+    <div class="sv"><div class="sv-ic">🦶</div><h3>Pedicure</h3><p>Relaxing foot treatment with exfoliation, massage, and polish of your choice.</p><div class="sv-price">From $45</div></div>
+    <div class="sv"><div class="sv-ic">🎨</div><h3>Nail Art</h3><p>Custom designs, ombre, chrome, and more. Let your nails be your canvas.</p><div class="sv-price">From $15</div></div>
+  </div>
+</section>
+<section class="cta">
+  <h2>Ready to Book?</h2>
+  <p>Walk-ins welcome · Open 7 days a week</p>
+  <a href="tel:3467997799" class="btn-rose2">📞 (346) 799-7799</a>
+</section>
+<section id="contact" class="contact">
+  <div style="text-align:center"><div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:12px">— Find Us</div><h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:600">Come See Us</h2></div>
+  <div class="c-grid">
+    <div class="c-item"><div class="c-ic">📍</div><h4>Location</h4><p>1335 W 43rd St, Houston TX</p></div>
+    <div class="c-item"><div class="c-ic">📞</div><h4>Phone</h4><p>(346) 799-7799</p></div>
+    <div class="c-item"><div class="c-ic">🕐</div><h4>Hours</h4><p>Mon–Sun 10AM–7PM</p></div>
+  </div>
+</section>
+<footer>© 2025 D'Limo Nail Lounge · Houston, Texas · Website by JF Web Studios</footer>
+</body>
+</html>
