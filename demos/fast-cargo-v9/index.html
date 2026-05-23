@@ -279,6 +279,7 @@
     <li><a href="#nosotros" data-key="nav-nosotros">Nosotros</a></li>
     <li><a href="#cobertura" data-key="nav-cobertura">Cobertura</a></li>
     <li><a href="#contacto" data-key="nav-contacto">Oficinas</a></li>
+    <li><a href="#cotizacion" data-key="nav-cot">Cotización</a></li>
   </ul>
   <a href="https://wa.me/18323501270" class="nav-contact" data-key="nav-cta">💬 WhatsApp</a>
 </nav>
@@ -520,6 +521,107 @@
 </section>
 
 <!-- FOOTER -->
+
+<section id="cotizacion" style="background:#f2f0ed;padding:100px 0;display:flex;min-height:100vh;">
+
+  <!-- Sidebar -->
+  <div style="width:180px;min-width:180px;background:#001845;display:flex;flex-direction:column;align-items:center;padding:40px 0;position:sticky;top:0;height:100vh;">
+    <div style="color:#FFD100;font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);margin-bottom:auto;padding-top:16px;">&#127483;&#127466; Fast Cargo Services</div>
+    <nav style="display:flex;flex-direction:column;align-items:center;width:100%;">
+      <a href="#servicios" style="color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:20px 0;border-top:1px solid rgba(255,255,255,0.08);width:100%;text-align:center;" data-key="cot-nav1">Servicios</a>
+      <a href="#nosotros" style="color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:20px 0;border-top:1px solid rgba(255,255,255,0.08);width:100%;text-align:center;" data-key="cot-nav2">Nosotros</a>
+      <a href="#contacto" style="color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:20px 0;border-top:1px solid rgba(255,255,255,0.08);width:100%;text-align:center;" data-key="cot-nav3">Oficinas</a>
+      <a href="#cotizacion" style="color:#FFD100;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:20px 0;border-top:1px solid rgba(255,255,255,0.08);width:100%;text-align:center;background:rgba(255,255,255,0.05);border-left:2px solid #FFD100;" data-key="cot-nav4">Contacto</a>
+    </nav>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:24px;">
+      <button class="lang-btn active" data-lang="es" style="background:none;border:none;color:rgba(255,255,255,0.35);font-size:10px;font-weight:800;letter-spacing:1.5px;cursor:pointer;padding:6px 10px;font-family:inherit;transition:color 0.2s;">ES</button>
+      <button class="lang-btn" data-lang="en" style="background:none;border:none;color:rgba(255,255,255,0.35);font-size:10px;font-weight:800;letter-spacing:1.5px;cursor:pointer;padding:6px 10px;font-family:inherit;transition:color 0.2s;">EN</button>
+    </div>
+  </div>
+
+  <!-- Form area -->
+  <div style="flex:1;padding:80px 80px;max-width:900px;">
+
+    <p style="font-size:9px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:#001845;margin-bottom:8px;" data-key="cot-eyebrow">Contacto</p>
+    <div style="width:28px;height:2px;background:#FFD100;margin-bottom:56px;"></div>
+    <h2 style="font-size:11px;font-weight:800;letter-spacing:6px;text-transform:uppercase;color:#1a1a1a;margin-bottom:60px;" data-key="cot-title">Solicitud &nbsp;de &nbsp;Cotización</h2>
+
+    <form id="cot-form" onsubmit="submitCot(event)">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 80px;">
+        <div style="margin-bottom:44px;">
+          <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-nombre">Nombre Completo</label>
+          <input type="text" name="nombre" required style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;"/>
+        </div>
+        <div style="margin-bottom:44px;">
+          <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-empresa">Empresa / Organización</label>
+          <input type="text" name="empresa" required style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;"/>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 80px;">
+        <div style="margin-bottom:44px;">
+          <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-email">Correo Electrónico</label>
+          <input type="email" name="email" required style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;"/>
+        </div>
+        <div style="margin-bottom:44px;">
+          <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-tel">Teléfono (Opcional)</label>
+          <input type="tel" name="telefono" style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;"/>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 80px;">
+        <div style="margin-bottom:44px;">
+          <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-tipo">Tipo de Servicio / Producto</label>
+          <select name="tipo" style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="" data-key="cot-sel">Seleccionar...</option>
+            <option value="FCL">Contenedor Completo (FCL)</option>
+            <option value="LCL">Carga Consolidada (LCL)</option>
+            <option value="Documental">Gestión Documental</option>
+            <option value="Asesoria">Asesoría Logística</option>
+          </select>
+        </div>
+        <div style="margin-bottom:44px;">
+          <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-origen">Origen de la Carga</label>
+          <select name="origen" style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="">Seleccionar...</option>
+            <option value="China">China</option>
+            <option value="USA">Estados Unidos</option>
+            <option value="Ambos">Ambos</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-bottom:44px;">
+        <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-ayuda">¿Cómo Podemos Ayudar?</label>
+        <textarea name="descripcion" style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;resize:none;min-height:72px;"></textarea>
+      </div>
+
+      <div style="margin-bottom:44px;">
+        <span style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-archivos">Archivos / Planos Técnicos (Máx. 5)</span>
+        <button type="button" onclick="document.getElementById('cot-file').click()" style="display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid #ccc;color:#555;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;cursor:pointer;font-family:inherit;">
+          &#128206; <span data-key="cot-adjuntar">Adjuntar archivos</span>
+        </button>
+        <input type="file" id="cot-file" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style="display:none" onchange="showCotFiles(this)"/>
+        <div id="cot-file-list" style="margin-top:10px;font-size:11px;color:#666;letter-spacing:1px;"></div>
+      </div>
+
+      <div style="margin-top:64px;display:flex;align-items:center;gap:36px;">
+        <button type="submit" style="background:#001845;color:#fff;border:none;padding:16px 44px;font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:background 0.2s;" data-key="cot-enviar">Enviar Consulta</button>
+        <a href="#home" style="font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aaa;text-decoration:none;" data-key="cot-back">&#8592; Volver arriba</a>
+      </div>
+
+    </form>
+
+    <div id="cot-success" style="display:none;padding:60px 0;">
+      <p style="font-size:9px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:#001845;margin-bottom:20px;" data-key="cot-s-title">Consulta Enviada</p>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:36px;" data-key="cot-s-desc">Un agente le contactará en menos de 24 horas.</p>
+      <a href="#home" style="background:#001845;color:#fff;padding:16px 44px;font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;text-decoration:none;" data-key="cot-s-back">&#8592; Volver arriba</a>
+    </div>
+
+  </div>
+</section>
+
 <footer>
   <p>© 2010 Fast Cargo Services — Operador Logístico Aduanero</p>
   <p style="color:rgba(255,255,255,0.2);font-size:11px;">fastcargove@gmail.com &nbsp;·&nbsp; +1 (832) 350-1270 &nbsp;·&nbsp; @fastcargoservices</p>
@@ -591,6 +693,19 @@
         "nav-nosotros": "Nosotros",
         "nav-cobertura": "Puertos",
         "nav-contacto": "Oficinas",
+        "nav-cot": "Cotización",
+        "cot-eyebrow": "Contacto",
+        "cot-title": "Solicitud \u00a0de \u00a0Cotizaci\u00f3n",
+        "cot-nav1": "Servicios", "cot-nav2": "Nosotros", "cot-nav3": "Oficinas", "cot-nav4": "Contacto",
+        "cot-nombre": "Nombre Completo", "cot-empresa": "Empresa / Organizaci\u00f3n",
+        "cot-email": "Correo Electr\u00f3nico", "cot-tel": "Tel\u00e9fono (Opcional)",
+        "cot-tipo": "Tipo de Servicio / Producto", "cot-origen": "Origen de la Carga",
+        "cot-ayuda": "\u00bfC\u00f3mo Podemos Ayudar?",
+        "cot-archivos": "Archivos / Planos T\u00e9cnicos (M\u00e1x. 5)",
+        "cot-adjuntar": "Adjuntar archivos", "cot-enviar": "Enviar Consulta",
+        "cot-back": "\u2190 Volver arriba",
+        "cot-s-title": "Consulta Enviada", "cot-s-desc": "Un agente le contactar\u00e1 en menos de 24 horas.",
+        "cot-s-back": "\u2190 Volver arriba",
         "nav-cta": "WhatsApp"
     },
     "en": {
@@ -644,6 +759,19 @@
         "nav-nosotros": "About",
         "nav-cobertura": "Ports",
         "nav-contacto": "Offices",
+        "nav-cot": "Quote",
+        "cot-eyebrow": "Contact",
+        "cot-title": "Request \u00a0a \u00a0Quote",
+        "cot-nav1": "Services", "cot-nav2": "About", "cot-nav3": "Offices", "cot-nav4": "Contact",
+        "cot-nombre": "Full Name", "cot-empresa": "Company / Organization",
+        "cot-email": "Email Address", "cot-tel": "Phone (Optional)",
+        "cot-tipo": "Service / Product Type", "cot-origen": "Cargo Origin",
+        "cot-ayuda": "How Can We Help?",
+        "cot-archivos": "Files / Technical Drawings (Max. 5)",
+        "cot-adjuntar": "Attach files", "cot-enviar": "Send Inquiry",
+        "cot-back": "\u2190 Back to top",
+        "cot-s-title": "Inquiry Sent", "cot-s-desc": "An agent will contact you within 24 hours.",
+        "cot-s-back": "\u2190 Back to top",
         "nav-cta": "WhatsApp"
     }
 };
