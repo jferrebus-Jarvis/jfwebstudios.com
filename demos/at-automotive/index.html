@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AT Automotive | San Antonio, TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#C41E3A;--dark:#0D0D0D;--gray:#444;--light:#F5F5F5}
+    body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark)}
+    nav{background:var(--dark);display:flex;justify-content:space-between;align-items:center;padding:16px 52px;position:sticky;top:0;z-index:100}
+    .nav-name{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:#fff;letter-spacing:1px;text-transform:uppercase}
+    nav ul{list-style:none;display:flex;gap:32px}
+    nav ul a{text-decoration:none;color:rgba(255,255,255,0.5);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
+    nav ul a:hover{color:#fff}
+    .nav-cta{background:var(--red);color:#fff;padding:11px 24px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border-radius:3px}
+    .hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.78)),url('https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=1600&q=80')center/cover;display:flex;align-items:flex-end;padding:0 52px 80px}
+    .hero-content{max-width:700px}
+    .hero-meta{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+    .hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(60px,11vw,130px);font-weight:900;color:#fff;line-height:0.95;text-transform:uppercase;letter-spacing:-1px;margin-bottom:24px}
+    .hero p{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:500px;margin-bottom:40px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-red{background:var(--red);color:#fff;padding:16px 36px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:3px;transition:opacity 0.2s}
+    .btn-red:hover{opacity:0.85}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.3);color:#fff;padding:16px 36px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:3px}
+    .stats{background:var(--red);display:grid;grid-template-columns:repeat(4,1fr)}
+    .st{padding:40px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.15)}
+    .st:last-child{border-right:none}
+    .st-n{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;color:#fff}
+    .st-l{font-size:11px;color:rgba(255,255,255,0.65);font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+    .services{padding:90px 52px;background:var(--light)}
+    .sh{margin-bottom:56px}
+    .sh .tag{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+    .sh h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(36px,5vw,60px);font-weight:900;text-transform:uppercase;letter-spacing:-0.5px}
+    .sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#ddd}
+    .sv{background:#fff;padding:36px 28px;border-bottom:3px solid transparent;transition:border-color 0.2s}
+    .sv:hover{border-bottom-color:var(--red)}
+    .sv-ic{font-size:32px;margin-bottom:14px}
+    .sv h3{font-size:16px;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.3px}
+    .sv p{font-size:14px;color:var(--gray);line-height:1.7}
+    .cta{background:var(--dark);padding:80px 52px;text-align:center}
+    .cta h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,6vw,70px);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:-0.5px;margin-bottom:14px}
+    .cta p{font-size:17px;color:rgba(255,255,255,0.5);margin-bottom:36px}
+    .btn-red2{background:var(--red);color:#fff;padding:17px 44px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:3px;display:inline-block}
+    .contact{padding:80px 52px;background:#fff}
+    .c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#ddd;max-width:800px;margin:48px auto 0}
+    .c-item{background:#fff;padding:32px;text-align:center}
+    .c-ic{font-size:28px;margin-bottom:12px}
+    .c-item h4{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+    .c-item p{font-size:15px;color:var(--dark);font-weight:500}
+    footer{background:var(--dark);color:rgba(255,255,255,0.3);text-align:center;padding:24px;font-size:12px}
+    @media(max-width:768px){nav{padding:14px 20px}nav ul{display:none}.hero{padding:100px 20px 60px}.services,.contact{padding:60px 20px}.sv-grid,.c-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-name">AT Automotive</div>
+  <ul><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="tel:2107342050" class="nav-cta">Call Now</a>
+</nav>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-meta">⭐ 4.7 · 1,609 Reviews · San Antonio, TX</div>
+    <h1>Your Car.<br/>Our Expertise.</h1>
+    <p>San Antonio's trusted auto repair shop. From oil changes to engine work — we keep you on the road with honest service and fair prices.</p>
+    <div class="hero-btns">
+      <a href="tel:2107342050" class="btn-red">📞 Call Us Now</a>
+      <a href="#services" class="btn-ghost">Our Services</a>
+    </div>
+  </div>
+</section>
+<div class="stats">
+  <div class="st"><div class="st-n">4.7★</div><div class="st-l">Rating</div></div>
+  <div class="st"><div class="st-n">1.6K+</div><div class="st-l">Reviews</div></div>
+  <div class="st"><div class="st-n">Fast</div><div class="st-l">Turnaround</div></div>
+  <div class="st"><div class="st-n">Fair</div><div class="st-l">Pricing</div></div>
+</div>
+<section id="services" class="services">
+  <div class="sh"><div class="tag">— Services</div><h2>What We Fix</h2></div>
+  <div class="sv-grid">
+    <div class="sv"><div class="sv-ic">🔧</div><h3>Oil Change</h3><p>Quick and clean oil changes with quality filters. Keep your engine running like new.</p></div>
+    <div class="sv"><div class="sv-ic">🛞</div><h3>Brakes & Tires</h3><p>Brake inspection, pad replacement, and tire rotation. Safety is our priority.</p></div>
+    <div class="sv"><div class="sv-ic">⚙️</div><h3>Engine Diagnostics</h3><p>Advanced diagnostic tools to identify and fix any engine issue fast.</p></div>
+    <div class="sv"><div class="sv-ic">❄️</div><h3>AC & Heating</h3><p>Full A/C inspection, recharge, and repair. Stay comfortable year-round.</p></div>
+    <div class="sv"><div class="sv-ic">🚗</div><h3>Transmission</h3><p>Transmission inspection, fluid service, and repairs by certified technicians.</p></div>
+    <div class="sv"><div class="sv-ic">🔋</div><h3>Battery & Electrical</h3><p>Battery testing, replacement, and full electrical system diagnostics.</p></div>
+  </div>
+</section>
+<section class="cta">
+  <h2>Need Your Car Fixed?</h2>
+  <p>Same-day appointments available · Free estimates</p>
+  <a href="tel:2107342050" class="btn-red2">📞 (210) 734-2050</a>
+</section>
+<section id="contact" class="contact">
+  <div><div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px">— Location</div><h2 style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;text-transform:uppercase">Find Us</h2></div>
+  <div class="c-grid">
+    <div class="c-item"><div class="c-ic">📍</div><h4>Address</h4><p>950 W Hildebrand Ave, San Antonio TX</p></div>
+    <div class="c-item"><div class="c-ic">📞</div><h4>Phone</h4><p>(210) 734-2050</p></div>
+    <div class="c-item"><div class="c-ic">🕐</div><h4>Hours</h4><p>Mon–Fri 8AM–6PM</p></div>
+  </div>
+</section>
+<footer>© 2025 AT Automotive · San Antonio, Texas · Website by JF Web Studios</footer>
+</body>
+</html>
