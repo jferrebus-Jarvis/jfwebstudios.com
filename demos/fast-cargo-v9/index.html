@@ -233,6 +233,25 @@
     .sv-item-5::before { background-image: url("https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/cde2a7272_generated_image.png"); }
     .sv-item-6::before { background-image: url("https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/5f543b41e_generated_image.png"); }
         .sv-num { display: none; }
+    
+    /* QUOTE MODAL */
+    #quote-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:9999; align-items:center; justify-content:center; padding:20px; }
+    .qm-box { background:#fff; border-radius:16px; max-width:560px; width:100%; padding:40px; position:relative; max-height:90vh; overflow-y:auto; }
+    .qm-box h2 { font-size:22px; font-weight:900; color:#001845; margin-bottom:6px; }
+    .qm-box p.qm-sub { font-size:14px; color:#666; margin-bottom:24px; }
+    .qm-close { position:absolute; top:16px; right:20px; font-size:22px; background:none; border:none; cursor:pointer; color:#999; }
+    .qm-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+    .qm-row.full { grid-template-columns:1fr; }
+    .qm-field { display:flex; flex-direction:column; gap:6px; }
+    .qm-field label { font-size:11px; font-weight:700; color:#001845; text-transform:uppercase; letter-spacing:0.5px; }
+    .qm-field input, .qm-field select, .qm-field textarea { border:1.5px solid #ddd; border-radius:8px; padding:10px 14px; font-size:14px; color:#333; outline:none; transition:border 0.2s; font-family:inherit; }
+    .qm-field input:focus, .qm-field select:focus, .qm-field textarea:focus { border-color:#003087; }
+    .qm-field textarea { resize:vertical; min-height:80px; }
+    .qm-submit { width:100%; background:#003087; color:#fff; border:none; border-radius:10px; padding:14px; font-size:15px; font-weight:800; cursor:pointer; margin-top:8px; letter-spacing:0.5px; transition:background 0.2s; }
+    .qm-submit:hover { background:#001845; }
+    .qm-gold { color:#FFD100; }
+    @media(max-width:520px){ .qm-row { grid-template-columns:1fr; } .qm-box { padding:24px; } }
+
     </style>
 </head>
 <body>
@@ -288,6 +307,7 @@
       <div class="hero-btns">
         <a href="https://wa.me/18323501270" class="btn-filled" data-key="hero-cta">💬 Cotizar Ahora</a>
         <a href="#servicios" class="btn-border" data-key="hero-cta2">Ver Servicios</a>
+        <button onclick="document.getElementById('quote-modal').style.display='flex'" class="btn-border" style="background:rgba(255,209,0,0.15);border-color:#FFD100;color:#FFD100;cursor:pointer;" data-key="hero-cta3">📋 Solicitar Cotización</button>
       </div>
     </div>
   </div>
@@ -349,7 +369,7 @@
     <div class="about-left">
       <div class="sec-eyebrow dark" data-key="ab-eyebrow">— Quiénes Somos</div>
       <h2 class="sec-h" data-key="ab-h">Más de una década<br/><em>moviendo el comercio.</em></h2>
-      <p data-key="ab-p">Desde 2010, Fast Cargo Services se ha consolidado como firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas — gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.</p>
+      <p data-key="ab-p">Desde 2010, Fast Cargo Services se ha consolidado como firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas, gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.</p>
       <a href="https://wa.me/18323501270" class="btn-dark" data-key="ab-cta">💬 Hablar con un Agente</a>
     </div>
     <div class="about-right">
@@ -526,7 +546,7 @@
       'hero-meta-text': '🇺🇸 USA &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Fund. 2010 &nbsp;·&nbsp; Carga Comercial Internacional',
       'hero-h1': 'Tu Carga Comercial,<br/><em>Nuestra Misión.</em>',
       'hero-desc': 'Somos una firma especializada en el manejo de carga comercial desde China y Estados Unidos hacia Venezuela. Gestionamos operaciones logísticas completas a través de los principales puertos venezolanos, con más de una década de experiencia.',
-      'hero-cta': '💬 Cotizar Ahora', 'hero-cta2': 'Ver Servicios',
+      'hero-cta': '💬 Cotizar Ahora', 'hero-cta2': 'Ver Servicios', 'hero-cta3': '📋 Solicitar Cotización',
       'cred-bottom': '🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270 &nbsp;·&nbsp; fastcargove@gmail.com',
       'stat1-label': 'Años de Experiencia', 'stat2-label': 'Puertos Principales',
       'stat3-label': 'Oficinas en Venezuela', 'stat4-label': 'Warehouse Internacional',
@@ -541,7 +561,7 @@
       'sv6-title': 'Asesoría Logística', 'sv6-desc': 'Analizamos sus operaciones de importación y diseñamos la estrategia logística más eficiente y económica para su empresa.',
       'ab-eyebrow': '— Quiénes Somos',
       'ab-h': 'Más de una década<br/><em>moviendo el comercio.</em>',
-      'ab-p': 'Desde 2010, Fast Cargo Services se ha consolidado como firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas — gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.',
+      'ab-p': 'Desde 2010, Fast Cargo Services se ha consolidado como firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas, gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.',
       'ab-cta': '💬 Hablar con un Agente',
       'feat1-h': '🔒 Confianza', 'feat1-p': 'Más de 10 años construyendo relaciones sólidas con empresas y proveedores en tres continentes.',
       'feat2-h': '⚡ Eficiencia', 'feat2-p': 'Procesos optimizados para reducir tiempos de tránsito y costos logísticos en cada operación.',
@@ -562,7 +582,7 @@
       'hero-meta-text': '🇺🇸 USA &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Est. 2010 &nbsp;·&nbsp; International Commercial Cargo',
       'hero-h1': 'Your Commercial Cargo,<br/><em>Our Mission.</em>',
       'hero-desc': 'We are a specialized firm in commercial cargo management from China and the United States to Venezuela. We handle complete logistics operations through Venezuela's main ports, with over a decade of experience.',
-      'hero-cta': '💬 Get a Quote', 'hero-cta2': 'Our Services',
+      'hero-cta': '💬 Get a Quote', 'hero-cta2': 'Our Services', 'hero-cta3': '📋 Request a Quote',
       'cred-bottom': '🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270 &nbsp;·&nbsp; fastcargove@gmail.com',
       'stat1-label': 'Years of Experience', 'stat2-label': 'Main Ports',
       'stat3-label': 'Offices in Venezuela', 'stat4-label': 'International Warehouse',
@@ -627,6 +647,109 @@
   }
 </script>
 
+
+
+<!-- SOLICITUD DE COTIZACIÓN MODAL -->
+<div id="quote-modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="qm-box">
+    <button class="qm-close" onclick="document.getElementById('quote-modal').style.display='none'">&#x2715;</button>
+    <h2>&#128203; Solicitud de <span class="qm-gold">Cotización</span></h2>
+    <p class="qm-sub">Complete el formulario y un agente especializado le contactará en menos de 24 horas.</p>
+    <form id="quote-form" onsubmit="submitQuote(event)">
+      <div class="qm-row">
+        <div class="qm-field">
+          <label>Nombre Completo *</label>
+          <input type="text" name="nombre" placeholder="Ej: Juan Pérez" required/>
+        </div>
+        <div class="qm-field">
+          <label>Empresa *</label>
+          <input type="text" name="empresa" placeholder="Nombre de su empresa" required/>
+        </div>
+      </div>
+      <div class="qm-row">
+        <div class="qm-field">
+          <label>Teléfono / WhatsApp *</label>
+          <input type="tel" name="telefono" placeholder="+58 412 000 0000" required/>
+        </div>
+        <div class="qm-field">
+          <label>Correo Electrónico *</label>
+          <input type="email" name="email" placeholder="correo@empresa.com" required/>
+        </div>
+      </div>
+      <div class="qm-row">
+        <div class="qm-field">
+          <label>Origen de la Carga</label>
+          <select name="origen">
+            <option value="">Seleccionar...</option>
+            <option value="China">China</option>
+            <option value="USA">Estados Unidos</option>
+            <option value="Ambos">Ambos</option>
+          </select>
+        </div>
+        <div class="qm-field">
+          <label>Puerto de Destino</label>
+          <select name="puerto">
+            <option value="">Seleccionar...</option>
+            <option value="Maracaibo">Puerto Maracaibo</option>
+            <option value="Puerto Cabello">Puerto Cabello</option>
+            <option value="La Guaira">La Guaira</option>
+            <option value="Guanta">Puerto Guanta</option>
+          </select>
+        </div>
+      </div>
+      <div class="qm-row">
+        <div class="qm-field">
+          <label>Tipo de Carga</label>
+          <select name="tipo">
+            <option value="">Seleccionar...</option>
+            <option value="FCL">Contenedor Completo (FCL)</option>
+            <option value="LCL">Carga Consolidada (LCL)</option>
+            <option value="No se">No estoy seguro</option>
+          </select>
+        </div>
+        <div class="qm-field">
+          <label>Volumen Aprox.</label>
+          <input type="text" name="volumen" placeholder="Ej: 1 contenedor 40ft"/>
+        </div>
+      </div>
+      <div class="qm-row full">
+        <div class="qm-field">
+          <label>Descripción de la Mercancía</label>
+          <textarea name="descripcion" placeholder="Qué tipo de productos necesita importar?"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="qm-submit">Enviar Solicitud</button>
+    </form>
+    <div id="quote-success" style="display:none;text-align:center;padding:40px 0;">
+      <div style="font-size:52px;margin-bottom:16px;">&#9989;</div>
+      <h3 style="color:#001845;font-size:20px;margin-bottom:8px;">Solicitud Enviada</h3>
+      <p style="color:#666;font-size:14px;">Un agente de Fast Cargo Services le contactará en menos de 24 horas.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function submitQuote(e) {
+  e.preventDefault();
+  var form = document.getElementById('quote-form');
+  var data = new FormData(form);
+  var msg = '📋 SOLICITUD DE COTIZACIÓN - Fast Cargo Services\n\n' +
+    '👤 Nombre: ' + (data.get('nombre') || '') + '\n' +
+    '🏢 Empresa: ' + (data.get('empresa') || '') + '\n' +
+    '📞 Teléfono: ' + (data.get('telefono') || '') + '\n' +
+    '📧 Email: ' + (data.get('email') || '') + '\n' +
+    '🌍 Origen: ' + (data.get('origen') || 'No especificado') + '\n' +
+    '⚓ Puerto: ' + (data.get('puerto') || 'No especificado') + '\n' +
+    '📦 Tipo: ' + (data.get('tipo') || 'No especificado') + '\n' +
+    '📐 Volumen: ' + (data.get('volumen') || 'No especificado') + '\n' +
+    '📝 Mercancía: ' + (data.get('descripcion') || 'No especificado');
+  form.style.display = 'none';
+  document.getElementById('quote-success').style.display = 'block';
+  setTimeout(function() {
+    window.open('https://wa.me/18323501270?text=' + encodeURIComponent(msg), '_blank');
+  }, 1200);
+}
+</script>
 
 </body>
 </html>
