@@ -485,193 +485,104 @@
 
 
 <script>
-  // Nav scroll effect
+  // Nav scroll
   const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 80);
-  });
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
 
   // Language toggle
-  const translations = {
+  const T = {
     es: {
-      // Cred bar
-      'cred-founded': 'Fund. <span>2002</span>',
-      'cred-route': 'USA &amp; China <span>→</span> Venezuela',
-      'cred-service': 'Envíos <span>USA · China → Venezuela</span>',
-      // Hero meta
-      'hero-meta-text': 'Houston, TX &amp; China &nbsp;·&nbsp; Fundada 2002 &nbsp;·&nbsp; Envíos USA · China → Venezuela',
-      'hero-h1': 'Tu Carga,<br/><em>Nuestra Misión.</em>',
-      'hero-desc': 'Fast Cargo Services es el servicio de logística más confiable desde Estados Unidos y China hacia Venezuela. Más de 10 años conectando familias y negocios con seguridad, rapidez y atención personalizada.',
-      'hero-cta': '💬 Cotizar Ahora',
-      'hero-cta2': 'Ver Servicios',
-      'cred-bottom': 'Houston, TX &nbsp;·&nbsp; China &nbsp;·&nbsp; Maracaibo, Venezuela &nbsp;·&nbsp; +1 (832) 350-1270',
-      // Stats
-      'stat1-label': 'Años de Experiencia',
-      'stat2-label': 'Envíos Realizados',
-      'stat3-label': 'Entrega Express',
-      'stat4-label': 'Compromiso Total',
-      // Services
+      'cred-founded': 'Fund. <span>2015</span>',
+      'cred-route': '🇺🇸 USA &amp; 🇨🇳 China <span>→</span> 🇻🇪 Venezuela',
+      'cred-service': 'Carga <span>Comercial Internacional</span>',
+      'hero-meta-text': '🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Fund. 2015 &nbsp;·&nbsp; Carga Comercial Internacional',
+      'hero-h1': 'Tu Carga Comercial,<br/><em>Nuestra Misión.</em>',
+      'hero-desc': 'Firma especializada en el manejo de carga comercial desde China y Estados Unidos hacia Venezuela. Gestionamos operaciones logísticas completas a través de los principales puertos venezolanos — con más de una década de experiencia.',
+      'hero-cta': '💬 Cotizar Ahora', 'hero-cta2': 'Ver Servicios',
+      'cred-bottom': '🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; 🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270',
+      'stat1-label': 'Años de Experiencia', 'stat2-label': 'Puertos Principales',
+      'stat3-label': 'Oficinas en Venezuela', 'stat4-label': 'Orígenes de Carga',
       'sv-eyebrow': '— Nuestros Servicios',
-      'sv-h': 'Soluciones de<br/><em>Logística Internacional</em>',
-      'sv-sub': 'Desde un sobre urgente hasta una mudanza completa. Diseñamos soluciones de envío a la medida de cada cliente.',
-      'sv1-title': 'Carga Aérea Express', 'sv1-desc': '48 a 72 horas desde USA o China hacia Venezuela. La solución más rápida para envíos urgentes, documentos y artículos de alto valor.',
-      'sv2-title': 'Carga Marítima', 'sv2-desc': 'La opción más económica para grandes volúmenes desde USA y China. Contenedor completo o carga consolidada con seguimiento en tiempo real.',
-      'sv3-title': 'Mudanzas Internacionales', 'sv3-desc': 'Servicio completo de relocalización. Empacamos, transportamos y entregamos tu hogar en destino con el mayor cuidado.',
-      'sv4-title': 'Shopping USA', 'sv4-desc': 'Compramos en cualquier tienda americana o china: Amazon, Walmart, Alibaba, Shein y más. Enviamos directo a Venezuela por ti.',
-      'sv5-title': 'Gestión Aduanal', 'sv5-desc': 'Manejamos toda la documentación y trámites aduanales. Tu carga pasa sin demoras, sin sorpresas.',
-      'sv6-title': 'Rastreo en Tiempo Real', 'sv6-desc': 'Sigue tu envío en cada etapa con notificaciones automáticas. Transparencia total de origen a destino.',
-      // About
+      'sv-h': 'Logística Comercial<br/><em>Integral</em>',
+      'sv-sub': 'Gestionamos la operación logística completa de su empresa — desde el origen hasta la entrega en puerto venezolano. Especializados en carga comercial de volumen y contenedores, no paquetes personales.',
+      'sv1-title': 'Carga Marítima Comercial', 'sv1-desc': 'Importación de contenedores completos (FCL) y carga consolidada (LCL) desde puertos de China y Estados Unidos hacia Venezuela.',
+      'sv2-title': 'Gestión Aduanal Completa', 'sv2-desc': 'Manejamos toda la documentación, trámites aduanales y procesos de nacionalización. Su carga llega sin demoras ni complicaciones.',
+      'sv3-title': 'Consolidación de Carga', 'sv3-desc': 'Optimizamos sus envíos consolidando carga de múltiples proveedores en un solo contenedor para reducir costos de importación.',
+      'sv4-title': 'Gestión Documental', 'sv4-desc': 'Bill of Lading, certificados de origen, facturas comerciales y toda la documentación requerida para importaciones a Venezuela.',
+      'sv5-title': 'Rastreo en Tiempo Real', 'sv5-desc': 'Seguimiento detallado de su carga en cada etapa — desde la salida del proveedor hasta la llegada al puerto venezolano.',
+      'sv6-title': 'Asesoría Logística', 'sv6-desc': 'Analizamos sus operaciones de importación y diseñamos la estrategia logística más eficiente y económica para su empresa.',
       'ab-eyebrow': '— Quiénes Somos',
-      'ab-h': 'Más de una década<br/><em>conectando dos mundos.</em>',
-      'ab-p': 'Nacimos con un propósito claro: conectar Venezuela con el mundo. Hoy enviamos desde Estados Unidos y China directamente a Venezuela, siendo el servicio de confianza para miles de familias y empresas que necesitan enviar, recibir y conectar.',
+      'ab-h': 'Más de una década<br/><em>moviendo el comercio.</em>',
+      'ab-p': 'Desde 2015, Fast Cargo Services se ha consolidado como firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas — gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.',
       'ab-cta': '💬 Hablar con un Agente',
-      'feat1-h': '🔒 Seguridad Total', 'feat1-p': 'Cada paquete está asegurado desde el origen hasta la entrega final. Manejamos tu carga como si fuera nuestra.',
-      'feat2-h': '⚡ Velocidad Comprobada', 'feat2-p': 'Express en 48 horas. Somos el servicio más rápido en las rutas USA-Venezuela y China-Venezuela del mercado.',
-      'feat3-h': '💰 Precios Transparentes', 'feat3-p': 'Sin cargos ocultos. Cotización gratuita en menos de 5 minutos. Siempre sabés lo que pagás.',
-      'feat4-h': '🤝 Atención Personalizada', 'feat4-p': 'Un agente dedicado para cada cliente. Te acompañamos desde el primer hasta el último paso.',
-      // Coverage
-      'cov-eyebrow': '— Cobertura Nacional',
-      'cov-h': 'Llegamos a<br/><em>Todo Venezuela.</em>',
-      'cov-sub': 'Nuestra red de distribución cubre las principales ciudades del país con entrega puerta a puerta.',
-      // CTA
-      'cta-h': 'Listo para<br/><em>tu primer envío?</em>',
-      'cta-p': 'Contáctanos hoy y recibe una cotización gratuita en minutos. Sin compromisos.',
-      'cta-btn1': '💬 WhatsApp',
-      'cta-btn2': 'fastcargove@gmail.com',
-      // Contact
-      'contact-eyebrow': '— Contáctenos',
-      'contact-h': 'Hablemos de<br/><em>tu envío.</em>',
-      'c1-label': 'Teléfonos', 'c2-label': 'Email', 'c3-label': 'Dirección',
-      // Nav
-      'nav-servicios': 'Servicios',
-      'nav-nosotros': 'Nosotros',
-      'nav-cobertura': 'Cobertura',
-      'nav-contacto': 'Oficinas',
-      'nav-cta': '💬 WhatsApp',
+      'feat1-h': '🔒 Confianza', 'feat1-p': 'Más de 10 años construyendo relaciones sólidas con empresas y proveedores en tres continentes.',
+      'feat2-h': '⚡ Eficiencia', 'feat2-p': 'Procesos optimizados para reducir tiempos de tránsito y costos logísticos en cada operación.',
+      'feat3-h': '📋 Cobertura Total', 'feat3-p': 'Gestión completa: origen, tránsito, aduana y entrega en los 4 principales puertos venezolanos.',
+      'feat4-h': '🤝 Dedicación', 'feat4-p': 'Un agente dedicado para cada cliente. Atención personalizada en cada etapa de la operación.',
+      'cta-h': '¿Necesita importar<br/><em>desde China o USA?</em>',
+      'cta-p': 'Contáctenos hoy y un agente especializado analizará su operación sin costo.',
+      'cta-btn1': '💬 WhatsApp', 'cta-btn2': 'fastcargove@gmail.com',
+      'contact-eyebrow': '— Nuestras Oficinas',
+      'contact-h': 'Estamos donde<br/><em>usted nos necesita.</em>',
+      'nav-servicios': 'Servicios', 'nav-nosotros': 'Nosotros',
+      'nav-cobertura': 'Puertos', 'nav-contacto': 'Oficinas', 'nav-cta': '💬 WhatsApp',
     },
     en: {
-      'cred-founded': 'Est. <span>2002</span>',
-      'cred-route': 'USA &amp; China <span>→</span> Venezuela',
-      'cred-service': 'Shipping <span>USA · China → Venezuela</span>',
-      'hero-meta-text': 'Houston, TX &amp; China &nbsp;·&nbsp; Est. 2002 &nbsp;·&nbsp; Shipping USA · China → Venezuela',
-      'hero-h1': 'Your Cargo,<br/><em>Our Mission.</em>',
-      'hero-desc': 'Fast Cargo Services is the most reliable logistics service from the United States and China to Venezuela. Over 10 years connecting families and businesses with safety, speed and personalized care.',
-      'hero-cta': '💬 Get a Quote',
-      'hero-cta2': 'Our Services',
-      'cred-bottom': 'Houston, TX &nbsp;·&nbsp; China &nbsp;·&nbsp; Maracaibo, Venezuela &nbsp;·&nbsp; +1 (832) 350-1270',
-      'stat1-label': 'Years of Experience',
-      'stat2-label': 'Shipments Completed',
-      'stat3-label': 'Express Delivery',
-      'stat4-label': 'Total Commitment',
+      'cred-founded': 'Est. <span>2015</span>',
+      'cred-route': '🇺🇸 USA &amp; 🇨🇳 China <span>→</span> 🇻🇪 Venezuela',
+      'cred-service': 'International <span>Commercial Cargo</span>',
+      'hero-meta-text': '🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Est. 2015 &nbsp;·&nbsp; International Commercial Cargo',
+      'hero-h1': 'Your Commercial Cargo,<br/><em>Our Mission.</em>',
+      'hero-desc': 'Specialized firm in commercial cargo management from China and the United States to Venezuela. We handle complete logistics operations through Venezuela\'s main ports — with over a decade of experience.',
+      'hero-cta': '💬 Get a Quote', 'hero-cta2': 'Our Services',
+      'cred-bottom': '🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; 🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270',
+      'stat1-label': 'Years of Experience', 'stat2-label': 'Main Ports',
+      'stat3-label': 'Offices in Venezuela', 'stat4-label': 'Cargo Origins',
       'sv-eyebrow': '— Our Services',
-      'sv-h': 'International<br/><em>Logistics Solutions</em>',
-      'sv-sub': 'From an urgent envelope to a full relocation. We design shipping solutions tailored to each client.',
-      'sv1-title': 'Express Air Freight', 'sv1-desc': '48 to 72 hours from USA or China to Venezuela. The fastest solution for urgent shipments, documents and high-value items.',
-      'sv2-title': 'Ocean Freight', 'sv2-desc': 'The most economical option for large volumes from USA and China. Full container or consolidated cargo with real-time tracking.',
-      'sv3-title': 'International Moving', 'sv3-desc': 'Full relocation service. We pack, transport and deliver your home with the utmost care.',
-      'sv4-title': 'USA Shopping', 'sv4-desc': 'We buy from any American or Chinese store: Amazon, Walmart, Alibaba, Shein and more. We ship directly to Venezuela for you.',
-      'sv5-title': 'Customs Clearance', 'sv5-desc': 'We handle all customs documentation and procedures. Your cargo passes without delays or surprises.',
-      'sv6-title': 'Real-Time Tracking', 'sv6-desc': 'Follow your shipment at every stage with automatic notifications. Full transparency from origin to destination.',
+      'sv-h': 'Comprehensive<br/><em>Commercial Logistics</em>',
+      'sv-sub': 'We manage your company\'s complete logistics operation — from origin to delivery at Venezuelan ports. Specialized in commercial volume cargo and containers, not personal packages.',
+      'sv1-title': 'Commercial Ocean Freight', 'sv1-desc': 'Full container (FCL) and consolidated cargo (LCL) imports from Chinese and US ports to Venezuela.',
+      'sv2-title': 'Full Customs Clearance', 'sv2-desc': 'We handle all documentation, customs procedures and nationalization. Your cargo arrives without delays or complications.',
+      'sv3-title': 'Cargo Consolidation', 'sv3-desc': 'We optimize shipments by consolidating cargo from multiple suppliers into one container to reduce import costs.',
+      'sv4-title': 'Document Management', 'sv4-desc': 'Bill of Lading, certificates of origin, commercial invoices and all documentation required for imports to Venezuela.',
+      'sv5-title': 'Real-Time Tracking', 'sv5-desc': 'Detailed cargo tracking at every stage — from supplier departure to arrival at the Venezuelan port.',
+      'sv6-title': 'Logistics Advisory', 'sv6-desc': 'We analyze your import operations and design the most efficient and cost-effective logistics strategy for your company.',
       'ab-eyebrow': '— About Us',
-      'ab-h': 'Over a decade<br/><em>connecting two worlds.</em>',
-      'ab-p': 'We were born with a clear purpose: to connect Venezuela with the world. Today we ship from the United States and China directly to Venezuela, trusted by thousands of families and businesses that need to send, receive and connect.',
+      'ab-h': 'Over a decade<br/><em>moving commerce.</em>',
+      'ab-p': 'Since 2015, Fast Cargo Services has established itself as a firm specialized in strategic commercial cargo management. We work exclusively with companies — managing the complete import logistics process from China and the United States to Venezuela.',
       'ab-cta': '💬 Talk to an Agent',
-      'feat1-h': '🔒 Full Security', 'feat1-p': 'Every package is insured from origin to final delivery. We handle your cargo as if it were our own.',
-      'feat2-h': '⚡ Proven Speed', 'feat2-p': 'Express in 48 hours. We are the fastest service on the USA-Venezuela and China-Venezuela routes on the market.',
-      'feat3-h': '💰 Transparent Pricing', 'feat3-p': 'No hidden charges. Free quote in less than 5 minutes. You always know what you pay.',
-      'feat4-h': '🤝 Personalized Service', 'feat4-p': 'A dedicated agent for every client. We accompany you from the first to the last step.',
-      'cov-eyebrow': '— National Coverage',
-      'cov-h': 'We reach<br/><em>All of Venezuela.</em>',
-      'cov-sub': 'Our distribution network covers the main cities of the country with door-to-door delivery.',
-      'cta-h': 'Ready for<br/><em>your first shipment?</em>',
-      'cta-p': 'Contact us today and get a free quote in minutes. No commitments.',
-      'cta-btn1': '💬 WhatsApp',
-      'cta-btn2': 'fastcargove@gmail.com',
-      'contact-eyebrow': '— Contact Us',
-      'contact-h': 'Let's talk about<br/><em>your shipment.</em>',
-      'c1-label': 'Phone Numbers', 'c2-label': 'Email', 'c3-label': 'Address',
-      'nav-servicios': 'Services',
-      'nav-nosotros': 'About',
-      'nav-cobertura': 'Coverage',
-      'nav-contacto': 'Offices',
-      'nav-cta': '💬 WhatsApp',
+      'feat1-h': '🔒 Trust', 'feat1-p': 'Over 10 years building solid relationships with businesses and suppliers across three continents.',
+      'feat2-h': '⚡ Efficiency', 'feat2-p': 'Optimized processes to reduce transit times and logistics costs in every operation.',
+      'feat3-h': '📋 Full Coverage', 'feat3-p': 'Complete management: origin, transit, customs and delivery at the 4 main Venezuelan ports.',
+      'feat4-h': '🤝 Dedication', 'feat4-p': 'A dedicated agent for every client. Personalized attention at every stage.',
+      'cta-h': 'Need to import<br/><em>from China or USA?</em>',
+      'cta-p': 'Contact us today and a specialized agent will analyze your operation at no cost.',
+      'cta-btn1': '💬 WhatsApp', 'cta-btn2': 'fastcargove@gmail.com',
+      'contact-eyebrow': '— Our Offices',
+      'contact-h': 'We are where<br/><em>you need us.</em>',
+      'nav-servicios': 'Services', 'nav-nosotros': 'About',
+      'nav-cobertura': 'Ports', 'nav-contacto': 'Offices', 'nav-cta': '💬 WhatsApp',
     }
   };
 
   function applyLang(lang) {
-    const t = translations[lang];
-    // Helper
-    const set = (sel, key, prop='innerHTML') => {
-      const el = document.querySelector(sel);
-      if (el && t[key] !== undefined) el[prop] = t[key];
-    };
-    const setAll = (sel, key, prop='innerHTML') => {
-      document.querySelectorAll(sel).forEach(el => { if(t[key] !== undefined) el[prop] = t[key]; });
-    };
-
-    // Cred bar
-    set('[data-key="cred-founded"]', 'cred-founded');
-    set('[data-key="cred-route"]', 'cred-route');
-    set('[data-key="cred-service"]', 'cred-service');
-    // Hero
-    set('[data-key="hero-meta-text"]', 'hero-meta-text');
-    set('[data-key="hero-h1"]', 'hero-h1');
-    set('[data-key="hero-desc"]', 'hero-desc');
-    set('[data-key="hero-cta"]', 'hero-cta');
-    set('[data-key="hero-cta2"]', 'hero-cta2');
-    set('[data-key="cred-bottom"]', 'cred-bottom');
-    // Stats
-    set('[data-key="stat1-label"]', 'stat1-label');
-    set('[data-key="stat2-label"]', 'stat2-label');
-    set('[data-key="stat3-label"]', 'stat3-label');
-    set('[data-key="stat4-label"]', 'stat4-label');
-    // Services
-    set('[data-key="sv-eyebrow"]', 'sv-eyebrow');
-    set('[data-key="sv-h"]', 'sv-h');
-    set('[data-key="sv-sub"]', 'sv-sub');
-    for(let i=1;i<=6;i++) { set(`[data-key="sv${i}-title"]`, `sv${i}-title`); set(`[data-key="sv${i}-desc"]`, `sv${i}-desc`); }
-    // About
-    set('[data-key="ab-eyebrow"]', 'ab-eyebrow');
-    set('[data-key="ab-h"]', 'ab-h');
-    set('[data-key="ab-p"]', 'ab-p');
-    set('[data-key="ab-cta"]', 'ab-cta');
-    for(let i=1;i<=4;i++) { set(`[data-key="feat${i}-h"]`, `feat${i}-h`); set(`[data-key="feat${i}-p"]`, `feat${i}-p`); }
-    // Coverage
-    set('[data-key="cov-eyebrow"]', 'cov-eyebrow');
-    set('[data-key="cov-h"]', 'cov-h');
-    set('[data-key="cov-sub"]', 'cov-sub');
-    // CTA
-    set('[data-key="cta-h"]', 'cta-h');
-    set('[data-key="cta-p"]', 'cta-p');
-    set('[data-key="cta-btn1"]', 'cta-btn1');
-    set('[data-key="cta-btn2"]', 'cta-btn2');
-    // Contact
-    set('[data-key="contact-eyebrow"]', 'contact-eyebrow');
-    set('[data-key="contact-h"]', 'contact-h');
-    set('[data-key="c1-label"]', 'c1-label');
-    set('[data-key="c2-label"]', 'c2-label');
-    set('[data-key="c3-label"]', 'c3-label');
-    // Nav
-    set('[data-key="nav-servicios"]', 'nav-servicios');
-    set('[data-key="nav-nosotros"]', 'nav-nosotros');
-    set('[data-key="nav-cobertura"]', 'nav-cobertura');
-    set('[data-key="nav-contacto"]', 'nav-contacto');
-    set('[data-key="nav-cta"]', 'nav-cta');
-
-    // Update active button
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
+    const t = T[lang];
+    document.querySelectorAll('[data-key]').forEach(el => {
+      if (t[el.dataset.key] !== undefined) el.innerHTML = t[el.dataset.key];
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
     });
     document.documentElement.lang = lang;
+    localStorage.setItem('fc-lang', lang);
   }
 
-  // Attach click handlers
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.addEventListener('click', () => applyLang(b.dataset.lang));
   });
 
-  // Default to Spanish
-  applyLang('es');
+  // Load saved lang or default ES
+  applyLang(localStorage.getItem('fc-lang') || 'es');
 </script>
 
 
