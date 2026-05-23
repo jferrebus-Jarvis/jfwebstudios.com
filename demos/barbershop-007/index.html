@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>007 Barbershop | Houston, TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--gold:#C9A84C;--dark:#111;--gray:#555;--light:#f9f8f5}
+    body{font-family:'Inter',sans-serif;background:#fff;color:var(--dark)}
+    nav{background:#111;display:flex;justify-content:space-between;align-items:center;padding:18px 52px;position:sticky;top:0;z-index:100}
+    .nav-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:1px}
+    nav ul{list-style:none;display:flex;gap:32px}
+    nav ul a{text-decoration:none;color:rgba(255,255,255,0.55);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+    nav ul a:hover{color:#fff}
+    .nav-book{background:var(--gold);color:#fff;padding:11px 24px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:2px}
+    .hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.7)),url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1600&q=80')center/cover;display:flex;flex-direction:column;justify-content:flex-end;padding:0 52px 80px}
+    .hero-meta{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,9vw,110px);font-weight:700;color:#fff;line-height:0.95;margin-bottom:28px}
+    .hero h1 em{font-style:italic;display:block}
+    .hero p{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;max-width:480px;margin-bottom:40px}
+    .hero-btns{display:flex;gap:14px}
+    .btn-gold{background:var(--gold);color:#fff;padding:16px 36px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:opacity 0.2s}
+    .btn-gold:hover{opacity:0.85}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.35);color:#fff;padding:16px 36px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:2px}
+    .services{padding:90px 52px;background:var(--light)}
+    .sh{text-align:center;margin-bottom:60px}
+    .sh .tag{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+    .sh h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,54px);font-weight:700}
+    .sv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#e0ddd6}
+    .sv{background:#fff;padding:40px 32px;transition:background 0.2s}
+    .sv:hover{background:var(--light)}
+    .sv-ic{font-size:32px;margin-bottom:16px}
+    .sv h3{font-size:16px;font-weight:700;margin-bottom:8px}
+    .sv p{font-size:14px;color:var(--gray);line-height:1.7}
+    .sv-price{font-size:22px;font-weight:700;color:var(--gold);margin-top:14px}
+    .stats{background:#111;display:grid;grid-template-columns:repeat(3,1fr)}
+    .st{padding:56px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.07)}
+    .st:last-child{border-right:none}
+    .st-n{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:700;color:var(--gold)}
+    .st-l{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:6px;font-weight:600}
+    .cta{background:var(--gold);padding:72px 52px;text-align:center}
+    .cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:700;color:#fff;margin-bottom:14px}
+    .cta p{font-size:17px;color:rgba(255,255,255,0.85);margin-bottom:36px}
+    .btn-white{background:#fff;color:var(--gold);padding:17px 44px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:2px;display:inline-block}
+    .contact{padding:80px 52px;background:var(--light)}
+    .c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#e0ddd6;max-width:800px;margin:48px auto 0}
+    .c-item{background:#fff;padding:36px;text-align:center}
+    .c-ic{font-size:28px;margin-bottom:12px}
+    .c-item h4{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+    .c-item p{font-size:15px;color:var(--dark);font-weight:500}
+    footer{background:#111;color:rgba(255,255,255,0.3);text-align:center;padding:24px;font-size:12px;letter-spacing:0.5px}
+    @media(max-width:768px){nav{padding:14px 20px}nav ul{display:none}.hero{padding:80px 20px 60px}.services,.contact{padding:60px 20px}.sv-grid,.c-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-name">007 Barbershop</div>
+  <ul><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="tel:7139537777" class="nav-book">Book Now</a>
+</nav>
+<section class="hero">
+  <div class="hero-meta">★ 4.9 Rating · 1,100+ Reviews · Houston, TX</div>
+  <h1>The Cut<em>You Deserve.</em></h1>
+  <p>Houston's premier barbershop. Precision cuts, hot towel shaves, and an experience that keeps you coming back. Walk-ins welcome.</p>
+  <div class="hero-btns">
+    <a href="tel:7139537777" class="btn-gold">📞 Call to Book</a>
+    <a href="#services" class="btn-ghost">Our Services</a>
+  </div>
+</section>
+<div class="stats">
+  <div class="st"><div class="st-n">4.9★</div><div class="st-l">Google Rating</div></div>
+  <div class="st"><div class="st-n">1K+</div><div class="st-l">Happy Clients</div></div>
+  <div class="st"><div class="st-n">5801</div><div class="st-l">Memorial Dr, Houston</div></div>
+</div>
+<section id="services" class="services">
+  <div class="sh"><div class="tag">— Our Services</div><h2>What We Offer</h2></div>
+  <div class="sv-grid">
+    <div class="sv"><div class="sv-ic">✂️</div><h3>Haircut</h3><p>Precision cuts tailored to your style. Fade, taper, or classic — we do it all.</p><div class="sv-price">From $30</div></div>
+    <div class="sv"><div class="sv-ic">🪒</div><h3>Hot Towel Shave</h3><p>Traditional straight razor shave with hot towel treatment. Pure relaxation.</p><div class="sv-price">From $40</div></div>
+    <div class="sv"><div class="sv-ic">💈</div><h3>Beard Trim</h3><p>Sharp lines, clean edges. Keep your beard looking its best.</p><div class="sv-price">From $20</div></div>
+  </div>
+</section>
+<section class="cta">
+  <h2>Ready for Your Next Cut?</h2>
+  <p>Walk-ins welcome · Monday–Saturday 9AM–7PM</p>
+  <a href="tel:7139537777" class="btn-white">📞 (713) 953-7777</a>
+</section>
+<section id="contact" class="contact">
+  <div style="text-align:center"><div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">— Find Us</div><h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-weight:700">Visit Us Today</h2></div>
+  <div class="c-grid">
+    <div class="c-item"><div class="c-ic">📍</div><h4>Location</h4><p>5801 Memorial Dr, Houston TX</p></div>
+    <div class="c-item"><div class="c-ic">📞</div><h4>Phone</h4><p>(713) 953-7777</p></div>
+    <div class="c-item"><div class="c-ic">🕐</div><h4>Hours</h4><p>Mon–Sat 9AM–7PM</p></div>
+  </div>
+</section>
+<footer>© 2025 007 Barbershop · Houston, Texas · Website by JF Web Studios</footer>
+</body>
+</html>
