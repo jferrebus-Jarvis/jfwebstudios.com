@@ -534,116 +534,152 @@
 
 <script>
   // Nav scroll
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
+  var nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
 
-  // Language toggle
-  const T = {
-    es: {
-      'cred-founded': 'Fund. <span>2010</span>',
-      'cred-route': '🇺🇸 USA &amp; 🇨🇳 China → 🇻🇪 Venezuela',
-      'cred-service': 'Carga <span>Comercial Internacional</span>',
-      'hero-meta-text': '🇺🇸 USA &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Fund. 2010 &nbsp;·&nbsp; Carga Comercial Internacional',
-      'hero-h1': 'Tu Carga Comercial,<br/><em>Nuestra Misión.</em>',
-      'hero-desc': 'Somos una firma especializada en el manejo de carga comercial desde China y Estados Unidos hacia Venezuela. Gestionamos operaciones logísticas completas a través de los principales puertos venezolanos, con más de una década de experiencia.',
-      'hero-cta': '💬 Cotizar Ahora', 'hero-cta2': 'Ver Servicios', 'hero-cta3': '📋 Solicitar Cotización',
-      'cred-bottom': '🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270 &nbsp;·&nbsp; fastcargove@gmail.com',
-      'stat1-label': 'Años de Experiencia', 'stat2-label': 'Puertos Principales',
-      'stat3-label': 'Oficinas en Venezuela', 'stat4-label': 'Warehouse Internacional',
-      'sv-eyebrow': '— Nuestros Servicios',
-      'sv-h': 'Logística Comercial<br/><em>Integral</em>',
-      'sv-sub': 'En el ámbito logístico y de comercio exterior, una carga comercial se refiere a cualquier mercancía, producto o conjunto de bienes que son transportados con el objetivo principal de ser vendidos, comercializados o distribuidos en un mercado, ya sea nacional o internacional. Es el concepto opuesto a efectos personales, muestras sin valor comercial o equipaje — su naturaleza está vinculada directamente a una transacción económica.',
-      'sv1-title': 'Carga Marítima Comercial', 'sv1-desc': 'Importación de contenedores completos (FCL) y carga consolidada (LCL) desde puertos de China y Estados Unidos hacia Venezuela.',
-      'sv2-title': 'Gestión Aduanal Completa', 'sv2-desc': 'Manejamos toda la documentación, trámites aduanales y procesos de nacionalización. Su carga llega sin demoras ni complicaciones.',
-      'sv3-title': 'Consolidación de Carga', 'sv3-desc': 'Optimizamos sus envíos consolidando carga de múltiples proveedores en un solo contenedor para reducir costos de importación.',
-      'sv4-title': 'Gestión Documental', 'sv4-desc': 'Bill of Lading, certificados de origen, facturas comerciales y toda la documentación requerida para importaciones a Venezuela.',
-      'sv5-title': 'Rastreo en Tiempo Real', 'sv5-desc': 'Seguimiento detallado de su carga en cada etapa — desde la salida del proveedor hasta la llegada al puerto venezolano.',
-      'sv6-title': 'Asesoría Logística', 'sv6-desc': 'Analizamos sus operaciones de importación y diseñamos la estrategia logística más eficiente y económica para su empresa.',
-      'ab-eyebrow': '— Quiénes Somos',
-      'ab-h': 'Más de una década<br/><em>moviendo el comercio.</em>',
-      'ab-p': 'Desde 2010, Fast Cargo Services se ha consolidado como firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas, gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.',
-      'ab-cta': '💬 Hablar con un Agente',
-      'feat1-h': '🔒 Confianza', 'feat1-p': 'Más de 10 años construyendo relaciones sólidas con empresas y proveedores en tres continentes.',
-      'feat2-h': '⚡ Eficiencia', 'feat2-p': 'Procesos optimizados para reducir tiempos de tránsito y costos logísticos en cada operación.',
-      'feat3-h': '📋 Cobertura Total', 'feat3-p': 'Gestión completa: origen, tránsito, aduana y entrega en los 4 principales puertos venezolanos.',
-      'feat4-h': '🤝 Dedicación', 'feat4-p': 'Un agente dedicado para cada cliente. Atención personalizada en cada etapa de la operación.',
-      'cta-h': '¿Necesita importar<br/><em>desde China o USA?</em>',
-      'cta-p': 'Contáctenos hoy y un agente especializado analizará su operación sin costo.',
-      'cta-btn1': '💬 WhatsApp', 'cta-btn2': 'fastcargove@gmail.com',
-      'contact-eyebrow': '— Nuestras Oficinas',
-      'contact-h': 'Estamos donde<br/><em>usted nos necesita.</em>',
-      'nav-servicios': 'Servicios', 'nav-nosotros': 'Nosotros',
-      'nav-cobertura': 'Puertos', 'nav-contacto': 'Oficinas', 'nav-cta': '💬 WhatsApp',
+  // Language translations (JSON — no quote escaping issues)
+  var T = {
+    "es": {
+        "cred-founded": "Fund. <span>2010</span>",
+        "cred-route": "USA &amp; China &rarr; Venezuela",
+        "cred-service": "Carga <span>Comercial Internacional</span>",
+        "hero-meta-text": "USA &nbsp;&middot;&nbsp; China &nbsp;&middot;&nbsp; Fund. 2010 &nbsp;&middot;&nbsp; Carga Comercial Internacional",
+        "hero-h1": "Tu Carga Comercial,<br/><em>Nuestra Misión.</em>",
+        "hero-desc": "Somos una firma especializada en el manejo de carga comercial desde China y Estados Unidos hacia Venezuela. Gestionamos operaciones logísticas completas a través de los principales puertos venezolanos, con más de una década de experiencia.",
+        "hero-cta": "Cotizar Ahora",
+        "hero-cta2": "Ver Servicios",
+        "hero-cta3": "Solicitar Cotización",
+        "cred-bottom": "Maracaibo &middot; Pto. Cabello &middot; La Guaira &middot; Guanta &nbsp;&middot;&nbsp; +1 (832) 350-1270 &nbsp;&middot;&nbsp; fastcargove@gmail.com",
+        "stat1-label": "Años de Experiencia",
+        "stat2-label": "Puertos Principales",
+        "stat3-label": "Oficinas en Venezuela",
+        "stat4-label": "Warehouse Internacional",
+        "sv-eyebrow": "— Nuestros Servicios",
+        "sv-h": "Logística Comercial<br/><em>Integral</em>",
+        "sv-sub": "En el ámbito logístico y de comercio exterior, gestionamos el proceso completo de importación para empresas. Desde China y Estados Unidos hacia los principales puertos venezolanos.",
+        "sv1-title": "Carga Marítima Comercial",
+        "sv1-desc": "Importación de contenedores completos (FCL) y carga consolidada (LCL) desde puertos de China y Estados Unidos hacia Venezuela.",
+        "sv2-title": "Gestión Aduanal Completa",
+        "sv2-desc": "Manejamos toda la documentación, trámites aduanales y procesos de nacionalización. Su carga llega sin demoras ni complicaciones.",
+        "sv3-title": "Consolidación de Carga",
+        "sv3-desc": "Optimizamos sus envíos consolidando carga de múltiples proveedores en un solo contenedor para reducir costos de importación.",
+        "sv4-title": "Gestión Documental",
+        "sv4-desc": "Bill of Lading, certificados de origen, facturas comerciales y toda la documentación requerida para importaciones a Venezuela.",
+        "sv5-title": "Rastreo en Tiempo Real",
+        "sv5-desc": "Seguimiento detallado de su carga en cada etapa, desde la salida del proveedor hasta la llegada al puerto venezolano.",
+        "sv6-title": "Asesoría Logística",
+        "sv6-desc": "Analizamos sus operaciones de importación y diseñamos la estrategia logística más eficiente y económica para su empresa.",
+        "ab-eyebrow": "— Quiénes Somos",
+        "ab-h": "Más de una década<br/><em>moviendo el comercio.</em>",
+        "ab-p": "Desde 2010, Fast Cargo Services se ha consolidado como firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas, gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.",
+        "ab-cta": "Hablar con un Agente",
+        "feat1-h": "Confianza",
+        "feat1-p": "Más de 10 años construyendo relaciones sólidas con empresas y proveedores en tres continentes.",
+        "feat2-h": "Eficiencia",
+        "feat2-p": "Procesos optimizados para reducir tiempos de tránsito y costos logísticos en cada operación.",
+        "feat3-h": "Cobertura Total",
+        "feat3-p": "Gestión completa: origen, tránsito, aduana y entrega en los 4 principales puertos venezolanos.",
+        "feat4-h": "Dedicación",
+        "feat4-p": "Un agente dedicado para cada cliente. Atención personalizada en cada etapa de la operación.",
+        "cta-h": "Necesita importar<br/><em>desde China o USA?</em>",
+        "cta-p": "Contáctenos hoy y un agente especializado analizará su operación sin costo.",
+        "cta-btn1": "WhatsApp",
+        "cta-btn2": "fastcargove@gmail.com",
+        "contact-eyebrow": "— Nuestras Oficinas",
+        "contact-h": "Estamos donde<br/><em>usted nos necesita.</em>",
+        "nav-servicios": "Servicios",
+        "nav-nosotros": "Nosotros",
+        "nav-cobertura": "Puertos",
+        "nav-contacto": "Oficinas",
+        "nav-cta": "WhatsApp"
     },
-    en: {
-      'cred-founded': 'Est. <span>2010</span>',
-      'cred-route': '🇺🇸 USA &amp; 🇨🇳 China → 🇻🇪 Venezuela',
-      'cred-service': 'International <span>Commercial Cargo</span>',
-      'hero-meta-text': '🇺🇸 USA &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Est. 2010 &nbsp;·&nbsp; International Commercial Cargo',
-      'hero-h1': 'Your Commercial Cargo,<br/><em>Our Mission.</em>',
-      'hero-desc': 'We are a specialized firm in commercial cargo management from China and the United States to Venezuela. We handle complete logistics operations through Venezuela's main ports, with over a decade of experience.',
-      'hero-cta': '💬 Get a Quote', 'hero-cta2': 'Our Services', 'hero-cta3': '📋 Request a Quote',
-      'cred-bottom': '🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270 &nbsp;·&nbsp; fastcargove@gmail.com',
-      'stat1-label': 'Years of Experience', 'stat2-label': 'Main Ports',
-      'stat3-label': 'Offices in Venezuela', 'stat4-label': 'International Warehouse',
-      'sv-eyebrow': '— Our Services',
-      'sv-h': 'Comprehensive<br/><em>Commercial Logistics</em>',
-      'sv-sub': 'We manage your company\'s complete logistics operation — from origin to delivery at Venezuelan ports. Specialized in commercial volume cargo and containers, not personal packages.',
-      'sv1-title': 'Commercial Ocean Freight', 'sv1-desc': 'Full container (FCL) and consolidated cargo (LCL) imports from Chinese and US ports to Venezuela.',
-      'sv2-title': 'Full Customs Clearance', 'sv2-desc': 'We handle all documentation, customs procedures and nationalization. Your cargo arrives without delays or complications.',
-      'sv3-title': 'Cargo Consolidation', 'sv3-desc': 'We optimize shipments by consolidating cargo from multiple suppliers into one container to reduce import costs.',
-      'sv4-title': 'Document Management', 'sv4-desc': 'Bill of Lading, certificates of origin, commercial invoices and all documentation required for imports to Venezuela.',
-      'sv5-title': 'Real-Time Tracking', 'sv5-desc': 'Detailed cargo tracking at every stage — from supplier departure to arrival at the Venezuelan port.',
-      'sv6-title': 'Logistics Advisory', 'sv6-desc': 'We analyze your import operations and design the most efficient and cost-effective logistics strategy for your company.',
-      'ab-eyebrow': '— About Us',
-      'ab-h': 'Over a decade<br/><em>moving commerce.</em>',
-      'ab-p': 'Since 2010, Fast Cargo Services has established itself as a firm specialized in strategic commercial cargo management. We work exclusively with companies — managing the complete import logistics process from China and the United States to Venezuela.',
-      'ab-cta': '💬 Talk to an Agent',
-      'feat1-h': '🔒 Trust', 'feat1-p': 'Over 10 years building solid relationships with businesses and suppliers across three continents.',
-      'feat2-h': '⚡ Efficiency', 'feat2-p': 'Optimized processes to reduce transit times and logistics costs in every operation.',
-      'feat3-h': '📋 Full Coverage', 'feat3-p': 'Complete management: origin, transit, customs and delivery at the 4 main Venezuelan ports.',
-      'feat4-h': '🤝 Dedication', 'feat4-p': 'A dedicated agent for every client. Personalized attention at every stage.',
-      'cta-h': 'Need to import<br/><em>from China or USA?</em>',
-      'cta-p': 'Contact us today and a specialized agent will analyze your operation at no cost.',
-      'cta-btn1': '💬 WhatsApp', 'cta-btn2': 'fastcargove@gmail.com',
-      'contact-eyebrow': '— Our Offices',
-      'contact-h': 'We are where<br/><em>you need us.</em>',
-      'nav-servicios': 'Services', 'nav-nosotros': 'About',
-      'nav-cobertura': 'Ports', 'nav-contacto': 'Offices', 'nav-cta': '💬 WhatsApp',
+    "en": {
+        "cred-founded": "Est. <span>2010</span>",
+        "cred-route": "USA &amp; China &rarr; Venezuela",
+        "cred-service": "International <span>Commercial Cargo</span>",
+        "hero-meta-text": "USA &nbsp;&middot;&nbsp; China &nbsp;&middot;&nbsp; Est. 2010 &nbsp;&middot;&nbsp; International Commercial Cargo",
+        "hero-h1": "Your Commercial Cargo,<br/><em>Our Mission.</em>",
+        "hero-desc": "We are a specialized firm in commercial cargo management from China and the United States to Venezuela. We handle complete logistics operations through Venezuela's main ports, with over a decade of experience.",
+        "hero-cta": "Get a Quote",
+        "hero-cta2": "Our Services",
+        "hero-cta3": "Request a Quote",
+        "cred-bottom": "Maracaibo &middot; Pto. Cabello &middot; La Guaira &middot; Guanta &nbsp;&middot;&nbsp; +1 (832) 350-1270 &nbsp;&middot;&nbsp; fastcargove@gmail.com",
+        "stat1-label": "Years of Experience",
+        "stat2-label": "Main Ports",
+        "stat3-label": "Offices in Venezuela",
+        "stat4-label": "International Warehouse",
+        "sv-eyebrow": "— Our Services",
+        "sv-h": "Comprehensive<br/><em>Commercial Logistics</em>",
+        "sv-sub": "We manage your company's complete logistics operation, from origin to delivery at Venezuelan ports. Specialized in commercial volume cargo and containers.",
+        "sv1-title": "Commercial Ocean Freight",
+        "sv1-desc": "Full container (FCL) and consolidated cargo (LCL) imports from Chinese and US ports to Venezuela.",
+        "sv2-title": "Full Customs Clearance",
+        "sv2-desc": "We handle all documentation, customs procedures and nationalization. Your cargo arrives without delays or complications.",
+        "sv3-title": "Cargo Consolidation",
+        "sv3-desc": "We optimize shipments by consolidating cargo from multiple suppliers into one container to reduce import costs.",
+        "sv4-title": "Document Management",
+        "sv4-desc": "Bill of Lading, certificates of origin, commercial invoices and all documentation required for imports to Venezuela.",
+        "sv5-title": "Real-Time Tracking",
+        "sv5-desc": "Detailed cargo tracking at every stage, from supplier departure to arrival at the Venezuelan port.",
+        "sv6-title": "Logistics Advisory",
+        "sv6-desc": "We analyze your import operations and design the most efficient and cost-effective logistics strategy for your company.",
+        "ab-eyebrow": "— About Us",
+        "ab-h": "Over a decade<br/><em>moving commerce.</em>",
+        "ab-p": "Since 2010, Fast Cargo Services has established itself as a specialized firm in strategic commercial cargo management. We work exclusively with companies, managing the complete import logistics process from China and the United States to Venezuela.",
+        "ab-cta": "Talk to an Agent",
+        "feat1-h": "Trust",
+        "feat1-p": "Over 10 years building solid relationships with businesses and suppliers across three continents.",
+        "feat2-h": "Efficiency",
+        "feat2-p": "Optimized processes to reduce transit times and logistics costs in every operation.",
+        "feat3-h": "Full Coverage",
+        "feat3-p": "Complete management: origin, transit, customs and delivery at the 4 main Venezuelan ports.",
+        "feat4-h": "Dedication",
+        "feat4-p": "A dedicated agent for every client. Personalized attention at every stage.",
+        "cta-h": "Need to import<br/><em>from China or USA?</em>",
+        "cta-p": "Contact us today and a specialized agent will analyze your operation at no cost.",
+        "cta-btn1": "WhatsApp",
+        "cta-btn2": "fastcargove@gmail.com",
+        "contact-eyebrow": "— Our Offices",
+        "contact-h": "We are where<br/><em>you need us.</em>",
+        "nav-servicios": "Services",
+        "nav-nosotros": "About",
+        "nav-cobertura": "Ports",
+        "nav-contacto": "Offices",
+        "nav-cta": "WhatsApp"
     }
-  };
+};
 
   function applyLang(lang) {
-    const t = T[lang];
+    var t = T[lang];
     if (!t) return;
-    document.querySelectorAll('[data-key]').forEach(el => {
-      const key = el.getAttribute('data-key');
+    document.querySelectorAll('[data-key]').forEach(function(el) {
+      var key = el.getAttribute('data-key');
       if (t[key] !== undefined) el.innerHTML = t[key];
     });
-    document.querySelectorAll('.lang-btn').forEach(b => {
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
       b.classList.toggle('active', b.getAttribute('data-lang') === lang);
     });
     document.documentElement.lang = lang;
     try { localStorage.setItem('fc-lang', lang); } catch(e) {}
   }
 
-  document.querySelectorAll('.lang-btn').forEach(b => {
-    b.addEventListener('click', function() {
-      applyLang(this.getAttribute('data-lang'));
+  function bindLangBtns() {
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.addEventListener('click', function() {
+        applyLang(this.getAttribute('data-lang'));
+      });
     });
-  });
-
-  // Wait for DOM then apply saved or default lang
-  function initLang() {
-    let saved = 'es';
+    var saved = 'es';
     try { saved = localStorage.getItem('fc-lang') || 'es'; } catch(e) {}
     applyLang(saved);
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLang);
+    document.addEventListener('DOMContentLoaded', bindLangBtns);
   } else {
-    initLang();
+    bindLangBtns();
   }
 </script>
 
