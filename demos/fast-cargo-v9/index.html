@@ -595,22 +595,36 @@
 
   function applyLang(lang) {
     const t = T[lang];
+    if (!t) return;
     document.querySelectorAll('[data-key]').forEach(el => {
-      if (t[el.dataset.key] !== undefined) el.innerHTML = t[el.dataset.key];
+      const key = el.getAttribute('data-key');
+      if (t[key] !== undefined) el.innerHTML = t[key];
     });
     document.querySelectorAll('.lang-btn').forEach(b => {
-      b.classList.toggle('active', b.dataset.lang === lang);
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
     });
     document.documentElement.lang = lang;
-    localStorage.setItem('fc-lang', lang);
+    try { localStorage.setItem('fc-lang', lang); } catch(e) {}
   }
 
   document.querySelectorAll('.lang-btn').forEach(b => {
-    b.addEventListener('click', () => applyLang(b.dataset.lang));
+    b.addEventListener('click', function() {
+      applyLang(this.getAttribute('data-lang'));
+    });
   });
 
-  // Load saved lang or default ES
-  applyLang(localStorage.getItem('fc-lang') || 'es');
+  // Wait for DOM then apply saved or default lang
+  function initLang() {
+    let saved = 'es';
+    try { saved = localStorage.getItem('fc-lang') || 'es'; } catch(e) {}
+    applyLang(saved);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLang);
+  } else {
+    initLang();
+  }
 </script>
 
 
