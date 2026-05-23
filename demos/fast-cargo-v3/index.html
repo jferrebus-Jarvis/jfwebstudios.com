@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fast Cargo Services | Envíos Internacionales</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --yellow: #FFD100;
+      --blue: #003087;
+      --red: #CF142B;
+      --bg: #0B1120;
+      --surface: #141D2E;
+      --border: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.85);
+      --muted: rgba(255,255,255,0.45);
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(11,17,32,0.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 56px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon { width: 36px; height: 36px; background: var(--yellow); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .logo-name { font-size: 18px; font-weight: 800; color: #fff; }
+    nav ul { list-style: none; display: flex; gap: 36px; }
+    nav ul a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    nav ul a:hover { color: #fff; }
+    .nav-btn { background: var(--yellow); color: var(--bg); padding: 10px 22px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 130px 56px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,48,135,0.4) 0%, transparent 70%);
+      right: -100px; top: 50%; transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .hero-glow2 {
+      position: absolute; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,209,0,0.15) 0%, transparent 70%);
+      left: -100px; bottom: 0;
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 700px; position: relative; z-index: 1; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--yellow); padding: 8px 18px; border-radius: 50px;
+      font-size: 13px; font-weight: 700; margin-bottom: 36px;
+    }
+    .hero h1 { font-size: clamp(40px, 6.5vw, 74px); font-weight: 800; color: #fff; line-height: 1.05; margin-bottom: 24px; }
+    .hero h1 .hl { color: var(--yellow); }
+    .hero p { font-size: 18px; color: var(--muted); line-height: 1.75; margin-bottom: 44px; max-width: 560px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-y { background: var(--yellow); color: var(--bg); padding: 16px 36px; border-radius: 10px; font-weight: 800; font-size: 15px; text-decoration: none; transition: opacity 0.2s; }
+    .btn-y:hover { opacity: 0.85; }
+    .btn-ghost { background: var(--surface); color: #fff; padding: 16px 36px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--border); transition: border-color 0.2s; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.3); }
+
+    /* FLAG BAR */
+    .flag-bar { display: flex; height: 6px; }
+    .flag-bar div { flex: 1; }
+    .f1 { background: var(--yellow); }
+    .f2 { background: var(--blue); }
+    .f3 { background: var(--red); }
+
+    /* METRICS */
+    .metrics { background: var(--surface); border-bottom: 1px solid var(--border); padding: 48px 56px; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .metric { text-align: center; }
+    .metric-val { font-size: 44px; font-weight: 800; color: var(--yellow); }
+    .metric-label { font-size: 13px; color: var(--muted); font-weight: 500; margin-top: 6px; }
+
+    /* SECTIONS */
+    section.light-section { padding: 100px 56px; }
+    section.dark-section { background: var(--surface); padding: 100px 56px; }
+    .sc { max-width: 660px; margin: 0 auto 64px; text-align: center; }
+    .tag { display: inline-block; background: rgba(255,209,0,0.12); color: var(--yellow); padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+    .sc h2 { font-size: clamp(28px,4vw,44px); font-weight: 800; color: #fff; margin-bottom: 14px; }
+    .sc p { font-size: 16px; color: var(--muted); line-height: 1.8; }
+
+    /* SERVICES */
+    .sv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .sv { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px 24px; transition: border-color 0.2s, transform 0.2s; }
+    .sv:hover { border-color: var(--yellow); transform: translateY(-4px); }
+    .sv-ic { font-size: 36px; margin-bottom: 18px; }
+    .sv h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .sv p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* COVERAGE */
+    .cov-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 800px; margin: 0 auto; }
+    .cov-item { background: var(--bg); border: 1px solid var(--border); border-radius: 50px; padding: 10px 22px; font-size: 14px; color: var(--text); font-weight: 600; }
+
+    /* PROCESS */
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; max-width: 1000px; margin: 0 auto; position: relative; }
+    .process-grid::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 2px; background: linear-gradient(to right, var(--yellow), var(--blue), var(--red)); z-index: 0; }
+    .pstep { text-align: center; position: relative; z-index: 1; }
+    .pnum { width: 56px; height: 56px; border-radius: 50%; background: var(--yellow); color: var(--bg); font-size: 20px; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .pstep h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .pstep p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta-wrap { max-width: 700px; margin: 0 auto; text-align: center; }
+    .cta-wrap h2 { font-size: clamp(28px,4vw,44px); font-weight: 800; color: #fff; margin-bottom: 16px; }
+    .cta-wrap p { font-size: 17px; color: var(--muted); margin-bottom: 40px; line-height: 1.7; }
+    .btn-big { background: var(--yellow); color: var(--bg); padding: 20px 56px; border-radius: 12px; font-weight: 800; font-size: 17px; text-decoration: none; display: inline-block; transition: transform 0.2s; }
+    .btn-big:hover { transform: translateY(-3px); }
+
+    /* CONTACT */
+    .contact-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 860px; margin: 0 auto; }
+    .cc { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px; text-align: center; }
+    .cc-ic { font-size: 36px; margin-bottom: 14px; }
+    .cc h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .cc p { font-size: 14px; color: var(--muted); }
+
+    footer { background: var(--bg); border-top: 1px solid var(--border); color: var(--muted); text-align: center; padding: 28px; font-size: 13px; }
+
+    @media(max-width:768px){
+      nav { padding: 16px 20px; }
+      nav ul { display: none; }
+      .hero, section.light-section, section.dark-section { padding: 100px 20px 60px; }
+      .metrics { grid-template-columns: repeat(2,1fr); padding: 32px 20px; }
+      .sv-grid, .process-grid, .contact-cards { grid-template-columns: 1fr; }
+      .process-grid::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <div class="logo-icon">🚀</div>
+    <div class="logo-name">Fast Cargo</div>
+  </div>
+  <ul>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#cobertura">Cobertura</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/17134567890" class="nav-btn">Cotizar Gratis →</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-pill">🇻🇪 Venezuela &nbsp;↔&nbsp; 🇺🇸 Estados Unidos</div>
+    <h1>Envíos que <span class="hl">llegan</span> a tiempo. Siempre.</h1>
+    <p>Fast Cargo conecta familias y negocios entre Venezuela y USA con rapidez, seguridad y el servicio más confiable del mercado.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/17134567890" class="btn-y">💬 Cotizar por WhatsApp</a>
+      <a href="#servicios" class="btn-ghost">Ver Servicios</a>
+    </div>
+  </div>
+</section>
+
+<div class="flag-bar"><div class="f1"></div><div class="f2"></div><div class="f3"></div></div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-val">10+</div><div class="metric-label">Años en el Mercado</div></div>
+  <div class="metric"><div class="metric-val">5K+</div><div class="metric-label">Envíos Completados</div></div>
+  <div class="metric"><div class="metric-val">48h</div><div class="metric-label">Entrega Express</div></div>
+  <div class="metric"><div class="metric-val">100%</div><div class="metric-label">Clientes Satisfechos</div></div>
+</div>
+
+<section id="servicios" class="dark-section">
+  <div class="sc">
+    <div class="tag">Servicios</div>
+    <h2>Todo lo que Necesitas</h2>
+    <p>Desde un sobre hasta un contenedor completo, tenemos la solución perfecta para tu envío.</p>
+  </div>
+  <div class="sv-grid">
+    <div class="sv"><div class="sv-ic">✈️</div><h3>Carga Aérea Express</h3><p>48-72 horas de Venezuela a USA. Documentos, electrónicos y artículos de valor.</p></div>
+    <div class="sv"><div class="sv-ic">🚢</div><h3>Carga Marítima</h3><p>La opción más económica para grandes volúmenes. Consolidado o contenedor completo.</p></div>
+    <div class="sv"><div class="sv-ic">🏠</div><h3>Mudanzas Internacionales</h3><p>Empaque, transporte y entrega. Tu hogar viaja contigo de manera segura.</p></div>
+    <div class="sv"><div class="sv-ic">🛒</div><h3>Shopping USA</h3><p>Te compramos en Amazon, Walmart y más. Recibe en Venezuela sin salir de casa.</p></div>
+    <div class="sv"><div class="sv-ic">📋</div><h3>Gestión Aduanal</h3><p>Nos encargamos de toda la papelería. Tu carga pasa sin problemas ni retrasos.</p></div>
+    <div class="sv"><div class="sv-ic">📱</div><h3>Rastreo en Tiempo Real</h3><p>Sigue tu envío en cada paso. Notificaciones automáticas hasta la entrega.</p></div>
+  </div>
+</section>
+
+<section id="proceso" class="light-section">
+  <div class="sc">
+    <div class="tag">¿Cómo Funciona?</div>
+    <h2>Enviar es Simple</h2>
+    <p>4 pasos y tu paquete está en camino.</p>
+  </div>
+  <div class="process-grid">
+    <div class="pstep"><div class="pnum">1</div><h4>Cotiza</h4><p>Escríbenos por WhatsApp y recibe tu cotización en minutos.</p></div>
+    <div class="pstep"><div class="pnum">2</div><h4>Entrega</h4><p>Lleva tu paquete a nuestro punto de recepción en Houston, TX.</p></div>
+    <div class="pstep"><div class="pnum">3</div><h4>Rastreo</h4><p>Monitorea tu envío en tiempo real desde nuestra plataforma.</p></div>
+    <div class="pstep"><div class="pnum">4</div><h4>¡Llegó!</h4><p>Tu destinatario recibe el paquete en la puerta de su casa.</p></div>
+  </div>
+</section>
+
+<section id="cobertura" class="dark-section">
+  <div class="sc">
+    <div class="tag">Cobertura</div>
+    <h2>Llegamos a Todo Venezuela</h2>
+    <p>Red de distribución en todas las principales ciudades del país.</p>
+  </div>
+  <div class="cov-grid">
+    <div class="cov-item">🏙️ Caracas</div>
+    <div class="cov-item">🏙️ Maracaibo</div>
+    <div class="cov-item">🏙️ Valencia</div>
+    <div class="cov-item">🏙️ Barquisimeto</div>
+    <div class="cov-item">🏙️ Maracay</div>
+    <div class="cov-item">🏙️ Ciudad Guayana</div>
+    <div class="cov-item">🏙️ Barcelona</div>
+    <div class="cov-item">🏙️ Maturín</div>
+    <div class="cov-item">🏙️ Cumaná</div>
+    <div class="cov-item">🏙️ Mérida</div>
+    <div class="cov-item">🏙️ San Cristóbal</div>
+    <div class="cov-item">🌎 Y más...</div>
+  </div>
+</section>
+
+<section class="light-section">
+  <div class="cta-wrap">
+    <div class="tag">Empieza Hoy</div>
+    <h2>¿Tienes algo que enviar?</h2>
+    <p>Cotización gratis en segundos. Sin compromisos. Solo escríbenos y te respondemos de inmediato.</p>
+    <a href="https://wa.me/17134567890" class="btn-big">💬 Hablar con un Agente</a>
+  </div>
+</section>
+
+<section id="contacto" class="dark-section">
+  <div class="sc">
+    <div class="tag">Contacto</div>
+    <h2>Estamos Contigo</h2>
+    <p>Disponibles todos los días para responder tus preguntas.</p>
+  </div>
+  <div class="contact-cards">
+    <div class="cc"><div class="cc-ic">📱</div><h4>WhatsApp</h4><p>(713) 456-7890</p></div>
+    <div class="cc"><div class="cc-ic">📧</div><h4>Email</h4><p>info@fastcargoservices.com</p></div>
+    <div class="cc"><div class="cc-ic">📍</div><h4>Ubicación</h4><p>Houston, Texas</p></div>
+  </div>
+</section>
+
+<footer>© 2025 Fast Cargo Services LLC · Houston, TX · Todos los derechos reservados</footer>
+
+</body>
+</html>
