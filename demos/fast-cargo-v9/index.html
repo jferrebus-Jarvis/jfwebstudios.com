@@ -522,93 +522,93 @@
 
 <!-- FOOTER -->
 
-<section id="cotizacion" style="background:#f2f0ed;display:flex;min-height:100vh;">
+<section id="cotizacion" style="background:#f2f0ed;display:flex;min-height:100vh;overflow:hidden;">
 
   <!-- SIDEBAR -->
-  <div style="width:180px;min-width:180px;background:#001845;display:flex;flex-direction:column;align-items:center;padding:0;position:sticky;top:0;height:100vh;flex-shrink:0;">
+  <div style="width:200px;min-width:200px;max-width:200px;background:#001845;display:flex;flex-direction:column;align-items:center;overflow:hidden;flex-shrink:0;">
 
-    <!-- Flag + brand at top — horizontal, visible -->
-    <div style="padding:28px 16px 20px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1);width:100%;">
-      <div style="font-size:22px;margin-bottom:6px;">&#127483;&#127466;</div>
-      <div style="color:#FFD100;font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;line-height:1.4;">Fast Cargo<br/>Services</div>
+    <!-- Flag + brand at top -->
+    <div style="padding:32px 16px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.1);width:100%;">
+      <div style="font-size:26px;margin-bottom:8px;">&#127483;&#127466;</div>
+      <div style="color:#FFD100;font-size:8px;font-weight:800;letter-spacing:2px;text-transform:uppercase;line-height:1.5;">FAST CARGO<br/>SERVICES</div>
     </div>
 
-    <!-- Nav links — vertical text -->
-    <nav style="display:flex;flex-direction:column;align-items:center;width:100%;flex:1;justify-content:center;">
-      <a href="#servicios" data-key="cot-nav1" style="color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:22px 0;border-top:1px solid rgba(255,255,255,0.08);width:100%;text-align:center;transition:color 0.2s;">Servicios</a>
-      <a href="#nosotros" data-key="cot-nav2" style="color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:22px 0;border-top:1px solid rgba(255,255,255,0.08);width:100%;text-align:center;transition:color 0.2s;">Nosotros</a>
-      <a href="#contacto" data-key="cot-nav3" style="color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:22px 0;border-top:1px solid rgba(255,255,255,0.08);width:100%;text-align:center;transition:color 0.2s;">Oficinas</a>
-      <a href="#cotizacion" data-key="cot-nav4" style="color:#FFD100;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:22px 0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);width:100%;text-align:center;background:rgba(255,209,0,0.07);">Contacto</a>
+    <!-- Nav links -->
+    <nav style="display:flex;flex-direction:column;align-items:stretch;width:100%;flex:1;">
+      <a href="#servicios" style="color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:22px 0;border-top:1px solid rgba(255,255,255,0.08);text-align:center;display:block;white-space:nowrap;overflow:hidden;">Servicios</a>
+      <a href="#nosotros" style="color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:22px 0;border-top:1px solid rgba(255,255,255,0.08);text-align:center;display:block;white-space:nowrap;overflow:hidden;">Nosotros</a>
+      <a href="#contacto" style="color:rgba(255,255,255,0.45);font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:22px 0;border-top:1px solid rgba(255,255,255,0.08);text-align:center;display:block;white-space:nowrap;overflow:hidden;">Oficinas</a>
+      <a href="#cotizacion" style="color:#FFD100;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;writing-mode:vertical-rl;transform:rotate(180deg);padding:22px 0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);text-align:center;display:block;white-space:nowrap;overflow:hidden;background:rgba(255,209,0,0.07);">Contacto</a>
     </nav>
 
-    <!-- ES/EN toggle at bottom -->
-    <div style="padding:20px 0;display:flex;flex-direction:column;align-items:center;gap:4px;">
+    <!-- ES/EN toggle -->
+    <div style="padding:24px 0;display:flex;flex-direction:column;align-items:center;gap:4px;">
       <button class="lang-btn active" data-lang="es" style="background:none;border:none;color:rgba(255,255,255,0.35);font-size:10px;font-weight:800;letter-spacing:1.5px;cursor:pointer;padding:5px 10px;font-family:inherit;">ES</button>
       <button class="lang-btn" data-lang="en" style="background:none;border:none;color:rgba(255,255,255,0.35);font-size:10px;font-weight:800;letter-spacing:1.5px;cursor:pointer;padding:5px 10px;font-family:inherit;">EN</button>
     </div>
   </div>
 
   <!-- FORM AREA -->
-  <div style="flex:1;padding:80px 80px;overflow-y:auto;">
+  <div style="flex:1;padding:80px 80px;background:#f2f0ed;overflow-y:auto;">
 
     <p style="font-size:9px;font-weight:800;letter-spacing:5px;text-transform:uppercase;color:#001845;margin-bottom:8px;" data-key="cot-eyebrow">Contacto</p>
     <div style="width:28px;height:2px;background:#FFD100;margin-bottom:56px;"></div>
     <h2 style="font-size:11px;font-weight:800;letter-spacing:6px;text-transform:uppercase;color:#1a1a1a;margin-bottom:60px;" data-key="cot-title">Solicitud &nbsp;de &nbsp;Cotizaci&#243;n</h2>
 
-    <form id="cot-form" onsubmit="submitCot(event)">
+    <form id="cot-form" onsubmit="submitCot(event)" style="background:transparent;">
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 80px;">
-        <div style="margin-bottom:44px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 60px;background:transparent;">
+        <div style="margin-bottom:44px;background:transparent;">
           <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-nombre">Nombre Completo</label>
-          <input type="text" name="nombre" required style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;"/>
+          <input type="text" name="nombre" required style="width:100%;background:transparent;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;box-shadow:none;"/>
         </div>
-        <div style="margin-bottom:44px;">
+        <div style="margin-bottom:44px;background:transparent;">
           <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-empresa">Empresa / Organizaci&#243;n</label>
-          <input type="text" name="empresa" required style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;"/>
+          <input type="text" name="empresa" required style="width:100%;background:transparent;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;box-shadow:none;"/>
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 80px;">
-        <div style="margin-bottom:44px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 60px;background:transparent;">
+        <div style="margin-bottom:44px;background:transparent;">
           <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-email">Correo Electr&#243;nico</label>
-          <input type="email" name="email" required style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;"/>
+          <input type="email" name="email" required style="width:100%;background:transparent;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;box-shadow:none;"/>
         </div>
-        <div style="margin-bottom:44px;">
+        <div style="margin-bottom:44px;background:transparent;">
           <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-tel">Tel&#233;fono (Opcional)</label>
-          <input type="tel" name="telefono" style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;"/>
+          <input type="tel" name="telefono" style="width:100%;background:transparent;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;box-shadow:none;"/>
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 80px;">
-        <div style="margin-bottom:44px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 60px;background:transparent;">
+        <div style="margin-bottom:44px;background:transparent;">
           <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-tipo">Tipo de Servicio / Producto</label>
-          <select name="tipo" style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;">
-            <option value="">Seleccionar...</option>
-            <option value="FCL">Contenedor Completo (FCL)</option>
-            <option value="LCL">Carga Consolidada (LCL)</option>
-            <option value="Documental">Gesti&#243;n Documental</option>
-            <option value="Asesoria">Asesor&#237;a Log&#237;stica</option>
+          <select name="tipo" style="width:100%;background:transparent;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="" style="background:#f2f0ed;">Seleccionar...</option>
+            <option value="FCL" style="background:#f2f0ed;">Contenedor Completo (FCL)</option>
+            <option value="LCL" style="background:#f2f0ed;">Carga Consolidada (LCL)</option>
+            <option value="Documental" style="background:#f2f0ed;">Gesti&#243;n Documental</option>
+            <option value="Asesoria" style="background:#f2f0ed;">Asesor&#237;a Log&#237;stica</option>
           </select>
         </div>
-        <div style="margin-bottom:44px;">
+        <div style="margin-bottom:44px;background:transparent;">
           <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-origen">Origen de la Carga</label>
-          <select name="origen" style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;">
-            <option value="">Seleccionar...</option>
-            <option value="China">China</option>
-            <option value="USA">Estados Unidos</option>
-            <option value="Ambos">Ambos</option>
+          <select name="origen" style="width:100%;background:transparent;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="" style="background:#f2f0ed;">Seleccionar...</option>
+            <option value="China" style="background:#f2f0ed;">China</option>
+            <option value="USA" style="background:#f2f0ed;">Estados Unidos</option>
+            <option value="Ambos" style="background:#f2f0ed;">Ambos</option>
           </select>
         </div>
       </div>
 
-      <div style="margin-bottom:44px;">
+      <div style="margin-bottom:44px;background:transparent;">
         <label style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-ayuda">&#191;C&#243;mo Podemos Ayudar?</label>
-        <textarea name="descripcion" style="width:100%;background:none;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;resize:none;min-height:72px;"></textarea>
+        <textarea name="descripcion" style="width:100%;background:transparent;border:none;border-bottom:1px solid #bbb;padding:6px 0 14px 0;font-size:15px;font-family:inherit;color:#1a1a1a;outline:none;resize:none;min-height:72px;box-shadow:none;"></textarea>
       </div>
 
-      <div style="margin-bottom:44px;">
+      <div style="margin-bottom:44px;background:transparent;">
         <span style="display:block;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#888;margin-bottom:14px;" data-key="cot-archivos">Archivos / Planos T&#233;cnicos (M&#225;x. 5)</span>
-        <button type="button" onclick="document.getElementById('cot-file').click()" style="display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid #ccc;color:#555;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;cursor:pointer;font-family:inherit;">
+        <button type="button" onclick="document.getElementById('cot-file').click()" style="display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid #ccc;color:#555;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;cursor:pointer;font-family:inherit;">
           &#128206; <span data-key="cot-adjuntar">Adjuntar archivos</span>
         </button>
         <input type="file" id="cot-file" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style="display:none" onchange="showCotFiles(this)"/>
