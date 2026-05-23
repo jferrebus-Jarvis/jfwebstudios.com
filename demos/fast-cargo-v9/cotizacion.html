@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Solicitud de Cotización — Fast Cargo Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #001845; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
+
+    .page-wrap { width: 100%; max-width: 620px; }
+
+    /* Header */
+    .page-header { text-align: center; margin-bottom: 36px; }
+    .logo-bar { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 24px; }
+    .logo-bar img { height: 44px; }
+    .logo-bar span { font-size: 18px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+    .page-header h1 { font-size: 32px; font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 10px; }
+    .page-header h1 em { color: #FFD100; font-style: normal; }
+    .page-header p { font-size: 15px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+    /* Form card */
+    .form-card { background: #fff; border-radius: 20px; padding: 44px 40px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label { font-size: 11px; font-weight: 700; color: #001845; text-transform: uppercase; letter-spacing: 0.6px; }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      border: 1.5px solid #ddd;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: #333;
+      outline: none;
+      transition: border 0.2s;
+      font-family: 'Inter', sans-serif;
+      background: #fafafa;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus { border-color: #003087; background: #fff; }
+    .form-field textarea { resize: vertical; min-height: 90px; }
+
+    .divider { border: none; border-top: 1px solid #eee; margin: 20px 0; }
+
+    .section-label { font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: #003087; margin-bottom: 14px; }
+
+    .submit-btn {
+      width: 100%;
+      background: #003087;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 8px;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.1s;
+      font-family: 'Inter', sans-serif;
+    }
+    .submit-btn:hover { background: #001845; transform: translateY(-1px); }
+
+    .back-link { display: block; text-align: center; margin-top: 20px; color: rgba(255,255,255,0.5); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+    .back-link:hover { color: #FFD100; }
+
+    /* Success state */
+    .success-box { display: none; text-align: center; padding: 20px 0; }
+    .success-box .check { font-size: 64px; margin-bottom: 16px; }
+    .success-box h2 { font-size: 24px; font-weight: 900; color: #001845; margin-bottom: 10px; }
+    .success-box p { font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 24px; }
+    .success-btn { display: inline-block; background: #003087; color: #fff; padding: 12px 28px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px; }
+
+    @media(max-width: 520px) {
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 20px; }
+      .page-header h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <div class="page-header">
+      <div class="logo-bar">
+        <span>⚓ Fast Cargo Services</span>
+      </div>
+      <h1>Solicitud de <em>Cotización</em></h1>
+      <p>Complete el formulario y un agente especializado le contactará en menos de 24 horas.</p>
+    </div>
+
+    <div class="form-card">
+      <form id="quote-form" onsubmit="submitQuote(event)">
+
+        <p class="section-label">Datos de Contacto</p>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Nombre Completo *</label>
+            <input type="text" name="nombre" placeholder="Ej: Juan Pérez" required/>
+          </div>
+          <div class="form-field">
+            <label>Empresa *</label>
+            <input type="text" name="empresa" placeholder="Nombre de su empresa" required/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Teléfono / WhatsApp *</label>
+            <input type="tel" name="telefono" placeholder="+58 412 000 0000" required/>
+          </div>
+          <div class="form-field">
+            <label>Correo Electrónico *</label>
+            <input type="email" name="email" placeholder="correo@empresa.com" required/>
+          </div>
+        </div>
+
+        <hr class="divider"/>
+        <p class="section-label">Detalles de la Carga</p>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Origen de la Carga</label>
+            <select name="origen">
+              <option value="">Seleccionar...</option>
+              <option value="China">🇨🇳 China</option>
+              <option value="USA">🇺🇸 Estados Unidos</option>
+              <option value="Ambos">Ambos</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Puerto de Destino</label>
+            <select name="puerto">
+              <option value="">Seleccionar...</option>
+              <option value="Maracaibo">Puerto Maracaibo</option>
+              <option value="Puerto Cabello">Puerto Cabello</option>
+              <option value="La Guaira">La Guaira</option>
+              <option value="Guanta">Puerto Guanta</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Tipo de Carga</label>
+            <select name="tipo">
+              <option value="">Seleccionar...</option>
+              <option value="FCL">Contenedor Completo (FCL)</option>
+              <option value="LCL">Carga Consolidada (LCL)</option>
+              <option value="No se">No estoy seguro</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Volumen Aproximado</label>
+            <input type="text" name="volumen" placeholder="Ej: 1 contenedor 40ft"/>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-field">
+            <label>Descripción de la Mercancía</label>
+            <textarea name="descripcion" placeholder="¿Qué tipo de productos necesita importar?"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">✅ Enviar Solicitud</button>
+      </form>
+
+      <div class="success-box" id="success-box">
+        <div class="check">✅</div>
+        <h2>¡Solicitud Enviada!</h2>
+        <p>Un agente de Fast Cargo Services le contactará en menos de 24 horas.<br/>También abriremos WhatsApp con su información.</p>
+        <a href="index.html" class="success-btn">← Volver al sitio</a>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-link">← Volver al sitio principal</a>
+  </div>
+
+  <script>
+    function submitQuote(e) {
+      e.preventDefault();
+      var form = document.getElementById('quote-form');
+      var data = new FormData(form);
+      var msg = '📋 SOLICITUD DE COTIZACIÓN - Fast Cargo Services\n\n' +
+        '👤 Nombre: ' + (data.get('nombre') || '') + '\n' +
+        '🏢 Empresa: ' + (data.get('empresa') || '') + '\n' +
+        '📞 Teléfono: ' + (data.get('telefono') || '') + '\n' +
+        '📧 Email: ' + (data.get('email') || '') + '\n' +
+        '🌍 Origen: ' + (data.get('origen') || 'No especificado') + '\n' +
+        '⚓ Puerto: ' + (data.get('puerto') || 'No especificado') + '\n' +
+        '📦 Tipo: ' + (data.get('tipo') || 'No especificado') + '\n' +
+        '📐 Volumen: ' + (data.get('volumen') || 'No especificado') + '\n' +
+        '📝 Mercancía: ' + (data.get('descripcion') || 'No especificado');
+      form.style.display = 'none';
+      document.getElementById('success-box').style.display = 'block';
+      setTimeout(function() {
+        window.open('https://wa.me/18323501270?text=' + encodeURIComponent(msg), '_blank');
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
