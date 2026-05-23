@@ -4,161 +4,235 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fast Cargo Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #001845;
-      --navy2: #002366;
-      --blue: #003087;
-      --accent: #C8102E;
-      --white: #ffffff;
-      --light: #e8edf5;
-      --gray: #b0bcd4;
+      --y: #FFD100;
+      --b: #003087;
+      --r: #CF142B;
+      --green: #002060;
+      --green-light: #003087;
+      --dark: #001845;
+      --cream: #f5f0e8;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background: #001845; color: #fff; overflow-x: hidden; }
 
-    /* CRED BAR */
-    .cred-bar { background: rgba(0,0,0,0.4); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 8px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--white); }
-    .cred-items { display: flex; gap: 32px; }
-    .cred-item { display: flex; align-items: center; gap: 8px; color: var(--white); }
-    .cred-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
-    .cred-item span { color: var(--accent); }
-    .cred-right { display: flex; gap: 8px; align-items: center; }
-    .lang-btn { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: rgba(255,255,255,0.5); background: none; border: none; cursor: pointer; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; transition: all 0.2s; }
-    .lang-btn.active { color: #fff; background: rgba(255,255,255,0.15); }
+    /* CREDENTIAL BAR TOP */
+    .cred-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(0,24,69,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 56px;
+    }
+    .cred-left { display: flex; gap: 28px; }
+    .cred-item { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.45); letter-spacing: 1.5px; text-transform: uppercase; }
+    .cred-item span { color: rgba(255,255,255,0.75); }
+    .cred-right { display: flex; gap: 16px; }
+    .lang-btn { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: rgba(255,255,255,0.4); background: none; border: none; cursor: pointer; text-transform: uppercase; }
+    .lang-btn.active { color: #fff; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 3px; }
 
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; }
-    nav.scrolled { background: rgba(0,24,69,0.97); backdrop-filter: blur(12px); padding: 14px 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    /* MAIN NAV */
+    nav {
+      position: fixed; top: 38px; left: 0; right: 0; z-index: 199;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 56px;
+      transition: background 0.4s;
+    }
+    nav.scrolled { background: rgba(0,24,69,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
     .nav-logo img { height: 48px; width: auto; object-fit: contain; }
     nav ul { list-style: none; display: flex; gap: 40px; }
-    nav ul a { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-decoration: none; color: rgba(255,255,255,0.85); text-transform: uppercase; transition: color 0.2s; }
+    nav ul a { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
     nav ul a:hover { color: #fff; }
-    .nav-contact { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-decoration: none; color: #fff; background: var(--accent); padding: 10px 22px; border-radius: 3px; text-transform: uppercase; transition: opacity 0.2s; }
-    .nav-contact:hover { opacity: 0.85; }
+    .nav-contact { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 10px 22px; border-radius: 2px; text-decoration: none; transition: all 0.2s; }
+    .nav-contact:hover { background: #fff; color: #001845; }
 
     /* HERO */
-    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 160px 48px 100px; position: relative; overflow: hidden; background: linear-gradient(135deg, #000d2e 0%, #001845 40%, #002366 70%, #001030 100%); }
-    .hero::before { content:''; position:absolute; inset:0; background: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80') center/cover no-repeat; opacity: 0.08; }
-    .hero-meta { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; position: relative; }
-    .hero h1 { font-size: clamp(52px, 8vw, 96px); font-weight: 900; line-height: 1.0; color: #ffffff; position: relative; margin-bottom: 28px; max-width: 750px; }
-    .hero h1 em { font-style: normal; color: var(--accent); }
-    .hero-desc { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.85); max-width: 580px; position: relative; margin-bottom: 44px; }
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; position: relative; }
-    .btn-filled { display: inline-block; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 16px 32px; border-radius: 3px; text-decoration: none; transition: opacity 0.2s; }
-    .btn-filled:hover { opacity: 0.85; }
-    .btn-outline { display: inline-block; border: 2px solid rgba(255,255,255,0.4); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 32px; border-radius: 3px; text-decoration: none; transition: all 0.2s; }
-    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
-    .hero-stats { position: relative; margin-top: 80px; display: flex; gap: 56px; flex-wrap: wrap; }
-    .stat { }
-    .st-num { font-size: 42px; font-weight: 900; color: #ffffff; line-height: 1; }
-    .st-num span { color: var(--accent); }
-    .st-label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 6px; }
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 56px 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,14,12,0.3) 0%, rgba(10,14,12,0.2) 40%, rgba(10,14,12,0.75) 75%, rgba(10,14,12,0.97) 100%),
+        linear-gradient(135deg, rgba(0,48,135,0.25) 0%, transparent 50%),
+        url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1800&q=80') center/cover no-repeat;
+    }
+    /* Venezuelan flag accent - vertical strip on right */
+    .hero-flag-strip {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 6px; z-index: 2;
+      display: flex; flex-direction: column;
+    }
+    .hfs1 { flex: 1; background: var(--y); }
+    .hfs2 { flex: 1; background: var(--b); }
+    .hfs3 { flex: 1; background: var(--r); }
 
-    /* SECTION COMMONS */
-    section { padding: 100px 48px; }
-    .sec-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
-    .sec-eyebrow.dark { color: var(--accent); }
-    .sec-h { font-size: clamp(38px, 5vw, 60px); font-weight: 900; line-height: 1.1; color: #ffffff; margin-bottom: 20px; }
-    .sec-h em { font-style: normal; color: var(--accent); }
-    .sub { font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.75); max-width: 600px; margin-bottom: 60px; }
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute; right: 36px; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 3;
+    }
+    .scroll-indicator span { font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.35); writing-mode: vertical-lr; }
+    .scroll-line { width: 1px; height: 60px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); }
 
-    /* CRED BOTTOM */
-    .cred-bottom-bar { background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.08); padding: 14px 48px; text-align: center; }
-    .cred-bottom-bar p { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .hero-meta {
+      font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-meta .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--y); }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 9vw, 110px);
+      font-weight: 400; line-height: 1.0;
+      color: #fff; margin-bottom: 32px;
+      letter-spacing: -1px;
+    }
+    .hero h1 em {
+      font-style: italic; color: rgba(255,255,255,0.85);
+      display: block;
+    }
+    .hero-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
+    .hero-desc { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 520px; }
+    .hero-btns { display: flex; gap: 12px; flex-shrink: 0; }
+    .btn-filled { background: #fff; color: #001845; padding: 16px 32px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
+    .btn-filled:hover { background: var(--cream); }
+    .btn-border { background: transparent; border: 1px solid rgba(255,255,255,0.35); color: #fff; padding: 16px 32px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: border-color 0.2s; }
+    .btn-border:hover { border-color: rgba(255,255,255,0.8); }
+
+    /* CRED BOTTOM BAR */
+    .cred-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+      background: rgba(0,12,40,0.6); backdrop-filter: blur(8px);
+      display: flex; align-items: center; gap: 32px;
+      padding: 14px 56px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .cred-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--y); flex-shrink: 0; }
+    .cred-bottom p { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+
+    /* SECTION BASE */
+    section { padding: 110px 56px; }
+    .sec-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+    .sec-eyebrow.dark { color: rgba(0,0,0,0.4); }
+    .sec-h { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 400; line-height: 1.1; }
+    .sec-h em { font-style: italic; }
 
     /* SERVICES */
-    .services { background: linear-gradient(180deg, #001030 0%, #001845 100%); }
-    .sv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
-    .sv-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 40px 36px; transition: all 0.3s; }
-    .sv-card:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); }
-    .sv-icon { font-size: 32px; margin-bottom: 20px; }
-    .sv-card h3 { font-size: 18px; font-weight: 800; color: #ffffff; margin-bottom: 12px; }
-    .sv-card p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.75); }
+    .services { background: #001233; }
+    .sv-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 72px; }
+    .sv-header .sec-h { color: #fff; }
+    .sv-header p { font-size: 16px; color: rgba(255,255,255,0.45); line-height: 1.8; align-self: end; }
+    .sv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); }
+    .sv-item { background: #001233; padding: 44px 36px; transition: background 0.3s; }
+    .sv-item:hover { background: #002a6e; }
+    .sv-num { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 400; color: rgba(255,255,255,0.08); line-height: 1; margin-bottom: 20px; }
+    .sv-item h3 { font-size: 16px; font-weight: 600; color: #fff; letter-spacing: 0.3px; margin-bottom: 12px; }
+    .sv-item p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.8; }
+    .sv-icon { font-size: 28px; margin-bottom: 16px; }
 
-    /* PORTS */
-    .ports { background: #000d2e; }
-    .ports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 48px; }
-    .port-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-top: 3px solid var(--accent); padding: 32px 28px; }
-    .port-icon { font-size: 28px; margin-bottom: 14px; }
-    .port-card h4 { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 8px; }
-    .port-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    /* STATS */
+    .stats { background: #002060; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .st-item { padding: 60px 40px; border-right: 1px solid rgba(255,255,255,0.08); text-align: center; }
+    .st-item:last-child { border-right: none; }
+    .st-num { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 600; color: var(--y); line-height: 1; }
+    .st-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 8px; }
 
     /* ABOUT */
-    .about { background: linear-gradient(135deg, #001845 0%, #002874 100%); }
-    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .about-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
-    .feat { background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.1); padding: 24px; border-radius: 4px; }
-    .feat h4 { font-size: 14px; font-weight: 800; color: #ffffff; margin-bottom: 8px; }
-    .feat p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
-    .about-right { }
-    .about-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .about-img-grid img { width: 100%; height: 180px; object-fit: cover; border-radius: 4px; filter: brightness(0.7); }
-    .btn-dark { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 28px; border-radius: 3px; text-decoration: none; transition: all 0.2s; margin-top: 32px; }
-    .btn-dark:hover { background: rgba(255,255,255,0.2); }
+    .about { background: var(--cream); color: #001845; }
+    .about .sec-h { color: #001845; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-left { }
+    .about-left .sec-h { margin-bottom: 28px; }
+    .about-left p { font-size: 16px; color: rgba(0,24,69,0.6); line-height: 1.9; margin-bottom: 40px; }
+    .btn-dark { background: #001845; color: #fff; padding: 16px 36px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 2px; display: inline-block; transition: opacity 0.2s; }
+    .btn-dark:hover { opacity: 0.8; }
+    .about-right { display: flex; flex-direction: column; gap: 2px; }
+    .feat { background: rgba(0,24,69,0.04); padding: 28px 32px; border-left: 3px solid transparent; transition: all 0.2s; }
+    .feat:hover { border-left-color: var(--green); background: rgba(0,24,69,0.07); }
+    .feat h4 { font-size: 14px; font-weight: 700; color: #001845; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .feat p { font-size: 14px; color: rgba(0,24,69,0.5); line-height: 1.7; }
 
-    /* MISSION & VISION */
-    .mv-section { background: #000d2e; }
-    .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
-    .mv-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-left: 4px solid var(--accent); padding: 40px 36px; }
-    .mv-card h3 { font-size: 22px; font-weight: 900; color: #ffffff; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; }
-    .mv-card p { font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.8); font-style: italic; }
+    /* COVERAGE */
+    .coverage { background: #001845; }
+    .coverage .sec-h { color: #fff; margin-bottom: 16px; }
+    .coverage .sub { font-size: 16px; color: rgba(255,255,255,0.4); margin-bottom: 56px; line-height: 1.7; max-width: 500px; }
+    .cities { display: flex; flex-wrap: wrap; gap: 8px; }
+    .city { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 10px 22px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); letter-spacing: 0.3px; transition: all 0.2s; border-radius: 2px; }
+    .city:hover { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.2); }
 
-    /* IN-COMPANY */
-    .incompany { background: linear-gradient(180deg, #001030 0%, #001845 100%); }
-    .ic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 48px; }
-    .ic-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 36px 28px; text-align: center; transition: all 0.3s; }
-    .ic-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(200,16,46,0.5); }
-    .ic-icon { font-size: 36px; margin-bottom: 16px; }
-    .ic-card h4 { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 12px; }
-    .ic-card p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+    /* CTA FULLSCREEN */
+    .cta-full {
+      position: relative; min-height: 70vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 40px;
+      overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(rgba(10,14,12,0.72), rgba(10,14,12,0.82)),
+        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80') center/cover no-repeat;
+    }
+    .cta-content { position: relative; z-index: 1; max-width: 700px; }
+    .cta-content .sec-h { color: #fff; margin-bottom: 20px; font-size: clamp(42px, 7vw, 80px); }
+    .cta-content p { font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 44px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-    /* CTA */
-    .cta-section { background: var(--accent); padding: 100px 48px; text-align: center; }
-    .cta-section .sec-h { color: #fff; }
-    .cta-section .sec-h em { color: rgba(255,255,255,0.7); font-style: normal; }
-    .cta-section p { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 40px; }
-    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-white { display: inline-block; background: #fff; color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 16px 32px; border-radius: 3px; text-decoration: none; transition: opacity 0.2s; }
-    .btn-white:hover { opacity: 0.9; }
-    .btn-outline-white { display: inline-block; border: 2px solid rgba(255,255,255,0.6); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 14px 32px; border-radius: 3px; text-decoration: none; transition: all 0.2s; }
-    .btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
-
-    /* OFFICES / CONTACT */
-    .contact { background: #001030; }
-    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 48px; }
-    .c-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 32px 28px; }
-    .c-item h4 { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .c-item p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.8; }
-    .c-item a { color: rgba(255,255,255,0.85); text-decoration: none; }
-    .c-item a:hover { color: #fff; }
+    /* CONTACT */
+    .contact { background: #001233; }
+    .contact .sec-h { color: #fff; margin-bottom: 56px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.05); }
+    .c-item { background: #001233; padding: 44px 36px; transition: background 0.2s; }
+    .c-item:hover { background: #002a6e; }
+    .c-icon { font-size: 28px; margin-bottom: 16px; }
+    .c-item h4 { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.35); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .c-item p { font-size: 16px; color: #fff; font-weight: 400; }
 
     /* FOOTER */
-    footer { background: #000; padding: 40px 48px; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
-    footer p { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+    footer { background: #001845; border-top: 1px solid rgba(255,255,255,0.06); padding: 28px 56px; display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: 0.5px; }
+    .footer-flag { display: flex; gap: 4px; }
+    .ff { width: 20px; height: 12px; border-radius: 2px; }
+    .ff1 { background: var(--y); }
+    .ff2 { background: var(--b); }
+    .ff3 { background: var(--r); }
 
-    @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
+    @media(max-width:768px) {
+      .cred-bar { display: none; }
+      nav { top: 0; padding: 16px 20px; }
       nav ul { display: none; }
-      .hero { padding: 140px 24px 80px; }
-      section { padding: 70px 24px; }
-      .about-inner { grid-template-columns: 1fr; gap: 40px; }
-      .mv-grid { grid-template-columns: 1fr; }
-      .cred-bar { padding: 8px 24px; flex-direction: column; gap: 8px; }
-      .cred-items { flex-wrap: wrap; gap: 16px; }
+      .hero { padding: 100px 20px 100px; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; }
+      .scroll-indicator { display: none; }
+      .cred-bottom { padding: 12px 20px; flex-wrap: wrap; gap: 8px; }
+      section { padding: 70px 20px; }
+      .sv-header { grid-template-columns: 1fr; }
+      .sv-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2,1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
     }
+
+    /* Scroll nav effect */
   </style>
 </head>
 <body>
 
-<!-- CRED BAR -->
+<!-- TOP CRED BAR -->
 <div class="cred-bar">
-  <div class="cred-items">
-    <div class="cred-item"><div class="cred-dot"></div><span data-key="cred-founded">Fund. <span>2015</span></span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span data-key="cred-route">🇺🇸 USA &amp; 🇨🇳 China → 🇻🇪 Venezuela</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span data-key="cred-service">Carga <span>Comercial</span></span></div>
+  <div class="cred-left">
+    <div class="cred-item"><span data-key="cred-founded">Fund. <span>2015</span></span></span></div>
+    <div class="cred-item"><span data-key="cred-route">🇺🇸 USA &amp; 🇨🇳 China <span>→</span> 🇻🇪 Venezuela</span> Venezuela</span></div>
+    <div class="cred-item"><span data-key="cred-service">Carga <span>Comercial Internacional</span></span></span></div>
   </div>
   <div class="cred-right">
     <button class="lang-btn active" data-lang="es">ES</button>
@@ -173,290 +247,433 @@
   </div>
   <ul>
     <li><a href="#servicios" data-key="nav-servicios">Servicios</a></li>
-    <li><a href="#puertos" data-key="nav-puertos">Puertos</a></li>
     <li><a href="#nosotros" data-key="nav-nosotros">Nosotros</a></li>
-    <li><a href="#incompany" data-key="nav-incompany">In-Company</a></li>
+    <li><a href="#cobertura" data-key="nav-cobertura">Cobertura</a></li>
     <li><a href="#contacto" data-key="nav-contacto">Oficinas</a></li>
   </ul>
   <a href="https://wa.me/18323501270" class="nav-contact" data-key="nav-cta">💬 WhatsApp</a>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-meta"><span data-key="hero-meta-text">🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Fund. 2015 &nbsp;·&nbsp; Carga Comercial Internacional</span></div>
-  <h1 data-key="hero-h1">Tu Carga Comercial,<br/><em>Nuestra Misión.</em></h1>
-  <p class="hero-desc" data-key="hero-desc">Firma especializada en el manejo de carga comercial desde China y Estados Unidos hacia Venezuela. Gestionamos operaciones logísticas completas a través de los principales puertos venezolanos — con más de una década de experiencia.</p>
-  <div class="hero-btns">
-    <a href="https://wa.me/18323501270" class="btn-filled" data-key="hero-cta">💬 Cotizar Ahora</a>
-    <a href="#servicios" class="btn-outline" data-key="hero-cta2">Ver Servicios</a>
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-flag-strip">
+    <div class="hfs1"></div>
+    <div class="hfs2"></div>
+    <div class="hfs3"></div>
   </div>
-  <div class="hero-stats">
-    <div class="stat"><div class="st-num">10<span>+</span></div><div class="st-label" data-key="stat1-label">Años de Experiencia</div></div>
-    <div class="stat"><div class="st-num">4</div><div class="st-label" data-key="stat2-label">Puertos Principales</div></div>
-    <div class="stat"><div class="st-num">3</div><div class="st-label" data-key="stat3-label">Oficinas en Venezuela</div></div>
-    <div class="stat"><div class="st-num">2</div><div class="st-label" data-key="stat4-label">Orígenes de Carga</div></div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-meta">
+      <div class="dot"></div>
+      <span data-key="hero-meta-text">🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Fund. 2015 &nbsp;·&nbsp; Carga Comercial Internacional</span>
+    </div>
+    <h1 data-key="hero-h1">Tu Carga Comercial,<br/><em>Nuestra Misión.</em></h1>
+    <div class="hero-bottom">
+      <p class="hero-desc" data-key="hero-desc">Firma especializada en el manejo de carga comercial desde China y Estados Unidos hacia Venezuela. Gestionamos operaciones logísticas completas a través de los principales puertos venezolanos — con más de una década de experiencia.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/18323501270" class="btn-filled" data-key="hero-cta">💬 Cotizar Ahora</a>
+        <a href="#servicios" class="btn-border" data-key="hero-cta2">Ver Servicios</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cred-bottom">
+    <div class="cred-dot"></div>
+    <p data-key="cred-bottom">🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; 🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270</p>
   </div>
 </section>
 
-<div class="cred-bottom-bar">
-  <p data-key="cred-bottom">🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; 🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270</p>
+<!-- STATS -->
+<div class="stats">
+  <div class="st-item"><div class="st-num">10+</div><div class="st-label" data-key="stat1-label">Años de Experiencia</div></div>
+  <div class="st-item"><div class="st-num">5K+</div><div class="st-label" data-key="stat2-label">Envíos Realizados</div></div>
+  <div class="st-item"><div class="st-num">48h</div><div class="st-label" data-key="stat3-label">Entrega Express</div></div>
+  <div class="st-item"><div class="st-num">100%</div><div class="st-label" data-key="stat4-label">Compromiso Total</div></div>
 </div>
 
 <!-- SERVICES -->
 <section id="servicios" class="services">
-  <div class="sec-eyebrow" data-key="sv-eyebrow">— Nuestros Servicios</div>
-  <h2 class="sec-h" data-key="sv-h">Logística Comercial<br/><em>Integral</em></h2>
-  <p class="sub" data-key="sv-sub">Gestionamos la operación logística completa de su empresa — desde el origen hasta la entrega en puerto venezolano. Nos especializamos en carga comercial de volumen, no en paquetes personales.</p>
-  <div class="sv-grid">
-    <div class="sv-card"><div class="sv-icon">🚢</div><h3 data-key="sv1-title">Carga Marítima Comercial</h3><p data-key="sv1-desc">Importación de contenedores completos (FCL) y carga consolidada (LCL) desde puertos de China y Estados Unidos hacia Venezuela.</p></div>
-    <div class="sv-card"><div class="sv-icon">🏭</div><h3 data-key="sv2-title">Gestión Aduanal Completa</h3><p data-key="sv2-desc">Manejamos toda la documentación, trámites aduanales y procesos de nacionalización. Su carga llega sin demoras ni complicaciones.</p></div>
-    <div class="sv-card"><div class="sv-icon">📦</div><h3 data-key="sv3-title">Consolidación de Carga</h3><p data-key="sv3-desc">Optimizamos sus envíos consolidando carga de múltiples proveedores en un solo contenedor para reducir costos de importación.</p></div>
-    <div class="sv-card"><div class="sv-icon">📋</div><h3 data-key="sv4-title">Gestión Documental</h3><p data-key="sv4-desc">Bill of Lading, certificados de origen, facturas comerciales y toda la documentación requerida para importaciones a Venezuela.</p></div>
-    <div class="sv-card"><div class="sv-icon">🔍</div><h3 data-key="sv5-title">Rastreo en Tiempo Real</h3><p data-key="sv5-desc">Seguimiento detallado de su carga en cada etapa del proceso — desde la salida del proveedor hasta la llegada al puerto venezolano.</p></div>
-    <div class="sv-card"><div class="sv-icon">🤝</div><h3 data-key="sv6-title">Asesoría Logística</h3><p data-key="sv6-desc">Analizamos sus operaciones de importación y diseñamos la estrategia logística más eficiente y económica para su empresa.</p></div>
+  <div class="sv-header">
+    <div>
+      <div class="sec-eyebrow" data-key="sv-eyebrow">— Nuestros Servicios</div>
+      <h2 class="sec-h" style="color:#fff" data-key="sv-h">Soluciones de<br/><em>Logística Internacional</em></h2>
+    </div>
+    <p data-key="sv-sub">Desde un sobre urgente hasta una mudanza completa. Diseñamos soluciones de envío a la medida de cada cliente.</p>
   </div>
-</section>
-
-<!-- PORTS -->
-<section id="puertos" class="ports">
-  <div class="sec-eyebrow" data-key="ports-eyebrow">— Puertos de Operación</div>
-  <h2 class="sec-h" data-key="ports-h">Operamos en los<br/><em>Principales Puertos de Venezuela</em></h2>
-  <p class="sub" data-key="ports-sub">Nuestra red logística cubre los cuatro puertos comerciales más importantes del país, garantizando cobertura para las principales regiones industriales de Venezuela.</p>
-  <div class="ports-grid">
-    <div class="port-card"><div class="port-icon">⚓</div><h4 data-key="port1-name">Puerto de Maracaibo</h4><p data-key="port1-desc">Edo. Zulia — Principal puerto del occidente venezolano. Centro neurálgico de importaciones de la región.</p></div>
-    <div class="port-card"><div class="port-icon">⚓</div><h4 data-key="port2-name">Puerto Cabello</h4><p data-key="port2-desc">Edo. Carabobo — El puerto de mayor movimiento de contenedores en Venezuela. Conexión con el centro del país.</p></div>
-    <div class="port-card"><div class="port-icon">⚓</div><h4 data-key="port3-name">La Guaira</h4><p data-key="port3-desc">Edo. La Guaira — Puerto principal de Caracas y la región capital. Acceso directo al mayor mercado consumidor.</p></div>
-    <div class="port-card"><div class="port-icon">⚓</div><h4 data-key="port4-name">Puerto de Guanta</h4><p data-key="port4-desc">Edo. Anzoátegui — Puerto estratégico del oriente venezolano. Conexión con la zona industrial del este del país.</p></div>
+  <div class="sv-grid">
+    <div class="sv-item">
+      <div class="sv-num">01</div>
+      <div class="sv-icon">✈️</div>
+      <h3 data-key="sv1-title">Carga Marítima Comercial</h3>
+      <p data-key="sv1-desc">Importación de contenedores completos (FCL) y carga consolidada (LCL) desde puertos de China y Estados Unidos hacia Venezuela.</p>
+    </div>
+    <div class="sv-item">
+      <div class="sv-num">02</div>
+      <div class="sv-icon">🚢</div>
+      <h3 data-key="sv2-title">Gestión Aduanal Completa</h3>
+      <p data-key="sv2-desc">Manejamos toda la documentación, trámites aduanales y procesos de nacionalización. Su carga llega sin demoras ni complicaciones.</p>
+    </div>
+    <div class="sv-item">
+      <div class="sv-num">03</div>
+      <div class="sv-icon">🏠</div>
+      <h3 data-key="sv3-title">Consolidación de Carga</h3>
+      <p data-key="sv3-desc">Optimizamos sus envíos consolidando carga de múltiples proveedores en un solo contenedor para reducir costos de importación.</p>
+    </div>
+    <div class="sv-item">
+      <div class="sv-num">04</div>
+      <div class="sv-icon">🛒</div>
+      <h3 data-key="sv4-title">Gestión Documental</h3>
+      <p data-key="sv4-desc">Bill of Lading, certificados de origen, facturas comerciales y toda la documentación requerida para importaciones a Venezuela.</p>
+    </div>
+    <div class="sv-item">
+      <div class="sv-num">05</div>
+      <div class="sv-icon">📋</div>
+      <h3 data-key="sv5-title">Rastreo en Tiempo Real</h3>
+      <p data-key="sv5-desc">Seguimiento detallado de su carga en cada etapa — desde la salida del proveedor hasta la llegada al puerto venezolano.</p>
+    </div>
+    <div class="sv-item">
+      <div class="sv-num">06</div>
+      <div class="sv-icon">📍</div>
+      <h3 data-key="sv6-title">Asesoría Logística</h3>
+      <p data-key="sv6-desc">Analizamos sus operaciones de importación y diseñamos la estrategia logística más eficiente y económica para su empresa.</p>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="nosotros" class="about">
-  <div class="about-inner">
+  <div class="about-grid">
     <div class="about-left">
       <div class="sec-eyebrow dark" data-key="ab-eyebrow">— Quiénes Somos</div>
       <h2 class="sec-h" data-key="ab-h">Más de una década<br/><em>moviendo el comercio.</em></h2>
-      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.8);margin-bottom:16px;" data-key="ab-p">Desde 2015, Fast Cargo Services se ha consolidado como una firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas — gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.</p>
-      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.8);" data-key="ab-p2">Nuestro equipo maneja cada operación de principio a fin: coordinación con proveedores, consolidación en origen, documentación aduanal y entrega en puerto. Usted se enfoca en su negocio — nosotros nos encargamos de la logística.</p>
+      <p data-key="ab-p">Desde 2015, Fast Cargo Services se ha consolidado como firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas — gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.</p>
       <a href="https://wa.me/18323501270" class="btn-dark" data-key="ab-cta">💬 Hablar con un Agente</a>
-      <div class="about-feats">
-        <div class="feat"><h4 data-key="feat1-h">🔒 Confianza</h4><p data-key="feat1-p">Más de 10 años construyendo relaciones sólidas con empresas y proveedores en tres continentes.</p></div>
-        <div class="feat"><h4 data-key="feat2-h">⚡ Eficiencia</h4><p data-key="feat2-p">Procesos optimizados para reducir tiempos de tránsito y costos logísticos en cada operación.</p></div>
-        <div class="feat"><h4 data-key="feat3-h">📋 Cobertura Total</h4><p data-key="feat3-p">Gestión completa: origen, tránsito, aduana y entrega en los 4 principales puertos venezolanos.</p></div>
-        <div class="feat"><h4 data-key="feat4-h">🤝 Dedicación</h4><p data-key="feat4-p">Un agente dedicado para cada cliente. Atención personalizada en cada etapa de la operación.</p></div>
-      </div>
     </div>
     <div class="about-right">
-      <div class="about-img-grid">
-        <img src="https://images.unsplash.com/photo-1578575437130-527eed0c83e2?w=600&q=80" alt="cargo"/>
-        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="port"/>
-        <img src="https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=600&q=80" alt="containers"/>
-        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80" alt="logistics"/>
+      <div class="feat">
+        <h4 data-key="feat1-h">🔒 Confianza</h4>
+        <p data-key="feat1-p">Más de 10 años construyendo relaciones sólidas con empresas y proveedores en tres continentes.</p>
+      </div>
+      <div class="feat">
+        <h4 data-key="feat2-h">⚡ Eficiencia</h4>
+        <p data-key="feat2-p">Procesos optimizados para reducir tiempos de tránsito y costos logísticos en cada operación.</p>
+      </div>
+      <div class="feat">
+        <h4 data-key="feat3-h">📋 Cobertura Total</h4>
+        <p data-key="feat3-p">Gestión completa: origen, tránsito, aduana y entrega en los 4 principales puertos venezolanos.</p>
+      </div>
+      <div class="feat">
+        <h4 data-key="feat4-h">🤝 Dedicación</h4>
+        <p data-key="feat4-p">Un agente dedicado para cada cliente. Atención personalizada en cada etapa de la operación.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MISSION & VISION -->
-<section class="mv-section">
-  <div class="sec-eyebrow" data-key="mv-eyebrow">— Misión &amp; Visión</div>
-  <h2 class="sec-h" data-key="mv-h">Nuestro<br/><em>Propósito</em></h2>
-  <div class="mv-grid">
-    <div class="mv-card">
-      <h3 data-key="mv1-title">🎯 Misión</h3>
-      <p data-key="mv1-text">"Establecer relaciones de largo plazo con nuestros asociados, clientes y proveedores mediante el compromiso constante de apoyarlos a alcanzar sus metas."</p>
+<!-- PORTS -->
+<section id="cobertura" style="padding:100px 56px; background:#000d2e;">
+  <div class="sec-eyebrow" data-key="cov-eyebrow">— Puertos de Operación</div>
+  <h2 class="sec-h" data-key="cov-h">Operamos en los<br/><em>Principales Puertos de Venezuela</em></h2>
+  <p class="sub" data-key="cov-sub">Nuestra red logística cubre los cuatro puertos comerciales más importantes del país, garantizando cobertura para las principales regiones industriales.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px;">
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-top:3px solid #FFD100;padding:32px 28px;">
+      <div style="font-size:28px;margin-bottom:14px;">⚓</div>
+      <h4 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:8px;">Puerto de Maracaibo</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">Edo. Zulia — Principal puerto del occidente venezolano. Centro neurálgico de importaciones de la región.</p>
     </div>
-    <div class="mv-card">
-      <h3 data-key="mv2-title">🏆 Visión</h3>
-      <p data-key="mv2-text">"Ser reconocida como una firma líder en el manejo de carga, contribuyendo al desarrollo, crecimiento y expansión de los negocios de sus clientes."</p>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-top:3px solid #FFD100;padding:32px 28px;">
+      <div style="font-size:28px;margin-bottom:14px;">⚓</div>
+      <h4 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:8px;">Puerto Cabello</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">Edo. Carabobo — El puerto de mayor movimiento de contenedores en Venezuela. Conexión con el centro del país.</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-top:3px solid #FFD100;padding:32px 28px;">
+      <div style="font-size:28px;margin-bottom:14px;">⚓</div>
+      <h4 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:8px;">La Guaira</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">Edo. La Guaira — Puerto principal de Caracas y la región capital. Acceso directo al mayor mercado consumidor.</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-top:3px solid #FFD100;padding:32px 28px;">
+      <div style="font-size:28px;margin-bottom:14px;">⚓</div>
+      <h4 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:8px;">Puerto de Guanta</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">Edo. Anzoátegui — Puerto estratégico del oriente venezolano. Conexión con la zona industrial del este del país.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- MISSION & VISION -->
+<section style="padding:100px 56px;background:linear-gradient(180deg,#001030 0%,#001845 100%);">
+  <div class="sec-eyebrow">— Misión &amp; Visión</div>
+  <h2 class="sec-h">Nuestro<br/><em>Propósito</em></h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;">
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid #FFD100;padding:40px 36px;">
+      <h3 style="font-size:20px;font-weight:900;color:#fff;margin-bottom:16px;letter-spacing:1px;">🎯 MISIÓN</h3>
+      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.85);font-style:italic;">"Establecer relaciones de largo plazo con nuestros asociados, clientes y proveedores mediante el compromiso constante de apoyarlos a alcanzar sus metas."</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid #FFD100;padding:40px 36px;">
+      <h3 style="font-size:20px;font-weight:900;color:#fff;margin-bottom:16px;letter-spacing:1px;">🏆 VISIÓN</h3>
+      <p style="font-size:15px;line-height:1.8;color:rgba(255,255,255,0.85);font-style:italic;">"Ser reconocida como una firma líder en el manejo de carga, contribuyendo al desarrollo, crecimiento y expansión de los negocios de sus clientes."</p>
     </div>
   </div>
 </section>
 
 <!-- IN-COMPANY -->
-<section id="incompany" class="incompany">
-  <div class="sec-eyebrow" data-key="ic-eyebrow">— Programas In-Company</div>
-  <h2 class="sec-h" data-key="ic-h">Especialización<br/><em>para su Equipo</em></h2>
-  <p class="sub" data-key="ic-sub">Especializamos al personal de su organización en el manejo estratégico de operaciones logísticas de importación.</p>
-  <div class="ic-grid">
-    <div class="ic-card"><div class="ic-icon">📚</div><h4 data-key="ic1-title">Formación Especializada</h4><p data-key="ic1-desc">Capacitación diseñada para su industria y necesidades operativas específicas.</p></div>
-    <div class="ic-card"><div class="ic-icon">💰</div><h4 data-key="ic2-title">Optimización de Costos</h4><p data-key="ic2-desc">Empoderamos a su equipo para reducir costos logísticos de forma continua.</p></div>
-    <div class="ic-card"><div class="ic-icon">⚙️</div><h4 data-key="ic3-title">Gestión Operativa</h4><p data-key="ic3-desc">Procesos coordinados para maximizar la eficiencia en cada operación.</p></div>
+<section style="padding:100px 56px;background:#000d2e;">
+  <div class="sec-eyebrow">— Programas In-Company</div>
+  <h2 class="sec-h">Especialización<br/><em>para su Equipo</em></h2>
+  <p class="sub">Especializamos al personal de su organización en el manejo estratégico de operaciones logísticas de importación.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px;">
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:36px 28px;text-align:center;transition:all 0.3s;">
+      <div style="font-size:36px;margin-bottom:16px;">📚</div>
+      <h4 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:12px;">Formación Especializada</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">Capacitación diseñada para su industria y necesidades operativas específicas.</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:36px 28px;text-align:center;">
+      <div style="font-size:36px;margin-bottom:16px;">💰</div>
+      <h4 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:12px;">Optimización de Costos</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">Empoderamos a su equipo para reducir costos logísticos de forma continua.</p>
+    </div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:36px 28px;text-align:center;">
+      <div style="font-size:36px;margin-bottom:16px;">⚙️</div>
+      <h4 style="font-size:16px;font-weight:800;color:#fff;margin-bottom:12px;">Gestión Operativa</h4>
+      <p style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">Procesos coordinados para maximizar la eficiencia en cada operación.</p>
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <h2 class="sec-h" data-key="cta-h">¿Necesita importar<br/><em>desde China o USA?</em></h2>
-  <p data-key="cta-p">Contáctenos hoy y un agente especializado analizará su operación sin costo. Soluciones logísticas a la medida de su empresa.</p>
-  <div class="cta-btns">
-    <a href="https://wa.me/18323501270" class="btn-white" data-key="cta-btn1">💬 WhatsApp</a>
-    <a href="mailto:fastcargove@gmail.com" class="btn-outline-white" data-key="cta-btn2">fastcargove@gmail.com</a>
+<!-- CTA FULL -->
+<section class="cta-full">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <div class="sec-eyebrow" style="color:rgba(255,255,255,0.4);text-align:center;margin-bottom:16px">— Empieza Hoy</div>
+    <h2 class="sec-h">¿Tienes algo<br/><em>que enviar?</em></h2>
+    <p>Cotización gratuita en segundos. Sin compromisos. Sin letra pequeña. Solo escríbenos y te respondemos de inmediato.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/18323501270" class="btn-filled">💬 Cotizar por WhatsApp</a>
+      <a href="#contacto" class="btn-border">Ver Oficinas</a>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT / OFFICES -->
+<!-- CONTACT -->
 <section id="contacto" class="contact">
-  <div class="sec-eyebrow" data-key="contact-eyebrow">— Nuestras Oficinas</div>
-  <h2 class="sec-h" data-key="contact-h">Estamos<br/><em>Donde Usted Nos Necesita</em></h2>
+  <div class="sec-eyebrow">— Oficinas y Contacto</div>
+  <h2 class="sec-h">Estamos<br/><em>Aquí para Ti.</em></h2>
   <div class="contact-grid">
     <div class="c-item">
-      <h4 data-key="c1-label">📍 Maracaibo</h4>
-      <p data-key="c1-desc">Av. 4 Bella Vista<br/>Maracaibo, Edo. Zulia</p>
+      <div class="c-icon">📍</div>
+      <h4 data-key="c1-label">Maracaibo</h4>
+      <p>Av. 4 Bella Vista<br/>Maracaibo, Edo. Zulia</p>
     </div>
     <div class="c-item">
-      <h4 data-key="c2-label">📍 Maiquetía</h4>
-      <p data-key="c2-desc">Sector Calle Libertador<br/>Maiquetía, Edo. La Guaira</p>
+      <div class="c-icon">📍</div>
+      <h4>Maiquetía</h4>
+      <p>Sector Calle Libertador<br/>Maiquetía, Edo. La Guaira</p>
     </div>
     <div class="c-item">
-      <h4 data-key="c3-label">📍 Guanta</h4>
-      <p data-key="c3-desc">Guanta<br/>Edo. Anzoátegui</p>
+      <div class="c-icon">📍</div>
+      <h4>Guanta</h4>
+      <p>Guanta<br/>Edo. Anzoátegui</p>
     </div>
     <div class="c-item">
-      <h4 data-key="c4-label">📞 Contacto</h4>
-      <p><a href="tel:+18323501270">+1 (832) 350-1270</a><br/><a href="tel:+584146004040">+58 414 600-4040</a><br/><a href="mailto:fastcargove@gmail.com">fastcargove@gmail.com</a></p>
+      <div class="c-icon">📞</div>
+      <h4 data-key="c1-label">Teléfonos</h4>
+      <p>+1 (832) 350-1270<br/>+58 414 600-4040</p>
     </div>
     <div class="c-item">
-      <h4 data-key="c5-label">📱 WhatsApp</h4>
-      <p><a href="https://wa.me/18323501270">+1 (832) 350-1270</a></p>
+      <div class="c-icon">📧</div>
+      <h4 data-key="c2-label">Email</h4>
+      <p>fastcargove@gmail.com</p>
     </div>
     <div class="c-item">
-      <h4 data-key="c6-label">📸 Instagram</h4>
-      <p><a href="https://instagram.com/fastcargoservices" target="_blank">@fastcargoservices</a></p>
+      <div class="c-icon">📸</div>
+      <h4>Instagram</h4>
+      <p>@fastcargoservices</p>
     </div>
   </div>
-</section>
+  </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Fast Cargo Services — Jose Urdaneta, Operador Logístico Aduanero</p>
-  <p>fastcargove@gmail.com &nbsp;·&nbsp; +1 (832) 350-1270 &nbsp;·&nbsp; @fastcargoservices</p>
+  <p>© 2024 Fast Cargo Services — Jose Urdaneta, Operador Logístico Aduanero</p>
+  <p style="color:rgba(255,255,255,0.2);font-size:11px;">fastcargove@gmail.com &nbsp;·&nbsp; +1 (832) 350-1270 &nbsp;·&nbsp; @fastcargoservices</p>
+  <div class="footer-flag">
+    <div class="ff ff1"></div>
+    <div class="ff ff2"></div>
+    <div class="ff ff3"></div>
+  </div>
 </footer>
 
+
 <script>
-  // Nav scroll
+  // Nav scroll effect
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 80);
   });
 
+  // Language toggle
   const translations = {
     es: {
       'cred-founded': 'Fund. <span>2015</span>',
-      'cred-route': '🇺🇸 USA &amp; 🇨🇳 China → 🇻🇪 Venezuela',
-      'cred-service': 'Carga <span>Comercial</span>',
+      'cred-route': '🇺🇸 USA &amp; 🇨🇳 China <span>→</span> 🇻🇪 Venezuela',
+      'cred-service': 'Carga <span>Comercial Internacional</span>',
       'hero-meta-text': '🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Fund. 2015 &nbsp;·&nbsp; Carga Comercial Internacional',
       'hero-h1': 'Tu Carga Comercial,<br/><em>Nuestra Misión.</em>',
       'hero-desc': 'Firma especializada en el manejo de carga comercial desde China y Estados Unidos hacia Venezuela. Gestionamos operaciones logísticas completas a través de los principales puertos venezolanos — con más de una década de experiencia.',
       'hero-cta': '💬 Cotizar Ahora', 'hero-cta2': 'Ver Servicios',
       'cred-bottom': '🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; 🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270',
       'stat1-label': 'Años de Experiencia', 'stat2-label': 'Puertos Principales', 'stat3-label': 'Oficinas en Venezuela', 'stat4-label': 'Orígenes de Carga',
-      'sv-eyebrow': '— Nuestros Servicios', 'sv-h': 'Logística Comercial<br/><em>Integral</em>',
+      'sv-eyebrow': '— Nuestros Servicios',
+      'sv-h': 'Logística Comercial<br/><em>Integral</em>',
       'sv-sub': 'Gestionamos la operación logística completa de su empresa — desde el origen hasta la entrega en puerto venezolano. Nos especializamos en carga comercial de volumen, no en paquetes personales.',
       'sv1-title': 'Carga Marítima Comercial', 'sv1-desc': 'Importación de contenedores completos (FCL) y carga consolidada (LCL) desde puertos de China y Estados Unidos hacia Venezuela.',
       'sv2-title': 'Gestión Aduanal Completa', 'sv2-desc': 'Manejamos toda la documentación, trámites aduanales y procesos de nacionalización. Su carga llega sin demoras ni complicaciones.',
       'sv3-title': 'Consolidación de Carga', 'sv3-desc': 'Optimizamos sus envíos consolidando carga de múltiples proveedores en un solo contenedor para reducir costos de importación.',
       'sv4-title': 'Gestión Documental', 'sv4-desc': 'Bill of Lading, certificados de origen, facturas comerciales y toda la documentación requerida para importaciones a Venezuela.',
-      'sv5-title': 'Rastreo en Tiempo Real', 'sv5-desc': 'Seguimiento detallado de su carga en cada etapa del proceso — desde la salida del proveedor hasta la llegada al puerto venezolano.',
+      'sv5-title': 'Rastreo en Tiempo Real', 'sv5-desc': 'Seguimiento detallado de su carga en cada etapa — desde la salida del proveedor hasta la llegada al puerto venezolano.',
       'sv6-title': 'Asesoría Logística', 'sv6-desc': 'Analizamos sus operaciones de importación y diseñamos la estrategia logística más eficiente y económica para su empresa.',
-      'ports-eyebrow': '— Puertos de Operación', 'ports-h': 'Operamos en los<br/><em>Principales Puertos de Venezuela</em>',
-      'ports-sub': 'Nuestra red logística cubre los cuatro puertos comerciales más importantes del país, garantizando cobertura para las principales regiones industriales de Venezuela.',
-      'port1-name': 'Puerto de Maracaibo', 'port1-desc': 'Edo. Zulia — Principal puerto del occidente venezolano. Centro neurálgico de importaciones de la región.',
-      'port2-name': 'Puerto Cabello', 'port2-desc': 'Edo. Carabobo — El puerto de mayor movimiento de contenedores en Venezuela. Conexión con el centro del país.',
-      'port3-name': 'La Guaira', 'port3-desc': 'Edo. La Guaira — Puerto principal de Caracas y la región capital. Acceso directo al mayor mercado consumidor.',
-      'port4-name': 'Puerto de Guanta', 'port4-desc': 'Edo. Anzoátegui — Puerto estratégico del oriente venezolano. Conexión con la zona industrial del este del país.',
-      'ab-eyebrow': '— Quiénes Somos', 'ab-h': 'Más de una década<br/><em>moviendo el comercio.</em>',
-      'ab-p': 'Desde 2015, Fast Cargo Services se ha consolidado como una firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas — gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.',
+      'ab-eyebrow': '— Quiénes Somos',
+      'ab-h': 'Más de una década<br/><em>moviendo el comercio.</em>',
+      'ab-p': 'Desde 2015, Fast Cargo Services se ha consolidado como firma especializada en el manejo estratégico de carga comercial. Trabajamos exclusivamente con empresas — gestionando el proceso logístico completo de importación desde China y Estados Unidos hacia Venezuela.',
       'ab-p2': 'Nuestro equipo maneja cada operación de principio a fin: coordinación con proveedores, consolidación en origen, documentación aduanal y entrega en puerto. Usted se enfoca en su negocio — nosotros nos encargamos de la logística.',
       'ab-cta': '💬 Hablar con un Agente',
       'feat1-h': '🔒 Confianza', 'feat1-p': 'Más de 10 años construyendo relaciones sólidas con empresas y proveedores en tres continentes.',
       'feat2-h': '⚡ Eficiencia', 'feat2-p': 'Procesos optimizados para reducir tiempos de tránsito y costos logísticos en cada operación.',
       'feat3-h': '📋 Cobertura Total', 'feat3-p': 'Gestión completa: origen, tránsito, aduana y entrega en los 4 principales puertos venezolanos.',
       'feat4-h': '🤝 Dedicación', 'feat4-p': 'Un agente dedicado para cada cliente. Atención personalizada en cada etapa de la operación.',
-      'mv-eyebrow': '— Misión &amp; Visión', 'mv-h': 'Nuestro<br/><em>Propósito</em>',
-      'mv1-title': '🎯 Misión', 'mv1-text': '"Establecer relaciones de largo plazo con nuestros asociados, clientes y proveedores mediante el compromiso constante de apoyarlos a alcanzar sus metas."',
-      'mv2-title': '🏆 Visión', 'mv2-text': '"Ser reconocida como una firma líder en el manejo de carga, contribuyendo al desarrollo, crecimiento y expansión de los negocios de sus clientes."',
-      'ic-eyebrow': '— Programas In-Company', 'ic-h': 'Especialización<br/><em>para su Equipo</em>',
-      'ic-sub': 'Especializamos al personal de su organización en el manejo estratégico de operaciones logísticas de importación.',
-      'ic1-title': 'Formación Especializada', 'ic1-desc': 'Capacitación diseñada para su industria y necesidades operativas específicas.',
-      'ic2-title': 'Optimización de Costos', 'ic2-desc': 'Empoderamos a su equipo para reducir costos logísticos de forma continua.',
-      'ic3-title': 'Gestión Operativa', 'ic3-desc': 'Procesos coordinados para maximizar la eficiencia en cada operación.',
-      'cta-h': '¿Necesita importar<br/><em>desde China o USA?</em>', 'cta-p': 'Contáctenos hoy y un agente especializado analizará su operación sin costo. Soluciones logísticas a la medida de su empresa.',
+      'cov-eyebrow': '— Puertos de Operación',
+      'cov-h': 'Operamos en los<br/><em>Principales Puertos de Venezuela</em>',
+      'cov-sub': 'Nuestra red logística cubre los cuatro puertos comerciales más importantes del país, garantizando cobertura para las principales regiones industriales.',
+      'cta-h': '¿Necesita importar<br/><em>desde China o USA?</em>',
+      'cta-p': 'Contáctenos hoy y un agente especializado analizará su operación sin costo.',
       'cta-btn1': '💬 WhatsApp', 'cta-btn2': 'fastcargove@gmail.com',
-      'contact-eyebrow': '— Nuestras Oficinas', 'contact-h': 'Estamos<br/><em>Donde Usted Nos Necesita</em>',
-      'c1-label': '📍 Maracaibo', 'c1-desc': 'Av. 4 Bella Vista<br/>Maracaibo, Edo. Zulia',
-      'c2-label': '📍 Maiquetía', 'c2-desc': 'Sector Calle Libertador<br/>Maiquetía, Edo. La Guaira',
-      'c3-label': '📍 Guanta', 'c3-desc': 'Guanta<br/>Edo. Anzoátegui',
-      'c4-label': '📞 Contacto', 'c5-label': '📱 WhatsApp', 'c6-label': '📸 Instagram',
-      'nav-servicios': 'Servicios', 'nav-puertos': 'Puertos', 'nav-nosotros': 'Nosotros', 'nav-incompany': 'In-Company', 'nav-contacto': 'Oficinas', 'nav-cta': '💬 WhatsApp',
+      'contact-eyebrow': '— Nuestras Oficinas',
+      'contact-h': 'Estamos donde<br/><em>usted nos necesita.</em>',
+      'c1-label': 'Teléfonos', 'c2-label': 'Email', 'c3-label': 'Maracaibo',
+      'nav-servicios': 'Servicios', 'nav-nosotros': 'Nosotros', 'nav-cobertura': 'Puertos', 'nav-contacto': 'Oficinas', 'nav-cta': '💬 WhatsApp',
     },
     en: {
       'cred-founded': 'Est. <span>2015</span>',
-      'cred-route': '🇺🇸 USA &amp; 🇨🇳 China → 🇻🇪 Venezuela',
-      'cred-service': 'Commercial <span>Cargo</span>',
+      'cred-route': '🇺🇸 USA &amp; 🇨🇳 China <span>→</span> 🇻🇪 Venezuela',
+      'cred-service': 'International <span>Commercial Cargo</span>',
       'hero-meta-text': '🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; Est. 2015 &nbsp;·&nbsp; International Commercial Cargo',
       'hero-h1': 'Your Commercial Cargo,<br/><em>Our Mission.</em>',
-      'hero-desc': 'Specialized firm in commercial cargo management from China and the United States to Venezuela. We handle complete logistics operations through Venezuela's main ports — with over a decade of experience.',
+      'hero-desc': 'Specialized firm in commercial cargo management from China and the United States to Venezuela. We handle complete logistics operations through Venezuela\'s main ports — with over a decade of experience.',
       'hero-cta': '💬 Get a Quote', 'hero-cta2': 'Our Services',
       'cred-bottom': '🇺🇸 Houston, TX &nbsp;·&nbsp; 🇨🇳 China &nbsp;·&nbsp; 🇻🇪 Maracaibo · Pto. Cabello · La Guaira · Guanta &nbsp;·&nbsp; +1 (832) 350-1270',
       'stat1-label': 'Years of Experience', 'stat2-label': 'Main Ports', 'stat3-label': 'Offices in Venezuela', 'stat4-label': 'Cargo Origins',
-      'sv-eyebrow': '— Our Services', 'sv-h': 'Comprehensive<br/><em>Commercial Logistics</em>',
-      'sv-sub': 'We manage your company's complete logistics operation — from origin to delivery at Venezuelan ports. We specialize in commercial volume cargo, not personal packages.',
+      'sv-eyebrow': '— Our Services',
+      'sv-h': 'Comprehensive<br/><em>Commercial Logistics</em>',
+      'sv-sub': 'We manage your company\'s complete logistics operation — from origin to delivery at Venezuelan ports. We specialize in commercial volume cargo, not personal packages.',
       'sv1-title': 'Commercial Ocean Freight', 'sv1-desc': 'Full container (FCL) and consolidated cargo (LCL) imports from Chinese and US ports to Venezuela.',
-      'sv2-title': 'Full Customs Clearance', 'sv2-desc': 'We handle all documentation, customs procedures and nationalization processes. Your cargo arrives without delays or complications.',
-      'sv3-title': 'Cargo Consolidation', 'sv3-desc': 'We optimize your shipments by consolidating cargo from multiple suppliers into a single container to reduce import costs.',
+      'sv2-title': 'Full Customs Clearance', 'sv2-desc': 'We handle all documentation, customs procedures and nationalization. Your cargo arrives without delays or complications.',
+      'sv3-title': 'Cargo Consolidation', 'sv3-desc': 'We optimize shipments by consolidating cargo from multiple suppliers into one container to reduce import costs.',
       'sv4-title': 'Document Management', 'sv4-desc': 'Bill of Lading, certificates of origin, commercial invoices and all documentation required for imports to Venezuela.',
-      'sv5-title': 'Real-Time Tracking', 'sv5-desc': 'Detailed tracking of your cargo at every stage — from supplier departure to arrival at the Venezuelan port.',
+      'sv5-title': 'Real-Time Tracking', 'sv5-desc': 'Detailed tracking at every stage — from supplier departure to arrival at the Venezuelan port.',
       'sv6-title': 'Logistics Advisory', 'sv6-desc': 'We analyze your import operations and design the most efficient and cost-effective logistics strategy for your company.',
-      'ports-eyebrow': '— Ports of Operation', 'ports-h': 'We Operate at<br/><em>Venezuela's Main Ports</em>',
-      'ports-sub': 'Our logistics network covers the four most important commercial ports in the country, ensuring coverage for Venezuela's main industrial regions.',
-      'port1-name': 'Port of Maracaibo', 'port1-desc': 'Edo. Zulia — Main port of western Venezuela. Logistics hub for the region's imports.',
-      'port2-name': 'Puerto Cabello', 'port2-desc': 'Edo. Carabobo — Venezuela's highest-volume container port. Gateway to the center of the country.',
-      'port3-name': 'La Guaira', 'port3-desc': 'Edo. La Guaira — Main port for Caracas and the capital region. Direct access to the largest consumer market.',
-      'port4-name': 'Port of Guanta', 'port4-desc': 'Edo. Anzoátegui — Strategic port for eastern Venezuela. Connection to the industrial zone of the east.',
-      'ab-eyebrow': '— About Us', 'ab-h': 'Over a decade<br/><em>moving commerce.</em>',
+      'ab-eyebrow': '— About Us',
+      'ab-h': 'Over a decade<br/><em>moving commerce.</em>',
       'ab-p': 'Since 2015, Fast Cargo Services has established itself as a firm specialized in strategic commercial cargo management. We work exclusively with companies — managing the complete import logistics process from China and the United States to Venezuela.',
       'ab-p2': 'Our team handles every operation from start to finish: supplier coordination, origin consolidation, customs documentation and port delivery. You focus on your business — we handle the logistics.',
       'ab-cta': '💬 Talk to an Agent',
       'feat1-h': '🔒 Trust', 'feat1-p': 'Over 10 years building solid relationships with businesses and suppliers across three continents.',
       'feat2-h': '⚡ Efficiency', 'feat2-p': 'Optimized processes to reduce transit times and logistics costs in every operation.',
       'feat3-h': '📋 Full Coverage', 'feat3-p': 'Complete management: origin, transit, customs and delivery at the 4 main Venezuelan ports.',
-      'feat4-h': '🤝 Dedication', 'feat4-p': 'A dedicated agent for every client. Personalized attention at every stage of the operation.',
-      'mv-eyebrow': '— Mission &amp; Vision', 'mv-h': 'Our<br/><em>Purpose</em>',
-      'mv1-title': '🎯 Mission', 'mv1-text': '"To establish long-term relationships with our associates, clients and suppliers through a constant commitment to supporting them in achieving their goals."',
-      'mv2-title': '🏆 Vision', 'mv2-text': '"To be recognized as a leading firm in cargo management, contributing to the development, growth and expansion of our clients' businesses."',
-      'ic-eyebrow': '— In-Company Programs', 'ic-h': 'Specialization<br/><em>for Your Team</em>',
-      'ic-sub': 'We specialize your organization's staff in the strategic management of import logistics operations.',
-      'ic1-title': 'Specialized Training', 'ic1-desc': 'Training designed for your industry and specific operational needs.',
-      'ic2-title': 'Cost Optimization', 'ic2-desc': 'We empower your team to continuously reduce logistics costs.',
-      'ic3-title': 'Operational Management', 'ic3-desc': 'Coordinated processes to maximize efficiency in every operation.',
-      'cta-h': 'Need to import<br/><em>from China or USA?</em>', 'cta-p': 'Contact us today and a specialized agent will analyze your operation at no cost. Logistics solutions tailored to your company.',
+      'feat4-h': '🤝 Dedication', 'feat4-p': 'A dedicated agent for every client. Personalized attention at every stage.',
+      'cov-eyebrow': '— Ports of Operation',
+      'cov-h': 'We Operate at<br/><em>Venezuela\'s Main Ports</em>',
+      'cov-sub': 'Our logistics network covers the four most important commercial ports in the country, ensuring coverage for Venezuela\'s main industrial regions.',
+      'cta-h': 'Need to import<br/><em>from China or USA?</em>',
+      'cta-p': 'Contact us today and a specialized agent will analyze your operation at no cost.',
       'cta-btn1': '💬 WhatsApp', 'cta-btn2': 'fastcargove@gmail.com',
-      'contact-eyebrow': '— Our Offices', 'contact-h': 'We Are<br/><em>Where You Need Us</em>',
-      'c1-label': '📍 Maracaibo', 'c1-desc': 'Av. 4 Bella Vista<br/>Maracaibo, Edo. Zulia',
-      'c2-label': '📍 Maiquetía', 'c2-desc': 'Sector Calle Libertador<br/>Maiquetía, Edo. La Guaira',
-      'c3-label': '📍 Guanta', 'c3-desc': 'Guanta<br/>Edo. Anzoátegui',
-      'c4-label': '📞 Contact', 'c5-label': '📱 WhatsApp', 'c6-label': '📸 Instagram',
-      'nav-servicios': 'Services', 'nav-puertos': 'Ports', 'nav-nosotros': 'About', 'nav-incompany': 'In-Company', 'nav-contacto': 'Offices', 'nav-cta': '💬 WhatsApp',
+      'contact-eyebrow': '— Our Offices',
+      'contact-h': 'We are where<br/><em>you need us.</em>',
+      'c1-label': 'Phone Numbers', 'c2-label': 'Email', 'c3-label': 'Maracaibo',
+      'nav-servicios': 'Services', 'nav-nosotros': 'About', 'nav-cobertura': 'Ports', 'nav-contacto': 'Offices', 'nav-cta': '💬 WhatsApp',
     }
-  };
+  };;
 
   function applyLang(lang) {
     const t = translations[lang];
-    document.querySelectorAll('[data-key]').forEach(el => {
-      const key = el.dataset.key;
-      if (t[key] !== undefined) el.innerHTML = t[key];
-    });
+    // Helper
+    const set = (sel, key, prop='innerHTML') => {
+      const el = document.querySelector(sel);
+      if (el && t[key] !== undefined) el[prop] = t[key];
+    };
+    const setAll = (sel, key, prop='innerHTML') => {
+      document.querySelectorAll(sel).forEach(el => { if(t[key] !== undefined) el[prop] = t[key]; });
+    };
+
+    // Cred bar
+    set('[data-key="cred-founded"]', 'cred-founded');
+    set('[data-key="cred-route"]', 'cred-route');
+    set('[data-key="cred-service"]', 'cred-service');
+    // Hero
+    set('[data-key="hero-meta-text"]', 'hero-meta-text');
+    set('[data-key="hero-h1"]', 'hero-h1');
+    set('[data-key="hero-desc"]', 'hero-desc');
+    set('[data-key="hero-cta"]', 'hero-cta');
+    set('[data-key="hero-cta2"]', 'hero-cta2');
+    set('[data-key="cred-bottom"]', 'cred-bottom');
+    // Stats
+    set('[data-key="stat1-label"]', 'stat1-label');
+    set('[data-key="stat2-label"]', 'stat2-label');
+    set('[data-key="stat3-label"]', 'stat3-label');
+    set('[data-key="stat4-label"]', 'stat4-label');
+    // Services
+    set('[data-key="sv-eyebrow"]', 'sv-eyebrow');
+    set('[data-key="sv-h"]', 'sv-h');
+    set('[data-key="sv-sub"]', 'sv-sub');
+    for(let i=1;i<=6;i++) { set(`[data-key="sv${i}-title"]`, `sv${i}-title`); set(`[data-key="sv${i}-desc"]`, `sv${i}-desc`); }
+    // About
+    set('[data-key="ab-eyebrow"]', 'ab-eyebrow');
+    set('[data-key="ab-h"]', 'ab-h');
+    set('[data-key="ab-p"]', 'ab-p');
+    set('[data-key="ab-cta"]', 'ab-cta');
+    for(let i=1;i<=4;i++) { set(`[data-key="feat${i}-h"]`, `feat${i}-h`); set(`[data-key="feat${i}-p"]`, `feat${i}-p`); }
+    // Coverage
+    set('[data-key="cov-eyebrow"]', 'cov-eyebrow');
+    set('[data-key="cov-h"]', 'cov-h');
+    set('[data-key="cov-sub"]', 'cov-sub');
+    // CTA
+    set('[data-key="cta-h"]', 'cta-h');
+    set('[data-key="cta-p"]', 'cta-p');
+    set('[data-key="cta-btn1"]', 'cta-btn1');
+    set('[data-key="cta-btn2"]', 'cta-btn2');
+    // Contact
+    set('[data-key="contact-eyebrow"]', 'contact-eyebrow');
+    set('[data-key="contact-h"]', 'contact-h');
+    set('[data-key="c1-label"]', 'c1-label');
+    set('[data-key="c2-label"]', 'c2-label');
+    set('[data-key="c3-label"]', 'c3-label');
+    // Nav
+    set('[data-key="nav-servicios"]', 'nav-servicios');
+    set('[data-key="nav-nosotros"]', 'nav-nosotros');
+    set('[data-key="nav-cobertura"]', 'nav-cobertura');
+    set('[data-key="nav-contacto"]', 'nav-contacto');
+    set('[data-key="nav-cta"]', 'nav-cta');
+
+    // Update active button
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
     document.documentElement.lang = lang;
   }
 
+  // Attach click handlers
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => applyLang(btn.dataset.lang));
   });
 
+  // Default to Spanish
   applyLang('es');
 </script>
+
+
 </body>
 </html>
