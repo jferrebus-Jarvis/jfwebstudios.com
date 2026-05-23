@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fast Cargo Services | Logística Venezuela USA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --y: #FFD100;
+      --b: #003087;
+      --r: #CF142B;
+      --green: #00C48C;
+      --white: #fff;
+      --dark: #111827;
+      --gray: #6B7280;
+      --light: #F3F4F6;
+    }
+    body { font-family: 'Outfit', sans-serif; background: #fff; color: var(--dark); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      width: calc(100% - 48px); max-width: 1200px; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+      border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 28px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--r); }
+    .brand-name { font-size: 18px; font-weight: 800; color: var(--b); }
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav ul a { text-decoration: none; color: var(--gray); font-size: 14px; font-weight: 600; transition: color 0.2s; }
+    nav ul a:hover { color: var(--b); }
+    .nav-wa { background: var(--green); color: #fff; padding: 10px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; text-decoration: none; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--b) 0%, #001A5E 100%);
+      display: flex; align-items: center;
+      padding: 140px 64px 100px;
+      position: relative; overflow: hidden;
+    }
+    /* Venezuelan flag accent */
+    .flag-accent {
+      position: absolute; right: 0; top: 0; bottom: 0; width: 40%;
+      display: flex; flex-direction: column;
+    }
+    .fa1 { flex: 1; background: var(--y); opacity: 0.15; }
+    .fa2 { flex: 1; background: var(--b); opacity: 0.2; }
+    .fa3 { flex: 1; background: var(--r); opacity: 0.15; }
+
+    .hero-inner { max-width: 680px; position: relative; z-index: 1; }
+    .route-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px; padding: 12px 20px; margin-bottom: 36px;
+    }
+    .route-flag { font-size: 22px; }
+    .route-arrow { color: var(--y); font-weight: 900; font-size: 18px; }
+    .route-text { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); }
+    .hero h1 { font-size: clamp(38px, 6vw, 70px); font-weight: 900; color: #fff; line-height: 1.05; margin-bottom: 22px; }
+    .hero h1 .accent { color: var(--y); }
+    .hero p { font-size: 18px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 44px; max-width: 540px; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .cta-green { background: var(--green); color: #fff; padding: 17px 36px; border-radius: 12px; font-weight: 800; font-size: 16px; text-decoration: none; transition: transform 0.2s; }
+    .cta-green:hover { transform: translateY(-3px); }
+    .cta-outline { background: transparent; border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 17px 36px; border-radius: 12px; font-weight: 600; font-size: 16px; text-decoration: none; transition: border-color 0.2s; }
+    .cta-outline:hover { border-color: rgba(255,255,255,0.7); }
+
+    /* TRUST BAR */
+    .trust { background: var(--y); padding: 24px 64px; display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 10px; }
+    .trust-item span { font-size: 20px; }
+    .trust-item p { font-size: 15px; font-weight: 700; color: var(--b); }
+
+    /* CARDS */
+    .section { padding: 96px 64px; }
+    .section.bg-light { background: var(--light); }
+    .section.bg-dark { background: var(--dark); }
+    .sh { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .label { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 6px; margin-bottom: 14px; }
+    .label-blue { background: rgba(0,48,135,0.1); color: var(--b); }
+    .label-yellow { background: rgba(255,209,0,0.2); color: #8a6f00; }
+    .label-white { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+    .sh h2 { font-size: clamp(26px, 4vw, 42px); font-weight: 800; line-height: 1.15; }
+    .sh.dark h2 { color: #fff; }
+    .sh p { font-size: 16px; color: var(--gray); line-height: 1.8; margin-top: 12px; }
+    .sh.dark p { color: rgba(255,255,255,0.5); }
+
+    /* SERVICES */
+    .sg { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 1060px; margin: 0 auto; }
+    .sc-card { border-radius: 20px; padding: 32px 24px; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,0.06); transition: transform 0.2s; border-top: 3px solid transparent; }
+    .sc-card:hover { transform: translateY(-6px); border-top-color: var(--b); }
+    .sc-em { font-size: 40px; margin-bottom: 18px; display: block; }
+    .sc-card h3 { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+    .sc-card p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+    /* NUMBERS */
+    .nums { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(255,255,255,0.1); max-width: 900px; margin: 0 auto; border-radius: 16px; overflow: hidden; }
+    .num-item { background: rgba(255,255,255,0.05); padding: 40px 20px; text-align: center; }
+    .num-val { font-size: 48px; font-weight: 900; color: var(--y); }
+    .num-lbl { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 600; margin-top: 6px; }
+
+    /* CITIES */
+    .cities-wrap { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 800px; margin: 0 auto; }
+    .ct { background: #fff; border: 2px solid var(--light); border-radius: 50px; padding: 10px 22px; font-size: 14px; font-weight: 600; color: var(--dark); transition: border-color 0.2s; }
+    .ct:hover { border-color: var(--b); color: var(--b); }
+
+    /* CTA BLOCK */
+    .cta-block { background: linear-gradient(135deg, var(--b) 0%, var(--r) 100%); border-radius: 24px; padding: 64px; text-align: center; max-width: 860px; margin: 0 auto; }
+    .cta-block h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 900; color: #fff; margin-bottom: 16px; }
+    .cta-block p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 36px; line-height: 1.7; }
+    .cta-block a { background: var(--y); color: var(--b); padding: 18px 48px; border-radius: 12px; font-weight: 900; font-size: 16px; text-decoration: none; display: inline-block; transition: transform 0.2s; }
+    .cta-block a:hover { transform: translateY(-3px); }
+
+    /* CONTACT */
+    .contact-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 860px; margin: 0 auto; }
+    .cr { background: var(--light); border-radius: 16px; padding: 28px; text-align: center; transition: background 0.2s; }
+    .cr:hover { background: var(--b); color: #fff; }
+    .cr:hover h4 { color: var(--y); }
+    .cr:hover p { color: rgba(255,255,255,0.7); }
+    .cr-ic { font-size: 32px; margin-bottom: 12px; }
+    .cr h4 { font-size: 15px; font-weight: 700; color: var(--b); margin-bottom: 6px; transition: color 0.2s; }
+    .cr p { font-size: 14px; color: var(--gray); transition: color 0.2s; }
+
+    footer { background: var(--dark); color: rgba(255,255,255,0.4); text-align: center; padding: 28px; font-size: 13px; }
+
+    @media(max-width:768px){
+      nav { top: 8px; width: calc(100% - 24px); padding: 12px 16px; }
+      nav ul { display: none; }
+      .hero { padding: 120px 20px 60px; }
+      .trust { padding: 20px; gap: 24px; }
+      .section { padding: 60px 20px; }
+      .sg, .nums, .contact-row { grid-template-columns: 1fr; }
+      .nums { background: none; gap: 12px; }
+      .cta-block { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <div class="brand-dot"></div>
+    <div class="brand-name">Fast Cargo Services</div>
+  </div>
+  <ul>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#cobertura">Cobertura</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/17134567890" class="nav-wa">💬 WhatsApp</a>
+</nav>
+
+<section class="hero">
+  <div class="flag-accent"><div class="fa1"></div><div class="fa2"></div><div class="fa3"></div></div>
+  <div class="hero-inner">
+    <div class="route-badge">
+      <span class="route-flag">🇻🇪</span>
+      <span class="route-arrow">→</span>
+      <span class="route-flag">🇺🇸</span>
+      <span class="route-text">Venezuela · Estados Unidos</span>
+    </div>
+    <h1>Envíos <span class="accent">confiables</span> entre dos mundos.</h1>
+    <p>Conectamos familias y negocios con soluciones de carga rápidas, seguras y sin complicaciones. Más de 10 años de experiencia a tu servicio.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/17134567890" class="cta-green">💬 Cotizar Ahora — Es Gratis</a>
+      <a href="#servicios" class="cta-outline">Ver Servicios</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-item"><span>⚡</span><p>Entrega en 48h</p></div>
+  <div class="trust-item"><span>🔒</span><p>100% Seguro</p></div>
+  <div class="trust-item"><span>📍</span><p>Cobertura Nacional</p></div>
+  <div class="trust-item"><span>💬</span><p>Soporte 24/7</p></div>
+</div>
+
+<section id="servicios" class="section">
+  <div class="sh">
+    <div class="label label-blue">Servicios</div>
+    <h2>Soluciones para Cada Envío</h2>
+    <p>Desde una caja hasta una mudanza completa. Tenemos la solución exacta para lo que necesitas.</p>
+  </div>
+  <div class="sg">
+    <div class="sc-card"><span class="sc-em">✈️</span><h3>Carga Aérea Express</h3><p>La más rápida. 48-72 horas. Perfecta para documentos urgentes y artículos de valor.</p></div>
+    <div class="sc-card"><span class="sc-em">🚢</span><h3>Carga Marítima</h3><p>La más económica para volumen. Contenedor completo o carga consolidada.</p></div>
+    <div class="sc-card"><span class="sc-em">🏠</span><h3>Mudanzas Int'l</h3><p>Empaque profesional, transporte y entrega. Nos ocupamos de todo por ti.</p></div>
+    <div class="sc-card"><span class="sc-em">🛒</span><h3>Compras USA</h3><p>Compramos en cualquier tienda americana y te enviamos a Venezuela.</p></div>
+    <div class="sc-card"><span class="sc-em">📋</span><h3>Trámites Aduanales</h3><p>Sin estrés. Gestionamos la documentación para que tu carga pase sin problemas.</p></div>
+    <div class="sc-card"><span class="sc-em">📱</span><h3>Rastreo en Vivo</h3><p>Sigue tu paquete en tiempo real. Notificaciones automáticas en cada paso.</p></div>
+  </div>
+</section>
+
+<section id="nosotros" class="section bg-dark">
+  <div class="sh dark">
+    <div class="label label-white">Por Qué Nosotros</div>
+    <h2>Números que Hablan</h2>
+    <p>Más de una década entregando resultados.</p>
+  </div>
+  <div class="nums">
+    <div class="num-item"><div class="num-val">10+</div><div class="num-lbl">Años de Experiencia</div></div>
+    <div class="num-item"><div class="num-val">5K+</div><div class="num-lbl">Envíos Realizados</div></div>
+    <div class="num-item"><div class="num-val">48h</div><div class="num-lbl">Entrega Express</div></div>
+    <div class="num-item"><div class="num-val">100%</div><div class="num-lbl">Compromiso</div></div>
+  </div>
+</section>
+
+<section id="cobertura" class="section bg-light">
+  <div class="sh">
+    <div class="label label-blue">Cobertura</div>
+    <h2>Llegamos a Todo Venezuela</h2>
+    <p>Nuestra red llega a las principales ciudades del país con entrega puerta a puerta.</p>
+  </div>
+  <div class="cities-wrap">
+    <div class="ct">🏙️ Caracas</div>
+    <div class="ct">🏙️ Maracaibo</div>
+    <div class="ct">🏙️ Valencia</div>
+    <div class="ct">🏙️ Barquisimeto</div>
+    <div class="ct">🏙️ Maracay</div>
+    <div class="ct">🏙️ Ciudad Guayana</div>
+    <div class="ct">🏙️ Barcelona</div>
+    <div class="ct">🏙️ Maturín</div>
+    <div class="ct">🏙️ Cumaná</div>
+    <div class="ct">🏙️ Mérida</div>
+    <div class="ct">🏙️ San Cristóbal</div>
+    <div class="ct">🌎 Y más ciudades</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-block">
+    <h2>¿Tienes algo que enviar hoy?</h2>
+    <p>Cotización gratis en menos de 5 minutos. Sin letra pequeña. Sin sorpresas.</p>
+    <a href="https://wa.me/17134567890">💬 Hablar con un Agente Ahora</a>
+  </div>
+</section>
+
+<section id="contacto" class="section bg-light">
+  <div class="sh">
+    <div class="label label-blue">Contacto</div>
+    <h2>Siempre Disponibles</h2>
+    <p>Contáctanos por el canal que prefieras.</p>
+  </div>
+  <div class="contact-row">
+    <div class="cr"><div class="cr-ic">📱</div><h4>WhatsApp</h4><p>(713) 456-7890</p></div>
+    <div class="cr"><div class="cr-ic">📧</div><h4>Email</h4><p>info@fastcargoservices.com</p></div>
+    <div class="cr"><div class="cr-ic">📍</div><h4>Houston, Texas</h4><p>Servicio desde USA</p></div>
+  </div>
+</section>
+
+<footer>© 2025 Fast Cargo Services LLC · Houston, Texas · Todos los derechos reservados</footer>
+
+</body>
+</html>
