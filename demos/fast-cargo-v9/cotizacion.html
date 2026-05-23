@@ -15,11 +15,11 @@
       display: flex;
     }
 
-    /* SIDEBAR */
+    /* SIDEBAR — Fast Cargo navy */
     .sidebar {
-      width: 220px;
-      min-width: 220px;
-      background: #1a3a2a;
+      width: 200px;
+      min-width: 200px;
+      background: #001845;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -29,8 +29,8 @@
     }
 
     .sidebar-logo {
-      color: #fff;
-      font-size: 11px;
+      color: #FFD100;
+      font-size: 10px;
       font-weight: 800;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -44,94 +44,93 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
       width: 100%;
     }
 
     .sidebar-nav a {
-      color: rgba(255,255,255,0.5);
-      font-size: 10px;
+      color: rgba(255,255,255,0.45);
+      font-size: 9px;
       font-weight: 700;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       text-decoration: none;
       writing-mode: vertical-rl;
       transform: rotate(180deg);
-      padding: 20px 0;
+      padding: 22px 0;
       transition: color 0.2s;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255,255,255,0.08);
       width: 100%;
       text-align: center;
     }
-
-    .sidebar-nav a:hover { color: #fff; }
+    .sidebar-nav a:hover { color: #FFD100; }
     .sidebar-nav a.active {
       color: #fff;
-      background: rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.05);
+      border-left: 2px solid #FFD100;
     }
 
     .lang-bar {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
-      margin-bottom: 24px;
+      gap: 2px;
+      margin-bottom: 28px;
     }
     .lang-bar button {
       background: none;
       border: none;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.35);
       font-size: 10px;
       font-weight: 800;
       letter-spacing: 1.5px;
       cursor: pointer;
-      padding: 6px;
+      padding: 6px 10px;
       font-family: 'Inter', sans-serif;
       transition: color 0.2s;
     }
-    .lang-bar button.active { color: #fff; }
+    .lang-bar button.active { color: #FFD100; }
 
+    /* WHATSAPP FLOAT */
     .whatsapp-float {
       position: fixed;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
-      background: #1a3a2a;
-      color: #fff;
+      background: #001845;
+      color: #FFD100;
       writing-mode: vertical-rl;
       font-size: 9px;
       font-weight: 800;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      padding: 18px 10px;
+      padding: 20px 10px;
       text-decoration: none;
-      cursor: pointer;
       border-radius: 8px 0 0 8px;
       transition: background 0.2s;
     }
-    .whatsapp-float:hover { background: #25D366; }
+    .whatsapp-float:hover { background: #003087; }
 
     /* MAIN */
     .main {
-      margin-left: 220px;
+      margin-left: 200px;
       flex: 1;
-      padding: 80px 80px 80px 80px;
-      max-width: 900px;
+      padding: 80px 90px;
+      max-width: 960px;
     }
 
-    .page-title {
+    .page-eyebrow {
       font-size: 9px;
       font-weight: 800;
       letter-spacing: 5px;
       text-transform: uppercase;
-      color: #1a3a2a;
+      color: #001845;
       margin-bottom: 8px;
     }
-    .page-title-line {
-      width: 30px;
+    .eyebrow-line {
+      width: 28px;
       height: 2px;
-      background: #1a3a2a;
-      margin-bottom: 60px;
+      background: #FFD100;
+      margin-bottom: 56px;
     }
 
     h1 {
@@ -145,8 +144,7 @@
 
     /* FORM */
     .form-field {
-      margin-bottom: 40px;
-      position: relative;
+      margin-bottom: 44px;
     }
 
     .form-field label {
@@ -155,8 +153,8 @@
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #999;
-      margin-bottom: 12px;
+      color: #888;
+      margin-bottom: 14px;
     }
 
     .form-field input,
@@ -165,22 +163,22 @@
       width: 100%;
       background: none;
       border: none;
-      border-bottom: 1px solid #ccc;
-      padding: 8px 0 12px 0;
-      font-size: 14px;
+      border-bottom: 1px solid #bbb;
+      padding: 6px 0 14px 0;
+      font-size: 15px;
       font-family: 'Inter', sans-serif;
       color: #1a1a1a;
       outline: none;
       transition: border-color 0.2s;
-      -webkit-appearance: none;
       appearance: none;
+      -webkit-appearance: none;
       border-radius: 0;
     }
 
     .form-field input:focus,
     .form-field select:focus,
     .form-field textarea:focus {
-      border-bottom-color: #1a3a2a;
+      border-bottom-color: #003087;
     }
 
     .form-field select {
@@ -188,28 +186,38 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 4px center;
-      padding-right: 20px;
+      padding-right: 24px;
     }
 
     .form-field textarea {
       resize: none;
-      min-height: 80px;
+      min-height: 72px;
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0 60px;
+      gap: 0 80px;
     }
 
+    /* ATTACH */
+    .attach-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 14px;
+      display: block;
+    }
     .attach-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: none;
       border: 1px solid #ccc;
-      color: #666;
-      font-size: 10px;
+      color: #555;
+      font-size: 9px;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -217,77 +225,61 @@
       cursor: pointer;
       font-family: 'Inter', sans-serif;
       transition: border-color 0.2s, color 0.2s;
-      margin-top: 8px;
     }
-    .attach-btn:hover { border-color: #1a3a2a; color: #1a3a2a; }
+    .attach-btn:hover { border-color: #003087; color: #003087; }
 
-    .attach-label {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 12px;
-      display: block;
-    }
-
+    /* SUBMIT */
     .submit-row {
-      margin-top: 60px;
+      margin-top: 64px;
       display: flex;
       align-items: center;
-      gap: 40px;
+      gap: 36px;
     }
 
     .submit-btn {
-      background: #1a3a2a;
+      background: #001845;
       color: #fff;
       border: none;
-      padding: 16px 40px;
-      font-size: 10px;
+      padding: 16px 44px;
+      font-size: 9px;
       font-weight: 800;
       letter-spacing: 3px;
       text-transform: uppercase;
       cursor: pointer;
       font-family: 'Inter', sans-serif;
       transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
     }
-    .submit-btn:hover { background: #0f2218; }
+    .submit-btn:hover { background: #003087; }
 
     .back-link {
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #999;
+      color: #aaa;
       text-decoration: none;
       transition: color 0.2s;
     }
-    .back-link:hover { color: #1a3a2a; }
+    .back-link:hover { color: #001845; }
 
     /* SUCCESS */
-    .success-box {
-      display: none;
-      padding: 80px 0;
-    }
+    .success-box { display: none; padding: 60px 0; }
     .success-box h2 {
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 5px;
       text-transform: uppercase;
-      color: #1a3a2a;
+      color: #001845;
       margin-bottom: 20px;
     }
-    .success-box p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.8;
-      margin-bottom: 40px;
-    }
+    .success-box p { font-size: 14px; color: #666; line-height: 1.8; margin-bottom: 36px; }
 
     @media(max-width: 768px) {
       .sidebar { display: none; }
       .main { margin-left: 0; padding: 40px 24px; }
-      .form-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; gap: 0; }
       .whatsapp-float { display: none; }
     }
   </style>
@@ -298,10 +290,10 @@
   <aside class="sidebar">
     <div class="sidebar-logo">Fast Cargo Services</div>
     <nav class="sidebar-nav">
-      <a href="index.html">Servicios</a>
-      <a href="index.html#nosotros">Nosotros</a>
-      <a href="index.html#cobertura">Oficinas</a>
-      <a href="cotizacion.html" class="active">Contacto</a>
+      <a href="index.html" data-key="nav-clientes">Clientes</a>
+      <a href="index.html#servicios" data-key="nav-noticias">Noticias</a>
+      <a href="index.html#cobertura" data-key="nav-oficinas">Oficinas</a>
+      <a href="cotizacion.html" class="active" data-key="nav-contacto">Contacto</a>
     </nav>
     <div class="lang-bar">
       <button class="lang-btn active" data-lang="es">ES</button>
@@ -310,14 +302,13 @@
   </aside>
 
   <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/18323501270" class="whatsapp-float" target="_blank">WhatsApp</a>
+  <a href="https://wa.me/18323501270" class="whatsapp-float" target="_blank" data-key="wa-label">WhatsApp</a>
 
   <!-- MAIN -->
   <main class="main">
-    <p class="page-title" data-key="page-eyebrow">Contacto</p>
-    <div class="page-title-line"></div>
-
-    <h1 data-key="page-title">Solicitud de Cotización</h1>
+    <p class="page-eyebrow" data-key="page-eyebrow">Contacto</p>
+    <div class="eyebrow-line"></div>
+    <h1 data-key="page-title">Solicitud &nbsp;de &nbsp;Cotización</h1>
 
     <form id="quote-form" onsubmit="submitQuote(event)">
 
@@ -347,7 +338,7 @@
         <div class="form-field">
           <label data-key="f-tipo">Tipo de Servicio / Producto</label>
           <select name="tipo">
-            <option value="" data-key="f-select">Seleccionar...</option>
+            <option value="" data-key="f-sel">Seleccionar...</option>
             <option value="FCL">Contenedor Completo (FCL)</option>
             <option value="LCL">Carga Consolidada (LCL)</option>
             <option value="Documental">Gestión Documental</option>
@@ -357,7 +348,7 @@
         <div class="form-field">
           <label data-key="f-origen">Origen de la Carga</label>
           <select name="origen">
-            <option value="" data-key="f-select2">Seleccionar...</option>
+            <option value="">Seleccionar...</option>
             <option value="China">China</option>
             <option value="USA">Estados Unidos</option>
             <option value="Ambos">Ambos</option>
@@ -373,23 +364,23 @@
       <div class="form-field">
         <span class="attach-label" data-key="f-archivos">Archivos / Planos Técnicos (Máx. 5)</span>
         <button type="button" class="attach-btn" onclick="document.getElementById('file-input').click()">
-          📎 <span data-key="f-adjuntar">Adjuntar archivos</span>
+          &#128206; <span data-key="f-adjuntar">Adjuntar archivos</span>
         </button>
         <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style="display:none" onchange="showFiles(this)"/>
-        <div id="file-list" style="margin-top:8px;font-size:11px;color:#666;"></div>
+        <div id="file-list" style="margin-top:10px;font-size:11px;color:#666;letter-spacing:1px;"></div>
       </div>
 
       <div class="submit-row">
         <button type="submit" class="submit-btn" data-key="f-enviar">Enviar Consulta</button>
-        <a href="index.html" class="back-link" data-key="f-back">← Volver al sitio</a>
+        <a href="index.html" class="back-link" data-key="f-back">&#8592; Volver al sitio</a>
       </div>
 
     </form>
 
     <div class="success-box" id="success-box">
       <h2 data-key="s-title">Consulta Enviada</h2>
-      <p data-key="s-desc">Un agente de Fast Cargo Services le contactará en menos de 24 horas.<br/>Abriendo WhatsApp con su información...</p>
-      <a href="index.html" class="submit-btn" style="text-decoration:none;display:inline-block;" data-key="s-back">← Volver al sitio</a>
+      <p data-key="s-desc">Un agente le contactará en menos de 24 horas.<br/>Abriendo WhatsApp con su información...</p>
+      <a href="index.html" class="submit-btn" data-key="s-back">&#8592; Volver al sitio</a>
     </div>
   </main>
 
@@ -397,7 +388,12 @@
     var T = {
       "es": {
         "page-eyebrow": "Contacto",
-        "page-title": "Solicitud de Cotización",
+        "page-title": "Solicitud &nbsp;de &nbsp;Cotización",
+        "nav-clientes": "Clientes",
+        "nav-noticias": "Noticias",
+        "nav-oficinas": "Oficinas",
+        "nav-contacto": "Contacto",
+        "wa-label": "WhatsApp",
         "f-nombre": "Nombre Completo",
         "f-empresa": "Empresa / Organización",
         "f-email": "Correo Electrónico",
@@ -408,14 +404,19 @@
         "f-archivos": "Archivos / Planos Técnicos (Máx. 5)",
         "f-adjuntar": "Adjuntar archivos",
         "f-enviar": "Enviar Consulta",
-        "f-back": "← Volver al sitio",
+        "f-back": "&#8592; Volver al sitio",
         "s-title": "Consulta Enviada",
-        "s-desc": "Un agente de Fast Cargo Services le contactará en menos de 24 horas.",
-        "s-back": "← Volver al sitio"
+        "s-desc": "Un agente le contactará en menos de 24 horas.",
+        "s-back": "&#8592; Volver al sitio"
       },
       "en": {
         "page-eyebrow": "Contact",
-        "page-title": "Request a Quote",
+        "page-title": "Request &nbsp;a &nbsp;Quote",
+        "nav-clientes": "Clients",
+        "nav-noticias": "News",
+        "nav-oficinas": "Offices",
+        "nav-contacto": "Contact",
+        "wa-label": "WhatsApp",
         "f-nombre": "Full Name",
         "f-empresa": "Company / Organization",
         "f-email": "Email Address",
@@ -426,10 +427,10 @@
         "f-archivos": "Files / Technical Drawings (Max. 5)",
         "f-adjuntar": "Attach files",
         "f-enviar": "Send Inquiry",
-        "f-back": "← Back to site",
+        "f-back": "&#8592; Back to site",
         "s-title": "Inquiry Sent",
-        "s-desc": "A Fast Cargo Services agent will contact you within 24 hours.",
-        "s-back": "← Back to site"
+        "s-desc": "An agent will contact you within 24 hours.",
+        "s-back": "&#8592; Back to site"
       }
     };
 
@@ -459,7 +460,7 @@
       var list = document.getElementById('file-list');
       var names = [];
       for (var i = 0; i < Math.min(input.files.length, 5); i++) {
-        names.push('📄 ' + input.files[i].name);
+        names.push('&#128196; ' + input.files[i].name);
       }
       list.innerHTML = names.join('<br/>');
     }
