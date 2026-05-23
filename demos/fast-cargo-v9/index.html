@@ -223,7 +223,16 @@
     }
 
     /* Scroll nav effect */
-  </style>
+          .sv-item { position: relative; overflow: hidden; }
+    .sv-item::before { content: ""; position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.2; z-index: 0; }
+    .sv-item > * { position: relative; z-index: 1; }
+    .sv-item-1::before { background-image: url("https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/1912d282a_imessage_media_2d9fc2b02853.jpg"); }
+    .sv-item-2::before { background-image: url("https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/a9b647074_imessage_media_a1a8e20e8ee6.jpg"); }
+    .sv-item-3::before { background-image: url("https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/f82f9ad77_generated_image.png"); }
+    .sv-item-4::before { background-image: url("https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/52c1e860a_imessage_media_b52522926b49.jpg"); }
+    .sv-item-5::before { background-image: url("https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/cde2a7272_generated_image.png"); }
+    .sv-item-6::before { background-image: url("https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/5f543b41e_generated_image.png"); }
+    </style>
 </head>
 <body>
 
@@ -306,40 +315,34 @@
     <p data-key="sv-sub">En el ámbito logístico y de comercio exterior, una carga comercial se refiere a cualquier mercancía, producto o conjunto de bienes que son transportados con el objetivo principal de ser vendidos, comercializados o distribuidos en un mercado, ya sea nacional o internacional. Es el concepto opuesto a efectos personales, muestras sin valor comercial o equipaje — su naturaleza está vinculada directamente a una transacción económica.</p>
   </div>
   <div class="sv-grid">
-    <div class="sv-item">
+    <div class="sv-item sv-item-1">
       <div class="sv-num">01</div>
-      <div class="sv-icon">✈️</div>
-      <h3 data-key="sv1-title">Carga Marítima Comercial</h3>
+            <h3 data-key="sv1-title">Carga Marítima Comercial</h3>
       <p data-key="sv1-desc">Importación de contenedores completos (FCL) y carga consolidada (LCL) desde puertos de China y Estados Unidos hacia Venezuela.</p>
     </div>
-    <div class="sv-item">
+    <div class="sv-item sv-item-2">
       <div class="sv-num">02</div>
-      <div class="sv-icon">🚢</div>
-      <h3 data-key="sv2-title">Gestión Aduanal Completa</h3>
+            <h3 data-key="sv2-title">Gestión Aduanal Completa</h3>
       <p data-key="sv2-desc">Manejamos toda la documentación, trámites aduanales y procesos de nacionalización. Su carga llega sin demoras ni complicaciones.</p>
     </div>
-    <div class="sv-item">
+    <div class="sv-item sv-item-3">
       <div class="sv-num">03</div>
-      <div class="sv-icon">🏠</div>
-      <h3 data-key="sv3-title">Consolidación de Carga</h3>
+            <h3 data-key="sv3-title">Consolidación de Carga</h3>
       <p data-key="sv3-desc">Optimizamos sus envíos consolidando carga de múltiples proveedores en un solo contenedor para reducir costos de importación.</p>
     </div>
-    <div class="sv-item">
+    <div class="sv-item sv-item-4">
       <div class="sv-num">04</div>
-      <div class="sv-icon">🛒</div>
-      <h3 data-key="sv4-title">Gestión Documental</h3>
+            <h3 data-key="sv4-title">Gestión Documental</h3>
       <p data-key="sv4-desc">Bill of Lading, certificados de origen, facturas comerciales, permisos y toda la documentación requerida para importaciones a Venezuela.</p>
     </div>
-    <div class="sv-item">
+    <div class="sv-item sv-item-5">
       <div class="sv-num">05</div>
-      <div class="sv-icon">📋</div>
-      <h3 data-key="sv5-title">Rastreo en Tiempo Real</h3>
+            <h3 data-key="sv5-title">Rastreo en Tiempo Real</h3>
       <p data-key="sv5-desc">Seguimiento detallado de su carga en cada etapa — desde la salida del proveedor hasta la llegada al puerto venezolano.</p>
     </div>
-    <div class="sv-item">
+    <div class="sv-item sv-item-6">
       <div class="sv-num">06</div>
-      <div class="sv-icon">📍</div>
-      <h3 data-key="sv6-title">Asesoría Logística</h3>
+            <h3 data-key="sv6-title">Asesoría Logística</h3>
       <p data-key="sv6-desc">Analizamos sus operaciones de importación y diseñamos la estrategia logística más eficiente y económica para su empresa.</p>
     </div>
   </div>
