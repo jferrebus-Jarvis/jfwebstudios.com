@@ -41,7 +41,7 @@
     .hero {
       padding: 60px 5%;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 30px;
       min-height: 88vh;
       align-items: center;
@@ -73,7 +73,7 @@
     .hcard-big h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.2rem; color: #fff; margin-bottom: 5px; }
     .hcard-big p { font-size: 0.85rem; color: rgba(255,255,255,0.8); }
     .hcard-big .price { background: #fff; color: var(--red); font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem; border-radius: 50px; padding: 4px 16px; margin-top: 10px; display: inline-block; }
-    .hcards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .hcards-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
     .hcard-sm { background: rgba(255,255,255,0.10); backdrop-filter: blur(8px); border: 2px solid rgba(255,255,255,0.22); border-radius: 20px; overflow: hidden; position: relative; min-height: 160px; }
     .hcard-sm-img { position: absolute; inset: 0; background-size: cover; background-position: center; }
     .hcard-sm-overlay { position: absolute; inset: 0; background: rgba(26,26,26,0.50); border-radius: 18px; }
@@ -109,7 +109,7 @@
     .courses-header p { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 550px; margin: 0 auto; line-height: 1.7; }
 
     /* ABOUT */
-    .about { padding: 70px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; background: #fff; }
+    .about { padding: 70px 5%; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 50px; align-items: center; background: #fff; }
 
     /* REVIEWS */
     .reviews { padding: 65px 5%; background: var(--purple-light); border-top: 3px solid var(--dark); }
@@ -142,7 +142,7 @@
       nav ul { display: none; }
       .about { grid-template-columns: 1fr; }
       .revgrid { grid-template-columns: 1fr; }
-      footer { grid-template-columns: 1fr 1fr; }
+      footer { grid-template-columns: 1fr 1fr 1fr; }
     }
   </style>
 </head>
@@ -198,7 +198,7 @@
       </div>
       <div class="hcards-row">
         <div class="hcard-sm">
-          <div class="hcard-sm-img" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/168AB4C1-D6D4-4B40-8AD6-FF64D7C8292C.png?width=400');"></div>
+          <div class="hcard-sm-img" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/168AB4C1-D6D4-4B40-8AD6-FF64D7C8292C.png?width=400'); background-size:contain; background-position:center; background-color:#2a1a1a; background-repeat:no-repeat;"></div>
           <div class="hcard-sm-overlay"></div>
           <div class="hcard-sm-content">
             <h4 data-en="Mini Cheesecakes" data-es="Mini Cheesecakes">Mini Cheesecakes</h4>
@@ -211,6 +211,14 @@
           <div class="hcard-sm-content">
             <h4 data-en="Brigadeiros" data-es="Brigadeiros">Brigadeiros</h4>
             <div class="p" data-en="12 un. · $35" data-es="12 un. · $35">12 un. · $35</div>
+          </div>
+        </div>
+        <div class="hcard-sm">
+          <div class="hcard-sm-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0734/5540/3044/files/DA0F997F-057B-4C22-A579-91250812C603.jpg?v=1768019552&width=400'); background-size:cover; background-position:center;"></div>
+          <div class="hcard-sm-overlay"></div>
+          <div class="hcard-sm-content">
+            <h4 data-en="Cakes" data-es="Pasteles">Cakes</h4>
+            <div class="p" data-en="From $45" data-es="Desde $45">From $45</div>
           </div>
         </div>
       </div>
