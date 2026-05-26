@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TRESNA, C.A. — Soluciones Industriales</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--y:#F5C300;--y2:#D4A900;--blk:#0a0a0a;--blk2:#111;--blk3:#181818}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--blk);color:#fff;overflow-x:hidden}
+
+/* TOP BAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:300;background:var(--y);display:flex;justify-content:space-between;align-items:center;padding:8px 48px}
+.topbar-left{display:flex;gap:24px}
+.topbar-item{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#000}
+.lang-btns{display:flex;gap:2px}
+.lang-btn{font-size:10px;font-weight:800;letter-spacing:1.5px;color:rgba(0,0,0,0.5);background:none;border:none;cursor:pointer;text-transform:uppercase;padding:4px 10px;border-radius:2px;transition:all 0.2s}
+.lang-btn.active{color:#000;background:rgba(0,0,0,0.15)}
+
+/* NAV */
+nav{position:fixed;top:34px;left:0;right:0;z-index:299;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;transition:background 0.3s}
+nav.scrolled{background:rgba(10,10,10,0.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-logo{height:52px;width:auto}
+nav ul{list-style:none;display:flex;gap:32px}
+nav ul a{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+nav ul a:hover{color:var(--y)}
+.nav-cta{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:transparent;color:var(--y);border:2px solid var(--y);padding:10px 24px;text-decoration:none;transition:all 0.2s}
+.nav-cta:hover{background:var(--y);color:#000}
+
+/* HERO - Full screen split */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:160px 60px 80px;background:var(--blk);position:relative;z-index:2}
+.hero-left::after{content:'';position:absolute;right:-1px;top:0;bottom:0;width:2px;background:var(--y)}
+.hero-tag{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--y);margin-bottom:28px}
+.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,8vw,120px);line-height:0.9;color:#fff;letter-spacing:2px;margin-bottom:32px}
+.hero-h1 em{color:var(--y);font-style:normal}
+.hero-sub{font-size:15px;font-weight:400;color:rgba(255,255,255,0.55);line-height:1.7;max-width:420px;margin-bottom:48px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-y{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:var(--y);color:#000;padding:14px 32px;text-decoration:none;transition:all 0.2s}
+.btn-y:hover{background:var(--y2)}
+.btn-out{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.25);padding:14px 32px;text-decoration:none;transition:all 0.2s}
+.btn-out:hover{border-color:#fff}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;filter:brightness(0.6) contrast(1.1)}
+.hero-stats{position:absolute;bottom:0;left:0;right:0;display:flex;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px)}
+.hs{flex:1;padding:20px 24px;border-right:1px solid rgba(255,255,255,0.08);text-align:center}
+.hs:last-child{border-right:none}
+.hs-val{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--y);letter-spacing:2px}
+.hs-lbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:2px}
+
+/* SECTION COMMONS */
+section{padding:100px 48px}
+.sec-tag{font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--y);margin-bottom:16px}
+.sec-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5vw,72px);letter-spacing:2px;line-height:1;margin-bottom:48px;color:#fff}
+.sec-h2 em{color:var(--y);font-style:normal}
+
+/* ABOUT */
+.about{background:var(--blk2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-left p{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:20px}
+.about-right{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.ab-stat{background:var(--blk3);padding:36px 28px}
+.ab-stat:nth-child(2){background:var(--y)}
+.ab-stat:nth-child(2) .ab-val,.ab-stat:nth-child(2) .ab-label{color:#000}
+.ab-val{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--y);letter-spacing:2px;line-height:1}
+.ab-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:8px}
+
+/* SECTORS */
+.sectors{background:var(--blk)}
+.sec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.sec-card{position:relative;height:320px;overflow:hidden;cursor:pointer}
+.sec-card img{width:100%;height:100%;object-fit:cover;filter:brightness(0.4);transition:transform 0.5s,filter 0.5s}
+.sec-card:hover img{transform:scale(1.08);filter:brightness(0.25)}
+.sec-overlay{position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:flex-end}
+.sec-num{font-family:'Bebas Neue',sans-serif;font-size:64px;color:rgba(255,255,255,0.08);line-height:1;margin-bottom:auto}
+.sec-icon{font-size:28px;margin-bottom:12px}
+.sec-name{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:#fff}
+.sec-card:hover .sec-name{color:var(--y)}
+
+/* PRODUCTS */
+.products{background:var(--blk2)}
+.prod-scroll{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.prod-card{background:var(--blk3);padding:40px 32px;border-top:3px solid transparent;transition:border-color 0.3s}
+.prod-card:hover{border-color:var(--y)}
+.prod-brand{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--y);margin-bottom:16px}
+.prod-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:#fff;margin-bottom:12px}
+.prod-desc{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7}
+.prod-icon{font-size:32px;margin-bottom:20px}
+
+/* SERVICES */
+.services{background:var(--blk)}
+.sv-list{display:flex;flex-direction:column;gap:2px}
+.sv-row{display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:32px;padding:28px 36px;background:var(--blk2);transition:background 0.2s;cursor:default}
+.sv-row:hover{background:var(--blk3)}
+.sv-row:hover .sv-arrow{color:var(--y)}
+.sv-n{font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(255,255,255,0.08);letter-spacing:2px}
+.sv-info h3{font-size:18px;font-weight:600;color:#fff;margin-bottom:6px}
+.sv-info p{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6}
+.sv-arrow{font-size:24px;color:rgba(255,255,255,0.15);transition:color 0.2s}
+
+/* QUALITY */
+.quality{background:var(--y);padding:100px 48px}
+.quality .sec-tag{color:#000}
+.quality .sec-h2{color:#000}
+.q-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.q-items{display:flex;flex-direction:column;gap:24px}
+.q-item{display:flex;gap:20px;align-items:flex-start}
+.q-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:rgba(0,0,0,0.2);line-height:1;min-width:44px}
+.q-item h4{font-size:14px;font-weight:700;color:#000;margin-bottom:6px}
+.q-item p{font-size:13px;color:rgba(0,0,0,0.6);line-height:1.6}
+.q-right{background:#000;padding:48px 40px}
+.q-right h3{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;color:#fff;margin-bottom:24px}
+.q-right p{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:16px}
+.q-badges{display:flex;gap:16px;margin-top:32px;flex-wrap:wrap}
+.q-badge{background:rgba(255,255,255,0.06);padding:16px 24px;text-align:center}
+.q-badge .val{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--y);letter-spacing:2px}
+.q-badge .lbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:4px}
+
+/* QUOTE */
+.quote{background:var(--blk);padding:0}
+.quote-inner{display:grid;grid-template-columns:1fr 1fr}
+.quote-left{background:var(--blk2);padding:100px 60px;display:flex;flex-direction:column;justify-content:center}
+.quote-left .sec-tag{margin-bottom:16px}
+.quote-left h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,5vw,72px);color:#fff;letter-spacing:2px;line-height:1;margin-bottom:24px}
+.quote-left h2 em{color:var(--y);font-style:normal}
+.quote-left p{font-size:15px;color:rgba(255,255,255,0.5);line-height:1.8;margin-bottom:40px}
+.contact-pills{display:flex;flex-direction:column;gap:16px}
+.cpill{display:flex;align-items:center;gap:16px;padding:20px 24px;background:var(--blk3)}
+.cpill-icon{font-size:20px}
+.cpill-text h5{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:4px}
+.cpill-text p,.cpill-text a{font-size:14px;color:#fff;text-decoration:none}
+.quote-right{background:var(--blk3);padding:100px 60px}
+.quote-right h3{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:1px;color:#fff;margin-bottom:36px}
+.fg{margin-bottom:20px}
+.fg label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:#fff;padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--y)}
+.fg textarea{height:100px;resize:none}
+.fg select option{background:#111;color:#fff}
+.fsub{width:100%;background:var(--y);color:#000;border:none;padding:16px;font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:background 0.2s;margin-top:8px}
+.fsub:hover{background:var(--y2)}
+
+/* FOOTER */
+footer{background:#000;border-top:2px solid var(--y);padding:40px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-left{display:flex;align-items:center;gap:20px}
+.footer-left p{font-size:12px;color:rgba(255,255,255,0.3)}
+.footer-right{display:flex;gap:28px}
+.footer-right a{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s}
+.footer-right a:hover{color:var(--y)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:140px 24px 60px}
+  .about-grid,.q-grid,.quote-inner,.sec-grid,.prod-scroll{grid-template-columns:1fr}
+  section{padding:72px 24px}
+  nav ul{display:none}
+  nav{padding:14px 24px}
+  .topbar{padding:8px 24px}
+  .sv-row{grid-template-columns:60px 1fr}
+  .sv-arrow{display:none}
+  footer{padding:28px 24px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-item">RIF: <span>J-29544280-0</span></span>
+    <span class="topbar-item">Maracaibo, Venezuela</span>
+    <span class="topbar-item">TEL: <span>0414-621-7473</span></span>
+  </div>
+  <div class="lang-btns">
+    <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/63a4dd25e_image.png" alt="TRESNA" class="nav-logo"/>
+  <ul>
+    <li><a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a></li>
+    <li><a href="#sectores" data-es="Sectores" data-en="Sectors">Sectores</a></li>
+    <li><a href="#productos" data-es="Productos" data-en="Products">Productos</a></li>
+    <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
+    <li><a href="#calidad" data-es="Calidad" data-en="Quality">Calidad</a></li>
+    <li><a href="#cotizacion" data-es="Cotización" data-en="Quote">Cotización</a></li>
+  </ul>
+  <a href="#cotizacion" class="nav-cta" data-es="Solicitar Cotización" data-en="Request Quote">Solicitar Cotización</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag" data-es="— Soluciones Industriales desde 2009" data-en="— Industrial Solutions since 2009">— Soluciones Industriales desde 2009</div>
+    <h1 class="hero-h1" data-es="TRESNA,<br><em>POTENCIA</em><br>INDUSTRIAL." data-en="TRESNA,<br><em>INDUSTRIAL</em><br>POWER.">TRESNA,<br><em>POTENCIA</em><br>INDUSTRIAL.</h1>
+    <p class="hero-sub" data-es="15 años de experiencia en suministros y servicios para la industria petrolera, petroquímica, minera y eléctrica." data-en="15 years of experience in supplies and services for the oil, petrochemical, mining and electrical industries.">15 años de experiencia en suministros y servicios para la industria petrolera, petroquímica, minera y eléctrica.</p>
+    <div class="hero-btns">
+      <a href="#cotizacion" class="btn-y" data-es="Solicitar Cotización" data-en="Get a Quote">Solicitar Cotización</a>
+      <a href="#productos" class="btn-out" data-es="Ver Productos" data-en="View Products">Ver Productos</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=80" alt="Industrial"/>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-val">15+</div><div class="hs-lbl" data-es="Años" data-en="Years">Años</div></div>
+      <div class="hs"><div class="hs-val">500+</div><div class="hs-lbl" data-es="Proyectos" data-en="Projects">Proyectos</div></div>
+      <div class="hs"><div class="hs-val">4</div><div class="hs-lbl" data-es="Sectores" data-en="Sectors">Sectores</div></div>
+      <div class="hs"><div class="hs-val">24/7</div><div class="hs-lbl" data-es="Soporte" data-en="Support">Soporte</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="sec-tag" data-es="— Quiénes Somos" data-en="— Who We Are">— Quiénes Somos</div>
+      <h2 class="sec-h2" data-es="15 AÑOS DE <em>EXPERIENCIA</em>" data-en="15 YEARS OF <em>EXPERIENCE</em>">15 AÑOS DE <em>EXPERIENCIA</em></h2>
+      <p data-es="TRESNA, C.A. es una empresa venezolana con 15 años de trayectoria en el sector industrial, especializada en el suministro de repuestos y la prestación de servicios para maquinarias y equipos de uso industrial." data-en="TRESNA, C.A. is a Venezuelan company with 15 years of experience in the industrial sector, specialized in the supply of spare parts and the provision of services for machinery and industrial equipment.">TRESNA, C.A. es una empresa venezolana con 15 años de trayectoria en el sector industrial, especializada en el suministro de repuestos y la prestación de servicios para maquinarias y equipos de uso industrial.</p>
+      <p data-es="Atendemos a los sectores petrolero, petroquímico, minero y eléctrico con personal altamente calificado y comprometido con la excelencia operacional." data-en="We serve the oil, petrochemical, mining and electrical sectors with highly qualified personnel committed to operational excellence.">Atendemos a los sectores petrolero, petroquímico, minero y eléctrico con personal altamente calificado y comprometido con la excelencia operacional.</p>
+    </div>
+    <div class="about-right">
+      <div class="ab-stat"><div class="ab-val">15+</div><div class="ab-label" data-es="Años en el Mercado" data-en="Years in Market">Años en el Mercado</div></div>
+      <div class="ab-stat"><div class="ab-val">500+</div><div class="ab-label" data-es="Proyectos Completados" data-en="Completed Projects">Proyectos Completados</div></div>
+      <div class="ab-stat"><div class="ab-val">100%</div><div class="ab-label" data-es="Garantía de Calidad" data-en="Quality Guarantee">Garantía de Calidad</div></div>
+      <div class="ab-stat"><div class="ab-val">24/7</div><div class="ab-label" data-es="Disponibilidad" data-en="Availability">Disponibilidad</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="sectors" id="sectores">
+  <div class="sec-tag" data-es="— Nuestros Sectores" data-en="— Our Sectors">— Nuestros Sectores</div>
+  <h2 class="sec-h2" data-es="INDUSTRIAS QUE <em>SERVIMOS</em>" data-en="INDUSTRIES WE <em>SERVE</em>">INDUSTRIAS QUE <em>SERVIMOS</em></h2>
+  <div class="sec-grid">
+    <div class="sec-card">
+      <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&q=70" alt="Petrolero"/>
+      <div class="sec-overlay">
+        <div class="sec-num">01</div>
+        <div class="sec-icon">🛢️</div>
+        <div class="sec-name" data-es="Sector Petrolero" data-en="Oil Sector">Sector Petrolero</div>
+      </div>
+    </div>
+    <div class="sec-card">
+      <img src="https://images.unsplash.com/photo-1534951009808-766178b47a4f?w=600&q=70" alt="Petroquímico"/>
+      <div class="sec-overlay">
+        <div class="sec-num">02</div>
+        <div class="sec-icon">⚗️</div>
+        <div class="sec-name" data-es="Petroquímica" data-en="Petrochemical">Petroquímica</div>
+      </div>
+    </div>
+    <div class="sec-card">
+      <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=70" alt="Minero"/>
+      <div class="sec-overlay">
+        <div class="sec-num">03</div>
+        <div class="sec-icon">⛏️</div>
+        <div class="sec-name" data-es="Sector Minero" data-en="Mining Sector">Sector Minero</div>
+      </div>
+    </div>
+    <div class="sec-card">
+      <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=70" alt="Eléctrico"/>
+      <div class="sec-overlay">
+        <div class="sec-num">04</div>
+        <div class="sec-icon">⚡</div>
+        <div class="sec-name" data-es="Sector Eléctrico" data-en="Electrical Sector">Sector Eléctrico</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="productos">
+  <div class="sec-tag" data-es="— Catálogo de Productos" data-en="— Product Catalog">— Catálogo de Productos</div>
+  <h2 class="sec-h2" data-es="REPUESTOS Y <em>EQUIPOS</em>" data-en="SPARE PARTS & <em>EQUIPMENT</em>">REPUESTOS Y <em>EQUIPOS</em></h2>
+  <div class="prod-scroll">
+    <div class="prod-card"><div class="prod-icon">🔩</div><div class="prod-brand">Cummins / Caterpillar</div><div class="prod-name" data-es="Motores y Repuestos" data-en="Engines & Parts">Motores y Repuestos</div><div class="prod-desc" data-es="Repuestos originales y alternativos para motores Cummins, Caterpillar, Detroit Diesel y Perkins." data-en="Original and aftermarket parts for Cummins, Caterpillar, Detroit Diesel and Perkins engines.">Repuestos originales y alternativos para motores Cummins, Caterpillar, Detroit Diesel y Perkins.</div></div>
+    <div class="prod-card"><div class="prod-icon">💧</div><div class="prod-brand">Bombas Industriales</div><div class="prod-name" data-es="Sistemas de Bombeo" data-en="Pumping Systems">Sistemas de Bombeo</div><div class="prod-desc" data-es="Bombas centrífugas, de desplazamiento positivo y sumergibles para aplicaciones industriales exigentes." data-en="Centrifugal, positive displacement and submersible pumps for demanding industrial applications.">Bombas centrífugas, de desplazamiento positivo y sumergibles para aplicaciones industriales exigentes.</div></div>
+    <div class="prod-card"><div class="prod-icon">⚙️</div><div class="prod-brand">Compresores</div><div class="prod-name" data-es="Aire y Gas" data-en="Air & Gas">Aire y Gas</div><div class="prod-desc" data-es="Compresores industriales para aire y gas en aplicaciones de alta demanda. Repuestos disponibles." data-en="Industrial compressors for air and gas in high-demand applications. Spare parts available.">Compresores industriales para aire y gas en aplicaciones de alta demanda.</div></div>
+    <div class="prod-card"><div class="prod-icon">🔌</div><div class="prod-brand">Generadores</div><div class="prod-name" data-es="Energía Eléctrica" data-en="Electric Power">Energía Eléctrica</div><div class="prod-desc" data-es="Generadores eléctricos industriales de todo tipo y capacidad. Mantenimiento y repuestos." data-en="Industrial electric generators of all types and capacities. Maintenance and spare parts.">Generadores eléctricos industriales de todo tipo y capacidad.</div></div>
+    <div class="prod-card"><div class="prod-icon">🚜</div><div class="prod-brand">Maquinaria Pesada</div><div class="prod-name" data-es="Izamiento y Transporte" data-en="Lifting & Transport">Izamiento y Transporte</div><div class="prod-desc" data-es="Montacargas y grúas industriales. Capacidad de izamiento hasta 300 toneladas." data-en="Forklifts and industrial cranes. Lifting capacity up to 300 tons.">Montacargas y grúas industriales. Capacidad hasta 300 toneladas.</div></div>
+    <div class="prod-card"><div class="prod-icon">🛞</div><div class="prod-brand">Rodamientos</div><div class="prod-name" data-es="SKF / Timken / FAG" data-en="SKF / Timken / FAG">SKF / Timken / FAG</div><div class="prod-desc" data-es="Rodamientos de las principales marcas del mercado para toda aplicación industrial." data-en="Bearings from the leading brands for all industrial applications.">Rodamientos de las principales marcas para toda aplicación industrial.</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="sec-tag" data-es="— Lo que Hacemos" data-en="— What We Do">— Lo que Hacemos</div>
+  <h2 class="sec-h2" data-es="SERVICIOS <em>ESPECIALIZADOS</em>" data-en="<em>SPECIALIZED</em> SERVICES">SERVICIOS <em>ESPECIALIZADOS</em></h2>
+  <div class="sv-list">
+    <div class="sv-row"><div class="sv-n">01</div><div class="sv-info"><h3 data-es="Motores Diesel" data-en="Diesel Engines">Motores Diesel</h3><p data-es="Mantenimiento y reparación completa de motores diesel industriales." data-en="Complete maintenance and repair of industrial diesel engines.">Mantenimiento y reparación completa de motores diesel industriales.</p></div><div class="sv-arrow">→</div></div>
+    <div class="sv-row"><div class="sv-n">02</div><div class="sv-info"><h3 data-es="Turbo Alimentadores" data-en="Turbochargers">Turbo Alimentadores</h3><p data-es="Reparación y overhaul de turbocompresores para maquinaria pesada." data-en="Repair and overhaul of turbochargers for heavy machinery.">Reparación y overhaul de turbocompresores para maquinaria pesada.</p></div><div class="sv-arrow">→</div></div>
+    <div class="sv-row"><div class="sv-n">03</div><div class="sv-info"><h3 data-es="Generadores Eléctricos" data-en="Electric Generators">Generadores Eléctricos</h3><p data-es="Mantenimiento preventivo y correctivo de generadores de toda capacidad." data-en="Preventive and corrective maintenance of generators of all capacities.">Mantenimiento preventivo y correctivo de generadores de toda capacidad.</p></div><div class="sv-arrow">→</div></div>
+    <div class="sv-row"><div class="sv-n">04</div><div class="sv-info"><h3 data-es="Alquiler de Maquinaria" data-en="Equipment Rental">Alquiler de Maquinaria</h3><p data-es="Montacargas y maquinaria pesada disponible para alquiler." data-en="Forklifts and heavy machinery available for rental.">Montacargas y maquinaria pesada disponible para alquiler.</p></div><div class="sv-arrow">→</div></div>
+    <div class="sv-row"><div class="sv-n">05</div><div class="sv-info"><h3 data-es="Sistemas de Inyección" data-en="Injection Systems">Sistemas de Inyección</h3><p data-es="Diagnóstico, mantenimiento y reparación de sistemas de inyección." data-en="Diagnosis, maintenance and repair of injection systems.">Diagnóstico, mantenimiento y reparación de sistemas de inyección.</p></div><div class="sv-arrow">→</div></div>
+    <div class="sv-row"><div class="sv-n">06</div><div class="sv-info"><h3 data-es="Sandblasting & Soldadura" data-en="Sandblasting & Welding">Sandblasting & Soldadura</h3><p data-es="Sandblasting, soldadura, latonería, pintura y lavado con hidrojet." data-en="Sandblasting, welding, bodywork, painting and hydrojet washing.">Sandblasting, soldadura, latonería, pintura y lavado con hidrojet.</p></div><div class="sv-arrow">→</div></div>
+  </div>
+</section>
+
+<!-- QUALITY -->
+<section class="quality" id="calidad">
+  <div class="sec-tag" data-es="— Nuestros Estándares" data-en="— Our Standards">— Nuestros Estándares</div>
+  <h2 class="sec-h2" data-es="POLÍTICA DE <em>CALIDAD</em>" data-en="QUALITY <em>POLICY</em>">POLÍTICA DE <em>CALIDAD</em></h2>
+  <div class="q-grid">
+    <div class="q-items">
+      <div class="q-item"><div class="q-num">01</div><div><h4 data-es="Satisfacción del Cliente" data-en="Customer Satisfaction">Satisfacción del Cliente</h4><p data-es="Proporcionar satisfacción y confianza a todos nuestros clientes." data-en="Provide satisfaction and confidence to all our clients.">Proporcionar satisfacción y confianza a todos nuestros clientes.</p></div></div>
+      <div class="q-item"><div class="q-num">02</div><div><h4 data-es="Control de Conformidad" data-en="Compliance Control">Control de Conformidad</h4><p data-es="Mantener control sobre la conformidad en todos los procesos." data-en="Maintain control over conformity in all processes.">Mantener control sobre la conformidad en todos los procesos.</p></div></div>
+      <div class="q-item"><div class="q-num">03</div><div><h4 data-es="Productos Certificados" data-en="Certified Products">Productos Certificados</h4><p data-es="Asegurar la conformidad de los productos con los más altos estándares." data-en="Ensure product conformity to the highest standards.">Asegurar la conformidad con los más altos estándares.</p></div></div>
+      <div class="q-item"><div class="q-num">04</div><div><h4 data-es="Mejora Continua" data-en="Continuous Improvement">Mejora Continua</h4><p data-es="Aplicar programas de mejora continua y control del desempeño." data-en="Apply continuous improvement programs and performance control.">Aplicar programas de mejora continua y control del desempeño.</p></div></div>
+    </div>
+    <div class="q-right">
+      <h3 data-es="Nuestra Política de Calidad" data-en="Our Quality Policy">Nuestra Política de Calidad</h3>
+      <p data-es="En TRESNA, C.A., proveemos servicios especializados garantizando la satisfacción de nuestros clientes y el mejoramiento continuo de nuestros procesos." data-en="At TRESNA, C.A., we provide specialized services guaranteeing client satisfaction and continuous improvement.">En TRESNA, C.A., proveemos servicios especializados garantizando la satisfacción de nuestros clientes y el mejoramiento continuo de nuestros procesos.</p>
+      <p data-es="Contamos con personal calificado y comprometido en la búsqueda constante de la excelencia." data-en="We have qualified and committed personnel in the constant pursuit of excellence.">Contamos con personal calificado y comprometido en la búsqueda constante de la excelencia.</p>
+      <div class="q-badges">
+        <div class="q-badge"><div class="val">ISO</div><div class="lbl" data-es="Estándares" data-en="Standards">Estándares</div></div>
+        <div class="q-badge"><div class="val">24/7</div><div class="lbl" data-es="Disponible" data-en="Available">Disponible</div></div>
+        <div class="q-badge"><div class="val">100%</div><div class="lbl" data-es="Garantía" data-en="Guarantee">Garantía</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote" id="cotizacion">
+  <div class="quote-inner">
+    <div class="quote-left">
+      <div class="sec-tag" data-es="— Cotización Gratuita" data-en="— Free Quote">— Cotización Gratuita</div>
+      <h2 data-es="HABLEMOS DE<br>SU <em>PROYECTO</em>" data-en="LET'S TALK ABOUT<br>YOUR <em>PROJECT</em>">HABLEMOS DE<br>SU <em>PROYECTO</em></h2>
+      <p data-es="Cuéntenos qué necesita y le respondemos con una propuesta detallada en menos de 24 horas." data-en="Tell us what you need and we'll respond with a detailed proposal in less than 24 hours.">Cuéntenos qué necesita y le respondemos con una propuesta detallada en menos de 24 horas.</p>
+      <div class="contact-pills">
+        <div class="cpill"><div class="cpill-icon">📞</div><div class="cpill-text"><h5 data-es="Teléfono" data-en="Phone">Teléfono</h5><a href="tel:+584146217473">0414-621-7473</a></div></div>
+        <div class="cpill"><div class="cpill-icon">✉️</div><div class="cpill-text"><h5>Email</h5><a href="mailto:tresnaca.ve@gmail.com">tresnaca.ve@gmail.com</a></div></div>
+        <div class="cpill"><div class="cpill-icon">📍</div><div class="cpill-text"><h5 data-es="Ubicación" data-en="Location">Ubicación</h5><p>Maracaibo, Estado Zulia, Venezuela</p></div></div>
+        <div class="cpill"><div class="cpill-icon">👤</div><div class="cpill-text"><h5 data-es="Representante" data-en="Rep">Representante</h5><p>Ricardo Infante</p></div></div>
+      </div>
+    </div>
+    <div class="quote-right">
+      <h3 data-es="Solicitar Cotización" data-en="Request a Quote">Solicitar Cotización</h3>
+      <div class="fg"><label data-es="Nombre Completo" data-en="Full Name">Nombre Completo</label><input type="text" placeholder="Su nombre"/></div>
+      <div class="fg"><label data-es="Empresa" data-en="Company">Empresa</label><input type="text" placeholder="Su empresa"/></div>
+      <div class="fg"><label data-es="Correo" data-en="Email">Correo</label><input type="email" placeholder="correo@empresa.com"/></div>
+      <div class="fg"><label data-es="Servicio" data-en="Service">Servicio</label><select><option data-es="Seleccione..." data-en="Select...">Seleccione...</option><option>Suministro de Repuestos</option><option>Mantenimiento</option><option>Alquiler de Equipos</option><option>Soldadura</option><option>Otro</option></select></div>
+      <div class="fg"><label data-es="Mensaje" data-en="Message">Mensaje</label><textarea placeholder="Describa sus necesidades..."></textarea></div>
+      <button class="fsub" data-es="Enviar Solicitud →" data-en="Send Request →" onclick="alert(document.documentElement.lang==='es'?'¡Mensaje enviado! Nos pondremos en contacto pronto.':'Message sent! We will contact you shortly.')">Enviar Solicitud →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <img src="https://media.base44.com/images/public/6a07ce0bd5944f632f6f429a/63a4dd25e_image.png" alt="TRESNA" style="height:40px;filter:brightness(0) invert(1)"/>
+    <p data-es="© 2024 TRESNA, C.A. — Maracaibo, Venezuela. Todos los derechos reservados." data-en="© 2024 TRESNA, C.A. — Maracaibo, Venezuela. All rights reserved.">© 2024 TRESNA, C.A. — Maracaibo, Venezuela. Todos los derechos reservados.</p>
+  </div>
+  <div class="footer-right">
+    <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+    <a href="#productos" data-es="Productos" data-en="Products">Productos</a>
+    <a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="#cotizacion" data-es="Cotización" data-en="Quote">Cotización</a>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>42)})
+function setLang(lang){
+  document.documentElement.lang=lang
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent===lang.toUpperCase()))
+  document.querySelectorAll('[data-'+lang+']').forEach(el=>{
+    const val=el.getAttribute('data-'+lang)
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=val}
+    else{el.innerHTML=val}
+  })
+}
+</script>
+</body>
+</html>
