@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--org:#E8640A;--org2:#FF7C1F;--navy:#001233;--dark:#000c1f;--cream:#f5f1eb;--mid:#001845}
+:root{--org:#F5C300;--org2:#D4A900;--navy:#001233;--dark:#000c1f;--cream:#f5f1eb;--mid:#001845}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden}
 
@@ -158,8 +158,8 @@ section{padding:108px 52px}
 /* CONTACT */
 .contact{background:#000c1f}
 .contact .sh{color:#fff;margin-bottom:56px}
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:72px}
-.contact-items{display:flex;flex-direction:column;gap:28px}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:72px;max-width:680px;margin:0 auto}
+.contact-items{display:flex;flex-direction:column;gap:28px}.contact-grid-solo{grid-template-columns:1fr!important;max-width:700px;margin:0 auto}
 .ci{display:flex;gap:18px;align-items:flex-start}
 .ci-icon{width:44px;height:44px;background:rgba(232,100,10,0.1);border:1px solid rgba(232,100,10,0.25);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .ci h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--org);margin-bottom:6px}
@@ -513,25 +513,6 @@ footer{background:#000813;padding:36px 52px;display:flex;justify-content:space-b
       <div class="ci"><div class="ci-icon">📞</div><div><h4 data-es="Teléfono" data-en="Phone">Teléfono</h4><p><a href="tel:+584146217473">0414-621-7473</a></p></div></div>
       <div class="ci"><div class="ci-icon">✉️</div><div><h4 data-es="Correo" data-en="Email">Correo</h4><p><a href="mailto:tresnaca.ve@gmail.com">tresnaca.ve@gmail.com</a><br><a href="mailto:administracion@tresnaca.com">administracion@tresnaca.com</a><br><a href="mailto:compras@tresnaca.com">compras@tresnaca.com</a></p></div></div>
       <div class="ci"><div class="ci-icon">👤</div><div><h4 data-es="Representante" data-en="Representative">Representante</h4><p>Ricardo Infante</p></div></div>
-    </div>
-    <div class="contact-form">
-      <h3 data-es="Envíenos un Mensaje" data-en="Send Us a Message">Envíenos un Mensaje</h3>
-      <div class="fg"><label data-es="Nombre Completo" data-en="Full Name">Nombre Completo</label><input type="text" placeholder="Su nombre"></div>
-      <div class="fg"><label data-es="Empresa" data-en="Company">Empresa</label><input type="text" placeholder="Nombre de su empresa"></div>
-      <div class="fg"><label data-es="Correo Electrónico" data-en="Email Address">Correo Electrónico</label><input type="email" placeholder="correo@empresa.com"></div>
-      <div class="fg">
-        <label data-es="Tipo de Servicio" data-en="Service Type">Tipo de Servicio</label>
-        <select>
-          <option data-es="Seleccione una opción" data-en="Select an option">Seleccione una opción</option>
-          <option data-es="Suministro de Repuestos" data-en="Spare Parts Supply">Suministro de Repuestos</option>
-          <option data-es="Mantenimiento de Maquinaria" data-en="Machinery Maintenance">Mantenimiento de Maquinaria</option>
-          <option data-es="Alquiler de Equipos" data-en="Equipment Rental">Alquiler de Equipos</option>
-          <option data-es="Servicios de Soldadura" data-en="Welding Services">Servicios de Soldadura</option>
-          <option data-es="Otro" data-en="Other">Otro</option>
-        </select>
-      </div>
-      <div class="fg"><label data-es="Mensaje" data-en="Message">Mensaje</label><textarea placeholder="Describa sus necesidades..."></textarea></div>
-      <button class="fsub" data-es="Enviar Solicitud →" data-en="Send Request →" onclick="alert(document.documentElement.lang==='es'?'¡Mensaje enviado! Nos pondremos en contacto pronto.':'Message sent! We will contact you shortly.')">Enviar Solicitud →</button>
     </div>
   </div>
 </section>
