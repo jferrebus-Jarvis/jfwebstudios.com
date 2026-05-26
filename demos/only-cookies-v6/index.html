@@ -4,22 +4,22 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Only Cookies USA – Handmade Cookies & Desserts | Katy, TX</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;500;600&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bubble: #FF6B9D;
-      --lilac: #C77DFF;
-      --sky: #48CAE4;
-      --peach: #FF9A76;
-      --lime: #80ED99;
-      --dark: #2B2D42;
+      --bubble: #BD2C34;
+      --lilac: #EA4E32;
+      --sky: #EFB8C3;
+      --peach: #D1D3D4;
+      --lime: #EFB8C3;
+      --dark: #1A1A1A;
       --white: #FFFFFF;
     }
-    body { font-family: 'Nunito Sans', sans-serif; background: #FFF5FB; color: var(--dark); overflow-x: hidden; }
+    body { font-family: 'Nunito Sans', sans-serif; background: #FFF9F9; color: var(--dark); overflow-x: hidden; }
 
     /* TOP STRIP */
-    .top-strip { background: var(--bubble); display: flex; justify-content: center; gap: 50px; padding: 10px; flex-wrap: wrap; }
+    .top-strip { background: #BD2C34; display: flex; justify-content: center; gap: 50px; padding: 10px; flex-wrap: wrap; }
     .top-strip span { color: #fff; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px; }
 
     /* NAV */
@@ -52,13 +52,13 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(255,107,157,0.85) 0%, rgba(199,125,255,0.70) 100%);
+      background: linear-gradient(135deg, rgba(189,44,52,0.88) 0%, rgba(234,78,50,0.75) 100%);
       z-index: 0;
     }
     .hero > * { position: relative; z-index: 1; }
     .hero-text-card { background: rgba(255,255,255,0.15); backdrop-filter: blur(12px); border: 2px solid rgba(255,255,255,0.35); border-radius: 30px; padding: 50px 42px; box-shadow: 8px 8px 0 rgba(43,45,66,0.3); }
-    .htag { display: inline-block; background: var(--dark); color: var(--lime); border-radius: 50px; padding: 6px 18px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 22px; }
-    .hero-text-card h1 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 3.4rem; line-height: 1.08; margin-bottom: 18px; color: #fff; }
+    .htag { display: inline-block; background: #1A1A1A; color: #EFB8C3; border-radius: 50px; padding: 6px 18px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 22px; }
+    .hero-text-card h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 3.4rem; line-height: 1.08; margin-bottom: 18px; color: #fff; }
     .hero-text-card p { font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.9); margin-bottom: 32px; }
     .btns { display: flex; gap: 14px; flex-wrap: wrap; }
     .bprimary { background: var(--dark); color: #fff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; display: inline-block; transition: transform 0.2s; }
@@ -71,7 +71,7 @@
     .hcard-big { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3); border-radius: 24px; padding: 24px; box-shadow: 6px 6px 0 rgba(43,45,66,0.25); display: flex; align-items: center; gap: 20px; }
     .hcard-big h3 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.2rem; color: #fff; margin-bottom: 5px; }
     .hcard-big p { font-size: 0.85rem; color: rgba(255,255,255,0.8); }
-    .hcard-big .price { background: #fff; color: var(--dark); font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem; border-radius: 50px; padding: 4px 16px; margin-top: 10px; display: inline-block; }
+    .hcard-big .price { background: #fff; color: #BD2C34; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem; border-radius: 50px; padding: 4px 16px; margin-top: 10px; display: inline-block; }
     .hcards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .hcard-sm { background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 2px solid rgba(255,255,255,0.25); border-radius: 20px; overflow: hidden; position: relative; min-height: 160px; }
     .hcard-sm-img { position: absolute; inset: 0; background-size: cover; background-position: center; }
@@ -82,7 +82,7 @@
 
     /* TRUST PILLS */
     .trust-pills { display: flex; gap: 12px; padding: 28px 5%; flex-wrap: wrap; justify-content: center; background: #fff; border-bottom: 3px solid var(--dark); }
-    .trust-pill { background: #FFF5FB; border: 2px solid var(--dark); border-radius: 50px; padding: 10px 22px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
+    .trust-pill { background: #FFF9F9; border: 2px solid var(--dark); border-radius: 50px; padding: 10px 22px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; }
 
     /* PRODUCTS */
     .products { padding: 65px 5%; }
@@ -94,11 +94,11 @@
     .pcard:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--dark); }
     .pimg { height: 185px; background-size: cover; background-position: center; }
     .pbody { padding: 16px; }
-    .ptag { font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--lilac); margin-bottom: 4px; }
+    .ptag { font-size: 0.65rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #EA4E32; margin-bottom: 4px; }
     .pname { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.98rem; margin-bottom: 3px; }
 
     /* COURSES */
-    .courses { padding: 75px 5%; background: linear-gradient(135deg, #1E1B4B, #2B2D42); border-top: 3px solid var(--dark); border-bottom: 3px solid var(--dark); }
+    .courses { padding: 75px 5%; background: linear-gradient(135deg, #BD2C34, #8B1A1F); border-top: 3px solid var(--dark); border-bottom: 3px solid var(--dark); }
     .courses-header { text-align: center; margin-bottom: 55px; }
     .courses-badge { display: inline-block; background: var(--lime); color: var(--dark); border-radius: 50px; padding: 7px 20px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.78rem; letter-spacing: 1px; margin-bottom: 18px; }
     .courses-header h2 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 2.6rem; color: #fff; margin-bottom: 12px; }
@@ -108,7 +108,7 @@
     .about { padding: 70px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; background: #fff; }
 
     /* REVIEWS */
-    .reviews { padding: 65px 5%; background: #F8F0FF; border-top: 3px solid var(--dark); }
+    .reviews { padding: 65px 5%; background: #FFF0EF; border-top: 3px solid var(--dark); }
     .reviews h2 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 2rem; margin-bottom: 35px; }
     .revgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .revcard { background: #fff; border: 2.5px solid var(--dark); border-radius: 20px; padding: 25px; box-shadow: 4px 4px 0 var(--dark); }
@@ -117,7 +117,7 @@
     .revname { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.85rem; }
 
     /* CTA */
-    .cta { padding: 70px 5%; text-align: center; background: linear-gradient(135deg, #FFD6E7, #EDE0FF); border-top: 3px solid var(--dark); }
+    .cta { padding: 70px 5%; text-align: center; background: linear-gradient(135deg, #FDEAEB, #EFB8C3); border-top: 3px solid var(--dark); }
     .cta h2 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 2.6rem; margin-bottom: 14px; }
     .cta p { font-size: 1rem; color: rgba(43,45,66,0.7); margin-bottom: 32px; }
 
@@ -173,7 +173,7 @@
   <section class="hero">
     <div class="hero-text-card">
       <span class="htag" data-en="🍪 Made Fresh · Katy, Texas" data-es="🍪 Hecho Fresco · Katy, Texas">🍪 Made Fresh · Katy, Texas</span>
-      <h1 data-en="Homemade Cookies Worth Every Bite 🍪" data-es="Galletas Caseras que Valen Cada Mordida 🍪">Homemade Cookies Worth Every Bite 🍪</h1>
+      <h1 data-en="Artisan Cookies Made to Conquer 🍪" data-es="Galletas Artesanales Hechas para Conquistar 🍪">Galletas Artesanales<br>Hechas para Conquistar 🍪</h1>
       <p data-en="Gourmet cookies, mini cheesecakes & Latin desserts made by Angelica. Baked fresh, shipped nationwide — all 50 states & Puerto Rico." data-es="Galletas gourmet, mini cheesecakes y postres latinos hechos por Angelica. Horneados frescos, envíos a todo el país.">Gourmet cookies, mini cheesecakes & Latin desserts made by Angelica. Baked fresh, shipped nationwide — all 50 states & Puerto Rico.</p>
       <div class="btns">
         <a href="https://onlycookiesusa.com" target="_blank" class="bprimary" data-en="Shop Now 🍪" data-es="Comprar Ahora 🍪">Shop Now 🍪</a>
@@ -232,7 +232,7 @@
           <div class="ptag" data-en="BESTSELLER" data-es="MÁS VENDIDA">BESTSELLER</div>
           <div class="pname">Clásica Choco Chips</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$3.50</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$3.50</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -243,7 +243,7 @@
           <div class="ptag" data-en="FAN FAVORITE" data-es="FAVORITA DEL PÚBLICO">FAN FAVORITE</div>
           <div class="pname">Biscoff</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$4.89</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$4.89</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -254,7 +254,7 @@
           <div class="ptag" data-en="TRENDING" data-es="TENDENCIA">TRENDING</div>
           <div class="pname">Birthday Cookie</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$3.50</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$3.50</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -265,7 +265,7 @@
           <div class="ptag" data-en="NEW" data-es="NUEVA">NEW</div>
           <div class="pname">Browkie</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$4.89</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$4.89</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -276,7 +276,7 @@
           <div class="ptag" data-en="CLASSIC" data-es="CLÁSICA">CLASSIC</div>
           <div class="pname">Brownie Cookie</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$4.89</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$4.89</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -287,7 +287,7 @@
           <div class="ptag" data-en="HEALTHY" data-es="SALUDABLE">HEALTHY</div>
           <div class="pname">Avena Pasas & Nueces</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$3.50</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$3.50</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -298,7 +298,7 @@
           <div class="ptag" data-en="SPECIAL" data-es="ESPECIAL">SPECIAL</div>
           <div class="pname">Beso de Ángel</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$4.89</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$4.89</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -309,7 +309,7 @@
           <div class="ptag" data-en="BUNDLE" data-es="PAQUETE">BUNDLE</div>
           <div class="pname" data-en="Box of 4 Cookies" data-es="Cajita de 4 Galletas">Box of 4 Cookies</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$19.89</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$19.89</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -330,7 +330,7 @@
           <div class="ptag">CHEESECAKE</div>
           <div class="pname">Cheesecake Frutos Rojos</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$35.00 / 12 un.</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$35.00 / 12 un.</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -341,7 +341,7 @@
           <div class="ptag">CHEESECAKE</div>
           <div class="pname">Cheesecake Fresa</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$35.00 / 12 un.</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$35.00 / 12 un.</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -352,7 +352,7 @@
           <div class="ptag">CHEESECAKE</div>
           <div class="pname">Cheesecake Maracuyá</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$35.00 / 12 un.</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$35.00 / 12 un.</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -363,7 +363,7 @@
           <div class="ptag" data-en="POSTRE" data-es="POSTRE">POSTRE</div>
           <div class="pname">Brigadeiro de Chocolate</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$35.00 / 12 un.</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$35.00 / 12 un.</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -374,7 +374,7 @@
           <div class="ptag">POSTRE</div>
           <div class="pname">Brigadeiros de Nido</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$35.00 / 12 un.</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$35.00 / 12 un.</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -385,7 +385,7 @@
           <div class="ptag">POSTRE</div>
           <div class="pname">Bocados de Chocolate</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$38.00 / 12 un.</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$38.00 / 12 un.</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -396,7 +396,7 @@
           <div class="ptag">POSTRE</div>
           <div class="pname">Bocados de Limón</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$38.00 / 12 un.</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$38.00 / 12 un.</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -407,7 +407,7 @@
           <div class="ptag">POSTRE</div>
           <div class="pname">Brownie Box</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#FF6B9D;font-size:1rem;">$38.00 / 12 un.</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:#BD2C34;font-size:1rem;">$38.00 / 12 un.</span>
             <a href="https://onlycookiesusa.com" target="_blank" style="background:#2B2D42;color:#fff;border-radius:50px;padding:7px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.78rem;text-decoration:none;" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -437,10 +437,10 @@
   <section class="about" id="about">
     <div style="position:relative;">
       <img src="https://onlycookiesusa.com/cdn/shop/files/aboutAngelicaNew.png?v=1770140511&width=600" alt="Angelica - Only Cookies USA" style="width:100%;border-radius:24px;border:3px solid #2B2D42;box-shadow:8px 8px 0 #2B2D42;"/>
-      <div style="position:absolute;bottom:-16px;right:-16px;background:#FF6B9D;color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;border-radius:50px;padding:10px 22px;border:2.5px solid #2B2D42;" data-en="🍪 Made with Love" data-es="🍪 Hecho con Amor">🍪 Made with Love</div>
+      <div style="position:absolute;bottom:-16px;right:-16px;background:#BD2C34;color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;border-radius:50px;padding:10px 22px;border:2.5px solid #2B2D42;" data-en="🍪 Made with Love" data-es="🍪 Hecho con Amor">🍪 Made with Love</div>
     </div>
     <div>
-      <span style="display:inline-block;background:#2B2D42;color:#80ED99;border-radius:50px;padding:6px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.75rem;letter-spacing:1px;margin-bottom:18px;" data-en="👩‍🍳 MEET ANGELICA" data-es="👩‍🍳 CONOCE A ANGELICA">👩‍🍳 MEET ANGELICA</span>
+      <span style="display:inline-block;background:#1A1A1A;color:#EFB8C3;border-radius:50px;padding:6px 18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.75rem;letter-spacing:1px;margin-bottom:18px;" data-en="👩‍🍳 MEET ANGELICA" data-es="👩‍🍳 CONOCE A ANGELICA">👩‍🍳 MEET ANGELICA</span>
       <h2 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:2.4rem;line-height:1.2;margin-bottom:18px;color:#2B2D42;" data-en="The Baker Behind <span style='color:#FF6B9D;'>Only Cookies</span>" data-es="La Repostera Detrás de <span style='color:#FF6B9D;'>Only Cookies</span>">The Baker Behind <span style="color:#FF6B9D;">Only Cookies</span></h2>
       <p style="font-size:1rem;line-height:1.8;color:rgba(43,45,66,0.75);margin-bottom:16px;" data-en="Hi! I'm Angelica, a passionate baker based in Katy, TX. I started Only Cookies USA to share my love for homemade treats — from classic chocolate chip cookies to Latin-inspired desserts." data-es="¡Hola! Soy Angelica, una repostera apasionada de Katy, TX. Empecé Only Cookies USA para compartir mi amor por los dulces caseros — desde galletas de chispas de chocolate hasta postres de inspiración latina.">Hi! I'm Angelica, a passionate baker based in Katy, TX. I started Only Cookies USA to share my love for homemade treats — from classic chocolate chip cookies to Latin-inspired desserts.</p>
       <p style="font-size:1rem;line-height:1.8;color:rgba(43,45,66,0.75);margin-bottom:28px;" data-en="Every cookie, cheesecake, and postre is made fresh with real ingredients and lots of love. I ship nationwide and offer local pickup in Katy!" data-es="Cada galleta, cheesecake y postre está hecho fresco con ingredientes reales y mucho amor. Envío a todo el país y ofrezco recogida local en Katy.">Every cookie, cheesecake, and postre is made fresh with real ingredients and lots of love. I ship nationwide and offer local pickup in Katy!</p>
