@@ -111,15 +111,15 @@
 
     /* PRICING */
     .pricing { background: var(--navy); text-align: center; }
-    .pricing-cards { display: flex; justify-content: center; gap: 24px; margin-top: 56px; flex-wrap: wrap; }
-    .pricing-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 44px 40px; width: 320px; text-align: left; transition: transform 0.2s; }
+    .pricing-cards { display: flex; justify-content: center; align-items: stretch; gap: 24px; margin-top: 56px; flex-wrap: wrap; }
+    .pricing-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 44px 40px; width: 320px; text-align: left; transition: transform 0.2s; display: flex; flex-direction: column; }
     .pricing-card:hover { transform: translateY(-4px); }
-    .pricing-card.featured { background: var(--blue); border-color: var(--blue-light); }
+    .pricing-card.featured { background: var(--blue); border-color: var(--blue-light); margin-top: 0; }
     .pricing-tag { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 16px; }
     .pricing-card.featured .pricing-tag { color: rgba(255,255,255,0.8); }
     .pricing-price { font-size: 52px; font-weight: 900; letter-spacing: -2px; margin-bottom: 6px; }
     .pricing-period { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 28px; }
-    .pricing-features { list-style: none; margin-bottom: 36px; }
+    .pricing-features { list-style: none; margin-bottom: 36px; flex: 1; }
     .pricing-features li { font-size: 14px; color: rgba(255,255,255,0.75); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; align-items: center; gap: 10px; }
     .pricing-features li::before { content: '✓'; color: #4ade80; font-weight: 700; }
     .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.15); }
