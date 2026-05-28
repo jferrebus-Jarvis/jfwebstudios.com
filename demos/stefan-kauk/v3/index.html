@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SK Outdoor Services — Houston, TX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --g1: #166534;
+      --g2: #16a34a;
+      --g3: #4ade80;
+      --dark:#080e08;
+      --card:#0d130d;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter',sans-serif; background:var(--dark); color:#fff; }
+
+    /* NAV */
+    nav { position:fixed; top:0; width:100%; z-index:100; background:rgba(8,14,8,0.97); border-bottom:2px solid var(--g2); padding:0 40px; display:flex; justify-content:space-between; align-items:center; height:64px; }
+    .logo { font-family:'Oswald',sans-serif; font-size:22px; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+    .logo span { color:var(--g3); }
+    .nav-right { display:flex; align-items:center; gap:20px; }
+    .nav-right a { color:rgba(255,255,255,0.6); font-size:13px; font-weight:600; text-decoration:none; text-transform:uppercase; letter-spacing:1px; }
+    .nav-cta { background:linear-gradient(135deg, var(--g1), var(--g2)) !important; color:#fff !important; padding:9px 22px; border-radius:4px; font-weight:700 !important; }
+
+    /* HERO - bold green overlay */
+    .hero { min-height:100vh; background:linear-gradient(160deg, rgba(8,14,8,0.88) 40%, rgba(22,101,52,0.6) 100%), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400') right center/cover; display:flex; align-items:flex-end; padding:80px 40px 80px; }
+    .hero-content { max-width:800px; }
+    .hero-tag { font-size:12px; font-weight:700; color:var(--g3); letter-spacing:3px; text-transform:uppercase; margin-bottom:16px; }
+    .hero h1 { font-family:'Oswald',sans-serif; font-size:clamp(56px,8vw,110px); font-weight:700; text-transform:uppercase; line-height:0.9; margin-bottom:24px; }
+    .hero h1 .outline { -webkit-text-stroke:2px var(--g3); color:transparent; }
+    .hero-desc { font-size:16px; color:rgba(255,255,255,0.6); max-width:520px; line-height:1.7; margin-bottom:36px; }
+    .hero-actions { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+    .hero-btn { background:linear-gradient(135deg, var(--g1), var(--g2)); color:#fff; padding:16px 36px; border-radius:4px; font-weight:700; font-size:15px; text-decoration:none; text-transform:uppercase; letter-spacing:1px; }
+    .hero-tel { font-size:22px; font-weight:800; color:var(--g3); text-decoration:none; font-family:'Oswald',sans-serif; letter-spacing:1px; }
+    .hero-tel:hover { color:#fff; }
+
+    /* STATS BAR */
+    .stats-bar { background:var(--g2); padding:20px 40px; display:flex; justify-content:space-around; flex-wrap:wrap; gap:16px; }
+    .stat-item { text-align:center; }
+    .stat-item .n { font-family:'Oswald',sans-serif; font-size:32px; font-weight:700; color:#fff; }
+    .stat-item .l { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,0.75); }
+
+    /* SERVICES - two column */
+    .services { padding:90px 40px; background:var(--dark); }
+    .sec-head { margin-bottom:52px; }
+    .sec-eyebrow { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--g3); font-weight:700; margin-bottom:8px; }
+    .sec-title { font-family:'Oswald',sans-serif; font-size:clamp(32px,4vw,54px); font-weight:700; text-transform:uppercase; }
+    .sec-line { width:50px; height:3px; background:var(--g2); margin-top:14px; border-radius:2px; }
+    .services-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .service-block { background:var(--card); border-radius:12px; overflow:hidden; border:1px solid rgba(74,222,128,0.08); }
+    .service-block-head { background:linear-gradient(135deg, var(--g1), var(--g2)); padding:22px 28px; display:flex; align-items:center; gap:14px; }
+    .service-block-head .ico { font-size:24px; }
+    .service-block-head h3 { font-family:'Oswald',sans-serif; font-size:20px; font-weight:700; text-transform:uppercase; letter-spacing:1px; }
+    .service-block-body { padding:20px 28px; }
+    .service-item { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+    .service-item:last-child { border-bottom:none; }
+    .si-name { font-size:13px; font-weight:600; color:rgba(255,255,255,0.8); }
+    .si-note { font-size:11px; color:rgba(255,255,255,0.35); margin-top:2px; }
+    .si-price { font-size:13px; font-weight:800; color:var(--g3); white-space:nowrap; }
+
+    /* PERKS */
+    .perks { padding:80px 40px; background:#0a120a; }
+    .perks-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; margin-top:48px; }
+    .perk { display:flex; gap:18px; align-items:flex-start; background:var(--card); padding:24px; border-radius:10px; border:1px solid rgba(74,222,128,0.08); }
+    .perk-icon { width:44px; height:44px; background:linear-gradient(135deg, var(--g1), var(--g2)); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+    .perk-text h4 { font-size:14px; font-weight:700; margin-bottom:5px; }
+    .perk-text p { font-size:12px; color:rgba(255,255,255,0.45); line-height:1.6; }
+
+    /* AREAS */
+    .areas { padding:80px 40px; background:var(--dark); }
+    .areas-inner { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:48px; }
+    .area-box { background:var(--card); border-radius:12px; padding:28px; border:1px solid rgba(74,222,128,0.1); }
+    .area-box h4 { font-family:'Oswald',sans-serif; font-size:16px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.07); }
+    .area-box.standard h4 { color:var(--g3); }
+    .area-box.far h4 { color:rgba(255,165,0,0.9); }
+    .area-box ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .area-box ul li { font-size:13px; color:rgba(255,255,255,0.65); display:flex; gap:8px; align-items:center; }
+    .area-box ul li::before { content:'✓'; font-weight:900; color:var(--g3); font-size:11px; }
+    .area-box.far ul li::before { content:'+$25'; font-size:10px; color:rgba(255,165,0,0.7); background:rgba(255,165,0,0.1); padding:2px 6px; border-radius:3px; font-weight:700; }
+
+    /* CTA */
+    .cta { background:linear-gradient(135deg, #050e05, var(--g1)); padding:90px 40px; text-align:center; border-top:2px solid var(--g2); }
+    .cta h2 { font-family:'Oswald',sans-serif; font-size:clamp(36px,5vw,72px); font-weight:700; text-transform:uppercase; line-height:1; margin-bottom:16px; }
+    .cta h2 span { color:var(--g3); }
+    .cta p { font-size:16px; color:rgba(255,255,255,0.6); margin-bottom:36px; }
+    .cta-actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    .cta-green { background:var(--g2); color:#fff; padding:17px 48px; border-radius:4px; font-weight:800; font-size:16px; text-decoration:none; text-transform:uppercase; letter-spacing:1px; }
+    .cta-outline { border:2px solid rgba(255,255,255,0.3); color:#fff; padding:17px 48px; border-radius:4px; font-weight:700; font-size:16px; text-decoration:none; }
+
+    footer { background:#030803; padding:24px 40px; text-align:center; border-top:1px solid rgba(74,222,128,0.1); }
+    footer p { font-size:12px; color:rgba(255,255,255,0.25); }
+    footer a { color:var(--g3); text-decoration:none; }
+
+    @media(max-width:768px) {
+      nav { padding:0 20px; }
+      .nav-right a:not(.nav-cta) { display:none; }
+      .hero { padding:100px 20px 60px; }
+      .stats-bar { padding:16px 20px; }
+      .services,.perks,.areas,.cta { padding:60px 20px; }
+      .services-cols { grid-template-columns:1fr; }
+      .areas-inner { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">SK <span>Outdoor</span> Services</div>
+  <div class="nav-right">
+    <a href="#services">Services</a>
+    <a href="#areas">Areas</a>
+    <a href="tel:8327923702" class="nav-cta">Free Quote</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">⚡ Same-Day Response · Houston, TX</div>
+    <h1>We Make Your<br>Property <span class="outline">Shine.</span></h1>
+    <p class="hero-desc">Professional pressure washing & landscaping for Houston homeowners. 200+ satisfied customers, full trailer setup, and you don't even need to be home.</p>
+    <div class="hero-actions">
+      <a href="tel:8327923702" class="hero-btn">Get Free Quote</a>
+      <a href="tel:8327923702" class="hero-tel">(832) 792-3702</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item"><div class="n">200+</div><div class="l">Happy Customers</div></div>
+  <div class="stat-item"><div class="n">2+</div><div class="l">Years Experience</div></div>
+  <div class="stat-item"><div class="n">$0</div><div class="l">Quote Cost</div></div>
+  <div class="stat-item"><div class="n">7</div><div class="l">Days or Less</div></div>
+</div>
+
+<section class="services" id="services">
+  <div class="sec-head">
+    <div class="sec-eyebrow">What We Do</div>
+    <div class="sec-title">Services & Pricing</div>
+    <div class="sec-line"></div>
+  </div>
+  <div class="services-cols">
+    <div class="service-block">
+      <div class="service-block-head"><div class="ico">💧</div><h3>Pressure Washing</h3></div>
+      <div class="service-block-body">
+        <div class="service-item"><div><div class="si-name">2-Car Driveway</div><div class="si-note">Includes sidewalk, walkway & curb · 2–4 hrs</div></div><div class="si-price">$150–$200+</div></div>
+        <div class="service-item"><div><div class="si-name">Extended Driveway</div><div class="si-note">2–3 car · 3–6 hrs</div></div><div class="si-price">$200–$500+</div></div>
+        <div class="service-item"><div><div class="si-name">House – 1 Story</div><div class="si-note">1–2 hrs</div></div><div class="si-price">$200–$500+</div></div>
+        <div class="service-item"><div><div class="si-name">House – 2 Story</div><div class="si-note">1–3 hrs</div></div><div class="si-price">$400–$1,000+</div></div>
+        <div class="service-item"><div><div class="si-name">Roof Cleaning</div><div class="si-note">Steepness & access affect price</div></div><div class="si-price">$300–$1,500+</div></div>
+        <div class="service-item"><div><div class="si-name">Fence</div><div class="si-note">Size & condition</div></div><div class="si-price">$100–$800+</div></div>
+        <div class="service-item"><div><div class="si-name">Gutters – 1 Story</div><div class="si-note">1–2 hrs</div></div><div class="si-price">$100–$200+</div></div>
+        <div class="service-item"><div><div class="si-name">Gutters – 2 Story</div><div class="si-note">1–2 hrs</div></div><div class="si-price">$200–$500+</div></div>
+        <div class="service-item"><div><div class="si-name">Trash Cans</div><div class="si-note">Under 15 min</div></div><div class="si-price">$15–$25</div></div>
+        <div class="service-item"><div><div class="si-name">Oil/Rust Stains</div><div class="si-note">Quote based on severity</div></div><div class="si-price">Free Quote</div></div>
+      </div>
+    </div>
+    <div class="service-block">
+      <div class="service-block-head"><div class="ico">🌿</div><h3>Landscaping</h3></div>
+      <div class="service-block-body">
+        <div class="service-item"><div><div class="si-name">Hardwood Mulch</div><div class="si-note">Per yard installed</div></div><div class="si-price">$100/yd</div></div>
+        <div class="service-item"><div><div class="si-name">Premium Hardwood</div><div class="si-note">Per yard installed</div></div><div class="si-price">$130/yd</div></div>
+        <div class="service-item"><div><div class="si-name">Black / Brown / Red Mulch</div><div class="si-note">Per yard installed</div></div><div class="si-price">$120/yd</div></div>
+        <div class="service-item"><div><div class="si-name">Pine Bark / Aromatic Cedar</div><div class="si-note">Per yard installed</div></div><div class="si-price">$150/yd</div></div>
+        <div class="service-item"><div><div class="si-name">Limestone Gravel</div><div class="si-note">Per yard installed</div></div><div class="si-price">$300/yd</div></div>
+        <div class="service-item"><div><div class="si-name">Topsoil</div><div class="si-note">Per yard installed</div></div><div class="si-price">$135/yd</div></div>
+        <div class="service-item"><div><div class="si-name">Organic Garden Soil</div><div class="si-note">Per yard installed</div></div><div class="si-price">$120/yd</div></div>
+        <div class="service-item"><div><div class="si-name">Sod – Full Pallet</div><div class="si-note">Includes terraforming & drainage</div></div><div class="si-price">$500–$2,000+</div></div>
+        <div class="service-item"><div><div class="si-name">Bush Trimming</div><div class="si-note">Cleanup & haul-off included</div></div><div class="si-price">$100–$700+</div></div>
+        <div class="service-item"><div><div class="si-name">Weeding / Plant Removal</div><div class="si-note">Varies by size & overgrowth</div></div><div class="si-price">Free Quote</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="perks" id="why">
+  <div class="sec-eyebrow">Why Choose Us</div>
+  <div class="sec-title">The SK Difference</div>
+  <div class="sec-line"></div>
+  <div class="perks-grid">
+    <div class="perk"><div class="perk-icon">⚡</div><div class="perk-text"><h4>Same-Day Response</h4><p>We reply fast and schedule your job quickly — typically within the week.</p></div></div>
+    <div class="perk"><div class="perk-icon">🏠</div><div class="perk-text"><h4>No Need to Be Home</h4><p>Homeowners don't need to be present. We handle the job and leave it clean.</p></div></div>
+    <div class="perk"><div class="perk-icon">🚛</div><div class="perk-text"><h4>Full Pro Trailer Setup</h4><p>We arrive with a complete professional equipment setup every time.</p></div></div>
+    <div class="perk"><div class="perk-icon">✅</div><div class="perk-text"><h4>Quality Guaranteed</h4><p>200+ happy customers and counting. We don't leave until you're satisfied.</p></div></div>
+    <div class="perk"><div class="perk-icon">💬</div><div class="perk-text"><h4>Free Quotes Always</h4><p>No obligation, no pressure. Just honest pricing before we start.</p></div></div>
+    <div class="perk"><div class="perk-icon">💰</div><div class="perk-text"><h4>Competitive Pricing</h4><p>Affordable rates for Houston homeowners. Local business, local prices.</p></div></div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="sec-eyebrow">Where We Work</div>
+  <div class="sec-title">Service Areas</div>
+  <div class="sec-line"></div>
+  <div class="areas-inner">
+    <div class="area-box standard">
+      <h4>✅ Standard Area</h4>
+      <ul>
+        <li>Houston</li>
+        <li>Pearland</li>
+        <li>Sugar Land</li>
+        <li>Missouri City</li>
+        <li>Sienna</li>
+        <li>Manvel</li>
+        <li>Alvin</li>
+        <li>League City</li>
+      </ul>
+    </div>
+    <div class="area-box far">
+      <h4>+$25 Far Drive Fee</h4>
+      <ul>
+        <li>Cypress</li>
+        <li>Katy</li>
+        <li>Rosenberg</li>
+        <li>Spring</li>
+        <li>Texas City</li>
+        <li>Tomball</li>
+        <li>The Woodlands</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>Ready to Book?<br><span>Call Stefan Today.</span></h2>
+  <p>Free quote, fast response, quality guaranteed.</p>
+  <div class="cta-actions">
+    <a href="tel:8327923702" class="cta-green">📞 (832) 792-3702</a>
+    <a href="sms:8327923702" class="cta-outline">💬 Text for a Quote</a>
+  </div>
+</section>
+
+<footer>
+  <p>SK Outdoor Services · Houston, TX · <a href="tel:8327923702">(832) 792-3702</a> · Demo by <a href="https://jfwebstudios.com">JF Web Studios</a></p>
+</footer>
+
+</body>
+</html>
