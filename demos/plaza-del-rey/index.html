@@ -51,7 +51,9 @@
   .spaces-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:24px; margin-top:48px; }
   .space-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:20px; overflow:hidden; transition:all 0.3s; }
   .space-card:hover { border-color:rgba(245,158,11,0.4); transform:translateY(-4px); }
-  .space-card-header { background:linear-gradient(135deg, #1a1200, #2d1f00); padding:32px; }
+  .space-card-header { padding:32px; background-size:cover; background-position:center; position:relative; }
+  .space-card-header::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg, rgba(20,12,0,0.82), rgba(40,25,0,0.75)); border-radius:inherit; }
+  .space-card-header > * { position:relative; z-index:1; }
   .space-tag { display:inline-block; background:rgba(245,158,11,0.2); color:#f59e0b; padding:4px 12px; border-radius:8px; font-size:12px; font-weight:700; margin-bottom:16px; }
   .space-card h3 { font-size:22px; font-weight:800; margin-bottom:8px; }
   .space-card .price { font-size:28px; font-weight:900; color:#f59e0b; }
@@ -187,7 +189,7 @@
     <div class="spaces-grid">
 
       <div class="space-card">
-        <div class="space-card-header">
+        <div class="space-card-header" style="background-image:url('https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/af42e1caa_IMG_6924.png')">
           <div class="space-tag">Unit C-3</div>
           <h3 data-en="Interior Unit" data-es="Unidad Interior">Interior Unit</h3>
           <div class="price">$16.00 <span data-en="/SF/YR" data-es="/SF/AÑO">/SF/YR</span></div>
@@ -201,7 +203,7 @@
       </div>
 
       <div class="space-card">
-        <div class="space-card-header">
+        <div class="space-card-header" style="background-image:url('https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/9e63766e8_IMG_6925.png')">
           <div class="space-tag">Unit C-5</div>
           <h3 data-en="Interior Unit" data-es="Unidad Interior">Interior Unit</h3>
           <div class="price">$16.00 <span data-en="/SF/YR" data-es="/SF/AÑO">/SF/YR</span></div>
@@ -215,7 +217,7 @@
       </div>
 
       <div class="space-card" style="border-color:rgba(245,158,11,0.25);">
-        <div class="space-card-header" style="background:linear-gradient(135deg, #2d1f00, #3d2800);">
+        <div class="space-card-header" style="background-image:url('https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/7074c7f0d_IMG_6926.png');">
           <div class="space-tag" style="background:rgba(245,158,11,0.3);">Unit C-9 ⭐</div>
           <h3 data-en="Corner Unit — Best Views" data-es="Unidad Esquinera — Mejores Vistas">Corner Unit — Best Views</h3>
           <div class="price">$16.00 <span data-en="/SF/YR" data-es="/SF/AÑO">/SF/YR</span></div>
