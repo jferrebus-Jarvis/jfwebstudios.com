@@ -10,7 +10,7 @@
 
   /* NAV */
   nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:18px 40px; background:rgba(10,10,15,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); }
-  .nav-logo { font-size:20px; font-weight:800; color:#fff; }
+  .nav-logo { font-size:18px; font-weight:800; color:#fff; white-space:nowrap; }
   .nav-logo span { color:#f59e0b; }
   .nav-links { display:flex; gap:28px; align-items:center; }
   .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; transition:color 0.2s; }
@@ -20,10 +20,10 @@
   .lang-btn.active { background:#f59e0b; color:#000; }
 
   /* HERO */
-  .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:100px 24px 60px; background: linear-gradient(rgba(10,10,15,0.55), rgba(10,10,15,0.7)), url("https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/bd2bad0a4_imessage_media_f7bf91fa929c.jpg") center 60%/80% auto no-repeat, #0a0a0f; position:relative; overflow:hidden; }
+  .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:120px 24px 60px; background: linear-gradient(rgba(10,10,15,0.55), rgba(10,10,15,0.7)), url("https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/bd2bad0a4_imessage_media_f7bf91fa929c.jpg") center center/cover no-repeat; position:relative; overflow:hidden; }
   .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 40%, rgba(245,158,11,0.12) 0%, transparent 70%); }
   .hero-badge { display:inline-block; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); color:#f59e0b; padding:8px 20px; border-radius:20px; font-size:13px; font-weight:600; margin-bottom:24px; }
-  .hero h1 { font-size:clamp(24px,3.5vw,48px); font-weight:900; line-height:1.1; margin-bottom:20px; white-space:nowrap; }
+  .hero h1 { font-size:clamp(22px,4vw,56px); font-weight:900; line-height:1.1; margin-bottom:20px; }
   .hero h1 span { color:#f59e0b; }
   .hero p { font-size:18px; color:rgba(255,255,255,0.6); max-width:600px; margin:0 auto 40px; line-height:1.7; }
   .hero-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
