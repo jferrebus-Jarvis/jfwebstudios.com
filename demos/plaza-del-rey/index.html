@@ -20,7 +20,7 @@
   .lang-btn.active { background:#f59e0b; color:#000; }
 
   /* HERO */
-  .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:100px 24px 60px; background: linear-gradient(135deg, #0a0a0f 0%, #1a1200 50%, #0a0a0f 100%); position:relative; overflow:hidden; }
+  .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:100px 24px 60px; background: linear-gradient(rgba(10,10,15,0.75), rgba(10,10,15,0.85)), url("https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/5f05093f7_IMG_6923.png") center/cover no-repeat; position:relative; overflow:hidden; }
   .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 40%, rgba(245,158,11,0.12) 0%, transparent 70%); }
   .hero-badge { display:inline-block; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); color:#f59e0b; padding:8px 20px; border-radius:20px; font-size:13px; font-weight:600; margin-bottom:24px; }
   .hero h1 { font-size:clamp(36px,6vw,72px); font-weight:900; line-height:1.05; margin-bottom:20px; }
@@ -103,6 +103,14 @@
   .available-now { display:inline-flex; align-items:center; gap:8px; background:rgba(34,197,94,0.15); border:1px solid rgba(34,197,94,0.3); color:#22c55e; padding:6px 16px; border-radius:20px; font-size:13px; font-weight:700; margin-bottom:20px; }
   .available-dot { width:8px; height:8px; background:#22c55e; border-radius:50%; animation:pulse 1.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* GALLERY */
+  .gallery-section { background:#0a0a0f; }
+  .gallery-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:16px; margin-top:48px; }
+  .gallery-item { border-radius:16px; overflow:hidden; aspect-ratio:4/3; border:1px solid rgba(255,255,255,0.07); transition:transform 0.3s, border-color 0.3s; cursor:pointer; }
+  .gallery-item:hover { transform:scale(1.02); border-color:rgba(245,158,11,0.4); }
+  .gallery-item img { width:100%; height:100%; object-fit:cover; display:block; }
+
 </style>
 </head>
 <body>
@@ -264,6 +272,60 @@
         <div class="feature-icon">☀️</div>
         <h4 data-en="Natural Light" data-es="Luz Natural">Natural Light</h4>
         <p data-en="Plentiful natural light in all units — bright, comfortable workspace all day long." data-es="Abundante luz natural en todas las unidades — espacio de trabajo luminoso y cómodo todo el día.">Plentiful natural light in all units — bright, comfortable workspace all day long.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-label" data-en="PHOTO GALLERY" data-es="GALERÍA DE FOTOS">PHOTO GALLERY</div>
+    <h2 class="section-title" data-en="See the Spaces" data-es="Conoce los Espacios">See the Spaces</h2>
+    <p class="section-sub" data-en="Real photos of the units — what you see is what you get." data-es="Fotos reales de las unidades — lo que ves es lo que obtienes.">Real photos of the units — what you see is what you get.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/af42e1caa_IMG_6924.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/9e63766e8_IMG_6925.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/7074c7f0d_IMG_6926.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/ef5446b2e_IMG_6927.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/a750baf6b_IMG_6928.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/68b5624cd_IMG_6929.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/7414d7ffb_IMG_6930.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/2bfe10045_IMG_6931.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/68d39f17f_IMG_6932.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/51193ad03_IMG_6933.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/8d0ba6062_IMG_6934.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/bdf9ddbc3_IMG_6935.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/06f9a0bec_IMG_6936.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
+      </div>
+      <div class="gallery-item">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/af419ffdc_IMG_6937.png" alt="Plaza del Rey Warehouse Space" loading="lazy"/>
       </div>
     </div>
   </div>
