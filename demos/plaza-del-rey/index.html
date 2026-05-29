@@ -10,7 +10,9 @@
 
   /* NAV */
   nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:18px 24px; gap:16px; background:rgba(10,10,15,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,255,255,0.06); }
-  .nav-logo { font-size:17px; font-weight:800; color:#fff; white-space:nowrap; margin-right:16px; }
+  .nav-logo-wrap { display:flex; flex-direction:column; align-items:flex-start; gap:4px; margin-right:16px; }
+  .nav-logo { font-size:17px; font-weight:800; color:#fff; white-space:nowrap; }
+  .nav-logo-wrap .lang-toggle { display:flex; gap:4px; }
   .nav-logo span { color:#f59e0b; }
   .nav-links { display:flex; gap:28px; align-items:center; }
   .nav-links a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:14px; transition:color 0.2s; }
@@ -119,16 +121,18 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Plaza <span>del Rey</span></div>
+  <div class="nav-logo-wrap">
+    <div class="nav-logo">Plaza <span>del Rey</span></div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
   <div class="nav-links">
     <a href="#spaces" data-en="Spaces" data-es="Espacios">Spaces</a>
     <a href="#features" data-en="Features" data-es="Características">Features</a>
     <a href="#location" data-en="Location" data-es="Ubicación">Location</a>
     <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
-  </div>
-  <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('es')">ES</button>
   </div>
 </nav>
 
