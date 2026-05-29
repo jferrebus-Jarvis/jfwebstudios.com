@@ -219,7 +219,7 @@
       <div class="space-card" style="border-color:rgba(245,158,11,0.25);">
         <div class="space-card-header" style="background-image:url('https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/7074c7f0d_IMG_6926.png');">
           <div class="space-tag" style="background:rgba(245,158,11,0.3);">Unit C-9 ⭐</div>
-          <h3 data-en="Corner Unit — Best Views" data-es="Unidad Esquinera — Mejores Vistas">Corner Unit — Best Views</h3>
+          <h3 data-en="Corner Unit — Extra Parking" data-es="Unidad Esquinera — Estacionamiento Extra">Corner Unit — Extra Parking</h3>
           <div class="price">$16.00 <span data-en="/SF/YR" data-es="/SF/AÑO">/SF/YR</span></div>
         </div>
         <div class="space-card-body">
@@ -401,12 +401,35 @@ function setLang(lang) {
 function handleSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('button');
-  btn.textContent = '✅ Sent!';
+  const form = e.target;
+  const inputs = form.querySelectorAll('input[type=text]');
+  const name = inputs[0] ? inputs[0].value : '';
+  const phone = form.querySelector('input[type=tel]') ? form.querySelector('input[type=tel]').value : '';
+  const email = form.querySelector('input[type=email]') ? form.querySelector('input[type=email]').value : '';
+  const business = inputs[1] ? inputs[1].value : '';
+  const message = form.querySelector('textarea') ? form.querySelector('textarea').value : '';
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const subject = encodeURIComponent('New Tour Request - Plaza del Rey');
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Phone: ' + phone + '\n' +
+    'Email: ' + email + '\n' +
+    'Business Type: ' + business + '\n\n' +
+    'Message: ' + message
+  );
+
+  window.location.href = 'mailto:John@haciendarealestatetx.com?subject=' + subject + '&body=' + body;
+
+  btn.textContent = '✅ Opening Email...';
   btn.style.background = '#22c55e';
+  btn.disabled = false;
   setTimeout(() => {
     btn.textContent = btn.getAttribute('data-en') || 'Send Message';
     btn.style.background = '#f59e0b';
-    e.target.reset();
+    form.reset();
   }, 3000);
 }
 </script>
