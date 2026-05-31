@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panaaron Artisan Bakery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #C8952A;
+      --dark: #1A1209;
+      --cream: #FDF6E3;
+      --brown: #5C3D1E;
+      --light: #FAF3E0;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Inter', sans-serif; background:var(--cream); color:var(--dark); }
+
+    /* NAV */
+    nav {
+      position:fixed; top:0; width:100%; z-index:100;
+      background:rgba(26,18,9,0.95); backdrop-filter:blur(10px);
+      padding:16px 24px; display:flex; justify-content:space-between; align-items:center;
+    }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:#fff; }
+    .nav-logo span { color:var(--gold); }
+    .nav-links { display:flex; gap:24px; }
+    .nav-links a { color:rgba(255,255,255,0.8); text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:#fff; border:none; padding:10px 20px; border-radius:25px; font-weight:600; font-size:14px; cursor:pointer; text-decoration:none; }
+
+    /* HERO */
+    .hero {
+      min-height:100vh;
+      background: linear-gradient(rgba(26,18,9,0.65), rgba(26,18,9,0.65)),
+        url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1400&q=80') center/cover no-repeat;
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; padding:120px 24px 80px;
+    }
+    .hero-badge {
+      background:rgba(200,149,42,0.2); border:1px solid var(--gold);
+      color:var(--gold); padding:8px 20px; border-radius:25px; font-size:13px; font-weight:600;
+      letter-spacing:1px; text-transform:uppercase; margin-bottom:24px;
+    }
+    .hero h1 {
+      font-family:'Playfair Display',serif; font-size:clamp(42px,8vw,80px);
+      color:#fff; line-height:1.1; margin-bottom:12px;
+    }
+    .hero h1 span { color:var(--gold); }
+    .hero-sub { font-size:clamp(16px,3vw,20px); color:rgba(255,255,255,0.8); max-width:520px; line-height:1.6; margin-bottom:16px; }
+    .hero-tagline { font-family:'Playfair Display',serif; font-style:italic; color:var(--gold); font-size:18px; margin-bottom:40px; }
+    .hero-btns { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+    .btn-primary { background:var(--gold); color:#fff; padding:16px 36px; border-radius:30px; font-weight:700; font-size:16px; text-decoration:none; transition:transform .2s, box-shadow .2s; }
+    .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(200,149,42,0.4); }
+    .btn-secondary { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.6); padding:16px 36px; border-radius:30px; font-weight:600; font-size:16px; text-decoration:none; transition:all .2s; }
+    .btn-secondary:hover { border-color:#fff; background:rgba(255,255,255,0.1); }
+
+    /* SECTIONS */
+    section { padding:80px 24px; max-width:1100px; margin:0 auto; }
+    .section-label { font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+    .section-title { font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,48px); color:var(--dark); line-height:1.2; margin-bottom:16px; }
+    .section-sub { font-size:16px; color:#666; max-width:600px; line-height:1.7; margin-bottom:48px; }
+
+    /* ABOUT */
+    .about-wrap { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .about-img {
+      border-radius:20px; overflow:hidden; position:relative;
+      background: linear-gradient(135deg, var(--brown), var(--dark));
+      height:420px; display:flex; align-items:center; justify-content:center;
+    }
+    .about-img img { width:100%; height:100%; object-fit:cover; }
+    .about-text p { font-size:16px; color:#555; line-height:1.8; margin-bottom:16px; }
+    .about-stats { display:flex; gap:32px; margin-top:32px; }
+    .stat { text-align:center; }
+    .stat-num { font-family:'Playfair Display',serif; font-size:36px; font-weight:900; color:var(--gold); }
+    .stat-label { font-size:12px; color:#888; font-weight:600; text-transform:uppercase; letter-spacing:1px; }
+
+    /* PRODUCTS */
+    .products-section { background:var(--dark); padding:80px 24px; }
+    .products-inner { max-width:1100px; margin:0 auto; }
+    .products-section .section-title { color:#fff; }
+    .products-section .section-label { color:var(--gold); }
+    .products-section .section-sub { color:rgba(255,255,255,0.6); }
+    .products-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+    .product-card {
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+      border-radius:16px; overflow:hidden; transition:transform .2s, box-shadow .2s;
+    }
+    .product-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(200,149,42,0.2); }
+    .product-img { height:180px; overflow:hidden; position:relative; }
+    .product-img img { width:100%; height:100%; object-fit:cover; }
+    .product-img-placeholder {
+      height:180px; display:flex; align-items:center; justify-content:center;
+      font-size:60px; background:linear-gradient(135deg,#2a1a0a,#3d2510);
+    }
+    .product-info { padding:20px; }
+    .product-name { font-family:'Playfair Display',serif; font-size:20px; color:#fff; margin-bottom:8px; }
+    .product-desc { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6; margin-bottom:16px; }
+    .product-tag { background:rgba(200,149,42,0.2); color:var(--gold); font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; display:inline-block; }
+
+    /* WHOLESALE */
+    .wholesale-section { background:linear-gradient(135deg, #FDF6E3, #F5E6C8); padding:80px 24px; }
+    .wholesale-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .wholesale-cards { display:flex; flex-direction:column; gap:16px; }
+    .w-card {
+      background:#fff; border-radius:16px; padding:24px; display:flex; gap:16px; align-items:flex-start;
+      box-shadow:0 4px 20px rgba(0,0,0,0.06);
+    }
+    .w-icon { font-size:32px; }
+    .w-title { font-weight:700; font-size:16px; color:var(--dark); margin-bottom:4px; }
+    .w-desc { font-size:14px; color:#666; line-height:1.6; }
+
+    /* WHERE TO FIND */
+    .locations-section { background:var(--dark); padding:80px 24px; }
+    .locations-inner { max-width:1100px; margin:0 auto; text-align:center; }
+    .locations-section .section-title { color:#fff; }
+    .locations-section .section-label { color:var(--gold); }
+    .locations-section .section-sub { color:rgba(255,255,255,0.6); margin:0 auto 48px; }
+    .locations-grid { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
+    .loc-chip {
+      background:rgba(200,149,42,0.15); border:1px solid rgba(200,149,42,0.4);
+      color:#fff; padding:14px 28px; border-radius:50px; font-weight:600; font-size:15px;
+      display:flex; align-items:center; gap:8px;
+    }
+    .loc-chip span { color:var(--gold); font-size:20px; }
+
+    /* CONTACT */
+    .contact-section { padding:80px 24px; }
+    .contact-inner { max-width:700px; margin:0 auto; text-align:center; }
+    .contact-form { background:#fff; border-radius:24px; padding:40px; box-shadow:0 8px 40px rgba(0,0,0,0.08); margin-top:40px; text-align:left; }
+    .form-group { margin-bottom:20px; }
+    .form-group label { display:block; font-size:13px; font-weight:600; color:var(--dark); margin-bottom:8px; text-transform:uppercase; letter-spacing:.5px; }
+    .form-group input, .form-group textarea, .form-group select {
+      width:100%; padding:14px 16px; border:2px solid #eee; border-radius:12px;
+      font-family:'Inter',sans-serif; font-size:15px; color:var(--dark);
+      transition:border-color .2s; background:#FAFAFA;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline:none; border-color:var(--gold); background:#fff; }
+    .form-group textarea { height:120px; resize:vertical; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .submit-btn {
+      width:100%; background:var(--gold); color:#fff; border:none; padding:16px;
+      border-radius:12px; font-size:16px; font-weight:700; cursor:pointer;
+      font-family:'Inter',sans-serif; transition:transform .2s, box-shadow .2s;
+    }
+    .submit-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(200,149,42,0.4); }
+    .contact-info { display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
+    .contact-item { display:flex; align-items:center; gap:8px; color:#555; font-size:14px; }
+
+    /* FOOTER */
+    footer { background:var(--dark); color:rgba(255,255,255,0.6); text-align:center; padding:32px 24px; font-size:13px; }
+    footer strong { color:var(--gold); }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+      .nav-links { display:none; }
+      .about-wrap { grid-template-columns:1fr; }
+      .wholesale-inner { grid-template-columns:1fr; }
+      .about-img { height:280px; }
+      .form-row { grid-template-columns:1fr; }
+      .about-stats { gap:16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Pan<span>aaron</span></div>
+  <div class="nav-links">
+    <a href="#about">Our Story</a>
+    <a href="#products">Products</a>
+    <a href="#wholesale">Wholesale</a>
+    <a href="#locations">Find Us</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Order Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🍞 Venezuelan Artisan Bakery · Houston, TX</div>
+  <h1>Panes con <span>Propósito</span></h1>
+  <p class="hero-sub">Handcrafted sourdough breads rooted in Venezuelan tradition — made with natural ingredients for flavor that feeds the soul.</p>
+  <p class="hero-tagline">"Happiness is why you knead"</p>
+  <div class="hero-btns">
+    <a href="https://panaaron.com/pages/order-online" target="_blank" class="btn-primary">Order Online</a>
+    <a href="#wholesale" class="btn-secondary">Wholesale Inquiries</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Artisan Bread"/>
+    </div>
+    <div class="about-text">
+      <p class="section-label">Our Story</p>
+      <h2 class="section-title">From Caracas to Houston</h2>
+      <p>Aaron is a Venezuelan artisan baker who blends traditional Latin baking techniques with natural sourdough fermentation — crafting uniquely flavorful, healthy loaves that celebrate his roots from Caracas.</p>
+      <p>Every loaf is made by hand using premium, fresh, and natural ingredients. No shortcuts. No additives. Just real bread, made with real love.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-num">11K+</div>
+          <div class="stat-label">Followers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">825+</div>
+          <div class="stat-label">Posts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Natural</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<div class="products-section" id="products">
+  <div class="products-inner">
+    <p class="section-label">Our Breads</p>
+    <h2 class="section-title" style="color:#fff;">Crafted With Love</h2>
+    <p class="section-sub">Every loaf tells a story — baked fresh, delivered with purpose.</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img-placeholder">🍞</div>
+        <div class="product-info">
+          <div class="product-name">Sourdough Artesanal</div>
+          <div class="product-desc">Classic long-fermentation sourdough with a crispy crust and chewy crumb. The signature Panaaron loaf.</div>
+          <span class="product-tag">Bestseller</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-placeholder">🥐</div>
+        <div class="product-info">
+          <div class="product-name">Pan de Guayaba</div>
+          <div class="product-desc">Sweet Venezuelan-style guava bread — soft, golden, and packed with flavor. A crowd favorite.</div>
+          <span class="product-tag">Venezuelan Classic</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-placeholder">🫓</div>
+        <div class="product-info">
+          <div class="product-name">Wholesale Loaves</div>
+          <div class="product-desc">Bulk artisan breads for restaurants, cafés, and retailers. Available in multiple varieties and quantities.</div>
+          <span class="product-tag">B2B Available</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHOLESALE -->
+<div class="wholesale-section" id="wholesale">
+  <div class="wholesale-inner">
+    <div>
+      <p class="section-label">For Businesses</p>
+      <h2 class="section-title">Wholesale & B2B</h2>
+      <p class="section-sub">Partner with Panaaron to bring artisan-quality bread to your customers. We supply restaurants, cafés, hotels, and retailers across Houston.</p>
+      <a href="#contact" class="btn-primary">Get a Quote</a>
+    </div>
+    <div class="wholesale-cards">
+      <div class="w-card">
+        <div class="w-icon">🏪</div>
+        <div>
+          <div class="w-title">Retail Supply</div>
+          <div class="w-desc">Stock your shelves with Panaaron artisan breads. Already in Fiesta Mart locations across Houston.</div>
+        </div>
+      </div>
+      <div class="w-card">
+        <div class="w-icon">🍽️</div>
+        <div>
+          <div class="w-title">Restaurant & Catering</div>
+          <div class="w-desc">Custom bread orders for restaurants and catering events. Consistent quality, reliable delivery.</div>
+        </div>
+      </div>
+      <div class="w-card">
+        <div class="w-icon">📦</div>
+        <div>
+          <div class="w-title">Bulk Orders</div>
+          <div class="w-desc">Flexible quantities and varieties. We work with your schedule and volume needs.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHERE TO FIND -->
+<div class="locations-section" id="locations">
+  <div class="locations-inner">
+    <p class="section-label">Find Us</p>
+    <h2 class="section-title">Where to Get Panaaron</h2>
+    <p class="section-sub">Available at multiple locations across Houston — and online for local delivery.</p>
+    <div class="locations-grid">
+      <div class="loc-chip"><span>🏪</span> Fiesta Mart</div>
+      <div class="loc-chip"><span>🌿</span> Farmers Markets</div>
+      <div class="loc-chip"><span>🚚</span> Local Delivery</div>
+      <div class="loc-chip"><span>🛒</span> Online Orders</div>
+      <div class="loc-chip"><span>🍽️</span> Catering Events</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Order or Partner With Us</h2>
+    <p style="color:#666;font-size:16px;line-height:1.7;">Whether you want to place an order, inquire about wholesale, or just say hello — we'd love to hear from you.</p>
+    <div class="contact-form">
+      <form action="mailto:hello@panaaron.com" method="POST" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Your name" required/>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="(832) 000-0000"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="your@email.com" required/>
+        </div>
+        <div class="form-group">
+          <label>Inquiry Type</label>
+          <select name="type">
+            <option>Place an Order</option>
+            <option>Wholesale / B2B</option>
+            <option>Catering</option>
+            <option>General Question</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us what you need..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message 🍞</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">📞 (832) 363-9332</div>
+      <div class="contact-item">📧 hello@panaaron.com</div>
+      <div class="contact-item">📍 Houston, TX</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Panaaron Artisan Bakery</strong> · Venezuelan Sourdough · Houston, TX</p>
+  <p style="margin-top:8px;">© 2026 Panaaron. All rights reserved. · <a href="https://panaaron.com" style="color:var(--gold);">panaaron.com</a></p>
+  <p style="margin-top:8px;font-size:11px;color:rgba(255,255,255,0.3);">Website by JF Web Studios · jfwebstudios.com</p>
+</footer>
+
+</body>
+</html>
