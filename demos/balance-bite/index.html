@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Balance Bite by Yoly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F5EFE0;
+      --warm: #EAD9B8;
+      --brown: #3B2A1A;
+      --green: #5A7A3A;
+      --light-green: #7FA650;
+      --red: #C0392B;
+      --yellow: #D4A017;
+      --text: #2C1A0E;
+      --white: #FFFDF8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--text); }
+
+    /* NAV */
+    nav {
+      background: var(--white);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-logo img { height: 60px; border-radius: 50%; object-fit: cover; }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--brown); line-height: 1.2; }
+    .nav-brand span { font-size: 0.75rem; color: var(--green); font-family: 'Lato', sans-serif; display: block; letter-spacing: 2px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--brown); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.5px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green); }
+    .lang-toggle { display: flex; background: var(--cream); border-radius: 20px; overflow: hidden; border: 1px solid #ddd; }
+    .lang-toggle button { padding: 5px 14px; border: none; background: transparent; cursor: pointer; font-size: 0.8rem; font-weight: 700; color: var(--brown); transition: all 0.2s; }
+    .lang-toggle button.active { background: var(--green); color: white; border-radius: 20px; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--warm) 60%, #E8D5A0 100%);
+      padding: 80px 40px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      min-height: 85vh;
+      flex-wrap: wrap;
+    }
+    .hero-text { max-width: 520px; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      line-height: 1.15;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .hero-title em { font-style: italic; color: var(--green); }
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #7A6040;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: #5A4030;
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 30px; }
+    .btn-delivery {
+      display: flex; align-items: center; gap: 8px;
+      padding: 13px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer; border: none;
+    }
+    .btn-delivery:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+    .btn-uber { background: #000; color: #fff; }
+    .btn-doordash { background: #FF3008; color: #fff; }
+    .hero-tagline {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #8A6A40;
+      border-left: 3px solid var(--green);
+      padding-left: 14px;
+    }
+    .hero-image { position: relative; }
+    .hero-logo-circle {
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 20px 60px rgba(90,60,20,0.18);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-logo-circle img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-badges-row {
+      display: flex; gap: 16px; margin-top: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .badge-pill {
+      background: var(--white);
+      border: 1px solid #D4C4A0;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--green);
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    /* PILLARS */
+    .pillars {
+      background: var(--brown);
+      padding: 50px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .pillar { text-align: center; color: var(--cream); max-width: 200px; }
+    .pillar-icon { font-size: 2.2rem; margin-bottom: 10px; }
+    .pillar h3 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 6px; }
+    .pillar p { font-size: 0.82rem; opacity: 0.75; line-height: 1.5; }
+
+    /* MENU PREVIEW */
+    .menu-section {
+      padding: 70px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--green); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      color: var(--brown);
+    }
+    .section-line {
+      width: 60px; height: 3px; background: var(--green);
+      margin: 14px auto 0;
+    }
+    .menu-categories { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    .menu-cat {
+      padding: 8px 22px;
+      border-radius: 25px;
+      border: 2px solid var(--green);
+      background: transparent;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .menu-cat.active, .menu-cat:hover { background: var(--green); color: white; }
+    .menu-coming {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--white);
+      border-radius: 20px;
+      border: 2px dashed #C4B090;
+    }
+    .menu-coming .big-emoji { font-size: 3rem; margin-bottom: 14px; }
+    .menu-coming h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--brown); margin-bottom: 8px; }
+    .menu-coming p { color: #8A6A40; font-size: 0.95rem; }
+
+    /* LOCATION */
+    .location-section {
+      background: var(--warm);
+      padding: 70px 40px;
+      text-align: center;
+    }
+    .location-card {
+      background: var(--white);
+      max-width: 600px;
+      margin: 30px auto 0;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+    .location-card .coming-soon-badge {
+      background: var(--yellow);
+      color: var(--brown);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .location-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--brown); margin-bottom: 10px; }
+    .location-card p { color: #7A6040; font-size: 0.95rem; line-height: 1.7; }
+    .location-card .now-tag {
+      margin-top: 20px;
+      padding: 14px 20px;
+      background: var(--cream);
+      border-radius: 12px;
+      border-left: 4px solid var(--green);
+      text-align: left;
+      font-size: 0.9rem;
+      color: var(--brown);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--brown);
+      color: var(--cream);
+      padding: 40px;
+      text-align: center;
+    }
+    footer .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 8px; }
+    footer .footer-tag { font-size: 0.85rem; opacity: 0.7; font-style: italic; margin-bottom: 20px; }
+    footer .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+    footer .footer-links a { color: var(--cream); opacity: 0.8; font-size: 0.85rem; text-decoration: none; }
+    footer .footer-links a:hover { opacity: 1; }
+    footer .footer-bottom { margin-top: 24px; font-size: 0.75rem; opacity: 0.5; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 50px 20px 40px; gap: 40px; flex-direction: column; text-align: center; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-logo-circle { width: 260px; height: 260px; }
+      .hero-buttons { justify-content: center; }
+      nav { padding: 12px 20px; }
+      .nav-links { gap: 14px; }
+      .pillars { gap: 30px; padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/3f4d696fd_imessage_media_ead912802f2d.jpg" alt="The Balance Bite Logo">
+    <div class="nav-brand">
+      The Balance Bite
+      <span data-es="El Bocado Balanceado" data-en="The Balanced Bite">El Bocado Balanceado</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+    <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+    <a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a>
+  </div>
+  <div class="lang-toggle">
+    <button class="active" onclick="setLang('es')">ES</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge" data-es="🌿 Saludable &amp; Nutritivo" data-en="🌿 Healthy &amp; Nutritious">🌿 Saludable &amp; Nutritivo</div>
+    <div class="hero-subtitle" data-es="El Bocado Balanceado" data-en="The Balanced Bite">El Bocado Balanceado</div>
+    <h1 class="hero-title">
+      <em data-es="Sabor" data-en="Flavor">Sabor</em> <span data-es="que nutre" data-en="that nourishes">que nutre</span><br>
+      <span data-es="el cuerpo y el alma" data-en="body and soul">el cuerpo y el alma</span>
+    </h1>
+    <p class="hero-desc" data-es="Comida venezolana auténtica, preparada con ingredientes frescos y de calidad. Hecho con pasión, servido con propósito." data-en="Authentic Venezuelan food, made with fresh, quality ingredients. Made with passion, served with purpose.">
+      Comida venezolana auténtica, preparada con ingredientes frescos y de calidad. Hecho con pasión, servido con propósito.
+    </p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-delivery btn-uber" id="ubereats-btn">
+        🛵 <span data-es="Pedir en UberEats" data-en="Order on UberEats">Pedir en UberEats</span>
+      </a>
+      <a href="#" class="btn-delivery btn-doordash" id="doordash-btn">
+        🚪 <span data-es="Pedir en DoorDash" data-en="Order on DoorDash">Pedir en DoorDash</span>
+      </a>
+    </div>
+    <p class="hero-tagline" data-es='"Sabor balanceado. Hecho con pasión. Servido con propósito."' data-en='"Balanced flavor. Made with passion. Served with purpose."'>
+      "Sabor balanceado. Hecho con pasión. Servido con propósito."
+    </p>
+  </div>
+  <div class="hero-image">
+    <div class="hero-logo-circle">
+      <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/3f4d696fd_imessage_media_ead912802f2d.jpg" alt="The Balance Bite by Yoly">
+    </div>
+    <div class="hero-badges-row">
+      <div class="badge-pill">🥗 <span data-es="Saludable" data-en="Healthy">Saludable</span></div>
+      <div class="badge-pill">🫑 <span data-es="Ingredientes frescos" data-en="Fresh ingredients">Ingredientes frescos</span></div>
+      <div class="badge-pill">🍮 <span data-es="Postres" data-en="Desserts">Postres</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars">
+  <div class="pillar">
+    <div class="pillar-icon">🥗</div>
+    <h3 data-es="Saludable y Nutritivo" data-en="Healthy & Nutritious">Saludable y Nutritivo</h3>
+    <p data-es="Cada plato está pensado para nutrir tu cuerpo sin sacrificar el sabor." data-en="Every dish is crafted to nourish your body without sacrificing flavor.">Cada plato está pensado para nutrir tu cuerpo sin sacrificar el sabor.</p>
+  </div>
+  <div class="pillar">
+    <div class="pillar-icon">🫑</div>
+    <h3 data-es="Ingredientes de Calidad" data-en="Quality Ingredients">Ingredientes de Calidad</h3>
+    <p data-es="Solo usamos ingredientes frescos y naturales, seleccionados con cuidado." data-en="We only use fresh, natural ingredients, carefully selected.">Solo usamos ingredientes frescos y naturales, seleccionados con cuidado.</p>
+  </div>
+  <div class="pillar">
+    <div class="pillar-icon">🍮</div>
+    <h3 data-es="Postres que Encantan" data-en="Desserts You'll Love">Postres que Encantan</h3>
+    <p data-es="Dulces venezolanos con un toque saludable que te van a enamorar." data-en="Venezuelan sweets with a healthy twist you'll fall in love with.">Dulces venezolanos con un toque saludable que te van a enamorar.</p>
+  </div>
+  <div class="pillar">
+    <div class="pillar-icon">❤️</div>
+    <h3 data-es="Hecho con Amor" data-en="Made with Love">Hecho con Amor</h3>
+    <p data-es="Cada receta lleva la sazón y el cariño de Yoly en cada bocado." data-en="Every recipe carries Yoly's seasoning and love in every bite.">Cada receta lleva la sazón y el cariño de Yoly en cada bocado.</p>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="section-header">
+    <p class="section-label" data-es="Lo que ofrecemos" data-en="What we offer">Lo que ofrecemos</p>
+    <h2 class="section-title" data-es="Nuestro Menú" data-en="Our Menu">Nuestro Menú</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="menu-coming">
+    <div class="big-emoji">🍽️</div>
+    <h3 data-es="Menú completo próximamente" data-en="Full menu coming soon">Menú completo próximamente</h3>
+    <p data-es="Estamos preparando algo delicioso para ti. ¡Muy pronto podrás ver todos nuestros platos!" data-en="We're preparing something delicious for you. Very soon you'll be able to see all our dishes!">
+      Estamos preparando algo delicioso para ti. ¡Muy pronto podrás ver todos nuestros platos!
+    </p>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location-section" id="ubicacion">
+  <div class="section-header">
+    <p class="section-label" data-es="Dónde encontrarnos" data-en="Where to find us">Dónde encontrarnos</p>
+    <h2 class="section-title" data-es="Nuestra Ubicación" data-en="Our Location">Nuestra Ubicación</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="location-card">
+    <div class="coming-soon-badge" data-es="🏠 Disponible desde casa" data-en="🏠 Available from home">🏠 Disponible desde casa</div>
+    <h3 data-es="Houston, Texas" data-en="Houston, Texas">Houston, Texas</h3>
+    <p data-es="Actualmente preparamos todos nuestros platos con amor desde casa. Pedidos disponibles por UberEats y DoorDash." data-en="We currently prepare all our dishes with love from home. Orders available via UberEats and DoorDash.">
+      Actualmente preparamos todos nuestros platos con amor desde casa. Pedidos disponibles por UberEats y DoorDash.
+    </p>
+    <div class="now-tag">
+      📍 <strong data-es="Próximamente:" data-en="Coming Soon:">Próximamente:</strong>
+      <span data-es=" Abrimos nuestro local en Agosto 2026 — ¡síguenos para ser el primero en saber dónde!" data-en=" Opening our location in August 2026 — follow us to be the first to know where!"> Abrimos nuestro local en Agosto 2026 — ¡síguenos para ser el primero en saber dónde!</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section style="padding: 70px 40px; max-width: 800px; margin: 0 auto; text-align: center;" id="nosotros">
+  <p class="section-label" data-es="Nuestra historia" data-en="Our story">Nuestra historia</p>
+  <h2 class="section-title" style="font-family:'Playfair Display',serif; font-size:2.2rem; color:var(--brown);" data-es="By Yoly" data-en="By Yoly">By Yoly</h2>
+  <div class="section-line" style="margin:14px auto 30px;"></div>
+  <p style="font-size:1.05rem; color:#5A4030; line-height:1.9;" data-es="Detrás de cada plato está Yoly, una venezolana apasionada por la cocina saludable y los sabores de su tierra. Su misión es sencilla: demostrarte que comer sano no significa sacrificar el sabor. Cada receta es un abrazo de hogar, preparado con los mejores ingredientes y servido con todo el amor del mundo." data-en="Behind every dish is Yoly, a Venezuelan woman passionate about healthy cooking and the flavors of her homeland. Her mission is simple: to show you that eating healthy doesn't mean sacrificing flavor. Every recipe is a home embrace, made with the best ingredients and served with all the love in the world.">
+    Detrás de cada plato está Yoly, una venezolana apasionada por la cocina saludable y los sabores de su tierra. Su misión es sencilla: demostrarte que comer sano no significa sacrificar el sabor. Cada receta es un abrazo de hogar, preparado con los mejores ingredientes y servido con todo el amor del mundo.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">The Balance Bite <em>by Yoly</em></div>
+  <div class="footer-tag" data-es='"El Bocado Balanceado"' data-en='"The Balanced Bite"'>"El Bocado Balanceado"</div>
+  <div class="footer-links">
+    <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+    <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+    <a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a>
+    <a href="#" data-es="Instagram" data-en="Instagram">Instagram</a>
+  </div>
+  <div class="footer-bottom" data-es="© 2026 The Balance Bite by Yoly · Houston, TX · Hecho con ❤️" data-en="© 2026 The Balance Bite by Yoly · Houston, TX · Made with ❤️">
+    © 2026 The Balance Bite by Yoly · Houston, TX · Hecho con ❤️
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lang-toggle button:${lang === 'es' ? 'first' : 'last'}-child`).classList.add('active');
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-es]').forEach(el => {
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
+  }
+</script>
+</body>
+</html>
