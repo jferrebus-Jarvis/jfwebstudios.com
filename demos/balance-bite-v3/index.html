@@ -115,24 +115,24 @@
     }
   
     /* COURSES SECTION */
-    .courses-section{background:linear-gradient(160deg,#2d4a1e 0%,#1a2e12 100%);padding:90px 40px;text-align:center;position:relative;overflow:hidden;}
-    .courses-section::before{content:'';position:absolute;top:-80px;left:-80px;width:300px;height:300px;background:rgba(255,255,255,0.03);border-radius:50%;}
-    .courses-section::after{content:'';position:absolute;bottom:-60px;right:-60px;width:250px;height:250px;background:rgba(255,255,255,0.03);border-radius:50%;}
+    .courses-section{background:var(--cream);padding:90px 40px;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(0,0,0,0.06);}
+    .courses-section::before{display:none;}
+    .courses-section::after{display:none;}
     .courses-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
     .courses-badge{display:inline-block;background:var(--gold);color:#1a2e12;font-size:0.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:6px 20px;border-radius:30px;margin-bottom:24px;}
-    .courses-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:#fff;font-weight:700;margin-bottom:16px;line-height:1.2;}
-    .courses-sub{color:rgba(255,255,255,0.7);font-size:1rem;max-width:560px;margin:0 auto 50px;line-height:1.7;}
+    .courses-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:var(--dark);font-weight:700;margin-bottom:16px;line-height:1.2;}
+    .courses-sub{color:var(--text);font-size:1rem;max-width:560px;margin:0 auto 50px;line-height:1.7;opacity:0.75;}
     .courses-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-bottom:50px;}
-    .cc-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:32px 24px;backdrop-filter:blur(10px);transition:transform 0.3s,background 0.3s;}
-    .cc-card:hover{transform:translateY(-6px);background:rgba(255,255,255,0.12);}
+    .cc-card{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:20px;padding:32px 24px;box-shadow:0 4px 24px rgba(0,0,0,0.06);transition:transform 0.3s,box-shadow 0.3s;}
+    .cc-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.12);}
     .cc-icon{font-size:2.4rem;margin-bottom:14px;}
-    .cc-name{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;font-weight:600;margin-bottom:10px;}
-    .cc-desc{color:rgba(255,255,255,0.6);font-size:0.85rem;line-height:1.6;}
-    .cc-notify{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:36px 32px;max-width:500px;margin:0 auto;}
-    .cc-notify p{color:rgba(255,255,255,0.75);font-size:0.9rem;line-height:1.6;margin-bottom:20px;}
+    .cc-name{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--dark);font-weight:600;margin-bottom:10px;}
+    .cc-desc{color:var(--text);font-size:0.85rem;line-height:1.6;opacity:0.65;}
+    .cc-notify{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:20px;padding:36px 32px;max-width:500px;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,0.05);}
+    .cc-notify p{color:var(--text);font-size:0.9rem;line-height:1.6;margin-bottom:20px;}
     .cc-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
-    .cc-form input{flex:1;min-width:200px;padding:14px 20px;border-radius:50px;border:1.5px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;outline:none;}
-    .cc-form input::placeholder{color:rgba(255,255,255,0.4);}
+    .cc-form input{flex:1;min-width:200px;padding:14px 20px;border-radius:50px;border:1.5px solid rgba(0,0,0,0.15);background:#f8f5f0;color:var(--dark);font-size:0.9rem;outline:none;}
+    .cc-form input::placeholder{color:rgba(0,0,0,0.35);}
     .cc-form button{padding:14px 28px;border-radius:50px;background:var(--gold);color:#1a2e12;font-weight:700;font-size:0.9rem;border:none;cursor:pointer;transition:opacity 0.2s;}
     .cc-form button:hover{opacity:0.85;}
     .cc-thanks{color:#a8d66f;font-weight:600;margin-top:16px;}
