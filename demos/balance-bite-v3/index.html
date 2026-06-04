@@ -114,29 +114,25 @@
       nav{padding:14px 20px;}
     }
   
-    /* COURSES SECTION */
-    .courses-section{background:var(--cream);padding:90px 40px;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(0,0,0,0.06);}
-    .courses-section::before{display:none;}
-    .courses-section::after{display:none;}
-    .courses-inner{max-width:900px;margin:0 auto;position:relative;z-index:1;}
-    .courses-badge{display:inline-block;background:var(--gold);color:#1a2e12;font-size:0.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:6px 20px;border-radius:30px;margin-bottom:24px;}
-    .courses-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:var(--dark);font-weight:700;margin-bottom:16px;line-height:1.2;}
-    .courses-sub{color:var(--text);font-size:1rem;max-width:560px;margin:0 auto 50px;line-height:1.7;opacity:0.75;}
-    .courses-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-bottom:50px;}
-    .cc-card{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:20px;padding:32px 24px;box-shadow:0 4px 24px rgba(0,0,0,0.06);transition:transform 0.3s,box-shadow 0.3s;}
-    .cc-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.12);}
-    .cc-icon{font-size:2.4rem;margin-bottom:14px;}
-    .cc-name{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--dark);font-weight:600;margin-bottom:10px;}
-    .cc-desc{color:var(--text);font-size:0.85rem;line-height:1.6;opacity:0.65;}
-    .cc-notify{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:20px;padding:36px 32px;max-width:500px;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,0.05);}
-    .cc-notify p{color:var(--text);font-size:0.9rem;line-height:1.6;margin-bottom:20px;}
-    .cc-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
-    .cc-form input{flex:1;min-width:200px;padding:14px 20px;border-radius:50px;border:1.5px solid rgba(0,0,0,0.15);background:#f8f5f0;color:var(--dark);font-size:0.9rem;outline:none;}
-    .cc-form input::placeholder{color:rgba(0,0,0,0.35);}
-    .cc-form button{padding:14px 28px;border-radius:50px;background:var(--gold);color:#1a2e12;font-weight:700;font-size:0.9rem;border:none;cursor:pointer;transition:opacity 0.2s;}
-    .cc-form button:hover{opacity:0.85;}
-    .cc-thanks{color:#a8d66f;font-weight:600;margin-top:16px;}
-    @media(max-width:600px){.courses-section{padding:60px 24px;}.cc-notify{padding:28px 20px;}}
+    
+
+    
+    /* SAUCES SECTION */
+    .sauces-section{background:#fff;padding:80px 40px;text-align:center;}
+    .sauces-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:700px;margin:0 auto;}
+    .sauce-card{background:var(--cream);border:1px solid rgba(0,0,0,0.07);border-radius:20px;padding:36px 28px;transition:transform 0.3s,box-shadow 0.3s;}
+    .sauce-card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(0,0,0,0.09);}
+    .sauce-emoji{font-size:2.6rem;margin-bottom:14px;}
+    .sauce-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--dark);font-weight:700;margin-bottom:10px;}
+    .sauce-desc{color:var(--text);font-size:0.88rem;line-height:1.65;opacity:0.75;}
+
+    /* WHATSAPP FLOATING */
+    .wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 22px 14px 16px;border-radius:50px;box-shadow:0 6px 30px rgba(37,211,102,0.45);text-decoration:none;font-weight:700;font-size:0.9rem;transition:transform 0.2s,box-shadow 0.2s;}
+    .wa-float:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(37,211,102,0.55);}
+    .wa-float svg{width:26px;height:26px;fill:#fff;flex-shrink:0;}
+    .wa-pulse{animation:waPulse 2s infinite;}
+    @keyframes waPulse{0%,100%{box-shadow:0 6px 30px rgba(37,211,102,0.45);}50%{box-shadow:0 6px 40px rgba(37,211,102,0.7),0 0 0 8px rgba(37,211,102,0.15);}}
+    @media(max-width:600px){.sauces-section{padding:60px 24px;}.wa-float{bottom:20px;right:20px;padding:12px 18px 12px 14px;font-size:0.82rem;}}
 
     </style>
 </head>
@@ -255,40 +251,25 @@ Sabor balanceado, hecho con pasión, servido con propósito.</p>
 </section>
 
 
-<!-- COURSES SECTION -->
-<section class="courses-section">
-  <div class="courses-inner">
-    <div class="courses-badge" data-es="Próximamente" data-en="Coming Soon">Próximamente</div>
-    <div class="courses-title" data-es="Cursos de Cocina con Yoly" data-en="Cooking Classes with Yoly">Cursos de Cocina con Yoly</div>
-    <div class="courses-sub" data-es="Aprende a cocinar como ella. Los secretos de su cocina, por primera vez, para ti." data-en="Learn to cook like her. Her kitchen secrets, for the first time, for you.">
-      Aprende a cocinar como ella. Los secretos de su cocina, por primera vez, para ti.
+
+
+<!-- SAUCES SECTION -->
+<section class="sauces-section">
+  <div class="section-header">
+    <div class="section-tag" data-es="Complementos" data-en="Extras">Complementos</div>
+    <h2 data-es="Nuestras Salsas" data-en="Our Sauces">Nuestras Salsas</h2>
+    <p data-es="Elaboradas artesanalmente para elevar cada bocado." data-en="Artisanally crafted to elevate every bite.">Elaboradas artesanalmente para elevar cada bocado.</p>
+  </div>
+  <div class="sauces-grid">
+    <div class="sauce-card">
+      <div class="sauce-emoji">🥣</div>
+      <div class="sauce-name" data-es="Tártara Base de Yogurt" data-en="Yogurt-Based Tartar Sauce">Tártara Base de Yogurt</div>
+      <div class="sauce-desc" data-es="Clásica tártara con un twist saludable — cremosa, fresca y sin culpa." data-en="Classic tartar with a healthy twist — creamy, fresh, and guilt-free.">Clásica tártara con un twist saludable — cremosa, fresca y sin culpa.</div>
     </div>
-    <div class="courses-cards">
-      <div class="cc-card">
-        <div class="cc-icon">🫓</div>
-        <div class="cc-name" data-es="Arepas & Rellenos" data-en="Arepas & Fillings">Arepas & Rellenos</div>
-        <div class="cc-desc" data-es="Domina las arepas venezolanas y sus rellenos más populares." data-en="Master Venezuelan arepas and their most popular fillings.">Domina las arepas venezolanas y sus rellenos más populares.</div>
-      </div>
-      <div class="cc-card">
-        <div class="cc-icon">🥩</div>
-        <div class="cc-name" data-es="Proteínas Saludables" data-en="Healthy Proteins">Proteínas Saludables</div>
-        <div class="cc-desc" data-es="Cocina orgánica, sin antibióticos, con todo el sabor." data-en="Organic cooking, no antibiotics, all the flavor.">Cocina orgánica, sin antibióticos, con todo el sabor.</div>
-      </div>
-      <div class="cc-card">
-        <div class="cc-icon">🍮</div>
-        <div class="cc-name" data-es="Postres Venezolanos" data-en="Venezuelan Desserts">Postres Venezolanos</div>
-        <div class="cc-desc" data-es="Tres leches, marquesa, tequeños y más recetas de tradición." data-en="Tres leches, marquesa, tequeños and more traditional recipes.">Tres leches, marquesa, tequeños y más recetas de tradición.</div>
-      </div>
-    </div>
-    <div class="cc-notify">
-      <p data-es="¿Quieres ser el primero en saber cuándo abren? Déjanos tu número y te avisamos." data-en="Want to be the first to know when we launch? Leave your number and we'll let you know.">
-        ¿Quieres ser el primero en saber cuándo abren? Déjanos tu número y te avisamos.
-      </p>
-      <div class="cc-form">
-        <input type="tel" placeholder="Tu número de teléfono" id="cc-phone" />
-        <button onclick="notifyMe()" data-es="Avísame" data-en="Notify Me">Avísame</button>
-      </div>
-      <p class="cc-thanks" id="cc-thanks" style="display:none;" data-es="¡Listo! Te avisaremos pronto. 💚" data-en="Done! We'll notify you soon. 💚">¡Listo! Te avisaremos pronto. 💚</p>
+    <div class="sauce-card">
+      <div class="sauce-emoji">🫑</div>
+      <div class="sauce-name" data-es="Salsa de Pimentón Ahumado" data-en="Smoked Bell Pepper Sauce">Salsa de Pimentón Ahumado</div>
+      <div class="sauce-desc" data-es="Intensa, ahumada y llena de sabor. El complemento perfecto para tus proteínas." data-en="Intense, smoky and full of flavor. The perfect complement for your proteins.">Intensa, ahumada y llena de sabor. El complemento perfecto para tus proteínas.</div>
     </div>
   </div>
 </section>
@@ -310,14 +291,16 @@ function setLang(lang){
 }
 </script>
 
-  <script>
-  function notifyMe(){
-    var phone = document.getElementById('cc-phone').value.trim();
-    if(!phone){return;}
-    document.getElementById('cc-thanks').style.display='block';
-    document.querySelector('.cc-form').style.display='none';
-  }
-  </script>
+  
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/18329812967?text=Hola%20Yoly!%20Vi%20tu%20men%C3%BA%20y%20me%20interesa%20hacer%20un%20pedido%20%F0%9F%92%9A" 
+   target="_blank" class="wa-float wa-pulse" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span data-es="Pedir por WhatsApp" data-en="Order on WhatsApp">Pedir por WhatsApp</span>
+</a>
 
 </body>
 </html>
