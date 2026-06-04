@@ -132,17 +132,105 @@
     footer a:hover { color: var(--pink); }
     footer p { line-height: 1.7; }
 
+
+    /* EMOJI PRODUCT CARD */
+    .pcard-emoji { background:#fff; border-radius:20px; border:2px solid #f0e0f0; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s, box-shadow 0.2s; }
+    .pcard-emoji:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(194,24,91,0.13); }
+    .pcard-emoji .pemoji { font-size:4rem; display:flex; align-items:center; justify-content:center; padding:28px 20px 16px; background:linear-gradient(135deg,#FFF0F5,#FCE4EC); min-height:110px; }
+
     /* ORDER BTN */
     .order-btn { background: var(--purple); color: #fff; border-radius: 50px; padding: 7px 18px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.78rem; text-decoration: none; display: inline-block; }
 
+    /* ===== MOBILE RESPONSIVE ===== */
     @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; padding: 40px 5%; }
-      .hero-text-card h1 { font-size: 2.4rem; }
-      .pgrid { grid-template-columns: repeat(2, 1fr); }
+
+      /* TOP STRIP */
+      .top-strip { gap: 12px; padding: 8px 4%; flex-direction: column; align-items: center; }
+      .top-strip span { font-size: 0.72rem; text-align: center; }
+
+      /* NAV */
+      nav { padding: 12px 4%; }
       nav ul { display: none; }
-      .about { grid-template-columns: 1fr; }
-      .revgrid { grid-template-columns: 1fr; }
-      footer { grid-template-columns: 1fr 1fr; }
+      .nav-logo img { height: 38px; }
+      .nav-bag { padding: 9px 18px; font-size: 0.8rem; }
+
+      /* HERO */
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 30px 4% 40px;
+        gap: 20px;
+      }
+      .hero-text-card {
+        padding: 30px 24px;
+        text-align: center;
+      }
+      .hero-text-card h1 { font-size: 2.1rem; }
+      .hero-text-card p { font-size: 0.9rem; }
+      .btns { justify-content: center; }
+      .bprimary, .bsecond { padding: 12px 24px; font-size: 0.88rem; }
+      .hero-cards {
+        grid-column: 1;
+        padding: 18px 16px;
+        gap: 10px;
+      }
+      .hcard-big { padding: 10px 12px; gap: 10px; }
+      .hcard-big h3 { font-size: 0.88rem; }
+      .hcard-big p { font-size: 0.72rem; }
+      .hcard-big img { width: 54px !important; height: 54px !important; }
+
+      /* TRUST PILLS */
+      .trust-pills { gap: 8px; padding: 18px 4%; }
+      .trust-pill { font-size: 0.78rem; padding: 8px 14px; }
+
+      /* PRODUCTS GRID - 2 columns on mobile */
+      .products { padding: 40px 4%; }
+      .sec-hd { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 22px; }
+      .sec-hd h2 { font-size: 1.5rem; }
+      .pgrid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .pcard { border-radius: 16px; }
+      .pimg { height: 150px; }
+      .pbody { padding: 10px 12px; }
+      .pname { font-size: 0.88rem; }
+      .punit { font-size: 0.65rem; }
+      .order-btn { font-size: 0.72rem; padding: 6px 10px; }
+
+      /* COURSES */
+      .courses { padding: 50px 4%; }
+      .courses-header h2 { font-size: 2rem; }
+      .courses-header p { font-size: 0.9rem; }
+
+      /* ABOUT */
+      .about {
+        grid-template-columns: 1fr;
+        padding: 50px 4%;
+        gap: 28px;
+      }
+      .about img { width: 100% !important; border-radius: 20px !important; max-height: 320px; object-fit: cover; object-position: top; }
+
+      /* REVIEWS */
+      .reviews { padding: 45px 4%; }
+      .reviews h2 { font-size: 1.5rem; }
+      .revgrid { grid-template-columns: 1fr; gap: 14px; }
+
+      /* CTA */
+      .cta { padding: 50px 4%; }
+      .cta h2 { font-size: 2rem; }
+      .cta p { font-size: 0.9rem; }
+
+      /* FOOTER */
+      footer { grid-template-columns: 1fr; padding: 40px 4%; gap: 28px; }
+      footer div:first-child { text-align: center; }
+
+      /* ORDER BTN global */
+      .order-btn { white-space: nowrap; }
+    }
+
+    /* Tiny phones */
+    @media (max-width: 380px) {
+      .hero-text-card h1 { font-size: 1.75rem; }
+      .pgrid { grid-template-columns: 1fr; }
+      .pimg { height: 180px; }
     }
   </style>
 </head>
@@ -163,7 +251,7 @@
     <ul>
       <li><a href="#cookies" data-en="Cookies" data-es="Galletas">Cookies</a></li>
       <li><a href="#cakes" data-en="Cakes" data-es="Pasteles">Cakes</a></li>
-      <li><a href="#postres" data-en="Desserts" data-es="Postres">Desserts</a></li>
+      <li><a href="#postres" data-en="Mini Desserts" data-es="Mini Postres">Mini Desserts</a></li>
       <li><a href="#courses" data-en="Courses" data-es="Cursos">Courses</a></li>
       <li><a href="#about" data-en="About" data-es="Nosotros">About</a></li>
     </ul>
@@ -239,7 +327,6 @@
       <a href="https://onlycookiesusa.com/collections/all" target="_blank" class="see-all" data-en="See all →" data-es="Ver todo →">See all →</a>
     </div>
     <div class="pgrid">
-
       <div class="pcard">
         <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/ClasicaChocochips.png?v=1753186963&width=600');"></div>
         <div class="pbody">
@@ -247,6 +334,150 @@
           <div class="pname">Clásica Choco Chips</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
             <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$3.50</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/F2A5D182-B60F-4E31-850E-EFBF39A4BAA2.jpg?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-purple" data-en="FAN FAVORITE" data-es="FAVORITA DEL PÚBLICO">FAN FAVORITE</div>
+          <div class="pname">Cookies and Cream</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$3.50</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5171.png?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-purple" data-en="PREMIUM" data-es="PREMIUM">PREMIUM</div>
+          <div class="pname">Ferrero Rocher</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$4.89</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-9326.png?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-red" data-en="CLASSIC" data-es="CLÁSICA">CLASSIC</div>
+          <div class="pname">Chocolate</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$3.50</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-9325.png?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-purple" data-en="TRENDING" data-es="TENDENCIA">TRENDING</div>
+          <div class="pname">Pistachio</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$4.89</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5227.png?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-purple" data-en="HEALTHY" data-es="SALUDABLE">HEALTHY</div>
+          <div class="pname">Avena y Pasas</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$3.50</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/ClasicaChocochips.png?v=1753186963&width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-red" data-en="FAN FAVORITE" data-es="FAVORITA">FAN FAVORITE</div>
+          <div class="pname">Vainilla Nutella</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$4.89</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5171.png?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-purple" data-en="NEW" data-es="NUEVA">NEW</div>
+          <div class="pname">Salted Caramel</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$4.89</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-9326.png?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-red" data-en="UNIQUE" data-es="ÚNICA">UNIQUE</div>
+          <div class="pname">Cookie Cup</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$4.89</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-9325.png?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-purple" data-en="CRISPY" data-es="CRUJIENTE">CRISPY</div>
+          <div class="pname">Crocanticas</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$3.50</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/ClasicaChocochips.png?v=1753186963&width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-red" data-en="CLASSIC" data-es="CLÁSICA">CLASSIC</div>
+          <div class="pname">Vainilla</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$3.50</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5171.png?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-purple" data-en="REFRESHING" data-es="REFRESCANTE">REFRESHING</div>
+          <div class="pname">Limón</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$3.50</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5227.png?width=600');"></div>
+        <div class="pbody">
+          <div class="ptag ptag-red" data-en="SHAREABLE" data-es="PARA COMPARTIR">SHAREABLE</div>
+          <div class="pname">Cookie Cake</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">From $25</span>
             <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -265,21 +496,9 @@
       </div>
 
       <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5171.png?width=600');"></div>
-        <div class="pbody">
-          <div class="ptag ptag-red" data-en="TRENDING" data-es="TENDENCIA">TRENDING</div>
-          <div class="pname">Birthday Cookie</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$3.50</span>
-            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pcard">
         <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-9326.png?width=600');"></div>
         <div class="pbody">
-          <div class="ptag ptag-purple" data-en="NEW" data-es="NUEVA">NEW</div>
+          <div class="ptag ptag-red" data-en="NEW" data-es="NUEVA">NEW</div>
           <div class="pname">Browkie</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
             <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$4.89</span>
@@ -289,44 +508,31 @@
       </div>
 
       <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-9325.png?width=600');"></div>
-        <div class="pbody">
-          <div class="ptag ptag-red" data-en="CLASSIC" data-es="CLÁSICA">CLASSIC</div>
-          <div class="pname">Brownie Cookie</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$4.89</span>
-            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5227.png?width=600');"></div>
-        <div class="pbody">
-          <div class="ptag ptag-purple" data-en="HEALTHY" data-es="SALUDABLE">HEALTHY</div>
-          <div class="pname">Avena Pasas & Nueces</div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$3.50</span>
-            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/C094180A-72E4-4A7C-9542-B3B07E8D1D52.jpg?width=600');background-size:cover;background-position:center;"></div>
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/C094180A-72E4-4A7C-9542-B3B07E8D1D52.jpg?width=600');background-size:cover;background-position:center;background-color:#f0ece8;"></div>
         <div class="pbody">
           <div class="ptag ptag-purple" data-en="BUNDLE" data-es="PAQUETE">BUNDLE</div>
-          <div class="pname" data-en="Box of 4 Cookies" data-es="Cajita de 4 Galletas">Box of 4 Cookies</div>
+          <div class="pname" data-en="Box of 6 — Choose Your Flavors" data-es="Caja de 6 — Elige tus Sabores">Box of 6 — Choose Your Flavors</div>
+          <div class="punit" data-en="Mix & match any flavors" data-es="Combina los sabores que quieras">Mix & match any flavors</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$24.99</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/C094180A-72E4-4A7C-9542-B3B07E8D1D52.jpg?width=600');background-size:cover;background-position:center;background-color:#f0ece8;"></div>
+        <div class="pbody">
+          <div class="ptag ptag-red" data-en="BUNDLE" data-es="PAQUETE">BUNDLE</div>
+          <div class="pname" data-en="Box of 4 — Choose Your Flavors" data-es="Caja de 4 — Elige tus Sabores">Box of 4 — Choose Your Flavors</div>
+          <div class="punit" data-en="Mix & match any flavors" data-es="Combina los sabores que quieras">Mix & match any flavors</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;">
             <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">$19.89</span>
             <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
       </div>
-
-    </div>
+</div>
   </section>
 
   <!-- CHEESECAKES & POSTRES -->
@@ -418,18 +624,32 @@
         </div>
       </div>
 
+
+      <div class="pcard">
+        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-7628.png?width=600');background-size:cover;background-position:center;background-color:#f0ece8;"></div>
+        <div class="pbody">
+          <div class="ptag ptag-red">CAKE</div>
+          <div class="pname" data-en="Brownie" data-es="Brownie">Brownie</div>
+          <div class="punit" data-en="Custom sizes available" data-es="Tamaños personalizados disponibles">Custom sizes available</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--red);font-size:1rem;">From $35</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <section class="products" id="postres" style="background:#FFF0F5;">
     <div class="sec-hd">
-      <h2 data-en="🍓 Mini Cheesecakes & Postres" data-es="🍓 Mini Cheesecakes & Postres">🍓 Mini Cheesecakes & Postres</h2>
+      <h2 data-en="🍬 Mini Desserts" data-es="🍬 Mini Postres">🍬 Mini Desserts</h2>
       <a href="https://onlycookiesusa.com/collections/all" target="_blank" class="see-all" data-en="See all →" data-es="Ver todo →">See all →</a>
     </div>
     <div class="pgrid">
 
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/168AB4C1-D6D4-4B40-8AD6-FF64D7C8292C.png?width=600');"></div>
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍰</div>
         <div class="pbody">
           <div class="ptag ptag-purple">CHEESECAKE</div>
           <div class="pname">Cheesecake Frutos Rojos</div>
@@ -441,8 +661,8 @@
         </div>
       </div>
 
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/2C08D5B0-508C-4863-977E-5C42574D1E5A.png?width=600');"></div>
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍓</div>
         <div class="pbody">
           <div class="ptag ptag-purple">CHEESECAKE</div>
           <div class="pname">Cheesecake Fresa</div>
@@ -454,8 +674,8 @@
         </div>
       </div>
 
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5187.png?width=600');"></div>
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🌸</div>
         <div class="pbody">
           <div class="ptag ptag-purple">CHEESECAKE</div>
           <div class="pname">Cheesecake Maracuyá</div>
@@ -467,8 +687,8 @@
         </div>
       </div>
 
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5198.png?width=600');"></div>
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍫</div>
         <div class="pbody">
           <div class="ptag ptag-red">POSTRE</div>
           <div class="pname">Brigadeiro de Chocolate</div>
@@ -480,8 +700,8 @@
         </div>
       </div>
 
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/8630A0EA-5017-4E3D-BFF7-4816180709F7.png?width=600');"></div>
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🥛</div>
         <div class="pbody">
           <div class="ptag ptag-red">POSTRE</div>
           <div class="pname">Brigadeiros de Nido</div>
@@ -493,40 +713,129 @@
         </div>
       </div>
 
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5184.png?width=600');"></div>
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍮</div>
         <div class="pbody">
-          <div class="ptag ptag-purple">POSTRE</div>
-          <div class="pname">Bocados de Chocolate</div>
-          <div class="punit" data-en="12 units per order" data-es="12 unidades por pedido">12 units per order</div>
+          <div class="ptag ptag-purple">PERSONAL</div>
+          <div class="pname">Quesillo</div>
+          <div class="punit" data-en="Individual portion" data-es="Porción individual">Individual portion</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">$38.00</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">Ask for price</span>
             <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
       </div>
 
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-5191.png?width=600');"></div>
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍰</div>
         <div class="pbody">
-          <div class="ptag ptag-purple">POSTRE</div>
-          <div class="pname">Bocados de Limón</div>
-          <div class="punit" data-en="12 units per order" data-es="12 unidades por pedido">12 units per order</div>
+          <div class="ptag ptag-red">CLASSIC</div>
+          <div class="pname">Tres Leches</div>
+          <div class="punit" data-en="Individual portion" data-es="Porción individual">Individual portion</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">$38.00</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">Ask for price</span>
             <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
       </div>
 
-      <div class="pcard">
-        <div class="pimg" style="background-image:url('https://onlycookiesusa.com/cdn/shop/files/IMG-7628.png?width=600');"></div>
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍫</div>
         <div class="pbody">
-          <div class="ptag ptag-red">POSTRE</div>
-          <div class="pname">Brownie Box</div>
-          <div class="punit" data-en="12 units per order" data-es="12 unidades por pedido">12 units per order</div>
+          <div class="ptag ptag-purple">POPULAR</div>
+          <div class="pname">Marquesa de Chocolate</div>
+          <div class="punit" data-en="Individual portion" data-es="Porción individual">Individual portion</div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
-            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">$38.00</span>
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">Ask for price</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DESSERTS FOR EVENTS -->
+  <section class="products" id="postres-eventos" style="background:#FDF0F7;">
+    <div class="sec-hd">
+      <h2 data-en="🎉 Desserts for Events" data-es="🎉 Postres para Eventos">🎉 Desserts for Events</h2>
+      <a href="https://onlycookiesusa.com/collections/all" target="_blank" class="see-all" data-en="See all →" data-es="Ver todo →">See all →</a>
+    </div>
+    <div class="pgrid">
+
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🎂</div>
+        <div class="pbody">
+          <div class="ptag ptag-red">EVENT</div>
+          <div class="pname">Tres Leches</div>
+          <div class="punit" data-en="Party size" data-es="Tamaño fiesta">Party size</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">Ask for price</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍫</div>
+        <div class="pbody">
+          <div class="ptag ptag-purple">EVENT</div>
+          <div class="pname">Marquesa de Chocolate</div>
+          <div class="punit" data-en="Party size" data-es="Tamaño fiesta">Party size</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">Ask for price</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍫</div>
+        <div class="pbody">
+          <div class="ptag ptag-red">EVENT</div>
+          <div class="pname">Mini Brownies</div>
+          <div class="punit" data-en="Party size" data-es="Tamaño fiesta">Party size</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">Ask for price</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍋</div>
+        <div class="pbody">
+          <div class="ptag ptag-purple">EVENT</div>
+          <div class="pname">Pie de Limón</div>
+          <div class="punit" data-en="Party size" data-es="Tamaño fiesta">Party size</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">Ask for price</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🍮</div>
+        <div class="pbody">
+          <div class="ptag ptag-red">EVENT</div>
+          <div class="pname">Mini Quesillos</div>
+          <div class="punit" data-en="Party size" data-es="Tamaño fiesta">Party size</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">Ask for price</span>
+            <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pcard pcard-emoji">
+        <div class="pemoji">🥐</div>
+        <div class="pbody">
+          <div class="ptag ptag-purple">EVENT</div>
+          <div class="pname">Enrolladitos con Crema Pastelera</div>
+          <div class="punit" data-en="Party size" data-es="Tamaño fiesta">Party size</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <span style="font-family:'Nunito',sans-serif;font-weight:900;color:var(--purple);font-size:1rem;">Ask for price</span>
             <a href="https://onlycookiesusa.com" target="_blank" class="order-btn" data-en="Order →" data-es="Ordenar →">Order →</a>
           </div>
         </div>
@@ -610,7 +919,7 @@
     <div>
       <h4 data-en="Shop" data-es="Tienda">Shop</h4>
       <a href="#cookies" data-en="Cookies" data-es="Galletas">Cookies</a>
-      <a href="#postres" data-en="Cheesecakes & Postres" data-es="Cheesecakes & Postres">Cheesecakes & Postres</a>
+      <a href="#postres" data-en="Mini Desserts" data-es="Mini Postres">Mini Desserts</a>
       <a href="https://onlycookiesusa.com" target="_blank" data-en="Custom Orders" data-es="Pedidos Personalizados">Custom Orders</a>
     </div>
     <div>
