@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Balance Bite by Yoly — V3 Warm Minimal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream:#F5EFE0;--warm:#EAD9B8;--brown:#3B2A1A;
+      --green:#5A7A3A;--lgreen:#7FA650;--white:#FFFDF8;
+      --gold:#C8922A;--sage:#B8C9A8;--rust:#8B4A2A;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:var(--white);color:var(--brown);}
+
+    /* NAV */
+    nav{display:flex;align-items:center;justify-content:space-between;padding:18px 56px;background:var(--cream);border-bottom:2px solid var(--warm);}
+    .nl{display:flex;align-items:center;gap:14px;}
+    .nl img{height:50px;border-radius:50%;border:2px solid var(--warm);}
+    .nl-name{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--brown);}
+    .nl-sub{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);}
+    .nc{display:flex;gap:28px;align-items:center;}
+    .nc a{text-decoration:none;color:var(--brown);font-size:0.85rem;font-weight:500;position:relative;}
+    .nc a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--green);transition:width 0.2s;}
+    .nc a:hover::after{width:100%;}
+    .lang-toggle{display:flex;background:var(--warm);border-radius:4px;overflow:hidden;}
+    .lang-toggle button{padding:5px 12px;border:none;background:transparent;cursor:pointer;font-size:0.78rem;font-weight:600;color:var(--brown);}
+    .lang-toggle button.active{background:var(--green);color:#fff;}
+    .order-btn{background:var(--green);color:#fff;padding:9px 20px;border-radius:4px;font-size:0.85rem;font-weight:600;text-decoration:none;margin-left:12px;}
+
+    /* HERO — asymmetric */
+    .hero{display:grid;grid-template-columns:55% 45%;min-height:88vh;background:var(--cream);}
+    .hl{padding:80px 56px;display:flex;flex-direction:column;justify-content:center;}
+    .hl-kicker{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+    .hl-kicker-line{width:30px;height:2px;background:var(--green);}
+    .hl-kicker span{font-size:0.72rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--green);}
+    h1.htitle{font-family:'Fraunces',serif;font-size:5rem;line-height:0.95;color:var(--brown);margin-bottom:28px;}
+    h1.htitle em{color:var(--green);font-style:italic;}
+    .hdesc{font-size:1rem;color:#6A5030;line-height:1.8;margin-bottom:36px;max-width:420px;}
+    .hbtns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;}
+    .btn{padding:13px 24px;border-radius:4px;font-weight:600;font-size:0.88rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+    .bg{background:var(--green);color:#fff;}.bg:hover{background:var(--lgreen);}
+    .bd{background:#FF3008;color:#fff;}
+    .hquote{font-family:'Fraunces',serif;font-size:0.95rem;font-style:italic;color:#8A6A40;padding-left:16px;border-left:3px solid var(--sage);}
+    .hr{background:var(--warm);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .hr::before{content:'';position:absolute;width:120%;height:120%;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(90,122,58,0.04) 40px,rgba(90,122,58,0.04) 41px);}
+    .logo-frame{width:360px;height:360px;border-radius:50%;background:var(--white);box-shadow:0 30px 80px rgba(59,42,26,0.18);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;z-index:1;}
+    .logo-frame img{width:92%;object-fit:contain;}
+
+    /* VALUES */
+    .values{display:grid;grid-template-columns:repeat(4,1fr);background:var(--brown);}
+    .val{padding:36px 28px;border-right:1px solid rgba(255,255,255,0.08);text-align:center;}
+    .val:last-child{border-right:none;}
+    .val-icon{font-size:1.8rem;margin-bottom:10px;}
+    .val-title{font-family:'Fraunces',serif;font-size:0.95rem;color:var(--cream);margin-bottom:4px;}
+    .val-desc{font-size:0.78rem;color:rgba(245,239,224,0.55);line-height:1.5;}
+
+    /* MENU — big editorial layout */
+    .menu-section{padding:90px 56px;max-width:1100px;margin:0 auto;}
+    .menu-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px;flex-wrap:wrap;gap:20px;}
+    .mh-left .eye{font-size:0.72rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+    .mh-left h2{font-family:'Fraunces',serif;font-size:3.2rem;color:var(--brown);}
+    .menu-block{margin-bottom:40px;}
+    .mb-title{font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rust);padding-bottom:10px;border-bottom:2px solid var(--warm);margin-bottom:0;}
+    .mb-items{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .mb-item{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid #EAE0CC;}
+    .mb-item:nth-child(odd){padding-right:40px;border-right:1px solid #EAE0CC;}
+    .mb-item:nth-child(even){padding-left:40px;}
+    .mi-name{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--brown);}
+    .mi-qty{font-size:0.78rem;color:#9A7A50;margin-top:2px;}
+    .mi-price{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--green);}
+
+    /* ABOUT */
+    .about{background:linear-gradient(135deg,var(--cream) 0%,var(--warm) 100%);padding:90px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .al{text-align:center;}
+    .al-circle{width:280px;height:280px;border-radius:50%;margin:0 auto;overflow:hidden;background:var(--white);box-shadow:0 20px 60px rgba(0,0,0,0.12);border:6px solid var(--white);}
+    .al-circle img{width:100%;height:100%;object-fit:contain;}
+    .ar .eye{font-size:0.72rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:10px;}
+    .ar h2{font-family:'Fraunces',serif;font-size:2.8rem;color:var(--brown);margin-bottom:20px;line-height:1.1;}
+    .ar p{font-size:1rem;color:#5A4030;line-height:1.9;}
+
+    /* LOCATION */
+    .loc{background:var(--brown);padding:80px 56px;}
+    .loc .eye{font-size:0.72rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+    .loc h2{font-family:'Fraunces',serif;font-size:2.8rem;color:var(--cream);margin-bottom:40px;}
+    .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;}
+    .lc{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:28px;}
+    .lc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+    .lc-name{font-family:'Fraunces',serif;font-size:1.1rem;color:var(--cream);}
+    .lc-tag{font-size:0.7rem;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:20px;}
+    .lc-now{background:var(--green);color:#fff;}
+    .lc-soon{background:var(--gold);color:var(--brown);}
+    .lc-desc{font-size:0.85rem;color:rgba(245,239,224,0.6);line-height:1.6;}
+
+    footer{background:#1E120A;padding:28px 56px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .fb{font-family:'Fraunces',serif;font-size:1rem;color:rgba(245,239,224,0.6);}
+    .fl{display:flex;gap:20px;}
+    .fl a{color:rgba(245,239,224,0.45);text-decoration:none;font-size:0.8rem;}
+
+    @media(max-width:768px){
+      .hero{grid-template-columns:1fr;}
+      h1.htitle{font-size:3rem;}
+      .hl{padding:50px 24px;}
+      .hr{padding:50px 24px;min-height:320px;}
+      .logo-frame{width:240px;height:240px;}
+      .values{grid-template-columns:1fr 1fr;}
+      .menu-section,.about,.loc{padding:50px 24px;}
+      .mb-items{grid-template-columns:1fr;}
+      .mb-item:nth-child(odd){padding-right:0;border-right:none;}
+      .mb-item:nth-child(even){padding-left:0;}
+      .about{grid-template-columns:1fr;}
+      .loc-grid{grid-template-columns:1fr;}
+      nav{padding:14px 20px;}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nl">
+    <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/cbcd0c1f7_imessage_media_a8f33a2e602c.png" alt="Logo">
+    <div><div class="nl-name">The Balance Bite</div><div class="nl-sub" data-es="El Bocado Balanceado" data-en="The Balanced Bite">El Bocado Balanceado</div></div>
+  </div>
+  <div class="nc">
+    <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+    <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+    <a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a>
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('es')">ES</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#" class="order-btn" data-es="Ordenar →" data-en="Order →">Ordenar →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hl">
+    <div class="hl-kicker"><div class="hl-kicker-line"></div><span data-es="Saludable · Con Propósito" data-en="Healthy · With Purpose">Saludable · Con Propósito</span></div>
+    <h1 class="htitle" data-es="<em>El</em><br>Bocado<br>Balance<em>ado</em>" data-en="The<br><em>Balanced</em><br>Bite"><em>El</em><br>Bocado<br>Balance<em>ado</em></h1>
+    <p class="hdesc" data-es="Comida auténtica, preparada con ingredientes frescos y de calidad. Hecho con pasión, servido con propósito." data-en="Authentic food, made with fresh, quality ingredients. Made with passion, served with purpose.">Comida auténtica, preparada con ingredientes frescos y de calidad. Hecho con pasión, servido con propósito.</p>
+    <div class="hbtns">
+      <a href="#" class="btn bg">🛵 <span data-es="Pedir en UberEats" data-en="Order on UberEats">Pedir en UberEats</span></a>
+      <a href="#" class="btn bd">🚪 <span data-es="Pedir en DoorDash" data-en="Order on DoorDash">Pedir en DoorDash</span></a>
+    </div>
+    <p class="hquote" data-es='"Sabor balanceado. Hecho con pasión. Servido con propósito."' data-en='"Balanced flavor. Made with passion. Served with purpose."'>"Sabor balanceado. Hecho con pasión. Servido con propósito."</p>
+  </div>
+  <div class="hr">
+    <div class="logo-frame"><img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/cbcd0c1f7_imessage_media_a8f33a2e602c.png" alt="The Balance Bite by Yoly"></div>
+  </div>
+</section>
+
+<div class="values">
+  <div class="val"><div class="val-icon">🥗</div><div class="val-title" data-es="Saludable" data-en="Healthy">Saludable</div><div class="val-desc" data-es="y Nutritivo" data-en="& Nutritious">y Nutritivo</div></div>
+  <div class="val"><div class="val-icon">🫑</div><div class="val-title" data-es="Ingredientes" data-en="Ingredients">Ingredientes</div><div class="val-desc" data-es="de Calidad" data-en="of Quality">de Calidad</div></div>
+  <div class="val"><div class="val-icon">🍮</div><div class="val-title" data-es="Postres" data-en="Desserts">Postres</div><div class="val-desc" data-es="que Encantan" data-en="You'll Love">que Encantan</div></div>
+  <div class="val"><div class="val-icon">❤️</div><div class="val-title" data-es="Hecho" data-en="Made">Hecho</div><div class="val-desc" data-es="con Amor" data-en="with Love">con Amor</div></div>
+</div>
+
+<section class="menu-section" id="menu">
+  <div class="menu-header">
+    <div class="mh-left"><div class="eye" data-es="Lo que ofrecemos" data-en="What we offer">Lo que ofrecemos</div><h2 data-es="Nuestro Menú" data-en="Our Menu">Nuestro Menú</h2></div>
+  </div>
+  <div class="menu-block">
+    <div class="mb-title">🫓 <span data-es="Arepas" data-en="Arepas">Arepas</span></div>
+    <div class="mb-items">
+      <div class="mb-item"><div><div class="mi-name" data-es="Arepa de Yuca y Chia" data-en="Yuca & Chia Arepa">Arepa de Yuca y Chia</div><div class="mi-qty" data-es="6 unidades · Sin gluten" data-en="6 units · Gluten-free">6 unidades · Sin gluten</div></div><div class="mi-price">$15</div></div>
+      <div class="mb-item"><div><div class="mi-name" data-es="Arepa de Plátano" data-en="Plantain Arepa">Arepa de Plátano</div><div class="mi-qty" data-es="6 unidades · Sabor auténtico" data-en="6 units · Authentic flavor">6 unidades · Sabor auténtico</div></div><div class="mi-price">$15</div></div>
+    </div>
+  </div>
+  <div class="menu-block">
+    <div class="mb-title">🥟 <span data-es="Empanadas" data-en="Empanadas">Empanadas</span></div>
+    <div class="mb-items">
+      <div class="mb-item"><div><div class="mi-name" data-es="Empanada Integral de Pollo Mechado" data-en="Shredded Chicken Empanada">Empanada Integral de Pollo Mechado</div><div class="mi-qty" data-es="6 unidades · Masa integral" data-en="6 units · Whole wheat">6 unidades · Masa integral</div></div><div class="mi-price">$20</div></div>
+      <div class="mb-item"><div><div class="mi-name" data-es="Empanada Integral de Ricotta y Espinaca" data-en="Ricotta & Spinach Empanada">Empanada Integral de Ricotta y Espinaca</div><div class="mi-qty" data-es="6 unidades · Vegetariana" data-en="6 units · Vegetarian">6 unidades · Vegetariana</div></div><div class="mi-price">$20</div></div>
+    </div>
+  </div>
+  <div class="menu-block">
+    <div class="mb-title">🧀 <span data-es="Tequeños" data-en="Tequeños">Tequeños</span></div>
+    <div class="mb-items">
+      <div class="mb-item"><div><div class="mi-name" data-es="Tequeño de Yuca" data-en="Yuca Tequeño">Tequeño de Yuca</div><div class="mi-qty" data-es="12 unidades · Sin gluten" data-en="12 units · Gluten-free">12 unidades · Sin gluten</div></div><div class="mi-price">$22</div></div>
+      <div class="mb-item"><div><div class="mi-name" data-es="Tequeño de Plátano" data-en="Plantain Tequeño">Tequeño de Plátano</div><div class="mi-qty" data-es="12 unidades · Con queso derretido" data-en="12 units · Melted cheese">12 unidades · Con queso derretido</div></div><div class="mi-price">$22</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="al"><div class="al-circle"><img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/cbcd0c1f7_imessage_media_a8f33a2e602c.png" alt="Yoly"></div></div>
+  <div class="ar">
+    <div class="eye" data-es="Nuestra historia" data-en="Our story">Nuestra historia</div>
+    <h2 data-es="By <em>Yoly</em>" data-en="By <em>Yoly</em>">By <em>Yoly</em></h2>
+    <p data-es="Detrás de cada plato está Yoly, una mujer apasionada por la cocina saludable y los sabores de su tierra. Su misión es sencilla: demostrarte que comer sano no significa sacrificar el sabor. Cada receta es un abrazo de hogar, preparado con los mejores ingredientes y servido con todo el amor del mundo." data-en="Behind every dish is Yoly, a woman passionate about healthy cooking and the flavors of her homeland. Her mission is simple: to show you that eating healthy doesn't mean sacrificing flavor. Every recipe is a home embrace, made with the best ingredients and served with all the love in the world.">Detrás de cada plato está Yoly, una mujer apasionada por la cocina saludable y los sabores de su tierra. Su misión es sencilla: demostrarte que comer sano no significa sacrificar el sabor. Cada receta es un abrazo de hogar, preparado con los mejores ingredientes y servido con todo el amor del mundo.</p>
+  </div>
+</section>
+
+<section class="loc" id="ubicacion">
+  <div class="eye" data-es="Dónde encontrarnos" data-en="Where to find us">Dónde encontrarnos</div>
+  <h2 data-es="Nuestra Ubicación" data-en="Our Location">Nuestra Ubicación</h2>
+  <div class="loc-grid">
+    <div class="lc"><div class="lc-top"><div class="lc-name" data-es="Desde Casa" data-en="From Home">Desde Casa</div><span class="lc-tag lc-now" data-es="Ahora" data-en="Now">Ahora</span></div><div class="lc-desc" data-es="Houston, TX · Pedidos por UberEats y DoorDash disponibles ahora." data-en="Houston, TX · Orders via UberEats and DoorDash available now.">Houston, TX · Pedidos por UberEats y DoorDash disponibles ahora.</div></div>
+    <div class="lc"><div class="lc-top"><div class="lc-name" data-es="Local Propio" data-en="Our Location">Local Propio</div><span class="lc-tag lc-soon" data-es="Agosto 2026" data-en="August 2026">Agosto 2026</span></div><div class="lc-desc" data-es="Próximamente abrimos nuestro local en Houston. Síguenos para enterarte dónde." data-en="Opening our Houston location soon. Follow us to find out where.">Próximamente abrimos nuestro local en Houston. Síguenos para enterarte dónde.</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="fb">The Balance Bite <em>by Yoly</em> · Houston, TX</div>
+  <div class="fl">
+    <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+    <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+    <a href="#" data-es="Instagram" data-en="Instagram">Instagram</a>
+  </div>
+</footer>
+<script>
+function setLang(lang){
+  document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.lang-toggle button:${lang==='es'?'first':'last'}-child`).classList.add('active');
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-es]').forEach(el=>{el.innerHTML=el.getAttribute('data-'+lang);});
+}
+</script>
+</body>
+</html>
