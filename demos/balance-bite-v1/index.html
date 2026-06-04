@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Balance Bite by Yoly — V1 Classic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F5EFE0; --warm: #EAD9B8; --brown: #3B2A1A;
+      --green: #5A7A3A; --lgreen: #7FA650; --text: #2C1A0E;
+      --white: #FFFDF8; --gold: #C8922A;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Jost',sans-serif; background:var(--cream); color:var(--text); }
+
+    /* NAV */
+    nav { background:var(--brown); padding:16px 48px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
+    .nav-logo img { height:52px; border-radius:50%; border:2px solid var(--gold); }
+    .nav-brand { color:var(--cream); font-family:'Cormorant Garamond',serif; font-size:1.1rem; margin-left:12px; }
+    .nav-logo { display:flex; align-items:center; }
+    .nav-links a { color:var(--cream); text-decoration:none; font-size:0.85rem; letter-spacing:1.5px; text-transform:uppercase; margin-left:30px; opacity:0.85; transition:opacity 0.2s; }
+    .nav-links a:hover { opacity:1; }
+    .lang-toggle { display:flex; background:rgba(255,255,255,0.1); border-radius:20px; overflow:hidden; margin-left:24px; }
+    .lang-toggle button { padding:5px 14px; border:none; background:transparent; cursor:pointer; font-size:0.8rem; font-weight:600; color:var(--cream); }
+    .lang-toggle button.active { background:var(--gold); border-radius:20px; }
+    .nav-right { display:flex; align-items:center; }
+
+    /* HERO — full bleed split */
+    .hero { display:grid; grid-template-columns:1fr 1fr; min-height:90vh; }
+    .hero-left { background:var(--brown); display:flex; flex-direction:column; justify-content:center; padding:80px 60px; }
+    .hero-right { background:var(--warm); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .hero-right::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:rgba(90,122,58,0.08); top:-100px; right:-100px; }
+    .hero-eyebrow { font-size:0.7rem; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
+    .hero-title { font-family:'Cormorant Garamond',serif; font-size:4rem; line-height:1.1; color:var(--cream); margin-bottom:16px; }
+    .hero-title em { color:var(--gold); font-style:italic; }
+    .hero-sub { color:rgba(245,239,224,0.7); font-size:1rem; line-height:1.8; margin-bottom:36px; font-weight:300; }
+    .hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { padding:13px 26px; border-radius:4px; font-weight:600; font-size:0.85rem; text-decoration:none; letter-spacing:0.5px; transition:all 0.2s; display:inline-flex; align-items:center; gap:8px; }
+    .btn-gold { background:var(--gold); color:var(--brown); }
+    .btn-gold:hover { background:#E0A030; }
+    .btn-outline { background:transparent; border:1.5px solid rgba(245,239,224,0.4); color:var(--cream); }
+    .btn-outline:hover { border-color:var(--cream); }
+    .btn-red { background:#FF3008; color:#fff; }
+    .logo-wrap { width:380px; height:380px; border-radius:50%; background:var(--white); box-shadow:0 30px 80px rgba(59,42,26,0.2); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .logo-wrap img { width:95%; height:95%; object-fit:contain; }
+
+    /* STRIP */
+    .strip { background:var(--green); display:flex; justify-content:center; gap:60px; padding:20px 40px; flex-wrap:wrap; }
+    .strip-item { color:var(--cream); font-size:0.8rem; font-weight:500; letter-spacing:1px; display:flex; align-items:center; gap:8px; }
+
+    /* MENU */
+    .menu-section { padding:80px 60px; max-width:1100px; margin:0 auto; }
+    .sec-label { font-size:0.7rem; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--green); }
+    .sec-title { font-family:'Cormorant Garamond',serif; font-size:3rem; color:var(--brown); margin:8px 0 40px; }
+    .menu-cat-label { font-size:0.75rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--brown); padding:10px 0; border-bottom:1px solid #D4C4A0; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+    .menu-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; margin-bottom:36px; }
+    .menu-card { background:var(--white); border-radius:8px; padding:22px; display:flex; justify-content:space-between; align-items:center; border:1px solid #E8DCC8; transition:box-shadow 0.2s; }
+    .menu-card:hover { box-shadow:0 8px 30px rgba(0,0,0,0.08); }
+    .mc-tag { font-size:0.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green); margin-bottom:4px; }
+    .mc-name { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; color:var(--brown); }
+    .mc-desc { font-size:0.8rem; color:#8A6A40; margin-top:3px; }
+    .mc-price { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:var(--green); margin-left:16px; }
+
+    /* ABOUT */
+    .about { background:var(--brown); padding:80px 60px; display:flex; gap:60px; align-items:center; flex-wrap:wrap; }
+    .about-img { width:280px; height:280px; border-radius:50%; overflow:hidden; border:4px solid var(--gold); flex-shrink:0; }
+    .about-img img { width:100%; height:100%; object-fit:contain; background:var(--warm); }
+    .about-text .sec-label { color:var(--gold); }
+    .about-text .sec-title { color:var(--cream); margin-bottom:20px; }
+    .about-text p { color:rgba(245,239,224,0.8); font-size:1rem; line-height:1.9; }
+
+    /* LOCATION */
+    .location { background:var(--warm); padding:70px 60px; text-align:center; }
+    .loc-card { background:var(--white); max-width:560px; margin:30px auto 0; border-radius:12px; padding:36px; box-shadow:0 10px 40px rgba(0,0,0,0.08); }
+    .loc-badge { background:var(--gold); color:var(--brown); padding:5px 16px; border-radius:20px; font-size:0.75rem; font-weight:700; display:inline-block; margin-bottom:14px; }
+    .loc-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--brown); margin-bottom:10px; }
+    .loc-card p { color:#7A6040; font-size:0.9rem; line-height:1.7; }
+    .loc-note { margin-top:18px; padding:14px; background:var(--cream); border-radius:8px; border-left:3px solid var(--green); text-align:left; font-size:0.88rem; }
+
+    /* FOOTER */
+    footer { background:var(--brown); color:var(--cream); padding:36px 60px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+    .foot-brand { font-family:'Cormorant Garamond',serif; font-size:1.3rem; }
+    .foot-links { display:flex; gap:20px; }
+    .foot-links a { color:rgba(245,239,224,0.7); text-decoration:none; font-size:0.82rem; }
+    .foot-bottom { width:100%; text-align:center; font-size:0.72rem; opacity:0.4; margin-top:8px; }
+
+    @media(max-width:768px) {
+      .hero { grid-template-columns:1fr; }
+      .hero-left { padding:50px 28px; }
+      .hero-title { font-size:2.8rem; }
+      .logo-wrap { width:260px; height:260px; }
+      nav { padding:12px 20px; }
+      .menu-section { padding:50px 20px; }
+      .about { padding:50px 20px; flex-direction:column; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">
+    <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/cbcd0c1f7_imessage_media_a8f33a2e602c.png" alt="Logo">
+    <span class="nav-brand">The Balance Bite</span>
+  </div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+      <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+      <a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a>
+    </div>
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('es')">ES</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow" data-es="🌿 Saludable · Nutritivo · Con Propósito" data-en="🌿 Healthy · Nutritious · With Purpose">🌿 Saludable · Nutritivo · Con Propósito</div>
+    <h1 class="hero-title" data-es="<em>El Bocado</em><br>Balanceado" data-en="<em>The Balanced</em><br>Bite"><em>El Bocado</em><br>Balanceado</h1>
+    <p class="hero-sub" data-es="Comida auténtica, preparada con ingredientes frescos y de calidad. Hecho con pasión, servido con propósito." data-en="Authentic food, made with fresh, quality ingredients. Made with passion, served with purpose.">Comida auténtica, preparada con ingredientes frescos y de calidad. Hecho con pasión, servido con propósito.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn btn-gold">🛵 <span data-es="Pedir en UberEats" data-en="Order on UberEats">Pedir en UberEats</span></a>
+      <a href="#" class="btn btn-red">🚪 <span data-es="Pedir en DoorDash" data-en="Order on DoorDash">Pedir en DoorDash</span></a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="logo-wrap">
+      <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/cbcd0c1f7_imessage_media_a8f33a2e602c.png" alt="The Balance Bite by Yoly">
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-item">🥗 <span data-es="Saludable y Nutritivo" data-en="Healthy & Nutritious">Saludable y Nutritivo</span></div>
+  <div class="strip-item">🫑 <span data-es="Ingredientes de Calidad" data-en="Quality Ingredients">Ingredientes de Calidad</span></div>
+  <div class="strip-item">🍮 <span data-es="Postres que Encantan" data-en="Desserts You'll Love">Postres que Encantan</span></div>
+  <div class="strip-item">❤️ <span data-es="Hecho con Amor" data-en="Made with Love">Hecho con Amor</span></div>
+</div>
+
+<section class="menu-section" id="menu">
+  <div class="sec-label" data-es="Lo que ofrecemos" data-en="What we offer">Lo que ofrecemos</div>
+  <h2 class="sec-title" data-es="Nuestro Menú" data-en="Our Menu">Nuestro Menú</h2>
+
+  <div class="menu-cat-label">🫓 <span data-es="Arepas" data-en="Arepas">Arepas</span></div>
+  <div class="menu-grid">
+    <div class="menu-card"><div><div class="mc-tag" data-es="6 unidades" data-en="6 units">6 unidades</div><div class="mc-name" data-es="Arepa de Yuca y Chia" data-en="Yuca & Chia Arepa">Arepa de Yuca y Chia</div><div class="mc-desc" data-es="Saludable, nutritiva y sin gluten" data-en="Healthy, nutritious, gluten-free">Saludable, nutritiva y sin gluten</div></div><div class="mc-price">$15</div></div>
+    <div class="menu-card"><div><div class="mc-tag" data-es="6 unidades" data-en="6 units">6 unidades</div><div class="mc-name" data-es="Arepa de Plátano" data-en="Plantain Arepa">Arepa de Plátano</div><div class="mc-desc" data-es="Suave, dulce y llena de sabor auténtico" data-en="Soft, sweet and full of authentic flavor">Suave, dulce y llena de sabor auténtico</div></div><div class="mc-price">$15</div></div>
+  </div>
+
+  <div class="menu-cat-label">🥟 <span data-es="Empanadas" data-en="Empanadas">Empanadas</span></div>
+  <div class="menu-grid">
+    <div class="menu-card"><div><div class="mc-tag" data-es="6 unidades" data-en="6 units">6 unidades</div><div class="mc-name" data-es="Empanada Integral de Pollo Mechado" data-en="Shredded Chicken Empanada">Empanada Integral de Pollo Mechado</div><div class="mc-desc" data-es="Masa integral, jugoso pollo mechado" data-en="Whole wheat dough, juicy shredded chicken">Masa integral, jugoso pollo mechado</div></div><div class="mc-price">$20</div></div>
+    <div class="menu-card"><div><div class="mc-tag" data-es="6 unidades" data-en="6 units">6 unidades</div><div class="mc-name" data-es="Empanada Integral de Ricotta y Espinaca" data-en="Ricotta & Spinach Empanada">Empanada Integral de Ricotta y Espinaca</div><div class="mc-desc" data-es="Vegetariana, cremosa y nutritiva" data-en="Vegetarian, creamy and nutritious">Vegetariana, cremosa y nutritiva</div></div><div class="mc-price">$20</div></div>
+  </div>
+
+  <div class="menu-cat-label">🧀 <span data-es="Tequeños" data-en="Tequeños">Tequeños</span></div>
+  <div class="menu-grid">
+    <div class="menu-card"><div><div class="mc-tag" data-es="12 unidades" data-en="12 units">12 unidades</div><div class="mc-name" data-es="Tequeño de Yuca" data-en="Yuca Tequeño">Tequeño de Yuca</div><div class="mc-desc" data-es="Sin gluten, crujiente por fuera" data-en="Gluten-free, crispy outside">Sin gluten, crujiente por fuera</div></div><div class="mc-price">$22</div></div>
+    <div class="menu-card"><div><div class="mc-tag" data-es="12 unidades" data-en="12 units">12 unidades</div><div class="mc-name" data-es="Tequeño de Plátano" data-en="Plantain Tequeño">Tequeño de Plátano</div><div class="mc-desc" data-es="Dulce toque de plátano con queso" data-en="Sweet plantain with melted cheese">Dulce toque de plátano con queso</div></div><div class="mc-price">$22</div></div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="about-img"><img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/cbcd0c1f7_imessage_media_a8f33a2e602c.png" alt="Yoly"></div>
+  <div class="about-text">
+    <div class="sec-label" data-es="Nuestra historia" data-en="Our story">Nuestra historia</div>
+    <h2 class="sec-title" data-es="By Yoly" data-en="By Yoly">By Yoly</h2>
+    <p data-es="Detrás de cada plato está Yoly, una mujer apasionada por la cocina saludable y los sabores de su tierra. Su misión es sencilla: demostrarte que comer sano no significa sacrificar el sabor. Cada receta es un abrazo de hogar, preparado con los mejores ingredientes y servido con todo el amor del mundo." data-en="Behind every dish is Yoly, a woman passionate about healthy cooking and the flavors of her homeland. Her mission is simple: to show you that eating healthy doesn't mean sacrificing flavor. Every recipe is a home embrace, made with the best ingredients and served with all the love in the world.">Detrás de cada plato está Yoly, una mujer apasionada por la cocina saludable y los sabores de su tierra. Su misión es sencilla: demostrarte que comer sano no significa sacrificar el sabor. Cada receta es un abrazo de hogar, preparado con los mejores ingredientes y servido con todo el amor del mundo.</p>
+  </div>
+</section>
+
+<section class="location" id="ubicacion">
+  <div class="sec-label" data-es="Dónde encontrarnos" data-en="Where to find us">Dónde encontrarnos</div>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--brown);margin:8px 0" data-es="Nuestra Ubicación" data-en="Our Location">Nuestra Ubicación</h2>
+  <div class="loc-card">
+    <div class="loc-badge" data-es="🏠 Disponible desde casa" data-en="🏠 Available from home">🏠 Disponible desde casa</div>
+    <h3>Houston, Texas</h3>
+    <p data-es="Pedidos disponibles por UberEats y DoorDash." data-en="Orders available via UberEats and DoorDash.">Pedidos disponibles por UberEats y DoorDash.</p>
+    <div class="loc-note">📍 <strong data-es="Próximamente:" data-en="Coming Soon:">Próximamente:</strong> <span data-es="Abrimos nuestro local en Agosto 2026." data-en="Opening our location in August 2026.">Abrimos nuestro local en Agosto 2026.</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">The Balance Bite <em>by Yoly</em></div>
+  <div class="foot-links">
+    <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
+    <a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a>
+    <a href="#ubicacion" data-es="Ubicación" data-en="Location">Ubicación</a>
+  </div>
+  <div class="foot-bottom" data-es="© 2026 The Balance Bite by Yoly · Houston, TX" data-en="© 2026 The Balance Bite by Yoly · Houston, TX">© 2026 The Balance Bite by Yoly · Houston, TX</div>
+</footer>
+<script>
+function setLang(lang){
+  document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.lang-toggle button:${lang==='es'?'first':'last'}-child`).classList.add('active');
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-es]').forEach(el=>{el.innerHTML=el.getAttribute('data-'+lang);});
+}
+</script>
+</body>
+</html>
