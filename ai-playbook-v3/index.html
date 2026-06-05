@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Playbook — Jhonnatan</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#fff; color:#0a0a0a; min-height:100vh; }
+
+  /* GATE */
+  #gate-screen { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:48px 24px; background:#fff; }
+  .top-bar { width:100%; max-width:400px; display:flex; justify-content:space-between; align-items:center; margin-bottom:60px; }
+  .top-logo { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; letter-spacing:1px; }
+  .top-lock { font-size:12px; background:#f3f4f6; color:#6b7280; padding:5px 12px; border-radius:20px; font-weight:500; }
+  .big-num { font-family:'Syne',sans-serif; font-size:120px; font-weight:800; line-height:1; color:#f3f4f6; position:absolute; top:80px; right:24px; pointer-events:none; }
+  .gate-eyebrow { font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#9ca3af; margin-bottom:16px; }
+  .gate-title { font-family:'Syne',sans-serif; font-size:48px; font-weight:800; line-height:1.05; margin-bottom:20px; max-width:320px; }
+  .gate-title em { font-style:normal; color:#6366f1; }
+  .divider { width:40px; height:3px; background:#0a0a0a; margin-bottom:20px; }
+  .gate-desc { font-size:14px; color:#6b7280; line-height:1.7; max-width:300px; margin-bottom:40px; }
+  .what-inside { width:100%; max-width:340px; margin-bottom:36px; }
+  .wi-title { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#d1d5db; margin-bottom:14px; }
+  .wi-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .wi-list li { display:flex; align-items:center; gap:10px; font-size:13px; color:#4b5563; }
+  .wi-list li::before { content:''; width:6px; height:6px; background:#6366f1; border-radius:50%; flex-shrink:0; }
+  .cta-row { display:flex; flex-direction:column; gap:10px; width:100%; max-width:340px; }
+  .btn-primary { background:#0a0a0a; color:#fff; font-family:'Syne',sans-serif; font-size:15px; font-weight:700; padding:18px 32px; border-radius:4px; border:none; cursor:pointer; letter-spacing:0.5px; transition:opacity 0.2s; }
+  .btn-primary:hover { opacity:0.85; }
+  .btn-note { font-size:12px; color:#9ca3af; text-align:center; }
+
+  /* VERIFY */
+  #verify-screen { display:none; min-height:100vh; flex-direction:column; align-items:center; justify-content:center; padding:48px 24px; background:#fff; text-align:center; }
+  .v-tag { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#9ca3af; margin-bottom:20px; }
+  .v-title { font-family:'Syne',sans-serif; font-size:36px; font-weight:800; margin-bottom:12px; line-height:1.1; }
+  .v-sub { font-size:14px; color:#6b7280; margin-bottom:36px; max-width:280px; line-height:1.6; }
+  .steps-v { width:100%; max-width:340px; margin-bottom:28px; }
+  .sv { display:flex; gap:16px; align-items:flex-start; padding:16px 0; border-bottom:1px solid #f3f4f6; text-align:left; }
+  .sv:last-child { border-bottom:none; }
+  .sv-n { font-family:'Syne',sans-serif; font-size:28px; font-weight:800; color:#e5e7eb; line-height:1; flex-shrink:0; width:32px; }
+  .sv-t { font-size:13px; color:#4b5563; line-height:1.5; padding-top:4px; }
+  .sv-t strong { color:#0a0a0a; }
+  .ig-link { display:block; background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; font-family:'Syne',sans-serif; font-size:14px; font-weight:700; padding:16px; border-radius:4px; text-decoration:none; width:100%; max-width:340px; margin-bottom:10px; letter-spacing:0.5px; }
+  .done-btn { background:#fff; border:2px solid #0a0a0a; color:#0a0a0a; font-family:'Syne',sans-serif; font-size:14px; font-weight:700; padding:16px; border-radius:4px; cursor:pointer; width:100%; max-width:340px; transition:all 0.2s; }
+  .done-btn:hover { background:#0a0a0a; color:#fff; }
+
+  /* PLAYBOOK */
+  #playbook-screen { display:none; min-height:100vh; background:#fff; }
+  .pb-header { padding:24px; border-bottom:1px solid #f3f4f6; display:flex; align-items:center; justify-content:space-between; }
+  .pb-logo { font-family:'Syne',sans-serif; font-size:15px; font-weight:800; }
+  .pb-status { display:flex; align-items:center; gap:6px; font-size:12px; color:#6b7280; }
+  .dot { width:6px; height:6px; background:#4ade80; border-radius:50%; }
+  .pb-cover { padding:48px 24px 36px; max-width:480px; }
+  .pb-cover-tag { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#9ca3af; margin-bottom:16px; }
+  .pb-cover-title { font-family:'Syne',sans-serif; font-size:44px; font-weight:800; line-height:1.05; margin-bottom:16px; }
+  .pb-cover-title em { font-style:normal; color:#6366f1; }
+  .pb-cover-desc { font-size:14px; color:#6b7280; line-height:1.7; }
+  .pb-content { padding:0 24px 40px; max-width:480px; }
+  .sec { margin-top:48px; }
+  .sec-tag { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#d1d5db; margin-bottom:20px; }
+  .tool-row { display:flex; gap:14px; padding:20px 0; border-top:1px solid #f3f4f6; align-items:flex-start; }
+  .tool-row:last-child { border-bottom:1px solid #f3f4f6; }
+  .tr-icon { font-size:24px; flex-shrink:0; width:32px; }
+  .tr-body { flex:1; }
+  .tr-name { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
+  .tr-desc { font-size:12px; color:#6b7280; line-height:1.5; margin-bottom:8px; }
+  .tr-link { font-size:11px; font-weight:600; color:#6366f1; text-decoration:none; letter-spacing:0.5px; }
+  .badge { font-size:9px; font-weight:700; padding:2px 7px; border-radius:3px; letter-spacing:0.5px; text-transform:uppercase; }
+  .b-f { background:#f0fdf4; color:#16a34a; }
+  .b-p { background:#fefce8; color:#ca8a04; }
+  .b-h { background:#fff1f2; color:#e11d48; }
+  .prompt-block { background:#fafafa; border:1px solid #f3f4f6; border-left:3px solid #6366f1; padding:18px; margin-bottom:12px; border-radius:2px; }
+  .pb-lbl { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#6366f1; margin-bottom:10px; }
+  .pb-txt { font-size:13px; color:#4b5563; line-height:1.7; }
+  .pb-copy { margin-top:12px; background:#fff; border:1px solid #e5e7eb; color:#6b7280; font-size:11px; font-weight:600; padding:6px 14px; border-radius:3px; cursor:pointer; transition:all 0.2s; }
+  .pb-copy:hover { border-color:#6366f1; color:#6366f1; }
+  .income-row { display:flex; gap:14px; padding:20px 0; border-top:1px solid #f3f4f6; }
+  .income-row:last-child { border-bottom:1px solid #f3f4f6; }
+  .ir-num { font-family:'Syne',sans-serif; font-size:28px; font-weight:800; color:#f3f4f6; line-height:1; flex-shrink:0; width:36px; }
+  .ir-body h3 { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; margin-bottom:4px; }
+  .ir-body p { font-size:12px; color:#6b7280; line-height:1.5; }
+  .ir-tag { font-size:11px; color:#16a34a; font-weight:600; margin-top:6px; }
+  .final-cta { margin-top:48px; padding:32px 24px; background:#0a0a0a; border-radius:4px; text-align:center; color:#fff; }
+  .final-cta h3 { font-family:'Syne',sans-serif; font-size:22px; font-weight:800; margin-bottom:8px; }
+  .final-cta p { font-size:13px; color:#9ca3af; margin-bottom:20px; }
+  .final-cta a { display:inline-block; background:#fff; color:#0a0a0a; font-family:'Syne',sans-serif; font-size:13px; font-weight:700; padding:14px 28px; border-radius:3px; text-decoration:none; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .fade-in { animation:fadeIn 0.35s ease forwards; }
+</style>
+</head>
+<body>
+
+<div id="gate-screen">
+  <div class="top-bar">
+    <div class="top-logo">JF</div>
+    <div class="top-lock">🔒 Locked</div>
+  </div>
+  <div style="width:100%;max-width:340px;position:relative;">
+    <div class="gate-eyebrow">Exclusive Resource</div>
+    <h1 class="gate-title">The <em>AI</em> Playbook</h1>
+    <div class="divider"></div>
+    <p class="gate-desc">Tools, prompts, GitHub links, and real income models — everything I use to run my business on AI.</p>
+    <div class="what-inside">
+      <div class="wi-title">What's inside</div>
+      <ul class="wi-list">
+        <li>My complete AI tool stack</li>
+        <li>Copy-paste prompts that actually work</li>
+        <li>GitHub open-source resources</li>
+        <li>Real ways to make money with AI in 2025</li>
+      </ul>
+    </div>
+    <div class="cta-row">
+      <button class="btn-primary" onclick="showVerify()">Get Free Access →</button>
+      <p class="btn-note">Follow @jhonnatan_ferrebus_ to unlock</p>
+    </div>
+  </div>
+</div>
+
+<div id="verify-screen" style="display:none;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:48px 24px;background:#fff;text-align:center;">
+  <div class="v-tag">Step by step</div>
+  <h2 class="v-title">Two steps.<br>Full access.</h2>
+  <p class="v-sub">It's free — just follow to unlock.</p>
+  <div class="steps-v">
+    <div class="sv"><div class="sv-n">01</div><div class="sv-t"><strong>Open Instagram</strong> and follow @jhonnatan_ferrebus_</div></div>
+    <div class="sv"><div class="sv-n">02</div><div class="sv-t"><strong>Come back here</strong> and tap "I'm in"</div></div>
+  </div>
+  <a href="https://www.instagram.com/jhonnatan_ferrebus_/" target="_blank" class="ig-link">Follow on Instagram ↗</a>
+  <button class="done-btn" onclick="unlockPlaybook()">I'm in →</button>
+</div>
+
+<div id="playbook-screen">
+  <div class="pb-header">
+    <div class="pb-logo">AI Playbook</div>
+    <div class="pb-status"><div class="dot"></div> Unlocked</div>
+  </div>
+  <div class="pb-cover">
+    <div class="pb-cover-tag">Jhonnatan Ferrebus · 2025</div>
+    <h1 class="pb-cover-title">The <em>AI</em><br>Playbook</h1>
+    <p class="pb-cover-desc">The exact tools and systems I use to run a web design agency on autopilot. Kept updated.</p>
+  </div>
+  <div class="pb-content">
+    <div class="sec">
+      <div class="sec-tag">My AI Stack</div>
+      <div class="tool-row"><div class="tr-icon">🤖</div><div class="tr-body"><div class="tr-name">Base44 (Jarvis) <span class="badge b-h">🔥 Hot</span></div><div class="tr-desc">My AI agent — builds sites, sends emails, scrapes leads, runs automations. My entire business runs through this.</div><a href="https://base44.com" target="_blank" class="tr-link">base44.com ↗</a></div></div>
+      <div class="tool-row"><div class="tr-icon">💬</div><div class="tr-body"><div class="tr-name">ChatGPT <span class="badge b-f">Free</span></div><div class="tr-desc">Emails, content, scripts. GPT-4o is the best free model right now.</div><a href="https://chat.openai.com" target="_blank" class="tr-link">chat.openai.com ↗</a></div></div>
+      <div class="tool-row"><div class="tr-icon">🧠</div><div class="tr-body"><div class="tr-name">Claude <span class="badge b-f">Free</span></div><div class="tr-desc">Long docs, coding, nuanced writing. Use when ChatGPT goes generic.</div><a href="https://claude.ai" target="_blank" class="tr-link">claude.ai ↗</a></div></div>
+      <div class="tool-row"><div class="tr-icon">🎨</div><div class="tr-body"><div class="tr-name">Midjourney <span class="badge b-p">$10/mo</span></div><div class="tr-desc">Best AI images. Client mockups, social graphics, site visuals.</div><a href="https://midjourney.com" target="_blank" class="tr-link">midjourney.com ↗</a></div></div>
+      <div class="tool-row"><div class="tr-icon">🔍</div><div class="tr-body"><div class="tr-name">Perplexity <span class="badge b-f">Free</span></div><div class="tr-desc">AI search with real sources. Better than Google for research.</div><a href="https://perplexity.ai" target="_blank" class="tr-link">perplexity.ai ↗</a></div></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-tag">GitHub Resources</div>
+      <div class="tool-row"><div class="tr-icon">⚡</div><div class="tr-body"><div class="tr-name">Awesome ChatGPT Prompts</div><div class="tr-desc">200K+ stars. The biggest prompt library on GitHub.</div><a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" class="tr-link">github.com ↗</a></div></div>
+      <div class="tool-row"><div class="tr-icon">🦙</div><div class="tr-body"><div class="tr-name">Ollama</div><div class="tr-desc">Run AI models locally. Free, private, zero API cost.</div><a href="https://github.com/ollama/ollama" target="_blank" class="tr-link">github.com ↗</a></div></div>
+      <div class="tool-row"><div class="tr-icon">🤗</div><div class="tr-body"><div class="tr-name">Hugging Face</div><div class="tr-desc">Thousands of free open-source AI models.</div><a href="https://huggingface.co/models" target="_blank" class="tr-link">huggingface.co ↗</a></div></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-tag">Copy-Paste Prompts</div>
+      <div class="prompt-block"><div class="pb-lbl">Cold Email</div><div class="pb-txt">"Write a cold email for a web design agency reaching out to [business type] in [city]. Under 5 sentences, one benefit, no buzzwords, low-pressure CTA. Sign as Jhonnatan, JF Web Studios."</div><button class="pb-copy" onclick="copyPrompt(this)">Copy</button></div>
+      <div class="prompt-block"><div class="pb-lbl">Instagram Caption</div><div class="pb-txt">"3 Instagram captions for a [topic] post. Audience: [target]. Short, punchy, no hashtag spam. Hook → value → CTA. Tone: confident, real, not corporate."</div><button class="pb-copy" onclick="copyPrompt(this)">Copy</button></div>
+      <div class="prompt-block"><div class="pb-lbl">30-Day AI Business Plan</div><div class="pb-txt">"I want to start an AI automation business for [industry]. I'm [age], in [city], with [resources]. Give me a realistic 30-day plan for my first paying client. Specific, no fluff."</div><button class="pb-copy" onclick="copyPrompt(this)">Copy</button></div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-tag">Make Money with AI</div>
+      <div class="income-row"><div class="ir-num">01</div><div class="ir-body"><h3>AI Web Design Agency</h3><p>Build sites for local businesses without websites. $400 setup + $75/mo. This is exactly my model.</p><div class="ir-tag">$400–$2k/mo per client</div></div></div>
+      <div class="income-row"><div class="ir-num">02</div><div class="ir-body"><h3>AI Automation Agency</h3><p>Chatbots, booking systems, lead follow-up for small businesses. Pure recurring revenue.</p><div class="ir-tag">$500–$2k/mo per client</div></div></div>
+      <div class="income-row"><div class="ir-num">03</div><div class="ir-body"><h3>AI Content Creation</h3><p>30 posts/month using ChatGPT + Midjourney. Package and charge monthly.</p><div class="ir-tag">$300–$800/mo per client</div></div></div>
+    </div>
+
+    <div class="final-cta">
+      <h3>Want this for your business?</h3>
+      <p>Fast turnaround. Affordable. Real results.</p>
+      <a href="https://jfwebstudios.com" target="_blank">jfwebstudios.com ↗</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showVerify(){document.getElementById('gate-screen').style.display='none';document.getElementById('verify-screen').style.display='flex';}
+  function unlockPlaybook(){localStorage.setItem('jf_v3_unlocked','1');document.getElementById('verify-screen').style.display='none';const p=document.getElementById('playbook-screen');p.style.display='block';p.classList.add('fade-in');window.scrollTo(0,0);}
+  function copyPrompt(btn){navigator.clipboard.writeText(btn.previousElementSibling.textContent).then(()=>{btn.textContent='✅ Copied!';setTimeout(()=>btn.textContent='Copy',2000);});}
+  if(localStorage.getItem('jf_v3_unlocked')==='1'){document.getElementById('gate-screen').style.display='none';document.getElementById('playbook-screen').style.display='block';}
+</script>
+</body>
+</html>
