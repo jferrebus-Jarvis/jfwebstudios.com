@@ -76,12 +76,33 @@
   .bottom-cta h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
   .bottom-cta p { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
   .bottom-cta a { display: inline-block; background: #6366f1; color: #fff; font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: 10px; text-decoration: none; }
+
+  .lang-toggle { position:fixed; top:16px; right:16px; z-index:999; display:flex; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:20px; overflow:hidden; }
+  .lang-btn { padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; border:none; background:transparent; color:#4b5563; transition:all 0.2s; }
+  .lang-btn.active { background:#6366f1; color:#fff; border-radius:18px; }
+
+  .email-form { width:100%; max-width:340px; display:flex; flex-direction:column; gap:12px; }
+  .email-input { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:#fff; font-size:15px; padding:16px 18px; border-radius:12px; outline:none; font-family:inherit; }
+  .email-input:focus { border-color:#6366f1; }
+  .email-input::placeholder { color:#374151; }
+  .check-row { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:14px 16px; cursor:pointer; }
+  .check-row input { width:18px; height:18px; accent-color:#6366f1; flex-shrink:0; }
+  .check-label { font-size:13px; color:#9ca3af; text-align:left; line-height:1.4; }
+  .check-label a { color:#818cf8; text-decoration:none; }
+  .sub-btn { background:#6366f1; color:#fff; font-size:15px; font-weight:700; padding:17px; border-radius:12px; border:none; cursor:pointer; transition:all 0.2s; }
+  .sub-btn:hover { background:#4f46e5; }
+  .sub-btn:disabled { opacity:0.4; cursor:not-allowed; }
+  .hidden { display:none !important; }
   @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
   .fade-up { animation: fadeUp 0.4s ease forwards; }
 </style>
 </head>
 <body>
 
+<div class="lang-toggle">
+  <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+</div>
 <div id="gate-screen">
   <div class="grid-bg"></div>
   <div class="glow-orb"></div>
@@ -98,6 +119,24 @@
   <p class="gate-note">Follow @jhonnatan_ferrebus_ to get in</p>
 </div>
 
+
+<div id="email-screen" style="display:none; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:40px 24px; text-align:center;">
+  <h2 style="font-size:28px;font-weight:700;margin-bottom:10px;" data-en="Almost in! 🔑" data-es="¡Ya casi! 🔑">Almost in! 🔑</h2>
+  <p style="font-size:14px;color:#6b7280;margin-bottom:28px;max-width:300px;line-height:1.6;" data-en="Drop your email + confirm you follow to unlock for free." data-es="Ingresa tu email + confirma que me sigues para acceder gratis.">Drop your email + confirm you follow to unlock for free.</p>
+  <div class="email-form">
+    <input type="email" id="user-email" class="email-input" placeholder="your@email.com">
+    <div class="check-row">
+      <input type="checkbox" id="follow-check">
+      <label class="check-label" for="follow-check">
+        <span data-en="I follow" data-es="Sigo a">I follow</span> <a href="https://www.instagram.com/jhonnatan_ferrebus_/" target="_blank">@jhonnatan_ferrebus_</a> <span data-en="on Instagram" data-es="en Instagram">on Instagram</span>
+      </label>
+    </div>
+    <button class="sub-btn" id="submit-btn" onclick="tryUnlock()" disabled>
+      <span data-en="Unlock Playbook →" data-es="Acceder →">Unlock Playbook →</span>
+    </button>
+  </div>
+  <p style="margin-top:14px;font-size:11px;color:#374151;" data-en="No spam. Ever." data-es="Sin spam. Nunca.">No spam. Ever.</p>
+</div>
 <div id="verify-screen" style="display:none; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:40px 24px; text-align:center;">
   <h2 class="v-title">One step away 🔑</h2>
   <p class="v-sub">Follow me on Instagram to unlock everything — free forever.</p>
@@ -230,12 +269,53 @@
 </div>
 
 <script>
-  function showVerify() {
+
+  let currentLang = localStorage.getItem('jf_lang') || 'en';
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('jf_lang', lang);
+    document.getElementById('btn-en').classList.toggle('active', lang==='en');
+    document.getElementById('btn-es').classList.toggle('active', lang==='es');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      if (el.tagName==='INPUT') return;
+      el.textContent = el.getAttribute('data-'+lang);
+    });
+    document.querySelectorAll('.en-text').forEach(el=>el.classList.toggle('hidden',lang==='es'));
+    document.querySelectorAll('.es-text').forEach(el=>el.classList.toggle('hidden',lang==='en'));
+  }
+  function showEmail() {
+    document.getElementById('gate-screen').style.display='none';
+    document.getElementById('email-screen').style.display='flex';
+  }
+  function showVerify(){ showEmail(); }
+  document.addEventListener('DOMContentLoaded', function() {
+    const ec = document.getElementById('follow-check');
+    const ei = document.getElementById('user-email');
+    const sb = document.getElementById('submit-btn');
+    if(ec && ei && sb){
+      ec.addEventListener('change',()=>{ sb.disabled=!(ec.checked && ei.value.includes('@')); });
+      ei.addEventListener('input',()=>{ sb.disabled=!(ec.checked && ei.value.includes('@')); });
+    }
+  });
+  function tryUnlock() {
+    const email = document.getElementById('user-email').value;
+    const checked = document.getElementById('follow-check').checked;
+    if(!email.includes('@')||!checked) return;
+    localStorage.setItem('jf_v2_email', email);
+    localStorage.setItem('jf_v2_unlocked','1');
+    document.getElementById('email-screen').style.display='none';
+    const p=document.getElementById('playbook-screen');
+    p.style.display='block';
+    p.classList.add('fade-up');
+    window.scrollTo(0,0);
+  }
+
+  function _oldVerify() {
     document.getElementById('gate-screen').style.display = 'none';
     const v = document.getElementById('verify-screen');
     v.style.display = 'flex';
   }
-  function unlockPlaybook() {
+  function unlockPlaybook_old() {
     localStorage.setItem('jf_v2_unlocked','1');
     document.getElementById('verify-screen').style.display = 'none';
     const p = document.getElementById('playbook-screen');
