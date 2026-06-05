@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JF Web Studios — Internal SOP</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Space Grotesk',sans-serif; background:#f9fafb; color:#111; min-height:100vh; }
+  .header { background:#111; color:#fff; padding:40px 24px 32px; }
+  .header-chip { background:rgba(99,102,241,0.2); border:1px solid rgba(99,102,241,0.5); color:#818cf8; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:20px; display:inline-block; margin-bottom:16px; }
+  .header h1 { font-size:32px; font-weight:700; line-height:1.1; margin-bottom:8px; }
+  .header h1 span { color:#6366f1; }
+  .header p { font-size:14px; color:#6b7280; }
+  .body { max-width:600px; margin:0 auto; padding:32px 24px 80px; }
+  .section { margin-bottom:36px; }
+  .sec-title { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#6366f1; margin-bottom:14px; padding-bottom:8px; border-bottom:2px solid #e5e7eb; }
+  .card { background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:18px; margin-bottom:10px; }
+  .card h3 { font-size:15px; font-weight:700; margin-bottom:6px; }
+  .card p, .card li { font-size:13px; color:#4b5563; line-height:1.7; }
+  .card ul { padding-left:18px; margin-top:6px; }
+  .card a { color:#6366f1; text-decoration:none; font-weight:600; }
+  .rule-card { background:#fff; border:1px solid #e5e7eb; border-left:4px solid #6366f1; border-radius:0 14px 14px 0; padding:16px 18px; margin-bottom:10px; }
+  .rule-card h3 { font-size:13px; font-weight:700; margin-bottom:4px; color:#111; }
+  .rule-card p { font-size:12px; color:#6b7280; line-height:1.6; }
+  .tag { display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:2px 8px; border-radius:4px; margin-left:8px; vertical-align:middle; }
+  .t-red { background:#fee2e2; color:#ef4444; }
+  .t-green { background:#dcfce7; color:#16a34a; }
+  .t-blue { background:#dbeafe; color:#2563eb; }
+  .step-row { display:flex; gap:14px; align-items:flex-start; margin-bottom:14px; }
+  .step-num { width:32px; height:32px; border-radius:50%; background:#6366f1; color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+  .step-body h4 { font-size:14px; font-weight:600; margin-bottom:3px; }
+  .step-body p { font-size:12px; color:#6b7280; line-height:1.6; }
+  .tool-row { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid #f3f4f6; }
+  .tool-row:last-child { border-bottom:none; }
+  .tool-icon { font-size:22px; width:36px; text-align:center; }
+  .tool-name { font-size:14px; font-weight:600; }
+  .tool-desc { font-size:12px; color:#6b7280; }
+  .tool-link { margin-left:auto; font-size:12px; font-weight:600; color:#6366f1; text-decoration:none; white-space:nowrap; }
+  .price-box { background:linear-gradient(135deg,#6366f1,#4f46e5); border-radius:14px; padding:24px; color:#fff; margin-bottom:10px; }
+  .price-box h3 { font-size:20px; font-weight:700; margin-bottom:4px; }
+  .price-box p { font-size:13px; opacity:0.8; }
+  .price-row { display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.2); }
+  .price-item { text-align:center; }
+  .price-item .amount { font-size:24px; font-weight:700; }
+  .price-item .label { font-size:11px; opacity:0.7; margin-top:2px; }
+  .do-dont { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .do-card { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:14px; }
+  .do-card h4 { font-size:12px; font-weight:700; color:#16a34a; margin-bottom:8px; letter-spacing:1px; text-transform:uppercase; }
+  .dont-card { background:#fef2f2; border:1px solid #fecaca; border-radius:12px; padding:14px; }
+  .dont-card h4 { font-size:12px; font-weight:700; color:#ef4444; margin-bottom:8px; letter-spacing:1px; text-transform:uppercase; }
+  .do-card li, .dont-card li { font-size:12px; color:#374151; line-height:1.7; list-style:none; padding-left:0; }
+  .do-card li::before { content:"✓ "; color:#16a34a; font-weight:700; }
+  .dont-card li::before { content:"✗ "; color:#ef4444; font-weight:700; }
+  .footer { text-align:center; padding:40px 24px; color:#9ca3af; font-size:12px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-chip">Internal Only — Do Not Share</div>
+  <h1>JF Web Studios<br><span>Team SOP</span></h1>
+  <p>Standard Operating Procedures — Updated June 2026</p>
+</div>
+
+<div class="body">
+
+  <!-- TOOLS -->
+  <div class="section">
+    <div class="sec-title">🛠 Tools We Use</div>
+    <div class="card">
+      <div class="tool-row">
+        <div class="tool-icon">🤖</div>
+        <div><div class="tool-name">Base44 (Jarvis)</div><div class="tool-desc">Our AI agent — builds sites, sends emails, manages leads</div></div>
+        <a href="https://app.base44.com" target="_blank" class="tool-link">Open →</a>
+      </div>
+      <div class="tool-row">
+        <div class="tool-icon">🐙</div>
+        <div><div class="tool-name">GitHub</div><div class="tool-desc">All websites hosted here via GitHub Pages</div></div>
+        <a href="https://github.com/jferrebus-Jarvis" target="_blank" class="tool-link">Open →</a>
+      </div>
+      <div class="tool-row">
+        <div class="tool-icon">🌐</div>
+        <div><div class="tool-name">jfwebstudios.com</div><div class="tool-desc">Main business site — never touch this repo for client work</div></div>
+        <a href="https://jfwebstudios.com" target="_blank" class="tool-link">Open →</a>
+      </div>
+      <div class="tool-row">
+        <div class="tool-icon">📧</div>
+        <div><div class="tool-name">Gmail (Business)</div><div class="tool-desc">jferrebus@jfwebstudios.com — cold outreach only</div></div>
+        <a href="https://mail.google.com" target="_blank" class="tool-link">Open →</a>
+      </div>
+      <div class="tool-row">
+        <div class="tool-icon">📱</div>
+        <div><div class="tool-name">Twilio</div><div class="tool-desc">SMS outreach from (832) 981-2967</div></div>
+        <a href="https://console.twilio.com" target="_blank" class="tool-link">Open →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW WE BUILD -->
+  <div class="section">
+    <div class="sec-title">🏗 How We Build Client Sites</div>
+    <div class="card">
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-body"><h4>Get the lead</h4><p>Jarvis scrapes businesses without websites via Google Maps. We target restaurants, barbershops, nail salons, landscapers, plumbers, HVAC, electricians, auto shops, cleaning companies.</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-body"><h4>Build the demo first</h4><p>Build a demo site before reaching out. Use one of our 10 industry templates. Each site is a single HTML file. Keep it clean, mobile-first, fast.</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-body"><h4>Create a dedicated repo</h4><p>Every client gets their own GitHub repo — NEVER add client work to the jfwebstudios.com repo. Name it: clientname.com or client-project.</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">4</div>
+        <div class="step-body"><h4>Host the demo</h4><p>Push to GitHub Pages. Demo lives at jfwebstudios.com/demos/clientname/ for preview only.</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">5</div>
+        <div class="step-body"><h4>Send cold outreach</h4><p>Jarvis sends a personalized cold email + SMS. No pricing in messages — always push to a free quote call.</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">6</div>
+        <div class="step-body"><h4>Close the deal</h4><p>Jhonnatan calls the lead. After payment, connect their domain, go live within 48 hours.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="section">
+    <div class="sec-title">💰 Pricing (Internal Only)</div>
+    <div class="price-box">
+      <h3>JF Web Studios Pricing</h3>
+      <p>Never quote these numbers in cold outreach — always say "free quote"</p>
+      <div class="price-row">
+        <div class="price-item"><div class="amount">$400</div><div class="label">One-time setup</div></div>
+        <div class="price-item"><div class="amount">+</div></div>
+        <div class="price-item"><div class="amount">$75/mo</div><div class="label">Hosting & maintenance</div></div>
+        <div class="price-item"><div class="amount">Free</div><div class="label">Domain included</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RULES -->
+  <div class="section">
+    <div class="sec-title">📋 Hard Rules</div>
+    <div class="rule-card">
+      <h3>One site = one repo <span class="tag t-red">Critical</span></h3>
+      <p>Never mix client work into jfwebstudios.com. If a client needs their own domain, create a brand new repo. No exceptions.</p>
+    </div>
+    <div class="rule-card">
+      <h3>Never mention price in outreach <span class="tag t-red">Critical</span></h3>
+      <p>No $400, no "48 hours", no pricing in any cold email or SMS. Always redirect to a free quote consultation.</p>
+    </div>
+    <div class="rule-card">
+      <h3>Email sending limits <span class="tag t-blue">Important</span></h3>
+      <p>Max 50 emails per batch. Wait 30 minutes between batches. Never more than 200/day. Violating this can get Gmail suspended.</p>
+    </div>
+    <div class="rule-card">
+      <h3>Never touch the CNAME file <span class="tag t-red">Critical</span></h3>
+      <p>The CNAME in jfwebstudios.com repo must always point to jfwebstudios.com. Changing it takes the main site down.</p>
+    </div>
+    <div class="rule-card">
+      <h3>Plain text cold emails only <span class="tag t-blue">Important</span></h3>
+      <p>No HTML, no images, no emoji in subject lines, no ALL CAPS. Plain text lands in inbox, HTML goes to spam.</p>
+    </div>
+  </div>
+
+  <!-- DO / DON'T -->
+  <div class="section">
+    <div class="sec-title">✅ Do's & Don'ts</div>
+    <div class="do-dont">
+      <div class="do-card">
+        <h4>Do</h4>
+        <ul>
+          <li>Build demo first, pitch second</li>
+          <li>Personalize every email</li>
+          <li>Keep sites mobile-first</li>
+          <li>Create a new repo per client</li>
+          <li>Always sign as Jhonnatan</li>
+          <li>Push free quote, not price</li>
+        </ul>
+      </div>
+      <div class="dont-card">
+        <h4>Don't</h4>
+        <ul>
+          <li>Quote price in cold outreach</li>
+          <li>Touch the main site repo</li>
+          <li>Send HTML cold emails</li>
+          <li>Send more than 50/batch</li>
+          <li>Mix clients in one repo</li>
+          <li>Promise specific timelines</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACTS -->
+  <div class="section">
+    <div class="sec-title">📞 Key Contacts</div>
+    <div class="card">
+      <div class="tool-row">
+        <div class="tool-icon">👤</div>
+        <div><div class="tool-name">Jhonnatan Ferrebus (Owner)</div><div class="tool-desc">(281) 844-1734 · jferrebus@jfwebstudios.com</div></div>
+      </div>
+      <div class="tool-row">
+        <div class="tool-icon">🌐</div>
+        <div><div class="tool-name">Business Site</div><div class="tool-desc">jfwebstudios.com</div></div>
+        <a href="https://jfwebstudios.com" target="_blank" class="tool-link">Open →</a>
+      </div>
+      <div class="tool-row">
+        <div class="tool-icon">📸</div>
+        <div><div class="tool-name">Instagram</div><div class="tool-desc">@jhonnatan_ferrebus_</div></div>
+        <a href="https://instagram.com/jhonnatan_ferrebus_" target="_blank" class="tool-link">Open →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">JF Web Studios LLC · Internal Use Only · Do Not Distribute</div>
+
+</body>
+</html>
