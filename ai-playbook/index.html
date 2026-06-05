@@ -6,673 +6,281 @@
 <title>AI Playbook — Jhonnatan Ferrebus</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#000; color:#fff; min-height:100vh; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .lang-toggle { position:fixed; top:16px; right:16px; z-index:999; display:flex; background:#111; border:1px solid #222; border-radius:20px; overflow:hidden; }
+  .lang-btn { padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer; border:none; background:transparent; color:#666; transition:all 0.2s; }
+  .lang-btn.active { background:#fff; color:#000; border-radius:18px; }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #000;
-    color: #fff;
-    min-height: 100vh;
-  }
+  #gate-screen { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 24px; background:#000; position:relative; overflow:hidden; }
+  #gate-screen::before { content:''; position:absolute; top:-200px; left:50%; transform:translateX(-50%); width:600px; height:600px; background:radial-gradient(circle, rgba(131,58,180,0.25) 0%, transparent 70%); pointer-events:none; }
+  .gate-badge { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:6px 16px; border-radius:20px; margin-bottom:28px; }
+  .gate-title { font-size:36px; font-weight:900; text-align:center; line-height:1.1; margin-bottom:12px; }
+  .gate-title span { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .gate-sub { font-size:15px; color:#888; text-align:center; max-width:320px; line-height:1.6; margin-bottom:36px; }
+  .gate-perks { display:flex; flex-direction:column; gap:12px; margin-bottom:40px; width:100%; max-width:340px; }
+  .perk { display:flex; align-items:center; gap:12px; background:#111; border:1px solid #222; border-radius:12px; padding:14px 16px; }
+  .perk-icon { font-size:22px; flex-shrink:0; }
+  .perk-text { font-size:13px; color:#ccc; line-height:1.4; }
+  .perk-text strong { color:#fff; font-weight:600; }
+  .gate-btn { display:flex; align-items:center; justify-content:center; gap:10px; background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; font-size:16px; font-weight:700; padding:18px 40px; border-radius:50px; border:none; cursor:pointer; width:100%; max-width:340px; transition:transform 0.15s; }
+  .gate-btn:hover { transform:scale(1.03); }
+  .gate-note { margin-top:16px; font-size:12px; color:#555; text-align:center; }
 
-  /* ─── GATE SCREEN ─── */
-  #gate-screen {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 24px;
-    background: #000;
-    position: relative;
-    overflow: hidden;
-  }
+  /* EMAIL GATE */
+  #email-screen { display:none; min-height:100vh; flex-direction:column; align-items:center; justify-content:center; padding:40px 24px; text-align:center; }
+  .email-title { font-size:28px; font-weight:800; margin-bottom:10px; }
+  .email-sub { font-size:14px; color:#888; margin-bottom:28px; max-width:300px; line-height:1.6; }
+  .email-form { width:100%; max-width:340px; display:flex; flex-direction:column; gap:12px; }
+  .email-input { background:#111; border:1px solid #222; color:#fff; font-size:15px; padding:16px 18px; border-radius:12px; outline:none; transition:border-color 0.2s; font-family:'Inter',sans-serif; }
+  .email-input:focus { border-color:#833ab4; }
+  .email-input::placeholder { color:#444; }
+  .check-row { display:flex; align-items:center; gap:10px; background:#111; border:1px solid #222; border-radius:12px; padding:14px 16px; cursor:pointer; }
+  .check-row input { width:18px; height:18px; accent-color:#833ab4; cursor:pointer; flex-shrink:0; }
+  .check-label { font-size:13px; color:#ccc; text-align:left; line-height:1.4; }
+  .check-label a { color:#fcb045; text-decoration:none; }
+  .submit-btn { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; font-size:16px; font-weight:700; padding:18px; border-radius:50px; border:none; cursor:pointer; transition:transform 0.15s; }
+  .submit-btn:hover { transform:scale(1.02); }
+  .submit-btn:disabled { opacity:0.5; cursor:not-allowed; transform:none; }
 
-  #gate-screen::before {
-    content: '';
-    position: absolute;
-    top: -200px; left: 50%; transform: translateX(-50%);
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(131,58,180,0.25) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .gate-badge {
-    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 20px;
-    margin-bottom: 28px;
-  }
-
-  .gate-avatar {
-    width: 90px; height: 90px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-    padding: 3px;
-    margin-bottom: 20px;
-  }
-
-  .gate-avatar img {
-    width: 100%; height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    background: #111;
-  }
-
-  .gate-title {
-    font-size: 36px;
-    font-weight: 900;
-    text-align: center;
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
-
-  .gate-title span {
-    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .gate-sub {
-    font-size: 15px;
-    color: #888;
-    text-align: center;
-    max-width: 320px;
-    line-height: 1.6;
-    margin-bottom: 36px;
-  }
-
-  .gate-perks {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 40px;
-    width: 100%;
-    max-width: 340px;
-  }
-
-  .perk {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 12px;
-    padding: 14px 16px;
-  }
-
-  .perk-icon { font-size: 22px; flex-shrink: 0; }
-
-  .perk-text { font-size: 13px; color: #ccc; line-height: 1.4; }
-  .perk-text strong { color: #fff; font-weight: 600; }
-
-  .gate-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 18px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    width: 100%;
-    max-width: 340px;
-    cursor: pointer;
-    border: none;
-    transition: transform 0.15s, opacity 0.15s;
-  }
-
-  .gate-btn:hover { transform: scale(1.03); opacity: 0.95; }
-
-  .gate-note {
-    margin-top: 16px;
-    font-size: 12px;
-    color: #555;
-    text-align: center;
-  }
-
-  /* ─── VERIFY SCREEN ─── */
-  #verify-screen {
-    display: none;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 40px 24px;
-    text-align: center;
-  }
-
-  .verify-title {
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 12px;
-  }
-
-  .verify-sub {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 32px;
-    max-width: 300px;
-    line-height: 1.6;
-  }
-
-  .verify-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-    max-width: 340px;
-    margin-bottom: 32px;
-  }
-
-  .vstep {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 12px;
-    padding: 16px;
-    text-align: left;
-  }
-
-  .vstep-num {
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #833ab4, #fd1d1d);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700; flex-shrink: 0;
-  }
-
-  .vstep-text { font-size: 13px; color: #ccc; line-height: 1.4; }
-  .vstep-text strong { color: #fff; }
-
-  .confirm-btn {
-    background: #fff;
-    color: #000;
-    font-size: 15px;
-    font-weight: 700;
-    padding: 16px 40px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    max-width: 340px;
-    transition: transform 0.15s;
-  }
-
-  .confirm-btn:hover { transform: scale(1.02); }
-
-  /* ─── PLAYBOOK SCREEN ─── */
-  #playbook-screen {
-    display: none;
-    min-height: 100vh;
-    padding: 0 0 80px 0;
-  }
-
-  .pb-hero {
-    background: #000;
-    padding: 60px 24px 40px;
-    text-align: center;
-    border-bottom: 1px solid #111;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .pb-hero::before {
-    content: '';
-    position: absolute;
-    top: -150px; left: 50%; transform: translateX(-50%);
-    width: 500px; height: 400px;
-    background: radial-gradient(circle, rgba(131,58,180,0.2) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .pb-welcome {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #fcb045;
-    margin-bottom: 16px;
-  }
-
-  .pb-title {
-    font-size: 38px;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 12px;
-  }
-
-  .pb-title span {
-    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .pb-sub {
-    font-size: 14px;
-    color: #888;
-    max-width: 320px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  .pb-body { padding: 32px 24px 0; max-width: 480px; margin: 0 auto; }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #555;
-    margin-bottom: 16px;
-    margin-top: 40px;
-  }
-
-  .card {
-    background: #0d0d0d;
-    border: 1px solid #1a1a1a;
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 12px;
-    transition: border-color 0.2s;
-  }
-
-  .card:hover { border-color: #333; }
-
-  .card-top {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 10px;
-  }
-
-  .card-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-
-  .card-title { font-size: 16px; font-weight: 700; }
-  .card-desc { font-size: 13px; color: #888; line-height: 1.5; margin-bottom: 14px; }
-
-  .card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #1a1a1a;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 8px 14px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .card-link:hover { background: #252525; }
-
-  .tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 6px;
-    margin-left: 8px;
-  }
-
-  .tag-free { background: #0d2d0d; color: #4ade80; }
-  .tag-paid { background: #1a1a0d; color: #facc15; }
-  .tag-hot { background: #2d0d0d; color: #f87171; }
-
-  .prompt-box {
-    background: #0a0a0a;
-    border: 1px solid #1a1a1a;
-    border-left: 3px solid #833ab4;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-
-  .prompt-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #833ab4;
-    margin-bottom: 8px;
-  }
-
-  .prompt-text {
-    font-size: 13px;
-    color: #ccc;
-    line-height: 1.6;
-    font-style: italic;
-  }
-
-  .copy-btn {
-    margin-top: 10px;
-    background: #1a1a1a;
-    color: #888;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .copy-btn:hover { background: #222; color: #fff; }
-
-  .cta-box {
-    background: linear-gradient(135deg, #0d0019, #1a0000);
-    border: 1px solid #2d1a3d;
-    border-radius: 16px;
-    padding: 28px 20px;
-    text-align: center;
-    margin-top: 40px;
-  }
-
-  .cta-box h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
-  .cta-box p { font-size: 13px; color: #888; margin-bottom: 20px; line-height: 1.5; }
-
-  .cta-box a {
-    display: inline-block;
-    background: linear-gradient(135deg, #833ab4, #fd1d1d);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 14px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-  }
-
-  /* ─── UNLOCK ANIMATION ─── */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .fade-in { animation: fadeIn 0.4s ease forwards; }
+  /* PLAYBOOK */
+  #playbook-screen { display:none; padding-bottom:80px; }
+  .pb-hero { background:#000; padding:60px 24px 40px; text-align:center; border-bottom:1px solid #111; position:relative; overflow:hidden; }
+  .pb-hero::before { content:''; position:absolute; top:-150px; left:50%; transform:translateX(-50%); width:500px; height:400px; background:radial-gradient(circle, rgba(131,58,180,0.2) 0%, transparent 70%); pointer-events:none; }
+  .pb-welcome { font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#fcb045; margin-bottom:16px; }
+  .pb-title { font-size:38px; font-weight:900; line-height:1.1; margin-bottom:12px; }
+  .pb-title span { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .pb-sub { font-size:14px; color:#888; max-width:320px; margin:0 auto; line-height:1.6; }
+  .pb-body { padding:32px 24px 0; max-width:480px; margin:0 auto; }
+  .section-label { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#555; margin-bottom:16px; margin-top:40px; }
+  .card { background:#0d0d0d; border:1px solid #1a1a1a; border-radius:16px; padding:20px; margin-bottom:12px; transition:border-color 0.2s; }
+  .card:hover { border-color:#333; }
+  .card-top { display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+  .card-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+  .card-title { font-size:16px; font-weight:700; }
+  .card-desc { font-size:13px; color:#888; line-height:1.5; margin-bottom:14px; }
+  .card-link { display:inline-flex; align-items:center; gap:6px; background:#1a1a1a; color:#fff; font-size:12px; font-weight:600; padding:8px 14px; border-radius:8px; text-decoration:none; }
+  .tag { display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 8px; border-radius:6px; margin-left:8px; }
+  .tag-free { background:#0d2d0d; color:#4ade80; }
+  .tag-paid { background:#1a1a0d; color:#facc15; }
+  .tag-hot { background:#2d0d0d; color:#f87171; }
+  .prompt-box { background:#0a0a0a; border:1px solid #1a1a1a; border-left:3px solid #833ab4; border-radius:12px; padding:16px; margin-bottom:12px; }
+  .prompt-label { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:#833ab4; margin-bottom:8px; }
+  .prompt-text { font-size:13px; color:#ccc; line-height:1.6; font-style:italic; }
+  .copy-btn { margin-top:10px; background:#1a1a1a; color:#888; font-size:11px; font-weight:600; padding:6px 12px; border-radius:6px; border:none; cursor:pointer; }
+  .copy-btn:hover { color:#fff; }
+  .money-card { background:#0d0d0d; border:1px solid #1a1a1a; border-radius:16px; padding:20px; margin-bottom:12px; }
+  .money-card h3 { font-size:15px; font-weight:700; margin-bottom:6px; }
+  .money-card p { font-size:13px; color:#888; line-height:1.5; }
+  .money-tag { font-size:12px; color:#4ade80; font-weight:600; margin-top:8px; }
+  .cta-box { background:linear-gradient(135deg,#0d0019,#1a0000); border:1px solid #2d1a3d; border-radius:16px; padding:28px 20px; text-align:center; margin-top:40px; }
+  .cta-box h3 { font-size:20px; font-weight:800; margin-bottom:8px; }
+  .cta-box p { font-size:13px; color:#888; margin-bottom:20px; line-height:1.5; }
+  .cta-box a { display:inline-block; background:linear-gradient(135deg,#833ab4,#fd1d1d); color:#fff; font-size:14px; font-weight:700; padding:14px 32px; border-radius:50px; text-decoration:none; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  .fade-in { animation:fadeIn 0.4s ease forwards; }
+  .hidden { display:none !important; }
 </style>
 </head>
 <body>
 
-<!-- ═══ GATE SCREEN ═══ -->
+<div class="lang-toggle">
+  <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+</div>
+
+<!-- GATE -->
 <div id="gate-screen">
-  <div class="gate-badge">🔒 Exclusive Access</div>
-  <div class="gate-avatar">
-    <img src="https://unavatar.io/instagram/jhonnatan_ferrebus_" alt="Jhonnatan" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23111%22/><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>'">
-  </div>
+  <div class="gate-badge" data-en="🔒 Exclusive Access" data-es="🔒 Acceso Exclusivo">🔒 Exclusive Access</div>
   <h1 class="gate-title">The AI<br><span>Playbook</span></h1>
-  <p class="gate-sub">Tools, prompts, GitHub resources, and systems I actually use to run my business on autopilot.</p>
-
+  <p class="gate-sub" data-en="Tools, prompts, GitHub resources, and systems I actually use to run my business on autopilot." data-es="Las herramientas, prompts y sistemas que uso para manejar mi negocio en piloto automático.">Tools, prompts, GitHub resources, and systems I actually use to run my business on autopilot.</p>
   <div class="gate-perks">
-    <div class="perk">
-      <div class="perk-icon">🤖</div>
-      <div class="perk-text"><strong>Top AI Tools</strong> — the exact stack I use daily</div>
-    </div>
-    <div class="perk">
-      <div class="perk-icon">💬</div>
-      <div class="perk-text"><strong>Copy-Paste Prompts</strong> — ChatGPT & Claude prompts that actually work</div>
-    </div>
-    <div class="perk">
-      <div class="perk-icon">🔗</div>
-      <div class="perk-text"><strong>GitHub Resources</strong> — open-source AI tools & templates</div>
-    </div>
-    <div class="perk">
-      <div class="perk-icon">💰</div>
-      <div class="perk-text"><strong>Make Money with AI</strong> — real business models that work in 2025</div>
-    </div>
+    <div class="perk"><div class="perk-icon">🤖</div><div class="perk-text"><strong data-en="Top AI Tools" data-es="Herramientas de IA">Top AI Tools</strong> — <span data-en="the exact stack I use daily" data-es="el stack exacto que uso cada día">the exact stack I use daily</span></div></div>
+    <div class="perk"><div class="perk-icon">💬</div><div class="perk-text"><strong data-en="Copy-Paste Prompts" data-es="Prompts Listos">Copy-Paste Prompts</strong> — <span data-en="ChatGPT & Claude prompts that actually work" data-es="prompts de ChatGPT y Claude que funcionan de verdad">ChatGPT & Claude prompts that actually work</span></div></div>
+    <div class="perk"><div class="perk-icon">🔗</div><div class="perk-text"><strong data-en="GitHub Resources" data-es="Recursos en GitHub">GitHub Resources</strong> — <span data-en="open-source AI tools & templates" data-es="herramientas y plantillas de IA gratuitas">open-source AI tools & templates</span></div></div>
+    <div class="perk"><div class="perk-icon">💰</div><div class="perk-text"><strong data-en="Make Money with AI" data-es="Gana Dinero con IA">Make Money with AI</strong> — <span data-en="real business models that work in 2025" data-es="modelos de negocio reales que funcionan en 2025">real business models that work in 2025</span></div></div>
   </div>
-
-  <button class="gate-btn" onclick="showVerify()">
-    <span>🔓</span> Follow to Unlock
+  <button class="gate-btn" onclick="showEmail()">
+    <span>🔓</span> <span data-en="Follow to Unlock" data-es="Sígueme para Acceder">Follow to Unlock</span>
   </button>
-  <p class="gate-note">Free forever. Just follow @jhonnatan_ferrebus_ on Instagram.</p>
+  <p class="gate-note" data-en="Free forever. Just follow @jhonnatan_ferrebus_ on Instagram." data-es="Gratis para siempre. Solo sigue a @jhonnatan_ferrebus_ en Instagram.">Free forever. Just follow @jhonnatan_ferrebus_ on Instagram.</p>
 </div>
 
-<!-- ═══ VERIFY SCREEN ═══ -->
-<div id="verify-screen" style="display:none; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:40px 24px; text-align:center;">
-  <h2 class="verify-title">Almost in! 🔑</h2>
-  <p class="verify-sub">Follow these two quick steps to unlock the full playbook.</p>
-
-  <div class="verify-steps">
-    <div class="vstep">
-      <div class="vstep-num">1</div>
-      <div class="vstep-text">
-        <strong>Follow on Instagram</strong><br>
-        Go follow <strong>@jhonnatan_ferrebus_</strong> if you haven't already
-      </div>
+<!-- EMAIL GATE -->
+<div id="email-screen" style="display:none; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:40px 24px; text-align:center;">
+  <h2 class="email-title" data-en="Almost in! 🔑" data-es="¡Ya casi! 🔑">Almost in! 🔑</h2>
+  <p class="email-sub" data-en="Enter your email + confirm you're following to unlock everything for free." data-es="Ingresa tu email y confirma que me sigues para acceder a todo gratis.">Enter your email + confirm you're following to unlock everything for free.</p>
+  <div class="email-form">
+    <input type="email" id="user-email" class="email-input" placeholder="your@email.com" />
+    <div class="check-row">
+      <input type="checkbox" id="follow-check">
+      <label class="check-label" for="follow-check">
+        <span data-en="I follow" data-es="Sigo a">I follow</span> <a href="https://www.instagram.com/jhonnatan_ferrebus_/" target="_blank">@jhonnatan_ferrebus_</a> <span data-en="on Instagram" data-es="en Instagram">on Instagram</span>
+      </label>
     </div>
-    <div class="vstep">
-      <div class="vstep-num">2</div>
-      <div class="vstep-text">
-        <strong>Confirm below</strong><br>
-        Tap the button to unlock your access
-      </div>
-    </div>
+    <button class="submit-btn" id="submit-btn" onclick="tryUnlock()" disabled>
+      <span data-en="Unlock Playbook →" data-es="Acceder al Playbook →">Unlock Playbook →</span>
+    </button>
   </div>
-
-  <a href="https://www.instagram.com/jhonnatan_ferrebus_/" target="_blank" class="gate-btn" style="margin-bottom:16px; max-width:340px;">
-    📱 Follow on Instagram
-  </a>
-
-  <button class="confirm-btn" onclick="unlockPlaybook()">
-    ✅ I'm Following — Unlock Playbook
-  </button>
-
-  <p class="gate-note" style="margin-top:16px;">On the honor system 🤝 — thanks for supporting!</p>
+  <p style="margin-top:16px; font-size:11px; color:#333;" data-en="No spam. Ever." data-es="Sin spam. Nunca.">No spam. Ever.</p>
 </div>
 
-<!-- ═══ PLAYBOOK SCREEN ═══ -->
+<!-- PLAYBOOK -->
 <div id="playbook-screen">
   <div class="pb-hero">
-    <div class="pb-welcome">🎉 You're In — Welcome to the Playbook</div>
+    <div class="pb-welcome" data-en="🎉 You're In — Welcome to the Playbook" data-es="🎉 Bienvenido/a al Playbook">🎉 You're In — Welcome to the Playbook</div>
     <h1 class="pb-title">The AI<br><span>Playbook</span></h1>
-    <p class="pb-sub">Everything I actually use. Updated regularly.</p>
+    <p class="pb-sub" data-en="Everything I actually use. Updated regularly." data-es="Todo lo que realmente uso. Actualizado constantemente.">Everything I actually use. Updated regularly.</p>
   </div>
-
   <div class="pb-body">
-
-    <!-- TOOLS -->
-    <div class="section-label">🛠️ My AI Stack</div>
-
+    <div class="section-label" data-en="🛠️ My AI Stack" data-es="🛠️ Mi Stack de IA">🛠️ My AI Stack</div>
     <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d1117;">🤖</div>
-        <div>
-          <div class="card-title">Base44 — My AI Agent (Jarvis) <span class="tag tag-hot">🔥 Hot</span></div>
-        </div>
-      </div>
-      <div class="card-desc">The platform I use to run Jarvis — my personal AI that builds websites, sends emails, scrapes leads, and runs my whole business on autopilot. No code needed.</div>
-      <a href="https://base44.com" target="_blank" class="card-link">→ base44.com <span class="tag tag-free">Free Plan</span></a>
+      <div class="card-top"><div class="card-icon" style="background:#0d1117;">🤖</div><div><div class="card-title">Base44 — Jarvis <span class="tag tag-hot">🔥 Hot</span></div></div></div>
+      <div class="card-desc" data-en="The platform I use to run Jarvis — my personal AI that builds websites, sends emails, scrapes leads, and runs my whole business on autopilot. No code needed." data-es="La plataforma que uso para correr a Jarvis — mi IA personal que construye sitios, manda emails, busca leads y maneja todo mi negocio en automático. Sin código.">The platform I use to run Jarvis — my personal AI that builds websites, sends emails, scrapes leads, and runs my whole business on autopilot. No code needed.</div>
+      <a href="https://base44.com" target="_blank" class="card-link">→ base44.com</a>
     </div>
-
     <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d1117;">💬</div>
-        <div><div class="card-title">ChatGPT <span class="tag tag-free">Free</span></div></div>
-      </div>
-      <div class="card-desc">For writing emails, content, scripts, and brainstorming. GPT-4o is the best free model out right now. Use it for everything.</div>
+      <div class="card-top"><div class="card-icon" style="background:#0d1117;">💬</div><div><div class="card-title">ChatGPT <span class="tag tag-free">Free</span></div></div></div>
+      <div class="card-desc" data-en="For writing emails, content, scripts, and brainstorming. GPT-4o is the best free model out right now." data-es="Para escribir emails, contenido, scripts y lluvia de ideas. GPT-4o es el mejor modelo gratuito ahora mismo.">For writing emails, content, scripts, and brainstorming. GPT-4o is the best free model out right now.</div>
       <a href="https://chat.openai.com" target="_blank" class="card-link">→ chat.openai.com</a>
     </div>
-
     <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d1117;">🧠</div>
-        <div><div class="card-title">Claude by Anthropic <span class="tag tag-free">Free</span></div></div>
-      </div>
-      <div class="card-desc">Better than ChatGPT for long documents, coding, and nuanced writing. Use Claude when ChatGPT gives you generic answers.</div>
+      <div class="card-top"><div class="card-icon" style="background:#0d1117;">🧠</div><div><div class="card-title">Claude <span class="tag tag-free">Free</span></div></div></div>
+      <div class="card-desc" data-en="Better than ChatGPT for long documents, coding, and nuanced writing. Use Claude when ChatGPT gives generic answers." data-es="Mejor que ChatGPT para documentos largos, código y escritura detallada. Úsalo cuando ChatGPT sea genérico.">Better than ChatGPT for long documents, coding, and nuanced writing.</div>
       <a href="https://claude.ai" target="_blank" class="card-link">→ claude.ai</a>
     </div>
-
     <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d1117;">🎨</div>
-        <div><div class="card-title">Midjourney <span class="tag tag-paid">Paid</span></div></div>
-      </div>
-      <div class="card-desc">Best AI image generator. I use it for client mockups, social media graphics, and website visuals. $10/mo and worth every penny.</div>
+      <div class="card-top"><div class="card-icon" style="background:#0d1117;">🎨</div><div><div class="card-title">Midjourney <span class="tag tag-paid">$10/mo</span></div></div></div>
+      <div class="card-desc" data-en="Best AI image generator. Client mockups, social media graphics, and website visuals." data-es="El mejor generador de imágenes con IA. Mockups para clientes, gráficos para redes y visuales para sitios web.">Best AI image generator. Client mockups, social graphics, website visuals.</div>
       <a href="https://midjourney.com" target="_blank" class="card-link">→ midjourney.com</a>
     </div>
-
     <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d1117;">🔍</div>
-        <div><div class="card-title">Perplexity AI <span class="tag tag-free">Free</span></div></div>
-      </div>
-      <div class="card-desc">AI search engine. Use it instead of Google when you need accurate, sourced answers fast. Way better for research.</div>
+      <div class="card-top"><div class="card-icon" style="background:#0d1117;">🔍</div><div><div class="card-title">Perplexity <span class="tag tag-free">Free</span></div></div></div>
+      <div class="card-desc" data-en="AI search engine. Use it instead of Google for accurate, sourced answers fast." data-es="Buscador con IA. Úsalo en vez de Google para obtener respuestas precisas y con fuentes.">AI search engine with sources. Way better than Google for research.</div>
       <a href="https://perplexity.ai" target="_blank" class="card-link">→ perplexity.ai</a>
     </div>
 
-    <!-- GITHUB RESOURCES -->
-    <div class="section-label">🔗 GitHub Resources</div>
-
+    <div class="section-label" data-en="🔗 GitHub Resources" data-es="🔗 Recursos en GitHub">🔗 GitHub Resources</div>
     <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d1117;">⚡</div>
-        <div><div class="card-title">Awesome ChatGPT Prompts <span class="tag tag-free">Free</span></div></div>
-      </div>
-      <div class="card-desc">200K+ stars on GitHub. The biggest collection of ChatGPT prompts for every use case — business, marketing, coding, writing.</div>
-      <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" class="card-link">→ GitHub Repo</a>
+      <div class="card-top"><div class="card-icon" style="background:#0d1117;">⚡</div><div><div class="card-title">Awesome ChatGPT Prompts <span class="tag tag-free">Free</span></div></div></div>
+      <div class="card-desc" data-en="200K+ GitHub stars. The biggest collection of prompts for every use case." data-es="Más de 200K estrellas en GitHub. La colección más grande de prompts para todo tipo de uso.">200K+ stars. Biggest collection of prompts for every use case.</div>
+      <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" class="card-link">→ GitHub</a>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon" style="background:#0d1117;">🦙</div><div><div class="card-title">Ollama <span class="tag tag-free">Free</span></div></div></div>
+      <div class="card-desc" data-en="Run AI models locally on your computer. Free, private, zero API cost." data-es="Corre modelos de IA en tu computadora. Gratis, privado, sin costos de API.">Run Llama & Mistral locally. Free, private, no API costs.</div>
+      <a href="https://github.com/ollama/ollama" target="_blank" class="card-link">→ GitHub</a>
+    </div>
+    <div class="card">
+      <div class="card-top"><div class="card-icon" style="background:#0d1117;">🤗</div><div><div class="card-title">Hugging Face <span class="tag tag-free">Free</span></div></div></div>
+      <div class="card-desc" data-en="The biggest library of open-source AI models. Free to use." data-es="La librería más grande de modelos de IA de código abierto. Gratis.">The GitHub for AI. Thousands of free open-source models.</div>
+      <a href="https://huggingface.co/models" target="_blank" class="card-link">→ huggingface.co</a>
     </div>
 
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d1117;">🦙</div>
-        <div><div class="card-title">Ollama — Run AI Locally <span class="tag tag-free">Free</span></div></div>
-      </div>
-      <div class="card-desc">Run Llama, Mistral, and other AI models on your own computer. Free, private, no API costs. Crazy powerful.</div>
-      <a href="https://github.com/ollama/ollama" target="_blank" class="card-link">→ GitHub Repo</a>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d1117;">🔧</div>
-        <div><div class="card-title">LangChain <span class="tag tag-free">Free</span></div></div>
-      </div>
-      <div class="card-desc">The framework developers use to build AI apps. If you want to go deeper and build your own AI tools, start here.</div>
-      <a href="https://github.com/langchain-ai/langchain" target="_blank" class="card-link">→ GitHub Repo</a>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d1117;">🤗</div>
-        <div><div class="card-title">Hugging Face Models <span class="tag tag-free">Free</span></div></div>
-      </div>
-      <div class="card-desc">The biggest library of open-source AI models. Free to use. Think of it as the GitHub for AI.</div>
-      <a href="https://huggingface.co/models" target="_blank" class="card-link">→ huggingface.co/models</a>
-    </div>
-
-    <!-- PROMPTS -->
-    <div class="section-label">💬 Copy-Paste Prompts</div>
-
+    <div class="section-label" data-en="💬 Copy-Paste Prompts" data-es="💬 Prompts Listos para Copiar">💬 Copy-Paste Prompts</div>
     <div class="prompt-box">
-      <div class="prompt-label">Cold Outreach Email</div>
-      <div class="prompt-text">"Write a cold email for a web design agency reaching out to [business type] in [city]. Keep it under 5 sentences, focus on one specific benefit, no buzzwords, end with a low-pressure CTA. Sign off as Jhonnatan from JF Web Studios."</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+      <div class="prompt-label" data-en="Cold Outreach Email" data-es="Email de Prospección">Cold Outreach Email</div>
+      <div class="prompt-text en-text">"Write a cold email for a web design agency reaching out to [business type] in [city]. Under 5 sentences, one benefit, no buzzwords, low-pressure CTA. Sign as Jhonnatan, JF Web Studios."</div>
+      <div class="prompt-text es-text hidden">"Escribe un email frío para una agencia de diseño web contactando a [tipo de negocio] en [ciudad]. Máximo 5 oraciones, un beneficio, sin palabras de relleno, CTA sin presión. Firma como Jhonnatan, JF Web Studios."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><span data-en="Copy" data-es="Copiar">Copy</span></button>
     </div>
-
     <div class="prompt-box">
-      <div class="prompt-label">Instagram Caption</div>
-      <div class="prompt-text">"Write 3 Instagram captions for a [topic] post. Audience is [target audience]. Keep it short, punchy, no hashtag spam. One hook line, one value line, one CTA. Match this tone: confident, real, not corporate."</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+      <div class="prompt-label" data-en="Instagram Caption" data-es="Caption para Instagram">Instagram Caption</div>
+      <div class="prompt-text en-text">"Write 3 Instagram captions for a [topic] post. Audience: [target]. Short, punchy, no hashtag spam. Hook → value → CTA. Tone: confident, real, not corporate."</div>
+      <div class="prompt-text es-text hidden">"Escribe 3 captions para Instagram sobre [tema]. Audiencia: [objetivo]. Corto, directo, sin spam de hashtags. Hook → valor → CTA. Tono: seguro, real, no corporativo."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><span data-en="Copy" data-es="Copiar">Copy</span></button>
     </div>
-
     <div class="prompt-box">
-      <div class="prompt-label">Build an AI Business Plan</div>
-      <div class="prompt-text">"I want to start a business using AI automation for [industry]. I'm 21, based in [city], and I have [resources]. Give me a realistic 30-day action plan to get my first paying client. Be specific, no fluff."</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+      <div class="prompt-label" data-en="30-Day AI Business Plan" data-es="Plan de Negocio con IA (30 días)">30-Day AI Business Plan</div>
+      <div class="prompt-text en-text">"I want to start an AI automation business for [industry]. I'm [age], in [city], with [resources]. Give me a realistic 30-day plan for my first paying client. Specific, no fluff."</div>
+      <div class="prompt-text es-text hidden">"Quiero empezar un negocio de automatización con IA para [industria]. Tengo [edad], vivo en [ciudad], con [recursos]. Dame un plan realista de 30 días para conseguir mi primer cliente. Específico, sin relleno."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)"><span data-en="Copy" data-es="Copiar">Copy</span></button>
     </div>
 
-    <div class="prompt-box">
-      <div class="prompt-label">Make Money with AI (Services to Sell)</div>
-      <div class="prompt-text">"List 10 AI-powered services I can sell to small businesses as a solo freelancer. For each, include: what it is, who needs it, how much to charge, and how to deliver it using free/cheap AI tools. Be practical."</div>
-      <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+    <div class="section-label" data-en="💰 Make Money with AI" data-es="💰 Gana Dinero con IA">💰 Make Money with AI</div>
+    <div class="money-card">
+      <h3 data-en="💻 AI Web Design Agency" data-es="💻 Agencia de Diseño Web con IA">💻 AI Web Design Agency</h3>
+      <p data-en="Build sites for local businesses. Target ones without websites — millions exist. $400 setup + $75/mo. This is exactly my model." data-es="Construye sitios para negocios locales. Enfócate en los que no tienen página web — hay millones. $400 de setup + $75/mes. Este es exactamente mi modelo.">Build sites for local businesses. $400 setup + $75/mo. This is exactly my model.</p>
+      <div class="money-tag" data-en="$400–$2k/mo per client" data-es="$400–$2k/mes por cliente">$400–$2k/mo per client</div>
+    </div>
+    <div class="money-card">
+      <h3 data-en="🤖 AI Automation Agency" data-es="🤖 Agencia de Automatización con IA">🤖 AI Automation Agency</h3>
+      <p data-en="Chatbots, booking systems, lead follow-up for local businesses. Pure recurring revenue." data-es="Chatbots, sistemas de citas, seguimiento de leads para negocios locales. Ingresos recurrentes puros.">Chatbots, booking systems, lead follow-up. Pure recurring revenue.</p>
+      <div class="money-tag" data-en="$500–$2k/mo per client" data-es="$500–$2k/mes por cliente">$500–$2k/mo per client</div>
+    </div>
+    <div class="money-card">
+      <h3 data-en="✍️ AI Content Creation" data-es="✍️ Creación de Contenido con IA">✍️ AI Content Creation</h3>
+      <p data-en="ChatGPT + Midjourney = 30 posts/month for businesses. Package it and charge monthly." data-es="ChatGPT + Midjourney = 30 publicaciones al mes para negocios. Empaquétalo y cobra mensual.">ChatGPT + Midjourney = 30 posts/month. Package and charge monthly.</p>
+      <div class="money-tag" data-en="$300–$800/mo per client" data-es="$300–$800/mes por cliente">$300–$800/mo per client</div>
     </div>
 
-    <!-- MAKE MONEY -->
-    <div class="section-label">💰 Make Money with AI</div>
-
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d2d0d;">💻</div>
-        <div><div class="card-title">AI Web Design Agency</div></div>
-      </div>
-      <div class="card-desc">Build websites for local businesses using AI tools. Charge $400 setup + $75/mo hosting. Target businesses with no website — there are millions. This is exactly what I do.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d2d0d;">🤖</div>
-        <div><div class="card-title">AI Automation Agency (SMMA 2.0)</div></div>
-      </div>
-      <div class="card-desc">Set up AI chatbots, lead follow-up systems, and appointment booking automations for local businesses. Charge $500-$2k/mo per client.</div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <div class="card-icon" style="background:#0d2d0d;">✍️</div>
-        <div><div class="card-title">AI Content Creation</div></div>
-      </div>
-      <div class="card-desc">Use ChatGPT + Midjourney to create social media content for businesses. Package it as "30 posts/month" and charge $300-$800/mo. Pure profit.</div>
-    </div>
-
-    <!-- CTA -->
     <div class="cta-box">
-      <h3>Want me to build this for your business?</h3>
-      <p>I build AI-powered websites and automation systems for businesses. Fast turnaround. Real results.</p>
-      <a href="https://jfwebstudios.com" target="_blank">→ Work with me</a>
+      <h3 data-en="Want this for your business?" data-es="¿Lo quieres para tu negocio?">Want this for your business?</h3>
+      <p data-en="I build AI-powered websites and automation systems. Fast turnaround. Real results." data-es="Construyo sitios web con IA y sistemas de automatización. Entrega rápida. Resultados reales.">I build AI websites and automations. Fast. Real results.</p>
+      <a href="https://jfwebstudios.com" target="_blank" data-en="→ Work with me" data-es="→ Trabaja conmigo">→ Work with me</a>
     </div>
-
   </div>
 </div>
 
 <script>
-  function showVerify() {
-    document.getElementById('gate-screen').style.display = 'none';
-    const v = document.getElementById('verify-screen');
-    v.style.display = 'flex';
+  let currentLang = localStorage.getItem('jf_lang') || 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('jf_lang', lang);
+    document.getElementById('btn-en').classList.toggle('active', lang==='en');
+    document.getElementById('btn-es').classList.toggle('active', lang==='es');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'BUTTON') return;
+      el.textContent = el.getAttribute('data-'+lang);
+    });
+    document.querySelectorAll('.en-text').forEach(el => el.classList.toggle('hidden', lang==='es'));
+    document.querySelectorAll('.es-text').forEach(el => el.classList.toggle('hidden', lang==='en'));
   }
 
-  function unlockPlaybook() {
-    // Store in localStorage so they don't have to re-verify
-    localStorage.setItem('jf_playbook_unlocked', '1');
-    document.getElementById('verify-screen').style.display = 'none';
+  function showEmail() {
+    document.getElementById('gate-screen').style.display='none';
+    document.getElementById('email-screen').style.display='flex';
+  }
+
+  document.getElementById('follow-check').addEventListener('change', function() {
+    const email = document.getElementById('user-email').value;
+    document.getElementById('submit-btn').disabled = !(this.checked && email.includes('@'));
+  });
+  document.getElementById('user-email').addEventListener('input', function() {
+    const checked = document.getElementById('follow-check').checked;
+    document.getElementById('submit-btn').disabled = !(checked && this.value.includes('@'));
+  });
+
+  function tryUnlock() {
+    const email = document.getElementById('user-email').value;
+    const checked = document.getElementById('follow-check').checked;
+    if (!email.includes('@') || !checked) return;
+    localStorage.setItem('jf_v1_email', email);
+    localStorage.setItem('jf_v1_unlocked','1');
+    document.getElementById('email-screen').style.display='none';
     const p = document.getElementById('playbook-screen');
-    p.style.display = 'block';
-    p.classList.add('fade-in');
+    p.style.display='block';
     window.scrollTo(0,0);
   }
 
   function copyPrompt(btn) {
-    const text = btn.previousElementSibling.textContent;
-    navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = '✅ Copied!';
-      setTimeout(() => btn.textContent = 'Copy Prompt', 2000);
+    const activeText = btn.previousElementSibling.classList.contains('hidden') ? btn.previousElementSibling.previousElementSibling : btn.previousElementSibling;
+    navigator.clipboard.writeText(activeText.textContent).then(() => {
+      const span = btn.querySelector('span') || btn;
+      const orig = span.textContent;
+      span.textContent = currentLang==='es' ? '✅ Copiado!' : '✅ Copied!';
+      setTimeout(() => span.textContent = orig, 2000);
     });
   }
 
-  // Auto-unlock if already visited before
-  if (localStorage.getItem('jf_playbook_unlocked') === '1') {
-    document.getElementById('gate-screen').style.display = 'none';
-    document.getElementById('playbook-screen').style.display = 'block';
+  if (localStorage.getItem('jf_v1_unlocked')==='1') {
+    document.getElementById('gate-screen').style.display='none';
+    document.getElementById('playbook-screen').style.display='block';
   }
+
+  setLang(currentLang);
 </script>
 </body>
 </html>
