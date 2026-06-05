@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Playbook — Jhonnatan Ferrebus</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  /* ─── GATE SCREEN ─── */
+  #gate-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #gate-screen::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(131,58,180,0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .gate-badge {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .gate-avatar {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    padding: 3px;
+    margin-bottom: 20px;
+  }
+
+  .gate-avatar img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #111;
+  }
+
+  .gate-title {
+    font-size: 36px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .gate-title span {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gate-sub {
+    font-size: 15px;
+    color: #888;
+    text-align: center;
+    max-width: 320px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  .gate-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .perk {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+
+  .perk-icon { font-size: 22px; flex-shrink: 0; }
+
+  .perk-text { font-size: 13px; color: #ccc; line-height: 1.4; }
+  .perk-text strong { color: #fff; font-weight: 600; }
+
+  .gate-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    width: 100%;
+    max-width: 340px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+
+  .gate-btn:hover { transform: scale(1.03); opacity: 0.95; }
+
+  .gate-note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+  }
+
+  /* ─── VERIFY SCREEN ─── */
+  #verify-screen {
+    display: none;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .verify-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .verify-sub {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 32px;
+    max-width: 300px;
+    line-height: 1.6;
+  }
+
+  .verify-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 32px;
+  }
+
+  .vstep {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: left;
+  }
+
+  .vstep-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; flex-shrink: 0;
+  }
+
+  .vstep-text { font-size: 13px; color: #ccc; line-height: 1.4; }
+  .vstep-text strong { color: #fff; }
+
+  .confirm-btn {
+    background: #fff;
+    color: #000;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 16px 40px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 340px;
+    transition: transform 0.15s;
+  }
+
+  .confirm-btn:hover { transform: scale(1.02); }
+
+  /* ─── PLAYBOOK SCREEN ─── */
+  #playbook-screen {
+    display: none;
+    min-height: 100vh;
+    padding: 0 0 80px 0;
+  }
+
+  .pb-hero {
+    background: #000;
+    padding: 60px 24px 40px;
+    text-align: center;
+    border-bottom: 1px solid #111;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pb-hero::before {
+    content: '';
+    position: absolute;
+    top: -150px; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 400px;
+    background: radial-gradient(circle, rgba(131,58,180,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .pb-welcome {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fcb045;
+    margin-bottom: 16px;
+  }
+
+  .pb-title {
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .pb-title span {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .pb-sub {
+    font-size: 14px;
+    color: #888;
+    max-width: 320px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .pb-body { padding: 32px 24px 0; max-width: 480px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+
+  .card {
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover { border-color: #333; }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+
+  .card-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .card-title { font-size: 16px; font-weight: 700; }
+  .card-desc { font-size: 13px; color: #888; line-height: 1.5; margin-bottom: 14px; }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .card-link:hover { background: #252525; }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-left: 8px;
+  }
+
+  .tag-free { background: #0d2d0d; color: #4ade80; }
+  .tag-paid { background: #1a1a0d; color: #facc15; }
+  .tag-hot { background: #2d0d0d; color: #f87171; }
+
+  .prompt-box {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    border-left: 3px solid #833ab4;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .prompt-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #833ab4;
+    margin-bottom: 8px;
+  }
+
+  .prompt-text {
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  .copy-btn {
+    margin-top: 10px;
+    background: #1a1a1a;
+    color: #888;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .copy-btn:hover { background: #222; color: #fff; }
+
+  .cta-box {
+    background: linear-gradient(135deg, #0d0019, #1a0000);
+    border: 1px solid #2d1a3d;
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .cta-box h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+  .cta-box p { font-size: 13px; color: #888; margin-bottom: 20px; line-height: 1.5; }
+
+  .cta-box a {
+    display: inline-block;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+  }
+
+  /* ─── UNLOCK ANIMATION ─── */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in { animation: fadeIn 0.4s ease forwards; }
+</style>
+</head>
+<body>
+
+<!-- ═══ GATE SCREEN ═══ -->
+<div id="gate-screen">
+  <div class="gate-badge">🔒 Exclusive Access</div>
+  <div class="gate-avatar">
+    <img src="https://unavatar.io/instagram/jhonnatan_ferrebus_" alt="Jhonnatan" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%23111%22/><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>'">
+  </div>
+  <h1 class="gate-title">The AI<br><span>Playbook</span></h1>
+  <p class="gate-sub">Tools, prompts, GitHub resources, and systems I actually use to run my business on autopilot.</p>
+
+  <div class="gate-perks">
+    <div class="perk">
+      <div class="perk-icon">🤖</div>
+      <div class="perk-text"><strong>Top AI Tools</strong> — the exact stack I use daily</div>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">💬</div>
+      <div class="perk-text"><strong>Copy-Paste Prompts</strong> — ChatGPT & Claude prompts that actually work</div>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">🔗</div>
+      <div class="perk-text"><strong>GitHub Resources</strong> — open-source AI tools & templates</div>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">💰</div>
+      <div class="perk-text"><strong>Make Money with AI</strong> — real business models that work in 2025</div>
+    </div>
+  </div>
+
+  <button class="gate-btn" onclick="showVerify()">
+    <span>🔓</span> Follow to Unlock
+  </button>
+  <p class="gate-note">Free forever. Just follow @jhonnatan_ferrebus_ on Instagram.</p>
+</div>
+
+<!-- ═══ VERIFY SCREEN ═══ -->
+<div id="verify-screen" style="display:none; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:40px 24px; text-align:center;">
+  <h2 class="verify-title">Almost in! 🔑</h2>
+  <p class="verify-sub">Follow these two quick steps to unlock the full playbook.</p>
+
+  <div class="verify-steps">
+    <div class="vstep">
+      <div class="vstep-num">1</div>
+      <div class="vstep-text">
+        <strong>Follow on Instagram</strong><br>
+        Go follow <strong>@jhonnatan_ferrebus_</strong> if you haven't already
+      </div>
+    </div>
+    <div class="vstep">
+      <div class="vstep-num">2</div>
+      <div class="vstep-text">
+        <strong>Confirm below</strong><br>
+        Tap the button to unlock your access
+      </div>
+    </div>
+  </div>
+
+  <a href="https://www.instagram.com/jhonnatan_ferrebus_/" target="_blank" class="gate-btn" style="margin-bottom:16px; max-width:340px;">
+    📱 Follow on Instagram
+  </a>
+
+  <button class="confirm-btn" onclick="unlockPlaybook()">
+    ✅ I'm Following — Unlock Playbook
+  </button>
+
+  <p class="gate-note" style="margin-top:16px;">On the honor system 🤝 — thanks for supporting!</p>
+</div>
+
+<!-- ═══ PLAYBOOK SCREEN ═══ -->
+<div id="playbook-screen">
+  <div class="pb-hero">
+    <div class="pb-welcome">🎉 You're In — Welcome to the Playbook</div>
+    <h1 class="pb-title">The AI<br><span>Playbook</span></h1>
+    <p class="pb-sub">Everything I actually use. Updated regularly.</p>
+  </div>
+
+  <div class="pb-body">
+
+    <!-- TOOLS -->
+    <div class="section-label">🛠️ My AI Stack</div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d1117;">🤖</div>
+        <div>
+          <div class="card-title">Base44 — My AI Agent (Jarvis) <span class="tag tag-hot">🔥 Hot</span></div>
+        </div>
+      </div>
+      <div class="card-desc">The platform I use to run Jarvis — my personal AI that builds websites, sends emails, scrapes leads, and runs my whole business on autopilot. No code needed.</div>
+      <a href="https://base44.com" target="_blank" class="card-link">→ base44.com <span class="tag tag-free">Free Plan</span></a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d1117;">💬</div>
+        <div><div class="card-title">ChatGPT <span class="tag tag-free">Free</span></div></div>
+      </div>
+      <div class="card-desc">For writing emails, content, scripts, and brainstorming. GPT-4o is the best free model out right now. Use it for everything.</div>
+      <a href="https://chat.openai.com" target="_blank" class="card-link">→ chat.openai.com</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d1117;">🧠</div>
+        <div><div class="card-title">Claude by Anthropic <span class="tag tag-free">Free</span></div></div>
+      </div>
+      <div class="card-desc">Better than ChatGPT for long documents, coding, and nuanced writing. Use Claude when ChatGPT gives you generic answers.</div>
+      <a href="https://claude.ai" target="_blank" class="card-link">→ claude.ai</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d1117;">🎨</div>
+        <div><div class="card-title">Midjourney <span class="tag tag-paid">Paid</span></div></div>
+      </div>
+      <div class="card-desc">Best AI image generator. I use it for client mockups, social media graphics, and website visuals. $10/mo and worth every penny.</div>
+      <a href="https://midjourney.com" target="_blank" class="card-link">→ midjourney.com</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d1117;">🔍</div>
+        <div><div class="card-title">Perplexity AI <span class="tag tag-free">Free</span></div></div>
+      </div>
+      <div class="card-desc">AI search engine. Use it instead of Google when you need accurate, sourced answers fast. Way better for research.</div>
+      <a href="https://perplexity.ai" target="_blank" class="card-link">→ perplexity.ai</a>
+    </div>
+
+    <!-- GITHUB RESOURCES -->
+    <div class="section-label">🔗 GitHub Resources</div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d1117;">⚡</div>
+        <div><div class="card-title">Awesome ChatGPT Prompts <span class="tag tag-free">Free</span></div></div>
+      </div>
+      <div class="card-desc">200K+ stars on GitHub. The biggest collection of ChatGPT prompts for every use case — business, marketing, coding, writing.</div>
+      <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" class="card-link">→ GitHub Repo</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d1117;">🦙</div>
+        <div><div class="card-title">Ollama — Run AI Locally <span class="tag tag-free">Free</span></div></div>
+      </div>
+      <div class="card-desc">Run Llama, Mistral, and other AI models on your own computer. Free, private, no API costs. Crazy powerful.</div>
+      <a href="https://github.com/ollama/ollama" target="_blank" class="card-link">→ GitHub Repo</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d1117;">🔧</div>
+        <div><div class="card-title">LangChain <span class="tag tag-free">Free</span></div></div>
+      </div>
+      <div class="card-desc">The framework developers use to build AI apps. If you want to go deeper and build your own AI tools, start here.</div>
+      <a href="https://github.com/langchain-ai/langchain" target="_blank" class="card-link">→ GitHub Repo</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d1117;">🤗</div>
+        <div><div class="card-title">Hugging Face Models <span class="tag tag-free">Free</span></div></div>
+      </div>
+      <div class="card-desc">The biggest library of open-source AI models. Free to use. Think of it as the GitHub for AI.</div>
+      <a href="https://huggingface.co/models" target="_blank" class="card-link">→ huggingface.co/models</a>
+    </div>
+
+    <!-- PROMPTS -->
+    <div class="section-label">💬 Copy-Paste Prompts</div>
+
+    <div class="prompt-box">
+      <div class="prompt-label">Cold Outreach Email</div>
+      <div class="prompt-text">"Write a cold email for a web design agency reaching out to [business type] in [city]. Keep it under 5 sentences, focus on one specific benefit, no buzzwords, end with a low-pressure CTA. Sign off as Jhonnatan from JF Web Studios."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+    </div>
+
+    <div class="prompt-box">
+      <div class="prompt-label">Instagram Caption</div>
+      <div class="prompt-text">"Write 3 Instagram captions for a [topic] post. Audience is [target audience]. Keep it short, punchy, no hashtag spam. One hook line, one value line, one CTA. Match this tone: confident, real, not corporate."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+    </div>
+
+    <div class="prompt-box">
+      <div class="prompt-label">Build an AI Business Plan</div>
+      <div class="prompt-text">"I want to start a business using AI automation for [industry]. I'm 21, based in [city], and I have [resources]. Give me a realistic 30-day action plan to get my first paying client. Be specific, no fluff."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+    </div>
+
+    <div class="prompt-box">
+      <div class="prompt-label">Make Money with AI (Services to Sell)</div>
+      <div class="prompt-text">"List 10 AI-powered services I can sell to small businesses as a solo freelancer. For each, include: what it is, who needs it, how much to charge, and how to deliver it using free/cheap AI tools. Be practical."</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Copy Prompt</button>
+    </div>
+
+    <!-- MAKE MONEY -->
+    <div class="section-label">💰 Make Money with AI</div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d2d0d;">💻</div>
+        <div><div class="card-title">AI Web Design Agency</div></div>
+      </div>
+      <div class="card-desc">Build websites for local businesses using AI tools. Charge $400 setup + $75/mo hosting. Target businesses with no website — there are millions. This is exactly what I do.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d2d0d;">🤖</div>
+        <div><div class="card-title">AI Automation Agency (SMMA 2.0)</div></div>
+      </div>
+      <div class="card-desc">Set up AI chatbots, lead follow-up systems, and appointment booking automations for local businesses. Charge $500-$2k/mo per client.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon" style="background:#0d2d0d;">✍️</div>
+        <div><div class="card-title">AI Content Creation</div></div>
+      </div>
+      <div class="card-desc">Use ChatGPT + Midjourney to create social media content for businesses. Package it as "30 posts/month" and charge $300-$800/mo. Pure profit.</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <h3>Want me to build this for your business?</h3>
+      <p>I build AI-powered websites and automation systems for businesses. Fast turnaround. Real results.</p>
+      <a href="https://jfwebstudios.com" target="_blank">→ Work with me</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function showVerify() {
+    document.getElementById('gate-screen').style.display = 'none';
+    const v = document.getElementById('verify-screen');
+    v.style.display = 'flex';
+  }
+
+  function unlockPlaybook() {
+    // Store in localStorage so they don't have to re-verify
+    localStorage.setItem('jf_playbook_unlocked', '1');
+    document.getElementById('verify-screen').style.display = 'none';
+    const p = document.getElementById('playbook-screen');
+    p.style.display = 'block';
+    p.classList.add('fade-in');
+    window.scrollTo(0,0);
+  }
+
+  function copyPrompt(btn) {
+    const text = btn.previousElementSibling.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = 'Copy Prompt', 2000);
+    });
+  }
+
+  // Auto-unlock if already visited before
+  if (localStorage.getItem('jf_playbook_unlocked') === '1') {
+    document.getElementById('gate-screen').style.display = 'none';
+    document.getElementById('playbook-screen').style.display = 'block';
+  }
+</script>
+</body>
+</html>
