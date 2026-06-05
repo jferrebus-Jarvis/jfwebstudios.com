@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Playbook — Jhonnatan Ferrebus</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Space Grotesk', sans-serif; background: #0a0a0f; color: #fff; min-height: 100vh; }
+
+  /* GATE */
+  #gate-screen { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; position: relative; overflow: hidden; }
+  .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px); background-size: 40px 40px; }
+  .glow-orb { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-60%); pointer-events: none; }
+
+  .chip { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.4); color: #818cf8; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 32px; position: relative; }
+  .gate-title { font-size: 52px; font-weight: 700; text-align: center; line-height: 1.0; margin-bottom: 16px; position: relative; }
+  .gate-title .accent { color: #6366f1; }
+  .gate-sub { font-size: 15px; color: #6b7280; text-align: center; max-width: 300px; line-height: 1.7; margin-bottom: 40px; position: relative; }
+
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 36px; width: 100%; max-width: 340px; position: relative; }
+  .feat { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 16px 14px; }
+  .feat-icon { font-size: 20px; margin-bottom: 8px; }
+  .feat-label { font-size: 12px; font-weight: 600; color: #e5e7eb; }
+  .feat-sub { font-size: 11px; color: #6b7280; margin-top: 3px; }
+
+  .unlock-btn { background: #6366f1; color: #fff; font-size: 15px; font-weight: 700; padding: 18px 40px; border-radius: 14px; border: none; cursor: pointer; width: 100%; max-width: 340px; position: relative; transition: all 0.2s; letter-spacing: 0.3px; }
+  .unlock-btn:hover { background: #4f46e5; transform: translateY(-1px); box-shadow: 0 8px 30px rgba(99,102,241,0.4); }
+  .gate-note { margin-top: 14px; font-size: 12px; color: #374151; position: relative; }
+
+  /* VERIFY */
+  #verify-screen { display: none; min-height: 100vh; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; text-align: center; }
+  .v-title { font-size: 32px; font-weight: 700; margin-bottom: 10px; }
+  .v-sub { font-size: 14px; color: #6b7280; margin-bottom: 32px; max-width: 280px; line-height: 1.6; }
+  .step-list { width: 100%; max-width: 340px; margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px; }
+  .step { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 16px; text-align: left; }
+  .step-n { width: 28px; height: 28px; border-radius: 8px; background: #6366f1; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .step-t { font-size: 13px; color: #d1d5db; line-height: 1.4; }
+  .step-t strong { color: #fff; }
+  .ig-btn { display: block; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); color: #fff; font-size: 14px; font-weight: 700; padding: 16px; border-radius: 12px; text-decoration: none; width: 100%; max-width: 340px; margin-bottom: 10px; }
+  .confirm-btn { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 14px; font-weight: 600; padding: 16px; border-radius: 12px; cursor: pointer; width: 100%; max-width: 340px; transition: all 0.2s; }
+  .confirm-btn:hover { background: rgba(255,255,255,0.1); }
+
+  /* PLAYBOOK */
+  #playbook-screen { display: none; min-height: 100vh; padding-bottom: 80px; }
+  .pb-nav { padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; }
+  .pb-nav-logo { font-size: 14px; font-weight: 700; color: #6366f1; }
+  .pb-nav-tag { font-size: 11px; background: rgba(99,102,241,0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; }
+  .pb-hero { padding: 50px 24px 36px; text-align: center; }
+  .pb-hero h1 { font-size: 40px; font-weight: 700; line-height: 1.1; margin-bottom: 10px; }
+  .pb-hero h1 span { color: #6366f1; }
+  .pb-hero p { font-size: 14px; color: #6b7280; }
+  .pb-body { padding: 0 24px; max-width: 480px; margin: 0 auto; }
+  .sec-head { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #374151; margin: 36px 0 14px; }
+  .tool-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 18px; margin-bottom: 10px; display: flex; gap: 14px; align-items: flex-start; transition: border-color 0.2s; }
+  .tool-card:hover { border-color: rgba(99,102,241,0.3); }
+  .tool-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(99,102,241,0.12); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .tool-info { flex: 1; }
+  .tool-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .tool-desc { font-size: 12px; color: #6b7280; line-height: 1.5; margin-bottom: 10px; }
+  .tool-link { font-size: 11px; font-weight: 600; color: #6366f1; text-decoration: none; }
+  .badge { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; }
+  .b-free { background: rgba(74,222,128,0.12); color: #4ade80; }
+  .b-paid { background: rgba(250,204,21,0.12); color: #facc15; }
+  .b-hot { background: rgba(248,113,113,0.12); color: #f87171; }
+  .prompt-card { background: rgba(99,102,241,0.05); border: 1px solid rgba(99,102,241,0.15); border-radius: 14px; padding: 18px; margin-bottom: 10px; }
+  .p-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #6366f1; margin-bottom: 8px; }
+  .p-text { font-size: 13px; color: #9ca3af; line-height: 1.6; font-style: italic; }
+  .p-copy { margin-top: 12px; background: rgba(99,102,241,0.15); color: #818cf8; font-size: 11px; font-weight: 600; padding: 7px 14px; border-radius: 8px; border: none; cursor: pointer; }
+  .money-card { background: rgba(74,222,128,0.03); border: 1px solid rgba(74,222,128,0.1); border-radius: 14px; padding: 18px; margin-bottom: 10px; }
+  .money-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .money-card p { font-size: 12px; color: #6b7280; line-height: 1.5; }
+  .money-tag { font-size: 11px; color: #4ade80; font-weight: 600; margin-top: 8px; }
+  .bottom-cta { background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); border-radius: 16px; padding: 28px 20px; text-align: center; margin-top: 40px; }
+  .bottom-cta h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .bottom-cta p { font-size: 13px; color: #6b7280; margin-bottom: 20px; }
+  .bottom-cta a { display: inline-block; background: #6366f1; color: #fff; font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: 10px; text-decoration: none; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .fade-up { animation: fadeUp 0.4s ease forwards; }
+</style>
+</head>
+<body>
+
+<div id="gate-screen">
+  <div class="grid-bg"></div>
+  <div class="glow-orb"></div>
+  <div class="chip">🔒 Members Only</div>
+  <h1 class="gate-title">AI<br><span class="accent">Playbook</span><br>2025</h1>
+  <p class="gate-sub">The exact tools, prompts, and systems I use to run a business with AI.</p>
+  <div class="features-grid">
+    <div class="feat"><div class="feat-icon">🤖</div><div class="feat-label">AI Stack</div><div class="feat-sub">My daily tools</div></div>
+    <div class="feat"><div class="feat-icon">💬</div><div class="feat-label">Prompts</div><div class="feat-sub">Copy & paste</div></div>
+    <div class="feat"><div class="feat-icon">🔗</div><div class="feat-label">GitHub</div><div class="feat-sub">Free resources</div></div>
+    <div class="feat"><div class="feat-icon">💰</div><div class="feat-label">Income</div><div class="feat-sub">Real models</div></div>
+  </div>
+  <button class="unlock-btn" onclick="showVerify()">Unlock Free Access →</button>
+  <p class="gate-note">Follow @jhonnatan_ferrebus_ to get in</p>
+</div>
+
+<div id="verify-screen" style="display:none; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:40px 24px; text-align:center;">
+  <h2 class="v-title">One step away 🔑</h2>
+  <p class="v-sub">Follow me on Instagram to unlock everything — free forever.</p>
+  <div class="step-list">
+    <div class="step"><div class="step-n">1</div><div class="step-t"><strong>Follow @jhonnatan_ferrebus_</strong> on Instagram</div></div>
+    <div class="step"><div class="step-n">2</div><div class="step-t"><strong>Come back here</strong> and tap confirm below</div></div>
+  </div>
+  <a href="https://www.instagram.com/jhonnatan_ferrebus_/" target="_blank" class="ig-btn">📱 Follow on Instagram</a>
+  <button class="confirm-btn" onclick="unlockPlaybook()">✅ Done — Let me in</button>
+</div>
+
+<div id="playbook-screen">
+  <div class="pb-nav">
+    <div class="pb-nav-logo">AI Playbook</div>
+    <div class="pb-nav-tag">🔓 Unlocked</div>
+  </div>
+  <div class="pb-hero">
+    <h1>The <span>AI</span> Playbook<br>2025 Edition</h1>
+    <p>Tools, prompts & systems. Updated regularly.</p>
+  </div>
+  <div class="pb-body">
+    <div class="sec-head">🛠 My AI Stack</div>
+    <div class="tool-card">
+      <div class="tool-icon">🤖</div>
+      <div class="tool-info">
+        <div class="tool-name">Base44 (Jarvis) <span class="badge b-hot">🔥 Hot</span></div>
+        <div class="tool-desc">My personal AI agent that runs my entire business. Builds sites, sends emails, scrapes leads — all on autopilot. No code.</div>
+        <a href="https://base44.com" target="_blank" class="tool-link">→ base44.com</a>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">💬</div>
+      <div class="tool-info">
+        <div class="tool-name">ChatGPT <span class="badge b-free">Free</span></div>
+        <div class="tool-desc">Writing, emails, scripts, brainstorming. GPT-4o is the best free model available right now.</div>
+        <a href="https://chat.openai.com" target="_blank" class="tool-link">→ chat.openai.com</a>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🧠</div>
+      <div class="tool-info">
+        <div class="tool-name">Claude <span class="badge b-free">Free</span></div>
+        <div class="tool-desc">Better for long docs, coding, and nuanced writing. Use when ChatGPT goes generic.</div>
+        <a href="https://claude.ai" target="_blank" class="tool-link">→ claude.ai</a>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🎨</div>
+      <div class="tool-info">
+        <div class="tool-name">Midjourney <span class="badge b-paid">$10/mo</span></div>
+        <div class="tool-desc">Best AI image generator. Client mockups, social graphics, website visuals.</div>
+        <a href="https://midjourney.com" target="_blank" class="tool-link">→ midjourney.com</a>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🔍</div>
+      <div class="tool-info">
+        <div class="tool-name">Perplexity <span class="badge b-free">Free</span></div>
+        <div class="tool-desc">AI search with sources. Way better than Google for research.</div>
+        <a href="https://perplexity.ai" target="_blank" class="tool-link">→ perplexity.ai</a>
+      </div>
+    </div>
+
+    <div class="sec-head">🔗 GitHub Resources</div>
+    <div class="tool-card">
+      <div class="tool-icon">⚡</div>
+      <div class="tool-info">
+        <div class="tool-name">Awesome ChatGPT Prompts <span class="badge b-free">Free</span></div>
+        <div class="tool-desc">200K+ stars. Biggest collection of prompts for every use case.</div>
+        <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" class="tool-link">→ GitHub</a>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🦙</div>
+      <div class="tool-info">
+        <div class="tool-name">Ollama <span class="badge b-free">Free</span></div>
+        <div class="tool-desc">Run Llama & Mistral locally. Free, private, no API costs.</div>
+        <a href="https://github.com/ollama/ollama" target="_blank" class="tool-link">→ GitHub</a>
+      </div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🤗</div>
+      <div class="tool-info">
+        <div class="tool-name">Hugging Face <span class="badge b-free">Free</span></div>
+        <div class="tool-desc">The GitHub for AI models. Thousands of free open-source models.</div>
+        <a href="https://huggingface.co/models" target="_blank" class="tool-link">→ huggingface.co</a>
+      </div>
+    </div>
+
+    <div class="sec-head">💬 Prompts</div>
+    <div class="prompt-card">
+      <div class="p-label">Cold Outreach Email</div>
+      <div class="p-text">"Write a cold email for a web design agency reaching out to [business type] in [city]. Under 5 sentences, one specific benefit, no buzzwords, low-pressure CTA. Sign as Jhonnatan from JF Web Studios."</div>
+      <button class="p-copy" onclick="copyPrompt(this)">Copy</button>
+    </div>
+    <div class="prompt-card">
+      <div class="p-label">Instagram Caption</div>
+      <div class="p-text">"Write 3 Instagram captions for a [topic] post. Audience: [target]. Short, punchy, no hashtag spam. One hook, one value line, one CTA. Tone: confident, real, not corporate."</div>
+      <button class="p-copy" onclick="copyPrompt(this)">Copy</button>
+    </div>
+    <div class="prompt-card">
+      <div class="p-label">AI Business Plan</div>
+      <div class="p-text">"I want to start an AI automation business for [industry]. I'm [age], based in [city]. Give me a realistic 30-day plan to get my first paying client. Specific, no fluff."</div>
+      <button class="p-copy" onclick="copyPrompt(this)">Copy</button>
+    </div>
+
+    <div class="sec-head">💰 Make Money with AI</div>
+    <div class="money-card">
+      <h3>💻 AI Web Design Agency</h3>
+      <p>Build sites for local businesses. Target ones with no website — millions exist. $400 setup + $75/mo hosting. This is exactly what I do.</p>
+      <div class="money-tag">$400–$2k/mo per client</div>
+    </div>
+    <div class="money-card">
+      <h3>🤖 AI Automation Agency</h3>
+      <p>Set up chatbots, lead follow-up, and booking systems for local businesses. Pure recurring revenue.</p>
+      <div class="money-tag">$500–$2k/mo per client</div>
+    </div>
+    <div class="money-card">
+      <h3>✍️ AI Content Creation</h3>
+      <p>ChatGPT + Midjourney = 30 posts/month for businesses. Package it and charge monthly.</p>
+      <div class="money-tag">$300–$800/mo per client</div>
+    </div>
+
+    <div class="bottom-cta">
+      <h3>Want this for your business?</h3>
+      <p>I build AI websites and automations. Fast. Affordable. Real results.</p>
+      <a href="https://jfwebstudios.com" target="_blank">Work with me →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showVerify() {
+    document.getElementById('gate-screen').style.display = 'none';
+    const v = document.getElementById('verify-screen');
+    v.style.display = 'flex';
+  }
+  function unlockPlaybook() {
+    localStorage.setItem('jf_v2_unlocked','1');
+    document.getElementById('verify-screen').style.display = 'none';
+    const p = document.getElementById('playbook-screen');
+    p.style.display = 'block';
+    p.classList.add('fade-up');
+    window.scrollTo(0,0);
+  }
+  function copyPrompt(btn) {
+    navigator.clipboard.writeText(btn.previousElementSibling.textContent).then(() => {
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 2000);
+    });
+  }
+  if (localStorage.getItem('jf_v2_unlocked')==='1') {
+    document.getElementById('gate-screen').style.display='none';
+    document.getElementById('playbook-screen').style.display='block';
+  }
+</script>
+</body>
+</html>
