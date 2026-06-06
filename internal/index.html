@@ -53,22 +53,32 @@
   .do-card li, .dont-card li { font-size:12px; color:#374151; line-height:1.7; list-style:none; padding-left:0; }
   .do-card li::before { content:"✓ "; color:#16a34a; font-weight:700; }
   .dont-card li::before { content:"✗ "; color:#ef4444; font-weight:700; }
+
+  .lang-toggle { position:fixed; top:20px; right:20px; z-index:9999; display:flex; background:#1a1a2e; border:2px solid #6366f1; border-radius:50px; overflow:hidden; box-shadow:0 4px 20px rgba(99,102,241,0.4); }
+  .lang-btn { padding:8px 18px; font-size:13px; font-weight:800; cursor:pointer; border:none; background:transparent; color:#6366f1; transition:all 0.2s; letter-spacing:0.5px; }
+  .lang-btn.active { background:#6366f1; color:#fff; border-radius:50px; }
+  [data-lang="es"] { display:none; }
   .footer { text-align:center; padding:40px 24px; color:#9ca3af; font-size:12px; }
 </style>
 </head>
 <body>
 
+
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('es')">ES</button>
+</div>
 <div class="header">
   <div class="header-chip">Internal Only — Do Not Share</div>
   <h1>JF Web Studios<br><span>Team SOP</span></h1>
-  <p>Standard Operating Procedures — Updated June 2026</p>
+  <p data-lang="en">Standard Operating Procedures — Updated June 2026</p><p data-lang="es">Procedimientos Operativos Estándar — Actualizado Junio 2026</p>
 </div>
 
 <div class="body">
 
   <!-- TOOLS -->
   <div class="section">
-    <div class="sec-title">🛠 Tools We Use</div>
+    <div class="sec-title"><span data-lang="en">🛠 Tools We Use</span><span data-lang="es">🛠 Herramientas que Usamos</span></div>
     <div class="card">
       <div class="tool-row">
         <div class="tool-icon">🤖</div>
@@ -100,7 +110,7 @@
 
   <!-- HOW WE BUILD -->
   <div class="section">
-    <div class="sec-title">🏗 How We Build Client Sites</div>
+    <div class="sec-title"><span data-lang="en">🏗 How We Build Client Sites</span><span data-lang="es">🏗 Cómo Construimos Sitios para Clientes</span></div>
     <div class="card">
       <div class="step-row">
         <div class="step-num">1</div>
@@ -131,7 +141,7 @@
 
   <!-- PRICING -->
   <div class="section">
-    <div class="sec-title">💰 Pricing (Internal Only)</div>
+    <div class="sec-title"><span data-lang="en">💰 Pricing (Internal Only)</span><span data-lang="es">💰 Precios (Solo Interno)</span></div>
     <div class="price-box">
       <h3>JF Web Studios Pricing</h3>
       <p>Never quote these numbers in cold outreach — always say "free quote"</p>
@@ -146,7 +156,7 @@
 
   <!-- RULES -->
   <div class="section">
-    <div class="sec-title">📋 Hard Rules</div>
+    <div class="sec-title"><span data-lang="en">📋 Hard Rules</span><span data-lang="es">📋 Reglas Importantes</span></div>
     <div class="rule-card">
       <h3>One site = one repo <span class="tag t-red">Critical</span></h3>
       <p>Never mix client work into jfwebstudios.com. If a client needs their own domain, create a brand new repo. No exceptions.</p>
@@ -201,7 +211,7 @@
 
   <!-- BRAND IDENTITY -->
   <div class="section">
-    <div class="sec-title">🎨 Brand Identity</div>
+    <div class="sec-title"><span data-lang="en">🎨 Brand Identity</span><span data-lang="es">🎨 Identidad de Marca</span></div>
 
     <div class="card">
       <h3 style="margin-bottom:14px;">Colors</h3>
@@ -292,7 +302,7 @@
   </div>
   <!-- CONTACTS -->
   <div class="section">
-    <div class="sec-title">📞 Key Contacts</div>
+    <div class="sec-title"><span data-lang="en">📞 Key Contacts</span><span data-lang="es">📞 Contactos Clave</span></div>
     <div class="card">
       <div class="tool-row">
         <div class="tool-icon">👤</div>
@@ -315,5 +325,18 @@
 
 <div class="footer">JF Web Studios LLC · Internal Use Only · Do Not Distribute</div>
 
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+}
+// init
+setLang('en');
+</script>
 </body>
 </html>
