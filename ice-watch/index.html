@@ -2,586 +2,568 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICE Watch — Reportes en Tiempo Real</title>
-<link rel="manifest" href="/ice-watch/manifest.json">
-<meta name="theme-color" content="#dc2626">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>ICE Watch</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f0f0f">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="ICE Watch">
-<link rel="apple-touch-icon" href="/ice-watch/icons/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX-tD46t58DUcvCXggMRLENq74iweWfw0&libraries=places,visualization"></script>
 <style>
-  :root {
-    --red: #dc2626;
-    --red-dark: #991b1b;
-    --orange: #ea580c;
-    --bg: #0f0f0f;
-    --card: #1a1a1a;
-    --border: #2a2a2a;
-    --text: #f1f1f1;
-    --muted: #9ca3af;
-    --green: #16a34a;
-  }
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { background:#0f0f0f; color:#f1f1f1; font-family:'Inter',-apple-system,sans-serif; height:100dvh; display:flex; flex-direction:column; overflow:hidden; }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
-
-
-  /* INSTALL BANNER */
-  .install-banner { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); z-index:9999; background:var(--card); border:2px solid var(--red); border-radius:16px; padding:14px 20px; display:flex; align-items:center; gap:12px; box-shadow:0 8px 32px rgba(220,38,38,0.3); max-width:340px; width:90%; display:none; }
-  .install-banner .install-icon { font-size:28px; flex-shrink:0; }
-  .install-banner .install-text { flex:1; }
-  .install-banner .install-title { font-size:13px; font-weight:700; color:var(--text); }
-  .install-banner .install-sub { font-size:11px; color:var(--muted); margin-top:2px; }
-  .install-banner .install-btn { background:var(--red); color:#fff; border:none; border-radius:8px; padding:8px 14px; font-size:12px; font-weight:700; cursor:pointer; white-space:nowrap; }
-  .install-banner .install-close { background:none; border:none; color:var(--muted); font-size:18px; cursor:pointer; flex-shrink:0; }
-  /* LANG TOGGLE */
-  .lang-toggle { position:fixed; top:16px; right:16px; z-index:9999; display:flex; background:#1a1a1a; border:2px solid var(--red); border-radius:50px; overflow:hidden; box-shadow:0 4px 20px rgba(220,38,38,0.4); }
-  .lang-btn { padding:7px 16px; font-size:12px; font-weight:800; cursor:pointer; border:none; background:transparent; color:var(--red); transition:all 0.2s; letter-spacing:0.5px; }
-  .lang-btn.active { background:var(--red); color:#fff; border-radius:50px; }
-
-  /* HEADER */
-  .header { background:linear-gradient(135deg, #1a0000, #0f0f0f); border-bottom:1px solid var(--border); padding:20px 24px 16px; }
-  .header-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:14px; }
-  .logo-icon { width:44px; height:44px; background:var(--red); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
-  .app-name { font-size:22px; font-weight:800; color:#fff; }
-  .app-sub { font-size:12px; color:var(--muted); margin-top:2px; }
-  .live-badge { margin-left:auto; margin-right:60px; background:rgba(22,163,74,0.15); border:1px solid var(--green); color:var(--green); font-size:11px; font-weight:700; padding:5px 12px; border-radius:50px; display:flex; align-items:center; gap:6px; }
-  .live-dot { width:7px; height:7px; background:var(--green); border-radius:50%; animation:pulse 1.5s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-
-  /* STATS BAR */
-  .stats-bar { background:var(--card); border-bottom:1px solid var(--border); padding:12px 24px; }
-  .stats-inner { max-width:1100px; margin:0 auto; display:flex; gap:24px; flex-wrap:wrap; }
-  .stat { text-align:center; }
-  .stat-num { font-size:20px; font-weight:800; color:var(--red); }
-  .stat-label { font-size:11px; color:var(--muted); margin-top:2px; }
-
-  /* LAYOUT */
-  .main { max-width:1100px; margin:0 auto; padding:20px 16px; display:grid; grid-template-columns:1fr 360px; gap:20px; }
-  @media(max-width:768px) { .main { grid-template-columns:1fr; } }
+  /* TOP BAR */
+  .topbar { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; background:#0f0f0f; border-bottom:1px solid #1f1f1f; flex-shrink:0; z-index:100; }
+  .logo { display:flex; align-items:center; gap:8px; }
+  .logo-icon { font-size:20px; }
+  .logo-text { font-size:16px; font-weight:700; color:#fff; }
+  .logo-badge { background:#dc2626; color:#fff; font-size:10px; font-weight:700; padding:2px 7px; border-radius:20px; }
+  .topbar-right { display:flex; gap:8px; align-items:center; }
+  .lang-toggle { display:flex; background:#1a1a1a; border:1px solid #2a2a2a; border-radius:20px; overflow:hidden; }
+  .lang-btn { padding:4px 12px; font-size:11px; font-weight:700; border:none; background:transparent; color:#6b7280; cursor:pointer; transition:all 0.2s; }
+  .lang-btn.active { background:#dc2626; color:#fff; border-radius:18px; }
+  .report-btn { background:#dc2626; color:#fff; font-size:12px; font-weight:700; padding:7px 14px; border:none; border-radius:20px; cursor:pointer; display:flex; align-items:center; gap:4px; }
 
   /* MAP */
-  .map-card { background:var(--card); border-radius:16px; overflow:hidden; border:1px solid var(--border); }
-  .map-header { padding:14px 18px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); }
-  .map-title { font-size:14px; font-weight:700; }
-  #map { height:420px; }
-  @media(max-width:768px) { #map { height:300px; } }
+  #map { flex:1; width:100%; }
 
-  /* SIDEBAR */
-  .sidebar { display:flex; flex-direction:column; gap:16px; }
+  /* BOTTOM SHEET */
+  .sheet { position:fixed; bottom:0; left:0; right:0; background:#111; border-radius:20px 20px 0 0; border-top:1px solid #2a2a2a; transform:translateY(100%); transition:transform 0.35s cubic-bezier(.32,.72,0,1); z-index:200; max-height:90dvh; overflow-y:auto; }
+  .sheet.open { transform:translateY(0); }
+  .sheet-handle { width:40px; height:4px; background:#333; border-radius:2px; margin:12px auto 0; }
+  .sheet-title { font-size:16px; font-weight:700; padding:14px 20px 0; }
+  .sheet-body { padding:16px 20px 40px; display:flex; flex-direction:column; gap:14px; }
 
-  /* REPORT FORM */
-  .form-card { background:var(--card); border-radius:16px; border:1px solid var(--border); overflow:hidden; }
-  .form-header { background:linear-gradient(135deg, var(--red-dark), var(--red)); padding:14px 18px; }
-  .form-title { font-size:15px; font-weight:800; color:#fff; }
-  .form-sub { font-size:11px; color:rgba(255,255,255,0.7); margin-top:2px; }
-  .form-body { padding:16px; display:flex; flex-direction:column; gap:12px; }
-  .form-group label { display:block; font-size:12px; font-weight:600; color:var(--muted); margin-bottom:5px; text-transform:uppercase; letter-spacing:0.5px; }
-  .form-group input, .form-group select, .form-group textarea {
-    width:100%; background:#111; border:1px solid var(--border); border-radius:8px;
-    padding:10px 12px; color:var(--text); font-size:13px; font-family:'Inter',sans-serif;
-    transition:border 0.2s;
+  /* SEARCH BAR */
+  .search-wrap { padding:10px 14px; background:#0f0f0f; flex-shrink:0; }
+  .search-input { width:100%; background:#1a1a1a; border:1px solid #2a2a2a; color:#fff; font-size:14px; padding:10px 16px; border-radius:12px; outline:none; font-family:inherit; }
+  .search-input:focus { border-color:#dc2626; }
+  .search-input::placeholder { color:#4b5563; }
+
+  /* FORM */
+  .form-label { font-size:12px; color:#6b7280; font-weight:600; margin-bottom:5px; display:block; }
+  .form-select, .form-input, .form-textarea {
+    width:100%; background:#1a1a1a; border:1px solid #2a2a2a; color:#fff;
+    font-size:15px; padding:13px 16px; border-radius:12px; outline:none;
+    font-family:inherit; appearance:none;
   }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    outline:none; border-color:var(--red);
-  }
-  .form-group select option { background:#1a1a1a; }
-  .form-group textarea { resize:none; height:70px; }
-  .location-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-  .btn-report { width:100%; padding:13px; background:var(--red); color:#fff; border:none; border-radius:10px; font-size:14px; font-weight:800; cursor:pointer; transition:all 0.2s; letter-spacing:0.3px; }
-  .btn-report:hover { background:var(--red-dark); transform:translateY(-1px); }
-  .btn-report:active { transform:translateY(0); }
-  .success-msg { background:rgba(22,163,74,0.15); border:1px solid var(--green); color:var(--green); padding:10px; border-radius:8px; font-size:13px; font-weight:600; text-align:center; display:none; }
+  .form-select:focus, .form-input:focus, .form-textarea:focus { border-color:#dc2626; }
+  .form-textarea { resize:none; height:80px; font-size:14px; }
+  .form-hint { font-size:11px; color:#4b5563; margin-top:5px; }
+  .submit-btn { background:#dc2626; color:#fff; font-size:16px; font-weight:700; padding:16px; border-radius:14px; border:none; cursor:pointer; width:100%; margin-top:4px; }
+  .submit-btn:active { opacity:0.85; }
+  .cancel-btn { background:transparent; color:#6b7280; font-size:14px; border:none; cursor:pointer; padding:8px; text-align:center; width:100%; }
 
-  /* RECENT REPORTS */
-  .reports-card { background:var(--card); border-radius:16px; border:1px solid var(--border); overflow:hidden; }
-  .reports-header { padding:14px 18px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
-  .reports-title { font-size:14px; font-weight:700; }
-  .reports-count { background:var(--red); color:#fff; font-size:11px; font-weight:700; padding:3px 8px; border-radius:50px; }
-  .reports-list { max-height:320px; overflow-y:auto; }
-  .report-item { padding:12px 16px; border-bottom:1px solid var(--border); transition:background 0.15s; }
-  .report-item:hover { background:#111; }
-  .report-item:last-child { border-bottom:none; }
-  .report-top { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
-  .report-type { font-size:11px; font-weight:700; background:rgba(220,38,38,0.15); color:var(--red); padding:3px 8px; border-radius:50px; border:1px solid rgba(220,38,38,0.3); }
-  .report-time { font-size:11px; color:var(--muted); margin-left:auto; }
-  .report-location { font-size:13px; font-weight:600; color:var(--text); }
-  .report-desc { font-size:12px; color:var(--muted); margin-top:3px; }
-  .upvote-btn { background:none; border:1px solid var(--border); color:var(--muted); font-size:11px; padding:3px 8px; border-radius:50px; cursor:pointer; margin-top:6px; transition:all 0.2s; }
-  .upvote-btn:hover { border-color:var(--red); color:var(--red); }
+  /* FEED */
+  .feed-item { background:#1a1a1a; border-radius:14px; padding:14px 16px; border-left:3px solid #dc2626; }
+  .feed-type { font-size:14px; font-weight:700; margin-bottom:3px; }
+  .feed-loc { font-size:12px; color:#9ca3af; }
+  .feed-time { font-size:11px; color:#4b5563; margin-top:4px; }
+  .feed-desc { font-size:12px; color:#d1d5db; margin-top:6px; line-height:1.5; }
+  .feed-empty { text-align:center; color:#4b5563; font-size:14px; padding:30px 0; }
 
-  /* EMPTY STATE */
-  .empty-state { padding:40px 20px; text-align:center; color:var(--muted); font-size:13px; }
+  /* BOTTOM NAV */
+  .bottomnav { display:flex; background:#0f0f0f; border-top:1px solid #1f1f1f; flex-shrink:0; }
+  .nav-item { flex:1; display:flex; flex-direction:column; align-items:center; padding:10px 0 14px; gap:3px; cursor:pointer; border:none; background:transparent; color:#4b5563; font-size:10px; font-weight:600; transition:color 0.2s; }
+  .nav-item.active { color:#dc2626; }
+  .nav-icon { font-size:20px; }
 
-  /* FOOTER */
-  .footer { text-align:center; padding:30px 20px; color:var(--muted); font-size:12px; border-top:1px solid var(--border); margin-top:20px; }
+  /* OVERLAY */
+  .overlay { position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:150; display:none; }
+  .overlay.show { display:block; }
 
-  /* ALERT BANNER */
-  .alert-banner { background:rgba(220,38,38,0.1); border:1px solid rgba(220,38,38,0.3); border-radius:12px; padding:12px 16px; display:flex; align-items:center; gap:10px; margin-bottom:4px; }
-  .alert-icon { font-size:18px; }
-  .alert-text { font-size:12px; color:#fca5a5; line-height:1.5; }
+  /* TOAST */
+  .toast { position:fixed; top:70px; left:50%; transform:translateX(-50%) translateY(-20px); background:#1f2937; color:#fff; padding:10px 20px; border-radius:20px; font-size:13px; font-weight:600; opacity:0; transition:all 0.3s; z-index:999; white-space:nowrap; }
+  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+  /* PIN DROP indicator */
+  .pin-mode-banner { position:fixed; top:70px; left:50%; transform:translateX(-50%); background:#dc2626; color:#fff; padding:9px 20px; border-radius:20px; font-size:13px; font-weight:700; z-index:300; display:none; box-shadow:0 4px 20px rgba(220,38,38,0.4); }
+  .pin-mode-banner.show { display:block; }
+
+  /* Count badge */
+  #report-count { font-size:11px; background:#dc2626; color:#fff; border-radius:10px; padding:1px 6px; margin-left:4px; }
+
+  /* pac-container (Places autocomplete) styling */
+  .pac-container { background:#1a1a1a !important; border:1px solid #2a2a2a !important; border-radius:12px !important; margin-top:4px; box-shadow:0 8px 30px rgba(0,0,0,0.5) !important; font-family:inherit !important; }
+  .pac-item { background:#1a1a1a !important; color:#d1d5db !important; padding:10px 14px !important; border-top:1px solid #2a2a2a !important; cursor:pointer; font-size:13px !important; }
+  .pac-item:hover, .pac-item-selected { background:#252525 !important; }
+  .pac-item-query { color:#fff !important; font-size:13px !important; }
+  .pac-icon { display:none !important; }
 </style>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX-tD46t58DUcvCXggMRLENq74iweWfw0&libraries=places,visualization"></script>
 </head>
 <body>
 
-<!-- LANG TOGGLE -->
-<div class="lang-toggle">
-  <button class="lang-btn active" onclick="setLang('es')">ES</button>
-  <button class="lang-btn" onclick="setLang('en')">EN</button>
+<div class="topbar">
+  <div class="logo">
+    <span class="logo-icon">🛡️</span>
+    <span class="logo-text">ICE Watch</span>
+    <span class="logo-badge" id="report-count">0</span>
+  </div>
+  <div class="topbar-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <button class="report-btn" onclick="startReport()">+ <span data-es="Reportar" data-en="Report">Reportar</span></button>
+  </div>
 </div>
 
-<!-- HEADER -->
-<div class="header">
-  <div class="header-inner">
-    <div class="logo-icon">🛡️</div>
+<div class="search-wrap">
+  <input type="text" id="city-search" class="search-input"
+    placeholder="Buscar ciudad... / Search city..." autocomplete="off">
+</div>
+
+<div id="map"></div>
+
+<nav class="bottomnav">
+  <button class="nav-item active" id="nav-map" onclick="switchTab('map')">
+    <span class="nav-icon">🗺️</span>
+    <span data-es="Mapa" data-en="Map">Mapa</span>
+  </button>
+  <button class="nav-item" id="nav-feed" onclick="switchTab('feed')">
+    <span class="nav-icon">📋</span>
+    <span data-es="Reportes" data-en="Reports">Reportes</span>
+  </button>
+  <button class="nav-item" id="nav-share" onclick="shareApp()">
+    <span class="nav-icon">📤</span>
+    <span data-es="Compartir" data-en="Share">Compartir</span>
+  </button>
+</nav>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeSheet()"></div>
+
+<!-- PIN MODE BANNER -->
+<div class="pin-mode-banner" id="pin-banner">
+  📍 <span data-es="Toca el mapa para marcar el lugar" data-en="Tap map to pin location">Toca el mapa para marcar el lugar</span>
+</div>
+
+<!-- REPORT SHEET -->
+<div class="sheet" id="report-sheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title">
+    <span data-es="🚨 Nuevo Reporte" data-en="🚨 New Report">🚨 Nuevo Reporte</span>
+  </div>
+  <div class="sheet-body">
     <div>
-      <div class="app-name">
-        <span data-lang="es">ICE Watch</span>
-        <span data-lang="en">ICE Watch</span>
-      </div>
-      <div class="app-sub">
-        <span data-lang="es">Reportes de actividad en tiempo real — por la comunidad</span>
-        <span data-lang="en">Real-time activity reports — by the community</span>
-      </div>
+      <label class="form-label"><span data-es="Tipo de actividad" data-en="Activity type">Tipo de actividad</span></label>
+      <select id="activity-type" class="form-select">
+        <option value="Redada">🚔 Redada / Raid</option>
+        <option value="Checkpoint">🛑 Checkpoint</option>
+        <option value="Agentes">👮 Agentes vistos / Agents spotted</option>
+        <option value="Vehiculos">🚗 Vehículos sospechosos / Suspicious vehicles</option>
+        <option value="Otro">❓ Otro / Other</option>
+      </select>
     </div>
-    <div class="live-badge">
-      <div class="live-dot"></div>
-      <span data-lang="es">En Vivo</span>
-      <span data-lang="en">Live</span>
+    <div>
+      <label class="form-label"><span data-es="Ubicación" data-en="Location">Ubicación</span></label>
+      <input type="text" id="location-input" class="form-input"
+        placeholder="Escribe una dirección o toca el mapa..."
+        autocomplete="off">
+      <p class="form-hint" id="coords-hint">— <span data-es="o toca el mapa para fijar el pin" data-en="or tap the map to drop a pin">o toca el mapa para fijar el pin</span></p>
     </div>
+    <div>
+      <label class="form-label"><span data-es="Descripción (opcional)" data-en="Description (optional)">Descripción (opcional)</span></label>
+      <textarea id="description" class="form-textarea" placeholder="..."></textarea>
+    </div>
+    <button class="submit-btn" onclick="submitReport()">
+      <span data-es="Enviar Reporte" data-en="Submit Report">Enviar Reporte</span>
+    </button>
+    <button class="cancel-btn" onclick="closeSheet()">
+      <span data-es="Cancelar" data-en="Cancel">Cancelar</span>
+    </button>
   </div>
 </div>
 
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stats-inner">
-    <div class="stat">
-      <div class="stat-num" id="stat-total">0</div>
-      <div class="stat-label">
-        <span data-lang="es">Reportes Hoy</span>
-        <span data-lang="en">Reports Today</span>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-num" id="stat-states">0</div>
-      <div class="stat-label">
-        <span data-lang="es">Estados Activos</span>
-        <span data-lang="en">Active States</span>
-      </div>
-    </div>
-    <div class="stat">
-      <div class="stat-num" id="stat-recent">0</div>
-      <div class="stat-label">
-        <span data-lang="es">Última Hora</span>
-        <span data-lang="en">Last Hour</span>
-      </div>
-    </div>
+<!-- FEED SHEET -->
+<div class="sheet" id="feed-sheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title" style="display:flex;align-items:center;justify-content:space-between;padding-right:20px;">
+    <span data-es="Reportes Recientes" data-en="Recent Reports">Reportes Recientes</span>
+    <span id="feed-count" style="font-size:12px;color:#6b7280;font-weight:400"></span>
+  </div>
+  <div class="sheet-body" id="feed-list">
+    <p class="feed-empty" data-es="Cargando reportes..." data-en="Loading reports...">Cargando reportes...</p>
   </div>
 </div>
 
-<!-- MAIN -->
-<div class="main">
-
-  <!-- MAP -->
-  <div>
-    <div class="alert-banner" style="margin-bottom:16px;">
-      <div class="alert-icon">⚠️</div>
-      <div class="alert-text">
-        <span data-lang="es"><strong>Aviso:</strong> Esta app es solo informativa y basada en reportes de la comunidad. Siempre verifica antes de actuar. No sustituye asesoría legal.</span>
-        <span data-lang="en"><strong>Notice:</strong> This app is informational only and based on community reports. Always verify before acting. Not a substitute for legal advice.</span>
-      </div>
-    </div>
-    <div class="map-card">
-      <div class="map-header">
-        <div class="map-title">
-          <span data-lang="es">🗺 Mapa de Actividad</span>
-          <span data-lang="en">🗺 Activity Map</span>
-        </div>
-        <div style="font-size:11px;color:var(--muted);">
-          <span data-lang="es">Zonas rojas = más reportes</span>
-          <span data-lang="en">Red zones = most reports</span>
-        </div>
-      </div>
-      <div id="map"></div>
-    </div>
-  </div>
-
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-
-    <!-- REPORT FORM -->
-    <div class="form-card">
-      <div class="form-header">
-        <div class="form-title">
-          <span data-lang="es">📍 Reportar Actividad</span>
-          <span data-lang="en">📍 Report Activity</span>
-        </div>
-        <div class="form-sub">
-          <span data-lang="es">Anónimo y seguro</span>
-          <span data-lang="en">Anonymous and safe</span>
-        </div>
-      </div>
-      <div class="form-body">
-        <div class="form-group">
-          <label>
-            <span data-lang="es">Tipo de Actividad</span>
-            <span data-lang="en">Activity Type</span>
-          </label>
-                      <select id="activity-type">
-            <option value="Redada" data-es="🚨 Redada" data-en="🚨 Raid">🚨 Redada</option>
-            <option value="Checkpoint" data-es="🛑 Checkpoint" data-en="🛑 Checkpoint">🛑 Checkpoint</option>
-            <option value="Agentes" data-es="👮 Agentes Vistos" data-en="👮 Agents Spotted">👮 Agentes Vistos</option>
-            <option value="Vehiculos" data-es="🚗 Vehículos Sospechosos" data-en="🚗 Suspicious Vehicles">🚗 Vehículos Sospechosos</option>
-            <option value="Otro" data-es="❓ Otro" data-en="❓ Other">❓ Otro</option>
-          </select>
-        </div>
-        <div class="location-row">
-          <div class="form-group">
-            <label>
-              <span data-lang="es">Ciudad</span>
-              <span data-lang="en">City</span>
-            </label>
-            <input type="text" id="city" placeholder="Houston">
-          </div>
-          <div class="form-group">
-            <label>Estado</label>
-            <input type="text" id="state" placeholder="TX" maxlength="2">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>
-            <span data-lang="es">Descripción (opcional)</span>
-            <span data-lang="en">Description (optional)</span>
-          </label>
-          <textarea id="description" placeholder="..."></textarea>
-        </div>
-        <div class="success-msg" id="success-msg">
-          <span data-lang="es">✅ Reporte enviado. ¡Gracias por avisar!</span>
-          <span data-lang="en">✅ Report submitted. Thank you!</span>
-        </div>
-        <button class="btn-report" onclick="submitReport()">
-          <span data-lang="es">🚨 Enviar Reporte</span>
-          <span data-lang="en">🚨 Submit Report</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- RECENT REPORTS -->
-    <div class="reports-card">
-      <div class="reports-header">
-        <div class="reports-title">
-          <span data-lang="es">🕐 Reportes Recientes</span>
-          <span data-lang="en">🕐 Recent Reports</span>
-        </div>
-        <div class="reports-count" id="reports-count">0</div>
-      </div>
-      <div class="reports-list" id="reports-list">
-        <div class="empty-state">
-          <span data-lang="es">Sin reportes aún. Sé el primero en reportar.</span>
-          <span data-lang="en">No reports yet. Be the first to report.</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-  <span data-lang="es">ICE Watch — Construido por la comunidad, para la comunidad 🛡️</span>
-  <span data-lang="en">ICE Watch — Built by the community, for the community 🛡️</span>
-</div>
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
 
 <script>
-// ---- LANG TOGGLE ----
-function setLang(lang) {
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+const API = 'https://jarvis-2f6f429a.base44.app/api/entities/IceReport';
+let map, heatmap, markers = [], infoWins = [], heatData = [];
+let pinLat = null, pinLng = null, pinMode = false;
+let pendingPin = null;
+let lang = localStorage.getItem('ice_lang') || 'es';
+let allReports = [];
+
+// ---- LANG ----
+function setLang(l) {
+  lang = l;
+  localStorage.setItem('ice_lang', l);
+  document.getElementById('btn-es').classList.toggle('active', l==='es');
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  document.querySelectorAll('[data-es]').forEach(el => {
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+    el.textContent = el.getAttribute('data-' + l);
   });
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
-  });
-  // Update select options
-  document.querySelectorAll('#activity-type option').forEach(opt => {
-    opt.textContent = lang === 'es' ? opt.dataset.es : opt.dataset.en;
-  });
-  window._currentLang = lang;
+  document.querySelector('#city-search').placeholder = l === 'es'
+    ? 'Buscar ciudad... / Search city...'
+    : 'Search city... / Buscar ciudad...';
 }
-setLang('es');
 
-// ---- MAP INIT (Google Maps) ----
-const usBounds = { north:49.384358, south:24.396308, west:-125.0, east:-66.93457 };
-const map = new google.maps.Map(document.getElementById('map'), {
-  center: { lat:37.8, lng:-96.0 },
-  zoom: 4,
-  minZoom: 4,
-  maxZoom: 16,
-  restriction: { latLngBounds: usBounds, strictBounds: false },
-  mapTypeId: 'roadmap',
-  disableDefaultUI: false,
-  zoomControl: true,
-  streetViewControl: false,
-  mapTypeControl: false,
-  fullscreenControl: false,
-  styles: [
-    {elementType:"geometry",stylers:[{color:"#1a1a1a"}]},
-    {elementType:"labels.text.stroke",stylers:[{color:"#1a1a1a"}]},
-    {elementType:"labels.text.fill",stylers:[{color:"#9ca3af"}]},
-    {featureType:"road",elementType:"geometry",stylers:[{color:"#2a2a2a"}]},
-    {featureType:"road.highway",elementType:"geometry",stylers:[{color:"#3a3a3a"}]},
-    {featureType:"water",elementType:"geometry",stylers:[{color:"#0f0f0f"}]},
-    {featureType:"poi",stylers:[{visibility:"off"}]},
-    {featureType:"transit",stylers:[{visibility:"off"}]},
-    {featureType:"administrative.country",elementType:"geometry.stroke",stylers:[{color:"#dc2626",weight:2}]}
-  ]
-});
-const _gmMarkers = [];
-const _infoWins = [];
+// ---- MAP INIT ----
+function initGoogleMap() {
+  const usBounds = { north:49.384358, south:24.396308, west:-125.0, east:-66.93457 };
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat:37.8, lng:-96.0 },
+    zoom: 4,
+    minZoom: 4,
+    maxZoom: 16,
+    restriction: { latLngBounds: usBounds, strictBounds: false },
+    mapTypeId: 'roadmap',
+    disableDefaultUI: true,
+    zoomControl: true,
+    gestureHandling: 'greedy',
+    styles: [
+      {elementType:"geometry",stylers:[{color:"#111111"}]},
+      {elementType:"labels.text.stroke",stylers:[{color:"#111111"}]},
+      {elementType:"labels.text.fill",stylers:[{color:"#9ca3af"}]},
+      {featureType:"road",elementType:"geometry",stylers:[{color:"#1f1f1f"}]},
+      {featureType:"road.highway",elementType:"geometry",stylers:[{color:"#2a2a2a"}]},
+      {featureType:"road",elementType:"labels.text.fill",stylers:[{color:"#555"}]},
+      {featureType:"water",elementType:"geometry",stylers:[{color:"#0a0a0a"}]},
+      {featureType:"water",elementType:"labels.text.fill",stylers:[{color:"#374151"}]},
+      {featureType:"poi",stylers:[{visibility:"off"}]},
+      {featureType:"transit",stylers:[{visibility:"off"}]},
+      {featureType:"administrative.country",elementType:"geometry.stroke",stylers:[{color:"#dc2626"}]},
+      {featureType:"administrative.province",elementType:"geometry.stroke",stylers:[{color:"#2a2a2a"}]}
+    ]
+  });
 
-let heatLayer = L.heatLayer([], { radius:35, blur:20, maxZoom:10, gradient:{0.4:'yellow',0.65:'orange',1:'red'} }).addTo(map);
-let markersLayer = L.layerGroup().addTo(map);
+  heatmap = new google.maps.visualization.HeatmapLayer({
+    data: [],
+    map: map,
+    radius: 50,
+    opacity: 0.65,
+    gradient: ['rgba(0,0,0,0)','rgba(255,200,0,0.5)','rgba(255,100,0,0.7)','rgba(220,38,38,0.9)']
+  });
 
-// ---- BASE44 API ----
-const API_BASE = 'https://jarvis-2f6f429a.base44.app/api/entities/IceReport';
+  map.addListener('click', (e) => {
+    if (!pinMode) return;
+    pinLat = e.latLng.lat();
+    pinLng = e.latLng.lng();
+    placeTempPin(pinLat, pinLng);
+    reverseGeocode(pinLat, pinLng);
+    exitPinMode();
+    openSheet('report-sheet');
+  });
 
+  // Places autocomplete on city search
+  const searchInput = document.getElementById('city-search');
+  const autocomplete = new google.maps.places.Autocomplete(searchInput, {
+    types: ['(cities)'],
+    componentRestrictions: { country: 'us' },
+    fields: ['geometry', 'name', 'address_components']
+  });
+  autocomplete.addListener('place_changed', () => {
+    const place = autocomplete.getPlace();
+    if (place.geometry) {
+      map.panTo(place.geometry.location);
+      map.setZoom(11);
+    }
+    setTimeout(() => { searchInput.value = ''; searchInput.blur(); }, 300);
+  });
+
+  // Places autocomplete on location input inside report sheet
+  const locInput = document.getElementById('location-input');
+  const locAuto = new google.maps.places.Autocomplete(locInput, {
+    componentRestrictions: { country: 'us' },
+    fields: ['geometry', 'formatted_address', 'address_components']
+  });
+  locAuto.addListener('place_changed', () => {
+    const place = locAuto.getPlace();
+    if (place.geometry) {
+      pinLat = place.geometry.location.lat();
+      pinLng = place.geometry.location.lng();
+      placeTempPin(pinLat, pinLng);
+      map.panTo(place.geometry.location);
+      map.setZoom(13);
+      const comps = place.address_components || [];
+      const city = comps.find(c=>c.types.includes('locality'))?.long_name || '';
+      const state = comps.find(c=>c.types.includes('administrative_area_level_1'))?.short_name || '';
+      document.getElementById('coords-hint').querySelector('[data-es]').textContent =
+        `📍 ${city}${state ? ', '+state : ''}`;
+    }
+  });
+
+  loadReports();
+}
+
+// ---- TEMP PIN ----
+let tempMarker = null;
+function placeTempPin(lat, lng) {
+  if (tempMarker) tempMarker.setMap(null);
+  tempMarker = new google.maps.Marker({
+    position: { lat, lng },
+    map,
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 10,
+      fillColor: '#dc2626',
+      fillOpacity: 1,
+      strokeColor: '#fff',
+      strokeWeight: 2
+    },
+    animation: google.maps.Animation.DROP
+  });
+}
+
+// ---- GEOCODE ----
+function reverseGeocode(lat, lng) {
+  new google.maps.Geocoder().geocode({ location: { lat, lng } }, (results, status) => {
+    if (status === 'OK' && results[0]) {
+      const comps = results[0].address_components;
+      const city = comps.find(c=>c.types.includes('locality'))?.long_name ||
+                   comps.find(c=>c.types.includes('sublocality'))?.long_name || '';
+      const state = comps.find(c=>c.types.includes('administrative_area_level_1'))?.short_name || '';
+      document.getElementById('location-input').value = results[0].formatted_address;
+      document.getElementById('coords-hint').querySelector('[data-es]').textContent =
+        `📍 ${city}${state ? ', '+state : ''}`;
+    }
+  });
+}
+
+// ---- PIN MODE ----
+function startPinMode() {
+  pinMode = true;
+  document.getElementById('pin-banner').classList.add('show');
+  closeSheet();
+  setTimeout(() => { if(pinMode) exitPinMode(); }, 20000);
+}
+function exitPinMode() {
+  pinMode = false;
+  document.getElementById('pin-banner').classList.remove('show');
+}
+
+// ---- REPORTS ----
 async function loadReports() {
   try {
-    const res = await fetch(API_BASE + '?limit=100&sort=-created_date', {
-      headers: { 'Content-Type':'application/json' }
+    const res = await fetch(API + '?limit=200&sort=-created_date', {
+      headers: { 'Content-Type': 'application/json' }
     });
-    if (!res.ok) return;
-    const data = await res.json();
-    renderReports(data);
-    updateStats(data);
-    updateHeatmap(data);
-  } catch(e) { console.log('Load error:', e); }
+    allReports = await res.json();
+    if (!Array.isArray(allReports)) allReports = [];
+    renderMap();
+    renderFeed();
+    document.getElementById('report-count').textContent = allReports.filter(r=>r.active!==false).length;
+  } catch(e) { console.error(e); }
 }
 
-function renderReports(reports) {
-  const list = document.getElementById('reports-list');
-  const count = document.getElementById('reports-count');
-  count.textContent = reports.length;
+function renderMap() {
+  markers.forEach(m => m.setMap(null));
+  infoWins.forEach(w => w.close());
+  markers = []; infoWins = []; heatData = [];
 
-  if (!reports.length) {
-    list.innerHTML = `<div class="empty-state"><span data-lang="es">Sin reportes aún. Sé el primero.</span><span data-lang="en">No reports yet. Be the first.</span></div>`;
-    setLang(window._currentLang || 'es');
+  const active = allReports.filter(r => r.active !== false);
+  active.forEach(r => {
+    if (!r.lat || !r.lng) return;
+    const lat = parseFloat(r.lat), lng = parseFloat(r.lng);
+    heatData.push({ location: new google.maps.LatLng(lat, lng), weight: 1 });
+
+    const iw = new google.maps.InfoWindow({
+      content: `<div style="background:#1a1a1a;color:#f1f1f1;padding:10px 12px;border-radius:10px;font-family:-apple-system,sans-serif;min-width:150px;max-width:220px">
+        <div style="font-weight:700;color:#dc2626;font-size:13px;margin-bottom:4px">${r.activity_type}</div>
+        <div style="font-size:12px;color:#9ca3af">${r.city || ''}${r.state ? ', '+r.state : ''}</div>
+        <div style="font-size:11px;color:#4b5563;margin-top:3px">${timeAgo(r.created_date)}</div>
+        ${r.description ? `<div style="font-size:12px;color:#d1d5db;margin-top:6px;line-height:1.4">${r.description}</div>` : ''}
+      </div>`
+    });
+
+    const m = new google.maps.Marker({
+      position: { lat, lng }, map,
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 9, fillColor:'#dc2626', fillOpacity:0.9,
+        strokeColor:'#fff', strokeWeight:1.5
+      }
+    });
+    m.addListener('click', () => {
+      infoWins.forEach(w => w.close());
+      iw.open(map, m);
+    });
+    markers.push(m); infoWins.push(iw);
+  });
+  heatmap.setData(heatData);
+}
+
+function renderFeed() {
+  const list = document.getElementById('feed-list');
+  const active = allReports.filter(r => r.active !== false);
+  document.getElementById('feed-count').textContent = active.length + ' reportes';
+  if (!active.length) {
+    list.innerHTML = `<p class="feed-empty" data-es="Sin reportes aún" data-en="No reports yet">${lang==='es'?'Sin reportes aún':'No reports yet'}</p>`;
+    return;
+  }
+  list.innerHTML = active.slice(0,50).map(r => `
+    <div class="feed-item" onclick="flyTo(${r.lat},${r.lng})">
+      <div class="feed-type">${r.activity_type}</div>
+      <div class="feed-loc">📍 ${r.city || ''}${r.state ? ', '+r.state : ''}</div>
+      <div class="feed-time">${timeAgo(r.created_date)}</div>
+      ${r.description ? `<div class="feed-desc">${r.description}</div>` : ''}
+    </div>`).join('');
+}
+
+function flyTo(lat, lng) {
+  closeSheet();
+  map.panTo({ lat: parseFloat(lat), lng: parseFloat(lng) });
+  map.setZoom(13);
+}
+
+// ---- REPORT FORM ----
+function startReport() {
+  pinLat = null; pinLng = null;
+  document.getElementById('location-input').value = '';
+  document.getElementById('description').value = '';
+  document.getElementById('activity-type').selectedIndex = 0;
+  document.getElementById('coords-hint').querySelector('[data-es]').textContent =
+    lang === 'es' ? 'o toca el mapa para fijar el pin' : 'or tap the map to drop a pin';
+  if (tempMarker) { tempMarker.setMap(null); tempMarker = null; }
+  openSheet('report-sheet');
+}
+
+async function submitReport() {
+  const activity_type = document.getElementById('activity-type').value;
+  const description = document.getElementById('description').value.trim();
+  const locVal = document.getElementById('location-input').value.trim();
+
+  if (!pinLat || !pinLng) {
+    showToast(lang==='es' ? '📍 Elige una ubicación primero' : '📍 Choose a location first');
     return;
   }
 
-  list.innerHTML = reports.slice(0, 20).map(r => {
-    const time = timeAgo(r.created_date);
-    return `
-      <div class="report-item">
-        <div class="report-top">
-          <div class="report-type">${r.activity_type}</div>
-          <div class="report-time">${time}</div>
-        </div>
-        <div class="report-location">📍 ${r.city}${r.state ? ', ' + r.state : ''}</div>
-        ${r.description ? `<div class="report-desc">${r.description}</div>` : ''}
-        <button class="upvote-btn" onclick="upvote('${r.id}', this)">👍 ${r.upvotes || 0}</button>
-      </div>`;
-  }).join('');
-}
+  const btn = document.querySelector('.submit-btn');
+  btn.disabled = true;
+  btn.textContent = lang === 'es' ? 'Enviando...' : 'Sending...';
 
-function updateStats(reports) {
-  const now = new Date();
-  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const hourAgo = new Date(now - 3600000);
-  const today = reports.filter(r => new Date(r.created_date) >= todayStart);
-  const recent = reports.filter(r => new Date(r.created_date) >= hourAgo);
-  const states = [...new Set(reports.map(r => r.state).filter(Boolean))];
-  document.getElementById('stat-total').textContent = today.length;
-  document.getElementById('stat-states').textContent = states.length;
-  document.getElementById('stat-recent').textContent = recent.length;
-}
-
-function updateHeatmap(reports) {
-  _gmMarkers.forEach(m => m.setMap(null)); _gmMarkers.length = 0; _heatData.length = 0;
-  const heatPoints = [];
-  reports.forEach(r => {
-    if (r.lat && r.lng) {
-      heatPoints.push([r.lat, r.lng, 1]);
-      const infoWin = new google.maps.InfoWindow({
-        content: `<div style="background:#1a1a1a;color:#f1f1f1;padding:10px;border-radius:8px;font-family:Inter,sans-serif;min-width:160px">
-          <b style="color:#dc2626;font-size:13px">\${r.activity_type}</b><br>
-          <span style="font-size:12px">\${r.city}, \${r.state}</span><br>
-          <small style="color:#9ca3af">\${timeAgo(r.created_date)}</small>
-          \${r.description ? '<br><span style="font-size:11px;color:#d1d5db">'+r.description+'</span>' : ''}
-        </div>`
-      });
-      const marker = new google.maps.Marker({
-        position: { lat: parseFloat(r.lat), lng: parseFloat(r.lng) },
-        map: map,
-        title: r.activity_type,
-        icon: {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: 9,
-          fillColor: '#dc2626',
-          fillOpacity: 0.9,
-          strokeColor: '#ffffff',
-          strokeWeight: 1.5
-        }
-      });
-      marker.addListener('click', () => {
-        _infoWins.forEach(w => w.close());
-        infoWin.open(map, marker);
-      });
-      _infoWins.push(infoWin);
-      _gmMarkers.push(marker);
-      _heatData.push([r.lat, r.lng]);
-    }
-  });
-  _heatmap.setData(_heatData.map(p => ({ location: new google.maps.LatLng(p[0], p[1]), weight: 1 })));
-}
-
-function timeAgo(dateStr) {
-  const diff = (Date.now() - new Date(dateStr)) / 1000;
-  const lang = window._currentLang || 'es';
-  if (diff < 60) return lang === 'es' ? 'Ahora mismo' : 'Just now';
-  if (diff < 3600) return lang === 'es' ? `hace ${Math.floor(diff/60)}m` : `${Math.floor(diff/60)}m ago`;
-  if (diff < 86400) return lang === 'es' ? `hace ${Math.floor(diff/3600)}h` : `${Math.floor(diff/3600)}h ago`;
-  return lang === 'es' ? `hace ${Math.floor(diff/86400)}d` : `${Math.floor(diff/86400)}d ago`;
-}
-
-// ---- GEOCODE + SUBMIT ----
-async function geocodeCity(city, state) {
+  // Get city/state from geocoder
+  let city = '', state = '';
   try {
-    const q = encodeURIComponent(`${city}, ${state}, USA`);
-    const res = await new google.maps.Geocoder().geocode({ location: { lat, lng } }, (results, status) => {
+    await new Promise(resolve => {
+      new google.maps.Geocoder().geocode({ location: { lat: pinLat, lng: pinLng } }, (results, status) => {
         if (status === 'OK' && results[0]) {
           const comps = results[0].address_components;
-          const city = comps.find(c => c.types.includes('locality'))?.long_name ||
-                       comps.find(c => c.types.includes('sublocality'))?.long_name || 'Unknown';
-          const state = comps.find(c => c.types.includes('administrative_area_level_1'))?.short_name || '';
-          resolve({ city, state });
-        } else {
-          resolve({ city: 'Unknown', state: '' });
+          city = comps.find(c=>c.types.includes('locality'))?.long_name ||
+                 comps.find(c=>c.types.includes('sublocality'))?.long_name || '';
+          state = comps.find(c=>c.types.includes('administrative_area_level_1'))?.short_name || '';
         }
+        resolve();
       });
-    document.getElementById('city').value = '';
-    document.getElementById('state').value = '';
-    document.getElementById('description').value = '';
-    const msg = document.getElementById('success-msg');
-    msg.style.display = 'block';
-    setTimeout(() => msg.style.display = 'none', 3000);
-    loadReports();
+    });
+  } catch(e) {}
+
+  try {
+    await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ lat: pinLat, lng: pinLng, city, state, activity_type, description, active: true })
+    });
+    showToast(lang==='es' ? '✅ Reporte enviado. Gracias.' : '✅ Report submitted. Thank you.');
+    closeSheet();
+    if (tempMarker) { tempMarker.setMap(null); tempMarker = null; }
+    await loadReports();
   } catch(e) {
-    alert('Error al enviar. Intenta de nuevo.');
+    showToast(lang==='es' ? '❌ Error. Intenta de nuevo.' : '❌ Error. Please try again.');
   }
 
   btn.disabled = false;
-  btn.innerHTML = window._currentLang === 'en'
-    ? '🚨 Submit Report'
-    : '🚨 Enviar Reporte';
+  btn.textContent = lang === 'es' ? 'Enviar Reporte' : 'Submit Report';
 }
 
-async function upvote(id, btn) {
-  const current = parseInt(btn.textContent.replace('👍 ',''));
-  btn.textContent = `👍 ${current + 1}`;
-  btn.disabled = true;
-  try {
-    await fetch(`${API_BASE}/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type':'application/json' },
-      body: JSON.stringify({ upvotes: current + 1 })
-    });
-  } catch(e) {}
+// ---- TABS ----
+function switchTab(tab) {
+  ['map','feed','share'].forEach(t => {
+    document.getElementById('nav-'+t)?.classList.toggle('active', t===tab);
+  });
+  if (tab === 'feed') openSheet('feed-sheet');
+  else if (tab === 'share') { shareApp(); document.getElementById('nav-map').classList.add('active'); document.getElementById('nav-share').classList.remove('active'); }
+  else closeSheet();
 }
 
-// ---- CLICK MAP TO REPORT ----
-map.addListener('click', function(e) {
-  const lat = e.latLng.lat(), lng = e.latLng.lng();
-  const activity_type = document.getElementById('activity-type').value;
-  const city = document.getElementById('city').value.trim() || 'Ubicación del Mapa';
-  const state = document.getElementById('state').value.trim().toUpperCase() || 'US';
-  const description = document.getElementById('description').value.trim();
+// ---- SHEETS ----
+function openSheet(id) {
+  document.querySelectorAll('.sheet').forEach(s => s.classList.remove('open'));
+  document.getElementById(id).classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+}
+function closeSheet() {
+  document.querySelectorAll('.sheet').forEach(s => s.classList.remove('open'));
+  document.getElementById('overlay').classList.remove('show');
+  exitPinMode();
+  ['map','feed','share'].forEach(t => document.getElementById('nav-'+t)?.classList.remove('active'));
+  document.getElementById('nav-map').classList.add('active');
+}
 
-  if (!city || city === 'Ubicación del Mapa') {
-    document.getElementById('city').focus();
-    return;
+// ---- SHARE ----
+function shareApp() {
+  const url = 'https://jfwebstudios.com/ice-watch/';
+  const msg = lang === 'es'
+    ? '🛡️ ICE Watch — Reporta y ve actividad migratoria en tiempo real. ' + url
+    : '🛡️ ICE Watch — Report and see immigration activity in real time. ' + url;
+  if (navigator.share) {
+    navigator.share({ title: 'ICE Watch', text: msg, url });
+  } else {
+    navigator.clipboard?.writeText(url);
+    showToast(lang==='es' ? '🔗 Link copiado' : '🔗 Link copied');
   }
+}
 
-  fetch(API_BASE, {
-    method: 'POST',
-    headers: { 'Content-Type':'application/json' },
-    body: JSON.stringify({ lat, lng, city, state, activity_type, description, upvotes: 0, active: true })
-  }).then(() => loadReports());
-});
+// ---- HELPERS ----
+function timeAgo(date) {
+  if (!date) return '';
+  const diff = Date.now() - new Date(date).getTime();
+  const m = Math.floor(diff/60000);
+  if (m < 1) return lang==='es' ? 'ahora mismo' : 'just now';
+  if (m < 60) return `${m} ${lang==='es'?'min':'min'} ago`;
+  const h = Math.floor(m/60);
+  if (h < 24) return `${h}h ago`;
+  return `${Math.floor(h/24)}d ago`;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
 
 // ---- INIT ----
-loadReports();
-setInterval(loadReports, 30000); // refresh every 30s
+window.addEventListener('load', () => {
+  setLang(lang);
+  initGoogleMap();
 
-// ---- SERVICE WORKER ----
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/ice-watch/sw.js')
-      .then(reg => console.log('SW registered:', reg.scope))
-      .catch(err => console.log('SW error:', err));
+  // PWA install prompt
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const btn = document.createElement('button');
+    btn.className = 'report-btn';
+    btn.style.cssText = 'background:#1a1a1a;border:1px solid #333;margin-right:4px';
+    btn.innerHTML = '📲 Install';
+    btn.onclick = () => { deferredPrompt.prompt(); btn.remove(); };
+    document.querySelector('.topbar-right').prepend(btn);
   });
+});
+
+// Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
 }
-
-// ---- INSTALL PROMPT ----
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  const banner = document.getElementById('install-banner');
-  banner.style.display = 'flex';
-  setLang(window._currentLang || 'es');
-});
-
-document.getElementById('install-btn').addEventListener('click', async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
-  deferredPrompt = null;
-  document.getElementById('install-banner').style.display = 'none';
-});
-
-window.addEventListener('appinstalled', () => {
-  document.getElementById('install-banner').style.display = 'none';
-  deferredPrompt = null;
-});
-
-// iOS "Add to Home Screen" hint (Safari doesn't support beforeinstallprompt)
-const isIOS = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
-const isInStandaloneMode = ('standalone' in window.navigator) && window.navigator.standalone;
-if (isIOS && !isInStandaloneMode) {
-  const banner = document.getElementById('install-banner');
-  const sub = banner.querySelector('.install-sub');
-  sub.innerHTML = window._currentLang === 'en'
-    ? '<span>Tap <strong>Share</strong> → <strong>Add to Home Screen</strong></span>'
-    : '<span>Toca <strong>Compartir</strong> → <strong>Añadir a inicio</strong></span>';
-  banner.style.display = 'flex';
-  document.getElementById('install-btn').style.display = 'none';
-}
-
 </script>
-
-<!-- INSTALL BANNER -->
-<div class="install-banner" id="install-banner">
-  <div class="install-icon">🛡️</div>
-  <div class="install-text">
-    <div class="install-title">
-      <span data-lang="es">Instala ICE Watch</span>
-      <span data-lang="en">Install ICE Watch</span>
-    </div>
-    <div class="install-sub">
-      <span data-lang="es">Agrega a tu pantalla de inicio — gratis</span>
-      <span data-lang="en">Add to your home screen — free</span>
-    </div>
-  </div>
-  <button class="install-btn" id="install-btn">
-    <span data-lang="es">Instalar</span>
-    <span data-lang="en">Install</span>
-  </button>
-  <button class="install-close" onclick="document.getElementById('install-banner').style.display='none'">×</button>
-</div>
-
 </body>
 </html>
