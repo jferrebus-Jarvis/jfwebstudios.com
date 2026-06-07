@@ -302,7 +302,17 @@ function setLang(lang) {
 setLang('es');
 
 // ---- MAP INIT ----
-const map = L.map('map', { zoomControl:true }).setView([29.7604, -95.3698], 5);
+const usBounds = L.latLngBounds(
+  L.latLng(24.396308, -125.0),  // SW corner USA
+  L.latLng(49.384358, -66.93457) // NE corner USA
+);
+const map = L.map('map', {
+  zoomControl: true,
+  maxBounds: usBounds,
+  maxBoundsViscosity: 1.0,
+  minZoom: 4,
+  maxZoom: 14
+}).setView([37.8, -96.0], 4);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19
 }).addTo(map);
