@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICE Watch — Alertas Comunitarias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+<style>
+  :root {
+    --red: #2563eb;
+    --red-dark: #1d4ed8;
+    --orange: #3b82f6;
+    --bg: #0a0f1e;
+    --card: #111827;
+    --border: #1e3a5f;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --green: #10b981;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+
+  /* LANG TOGGLE */
+  .lang-toggle { position:fixed; top:16px; right:16px; z-index:9999; display:flex; background:#1a1a1a; border:2px solid var(--red); border-radius:50px; overflow:hidden; box-shadow:0 4px 20px rgba(220,38,38,0.4); }
+  .lang-btn { padding:7px 16px; font-size:12px; font-weight:800; cursor:pointer; border:none; background:transparent; color:var(--red); transition:all 0.2s; letter-spacing:0.5px; }
+  .lang-btn.active { background:var(--red); color:#fff; border-radius:50px; }
+
+  /* HEADER */
+  .header { background:linear-gradient(135deg, #0a0f2e, #0a0f1e); border-bottom:1px solid var(--border); padding:20px 24px 16px; }
+  .header-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:14px; }
+  .logo-icon { width:44px; height:44px; background:var(--red); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+  .app-name { font-size:22px; font-weight:800; color:#fff; }
+  .app-sub { font-size:12px; color:var(--muted); margin-top:2px; }
+  .live-badge { margin-left:auto; margin-right:60px; background:rgba(22,163,74,0.15); border:1px solid var(--green); color:var(--green); font-size:11px; font-weight:700; padding:5px 12px; border-radius:50px; display:flex; align-items:center; gap:6px; }
+  .live-dot { width:7px; height:7px; background:var(--green); border-radius:50%; animation:pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  /* STATS BAR */
+  .stats-bar { background:var(--card); border-bottom:1px solid var(--border); padding:12px 24px; }
+  .stats-inner { max-width:1100px; margin:0 auto; display:flex; gap:24px; flex-wrap:wrap; }
+  .stat { text-align:center; }
+  .stat-num { font-size:20px; font-weight:800; color:var(--red); }
+  .stat-label { font-size:11px; color:var(--muted); margin-top:2px; }
+
+  /* LAYOUT */
+  .main { max-width:1100px; margin:0 auto; padding:20px 16px; display:grid; grid-template-columns:1fr 360px; gap:20px; }
+  @media(max-width:768px) { .main { grid-template-columns:1fr; } }
+
+  /* MAP */
+  .map-card { background:var(--card); border-radius:16px; overflow:hidden; border:1px solid var(--border); }
+  .map-header { padding:14px 18px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); }
+  .map-title { font-size:14px; font-weight:700; }
+  #map { height:420px; }
+  @media(max-width:768px) { #map { height:300px; } }
+
+  /* SIDEBAR */
+  .sidebar { display:flex; flex-direction:column; gap:16px; }
+
+  /* REPORT FORM */
+  .form-card { background:var(--card); border-radius:16px; border:1px solid var(--border); overflow:hidden; }
+  .form-header { background:linear-gradient(135deg, #1d4ed8, #2563eb); padding:14px 18px; }
+  .form-title { font-size:15px; font-weight:800; color:#fff; }
+  .form-sub { font-size:11px; color:rgba(255,255,255,0.7); margin-top:2px; }
+  .form-body { padding:16px; display:flex; flex-direction:column; gap:12px; }
+  .form-group label { display:block; font-size:12px; font-weight:600; color:var(--muted); margin-bottom:5px; text-transform:uppercase; letter-spacing:0.5px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width:100%; background:#111; border:1px solid var(--border); border-radius:8px;
+    padding:10px 12px; color:var(--text); font-size:13px; font-family:'Inter',sans-serif;
+    transition:border 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline:none; border-color:var(--red);
+  }
+  .form-group select option { background:#1a1a1a; }
+  .form-group textarea { resize:none; height:70px; }
+  .location-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .btn-report { width:100%; padding:13px; background:var(--red); color:#fff; border:none; border-radius:10px; font-size:14px; font-weight:800; cursor:pointer; transition:all 0.2s; letter-spacing:0.3px; }
+  .btn-report:hover { background:var(--red-dark); transform:translateY(-1px); }
+  .btn-report:active { transform:translateY(0); }
+  .success-msg { background:rgba(22,163,74,0.15); border:1px solid var(--green); color:var(--green); padding:10px; border-radius:8px; font-size:13px; font-weight:600; text-align:center; display:none; }
+
+  /* RECENT REPORTS */
+  .reports-card { background:var(--card); border-radius:16px; border:1px solid var(--border); overflow:hidden; }
+  .reports-header { padding:14px 18px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+  .reports-title { font-size:14px; font-weight:700; }
+  .reports-count { background:var(--red); color:#fff; font-size:11px; font-weight:700; padding:3px 8px; border-radius:50px; }
+  .reports-list { max-height:320px; overflow-y:auto; }
+  .report-item { padding:12px 16px; border-bottom:1px solid var(--border); transition:background 0.15s; }
+  .report-item:hover { background:#111; }
+  .report-item:last-child { border-bottom:none; }
+  .report-top { display:flex; align-items:center; gap:8px; margin-bottom:4px; }
+  .report-type { font-size:11px; font-weight:700; background:rgba(220,38,38,0.15); color:var(--red); padding:3px 8px; border-radius:50px; border:1px solid rgba(220,38,38,0.3); }
+  .report-time { font-size:11px; color:var(--muted); margin-left:auto; }
+  .report-location { font-size:13px; font-weight:600; color:var(--text); }
+  .report-desc { font-size:12px; color:var(--muted); margin-top:3px; }
+  .upvote-btn { background:none; border:1px solid var(--border); color:var(--muted); font-size:11px; padding:3px 8px; border-radius:50px; cursor:pointer; margin-top:6px; transition:all 0.2s; }
+  .upvote-btn:hover { border-color:var(--red); color:var(--red); }
+
+  /* EMPTY STATE */
+  .empty-state { padding:40px 20px; text-align:center; color:var(--muted); font-size:13px; }
+
+  /* FOOTER */
+  .footer { text-align:center; padding:30px 20px; color:var(--muted); font-size:12px; border-top:1px solid var(--border); margin-top:20px; }
+
+  /* ALERT BANNER */
+  .alert-banner { background:rgba(220,38,38,0.1); border:1px solid rgba(220,38,38,0.3); border-radius:12px; padding:12px 16px; display:flex; align-items:center; gap:10px; margin-bottom:4px; }
+  .alert-icon { font-size:18px; }
+  .alert-text { font-size:12px; color:#fca5a5; line-height:1.5; }
+</style>
+</head>
+<body>
+
+<!-- LANG TOGGLE -->
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-icon">🛡️</div>
+    <div>
+      <div class="app-name">
+        <span data-lang="es">ICE Watch</span>
+        <span data-lang="en">ICE Watch</span>
+      </div>
+      <div class="app-sub">
+        <span data-lang="es">Reportes de actividad en tiempo real — por la comunidad</span>
+        <span data-lang="en">Real-time activity reports — by the community</span>
+      </div>
+    </div>
+    <div class="live-badge">
+      <div class="live-dot"></div>
+      <span data-lang="es">En Vivo</span>
+      <span data-lang="en">Live</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num" id="stat-total">0</div>
+      <div class="stat-label">
+        <span data-lang="es">Reportes Hoy</span>
+        <span data-lang="en">Reports Today</span>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-states">0</div>
+      <div class="stat-label">
+        <span data-lang="es">Estados Activos</span>
+        <span data-lang="en">Active States</span>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" id="stat-recent">0</div>
+      <div class="stat-label">
+        <span data-lang="es">Última Hora</span>
+        <span data-lang="en">Last Hour</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- MAP -->
+  <div>
+    <div class="alert-banner" style="margin-bottom:16px;">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-text">
+        <span data-lang="es"><strong>Aviso:</strong> Esta app es solo informativa y basada en reportes de la comunidad. Siempre verifica antes de actuar. No sustituye asesoría legal.</span>
+        <span data-lang="en"><strong>Notice:</strong> This app is informational only and based on community reports. Always verify before acting. Not a substitute for legal advice.</span>
+      </div>
+    </div>
+    <div class="map-card">
+      <div class="map-header">
+        <div class="map-title">
+          <span data-lang="es">🗺 Mapa de Actividad</span>
+          <span data-lang="en">🗺 Activity Map</span>
+        </div>
+        <div style="font-size:11px;color:var(--muted);">
+          <span data-lang="es">Zonas rojas = más reportes</span>
+          <span data-lang="en">Red zones = most reports</span>
+        </div>
+      </div>
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- REPORT FORM -->
+    <div class="form-card">
+      <div class="form-header">
+        <div class="form-title">
+          <span data-lang="es">📍 Reportar Actividad</span>
+          <span data-lang="en">📍 Report Activity</span>
+        </div>
+        <div class="form-sub">
+          <span data-lang="es">Anónimo y seguro</span>
+          <span data-lang="en">Anonymous and safe</span>
+        </div>
+      </div>
+      <div class="form-body">
+        <div class="form-group">
+          <label>
+            <span data-lang="es">Tipo de Actividad</span>
+            <span data-lang="en">Activity Type</span>
+          </label>
+                      <select id="activity-type">
+            <option value="Redada" data-es="🚨 Redada" data-en="🚨 Raid">🚨 Redada</option>
+            <option value="Checkpoint" data-es="🛑 Checkpoint" data-en="🛑 Checkpoint">🛑 Checkpoint</option>
+            <option value="Agentes" data-es="👮 Agentes Vistos" data-en="👮 Agents Spotted">👮 Agentes Vistos</option>
+            <option value="Vehiculos" data-es="🚗 Vehículos Sospechosos" data-en="🚗 Suspicious Vehicles">🚗 Vehículos Sospechosos</option>
+            <option value="Otro" data-es="❓ Otro" data-en="❓ Other">❓ Otro</option>
+          </select>
+        </div>
+        <div class="location-row">
+          <div class="form-group">
+            <label>
+              <span data-lang="es">Ciudad</span>
+              <span data-lang="en">City</span>
+            </label>
+            <input type="text" id="city" placeholder="Houston">
+          </div>
+          <div class="form-group">
+            <label>Estado</label>
+            <input type="text" id="state" placeholder="TX" maxlength="2">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>
+            <span data-lang="es">Descripción (opcional)</span>
+            <span data-lang="en">Description (optional)</span>
+          </label>
+          <textarea id="description" placeholder="..."></textarea>
+        </div>
+        <div class="success-msg" id="success-msg">
+          <span data-lang="es">✅ Reporte enviado. ¡Gracias por avisar!</span>
+          <span data-lang="en">✅ Report submitted. Thank you!</span>
+        </div>
+        <button class="btn-report" onclick="submitReport()">
+          <span data-lang="es">🚨 Enviar Reporte</span>
+          <span data-lang="en">🚨 Submit Report</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- RECENT REPORTS -->
+    <div class="reports-card">
+      <div class="reports-header">
+        <div class="reports-title">
+          <span data-lang="es">🕐 Reportes Recientes</span>
+          <span data-lang="en">🕐 Recent Reports</span>
+        </div>
+        <div class="reports-count" id="reports-count">0</div>
+      </div>
+      <div class="reports-list" id="reports-list">
+        <div class="empty-state">
+          <span data-lang="es">Sin reportes aún. Sé el primero en reportar.</span>
+          <span data-lang="en">No reports yet. Be the first to report.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span data-lang="es">ICE Watch — Construido por la comunidad, para la comunidad 🛡️</span>
+  <span data-lang="en">ICE Watch — Built by the community, for the community 🛡️</span>
+</div>
+
+<script>
+// ---- LANG TOGGLE ----
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  // Update select options
+  document.querySelectorAll('#activity-type option').forEach(opt => {
+    opt.textContent = lang === 'es' ? opt.dataset.es : opt.dataset.en;
+  });
+  window._currentLang = lang;
+}
+setLang('es');
+
+// ---- MAP INIT ----
+const usBounds = L.latLngBounds(
+  L.latLng(24.396308, -125.0),  // SW corner USA
+  L.latLng(49.384358, -66.93457) // NE corner USA
+);
+const map = L.map('map', {
+  zoomControl: true,
+  maxBounds: usBounds,
+  maxBoundsViscosity: 1.0,
+  minZoom: 4,
+  maxZoom: 14
+}).setView([37.8, -96.0], 4);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19
+}).addTo(map);
+
+let heatLayer = L.heatLayer([], { radius:35, blur:20, maxZoom:10, gradient:{0.4:'yellow',0.65:'orange',1:'red'} }).addTo(map);
+let markersLayer = L.layerGroup().addTo(map);
+
+// ---- BASE44 API ----
+const API_BASE = 'https://jarvis-2f6f429a.base44.app/api/entities/IceReport';
+
+async function loadReports() {
+  try {
+    const res = await fetch(API_BASE + '?limit=100&sort=-created_date', {
+      headers: { 'Content-Type':'application/json' }
+    });
+    if (!res.ok) return;
+    const data = await res.json();
+    renderReports(data);
+    updateStats(data);
+    updateHeatmap(data);
+  } catch(e) { console.log('Load error:', e); }
+}
+
+function renderReports(reports) {
+  const list = document.getElementById('reports-list');
+  const count = document.getElementById('reports-count');
+  count.textContent = reports.length;
+
+  if (!reports.length) {
+    list.innerHTML = `<div class="empty-state"><span data-lang="es">Sin reportes aún. Sé el primero.</span><span data-lang="en">No reports yet. Be the first.</span></div>`;
+    setLang(window._currentLang || 'es');
+    return;
+  }
+
+  list.innerHTML = reports.slice(0, 20).map(r => {
+    const time = timeAgo(r.created_date);
+    return `
+      <div class="report-item">
+        <div class="report-top">
+          <div class="report-type">${r.activity_type}</div>
+          <div class="report-time">${time}</div>
+        </div>
+        <div class="report-location">📍 ${r.city}${r.state ? ', ' + r.state : ''}</div>
+        ${r.description ? `<div class="report-desc">${r.description}</div>` : ''}
+        <button class="upvote-btn" onclick="upvote('${r.id}', this)">👍 ${r.upvotes || 0}</button>
+      </div>`;
+  }).join('');
+}
+
+function updateStats(reports) {
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const hourAgo = new Date(now - 3600000);
+  const today = reports.filter(r => new Date(r.created_date) >= todayStart);
+  const recent = reports.filter(r => new Date(r.created_date) >= hourAgo);
+  const states = [...new Set(reports.map(r => r.state).filter(Boolean))];
+  document.getElementById('stat-total').textContent = today.length;
+  document.getElementById('stat-states').textContent = states.length;
+  document.getElementById('stat-recent').textContent = recent.length;
+}
+
+function updateHeatmap(reports) {
+  markersLayer.clearLayers();
+  const heatPoints = [];
+  reports.forEach(r => {
+    if (r.lat && r.lng) {
+      heatPoints.push([r.lat, r.lng, 1]);
+      const marker = L.circleMarker([r.lat, r.lng], {
+        radius:6, fillColor:'#dc2626', color:'#fff', weight:1, fillOpacity:0.85
+      }).bindPopup(`<b>${r.activity_type}</b><br>${r.city}, ${r.state}<br><small>${timeAgo(r.created_date)}</small>`);
+      markersLayer.addLayer(marker);
+    }
+  });
+  heatLayer.setLatLngs(heatPoints);
+}
+
+function timeAgo(dateStr) {
+  const diff = (Date.now() - new Date(dateStr)) / 1000;
+  const lang = window._currentLang || 'es';
+  if (diff < 60) return lang === 'es' ? 'Ahora mismo' : 'Just now';
+  if (diff < 3600) return lang === 'es' ? `hace ${Math.floor(diff/60)}m` : `${Math.floor(diff/60)}m ago`;
+  if (diff < 86400) return lang === 'es' ? `hace ${Math.floor(diff/3600)}h` : `${Math.floor(diff/3600)}h ago`;
+  return lang === 'es' ? `hace ${Math.floor(diff/86400)}d` : `${Math.floor(diff/86400)}d ago`;
+}
+
+// ---- GEOCODE + SUBMIT ----
+async function geocodeCity(city, state) {
+  try {
+    const q = encodeURIComponent(`${city}, ${state}, USA`);
+    const res = await fetch(`https://nominatim.openstreetmap.org/search?q=${q}&format=json&limit=1`);
+    const data = await res.json();
+    if (data.length) return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
+  } catch(e) {}
+  return null;
+}
+
+async function submitReport() {
+  const city = document.getElementById('city').value.trim();
+  const state = document.getElementById('state').value.trim().toUpperCase();
+  const activity_type = document.getElementById('activity-type').value;
+  const description = document.getElementById('description').value.trim();
+
+  if (!city || !state) {
+    alert(window._currentLang === 'en' ? 'Please enter city and state.' : 'Por favor ingresa ciudad y estado.');
+    return;
+  }
+
+  const btn = document.querySelector('.btn-report');
+  btn.disabled = true;
+  btn.innerHTML = window._currentLang === 'en' ? '⏳ Sending...' : '⏳ Enviando...';
+
+  const coords = await geocodeCity(city, state);
+  const payload = { city, state, activity_type, description, upvotes: 0, active: true };
+  if (coords) { payload.lat = coords.lat; payload.lng = coords.lng; }
+
+  try {
+    await fetch(API_BASE, {
+      method: 'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify(payload)
+    });
+    document.getElementById('city').value = '';
+    document.getElementById('state').value = '';
+    document.getElementById('description').value = '';
+    const msg = document.getElementById('success-msg');
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 3000);
+    loadReports();
+  } catch(e) {
+    alert('Error al enviar. Intenta de nuevo.');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = window._currentLang === 'en'
+    ? '🚨 Submit Report'
+    : '🚨 Enviar Reporte';
+}
+
+async function upvote(id, btn) {
+  const current = parseInt(btn.textContent.replace('👍 ',''));
+  btn.textContent = `👍 ${current + 1}`;
+  btn.disabled = true;
+  try {
+    await fetch(`${API_BASE}/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({ upvotes: current + 1 })
+    });
+  } catch(e) {}
+}
+
+// ---- CLICK MAP TO REPORT ----
+map.on('click', function(e) {
+  const { lat, lng } = e.latlng;
+  const activity_type = document.getElementById('activity-type').value;
+  const city = document.getElementById('city').value.trim() || 'Ubicación del Mapa';
+  const state = document.getElementById('state').value.trim().toUpperCase() || 'US';
+  const description = document.getElementById('description').value.trim();
+
+  if (!city || city === 'Ubicación del Mapa') {
+    document.getElementById('city').focus();
+    return;
+  }
+
+  fetch(API_BASE, {
+    method: 'POST',
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify({ lat, lng, city, state, activity_type, description, upvotes: 0, active: true })
+  }).then(() => loadReports());
+});
+
+// ---- INIT ----
+loadReports();
+setInterval(loadReports, 30000); // refresh every 30s
+</script>
+</body>
+</html>
