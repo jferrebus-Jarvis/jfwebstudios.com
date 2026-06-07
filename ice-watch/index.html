@@ -29,7 +29,6 @@
   .lang-toggle { position:fixed; top:16px; right:16px; z-index:9999; display:flex; background:#1a1a1a; border:2px solid var(--red); border-radius:50px; overflow:hidden; box-shadow:0 4px 20px rgba(220,38,38,0.4); }
   .lang-btn { padding:7px 16px; font-size:12px; font-weight:800; cursor:pointer; border:none; background:transparent; color:var(--red); transition:all 0.2s; letter-spacing:0.5px; }
   .lang-btn.active { background:var(--red); color:#fff; border-radius:50px; }
-  [data-lang="en"] { display:none; }
 
   /* HEADER */
   .header { background:linear-gradient(135deg, #1a0000, #0f0f0f); border-bottom:1px solid var(--border); padding:20px 24px 16px; }
@@ -447,8 +446,8 @@ async function submitReport() {
 
   btn.disabled = false;
   btn.innerHTML = window._currentLang === 'en'
-    ? '<span data-lang="en">🚨 Submit Report</span>'
-    : '<span data-lang="es">🚨 Enviar Reporte</span>';
+    ? '🚨 Submit Report'
+    : '🚨 Enviar Reporte';
 }
 
 async function upvote(id, btn) {
