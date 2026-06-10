@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -100,17 +100,22 @@
       .cta-title{font-size:40px;}
       footer{padding:30px 20px;flex-direction:column;gap:12px;text-align:center;}
     }
-  </style>
+  
+  .lang-toggle{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;background:rgba(0,0,0,0.88);border-radius:40px;padding:4px;gap:2px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);}
+  .lang-btn{padding:8px 18px;border-radius:36px;border:none;font-size:12px;font-weight:700;letter-spacing:1px;cursor:pointer;background:transparent;color:rgba(255,255,255,0.45);transition:all .2s;}
+  .lang-btn.active{background:#fff;color:#000;}
+
+</style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">Jossy <span>Models</span></div>
+  <div class="nav-logo">Jossy <span><span data-en="Models" data-es="Modelos">Models</span></span></div>
   <ul class="nav-links">
-    <li><a href="#models">Talent</a></li>
+    <li><a href="#models"><span data-en="Talent" data-es="Talentos">Talent</span></a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="mailto:bookings@jossymodels.com" class="nav-cta">Book Now</a></li>
+    <li><a href="#about"><span data-en="About" data-es="Nosotros">About</span></a></li>
+    <li><a href="mailto:bookings@jossymodels.com" class="nav-cta"><span data-en="Book Now" data-es="Reservar">Book Now</span></a></li>
   </ul>
 </nav>
 
@@ -119,12 +124,12 @@
   <img class="hero-img" src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="Jossy Models"/>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-tag">Katy, TX · Premier Modeling Agency</p>
+    <p class="hero-tag"><span data-en="Katy, TX · Premier Modeling Agency" data-es="Katy, TX · Agencia de Modelaje Premier">Katy, TX · Premier Modeling Agency</span></p>
     <h1 class="hero-title">Where Beauty<br>Meets <em>Prestige</em></h1>
     <p class="hero-sub">Cannes · Milan · New York · Houston</p>
     <div class="hero-btns">
-      <a href="mailto:bookings@jossymodels.com" class="btn-gold">Book Talent</a>
-      <a href="#models" class="btn-outline">View Roster</a>
+      <a href="mailto:bookings@jossymodels.com" class="btn-gold"><span data-en="Book Talent" data-es="Reservar Talento">Book Talent</span></a>
+      <a href="#models" class="btn-outline"><span data-en="View Roster" data-es="Ver Modelos">View Roster</span></a>
     </div>
   </div>
   <div class="hero-scroll"><span class="scroll-line"></span> Scroll</div>
@@ -132,20 +137,20 @@
 
 <!-- STATS -->
 <div class="stats">
-  <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Models</div></div>
-  <div class="stat"><div class="stat-num">12</div><div class="stat-label">Countries</div></div>
-  <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Campaigns</div></div>
+  <div class="stat"><div class="stat-num">50+</div><div class="stat-label"><span data-en="Models" data-es="Modelos">Models</span></div></div>
+  <div class="stat"><div class="stat-num">12</div><div class="stat-label"><span data-en="Countries" data-es="Países">Countries</span></div></div>
+  <div class="stat"><div class="stat-num">200+</div><div class="stat-label"><span data-en="Campaigns" data-es="Campañas">Campaigns</span></div></div>
   <div class="stat"><div class="stat-num">2026</div><div class="stat-label">Cannes Film Festival</div></div>
 </div>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div>
-    <p class="about-tag">Our Story</p>
-    <h2 class="about-title">Elite Talent,<br><em>Global Reach</em></h2>
+    <p class="about-tag"><span data-en="Our Story" data-es="Nuestra Historia">Our Story</span></p>
+    <h2 class="about-title"><span data-en="Elite Talent,<br><em>Global Reach</em>" data-es="Talento de Élite,<br><em>Alcance Global</em>">Elite Talent,<br><em>Global Reach</em></span></h2>
     <p class="about-text">Jossy Models is Houston's most prestigious talent agency, representing world-class models on the international stage. From the red carpets of Cannes to editorial campaigns across Europe, our talent commands attention.</p>
     <p class="about-text">We don't just manage models — we build careers, craft legacies, and place Katy, TX talent on the world's biggest stages.</p>
-    <a href="mailto:bookings@jossymodels.com" class="btn-gold">Work With Us</a>
+    <a href="mailto:bookings@jossymodels.com" class="btn-gold"><span data-en="Work With Us" data-es="Trabaja con Nosotros"><span data-en="Work With Us" data-es="Trabaja con Nosotros">Work With Us</span></span></a>
   </div>
   <div class="about-img-wrap">
     <img class="about-img" src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="Cannes 2026"/>
@@ -154,58 +159,72 @@
 
 <!-- MODELS -->
 <section class="models" id="models">
-  <p class="section-tag">Our Talent</p>
-  <h2 class="section-title">The Roster</h2>
+  <p class="section-tag"><span data-en="Our Talent" data-es="Nuestro Talento">Our Talent</span></p>
+  <h2 class="section-title"><span data-en="The Roster" data-es="Nuestros Modelos">The Roster</span></h2>
   <div class="models-grid">
     <div class="model-card">
       <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="Model"/>
       <div class="model-overlay"></div>
-      <div class="model-info"><div class="model-name">Jossy V.</div><div class="model-cat">Editorial · Runway</div></div>
+      <div class="model-info"><div class="model-name">Jossy V.</div><div class="model-cat"><span data-en="Editorial · Runway" data-es="Editorial · Pasarela">Editorial · Runway</span></div></div>
     </div>
     <div class="model-card" style="filter:brightness(0.4);display:flex;align-items:center;justify-content:center;background:#111;aspect-ratio:3/4;">
-      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(255,255,255,0.3);">Coming Soon</div></div>
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(255,255,255,0.3);"><span data-en="Coming Soon" data-es="Próximamente">Coming Soon</span></div></div>
     </div>
     <div class="model-card" style="filter:brightness(0.4);display:flex;align-items:center;justify-content:center;background:#111;aspect-ratio:3/4;">
-      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(255,255,255,0.3);">Coming Soon</div></div>
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(255,255,255,0.3);"><span data-en="Coming Soon" data-es="Próximamente">Coming Soon</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section class="services" id="services">
-  <p class="section-tag">What We Do</p>
-  <h2 class="section-title">Our Services</h2>
+  <p class="section-tag"><span data-en="What We Do" data-es="Lo Que Hacemos">What We Do</span></p>
+  <h2 class="section-title"><span data-en="Our Services" data-es="Nuestros Servicios">Our Services</span></h2>
   <div class="services-grid">
     <div class="service-card">
       <div class="service-icon">✦</div>
-      <div class="service-title">Talent Booking</div>
-      <p class="service-text">From editorial shoots to runway shows and brand campaigns — we connect brands with world-class talent.</p>
+      <div class="service-title"><span data-en="Talent Booking" data-es="Reserva de Talentos">Talent Booking</span></div>
+      <p class="service-text"><span data-en="From editorial shoots to runway shows and brand campaigns — we connect brands with world-class talent." data-es="Desde sesiones editoriales hasta desfiles y campañas de marca — conectamos marcas con talento de clase mundial.">From editorial shoots to runway shows and brand campaigns — we connect brands with world-class talent.</span></p>
     </div>
     <div class="service-card">
       <div class="service-icon">✦</div>
-      <div class="service-title">Model Development</div>
-      <p class="service-text">We invest in our talent. Coaching, portfolio building, and international placement for emerging models.</p>
+      <div class="service-title"><span data-en="Model Development" data-es="Desarrollo de Modelos">Model Development</span></div>
+      <p class="service-text"><span data-en="We invest in our talent. Coaching, portfolio building, and international placement for emerging models." data-es="Invertimos en nuestro talento. Coaching, construcción de portafolio y colocación internacional para modelos emergentes.">We invest in our talent. Coaching, portfolio building, and international placement for emerging models.</span></p>
     </div>
     <div class="service-card">
       <div class="service-icon">✦</div>
-      <div class="service-title">Brand Partnerships</div>
-      <p class="service-text">Long-term brand ambassador deals, social media campaigns, and exclusive collaborations.</p>
+      <div class="service-title"><span data-en="Brand Partnerships" data-es="Alianzas de Marca">Brand Partnerships</span></div>
+      <p class="service-text"><span data-en="Long-term brand ambassador deals, social media campaigns, and exclusive collaborations." data-es="Contratos de embajadores de marca a largo plazo, campañas en redes sociales y colaboraciones exclusivas.">Long-term brand ambassador deals, social media campaigns, and exclusive collaborations.</span></p>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-  <p class="section-tag">Let's Connect</p>
-  <h2 class="cta-title">Ready to Work<br>with <em>Elite Talent?</em></h2>
-  <p class="cta-text">Whether you're a brand looking to book or a model looking to be represented — we want to hear from you.</p>
-  <a href="mailto:bookings@jossymodels.com" class="btn-gold">Get In Touch</a>
+  <p class="section-tag"><span data-en="Let's Connect" data-es="Conectemos">Let's Connect</span></p>
+  <h2 class="cta-title"><span data-en="Ready to Work<br>with <em>Elite Talent?</em>" data-es="¿Listo para Trabajar<br>con <em>Talento de Élite?</em>">Ready to Work<br>with <em>Elite Talent?</em></span></h2>
+  <p class="cta-text"><span data-en="Whether you're a brand looking to book or a model looking to be represented — we want to hear from you." data-es="Ya seas una marca buscando contratar o un modelo buscando representación — queremos escucharte.">Whether you're a brand looking to book or a model looking to be represented — we want to hear from you.</span></p>
+  <a href="mailto:bookings@jossymodels.com" class="btn-gold"><span data-en="Get In Touch" data-es="Contáctanos">Get In Touch</span></a>
 </section>
 
 <footer>
-  <div class="footer-logo">Jossy <span>Models</span></div>
+  <div class="footer-logo">Jossy <span><span data-en="Models" data-es="Modelos">Models</span></span></div>
   <div class="footer-right">© 2026 Jossy Models LLC · Katy, TX · Built by <a href="https://jfwebstudios.com" style="color:var(--gold);text-decoration:none;">JF Web Studios</a></div>
 </footer>
+
+
+  <div class="lang-toggle"><button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button><button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button></div>
+
+<script>
+function setLang(l){
+  document.querySelectorAll('[data-es]').forEach(function(el){
+    el.innerHTML = l==='es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+  });
+  document.getElementById('btn-es').classList.toggle('active',l==='es');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+}
+document.addEventListener('DOMContentLoaded',function(){setLang('es');});
+</script>
 
 </body>
 </html>
