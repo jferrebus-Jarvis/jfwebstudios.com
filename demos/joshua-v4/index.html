@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joshua Models — V4 Soft Elegant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--blush:#f2d5d0;--rose:#c4836e;--cream:#faf7f4;--charcoal:#2a2a2a;--taupe:#8a7a72;}
+    body{background:var(--cream);color:var(--charcoal);font-family:'Jost',sans-serif;}
+
+    nav{position:fixed;top:0;width:100%;z-index:100;padding:24px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(250,247,244,0.92);backdrop-filter:blur(12px);}
+    .nav-logo{font-family:'Libre Baskerville',serif;font-size:18px;letter-spacing:3px;color:var(--charcoal);}
+    .nav-logo em{font-style:italic;color:var(--rose);}
+    .nav-links{display:flex;gap:36px;list-style:none;}
+    .nav-links a{color:var(--taupe);text-decoration:none;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:400;}
+    .nav-cta{color:var(--rose)!important;border-bottom:1px solid var(--rose);padding-bottom:2px;}
+
+    /* HERO - Full bleed elegant */
+    .hero{display:grid;grid-template-columns:55% 45%;height:100vh;padding-top:72px;}
+    .hero-img-wrap{overflow:hidden;position:relative;}
+    .hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+    .hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(250,247,244,0.3));}
+    .hero-text{display:flex;flex-direction:column;justify-content:center;padding:60px 60px 60px 48px;background:var(--cream);}
+    .hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--rose);margin-bottom:24px;}
+    .hero-title{font-family:'Libre Baskerville',serif;font-size:58px;font-weight:400;line-height:1.1;margin-bottom:24px;color:var(--charcoal);}
+    .hero-title em{font-style:italic;color:var(--rose);}
+    .hero-desc{font-size:15px;line-height:1.9;color:var(--taupe);margin-bottom:40px;font-weight:300;}
+    .btn-rose{display:inline-block;background:var(--rose);color:#fff;padding:14px 40px;font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-weight:500;}
+    .btn-outline-rose{display:inline-block;border:1px solid var(--rose);color:var(--rose);padding:14px 40px;font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;margin-left:12px;}
+    .hero-cannes{margin-top:48px;padding-top:32px;border-top:1px solid rgba(196,131,110,0.2);}
+    .hero-cannes-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--taupe);margin-bottom:8px;}
+    .hero-cannes-text{font-family:'Libre Baskerville',serif;font-size:14px;font-style:italic;color:var(--rose);}
+
+    /* INTRO QUOTE */
+    .quote{padding:80px 60px;text-align:center;background:#fff;}
+    .quote-text{font-family:'Libre Baskerville',serif;font-size:32px;font-style:italic;font-weight:400;color:var(--charcoal);max-width:700px;margin:0 auto;line-height:1.5;}
+    .quote-text em{color:var(--rose);}
+    .quote-attr{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--taupe);margin-top:20px;}
+
+    /* TALENT */
+    .talent{padding:80px 60px;background:var(--cream);}
+    .talent-header{text-align:center;margin-bottom:60px;}
+    .section-tag{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--rose);margin-bottom:12px;}
+    .section-title{font-family:'Libre Baskerville',serif;font-size:42px;font-weight:400;}
+    .talent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+    .talent-card{text-align:center;}
+    .talent-card-img{overflow:hidden;margin-bottom:20px;}
+    .talent-card-img img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;transition:transform .6s;}
+    .talent-card:hover .talent-card-img img{transform:scale(1.03);}
+    .talent-name{font-family:'Libre Baskerville',serif;font-size:20px;margin-bottom:4px;}
+    .talent-type{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--taupe);}
+
+    /* ABOUT */
+    .about{display:grid;grid-template-columns:1fr 1fr;background:var(--blush);}
+    .about-img{overflow:hidden;}
+    .about-img img{width:100%;height:100%;object-fit:cover;min-height:500px;}
+    .about-content{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;}
+    .about-title{font-family:'Libre Baskerville',serif;font-size:40px;font-weight:400;line-height:1.2;margin-bottom:24px;}
+    .about-title em{font-style:italic;color:var(--rose);}
+    .about-text{font-size:15px;line-height:1.9;color:var(--charcoal);opacity:0.75;margin-bottom:20px;font-weight:300;}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--charcoal);}
+    .stat-item{padding:48px 32px;text-align:center;border-right:1px solid rgba(255,255,255,0.08);}
+    .stat-num{font-family:'Libre Baskerville',serif;font-size:48px;font-style:italic;color:var(--rose);}
+    .stat-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:8px;}
+
+    /* APPLY */
+    .apply{padding:100px 60px;text-align:center;background:#fff;}
+    .apply-title{font-family:'Libre Baskerville',serif;font-size:52px;font-weight:400;margin-bottom:12px;}
+    .apply-title em{font-style:italic;color:var(--rose);}
+    .apply-sub{font-size:15px;color:var(--taupe);margin-bottom:40px;font-weight:300;}
+
+    footer{background:var(--charcoal);color:rgba(255,255,255,0.35);padding:28px 60px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:1px;}
+
+    @media(max-width:768px){
+      nav{padding:16px 20px;}
+      .nav-links{display:none;}
+      .hero{grid-template-columns:1fr;height:auto;}
+      .hero-img-wrap{height:60vh;}
+      .hero-text{padding:48px 20px;}
+      .hero-title{font-size:40px;}
+      .quote{padding:60px 20px;}
+      .quote-text{font-size:24px;}
+      .talent{padding:60px 20px;}
+      .talent-grid{grid-template-columns:1fr 1fr;}
+      .about{grid-template-columns:1fr;}
+      .about-content{padding:60px 20px;}
+      .stats{grid-template-columns:repeat(2,1fr);}
+      .apply{padding:60px 20px;}
+      .apply-title{font-size:36px;}
+      footer{padding:20px;flex-direction:column;gap:6px;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Joshua <em>Models</em></div>
+  <ul class="nav-links">
+    <li><a href="#talent">Talent</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#apply" class="nav-cta">Apply</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-img-wrap">
+    <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="Joshua Models"/>
+  </div>
+  <div class="hero-text">
+    <p class="hero-eyebrow">Houston's Premier Talent Agency</p>
+    <h1 class="hero-title">Where <em>Beauty</em><br>Finds Its Stage</h1>
+    <p class="hero-desc">We represent extraordinary talent and connect them with the world's most sought-after brands, campaigns, and runways.</p>
+    <div>
+      <a href="mailto:bookings@joshuamodels.com" class="btn-rose">Book Talent</a>
+      <a href="#apply" class="btn-outline-rose">Get Represented</a>
+    </div>
+    <div class="hero-cannes">
+      <div class="hero-cannes-label">Latest</div>
+      <div class="hero-cannes-text">"Just returned from Cannes Film Festival 2026 — representing Houston on the world stage."</div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <p class="quote-text">"We don't just manage models. We <em>build icons</em> — one campaign, one runway, one story at a time."</p>
+  <p class="quote-attr">— Joshua Models, Houston TX</p>
+</section>
+
+<section class="talent" id="talent">
+  <div class="talent-header">
+    <p class="section-tag">Our Talent</p>
+    <h2 class="section-title">Meet the Roster</h2>
+  </div>
+  <div class="talent-grid">
+    <div class="talent-card">
+      <div class="talent-card-img">
+        <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="Jossy"/>
+      </div>
+      <div class="talent-name">Jossy V.</div>
+      <div class="talent-type">Editorial · Runway · Commercial</div>
+    </div>
+    <div class="talent-card">
+      <div class="talent-card-img" style="background:#ede8e3;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:12px;letter-spacing:2px;color:#b0a49c;text-transform:uppercase;">Coming Soon</span>
+      </div>
+      <div class="talent-name" style="color:#ccc;">— TBA —</div>
+      <div class="talent-type">New Signing</div>
+    </div>
+    <div class="talent-card">
+      <div class="talent-card-img" style="background:#ede8e3;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:12px;letter-spacing:2px;color:#b0a49c;text-transform:uppercase;">Coming Soon</span>
+      </div>
+      <div class="talent-name" style="color:#ccc;">— TBA —</div>
+      <div class="talent-type">New Signing</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-img">
+    <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="About"/>
+  </div>
+  <div class="about-content">
+    <p class="section-tag">Who We Are</p>
+    <h2 class="about-title">Houston's Most <em>Prestigious</em> Agency</h2>
+    <p class="about-text">Joshua Models was built on one simple belief — Houston has world-class talent that deserves a world-class platform.</p>
+    <p class="about-text">From the streets of Houston to the beaches of Cannes, we've spent years placing our models exactly where they belong — in front of the world's biggest cameras, on the world's most iconic runways.</p>
+    <a href="mailto:bookings@joshuamodels.com" class="btn-rose">Get In Touch</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-item"><div class="stat-num">50+</div><div class="stat-label">Models</div></div>
+  <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">Countries</div></div>
+  <div class="stat-item"><div class="stat-num">200+</div><div class="stat-label">Campaigns</div></div>
+  <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Years</div></div>
+</div>
+
+<section class="apply" id="apply">
+  <p class="section-tag">Ready to Start?</p>
+  <h2 class="apply-title">Your <em>Moment</em><br>Starts Here</h2>
+  <p class="apply-sub">Whether you're a brand booking talent or a model ready for representation — reach out today.</p>
+  <a href="mailto:bookings@joshuamodels.com" class="btn-rose">bookings@joshuamodels.com</a>
+</section>
+
+<footer>
+  <span>© 2026 Joshua Models LLC · Houston, TX</span>
+  <span>Built by <a href="https://jfwebstudios.com" style="color:rgba(255,255,255,0.3);text-decoration:none;">JF Web Studios</a></span>
+</footer>
+
+</body>
+</html>
