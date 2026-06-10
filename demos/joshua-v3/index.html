@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -97,17 +97,22 @@
       .contact-title{font-size:56px;}
       footer{padding:16px 20px;flex-direction:column;gap:6px;}
     }
-  </style>
+  
+  .lang-toggle{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;background:rgba(0,0,0,0.88);border-radius:40px;padding:4px;gap:2px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);}
+  .lang-btn{padding:8px 18px;border-radius:36px;border:none;font-size:12px;font-weight:700;letter-spacing:1px;cursor:pointer;background:transparent;color:rgba(255,255,255,0.45);transition:all .2s;}
+  .lang-btn.active{background:#fff;color:#000;}
+
+</style>
 </head>
 <body>
 
 <nav>
   <div class="nav-logo">JOSSY<span>.</span>MODELS</div>
   <ul class="nav-links">
-    <li><a href="#talent">Talent</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="mailto:bookings@jossymodels.com" class="nav-cta">Book Now</a></li>
+    <li><a href="#talent"><span data-en="Talent" data-es="Talentos">Talent</span></a></li>
+    <li><a href="#about"><span data-en="About" data-es="Nosotros">About</span></a></li>
+    <li><a href="#contact"><span data-en="Contact" data-es="Contacto">Contact</span></a></li>
+    <li><a href="mailto:bookings@jossymodels.com" class="nav-cta"><span data-en="Book Now" data-es="Reservar">Book Now</span></a></li>
   </ul>
 </nav>
 
@@ -118,8 +123,8 @@
     <p class="hero-issue">Katy's Premier Agency · Est. 2020</p>
     <h1 class="hero-title">JOSHUA<br><span class="accent">MODELS</span></h1>
     <p class="hero-sub">Where Katy, TX talent meets the international stage. Just back from Cannes Film Festival 2026.</p>
-    <a href="mailto:bookings@jossymodels.com" class="btn-red">Book Talent</a>
-    <a href="#talent" class="btn-ghost">Our Roster</a>
+    <a href="mailto:bookings@jossymodels.com" class="btn-red"><span data-en="Book Talent" data-es="Reservar Talento">Book Talent</span></a>
+    <a href="#talent" class="btn-ghost"><span data-en="Our Roster" data-es="Nuestro Equipo">Our Roster</span></a>
   </div>
   <div class="hero-badge">
     <div class="hero-badge-top">CANNES</div>
@@ -148,13 +153,13 @@
 
 <section class="editorial" id="talent">
   <div class="editorial-header">
-    <div class="editorial-label">THE TALENT</div>
-    <div class="editorial-sub">Represented Models</div>
+    <div class="editorial-label"><span data-en="THE TALENT" data-es="EL TALENTO">THE TALENT</span></div>
+    <div class="editorial-sub"><span data-en="Represented Models" data-es="Modelos Representados">Represented Models</span></div>
   </div>
   <div class="editorial-grid">
     <div class="ed-card main">
       <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="Jossy"/>
-      <div class="ed-label"><div class="ed-name">JOSSY V.</div><div class="ed-type">Editorial · Runway · Cannes 2026</div></div>
+      <div class="ed-label"><div class="ed-name">JOSSY V.</div><div class="ed-type"><span data-en="Editorial · Runway · Cannes 2026" data-es="Editorial · Pasarela · Cannes 2026">Editorial · Runway · Cannes 2026</span></div></div>
     </div>
     <div class="ed-card" style="background:#111;min-height:300px;display:flex;align-items:center;justify-content:center;">
       <div style="text-align:center;color:rgba(255,255,255,0.2);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;">COMING SOON</div>
@@ -176,38 +181,38 @@
     <div class="about-num">50+</div>
   </div>
   <div>
-    <h2 class="about-title">Models Represented.<br><em>One Mission.</em></h2>
+    <h2 class="about-title"><span data-en="Models Represented.<br><em>One Mission.</em>" data-es="Modelos Representados.<br><em>Una Misión.</em>">Models Represented.<br><em>One Mission.</em></span></h2>
     <p class="about-text">Jossy Models is Katy's boldest talent agency. We just got back from the Cannes Film Festival 2026 and we're bringing that international energy back home. We find raw talent. We build stars.</p>
-    <a href="mailto:bookings@jossymodels.com" class="btn-white">Get Represented</a>
+    <a href="mailto:bookings@jossymodels.com" class="btn-white"><span data-en="Get Represented" data-es="Obtén Representación">Get Represented</span></a>
   </div>
 </section>
 
 <div class="stats-row">
-  <div class="stat-box"><div class="stat-num">50+</div><div class="stat-label">Models</div></div>
-  <div class="stat-box"><div class="stat-num">12</div><div class="stat-label">Countries</div></div>
-  <div class="stat-box"><div class="stat-num">200+</div><div class="stat-label">Campaigns</div></div>
-  <div class="stat-box"><div class="stat-num">6</div><div class="stat-label">Years Strong</div></div>
+  <div class="stat-box"><div class="stat-num">50+</div><div class="stat-label"><span data-en="Models" data-es="Modelos">Models</span></div></div>
+  <div class="stat-box"><div class="stat-num">12</div><div class="stat-label"><span data-en="Countries" data-es="Países">Countries</span></div></div>
+  <div class="stat-box"><div class="stat-num">200+</div><div class="stat-label"><span data-en="Campaigns" data-es="Campañas">Campaigns</span></div></div>
+  <div class="stat-box"><div class="stat-num">6</div><div class="stat-label"><span data-en="Years Strong" data-es="Años de Éxito">Years Strong</span></div></div>
 </div>
 
 <section class="contact" id="contact">
   <div>
-    <h2 class="contact-title">LET'S<br><span>TALK.</span></h2>
-    <p class="contact-text">Whether you're a brand looking to book world-class talent or a model ready to take your career international — we're ready.</p>
+    <h2 class="contact-title"><span data-en="LET'S<br><span>TALK.</span>" data-es="HABLEMOS<br><span>YA.</span>">LET'S<br><span>TALK.</span></span></h2>
+    <p class="contact-text"><span data-en="Whether you're a brand looking to book world-class talent or a model ready to take your career international — we're ready." data-es="Ya seas una marca buscando contratar talento de clase mundial o un modelo listo para llevar su carrera al plano internacional — estamos listos.">Whether you're a brand looking to book world-class talent or a model ready to take your career international — we're ready.</span></p>
   </div>
   <div class="contact-right">
     <div class="contact-item">
-      <div class="contact-item-label">Bookings</div>
+      <div class="contact-item-label"><span data-en="Bookings" data-es="Reservas">Bookings</span></div>
       <div class="contact-item-val">bookings@jossymodels.com</div>
     </div>
     <div class="contact-item">
-      <div class="contact-item-label">New Talent</div>
+      <div class="contact-item-label"><span data-en="New Talent" data-es="Nuevo Talento">New Talent</span></div>
       <div class="contact-item-val">apply@jossymodels.com</div>
     </div>
     <div class="contact-item">
-      <div class="contact-item-label">Location</div>
+      <div class="contact-item-label"><span data-en="Location" data-es="Ubicación">Location</span></div>
       <div class="contact-item-val">Katy, TX</div>
     </div>
-    <a href="mailto:bookings@jossymodels.com" class="btn-red" style="align-self:flex-start;">Send Inquiry</a>
+    <a href="mailto:bookings@jossymodels.com" class="btn-red" style="align-self:flex-start;"><span data-en="Send Inquiry" data-es="Enviar Consulta">Send Inquiry</span></a>
   </div>
 </section>
 
@@ -215,6 +220,20 @@
   <span>© 2026 JOSSY MODELS LLC · HOUSTON, TX</span>
   <span>BUILT BY <a href="https://jfwebstudios.com" style="color:rgba(255,255,255,0.4);text-decoration:none;">JF WEB STUDIOS</a></span>
 </footer>
+
+
+  <div class="lang-toggle"><button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button><button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button></div>
+
+<script>
+function setLang(l){
+  document.querySelectorAll('[data-es]').forEach(function(el){
+    el.innerHTML = l==='es' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+  });
+  document.getElementById('btn-es').classList.toggle('active',l==='es');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+}
+document.addEventListener('DOMContentLoaded',function(){setLang('es');});
+</script>
 
 </body>
 </html>
