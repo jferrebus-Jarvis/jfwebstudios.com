@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joshua Models — Elite Talent Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--gold:#C9920A;--gold-light:#E8B84B;--black:#050505;--dark:#0d0d0d;}
+    body{background:var(--black);color:#fff;font-family:'Montserrat',sans-serif;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(0,0,0,0.8),transparent);}
+    .nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:6px;text-transform:uppercase;color:#fff;}
+    .nav-logo span{color:var(--gold);}
+    .nav-links{display:flex;gap:32px;list-style:none;}
+    .nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:11px;letter-spacing:3px;text-transform:uppercase;transition:color .3s;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-cta{background:var(--gold);color:#000!important;padding:10px 24px;font-weight:600!important;}
+
+    /* HERO */
+    .hero{position:relative;height:100vh;overflow:hidden;}
+    .hero-img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.65);}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.2) 100%);}
+    .hero-content{position:absolute;bottom:100px;left:60px;}
+    .hero-tag{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;line-height:1;margin-bottom:8px;}
+    .hero-title em{font-style:italic;color:var(--gold);}
+    .hero-sub{font-size:13px;letter-spacing:3px;color:rgba(255,255,255,0.6);margin-bottom:32px;text-transform:uppercase;}
+    .hero-btns{display:flex;gap:16px;}
+    .btn-gold{background:var(--gold);color:#000;padding:14px 36px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;text-decoration:none;border:none;cursor:pointer;}
+    .btn-outline{background:transparent;color:#fff;padding:14px 36px;font-size:11px;letter-spacing:3px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.4);text-decoration:none;}
+    .hero-scroll{position:absolute;bottom:40px;right:60px;display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,0.4);}
+    .scroll-line{width:40px;height:1px;background:var(--gold);}
+
+    /* STATS */
+    .stats{background:var(--gold);padding:20px 60px;display:flex;justify-content:space-around;}
+    .stat{text-align:center;}
+    .stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:#000;}
+    .stat-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,0.7);}
+
+    /* ABOUT */
+    .about{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .about-tag{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+    .about-title{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;line-height:1.1;margin-bottom:24px;}
+    .about-title em{font-style:italic;color:var(--gold);}
+    .about-text{font-size:15px;line-height:1.8;color:rgba(255,255,255,0.6);margin-bottom:24px;}
+    .about-img{width:100%;height:500px;object-fit:cover;filter:grayscale(20%);}
+    .about-img-wrap{position:relative;}
+    .about-img-wrap::before{content:'CANNES 2026';position:absolute;bottom:20px;left:-20px;background:var(--gold);color:#000;font-size:10px;letter-spacing:3px;padding:10px 20px;font-weight:700;}
+
+    /* MODELS */
+    .models{padding:80px 60px;background:var(--dark);}
+    .section-tag{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;margin-bottom:48px;}
+    .models-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+    .model-card{position:relative;overflow:hidden;aspect-ratio:3/4;}
+    .model-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s;}
+    .model-card:hover img{transform:scale(1.05);}
+    .model-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8) 0%,transparent 60%);opacity:0;transition:opacity .3s;}
+    .model-card:hover .model-overlay{opacity:1;}
+    .model-info{position:absolute;bottom:24px;left:24px;transform:translateY(10px);opacity:0;transition:all .3s;}
+    .model-card:hover .model-info{transform:translateY(0);opacity:1;}
+    .model-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;}
+    .model-cat{font-size:10px;letter-spacing:3px;color:var(--gold);}
+
+    /* SERVICES */
+    .services{padding:80px 60px;}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
+    .service-card{border:1px solid rgba(201,146,10,0.2);padding:40px 32px;}
+    .service-icon{font-size:32px;margin-bottom:16px;}
+    .service-title{font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:12px;}
+    .service-text{font-size:13px;line-height:1.8;color:rgba(255,255,255,0.5);}
+
+    /* CTA */
+    .cta{padding:100px 60px;text-align:center;background:var(--dark);border-top:1px solid rgba(201,146,10,0.2);}
+    .cta-title{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;margin-bottom:16px;}
+    .cta-title em{font-style:italic;color:var(--gold);}
+    .cta-text{color:rgba(255,255,255,0.5);margin-bottom:40px;font-size:15px;}
+
+    /* FOOTER */
+    footer{background:#000;padding:40px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(201,146,10,0.15);}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:4px;text-transform:uppercase;}
+    .footer-logo span{color:var(--gold);}
+    .footer-right{font-size:12px;color:rgba(255,255,255,0.3);}
+
+    @media(max-width:768px){
+      nav{padding:16px 20px;}
+      .nav-links{display:none;}
+      .hero-content{left:20px;bottom:80px;}
+      .hero-title{font-size:48px;}
+      .stats{padding:16px 20px;flex-wrap:wrap;gap:16px;}
+      .about{grid-template-columns:1fr;padding:60px 20px;gap:40px;}
+      .models{padding:60px 20px;}
+      .models-grid{grid-template-columns:repeat(2,1fr);}
+      .services{padding:60px 20px;}
+      .services-grid{grid-template-columns:1fr;}
+      .cta{padding:60px 20px;}
+      .cta-title{font-size:40px;}
+      footer{padding:30px 20px;flex-direction:column;gap:12px;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Joshua <span>Models</span></div>
+  <ul class="nav-links">
+    <li><a href="#models">Talent</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="mailto:bookings@joshuamodels.com" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="Joshua Models"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Houston's Premier Talent Agency</p>
+    <h1 class="hero-title">Where Beauty<br>Meets <em>Prestige</em></h1>
+    <p class="hero-sub">Cannes · Milan · New York · Houston</p>
+    <div class="hero-btns">
+      <a href="mailto:bookings@joshuamodels.com" class="btn-gold">Book Talent</a>
+      <a href="#models" class="btn-outline">View Roster</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span class="scroll-line"></span> Scroll</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Models</div></div>
+  <div class="stat"><div class="stat-num">12</div><div class="stat-label">Countries</div></div>
+  <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Campaigns</div></div>
+  <div class="stat"><div class="stat-num">2026</div><div class="stat-label">Cannes Film Festival</div></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <p class="about-tag">Our Story</p>
+    <h2 class="about-title">Elite Talent,<br><em>Global Reach</em></h2>
+    <p class="about-text">Joshua Models is Houston's most prestigious talent agency, representing world-class models on the international stage. From the red carpets of Cannes to editorial campaigns across Europe, our talent commands attention.</p>
+    <p class="about-text">We don't just manage models — we build careers, craft legacies, and place Houston talent on the world's biggest stages.</p>
+    <a href="mailto:bookings@joshuamodels.com" class="btn-gold">Work With Us</a>
+  </div>
+  <div class="about-img-wrap">
+    <img class="about-img" src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="Cannes 2026"/>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section class="models" id="models">
+  <p class="section-tag">Our Talent</p>
+  <h2 class="section-title">The Roster</h2>
+  <div class="models-grid">
+    <div class="model-card">
+      <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/d791ab89a_imessage_media_07d8da336c87.jpg" alt="Model"/>
+      <div class="model-overlay"></div>
+      <div class="model-info"><div class="model-name">Jossy V.</div><div class="model-cat">Editorial · Runway</div></div>
+    </div>
+    <div class="model-card" style="filter:brightness(0.4);display:flex;align-items:center;justify-content:center;background:#111;aspect-ratio:3/4;">
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(255,255,255,0.3);">Coming Soon</div></div>
+    </div>
+    <div class="model-card" style="filter:brightness(0.4);display:flex;align-items:center;justify-content:center;background:#111;aspect-ratio:3/4;">
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:20px;color:rgba(255,255,255,0.3);">Coming Soon</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-tag">What We Do</p>
+  <h2 class="section-title">Our Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">✦</div>
+      <div class="service-title">Talent Booking</div>
+      <p class="service-text">From editorial shoots to runway shows and brand campaigns — we connect brands with world-class talent.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✦</div>
+      <div class="service-title">Model Development</div>
+      <p class="service-text">We invest in our talent. Coaching, portfolio building, and international placement for emerging models.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✦</div>
+      <div class="service-title">Brand Partnerships</div>
+      <p class="service-text">Long-term brand ambassador deals, social media campaigns, and exclusive collaborations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <p class="section-tag">Let's Connect</p>
+  <h2 class="cta-title">Ready to Work<br>with <em>Elite Talent?</em></h2>
+  <p class="cta-text">Whether you're a brand looking to book or a model looking to be represented — we want to hear from you.</p>
+  <a href="mailto:bookings@joshuamodels.com" class="btn-gold">Get In Touch</a>
+</section>
+
+<footer>
+  <div class="footer-logo">Joshua <span>Models</span></div>
+  <div class="footer-right">© 2026 Joshua Models LLC · Houston, TX · Built by <a href="https://jfwebstudios.com" style="color:var(--gold);text-decoration:none;">JF Web Studios</a></div>
+</footer>
+
+</body>
+</html>
