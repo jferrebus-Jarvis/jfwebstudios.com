@@ -21,11 +21,11 @@
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     background: rgba(10,10,10,0.95); backdrop-filter: blur(10px);
-    padding: 16px 28px; display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 28px 16px 24px; display: flex; justify-content: space-between; align-items: center;
     border-bottom: 1px solid rgba(201,168,76,0.15);
   }
   .nav-logo { font-size: 19px; font-weight: 900; letter-spacing: 2px; color: var(--gold); }
-  .nav-right { display: flex; align-items: center; gap: 14px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; margin-right: 8px; }
   .nav-book {
     background: var(--gold); color: var(--black); font-weight: 800;
     padding: 10px 22px; border-radius: 50px; font-size: 13px;
@@ -200,7 +200,6 @@
 <nav>
   <div class="nav-logo">DAVIDRAZORTX</div>
   <div class="nav-right">
-    <a href="book.html" class="nav-book" id="nav-book-btn">Reservar Cita</a>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('es')" id="btn-es">ES</button>
       <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
@@ -348,7 +347,6 @@
   const t = {
     es: {
       pageTitle: "DavidRazorTX — Barbería Premium",
-      navBook: "Reservar Cita",
       heroBadge: "✂️ Barbería Premium · Bryan/College Station",
       heroH1: "Tu Próximo Corte<br><span>Empieza Aquí</span>",
       heroSub: "Fades, tapers y arreglo de barba de primera. Elige tu servicio y agenda tu hora en segundos.",
@@ -377,7 +375,6 @@
     },
     en: {
       pageTitle: "DavidRazorTX — Premium Barbershop",
-      navBook: "Book Now",
       heroBadge: "✂️ Premium Barbershop · Bryan/College Station",
       heroH1: "Your Next Cut<br><span>Starts Here</span>",
       heroSub: "Premium fades, tapers & beard work by David. Pick your service and book your time in seconds.",
@@ -410,7 +407,6 @@
     const d = t[lang];
     document.documentElement.lang = lang;
     document.title = d.pageTitle;
-    document.getElementById('nav-book-btn').textContent = d.navBook;
     document.getElementById('hero-badge').textContent = d.heroBadge;
     document.getElementById('hero-h1').innerHTML = d.heroH1;
     document.getElementById('hero-sub').textContent = d.heroSub;
