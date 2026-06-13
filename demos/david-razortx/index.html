@@ -76,13 +76,13 @@
   }
   .hero-cta {
     display: inline-flex; align-items: center; gap: 12px;
-    background: #25D366; color: white; font-weight: 800;
-    font-size: 18px; padding: 18px 40px; border-radius: 50px;
+    background: var(--gold); color: var(--black); font-weight: 900;
+    font-size: 18px; padding: 18px 44px; border-radius: 50px;
     text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.35); letter-spacing: 0.3px;
   }
-  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(37,211,102,0.4); }
-  .hero-cta svg { width: 24px; height: 24px; fill: white; }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.5); background: var(--gold-light); }
+  .hero-cta svg { width: 24px; height: 24px; fill: var(--black); }
   .hero-note { margin-top: 20px; font-size: 13px; color: var(--gray); }
 
   /* STATS */
@@ -213,12 +213,11 @@
   <div>
     <div class="hero-badge" id="hero-badge">✂️ Barbería Premium · Bryan/College Station</div>
     <h1 id="hero-h1">Tu Próximo Corte<br><span id="hero-span">Empieza Aquí</span></h1>
-    <p class="hero-sub" id="hero-sub">Fades, tapers y arreglo de barba de primera. Escríbele a David por WhatsApp y agenda tu cita al instante.</p>
-    <a href="https://wa.me/19792318645?text=Hola%20David!%20Quiero%20reservar%20una%20cita%20%E2%9C%82%EF%B8%8F" class="hero-cta" target="_blank" id="hero-cta">
-      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.121 1.532 5.85L.057 23.215a.75.75 0 0 0 .92.921l5.356-1.476A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.901 0-3.682-.511-5.215-1.402l-.371-.217-3.843 1.058 1.058-3.842-.218-.372A9.944 9.944 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      <span id="hero-cta-text">Escríbeme en WhatsApp</span>
+    <p class="hero-sub" id="hero-sub">Fades, tapers y arreglo de barba de primera. Elige tu servicio y agenda tu hora en segundos.</p>
+    <a href="book.html" class="hero-cta" id="hero-cta">
+      ✂ <span id="hero-cta-text">Reservar mi Cita</span>
     </a>
-    <p class="hero-note" id="hero-note">Respuesta inmediata · Sin esperas · Tu tiempo importa</p>
+    <p class="hero-note" id="hero-note">Confirmación instantánea · Sin llamadas · Tu tiempo importa</p>
   </div>
 </section>
 
@@ -352,10 +351,10 @@
       navBook: "Reservar Cita",
       heroBadge: "✂️ Barbería Premium · Bryan/College Station",
       heroH1: "Tu Próximo Corte<br><span>Empieza Aquí</span>",
-      heroSub: "Fades, tapers y arreglo de barba de primera. Escríbele a David por WhatsApp y agenda tu cita al instante.",
-      heroCta: "https://wa.me/19792318645?text=Hola%20David!%20Quiero%20reservar%20una%20cita%20%E2%9C%82%EF%B8%8F",
-      heroCtaText: "Escríbeme en WhatsApp",
-      heroNote: "Respuesta inmediata · Sin esperas · Tu tiempo importa",
+      heroSub: "Fades, tapers y arreglo de barba de primera. Elige tu servicio y agenda tu hora en segundos.",
+      heroCta: "book.html",
+      heroCtaText: "Reservar mi Cita",
+      heroNote: "Confirmación instantánea · Sin llamadas · Tu tiempo importa",
       stat1: "Clientes Felices", stat2: "A la Semana", stat2days: "Días", stat3: "Calificación",
       howLabel: "El Proceso", howTitle: "¿Cómo Funciona?",
       step1Title: "Elige tu Servicio", step1Desc: "Revisa los servicios y precios abajo, elige el que quieres",
@@ -381,10 +380,10 @@
       navBook: "Book Now",
       heroBadge: "✂️ Premium Barbershop · Bryan/College Station",
       heroH1: "Your Next Cut<br><span>Starts Here</span>",
-      heroSub: "Premium fades, tapers & beard work by David. Message him on WhatsApp and lock in your appointment instantly.",
-      heroCta: "https://wa.me/19792318645?text=Hey%20David!%20I%20want%20to%20book%20a%20cut%20%E2%9C%82%EF%B8%8F",
-      heroCtaText: "Message to Book",
-      heroNote: "Instant reply · No waiting · Your time matters",
+      heroSub: "Premium fades, tapers & beard work by David. Pick your service and book your time in seconds.",
+      heroCta: "book.html",
+      heroCtaText: "Book My Appointment",
+      heroNote: "Instant confirmation · No calls · Your time matters",
       stat1: "Happy Clients", stat2: "A Week", stat2days: "Days", stat3: "Rated",
       howLabel: "The Process", howTitle: "How It Works",
       step1Title: "Pick a Service", step1Desc: "Browse the services and pricing below, choose what you want",
@@ -416,6 +415,7 @@
     document.getElementById('hero-h1').innerHTML = d.heroH1;
     document.getElementById('hero-sub').textContent = d.heroSub;
     document.getElementById('hero-cta').href = d.heroCta;
+    document.getElementById('hero-cta').removeAttribute('target');
     document.getElementById('hero-cta-text').textContent = d.heroCtaText;
     document.getElementById('hero-note').textContent = d.heroNote;
     document.getElementById('stat1').textContent = d.stat1;
