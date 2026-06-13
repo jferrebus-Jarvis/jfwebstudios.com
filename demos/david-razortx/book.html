@@ -96,6 +96,22 @@
   }
   .book-btn:hover { background: var(--gold-light); }
 
+  .cancel-policy {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 16px;
+    padding: 28px 32px;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .cancel-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+  .cancel-text h3 { font-size: 15px; font-weight: 800; color: var(--gold); margin-bottom: 6px; }
+  .cancel-text p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+  .cancel-wrap { padding: 0 24px 48px; }
+
   /* HOW IT WORKS */
   .how-section {
     background: var(--dark);
@@ -203,6 +219,17 @@
          class="book-btn" target="_blank" id="svc4-btn">Reservar</a>
     </div>
 
+  </div>
+</div>
+
+<!-- CANCELLATION POLICY -->
+<div class="cancel-wrap">
+  <div class="cancel-policy">
+    <div class="cancel-icon">⚠️</div>
+    <div class="cancel-text">
+      <h3 id="cancel-title">Política de Cancelación</h3>
+      <p id="cancel-desc">Si necesitas cancelar o reprogramar tu cita, avísale a David con al menos <strong>2 horas de anticipación</strong>. Las cancelaciones sin aviso previo tienen un cargo de <strong>$25</strong>. Puedes escribirle directo por WhatsApp.</p>
+    </div>
   </div>
 </div>
 
@@ -330,6 +357,8 @@
     document.getElementById('step3-title').textContent = d.step3Title;
     document.getElementById('step3-desc').textContent = d.step3Desc;
     document.getElementById('nav-back-link').textContent = d.navBack;
+    document.getElementById('cancel-title').textContent = d.cancelTitle;
+    document.getElementById('cancel-desc').innerHTML = d.cancelDesc.replace('2 horas', '<strong>2 horas</strong>').replace('2 hours', '<strong>2 hours</strong>').replace('$25', '<strong>$25</strong>');
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   }
