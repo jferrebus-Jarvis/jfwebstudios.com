@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Your Cut — DavidRazorTX</title>
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<title>Reserva tu Cita — DavidRazorTX</title>
 <style>
   :root {
     --black: #0a0a0a;
@@ -18,21 +17,34 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: var(--black); color: var(--white); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; }
 
+  /* NAV */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     background: rgba(10,10,10,0.97); backdrop-filter: blur(10px);
-    padding: 18px 32px; display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 28px; display: flex; justify-content: space-between; align-items: center;
     border-bottom: 1px solid rgba(201,168,76,0.2);
   }
-  .nav-logo { font-size: 20px; font-weight: 900; letter-spacing: 2px; color: var(--gold); text-decoration: none; }
-  .nav-back {
-    color: var(--gray); font-size: 13px; text-decoration: none;
-    display: flex; align-items: center; gap: 6px;
-  }
+  .nav-logo { font-size: 19px; font-weight: 900; letter-spacing: 2px; color: var(--gold); text-decoration: none; }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .nav-back { color: var(--gray); font-size: 13px; text-decoration: none; }
   .nav-back:hover { color: var(--gold); }
 
+  /* LANGUAGE TOGGLE */
+  .lang-toggle {
+    display: flex; align-items: center; gap: 0;
+    background: #1a1a1a; border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 50px; overflow: hidden; cursor: pointer;
+  }
+  .lang-btn {
+    padding: 6px 14px; font-size: 12px; font-weight: 700;
+    letter-spacing: 1px; border: none; background: transparent;
+    color: var(--gray); cursor: pointer; transition: all 0.2s;
+  }
+  .lang-btn.active { background: var(--gold); color: var(--black); }
+
+  /* HEADER */
   .page-header {
-    padding: 120px 24px 48px;
+    padding: 120px 24px 50px;
     text-align: center;
     background: linear-gradient(160deg, #0a0a0a 0%, #1a1200 60%, #0a0a0a 100%);
   }
@@ -44,15 +56,17 @@
     text-transform: uppercase;
   }
   .page-header h1 {
-    font-size: clamp(32px, 6vw, 56px); font-weight: 900;
-    letter-spacing: -1px; margin-bottom: 12px;
+    font-size: clamp(34px, 6vw, 58px); font-weight: 900;
+    letter-spacing: -1px; margin-bottom: 14px; line-height: 1.05;
   }
   .page-header h1 span { color: var(--gold); }
   .page-header p { color: var(--gray); font-size: 16px; max-width: 420px; margin: 0 auto; line-height: 1.6; }
 
+  /* SERVICES BAR */
   .services-bar {
-    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
-    padding: 32px 24px; background: var(--dark);
+    display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+    padding: 28px 24px;
+    background: var(--dark);
     border-top: 1px solid rgba(201,168,76,0.1);
     border-bottom: 1px solid rgba(201,168,76,0.1);
   }
@@ -62,61 +76,58 @@
     font-size: 13px; font-weight: 600; color: var(--white);
     display: flex; align-items: center; gap: 8px;
   }
-  .service-chip .price { color: var(--gold); font-weight: 800; }
+  .service-chip .price { color: var(--gold); font-weight: 900; }
 
+  /* BOOKING SECTION */
   .booking-section {
-    max-width: 900px; margin: 0 auto; padding: 48px 24px 80px;
+    max-width: 860px; margin: 0 auto; padding: 52px 24px 80px;
   }
   .booking-label {
     text-align: center; margin-bottom: 32px;
   }
-  .booking-label h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+  .booking-label h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
   .booking-label p { color: var(--gray); font-size: 14px; }
 
-  /* Calendly embed container */
-  .calendly-wrap {
+  /* Booking box */
+  .booking-box {
     background: var(--card);
-    border: 1px solid rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.2);
     border-radius: 20px;
     overflow: hidden;
-    min-height: 700px;
   }
   .calendly-inline-widget {
     min-width: 320px;
     height: 700px;
   }
 
-  /* Fallback if no Calendly link yet */
-  .setup-notice {
-    background: var(--card);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 20px;
-    padding: 60px 40px;
+  /* WhatsApp fallback */
+  .wa-fallback {
+    padding: 64px 40px;
     text-align: center;
   }
-  .setup-notice .icon { font-size: 56px; margin-bottom: 20px; }
-  .setup-notice h3 { font-size: 22px; font-weight: 800; margin-bottom: 12px; color: var(--gold); }
-  .setup-notice p { color: var(--gray); line-height: 1.7; margin-bottom: 28px; }
-  .setup-notice .whatsapp-btn {
+  .wa-fallback .icon { font-size: 60px; margin-bottom: 20px; }
+  .wa-fallback h3 { font-size: 22px; font-weight: 800; margin-bottom: 12px; color: var(--gold); }
+  .wa-fallback p { color: var(--gray); line-height: 1.7; margin-bottom: 30px; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .wa-btn {
     display: inline-flex; align-items: center; gap: 10px;
     background: #25D366; color: white; font-weight: 800;
     font-size: 16px; padding: 16px 36px; border-radius: 50px;
-    text-decoration: none;
+    text-decoration: none; transition: transform 0.2s;
   }
+  .wa-btn:hover { transform: translateY(-2px); }
 
-  .how-it-works {
+  /* HOW IT WORKS */
+  .how-section {
     background: var(--dark);
     border-top: 1px solid rgba(201,168,76,0.1);
-    padding: 60px 24px;
+    padding: 64px 24px;
   }
-  .how-it-works h2 { text-align: center; font-size: 26px; font-weight: 800; margin-bottom: 40px; }
+  .how-section h2 { text-align: center; font-size: 26px; font-weight: 800; margin-bottom: 44px; }
   .steps {
     display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
     max-width: 800px; margin: 0 auto;
   }
-  .step {
-    flex: 1; min-width: 200px; max-width: 220px; text-align: center;
-  }
+  .step { flex: 1; min-width: 180px; max-width: 210px; text-align: center; }
   .step-num {
     width: 52px; height: 52px; background: var(--gold); color: var(--black);
     border-radius: 50%; font-size: 20px; font-weight: 900;
@@ -126,11 +137,12 @@
   .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
   .step p { color: var(--gray); font-size: 13px; line-height: 1.6; }
 
+  /* FOOTER */
   footer {
     background: var(--black); border-top: 1px solid rgba(255,255,255,0.05);
     padding: 32px 24px; text-align: center;
   }
-  footer p { color: var(--gray); font-size: 13px; }
+  footer p { color: var(--gray); font-size: 13px; line-height: 1.8; }
   footer a { color: var(--gold); text-decoration: none; }
 </style>
 </head>
@@ -138,76 +150,168 @@
 
 <nav>
   <a href="index.html" class="nav-logo">✂ DAVIDRAZORTX</a>
-  <a href="index.html" class="nav-back">← Back to Home</a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back" id="nav-back-link">← Inicio</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('es')" id="btn-es">ES</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </div>
 </nav>
 
+<!-- HEADER -->
 <div class="page-header">
-  <div class="header-badge">✂ Online Booking</div>
-  <h1>Book Your <span>Cut</span></h1>
-  <p>Pick your time, pick your service. David will be ready for you — no back and forth.</p>
+  <div class="header-badge" id="badge-text">✂ Reservaciones en Línea</div>
+  <h1 id="hero-title">Reserva tu <span id="hero-span">Cita</span></h1>
+  <p id="hero-sub">Elige tu servicio y tu hora. David te estará esperando — sin llamadas, sin mensajes de ida y vuelta.</p>
 </div>
 
+<!-- SERVICES BAR -->
 <div class="services-bar">
-  <div class="service-chip">✂ Haircut <span class="price">$30</span></div>
-  <div class="service-chip">🪒 Fade + Line Up <span class="price">$40</span></div>
-  <div class="service-chip">✂ Beard Trim <span class="price">$15</span></div>
-  <div class="service-chip">💈 Full Service <span class="price">$55</span></div>
+  <div class="service-chip">✂ <span id="svc1-name">Corte Clásico</span> <span class="price">$30</span></div>
+  <div class="service-chip">💈 <span id="svc2-name">Fade</span> <span class="price">$35</span></div>
+  <div class="service-chip">🪒 <span id="svc3-name">Arreglo de Barba</span> <span class="price">$20</span></div>
+  <div class="service-chip">⭐ <span id="svc4-name">Servicio Completo</span> <span class="price">$50</span></div>
 </div>
 
+<!-- BOOKING -->
 <div class="booking-section">
   <div class="booking-label">
-    <h2>Choose Your Time</h2>
-    <p>All appointments confirmed instantly — no waiting for a reply</p>
+    <h2 id="booking-title">Elige tu Horario</h2>
+    <p id="booking-sub">Confirmación instantánea — no esperes respuesta</p>
   </div>
 
-  <!-- CALENDLY EMBED — replace the URL below with David's actual Calendly link -->
-  <div class="calendly-wrap" id="calendly-container">
-    <!-- If David has a Calendly link, uncomment this and replace the URL:
-    <div class="calendly-inline-widget"
-         data-url="https://calendly.com/DAVID-USERNAME"
-         style="min-width:320px;height:700px;">
-    </div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <div class="booking-box">
+    <!-- 
+      CALENDLY: When David sends his Calendly link, replace the WhatsApp fallback below with:
+      <div class="calendly-inline-widget" data-url="https://calendly.com/DAVID-USERNAME" style="min-width:320px;height:700px;"></div>
+      <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     -->
-
-    <!-- TEMP: WhatsApp fallback until Calendly is connected -->
-    <div class="setup-notice">
+    <div class="wa-fallback">
       <div class="icon">📅</div>
-      <h3>Calendar Coming Soon</h3>
-      <p>Online booking is being set up. In the meantime, tap below to book directly with David via WhatsApp — he'll confirm your time within minutes.</p>
-      <a href="https://wa.me/19792318645?text=Hey%20David!%20I%20want%20to%20book%20a%20cut%20%E2%9C%82%EF%B8%8F" class="whatsapp-btn" target="_blank">
+      <h3 id="fallback-title">Calendario en Línea — Próximamente</h3>
+      <p id="fallback-desc">El sistema de reservas automático está siendo configurado. Por ahora, escríbele directamente a David por WhatsApp y él confirma tu hora en minutos.</p>
+      <a href="https://wa.me/19792318645?text=Hola%20David!%20Quiero%20reservar%20un%20corte%20%E2%9C%82%EF%B8%8F" class="wa-btn" target="_blank" id="wa-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Book via WhatsApp
+        <span id="wa-btn-text">Reservar por WhatsApp</span>
       </a>
     </div>
   </div>
 </div>
 
-<div class="how-it-works">
-  <h2>How It Works</h2>
+<!-- HOW IT WORKS -->
+<div class="how-section">
+  <h2 id="how-title">¿Cómo Funciona?</h2>
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
-      <h3>Pick a Service</h3>
-      <p>Choose your cut type from the options above</p>
+      <h3 id="step1-title">Elige tu Servicio</h3>
+      <p id="step1-desc">Selecciona el tipo de corte que quieres</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <h3>Select a Time</h3>
-      <p>Pick any open slot on the calendar — available 7 days a week</p>
+      <h3 id="step2-title">Selecciona tu Hora</h3>
+      <p id="step2-desc">Escoge cualquier horario disponible — 7 días a la semana</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <h3>Get Confirmed</h3>
-      <p>Instant confirmation sent to your phone. Show up and get fresh.</p>
+      <h3 id="step3-title">Confirmación Instantánea</h3>
+      <p id="step3-desc">Recibes confirmación en tu teléfono. Llega y sal fresco.</p>
     </div>
   </div>
 </div>
 
 <footer>
   <p>✂ DavidRazorTX · Bryan/College Station, TX · <a href="tel:+19792318645">(979) 231-8645</a></p>
-  <p style="margin-top:8px;">Website by <a href="https://jfwebstudios.com" target="_blank">JF Web Studios</a></p>
+  <p>Sitio web por <a href="https://jfwebstudios.com" target="_blank">JF Web Studios</a></p>
 </footer>
+
+<script>
+  const translations = {
+    es: {
+      title: "Reserva tu Cita — DavidRazorTX",
+      badge: "✂ Reservaciones en Línea",
+      heroTitle: "Reserva tu ",
+      heroSpan: "Cita",
+      heroSub: "Elige tu servicio y tu hora. David te estará esperando — sin llamadas, sin mensajes de ida y vuelta.",
+      svc1: "Corte Clásico",
+      svc2: "Fade",
+      svc3: "Arreglo de Barba",
+      svc4: "Servicio Completo",
+      bookingTitle: "Elige tu Horario",
+      bookingSub: "Confirmación instantánea — no esperes respuesta",
+      fallbackTitle: "Calendario en Línea — Próximamente",
+      fallbackDesc: "El sistema de reservas automático está siendo configurado. Por ahora, escríbele directamente a David por WhatsApp y él confirma tu hora en minutos.",
+      waLink: "https://wa.me/19792318645?text=Hola%20David!%20Quiero%20reservar%20un%20corte%20%E2%9C%82%EF%B8%8F",
+      waBtnText: "Reservar por WhatsApp",
+      howTitle: "¿Cómo Funciona?",
+      step1Title: "Elige tu Servicio",
+      step1Desc: "Selecciona el tipo de corte que quieres",
+      step2Title: "Selecciona tu Hora",
+      step2Desc: "Escoge cualquier horario disponible — 7 días a la semana",
+      step3Title: "Confirmación Instantánea",
+      step3Desc: "Recibes confirmación en tu teléfono. Llega y sal fresco.",
+      navBack: "← Inicio"
+    },
+    en: {
+      title: "Book Your Cut — DavidRazorTX",
+      badge: "✂ Online Booking",
+      heroTitle: "Book Your ",
+      heroSpan: "Cut",
+      heroSub: "Pick your service and your time. David will be ready for you — no calls, no back and forth.",
+      svc1: "Classic Cut",
+      svc2: "Fade",
+      svc3: "Beard Trim",
+      svc4: "Full Service",
+      bookingTitle: "Choose Your Time",
+      bookingSub: "Instant confirmation — no waiting for a reply",
+      fallbackTitle: "Online Calendar — Coming Soon",
+      fallbackDesc: "The automatic booking system is being set up. For now, message David directly on WhatsApp and he'll confirm your time within minutes.",
+      waLink: "https://wa.me/19792318645?text=Hey%20David!%20I%20want%20to%20book%20a%20cut%20%E2%9C%82%EF%B8%8F",
+      waBtnText: "Book via WhatsApp",
+      howTitle: "How It Works",
+      step1Title: "Pick a Service",
+      step1Desc: "Choose the type of cut you want",
+      step2Title: "Select a Time",
+      step2Desc: "Pick any open slot — available 7 days a week",
+      step3Title: "Instant Confirmation",
+      step3Desc: "Confirmation sent to your phone. Show up and get fresh.",
+      navBack: "← Home"
+    }
+  };
+
+  function setLang(lang) {
+    const t = translations[lang];
+    document.documentElement.lang = lang;
+    document.title = t.title;
+    document.getElementById('badge-text').textContent = t.badge;
+    document.getElementById('hero-title').innerHTML = t.heroTitle + '<span id="hero-span">' + t.heroSpan + '</span>';
+    document.getElementById('hero-sub').textContent = t.heroSub;
+    document.getElementById('svc1-name').textContent = t.svc1;
+    document.getElementById('svc2-name').textContent = t.svc2;
+    document.getElementById('svc3-name').textContent = t.svc3;
+    document.getElementById('svc4-name').textContent = t.svc4;
+    document.getElementById('booking-title').textContent = t.bookingTitle;
+    document.getElementById('booking-sub').textContent = t.bookingSub;
+    document.getElementById('fallback-title').textContent = t.fallbackTitle;
+    document.getElementById('fallback-desc').textContent = t.fallbackDesc;
+    document.getElementById('wa-link').href = t.waLink;
+    document.getElementById('wa-btn-text').textContent = t.waBtnText;
+    document.getElementById('how-title').textContent = t.howTitle;
+    document.getElementById('step1-title').textContent = t.step1Title;
+    document.getElementById('step1-desc').textContent = t.step1Desc;
+    document.getElementById('step2-title').textContent = t.step2Title;
+    document.getElementById('step2-desc').textContent = t.step2Desc;
+    document.getElementById('step3-title').textContent = t.step3Title;
+    document.getElementById('step3-desc').textContent = t.step3Desc;
+    document.getElementById('nav-back-link').textContent = t.navBack;
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+
+  // Default: Spanish
+  setLang('es');
+</script>
 
 </body>
 </html>
