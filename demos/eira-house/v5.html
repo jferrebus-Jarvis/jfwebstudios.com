@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eira House — Premium Media Agency</title>
+<style>
+  :root { --bg:#0c0c0c; --white:#fafafa; --gold:#C9A84C; --cream:#f5f0e8; --muted:#5a5a5a; --border:rgba(201,168,76,0.12); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--white); font-family:'Helvetica Neue',sans-serif; }
+
+  /* NAV */
+  nav { position:fixed; top:0; left:0; right:0; z-index:200; }
+  .nav-inner { display:flex; justify-content:space-between; align-items:center; padding:20px 56px; border-bottom:1px solid var(--border); background:rgba(12,12,12,0.92); backdrop-filter:blur(16px); }
+  .logo { font-family:Georgia,serif; font-size:19px; letter-spacing:4px; font-style:italic; color:var(--white); }
+  .nav-links { display:flex; gap:36px; list-style:none; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:11px; letter-spacing:2px; text-transform:uppercase; transition:color 0.3s; }
+  .nav-links a:hover { color:var(--gold); }
+  .nav-contact { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); text-decoration:none; border:1px solid var(--gold); padding:10px 22px; transition:all 0.3s; }
+  .nav-contact:hover { background:var(--gold); color:var(--bg); }
+
+  /* HERO — FULL BLACK WITH CENTERED TEXT */
+  .hero { height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 48px; position:relative; }
+  .hero-circle { position:absolute; width:600px; height:600px; border-radius:50%; border:1px solid var(--border); top:50%; left:50%; transform:translate(-50%,-50%); }
+  .hero-circle2 { position:absolute; width:900px; height:900px; border-radius:50%; border:1px solid rgba(201,168,76,0.05); top:50%; left:50%; transform:translate(-50%,-50%); }
+  .hero-tag { font-size:10px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); margin-bottom:32px; }
+  .hero h1 { font-family:Georgia,serif; font-size:clamp(52px,8vw,100px); font-weight:400; line-height:1.0; letter-spacing:-2px; max-width:860px; margin-bottom:28px; position:relative; }
+  .hero h1 .italic { font-style:italic; color:var(--gold); }
+  .hero-sub { font-size:14px; color:var(--muted); line-height:1.8; max-width:480px; margin:0 auto 48px; position:relative; }
+  .hero-btns { display:flex; gap:16px; justify-content:center; position:relative; }
+  .btn-fill { background:var(--gold); color:var(--bg); padding:16px 40px; font-size:11px; letter-spacing:2px; text-transform:uppercase; text-decoration:none; font-weight:700; transition:all 0.3s; }
+  .btn-fill:hover { background:#E2C97E; }
+  .btn-line { border:1px solid var(--border); color:var(--muted); padding:16px 40px; font-size:11px; letter-spacing:2px; text-transform:uppercase; text-decoration:none; transition:all 0.3s; }
+  .btn-line:hover { border-color:var(--gold); color:var(--gold); }
+  .hero-scroll { position:absolute; bottom:40px; left:50%; transform:translateX(-50%); font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .scroll-line { width:1px; height:40px; background:linear-gradient(to bottom, var(--muted), transparent); }
+
+  /* SERVICES HORIZONTAL SCROLL FEEL */
+  .svc-section { padding:100px 0; border-top:1px solid var(--border); }
+  .svc-header { padding:0 56px; margin-bottom:56px; display:flex; justify-content:space-between; align-items:flex-end; }
+  .svc-label { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+  .svc-title { font-family:Georgia,serif; font-size:42px; font-weight:400; }
+  .svc-count { font-family:Georgia,serif; font-style:italic; font-size:64px; color:rgba(201,168,76,0.15); line-height:1; }
+  .svc-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); margin:0 56px; }
+  .sc { background:var(--bg); padding:48px 36px 40px; border-bottom:2px solid transparent; transition:border-color 0.3s, background 0.3s; }
+  .sc:hover { border-color:var(--gold); background:#0f0f0f; }
+  .sc-num { font-family:Georgia,serif; font-style:italic; font-size:13px; color:var(--gold); margin-bottom:20px; opacity:0.6; }
+  .sc-name { font-family:Georgia,serif; font-size:22px; margin-bottom:14px; }
+  .sc-desc { font-size:13px; color:var(--muted); line-height:1.7; }
+
+  /* MANIFESTO */
+  .manifesto { padding:120px 56px; max-width:900px; margin:0 auto; text-align:center; border-top:1px solid var(--border); }
+  .manifesto blockquote { font-family:Georgia,serif; font-size:clamp(24px,3.5vw,38px); font-weight:400; line-height:1.4; color:var(--white); }
+  .manifesto blockquote em { color:var(--gold); font-style:italic; }
+  .manifesto cite { display:block; margin-top:32px; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+
+  /* STATS */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .stat { padding:56px 36px; text-align:center; background:var(--bg); }
+  .stat-n { font-family:Georgia,serif; font-style:italic; font-size:54px; color:var(--gold); line-height:1; margin-bottom:10px; }
+  .stat-l { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); }
+
+  /* CONTACT */
+  .contact { padding:120px 56px; text-align:center; }
+  .contact-label { font-size:10px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+  .contact h2 { font-family:Georgia,serif; font-size:clamp(40px,6vw,72px); font-weight:400; line-height:1.05; margin-bottom:20px; }
+  .contact h2 em { font-style:italic; color:var(--gold); }
+  .contact-sub { font-size:14px; color:var(--muted); margin-bottom:48px; }
+  .contact-email { font-family:Georgia,serif; font-style:italic; font-size:22px; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:4px; display:inline-block; margin-bottom:32px; }
+  .contact-ig { display:inline-block; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); text-decoration:none; }
+  .contact-ig:hover { color:var(--gold); }
+
+  footer { border-top:1px solid var(--border); padding:32px 56px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  footer .fl { font-family:Georgia,serif; font-style:italic; font-size:16px; letter-spacing:3px; }
+  footer span, footer a { font-size:11px; color:var(--muted); text-decoration:none; }
+  footer a:hover { color:var(--gold); }
+
+  @media(max-width:900px) {
+    .nav-inner { padding:16px 24px; } .nav-links { display:none; }
+    .hero { padding:0 24px; }
+    .hero-circle, .hero-circle2 { display:none; }
+    .svc-header { padding:0 24px; flex-direction:column; align-items:flex-start; gap:16px; }
+    .svc-cards { margin:0 24px; grid-template-columns:1fr; }
+    .manifesto { padding:80px 24px; }
+    .stats { grid-template-columns:1fr 1fr; }
+    .contact { padding:80px 24px; }
+    footer { padding:24px; flex-direction:column; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Eira House</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#manifesto">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-contact">Work With Us</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-circle"></div>
+  <div class="hero-circle2"></div>
+  <div class="hero-tag">✦ Media & Marketing Agency · Houston, Texas</div>
+  <h1>We Create <span class="italic">Iconic</span><br>Media for Brands<br>That Mean Business</h1>
+  <p class="hero-sub">Videography. Photography. Data-driven advertising. Built for Houston. Ready for the world.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-fill">Start a Project</a>
+    <a href="#services" class="btn-line">Our Services</a>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-n">47+</div><div class="stat-l">Projects Delivered</div></div>
+  <div class="stat"><div class="stat-n">1.2K</div><div class="stat-l">IG Community</div></div>
+  <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Data Driven</div></div>
+  <div class="stat"><div class="stat-n">HTX</div><div class="stat-l">Home Base</div></div>
+</div>
+
+<section id="services" class="svc-section">
+  <div class="svc-header">
+    <div><div class="svc-label">What We Offer</div><div class="svc-title">Our Services</div></div>
+    <div class="svc-count">06</div>
+  </div>
+  <div class="svc-cards">
+    <div class="sc"><div class="sc-num">01</div><div class="sc-name">Videography</div><div class="sc-desc">Cinematic brand films, commercials, reels, and event coverage that stop the scroll and demand attention.</div></div>
+    <div class="sc"><div class="sc-num">02</div><div class="sc-name">Photography</div><div class="sc-desc">Editorial, product, lifestyle, and event photography. Every image tells your brand story at its highest level.</div></div>
+    <div class="sc"><div class="sc-num">03</div><div class="sc-name">Performance Ads</div><div class="sc-desc">Meta, TikTok, and Google campaigns built on data. We track, optimize, and scale what actually works.</div></div>
+    <div class="sc"><div class="sc-num">04</div><div class="sc-name">Brand Strategy</div><div class="sc-desc">Identity, creative direction, and market positioning. We build brands people remember and return to.</div></div>
+    <div class="sc"><div class="sc-num">05</div><div class="sc-name">Social Growth</div><div class="sc-desc">Audience building, content strategy, and community systems. Turn followers into loyal customers.</div></div>
+    <div class="sc"><div class="sc-num">06</div><div class="sc-name">Event Coverage</div><div class="sc-desc">Full media production for exclusive events, launches, and brand activations. We capture every moment right.</div></div>
+  </div>
+</section>
+
+<section id="manifesto" class="manifesto">
+  <blockquote>"We don't just create content — we build <em>brands that are impossible to ignore.</em> Every frame, every campaign, every strategy is built to move people and move the needle."</blockquote>
+  <cite>— Eira House · Houston, Texas</cite>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-label">✦ Let's Work Together</div>
+  <h2>Your Brand Deserves<br>to Be <em>Unforgettable</em></h2>
+  <p class="contact-sub">Houston-based. World-class work. No compromises.</p>
+  <div><a href="mailto:hello@eirahouse.com" class="contact-email">hello@eirahouse.com</a></div>
+  <a href="https://instagram.com/eirahouseofficial" class="contact-ig" target="_blank">@eirahouseofficial on Instagram →</a>
+</section>
+
+<footer>
+  <div class="fl">Eira House</div>
+  <span>© 2026 · Houston, Texas · Media & Marketing Agency</span>
+  <a href="https://instagram.com/eirahouseofficial" target="_blank">Instagram</a>
+</footer>
+
+</body>
+</html>
