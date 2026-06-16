@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 800px;
+    background: #fdf6ee;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .flyer {
+    width: 800px;
+    min-height: 1100px;
+    background: linear-gradient(160deg, #fdf6ee 0%, #f5e6d0 100%);
+    padding: 40px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative corner leaves */
+  .corner-tl, .corner-br {
+    position: absolute;
+    font-size: 80px;
+    opacity: 0.12;
+    color: #5a7a4a;
+  }
+  .corner-tl { top: -10px; left: -10px; transform: rotate(-20deg); }
+  .corner-br { bottom: -10px; right: -10px; transform: rotate(160deg); }
+
+  .logo-wrap {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .logo-wrap img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #c97d3a;
+    box-shadow: 0 6px 24px rgba(180,100,40,0.18);
+  }
+
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #3b2a1a;
+    text-align: center;
+    line-height: 1.1;
+    margin-top: 10px;
+  }
+
+  .brand-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #c97d3a;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .tagline {
+    font-size: 14px;
+    font-weight: 300;
+    color: #7a5c3a;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 22px 0 14px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, #c97d3a, transparent);
+  }
+
+  .divider-icon {
+    font-size: 20px;
+    color: #5a7a4a;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #3b2a1a;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddc9a8;
+  }
+
+  .item:last-child { border-bottom: none; }
+
+  .item-left {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .item-dot {
+    color: #c97d3a;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: #3b2a1a;
+    font-weight: 400;
+  }
+
+  .item-detail {
+    font-size: 12px;
+    color: #9a7a5a;
+    font-style: italic;
+    margin-left: 4px;
+  }
+
+  .item-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #c97d3a;
+    white-space: nowrap;
+  }
+
+  .delivery-banner {
+    background: linear-gradient(135deg, #5a7a4a, #3d5c32);
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 12px;
+    margin: 24px 0 18px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 14px rgba(90,122,74,0.3);
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .phone {
+    font-size: 22px;
+    font-weight: 700;
+    color: #3b2a1a;
+    letter-spacing: 1px;
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: #9a7a5a;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="flyer">
+  <div class="corner-tl">🌿</div>
+  <div class="corner-br">🌿</div>
+
+  <!-- Logo -->
+  <div class="logo-wrap">
+    <img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/281b851bf_54683e3f5_imessage_media_7e504a3d7aeb.jpg" alt="Logo">
+  </div>
+
+  <!-- Brand Name -->
+  <div class="brand-name">The Balanced Bite</div>
+  <div class="brand-sub">by Yoly</div>
+  <div class="tagline">Comida Saludable y Deliciosa</div>
+
+  <!-- MENU Section -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">🌿</div>
+    <div class="section-title">Menú</div>
+    <div class="divider-icon">🌿</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <span class="item-dot">★</span>
+      <span class="item-name">Arepas de Yuca con Chía <span class="item-detail">(6 unidades)</span></span>
+    </div>
+    <span class="item-price">$18</span>
+  </div>
+  <div class="item">
+    <div class="item-left">
+      <span class="item-dot">★</span>
+      <span class="item-name">Arepas de Yuca y Plátano <span class="item-detail">(6 unidades)</span></span>
+    </div>
+    <span class="item-price">$18</span>
+  </div>
+  <div class="item">
+    <div class="item-left">
+      <span class="item-dot">★</span>
+      <span class="item-name">Tortillas de Yuca y Plátano <span class="item-detail">(6 unidades)</span></span>
+    </div>
+    <span class="item-price">$16</span>
+  </div>
+
+  <!-- PROTEINS Section -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">🌿</div>
+    <div class="section-title">Proteínas</div>
+    <div class="divider-icon">🌿</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="item">
+    <div class="item-left">
+      <span class="item-dot">★</span>
+      <span class="item-name">Carne Mechada</span>
+    </div>
+    <span class="item-price">$25 la libra</span>
+  </div>
+  <div class="item">
+    <div class="item-left">
+      <span class="item-dot">★</span>
+      <span class="item-name">Pollo Mechado</span>
+    </div>
+    <span class="item-price">$25 la libra</span>
+  </div>
+  <div class="item">
+    <div class="item-left">
+      <span class="item-dot">★</span>
+      <span class="item-name">Pavo Molido</span>
+    </div>
+    <span class="item-price">$25 la libra</span>
+  </div>
+
+  <!-- Delivery Banner -->
+  <div class="delivery-banner">🚗 Servicio de Entrega y Recogida Disponible</div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="phone">📞 (832) 540-2505</div>
+    <div class="footer-tagline">Fresco • Saludable • Hecho en Casa</div>
+  </div>
+</div>
+</body>
+</html>
