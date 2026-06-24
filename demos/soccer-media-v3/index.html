@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ULTRAS — Soccer Network</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--red:#E8192C;--dark:#08080F;--mid:#111120;--border:#1E1E35;}
+body{background:var(--dark);color:#fff;font-family:'Inter',sans-serif;}
+nav{background:var(--dark);padding:0 32px;display:flex;justify-content:space-between;align-items:center;height:68px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.logo{font-family:'Black Han Sans',sans-serif;font-size:30px;color:#fff;letter-spacing:3px;}
+.logo span{color:var(--red);}
+.nav-right{display:flex;gap:24px;align-items:center;}
+.nav-right a{color:#666;text-decoration:none;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.nav-right a:hover{color:#fff;}
+.live-pill{background:var(--red);color:#fff;padding:8px 18px;border-radius:100px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;animation:glow 2s infinite;}
+@keyframes glow{0%,100%{box-shadow:0 0 0 rgba(232,25,44,0);}50%{box-shadow:0 0 20px rgba(232,25,44,0.6);}}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;min-height:85vh;}
+.hero-left{background:linear-gradient(180deg,var(--dark) 0%,var(--mid) 100%);padding:80px 48px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+.dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:blink 1s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}.eyebrow-text{font-size:12px;font-weight:800;letter-spacing:3px;color:var(--red);text-transform:uppercase;}
+h1{font-family:'Black Han Sans',sans-serif;font-size:clamp(56px,7vw,96px);line-height:0.95;letter-spacing:2px;margin-bottom:28px;}
+h1 .accent{color:var(--red);}
+.hero-desc{font-size:16px;color:#666;line-height:1.7;max-width:420px;margin-bottom:36px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-red{background:var(--red);color:#fff;padding:16px 40px;font-weight:800;font-size:14px;border:none;cursor:pointer;text-transform:uppercase;letter-spacing:2px;border-radius:8px;text-decoration:none;display:inline-block;}
+.btn-border{background:transparent;color:#fff;border:2px solid var(--border);padding:14px 32px;font-weight:700;font-size:14px;cursor:pointer;text-transform:uppercase;letter-spacing:1px;border-radius:8px;text-decoration:none;display:inline-block;}
+.hero-right{background:var(--mid);padding:40px 32px;overflow-y:auto;display:flex;flex-direction:column;gap:16px;}
+.hero-right-title{font-size:11px;font-weight:800;letter-spacing:3px;color:#444;text-transform:uppercase;margin-bottom:8px;}
+.match-row{background:var(--dark);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+.match-row:hover{border-color:var(--red);}
+.match-teams{display:flex;flex-direction:column;gap:8px;}
+.team-row{display:flex;align-items:center;gap:10px;}
+.flag{font-size:20px;}
+.tname{font-size:14px;font-weight:700;}
+.match-scores{display:flex;flex-direction:column;gap:8px;align-items:center;}
+.mscore{font-size:22px;font-weight:900;color:#fff;}
+.status-live{font-size:10px;font-weight:800;color:var(--red);letter-spacing:2px;text-transform:uppercase;}
+.status-ft{font-size:10px;font-weight:600;color:#444;letter-spacing:2px;}
+.news-band{background:var(--mid);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 32px;}
+.news-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;max-width:1200px;margin:0 auto;}
+.news-label{font-size:11px;font-weight:800;letter-spacing:3px;color:#444;text-transform:uppercase;margin-bottom:24px;}
+.big-story{background:var(--dark);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.big-story-img{height:280px;background:linear-gradient(135deg,#1a0008,var(--red));display:flex;align-items:center;justify-content:center;font-size:100px;position:relative;}
+.big-story-live{position:absolute;top:16px;left:16px;background:var(--red);color:#fff;padding:4px 12px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:2px;}
+.big-story-body{padding:24px;}
+.big-story-tag{font-size:10px;color:var(--red);font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.big-story-title{font-size:22px;font-weight:800;line-height:1.3;}
+.small-story{background:var(--dark);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;}
+.small-story:hover{border-color:var(--red);}
+.ss-tag{font-size:10px;color:var(--red);font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+.ss-title{font-size:15px;font-weight:700;line-height:1.4;}
+.ss-meta{font-size:11px;color:#444;margin-top:8px;}
+.footer{background:#000;border-top:1px solid var(--border);padding:40px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer .logo{font-size:40px;}
+.footer-copy{color:#333;font-size:12px;}
+@media(max-width:768px){.hero{grid-template-columns:1fr;}.hero-right{max-height:400px;}.news-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ULT<span>R</span>AS</div>
+  <div class="nav-right">
+    <a href="#">Scores</a>
+    <a href="#">News</a>
+    <a href="#">Video</a>
+    <a href="#">Leagues</a>
+    <a href="#" class="live-pill">🔴 Live</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="eyebrow"><div class="dot"></div><div class="eyebrow-text">World Cup 2026 · Houston, TX</div></div>
+    <h1>FEEL<br>THE <span class="accent">GAME.</span></h1>
+    <p class="hero-desc">Raw. Real. Relentless. The soccer network built for fans who live and breathe the beautiful game.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-red">Watch Free</a>
+      <a href="#" class="btn-border">All Scores</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-title">Live Scores — World Cup 2026</div>
+    <div class="match-row">
+      <div class="match-teams">
+        <div class="team-row"><span class="flag">🇵🇹</span><span class="tname">Portugal</span></div>
+        <div class="team-row"><span class="flag">🇬🇭</span><span class="tname">Ghana</span></div>
+      </div>
+      <div class="match-scores">
+        <div class="mscore">2</div>
+        <div class="mscore">1</div>
+        <div class="status-live">● 74'</div>
+      </div>
+    </div>
+    <div class="match-row">
+      <div class="match-teams">
+        <div class="team-row"><span class="flag">🇧🇷</span><span class="tname">Brazil</span></div>
+        <div class="team-row"><span class="flag">🇲🇽</span><span class="tname">Mexico</span></div>
+      </div>
+      <div class="match-scores">
+        <div class="mscore">1</div>
+        <div class="mscore">0</div>
+        <div class="status-live">● 52'</div>
+      </div>
+    </div>
+    <div class="match-row">
+      <div class="match-teams">
+        <div class="team-row"><span class="flag">🇺🇸</span><span class="tname">USA</span></div>
+        <div class="team-row"><span class="flag">🇨🇦</span><span class="tname">Canada</span></div>
+      </div>
+      <div class="match-scores">
+        <div class="mscore">3</div>
+        <div class="mscore">0</div>
+        <div class="status-ft">FT</div>
+      </div>
+    </div>
+    <div class="match-row">
+      <div class="match-teams">
+        <div class="team-row"><span class="flag">🇫🇷</span><span class="tname">France</span></div>
+        <div class="team-row"><span class="flag">🇦🇷</span><span class="tname">Argentina</span></div>
+      </div>
+      <div class="match-scores">
+        <div class="mscore">–</div>
+        <div class="mscore">–</div>
+        <div class="status-ft" style="color:#555;">18:00</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="news-band">
+  <div class="news-label">Top Stories</div>
+  <div class="news-grid">
+    <div class="big-story">
+      <div class="big-story-img">⚽<div class="big-story-live">DEVELOPING</div></div>
+      <div class="big-story-body">
+        <div class="big-story-tag">World Cup 2026</div>
+        <div class="big-story-title">Ronaldo Silences Critics With Match-Winning Performance Against Ghana</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="small-story">
+        <div class="ss-tag">Analysis</div>
+        <div class="ss-title">Brazil's Attacking Press Is the Most Dangerous in the Tournament</div>
+        <div class="ss-meta">5 hr ago</div>
+      </div>
+      <div class="small-story">
+        <div class="ss-tag">World Cup</div>
+        <div class="ss-title">Why Uzbekistan's Exit Might Be the Most Emotional Story of 2026</div>
+        <div class="ss-meta">8 hr ago</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="small-story">
+        <div class="ss-tag">USA</div>
+        <div class="ss-title">USMNT Dominates Canada in Statement Win for Host Nation</div>
+        <div class="ss-meta">2 hr ago</div>
+      </div>
+      <div class="small-story">
+        <div class="ss-tag">Preview</div>
+        <div class="ss-title">France vs Argentina: The Final We All Want Comes Early</div>
+        <div class="ss-meta">Just now</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="logo">ULT<span>R</span>AS</div>
+  <div class="footer-copy">© 2026 Ultras Soccer Network · Free 24/7 Coverage · The Beautiful Game</div>
+</div>
+
+</body>
+</html>
