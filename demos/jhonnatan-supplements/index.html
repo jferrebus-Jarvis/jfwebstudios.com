@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #07070F;
+    width: 1080px;
+    padding: 32px;
+    color: #fff;
+  }
+  .header {
+    background: #0D0D1A;
+    border: 2px solid #C9A84C;
+    border-radius: 20px;
+    padding: 32px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .header-left h1 { font-size: 40px; font-weight: 900; color: #C9A84C; letter-spacing: -0.5px; }
+  .header-left p { font-size: 20px; color: #B0B0C0; margin-top: 6px; font-weight: 500; }
+  .header-left small { font-size: 14px; color: #444460; margin-top: 4px; display: block; }
+  .badge {
+    background: #C9A84C;
+    border-radius: 14px;
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 110px;
+  }
+  .badge .week-label { font-size: 12px; font-weight: 800; color: #080810; letter-spacing: 2px; }
+  .badge .week-num { font-size: 44px; font-weight: 900; color: #080810; line-height: 1; }
+  .badge .year { font-size: 13px; color: #33330A; font-weight: 700; }
+
+  .section-header {
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-morning { background: #001A0D; border: 1px solid #4CAF82; color: #4CAF82; }
+  .section-food { background: #1A150A; border: 1px solid #C9A84C; color: #C9A84C; }
+  .section-night { background: #12001A; border: 1px solid #9B8EFF; color: #9B8EFF; }
+
+  .section { margin-bottom: 20px; }
+
+  .item {
+    background: #10101C;
+    border: 1px solid #1E1E30;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    overflow: hidden;
+  }
+  .item-stripe { width: 6px; flex-shrink: 0; }
+  .item-body { flex: 1; padding: 16px 20px; }
+  .item-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .item-name { font-size: 22px; font-weight: 700; color: #fff; }
+  .item-note { font-size: 14px; color: #666680; margin-top: 4px; }
+  .item-divider { height: 1px; background: #1E1E30; margin: 10px 0; }
+  .item-dose { font-size: 28px; font-weight: 800; color: #E8C76A; }
+  .tag {
+    background: #0D0D1A;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 2px;
+  }
+  .tag-green { color: #4CAF82; border-color: #4CAF82; }
+  .tag-blue { color: #6EC6FF; border-color: #6EC6FF; }
+  .tag-orange { color: #FF8C42; border-color: #FF8C42; }
+  .tag-purple { color: #9B8EFF; border-color: #9B8EFF; }
+  .tag-red { color: #FF6B6B; border-color: #FF6B6B; }
+  .tag-teal { color: #4DD9C0; border-color: #4DD9C0; }
+
+  .stripe-green { background: #4CAF82; }
+  .stripe-blue { background: #6EC6FF; }
+  .stripe-orange { background: #FF8C42; }
+  .stripe-purple { background: #9B8EFF; }
+  .stripe-red { background: #FF6B6B; }
+  .stripe-teal { background: #4DD9C0; }
+
+  .footer {
+    background: #0D0D1A;
+    border: 1px solid #1E1E30;
+    border-radius: 16px;
+    padding: 20px 28px;
+    margin-top: 8px;
+  }
+  .footer p { font-size: 17px; color: #B0B0C0; margin-bottom: 10px; }
+  .footer p:last-child { margin-bottom: 0; }
+  .footer .gold { color: #C9A84C; }
+  .footer .small { font-size: 14px; color: #444455; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <h1>JHONNATAN — SUPPLEMENTS</h1>
+      <p>Daily Supplement Protocol · Week 1</p>
+      <small>Personal Reference Card &nbsp;•&nbsp; 2026</small>
+    </div>
+    <div class="badge">
+      <div class="week-label">WEEK</div>
+      <div class="week-num">01</div>
+      <div class="year">2026</div>
+    </div>
+  </div>
+
+  <!-- MORNING EMPTY STOMACH -->
+  <div class="section">
+    <div class="section-header section-morning">☀️ &nbsp;MORNING — Empty stomach (30 min before eating)</div>
+
+    <div class="item">
+      <div class="item-stripe stripe-teal"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Garden of Life Probiotics</div>
+            <div class="item-note">80 Billion CFU · 15 Strains · Dr. Formulated Critical Care</div>
+          </div>
+          <div class="tag tag-teal">GUT HEALTH</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">1 capsule daily</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-stripe stripe-blue"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Vitamin D3 + K2</div>
+            <div class="item-note">D3 for testosterone, immune & mood · K2 directs calcium to bones</div>
+          </div>
+          <div class="tag tag-blue">HORMONES</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">5,000 IU D3 + 100mcg K2</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- WITH FOOD -->
+  <div class="section">
+    <div class="section-header section-food">🍳 &nbsp;WITH FOOD — Any meal</div>
+
+    <div class="item">
+      <div class="item-stripe stripe-green"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">bio.me Psyllium Husk Fiber</div>
+            <div class="item-note">3g fiber per serving · Take with 8oz+ water · Feeds probiotics</div>
+          </div>
+          <div class="tag tag-green">FIBER</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">2–3 capsules with meal</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-stripe stripe-orange"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Omega-3 Fish Oil</div>
+            <div class="item-note">Inflammation control · Brain & cardiovascular health · Always with food</div>
+          </div>
+          <div class="tag tag-orange">ANTI-INFLAM</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">2g EPA/DHA daily</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-stripe stripe-orange"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Creatine Monohydrate</div>
+            <div class="item-note">Mix in water or shake · No loading needed · Daily consistency is key</div>
+          </div>
+          <div class="tag tag-orange">PERFORMANCE</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">5g daily</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- NIGHT -->
+  <div class="section">
+    <div class="section-header section-night">🌙 &nbsp;NIGHT — Before bed</div>
+
+    <div class="item">
+      <div class="item-stripe stripe-purple"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Magnesium Glycinate</div>
+            <div class="item-note">Deep sleep · Muscle recovery · Stress & insulin sensitivity</div>
+          </div>
+          <div class="tag tag-purple">RECOVERY</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">300–400mg</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-stripe stripe-red"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">Zinc</div>
+            <div class="item-note">Testosterone support · Immune · Recovery · Separate from probiotics</div>
+          </div>
+          <div class="tag tag-red">TESTOSTERONE</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">15–30mg</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INJECTIONS ALREADY IN STACK -->
+  <div class="section">
+    <div class="section-header" style="background:#0A0A1A;border:1px solid #6EC6FF;color:#6EC6FF;">💉 &nbsp;INJECTIONS — Already in stack</div>
+
+    <div class="item">
+      <div class="item-stripe stripe-blue"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">B12 Shot</div>
+            <div class="item-note">Energy, methylation, neurological function</div>
+          </div>
+          <div class="tag tag-blue">ENERGY</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">Per protocol</div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-stripe stripe-teal"></div>
+      <div class="item-body">
+        <div class="item-top">
+          <div>
+            <div class="item-name">L-Glutathione Shot</div>
+            <div class="item-note">Master antioxidant · Detox · Cellular protection</div>
+          </div>
+          <div class="tag tag-teal">DETOX</div>
+        </div>
+        <div class="item-divider"></div>
+        <div class="item-dose">Per protocol</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>💧 &nbsp;Drink minimum 3 liters of water daily — especially with psyllium</p>
+    <p>⏰ &nbsp;Probiotics first · Fiber with meals · Magnesium + Zinc at night</p>
+    <p>⚠️ &nbsp;<span class="small">Personal use only — follow prescribed peptide protocol separately</span></p>
+  </div>
+</body>
+</html>
