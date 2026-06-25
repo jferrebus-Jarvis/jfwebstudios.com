@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Balanced Bite — Jardín Editorial</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --bg:#F6EFE2;
+      --beige:#EAE0CC;
+      --brown:#9E7B50;
+      --brown-dk:#4E3520;
+      --green:#6A9E58;
+      --green-dk:#3A6A28;
+      --green-lt:#BED8B2;
+      --white:#FDFAF5;
+    }
+    body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--brown-dk);}
+
+    nav{padding:20px 64px;display:flex;align-items:center;justify-content:space-between;background:var(--white);border-bottom:2px solid var(--beige);position:sticky;top:0;z-index:100;}
+    nav img{height:50px;border-radius:50%;border:2px solid var(--brown);}
+    .nc a{margin-left:28px;color:var(--brown-dk);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.5px;}
+    .nc a:hover{color:var(--green-dk);}
+    .nav-btn{background:var(--brown-dk);color:var(--bg);padding:10px 22px;border-radius:6px;text-decoration:none;font-size:0.8rem;font-weight:600;}
+
+    /* Full-width centered hero */
+    .hero{padding:100px 64px 80px;text-align:center;background:var(--bg);position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(106,158,88,0.08),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+    .hero-tag{display:inline-flex;align-items:center;gap:10px;background:var(--green-lt);color:var(--green-dk);padding:7px 20px;border-radius:50px;font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:36px;}
+    .logo-center{width:200px;height:200px;object-fit:contain;border-radius:50%;background:var(--white);padding:10px;margin:0 auto 36px;display:block;box-shadow:0 12px 40px rgba(78,53,32,0.12);}
+    h1{font-family:'EB Garamond',serif;font-size:6.5rem;line-height:0.85;color:var(--brown-dk);margin-bottom:24px;}
+    h1 em{color:var(--green-dk);font-style:italic;}
+    .hero-divider{display:flex;align-items:center;gap:20px;justify-content:center;margin:28px 0;}
+    .hdl{width:80px;height:1px;background:rgba(78,53,32,0.2);}
+    .hdm{font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--brown);font-style:italic;}
+    .hero-desc{font-size:0.95rem;line-height:1.9;color:#8A7260;max-width:520px;margin:0 auto 40px;}
+    .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+    .hcta1{background:var(--green-dk);color:#fff;padding:14px 36px;border-radius:6px;text-decoration:none;font-size:0.85rem;font-weight:600;}
+    .hcta2{background:var(--beige);color:var(--brown-dk);padding:14px 36px;border-radius:6px;text-decoration:none;font-size:0.85rem;font-weight:600;border:1.5px solid var(--brown-light,var(--brown));}
+
+    /* Features row */
+    .feats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--brown-dk);}
+    .feat{padding:36px 28px;text-align:center;border-right:1px solid rgba(246,239,226,0.08);}
+    .feat:last-child{border:none;}
+    .feat-i{font-size:2rem;margin-bottom:12px;}
+    .feat-t{font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--bg);font-style:italic;margin-bottom:8px;}
+    .feat-d{font-size:0.78rem;color:rgba(246,239,226,0.45);line-height:1.7;}
+
+    .menu{padding:100px 64px;background:var(--white);}
+    .menu-head{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:32px;border-bottom:2px solid var(--beige);margin-bottom:48px;}
+    .menu-head h2{font-family:'EB Garamond',serif;font-size:3.5rem;color:var(--brown-dk);}
+    .menu-head h2 em{font-style:italic;color:var(--green-dk);}
+    .menu-head-right{font-size:0.8rem;color:#9A8A70;text-align:right;line-height:1.7;max-width:200px;}
+
+    .mlist{}
+    .mrow{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(78,53,32,0.08);}
+    .mrow:last-child{border:none;}
+    .mrow-l .mc{font-size:0.63rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--green-dk);font-weight:600;margin-bottom:6px;}
+    .mrow-l .mn{font-family:'EB Garamond',serif;font-size:1.5rem;color:var(--brown-dk);margin-bottom:6px;}
+    .mrow-l .md{font-size:0.78rem;color:#8A7260;line-height:1.6;}
+    .mrow-r{text-align:right;}
+    .mrow-p{font-family:'EB Garamond',serif;font-size:1.8rem;color:var(--brown);}
+    .mrow-u{font-size:0.7rem;color:#9A8A70;margin-top:2px;}
+    .mrow-btn{display:inline-block;margin-top:10px;background:var(--green-lt);color:var(--green-dk);padding:6px 14px;border-radius:50px;font-size:0.72rem;font-weight:700;text-decoration:none;}
+
+    .about{background:var(--beige);padding:100px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .about-logo{width:300px;height:300px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(78,53,32,0.12));}
+    .about-txt .at-label{font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--green-dk);font-weight:600;margin-bottom:14px;}
+    .about-txt h2{font-family:'EB Garamond',serif;font-size:3rem;color:var(--brown-dk);margin-bottom:20px;}
+    .about-txt h2 em{font-style:italic;color:var(--brown);}
+    .about-txt p{font-size:0.88rem;line-height:1.9;color:#8A7260;margin-bottom:14px;}
+    .about-sig{font-family:'EB Garamond',serif;font-size:1.9rem;color:var(--brown);font-style:italic;margin-top:20px;}
+
+    .order{background:var(--green-dk);padding:80px 64px;text-align:center;}
+    .order h2{font-family:'EB Garamond',serif;font-size:3.5rem;color:var(--bg);margin-bottom:16px;}
+    .order h2 em{font-style:italic;color:var(--green-lt);}
+    .order p{font-size:0.88rem;color:rgba(246,239,226,0.55);margin-bottom:36px;}
+    .obtn{background:var(--bg);color:var(--green-dk);padding:14px 48px;border-radius:6px;font-size:0.86rem;font-weight:700;text-decoration:none;display:inline-block;}
+
+    footer{background:var(--brown-dk);padding:28px 64px;display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(246,239,226,0.3);}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}
+      .nc{display:none;}
+      .hero{padding:80px 20px 60px;}
+      h1{font-size:3.5rem;}
+      .feats{grid-template-columns:1fr;}
+      .menu{padding:60px 20px;}
+      .menu-head{flex-direction:column;align-items:flex-start;gap:12px;}
+      .mrow{grid-template-columns:1fr;}
+      .mrow-r{text-align:left;}
+      .about{grid-template-columns:1fr;padding:60px 20px;gap:32px;}
+      .order{padding:60px 20px;}
+      footer{flex-direction:column;gap:8px;padding:20px;}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <img src="logo.jpg" alt="Logo">
+  <div class="nc"><a href="#menu">Menú</a><a href="#nosotros">Historia</a><a href="#pedido">Pedido</a></div>
+  <a href="https://wa.me/18325402505" class="nav-btn">Ordenar 📲</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">🌿 El Bocado Balanceado · Houston, TX</div>
+  <img src="logo.jpg" alt="Logo" class="logo-center">
+  <h1>The<br><em>Balanced</em><br>Bite</h1>
+  <div class="hero-divider"><div class="hdl"></div><div class="hdm">by Chef Yoly</div><div class="hdl"></div></div>
+  <p class="hero-desc">Tradición venezolana con ingredientes modernos y naturales. Preparado a mano con amor para nutrir tu cuerpo y el de tu familia.</p>
+  <div class="hero-ctas">
+    <a href="https://wa.me/18325402505" class="hcta1">📲 Hacer Pedido</a>
+    <a href="#menu" class="hcta2">Ver Menú</a>
+  </div>
+</section>
+
+<div class="feats">
+  <div class="feat"><div class="feat-i">🌿</div><div class="feat-t">Saludable y Nutritivo</div><div class="feat-d">Ingredientes naturales para nutrir tu cuerpo.</div></div>
+  <div class="feat"><div class="feat-i">👨‍🍳</div><div class="feat-t">Ingredientes de Calidad</div><div class="feat-d">Los mejores ingredientes frescos disponibles.</div></div>
+  <div class="feat"><div class="feat-i">🧁</div><div class="feat-t">Postres que Encantan</div><div class="feat-d">Dulces que no sacrifican sabor ni placer.</div></div>
+</div>
+
+<section class="menu" id="menu">
+  <div class="menu-head">
+    <h2>Nuestro <em>Menú</em></h2>
+    <div class="menu-head-right">Todo hecho a mano. Pickup y delivery en Houston.</div>
+  </div>
+  <div class="mlist">
+    <div class="mrow"><div class="mrow-l"><div class="mc">Arepas · Sin Gluten</div><div class="mn">Arepas de Yuca con Chia</div><div class="md">Artesanales, ricas en fibra y antioxidantes.</div></div><div class="mrow-r"><div class="mrow-p">$18</div><div class="mrow-u">6 unidades</div><a href="https://wa.me/18325402505" class="mrow-btn">Ordenar</a></div></div>
+    <div class="mrow"><div class="mrow-l"><div class="mc">Arepas · Sin Gluten</div><div class="mn">Arepas de Yuca y Plátano</div><div class="md">Dulce natural del plátano maduro.</div></div><div class="mrow-r"><div class="mrow-p">$18</div><div class="mrow-u">6 unidades</div><a href="https://wa.me/18325402505" class="mrow-btn">Ordenar</a></div></div>
+    <div class="mrow"><div class="mrow-l"><div class="mc">Tortillas · Sin Gluten</div><div class="mn">Tortillas de Yuca y Plátano</div><div class="md">Para tacos, wraps o snack saludable.</div></div><div class="mrow-r"><div class="mrow-p">$16</div><div class="mrow-u">6 unidades</div><a href="https://wa.me/18325402505" class="mrow-btn">Ordenar</a></div></div>
+    <div class="mrow"><div class="mrow-l"><div class="mc">Proteína · Venezolana</div><div class="mn">Carne / Pollo / Pavo Mechado</div><div class="md">Tres opciones desmenuzadas al estilo venezolano.</div></div><div class="mrow-r"><div class="mrow-p">$25</div><div class="mrow-u">por libra</div><a href="https://wa.me/18325402505" class="mrow-btn">Ordenar</a></div></div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div style="display:flex;justify-content:center;"><img src="logo.jpg" alt="Chef Yoly" class="about-logo"></div>
+  <div class="about-txt">
+    <div class="at-label">Nuestra Historia</div>
+    <h2>Chef <em>Yoly</em></h2>
+    <p>Detrás de cada plato hay una historia de amor. Chef Yoly lleva años perfeccionando recetas que nutren sin sacrificar el sabor.</p>
+    <p>Cada producto es hecho a mano, pensando en tu bienestar y el de tu familia.</p>
+    <div class="about-sig">— Chef Yoly</div>
+  </div>
+</section>
+
+<section class="order" id="pedido">
+  <h2>¿Listo para tu <em>pedido?</em></h2>
+  <p>Pickup y delivery disponible en Houston, TX</p>
+  <a href="https://wa.me/18325402505" class="obtn">📲 Ordenar por WhatsApp</a>
+</section>
+
+<footer>
+  <span>© 2026 The Balanced Bite by Chef Yoly · Houston, TX</span>
+  <span>832-540-2505</span>
+</footer>
+</body>
+</html>
