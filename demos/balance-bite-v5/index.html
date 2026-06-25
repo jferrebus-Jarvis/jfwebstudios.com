@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Balanced Bite — Dark Elegance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--black:#080808;--gold:#BF8C3C;--gold2:#D4A855;--offwhite:#F0E8D8;--dark2:#111111;--dark3:#1C1C1C;}
+    body{font-family:'Jost',sans-serif;background:var(--black);color:var(--offwhite);}
+
+    nav{padding:24px 80px;display:flex;align-items:center;justify-content:space-between;position:fixed;top:0;width:100%;z-index:100;background:rgba(8,8,8,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(191,140,60,0.15);}
+    .nl img{height:50px;border-radius:50%;border:1px solid var(--gold);}
+    .nc{display:flex;gap:40px;}
+    .nc a{color:var(--offwhite);text-decoration:none;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;opacity:0.6;transition:opacity 0.2s;}
+    .nc a:hover{opacity:1;color:var(--gold);}
+    .wa-btn{color:var(--gold);border:1px solid var(--gold);padding:9px 22px;font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;}
+    .wa-btn:hover{background:var(--gold);color:var(--black);}
+
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:120px 40px 80px;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(191,140,60,0.06) 0%,transparent 70%);}
+    .hero-ring{position:absolute;width:700px;height:700px;border:1px solid rgba(191,140,60,0.08);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);}
+    .hero-ring2{position:absolute;width:520px;height:520px;border:1px solid rgba(191,140,60,0.12);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);}
+    .hero-content{position:relative;z-index:1;}
+    .hero-logo{width:220px;height:220px;object-fit:contain;border-radius:50%;margin-bottom:48px;filter:drop-shadow(0 0 80px rgba(191,140,60,0.25));}
+    .hero-sub{font-size:0.68rem;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;opacity:0.9;}
+    h1{font-family:'Cormorant Garamond',serif;font-size:7rem;line-height:0.85;font-weight:300;margin-bottom:32px;}
+    h1 em{color:var(--gold);font-style:italic;}
+    .hero-tagline{font-size:0.82rem;letter-spacing:2px;opacity:0.5;text-transform:uppercase;margin-bottom:48px;}
+    .hero-cta{display:inline-flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+    .btn-gold{background:var(--gold);color:var(--black);padding:14px 40px;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;text-decoration:none;font-weight:500;}
+    .btn-ghost{border:1px solid rgba(240,232,216,0.3);color:var(--offwhite);padding:14px 40px;font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;text-decoration:none;}
+
+    .divider{display:flex;align-items:center;gap:24px;padding:0 80px;margin:0;}
+    .divider-line{flex:1;height:1px;background:rgba(191,140,60,0.2);}
+    .divider-icon{color:var(--gold);font-size:1.2rem;}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);padding:80px;}
+    .feat{padding:40px;border-right:1px solid rgba(191,140,60,0.1);text-align:center;}
+    .feat:last-child{border-right:none;}
+    .feat-num{font-family:'Cormorant Garamond',serif;font-size:4rem;color:rgba(191,140,60,0.15);font-weight:300;line-height:1;margin-bottom:8px;}
+    .feat-title{font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+    .feat-text{font-size:0.8rem;opacity:0.5;line-height:1.8;}
+
+    .menu{padding:100px 80px;background:var(--dark2);}
+    .menu-header{margin-bottom:64px;}
+    .menu-label{font-size:0.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+    h2.menu-title{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:300;}
+    h2.menu-title em{font-style:italic;color:var(--gold);}
+
+    .menu-items{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(191,140,60,0.08);}
+    .mi{background:var(--dark2);padding:40px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;transition:background 0.2s;}
+    .mi:hover{background:var(--dark3);}
+    .mi-left{}
+    .mi-cat{font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);opacity:0.7;margin-bottom:10px;}
+    .mi-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;margin-bottom:8px;}
+    .mi-desc{font-size:0.77rem;opacity:0.45;line-height:1.7;max-width:280px;}
+    .mi-price{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold);font-weight:300;white-space:nowrap;}
+
+    .cta-band{padding:80px;text-align:center;background:linear-gradient(135deg,rgba(191,140,60,0.08),rgba(191,140,60,0.02));}
+    .cta-band h2{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;margin-bottom:16px;}
+    .cta-band h2 em{font-style:italic;color:var(--gold);}
+    .cta-band p{font-size:0.82rem;opacity:0.5;margin-bottom:40px;letter-spacing:1px;}
+
+    footer{padding:32px 80px;border-top:1px solid rgba(191,140,60,0.1);display:flex;justify-content:space-between;font-size:0.72rem;opacity:0.35;}
+
+    @media(max-width:768px){
+      nav{padding:16px 24px;}
+      .nc{display:none;}
+      h1{font-size:4rem;}
+      .features{grid-template-columns:1fr;padding:40px 24px;}
+      .feat{border-right:none;border-bottom:1px solid rgba(191,140,60,0.1);padding:32px 0;}
+      .menu{padding:60px 24px;}
+      .menu-items{grid-template-columns:1fr;}
+      .cta-band{padding:60px 24px;}
+      footer{padding:24px;flex-direction:column;gap:8px;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nl"><img src="logo.jpg" alt="Logo"></div>
+  <div class="nc">
+    <a href="#menu">Menú</a>
+    <a href="#nosotros">Historia</a>
+    <a href="#pedido">Pedido</a>
+  </div>
+  <a href="https://wa.me/18325402505" class="wa-btn">WhatsApp</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring2"></div>
+  <div class="hero-content">
+    <img src="logo.jpg" alt="The Balanced Bite" class="hero-logo">
+    <div class="hero-sub">El Bocado Balanceado · Houston, TX</div>
+    <h1>The<br><em>Balanced</em><br>Bite</h1>
+    <div class="hero-tagline">Sabor balanceado · Hecho con pasión · Servido con propósito</div>
+    <div class="hero-cta">
+      <a href="https://wa.me/18325402505" class="btn-gold">Ordenar Ahora</a>
+      <a href="#menu" class="btn-ghost">Ver Menú</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+<div class="features">
+  <div class="feat">
+    <div class="feat-num">01</div>
+    <div class="feat-title">Saludable y Nutritivo</div>
+    <div class="feat-text">Ingredientes naturales seleccionados para nutrir tu cuerpo con cada bocado.</div>
+  </div>
+  <div class="feat">
+    <div class="feat-num">02</div>
+    <div class="feat-title">Ingredientes de Calidad</div>
+    <div class="feat-text">Cada receta preparada con los mejores ingredientes frescos y naturales.</div>
+  </div>
+  <div class="feat">
+    <div class="feat-num">03</div>
+    <div class="feat-title">Postres que Encantan</div>
+    <div class="feat-text">Dulces saludables que no sacrifican el sabor ni el placer de comer bien.</div>
+  </div>
+</div>
+
+<section class="menu" id="menu">
+  <div class="menu-header">
+    <div class="menu-label">Lo que ofrecemos</div>
+    <h2 class="menu-title">Nuestro <em>Menú</em></h2>
+  </div>
+  <div class="menu-items">
+    <div class="mi">
+      <div class="mi-left">
+        <div class="mi-cat">Arepas · Sin Gluten</div>
+        <div class="mi-name">Arepas de Yuca con Chia</div>
+        <div class="mi-desc">Arepas artesanales de yuca con semillas de chia. Ricas en fibra y antioxidantes.</div>
+      </div>
+      <div class="mi-price">$18<small style="font-size:0.9rem">/6pk</small></div>
+    </div>
+    <div class="mi">
+      <div class="mi-left">
+        <div class="mi-cat">Arepas · Sin Gluten</div>
+        <div class="mi-name">Arepas de Yuca y Plátano</div>
+        <div class="mi-desc">La combinación perfecta de yuca y plátano maduro. Dulce natural, sin azúcares añadidos.</div>
+      </div>
+      <div class="mi-price">$18<small style="font-size:0.9rem">/6pk</small></div>
+    </div>
+    <div class="mi">
+      <div class="mi-left">
+        <div class="mi-cat">Tortillas · Sin Gluten</div>
+        <div class="mi-name">Tortillas de Yuca y Plátano</div>
+        <div class="mi-desc">Versátiles y deliciosas. Perfectas para tacos, wraps o como snack.</div>
+      </div>
+      <div class="mi-price">$16<small style="font-size:0.9rem">/6pk</small></div>
+    </div>
+    <div class="mi">
+      <div class="mi-left">
+        <div class="mi-cat">Proteína · Alta Calidad</div>
+        <div class="mi-name">Carne / Pollo / Pavo Mechado</div>
+        <div class="mi-desc">Desmenuzado al estilo venezolano con especias naturales. Tres opciones de proteína.</div>
+      </div>
+      <div class="mi-price">$25<small style="font-size:0.9rem">/lb</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="pedido">
+  <h2>¿Listo para tu <em>pedido?</em></h2>
+  <p>Pickup y delivery disponible · Houston, TX</p>
+  <a href="https://wa.me/18325402505" class="btn-gold">📲 Escribir por WhatsApp</a>
+</section>
+
+<footer>
+  <span>© 2026 The Balanced Bite by Chef Yoly</span>
+  <span>Houston, TX · 832-540-2505</span>
+</footer>
+
+</body>
+</html>
