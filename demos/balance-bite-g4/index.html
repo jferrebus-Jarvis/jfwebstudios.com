@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Balanced Bite — Miel & Madera</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--gold:#BC8622;--gold2:#D8A035;--gold3:#EEC055;--gold-bg:#FBF3D8;--gold-bg2:#F2E5B8;--brown:#241206;--brown-m:#5E3214;--cream:#FEFCF3;}
+    body{font-family:'Space Grotesk',sans-serif;background:var(--cream);color:var(--brown);}
+
+    nav{padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:var(--gold-bg);border-bottom:1px solid rgba(188,134,34,0.25);position:sticky;top:0;z-index:100;}
+    nav img{height:52px;object-fit:contain;}
+    .nc a{margin-left:26px;color:var(--brown-m);text-decoration:none;font-size:0.82rem;font-weight:500;}
+    .nc a:hover{color:var(--gold);}
+    .nbtn{background:var(--gold);color:#fff;padding:10px 22px;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;}
+
+    /* Full gold hero */
+    .hero{min-height:100vh;background:var(--gold-bg);display:flex;align-items:center;padding:80px 60px;}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;width:100%;}
+    .hl .tag{font-size:0.67rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+    .hl .tag::before{content:'';width:28px;height:1px;background:var(--gold);}
+    h1{font-family:'EB Garamond',serif;font-size:6rem;line-height:0.85;font-weight:400;color:var(--brown);margin-bottom:16px;}
+    h1 em{font-style:italic;color:var(--gold);}
+    .hl-line{width:60px;height:2px;background:var(--gold);margin-bottom:24px;}
+    .hl-sub{font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--brown-m);font-style:italic;margin-bottom:20px;}
+    .hl-desc{font-size:0.9rem;line-height:1.9;color:#7A5830;max-width:420px;margin-bottom:40px;}
+    .hbtns{display:flex;gap:14px;flex-wrap:wrap;}
+    .hb1{background:var(--brown);color:var(--gold3);padding:13px 32px;border-radius:4px;text-decoration:none;font-size:0.83rem;font-weight:600;}
+    .hb2{background:transparent;border:1.5px solid rgba(188,134,34,0.5);color:var(--gold);padding:13px 28px;border-radius:4px;text-decoration:none;font-size:0.83rem;font-weight:600;}
+    .hr{display:flex;align-items:center;justify-content:center;}
+    .logo-ring{width:380px;height:380px;border-radius:50%;border:2px solid rgba(188,134,34,0.3);background:rgba(254,252,243,0.5);display:flex;align-items:center;justify-content:center;}
+    .logo-ring img{width:310px;height:310px;object-fit:contain;filter:drop-shadow(0 12px 32px rgba(188,134,34,0.2));}
+
+    /* Menu in gold tones */
+    .menu{padding:90px 60px;background:var(--cream);}
+    .mhd{text-align:center;margin-bottom:52px;}
+    .mhd .ml{font-size:0.67rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;}
+    .mhd h2{font-family:'EB Garamond',serif;font-size:3.2rem;color:var(--brown);}
+    .mhd h2 em{font-style:italic;color:var(--gold);}
+
+    /* Two-col menu list */
+    .menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+    .mcol-title{font-size:0.67rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--gold-bg2);}
+    .mi{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px dashed rgba(188,134,34,0.2);}
+    .mi:last-child{border:none;}
+    .mi-l .mn{font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--brown);}
+    .mi-l .md{font-size:0.75rem;color:var(--brown-m);margin-top:3px;opacity:0.7;}
+    .mi-r{font-family:'EB Garamond',serif;font-size:1.2rem;color:var(--gold);white-space:nowrap;margin-left:16px;}
+
+    .feats{background:var(--gold-bg2);display:grid;grid-template-columns:repeat(3,1fr);}
+    .feat{padding:36px 24px;text-align:center;border-right:1px solid rgba(188,134,34,0.15);}
+    .feat:last-child{border:none;}
+    .fi{font-size:2rem;margin-bottom:10px;}
+    .ft{font-size:0.67rem;letter-spacing:3px;text-transform:uppercase;color:var(--brown);font-weight:700;margin-bottom:7px;}
+    .fd{font-size:0.77rem;color:var(--brown-m);line-height:1.7;opacity:0.75;}
+
+    .about{background:var(--gold-bg);padding:90px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .about img{width:280px;height:280px;object-fit:contain;border-radius:50%;background:rgba(254,252,243,0.5);padding:16px;}
+    .at .al{font-size:0.67rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;}
+    .at h2{font-family:'EB Garamond',serif;font-size:3rem;color:var(--brown);margin-bottom:20px;}
+    .at h2 em{font-style:italic;color:var(--gold);}
+    .at p{font-size:0.87rem;line-height:1.9;color:#7A5830;margin-bottom:14px;}
+    .at .sig{font-family:'EB Garamond',serif;font-size:2rem;color:var(--gold);font-style:italic;margin-top:20px;}
+
+    .order{background:var(--brown);padding:70px 60px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+    .order h2{font-family:'EB Garamond',serif;font-size:3rem;color:var(--gold3);}
+    .order h2 em{font-style:italic;}
+    .order p{font-size:0.85rem;color:rgba(238,192,85,0.4);margin-top:10px;}
+    .ob{background:var(--gold);color:#fff;padding:14px 40px;border-radius:4px;text-decoration:none;font-size:0.85rem;font-weight:600;white-space:nowrap;}
+
+    footer{background:var(--brown);padding:22px 60px;display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(238,192,85,0.2);border-top:1px solid rgba(188,134,34,0.15);}
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.nc{display:none;}
+      .hero{padding:80px 20px;}.hero-inner{grid-template-columns:1fr;}h1{font-size:3.2rem;}
+      .logo-ring{width:240px;height:240px;}.logo-ring img{width:200px;height:200px;}
+      .menu{padding:60px 20px;}.menu-cols{grid-template-columns:1fr;}
+      .feats{grid-template-columns:1fr;}.feat{border-right:none;border-bottom:1px solid rgba(188,134,34,0.12);}
+      .about{grid-template-columns:1fr;padding:60px 20px;gap:32px;}
+      .order{grid-template-columns:1fr;padding:60px 20px;text-align:center;}
+      footer{flex-direction:column;gap:8px;padding:20px;}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <img src="logo.jpg" alt="Logo">
+  <div class="nc"><a href="#menu">Menú</a><a href="#nosotros">Historia</a><a href="#pedido">Pedido</a></div>
+  <a href="https://wa.me/18325402505" class="nbtn">📲 Ordenar</a>
+</nav>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hl">
+      <div class="tag">Comida Saludable · Houston TX</div>
+      <h1>The<br><em>Balanced</em><br>Bite</h1>
+      <div class="hl-line"></div>
+      <div class="hl-sub">by Chef Yoly</div>
+      <p class="hl-desc">Tradición venezolana, ingredientes naturales y amor en cada plato preparado a mano para tu familia.</p>
+      <div class="hbtns"><a href="https://wa.me/18325402505" class="hb1">📲 Hacer Pedido</a><a href="#menu" class="hb2">Ver Menú</a></div>
+    </div>
+    <div class="hr"><div class="logo-ring"><img src="logo.jpg" alt="Logo"></div></div>
+  </div>
+</section>
+<section class="menu" id="menu">
+  <div class="mhd"><div class="ml">Lo que ofrecemos</div><h2>Nuestro <em>Menú</em></h2></div>
+  <div class="menu-cols">
+    <div>
+      <div class="mcol-title">Menú Principal</div>
+      <div class="mi"><div class="mi-l"><div class="mn">Arepas de Yuca con Chía</div><div class="md">6 unidades · Sin gluten</div></div><div class="mi-r">$18</div></div>
+      <div class="mi"><div class="mi-l"><div class="mn">Arepas de Yuca y Plátano</div><div class="md">6 unidades · Dulce natural</div></div><div class="mi-r">$18</div></div>
+      <div class="mi"><div class="mi-l"><div class="mn">Tortillas de Yuca y Plátano</div><div class="md">6 unidades · Versátiles</div></div><div class="mi-r">$16</div></div>
+    </div>
+    <div>
+      <div class="mcol-title">Proteínas</div>
+      <div class="mi"><div class="mi-l"><div class="mn">Carne Mechada</div><div class="md">Venezolana · Alta proteína</div></div><div class="mi-r">$25/lb</div></div>
+      <div class="mi"><div class="mi-l"><div class="mn">Pollo Mechado</div><div class="md">Lean · Sazón auténtica</div></div><div class="mi-r">$25/lb</div></div>
+      <div class="mi"><div class="mi-l"><div class="mn">Pavo Mechado</div><div class="md">La opción más magra</div></div><div class="mi-r">$25/lb</div></div>
+    </div>
+  </div>
+</section>
+<div class="feats">
+  <div class="feat"><div class="fi">🌱</div><div class="ft">Ingredientes Frescos</div><div class="fd">Seleccionamos lo mejor para ti.</div></div>
+  <div class="feat"><div class="fi">❤️</div><div class="ft">Hecho con Amor</div><div class="fd">Cada receta con dedicación.</div></div>
+  <div class="feat"><div class="fi">🥗</div><div class="ft">Saludable y Delicioso</div><div class="fd">Comer bien también sabe bien.</div></div>
+</div>
+<section class="about" id="nosotros">
+  <div style="display:flex;justify-content:center;"><img src="logo.jpg" alt="Chef Yoly"></div>
+  <div class="at"><div class="al">Nuestra Historia</div><h2>Chef <em>Yoly</em></h2><p>Chef Yoly lleva años perfeccionando recetas que nutren sin sacrificar el sabor — tradición venezolana con ingredientes modernos.</p><p>Hecho a mano, con amor, para tu familia.</p><div class="sig">— Chef Yoly</div></div>
+</section>
+<section class="order" id="pedido">
+  <div><h2>¿Listo para tu <em>pedido?</em></h2><p>Pickup y delivery · Houston, TX · 832-540-2505</p></div>
+  <a href="https://wa.me/18325402505" class="ob">📲 Ordenar por WhatsApp</a>
+</section>
+<footer><span>© 2026 The Balanced Bite by Chef Yoly</span><span>832-540-2505</span></footer>
+</body></html>
