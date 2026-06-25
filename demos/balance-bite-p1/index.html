@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Balanced Bite — Crema & Oro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --bg:#F5EDD8;
+      --bg2:#EDE3CB;
+      --cream:#FDFAF3;
+      --brown:#3D2010;
+      --brown-mid:#6B4226;
+      --gold:#A8782A;
+      --gold-lt:#C89A40;
+      --sage:#7A9E68;
+      --sage-lt:#B8CFA8;
+      --text:#3D2010;
+    }
+    body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--text);}
+
+    nav{padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:var(--cream);border-bottom:1px solid rgba(168,120,42,0.2);position:sticky;top:0;z-index:100;}
+    .nav-logo img{height:54px;object-fit:contain;}
+    .nav-links a{margin-left:28px;text-decoration:none;color:var(--brown-mid);font-size:0.84rem;font-weight:400;letter-spacing:0.5px;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-wa{background:var(--sage);color:#fff;padding:10px 22px;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:700;letter-spacing:1px;}
+
+    /* Centered full-width hero like the flyer */
+    .hero{text-align:center;padding:80px 60px 60px;background:var(--bg);position:relative;overflow:hidden;}
+    .hero::before{content:'🌿';position:absolute;top:20px;left:30px;font-size:5rem;opacity:0.15;transform:rotate(-20deg);}
+    .hero::after{content:'🌿';position:absolute;top:20px;right:30px;font-size:5rem;opacity:0.15;transform:rotate(20deg) scaleX(-1);}
+    .hero-logo{width:160px;height:160px;object-fit:contain;margin:0 auto 36px;display:block;}
+    h1{font-family:'Playfair Display',serif;font-size:5rem;font-weight:700;color:var(--brown);line-height:1;margin-bottom:8px;}
+    .hero-script{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold);font-style:italic;margin-bottom:10px;}
+    .hero-tagline{font-size:0.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--brown-mid);opacity:0.7;margin-bottom:40px;}
+    .hero-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;}
+    .pill{display:flex;align-items:center;gap:6px;background:rgba(122,158,104,0.12);border:1px solid rgba(122,158,104,0.3);color:var(--sage);padding:6px 16px;border-radius:50px;font-size:0.75rem;font-weight:700;}
+    .hero-btns{display:flex;gap:16px;justify-content:center;}
+    .btn1{background:var(--brown);color:var(--bg);padding:14px 36px;border-radius:4px;text-decoration:none;font-size:0.84rem;font-weight:700;letter-spacing:1px;}
+    .btn2{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:14px 36px;border-radius:4px;text-decoration:none;font-size:0.84rem;font-weight:700;letter-spacing:1px;}
+
+    /* Menu — styled like flyer */
+    .menu{padding:80px 60px;background:var(--cream);}
+    .menu-section{margin-bottom:52px;}
+    .section-head{display:flex;align-items:center;gap:16px;margin-bottom:32px;}
+    .section-line{flex:1;height:1px;background:rgba(168,120,42,0.3);}
+    .section-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--brown);display:flex;align-items:center;gap:10px;letter-spacing:2px;}
+    .section-title span{font-size:1rem;}
+    .menu-items{}
+    .mi{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px dashed rgba(168,120,42,0.2);}
+    .mi:last-child{border-bottom:none;}
+    .mi-star{color:var(--gold);font-size:1rem;flex-shrink:0;}
+    .mi-name{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--brown);flex:1;}
+    .mi-qty{font-size:0.8rem;color:var(--brown-mid);opacity:0.6;font-style:italic;margin-left:8px;}
+    .mi-price{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);font-weight:400;}
+
+    /* Values */
+    .values{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--bg2);}
+    .val{padding:40px 28px;text-align:center;border-right:1px solid rgba(168,120,42,0.15);}
+    .val:last-child{border:none;}
+    .val-icon{font-size:2rem;margin-bottom:12px;}
+    .val-title{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--brown);font-weight:700;margin-bottom:8px;}
+    .val-text{font-size:0.8rem;color:var(--brown-mid);line-height:1.7;opacity:0.8;}
+
+    /* About */
+    .about{padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:var(--cream);}
+    .about-logo{width:280px;height:280px;object-fit:contain;}
+    .about-txt .lbl{font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--sage);font-weight:700;margin-bottom:14px;}
+    .about-txt h2{font-family:'Playfair Display',serif;font-size:3rem;color:var(--brown);margin-bottom:20px;}
+    .about-txt h2 em{font-style:italic;color:var(--gold);}
+    .about-txt p{font-size:0.9rem;line-height:1.9;color:var(--brown-mid);margin-bottom:14px;opacity:0.85;}
+    .sig{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-style:italic;margin-top:20px;}
+
+    /* CTA */
+    .cta{background:var(--brown);padding:80px 60px;text-align:center;}
+    .cta h2{font-family:'Playfair Display',serif;font-size:3rem;color:var(--bg);margin-bottom:12px;}
+    .cta h2 em{font-style:italic;color:var(--gold-lt);}
+    .cta p{font-size:0.88rem;color:rgba(245,237,216,0.6);margin-bottom:36px;}
+    .cta-btns{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+    .cbtn1{background:var(--gold);color:#fff;padding:14px 40px;border-radius:4px;text-decoration:none;font-size:0.85rem;font-weight:700;}
+    .cbtn2{border:1px solid rgba(245,237,216,0.3);color:var(--bg);padding:14px 32px;border-radius:4px;text-decoration:none;font-size:0.85rem;}
+
+    /* Footer like flyer */
+    .footer-contact{background:var(--bg2);padding:40px 60px;display:flex;justify-content:center;gap:80px;align-items:center;border-top:1px solid rgba(168,120,42,0.2);}
+    .fc{display:flex;align-items:center;gap:14px;}
+    .fc-icon{font-size:1.8rem;}
+    .fc-label{font-size:0.72rem;letter-spacing:1px;color:var(--sage);font-weight:700;margin-bottom:4px;}
+    .fc-val{font-size:0.95rem;color:var(--brown);font-weight:700;}
+    .fc-sub{font-size:0.72rem;color:var(--brown-mid);opacity:0.6;}
+    .footer-bot{background:var(--brown);padding:16px 60px;text-align:center;font-size:0.73rem;color:rgba(245,237,216,0.4);}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}
+      .nav-links{display:none;}
+      .hero{padding:60px 20px 40px;}
+      h1{font-size:3rem;}
+      .menu{padding:60px 20px;}
+      .values{grid-template-columns:1fr;}
+      .val{border-right:none;border-bottom:1px solid rgba(168,120,42,0.1);}
+      .about{grid-template-columns:1fr;padding:60px 20px;gap:32px;}
+      .cta{padding:60px 20px;}
+      .footer-contact{flex-direction:column;gap:32px;padding:32px 20px;}
+      .footer-bot{padding:14px 20px;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><img src="logo.jpg" alt="The Balanced Bite"></div>
+  <div class="nav-links">
+    <a href="#menu">Menú</a><a href="#nosotros">Nosotros</a><a href="#pedido">Pedido</a>
+  </div>
+  <a href="https://wa.me/18325402505" class="nav-wa">📲 Ordenar</a>
+</nav>
+
+<section class="hero">
+  <img src="logo.jpg" alt="Logo" class="hero-logo">
+  <h1>The Balanced Bite</h1>
+  <div class="hero-script">by Chef Yoly</div>
+  <div class="hero-tagline">Comida Saludable y Deliciosa</div>
+  <div class="hero-pills">
+    <div class="pill">🌿 Frescos</div>
+    <div class="pill">✨ Naturales</div>
+    <div class="pill">💚 Nutritivos</div>
+  </div>
+  <div class="hero-btns">
+    <a href="https://wa.me/18325402505" class="btn1">📲 Hacer Pedido</a>
+    <a href="#menu" class="btn2">Ver Menú</a>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="menu-section">
+    <div class="section-head">
+      <div class="section-line"></div>
+      <div class="section-title"><span>🍃</span> MENÚ <span>🍃</span></div>
+      <div class="section-line"></div>
+    </div>
+    <div class="menu-items">
+      <div class="mi"><div class="mi-star">★</div><div><div class="mi-name">Arepas de Yuca con Chía <span class="mi-qty">(6 unidades)</span></div></div><div class="mi-price">$18</div></div>
+      <div class="mi"><div class="mi-star">★</div><div><div class="mi-name">Arepas de Yuca y Plátano <span class="mi-qty">(6 unidades)</span></div></div><div class="mi-price">$18</div></div>
+      <div class="mi"><div class="mi-star">★</div><div><div class="mi-name">Tortillas de Yuca y Plátano <span class="mi-qty">(6 unidades)</span></div></div><div class="mi-price">$16</div></div>
+    </div>
+  </div>
+  <div class="menu-section">
+    <div class="section-head">
+      <div class="section-line"></div>
+      <div class="section-title"><span>🍃</span> PROTEÍNAS <span>🍃</span></div>
+      <div class="section-line"></div>
+    </div>
+    <div class="menu-items">
+      <div class="mi"><div class="mi-star">★</div><div class="mi-name">Carne Mechada</div><div class="mi-price">$25 la libra</div></div>
+      <div class="mi"><div class="mi-star">★</div><div class="mi-name">Pollo Mechado</div><div class="mi-price">$25 la libra</div></div>
+      <div class="mi"><div class="mi-star">★</div><div class="mi-name">Pavo Mechado</div><div class="mi-price">$25 la libra</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="values">
+  <div class="val"><div class="val-icon">🌱</div><div class="val-title">Ingredientes Frescos</div><div class="val-text">Seleccionamos lo mejor para ti.</div></div>
+  <div class="val"><div class="val-icon">❤️</div><div class="val-title">Hecho con Amor</div><div class="val-text">Cada receta preparada con dedicación.</div></div>
+  <div class="val"><div class="val-icon">🥗</div><div class="val-title">Saludable y Delicioso</div><div class="val-text">Porque comer bien también sabe bien.</div></div>
+</div>
+
+<section class="about" id="nosotros">
+  <div style="display:flex;justify-content:center;"><img src="logo.jpg" alt="Chef Yoly" class="about-logo"></div>
+  <div class="about-txt">
+    <div class="lbl">Nuestra Historia</div>
+    <h2>Chef <em>Yoly</em></h2>
+    <p>Detrás de cada plato hay una historia de amor. Chef Yoly lleva años perfeccionando recetas que nutren sin sacrificar el sabor.</p>
+    <p>Cada producto es hecho a mano, con ingredientes frescos, pensando en tu bienestar y el de tu familia.</p>
+    <div class="sig">— Chef Yoly</div>
+  </div>
+</section>
+
+<section class="cta" id="pedido">
+  <h2>¿Listo para tu <em>pedido?</em></h2>
+  <p>Pickup y delivery disponible en Houston, TX</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/18325402505" class="cbtn1">📲 Escribir por WhatsApp</a>
+    <a href="https://instagram.com/thebalance_bite" class="cbtn2">📸 @thebalance_bite</a>
+  </div>
+</section>
+
+<div class="footer-contact">
+  <div class="fc"><div class="fc-icon">📱</div><div><div class="fc-label">WhatsApp</div><div class="fc-val">832-540-2505</div><div class="fc-sub">¡Escríbeme!</div></div></div>
+  <div class="fc"><div class="fc-icon">📸</div><div><div class="fc-label">Instagram</div><div class="fc-val">@thebalance_bite</div><div class="fc-sub">Sígueme</div></div></div>
+  <div class="fc"><div class="fc-icon">🌐</div><div><div class="fc-label">Web</div><div class="fc-val">Houston, TX</div><div class="fc-sub">Pickup & Delivery</div></div></div>
+</div>
+<div class="footer-bot">© 2026 The Balanced Bite by Chef Yoly · Houston, TX</div>
+
+</body>
+</html>
