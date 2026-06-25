@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Balanced Bite — Sol de Miel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--gold:#B88028;--gold2:#D09838;--gold3:#EAB850;--gold-pale:#FAF0D0;--cream:#FDFAF0;--brown:#2A1608;--brown-m:#644018;--white:#FFFFFF;}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--brown);}
+
+    nav{padding:20px 64px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,250,240,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(184,128,40,0.2);position:fixed;width:100%;top:0;z-index:100;}
+    nav img{height:50px;object-fit:contain;}
+    .nc a{margin-left:28px;color:var(--brown-m);text-decoration:none;font-size:0.82rem;font-weight:500;}
+    .nc a:hover{color:var(--gold);}
+    .nbtn{background:var(--gold);color:#fff;padding:10px 22px;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;}
+
+    /* Centered editorial hero */
+    .hero{padding:130px 64px 80px;text-align:center;background:linear-gradient(180deg,var(--gold-pale) 0%,var(--cream) 60%);}
+    .hero-logo{width:170px;height:170px;object-fit:contain;margin:0 auto 40px;display:block;filter:drop-shadow(0 8px 24px rgba(184,128,40,0.2));}
+    .hero-tag{font-size:0.67rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px;}
+    h1{font-family:'Cormorant Garamond',serif;font-size:6.5rem;line-height:0.85;font-weight:300;color:var(--brown);margin-bottom:16px;}
+    h1 em{font-style:italic;color:var(--gold2);}
+    .h1-div{display:flex;align-items:center;gap:20px;justify-content:center;margin:24px 0;}
+    .h1-line{width:60px;height:1px;background:rgba(184,128,40,0.35);}
+    .h1-script{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);font-style:italic;}
+    .hero-desc{font-size:0.93rem;line-height:1.9;color:#7A6040;max-width:500px;margin:0 auto 40px;}
+    .hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+    .hc1{background:var(--gold);color:#fff;padding:14px 40px;border-radius:4px;text-decoration:none;font-size:0.84rem;font-weight:600;letter-spacing:0.5px;}
+    .hc2{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:14px 32px;border-radius:4px;text-decoration:none;font-size:0.84rem;font-weight:600;}
+
+    /* Flyer-style menu centered */
+    .menu{padding:90px 64px;background:var(--cream);max-width:900px;margin:0 auto;}
+    .menu-sec{margin-bottom:48px;}
+    .msec-hd{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+    .msec-line{flex:1;height:1px;background:rgba(184,128,40,0.25);}
+    .msec-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--brown);letter-spacing:3px;display:flex;align-items:center;gap:10px;}
+    .mrow{display:flex;align-items:baseline;gap:8px;padding:14px 0;border-bottom:1px dashed rgba(184,128,40,0.2);}
+    .mrow:last-child{border:none;}
+    .mr-star{color:var(--gold2);font-size:1rem;flex-shrink:0;}
+    .mr-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--brown);}
+    .mr-qty{font-size:0.78rem;color:var(--brown-m);font-style:italic;opacity:0.6;margin-left:8px;}
+    .mr-dots{flex:1;border-bottom:1px dotted rgba(184,128,40,0.2);margin:0 8px;height:0.8em;}
+    .mr-price{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold2);white-space:nowrap;}
+
+    /* Feats in gold bg */
+    .feats{background:var(--gold);display:grid;grid-template-columns:repeat(3,1fr);}
+    .feat{padding:40px 28px;text-align:center;border-right:1px solid rgba(42,22,8,0.1);}
+    .feat:last-child{border:none;}
+    .fi{font-size:2rem;margin-bottom:12px;}
+    .ft{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--brown);font-weight:700;margin-bottom:8px;}
+    .fd{font-size:0.78rem;color:rgba(42,22,8,0.65);line-height:1.7;}
+
+    .about{background:var(--gold-pale);padding:90px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .about img{width:280px;height:280px;object-fit:contain;}
+    .at .al{font-size:0.67rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;}
+    .at h2{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--brown);margin-bottom:20px;}
+    .at h2 em{font-style:italic;color:var(--gold2);}
+    .at p{font-size:0.88rem;line-height:1.9;color:#7A6040;margin-bottom:14px;}
+    .at .sig{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold2);font-style:italic;margin-top:20px;}
+
+    .order{background:var(--brown);padding:70px 64px;text-align:center;}
+    .order h2{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;color:var(--gold-pale);margin-bottom:14px;}
+    .order h2 em{font-style:italic;color:var(--gold3);}
+    .order p{font-size:0.88rem;color:rgba(250,240,208,0.45);margin-bottom:32px;}
+    .ob{background:var(--gold);color:#fff;padding:14px 48px;border-radius:4px;text-decoration:none;font-size:0.85rem;font-weight:600;display:inline-block;}
+
+    .fc-bar{background:var(--gold-pale);padding:36px 64px;display:flex;justify-content:center;gap:80px;flex-wrap:wrap;border-top:1px solid rgba(184,128,40,0.2);}
+    .fc{display:flex;align-items:center;gap:14px;}
+    .fc-ico{font-size:1.8rem;}
+    .fc-val{font-size:0.92rem;color:var(--brown);font-weight:700;}
+    .fc-sub{font-size:0.7rem;color:var(--brown-m);opacity:0.55;margin-top:3px;}
+    footer{background:var(--brown);padding:20px 64px;text-align:center;font-size:0.72rem;color:rgba(250,240,208,0.25);}
+
+    @media(max-width:768px){
+      nav{padding:14px 20px;}.nc{display:none;}
+      .hero{padding:100px 20px 60px;}h1{font-size:3.5rem;}
+      .menu{padding:60px 20px;}
+      .feats{grid-template-columns:1fr;}.feat{border-right:none;border-bottom:1px solid rgba(42,22,8,0.08);}
+      .about{grid-template-columns:1fr;padding:60px 20px;gap:32px;}
+      .order{padding:60px 20px;}
+      .fc-bar{gap:32px;padding:28px 20px;}footer{padding:16px 20px;}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <img src="logo.jpg" alt="Logo">
+  <div class="nc"><a href="#menu">Menú</a><a href="#nosotros">Historia</a><a href="#pedido">Pedido</a></div>
+  <a href="https://wa.me/18325402505" class="nbtn">📲 Ordenar</a>
+</nav>
+<section class="hero">
+  <img src="logo.jpg" alt="Logo" class="hero-logo">
+  <div class="hero-tag">El Bocado Balanceado · Houston, TX</div>
+  <h1>The<br><em>Balanced</em><br>Bite</h1>
+  <div class="h1-div"><div class="h1-line"></div><div class="h1-script">by Chef Yoly</div><div class="h1-line"></div></div>
+  <p class="hero-desc">Tradición venezolana, ingredientes naturales de calidad y amor en cada plato preparado a mano para nutrir tu cuerpo y tu familia.</p>
+  <div class="hero-ctas"><a href="https://wa.me/18325402505" class="hc1">📲 Hacer Pedido</a><a href="#menu" class="hc2">Ver Menú</a></div>
+</section>
+<section class="menu" id="menu" style="max-width:100%;padding:90px 64px;">
+  <div style="max-width:860px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:52px;">
+      <div style="font-size:0.67rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;">Lo que ofrecemos</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--brown);">Nuestro <em style="font-style:italic;color:var(--gold2);">Menú</em></div>
+    </div>
+    <div class="menu-sec">
+      <div class="msec-hd"><div class="msec-line"></div><div class="msec-title"><span>🍃</span>MENÚ<span>🍃</span></div><div class="msec-line"></div></div>
+      <div class="mrow"><span class="mr-star">★</span><div class="mr-name">Arepas de Yuca con Chía<span class="mr-qty">(6 unidades)</span></div><div class="mr-dots"></div><div class="mr-price">$18</div></div>
+      <div class="mrow"><span class="mr-star">★</span><div class="mr-name">Arepas de Yuca y Plátano<span class="mr-qty">(6 unidades)</span></div><div class="mr-dots"></div><div class="mr-price">$18</div></div>
+      <div class="mrow"><span class="mr-star">★</span><div class="mr-name">Tortillas de Yuca y Plátano<span class="mr-qty">(6 unidades)</span></div><div class="mr-dots"></div><div class="mr-price">$16</div></div>
+    </div>
+    <div class="menu-sec">
+      <div class="msec-hd"><div class="msec-line"></div><div class="msec-title"><span>🍃</span>PROTEÍNAS<span>🍃</span></div><div class="msec-line"></div></div>
+      <div class="mrow"><span class="mr-star">★</span><div class="mr-name">Carne Mechada</div><div class="mr-dots"></div><div class="mr-price">$25 la libra</div></div>
+      <div class="mrow"><span class="mr-star">★</span><div class="mr-name">Pollo Mechado</div><div class="mr-dots"></div><div class="mr-price">$25 la libra</div></div>
+      <div class="mrow"><span class="mr-star">★</span><div class="mr-name">Pavo Mechado</div><div class="mr-dots"></div><div class="mr-price">$25 la libra</div></div>
+    </div>
+  </div>
+</section>
+<div class="feats">
+  <div class="feat"><div class="fi">🌱</div><div class="ft">Ingredientes Frescos</div><div class="fd">Seleccionamos lo mejor para ti.</div></div>
+  <div class="feat"><div class="fi">❤️</div><div class="ft">Hecho con Amor</div><div class="fd">Cada receta preparada con dedicación.</div></div>
+  <div class="feat"><div class="fi">🥗</div><div class="ft">Saludable y Delicioso</div><div class="fd">Porque comer bien también sabe bien.</div></div>
+</div>
+<section class="about" id="nosotros">
+  <div style="display:flex;justify-content:center;"><img src="logo.jpg" alt="Chef Yoly"></div>
+  <div class="at"><div class="al">Nuestra Historia</div><h2>Chef <em>Yoly</em></h2><p>Detrás de cada plato hay una historia de amor. Chef Yoly lleva años perfeccionando recetas que nutren sin sacrificar el sabor.</p><p>Cada producto es hecho a mano, pensando en tu bienestar.</p><div class="sig">— Chef Yoly</div></div>
+</section>
+<section class="order" id="pedido">
+  <h2>¿Listo para tu <em>pedido?</em></h2>
+  <p>Pickup y delivery disponible en Houston, TX</p>
+  <a href="https://wa.me/18325402505" class="ob">📲 Ordenar por WhatsApp</a>
+</section>
+<div class="fc-bar">
+  <div class="fc"><div class="fc-ico">📱</div><div><div class="fc-val">832-540-2505</div><div class="fc-sub">¡Escríbeme por WhatsApp!</div></div></div>
+  <div class="fc"><div class="fc-ico">📸</div><div><div class="fc-val">@thebalance_bite</div><div class="fc-sub">Sígueme en Instagram</div></div></div>
+</div>
+<footer>© 2026 The Balanced Bite by Chef Yoly · Houston, TX</footer>
+</body></html>
