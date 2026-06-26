@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguros La Colina Corp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--dark:#0C0C14;--dark2:#12121E;--mid:#1A1A2E;--accent:#8B7CF6;--accent2:#A78BFA;--gold:#D4AF37;--gold2:#F0CC50;--white:#FFFFFF;--gray:#F8F8FC;--text2:#6B7280;}
+    body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;}
+    nav{padding:0 64px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(12,12,20,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(139,124,246,0.15);position:sticky;top:0;z-index:100;}
+    .nb{display:flex;align-items:center;gap:14px;}
+    .nl{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;font-weight:800;color:var(--white);}
+    .nn{font-size:0.88rem;font-weight:600;letter-spacing:1px;}
+    .nn span{display:block;font-size:0.58rem;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;}
+    .nc a{margin-left:24px;color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;font-weight:500;}
+    .nc a:hover{color:var(--accent2);}
+    .ncta{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;padding:10px 22px;border-radius:8px;text-decoration:none;font-size:0.8rem;font-weight:600;}
+
+    .hero{min-height:100vh;background:var(--dark);display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(139,124,246,0.08) 0%,transparent 70%);right:-100px;top:50%;transform:translateY(-50%);}
+    .hl{padding:100px 64px;position:relative;z-index:1;}
+    .hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(139,124,246,0.12);border:1px solid rgba(139,124,246,0.3);color:var(--accent2);padding:7px 16px;border-radius:50px;font-size:0.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;}
+    h1{font-family:'Cormorant Garamond',serif;font-size:4.8rem;line-height:1.1;color:var(--white);margin-bottom:20px;font-weight:600;}
+    h1 em{font-style:italic;color:var(--accent2);}
+    .hsub{font-size:0.95rem;color:rgba(255,255,255,0.5);line-height:1.8;max-width:460px;margin-bottom:40px;}
+    .hsub strong{color:var(--gold2);}
+    .hbtns{display:flex;gap:14px;flex-wrap:wrap;}
+    .hb1{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;padding:14px 32px;border-radius:8px;text-decoration:none;font-size:0.84rem;font-weight:600;}
+    .hb2{border:1px solid rgba(139,124,246,0.3);color:var(--accent2);padding:14px 28px;border-radius:8px;text-decoration:none;font-size:0.84rem;font-weight:500;}
+    .hstats{display:flex;gap:36px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.06);}
+    .hs .sn{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--accent2);font-style:italic;}
+    .hs .sl{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;}
+    .hr{display:flex;align-items:center;justify-content:center;padding:60px 40px;}
+    .hcard{background:rgba(255,255,255,0.03);border:1px solid rgba(139,124,246,0.2);border-radius:20px;padding:36px;width:100%;max-width:320px;backdrop-filter:blur(8px);}
+    .hcl{width:70px;height:70px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;margin:0 auto 18px;}
+    .hcn{text-align:center;font-size:0.9rem;font-weight:600;letter-spacing:1.5px;margin-bottom:4px;}
+    .hcs{text-align:center;font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+    .hcd{height:1px;background:rgba(139,124,246,0.15);margin-bottom:20px;}
+    .hci{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .hcid{width:6px;height:6px;border-radius:50%;background:var(--accent2);flex-shrink:0;}
+    .hcit{font-size:0.8rem;color:rgba(255,255,255,0.6);}
+    .hcbtn{display:block;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;padding:12px;border-radius:10px;text-decoration:none;font-size:0.82rem;font-weight:600;margin-top:20px;}
+
+    .ticker{background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent));overflow:hidden;padding:11px 0;}
+    .ti{display:inline-flex;animation:sc 22s linear infinite;white-space:nowrap;}
+    .ti span{font-size:0.67rem;letter-spacing:4px;text-transform:uppercase;color:white;padding:0 36px;font-weight:600;}
+    @keyframes sc{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    .services{padding:90px 64px;background:var(--dark2);}
+    .sh{text-align:center;margin-bottom:56px;}
+    .sh .lbl{font-size:0.67rem;letter-spacing:5px;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:12px;}
+    .sh h2{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;}
+    .sh h2 em{font-style:italic;color:var(--accent2);}
+    .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .sc{background:rgba(255,255,255,0.02);border:1px solid rgba(139,124,246,0.12);border-radius:16px;padding:28px 22px;transition:all 0.2s;}
+    .sc:hover{border-color:rgba(139,124,246,0.4);background:rgba(139,124,246,0.05);transform:translateY(-3px);}
+    .sci{font-size:2.2rem;margin-bottom:14px;}
+    .scb{font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:6px;}
+    .scn{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;margin-bottom:8px;}
+    .scd{font-size:0.79rem;line-height:1.7;color:rgba(255,255,255,0.45);margin-bottom:18px;}
+    .scc{color:var(--accent2);font-size:0.77rem;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(139,124,246,0.3);padding-bottom:2px;}
+
+    .coverage{background:var(--mid);padding:70px 64px;text-align:center;}
+    .cov-lbl{font-size:0.67rem;letter-spacing:5px;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:14px;}
+    .cov-h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;margin-bottom:10px;}
+    .cov-h2 em{font-style:italic;color:var(--accent2);}
+    .cov-sub{font-size:0.86rem;color:rgba(255,255,255,0.4);max-width:440px;margin:0 auto 40px;}
+    .sgflex{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:820px;margin:0 auto;}
+    .sc2{background:rgba(255,255,255,0.04);border:1px solid rgba(139,124,246,0.15);color:rgba(255,255,255,0.6);padding:7px 16px;border-radius:50px;font-size:0.74rem;font-weight:500;}
+    .sc2.new{background:rgba(139,124,246,0.15);border-color:rgba(167,139,250,0.4);color:var(--accent2);}
+
+    .referral{background:linear-gradient(135deg,var(--accent) 0%,#6D28D9 100%);padding:70px 64px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+    .rl-lbl{font-size:0.67rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:12px;}
+    .rl-h2{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;}
+    .rl-p{font-size:0.87rem;color:rgba(255,255,255,0.65);margin-top:10px;line-height:1.7;}
+    .rbig{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;font-style:italic;text-align:center;line-height:1;}
+    .runit{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5);text-align:center;margin-top:6px;}
+
+    .about{background:var(--dark2);padding:90px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .aimg{width:300px;height:300px;border-radius:20px;background:rgba(139,124,246,0.08);border:1px solid rgba(139,124,246,0.2);display:flex;align-items:center;justify-content:center;font-size:5rem;opacity:0.4;}
+    .at .al{font-size:0.67rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:14px;}
+    .at h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;margin-bottom:18px;}
+    .at h2 em{font-style:italic;color:var(--accent2);}
+    .at p{font-size:0.88rem;line-height:1.9;color:rgba(255,255,255,0.5);margin-bottom:12px;}
+    .atsig{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--accent2);font-style:italic;margin-top:18px;}
+    .attitle{font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;}
+
+    .contact{background:var(--dark);padding:90px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+    .cl-lbl{font-size:0.67rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:14px;}
+    .cl-h2{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;margin-bottom:18px;}
+    .cl-h2 em{font-style:italic;color:var(--accent2);}
+    .cl-p{font-size:0.87rem;color:rgba(255,255,255,0.45);line-height:1.8;margin-bottom:28px;}
+    .citems{display:flex;flex-direction:column;gap:14px;}
+    .ci{display:flex;align-items:center;gap:14px;}
+    .cii{width:42px;height:42px;background:rgba(139,124,246,0.1);border:1px solid rgba(139,124,246,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .civ{font-size:0.88rem;font-weight:600;}
+    .cis{font-size:0.7rem;color:rgba(255,255,255,0.35);margin-top:2px;}
+    .cform{display:flex;flex-direction:column;gap:12px;}
+    .cform input,.cform select,.cform textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(139,124,246,0.15);border-radius:10px;padding:13px 16px;color:white;font-size:0.84rem;font-family:'DM Sans',sans-serif;outline:none;}
+    .cform input:focus,.cform select:focus,.cform textarea:focus{border-color:rgba(139,124,246,0.5);}
+    .cform input::placeholder,.cform textarea::placeholder{color:rgba(255,255,255,0.25);}
+    .cform select option{background:var(--dark);}
+    .cform textarea{height:90px;resize:none;}
+    .cfbtn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;padding:14px;border-radius:10px;font-size:0.84rem;font-weight:600;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    .ctabar{background:linear-gradient(135deg,var(--accent),var(--accent2));padding:56px 64px;text-align:center;}
+    .ctabar h2{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;margin-bottom:12px;}
+    .ctabar p{font-size:0.88rem;color:rgba(255,255,255,0.7);margin-bottom:28px;}
+    .ctabtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .cb1{background:white;color:var(--accent);padding:13px 36px;border-radius:8px;text-decoration:none;font-size:0.84rem;font-weight:700;}
+    .cb2{border:1.5px solid rgba(255,255,255,0.4);color:white;padding:13px 28px;border-radius:8px;text-decoration:none;font-size:0.84rem;font-weight:600;}
+
+    .footer{background:#080810;padding:40px 64px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;border-top:1px solid rgba(139,124,246,0.08);}
+    .fb-name{font-size:0.88rem;font-weight:600;margin-bottom:10px;}
+    .fb-p{font-size:0.8rem;color:rgba(255,255,255,0.3);line-height:1.8;max-width:260px;}
+    .fcol h4{font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--accent2);font-weight:600;margin-bottom:14px;}
+    .fcol a{display:block;color:rgba(255,255,255,0.35);text-decoration:none;font-size:0.8rem;margin-bottom:8px;}
+    .fbot{background:#05050D;padding:16px 64px;display:flex;justify-content:space-between;font-size:0.7rem;color:rgba(255,255,255,0.18);}
+
+    @media(max-width:768px){
+      nav{padding:0 20px;}.nc{display:none;}
+      .hero{grid-template-columns:1fr;}.hl{padding:80px 20px 40px;}h1{font-size:2.8rem;}
+      .hr{padding:20px;}
+      .services{padding:60px 20px;}.sgrid{grid-template-columns:1fr;}
+      .coverage{padding:60px 20px;}
+      .referral{grid-template-columns:1fr;padding:60px 20px;text-align:center;}
+      .about{grid-template-columns:1fr;padding:60px 20px;gap:32px;}
+      .contact{grid-template-columns:1fr;padding:60px 20px;gap:40px;}
+      .ctabar{padding:60px 20px;}
+      .footer{grid-template-columns:1fr;padding:36px 20px;}
+      .fbot{flex-direction:column;gap:6px;padding:14px 20px;}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nb"><div class="nl">LC</div><div class="nn">SEGUROS LA COLINA<span>Corp · Agencia de Seguros</span></div></div>
+  <div class="nc"><a href="#servicios">Servicios</a><a href="#cobertura">Cobertura</a><a href="#referidos">Referidos</a><a href="#contacto">Contacto</a></div>
+  <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="ncta">📲 Cotización Gratis</a>
+</nav>
+<section class="hero">
+  <div class="hl">
+    <div class="hbadge">🇺🇸 Agencia de Seguros · 17 Estados</div>
+    <h1>Tu familia merece estar <em>protegida.</em></h1>
+    <p class="hsub">Te acompañamos y respaldamos siempre. <strong>Planes desde $0 mensuales.</strong> Cotización gratuita.</p>
+    <div class="hbtns"><a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="hb1">📲 Cotización GRATUITA</a><a href="#servicios" class="hb2">Ver Servicios</a></div>
+    <div class="hstats"><div class="hs"><div class="sn">17</div><div class="sl">Estados USA</div></div><div class="hs"><div class="sn">$0</div><div class="sl">Desde al mes</div></div><div class="hs"><div class="sn">$25</div><div class="sl">Por referido</div></div></div>
+  </div>
+  <div class="hr">
+    <div class="hcard">
+      <div class="hcl">LC</div>
+      <div class="hcn">SEGUROS LA COLINA</div>
+      <div class="hcs">Corp · Est. 2024</div>
+      <div class="hcd"></div>
+      <div class="hci"><div class="hcid"></div><div class="hcit">Obama Care · Planes desde $0</div></div>
+      <div class="hci"><div class="hcid"></div><div class="hcit">Plan Médico Familiar</div></div>
+      <div class="hci"><div class="hcid"></div><div class="hcit">Dental, Visual & Auditiva</div></div>
+      <div class="hci"><div class="hcid"></div><div class="hcit">Seguro de Vida</div></div>
+      <div class="hci"><div class="hcid"></div><div class="hcit">Asistencia al Viajero</div></div>
+      <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="hcbtn">📲 Cotizar Ahora — GRATIS</a>
+    </div>
+  </div>
+</section>
+<div class="ticker"><div class="ti"><span>Obama Care</span><span>✦</span><span>Plan Médico</span><span>✦</span><span>Póliza Dental</span><span>✦</span><span>Seguro de Vida</span><span>✦</span><span>Asistencia al Viajero</span><span>✦</span><span>17 Estados</span><span>✦</span><span>Cotización Gratis</span><span>✦</span><span>Obama Care</span><span>✦</span><span>Plan Médico</span><span>✦</span><span>Póliza Dental</span><span>✦</span><span>Seguro de Vida</span><span>✦</span><span>Asistencia al Viajero</span><span>✦</span><span>17 Estados</span><span>✦</span><span>Cotización Gratis</span><span>✦</span></div></div>
+<section class="services" id="servicios">
+  <div class="sh"><div class="lbl">Lo que ofrecemos</div><h2>Nuestros <em>Seguros</em></h2></div>
+  <div class="sgrid">
+    <div class="sc"><div class="sci">🏥</div><div class="scb">Obama Care · ACA</div><div class="scn">Seguro de Salud</div><div class="scd">Planes desde $0 mensuales. Protección médica completa bajo la ACA.</div><a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="scc">Cotizar gratis →</a></div>
+    <div class="sc"><div class="sci">🦷</div><div class="scb">Flexible Choice</div><div class="scn">Dental, Visual & Auditiva</div><div class="scd">3 beneficios en una sola póliza para ti y tu núcleo familiar.</div><a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="scc">Cotizar gratis →</a></div>
+    <div class="sc"><div class="sci">❤️</div><div class="scb">Póliza de Vida</div><div class="scn">Seguro de Vida</div><div class="scd">Apuesta al respaldo y la tranquilidad que te otorga una póliza de vida.</div><a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="scc">Cotizar gratis →</a></div>
+    <div class="sc"><div class="sci">✈️</div><div class="scb">Asistencia al Viajero</div><div class="scn">Seguro de Viaje</div><div class="scd">Disponible en Argentina, Francia, Portugal, UK, EEUU, España, Italia, Brasil y Alemania.</div><a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="scc">Cotizar gratis →</a></div>
+    <div class="sc"><div class="sci">👨‍👩‍👧‍👦</div><div class="scb">Plan Familiar</div><div class="scn">Plan Médico Familiar</div><div class="scd">Cobertura médica completa para cada miembro de tu familia.</div><a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="scc">Cotizar gratis →</a></div>
+    <div class="sc"><div class="sci">🐾</div><div class="scb">Mascotas</div><div class="scn">Seguro para Mascotas</div><div class="scd">Tu mascota también merece protección. Planes de salud veterinaria.</div><a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="scc">Cotizar gratis →</a></div>
+  </div>
+</section>
+<section class="coverage" id="cobertura">
+  <div class="cov-lbl">Dónde estamos</div>
+  <h2 class="cov-h2">Presentes en <em>17 estados</em> de los EEUU</h2>
+  <p class="cov-sub">Y seguimos creciendo. Contáctanos para verificar cobertura en tu estado.</p>
+  <div class="sgflex"><div class="sc2">Alabama</div><div class="sc2">Florida</div><div class="sc2">Georgia</div><div class="sc2">Indiana</div><div class="sc2">Illinois</div><div class="sc2">New Jersey</div><div class="sc2">Louisiana</div><div class="sc2">Carolina del Norte</div><div class="sc2">Ohio</div><div class="sc2">Oklahoma</div><div class="sc2">Pensilvania</div><div class="sc2">Utah</div><div class="sc2">Tennessee</div><div class="sc2">Texas</div><div class="sc2">Wisconsin</div><div class="sc2 new">Carolina del Sur ★</div><div class="sc2 new">Kansas ★</div></div>
+</section>
+<section class="referral" id="referidos">
+  <div><div class="rl-lbl">Programa de Referidos</div><h2 class="rl-h2">Recomiéndanos &amp; gana dinero</h2><p class="rl-p">Por cada póliza firmada a través de tu referido, te pagamos $25 en efectivo. Sin límite.</p></div>
+  <div><div class="rbig">$25</div><div class="runit">Por cada póliza</div></div>
+</section>
+<section class="about">
+  <div style="display:flex;justify-content:center;"><div class="aimg">👩‍💼</div></div>
+  <div class="at"><div class="al">Quiénes Somos</div><h2>Agente <em>Luizelys Güere</em></h2><p>Una agencia comprometida con tu bienestar y el de tu familia en los Estados Unidos. Te acompañamos en cada paso.</p><p>Con presencia en 17 estados y creciendo, siempre estarás protegido.</p><div class="atsig">Luizelys Güere</div><div class="attitle">Asesora de Seguros</div></div>
+</section>
+<section class="contact" id="contacto">
+  <div><div class="cl-lbl">Contáctanos</div><h2 class="cl-h2">Cotización <em>gratuita</em></h2><p class="cl-p">Un asesor te responderá en minutos para encontrar el plan perfecto.</p>
+  <div class="citems"><div class="ci"><div class="cii">📲</div><div><div class="civ">WhatsApp Directo</div><div class="cis">wa.me/message/WBQJN7LOQQ5ZC1</div></div></div><div class="ci"><div class="cii">📧</div><div><div class="civ">info@seguroslacolina.com</div><div class="cis">Email profesional</div></div></div><div class="ci"><div class="cii">📸</div><div><div class="civ">@seguroslacolinacorp</div><div class="cis">Instagram</div></div></div></div></div>
+  <div class="cform"><input type="text" placeholder="Tu nombre completo"><input type="tel" placeholder="Número de teléfono"><input type="email" placeholder="Correo electrónico"><select><option disabled selected>¿Qué seguro te interesa?</option><option>Obama Care</option><option>Dental, Visual & Auditiva</option><option>Seguro de Vida</option><option>Seguro de Viaje</option><option>Plan Familiar</option><option>Mascotas</option></select><input type="text" placeholder="Estado donde vives"><textarea placeholder="Mensaje adicional (opcional)"></textarea><button class="cfbtn" onclick="window.open('https://wa.me/message/WBQJN7LOQQ5ZC1','_blank')">📲 Enviar por WhatsApp</button></div>
+</section>
+<section class="ctabar">
+  <h2>La tranquilidad de estar protegido</h2>
+  <p>Tu cotización es gratuita y sin compromiso.</p>
+  <div class="ctabtns"><a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="cb1">📲 Cotizar por WhatsApp</a><a href="mailto:info@seguroslacolina.com" class="cb2">✉️ Enviar Email</a></div>
+</section>
+<div class="footer">
+  <div><div class="fb-name">SEGUROS LA COLINA CORP</div><div class="fb-p">Agencia de Seguros en los Estados Unidos 🇺🇸 Te Acompaña y Respalda Siempre.</div></div>
+  <div class="fcol"><h4>Servicios</h4><a href="#">Obama Care</a><a href="#">Plan Médico</a><a href="#">Póliza Dental</a><a href="#">Seguro de Vida</a><a href="#">Seguro de Viaje</a></div>
+  <div class="fcol"><h4>Contacto</h4><a href="https://wa.me/message/WBQJN7LOQQ5ZC1">WhatsApp</a><a href="mailto:info@seguroslacolina.com">Email</a><a href="https://instagram.com/seguroslacolinacorp">Instagram</a></div>
+</div>
+<div class="fbot"><span>© 2026 Seguros La Colina Corp</span><span>seguroslacolina.com</span></div>
+</body></html>
