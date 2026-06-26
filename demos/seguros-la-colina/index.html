@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguros La Colina Corp — Agencia de Seguros</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --navy:#0A1F4E;--navy2:#0D2860;--navy3:#122F74;
+      --gold:#B8972A;--gold2:#D4AF37;--gold3:#F0CC50;
+      --cream:#FDFAF2;--white:#FFFFFF;
+      --gray:#F4F6FA;--text:#1A1A2E;--text2:#4A5568;
+    }
+    body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+
+    /* NAV */
+    nav{padding:0 64px;height:72px;display:flex;align-items:center;justify-content:space-between;background:var(--navy);position:sticky;top:0;z-index:100;}
+    .nav-brand{display:flex;align-items:center;gap:14px;}
+    .nav-logo{width:46px;height:46px;background:var(--gold2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:var(--navy);letter-spacing:-1px;}
+    .nav-name{color:var(--white);font-size:0.95rem;font-weight:700;letter-spacing:1px;line-height:1.2;}
+    .nav-name span{display:block;font-size:0.6rem;color:rgba(255,255,255,0.45);font-weight:400;letter-spacing:2px;text-transform:uppercase;}
+    .nc a{margin-left:24px;color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.8rem;font-weight:500;}
+    .nc a:hover{color:var(--gold3);}
+    .nav-cta{background:var(--gold);color:var(--navy);padding:10px 22px;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:700;letter-spacing:0.5px;}
+
+    /* HERO */
+    .hero{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,var(--navy3) 60%,#0A1A3E 100%);display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;border:1px solid rgba(184,151,42,0.08);right:-200px;top:50%;transform:translateY(-50%);}
+    .hero::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;border:1px solid rgba(184,151,42,0.06);right:-100px;top:50%;transform:translateY(-50%);}
+    .hl{padding:100px 64px;position:relative;z-index:1;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.3);color:var(--gold2);padding:7px 16px;border-radius:50px;font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;}
+    h1{font-family:'Merriweather',serif;font-size:4rem;line-height:1.15;color:var(--white);margin-bottom:20px;font-weight:700;}
+    h1 em{font-style:italic;color:var(--gold2);}
+    .hero-sub{font-size:1rem;color:rgba(255,255,255,0.65);line-height:1.8;max-width:480px;margin-bottom:40px;}
+    .hero-sub strong{color:var(--gold3);}
+    .hbtns{display:flex;gap:14px;flex-wrap:wrap;}
+    .hb1{background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:4px;text-decoration:none;font-size:0.84rem;font-weight:700;letter-spacing:0.5px;}
+    .hb2{border:1.5px solid rgba(212,175,55,0.4);color:var(--gold2);padding:14px 28px;border-radius:4px;text-decoration:none;font-size:0.84rem;font-weight:600;}
+    .hero-stats{display:flex;gap:40px;margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.08);}
+    .hs .sn{font-family:'Merriweather',serif;font-size:2.2rem;font-weight:300;color:var(--gold2);font-style:italic;}
+    .hs .sl{font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:4px;}
+
+    .hr{display:flex;align-items:center;justify-content:center;padding:60px 40px;position:relative;z-index:1;}
+    .hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,55,0.2);border-radius:20px;padding:40px;width:100%;max-width:340px;backdrop-filter:blur(10px);}
+    .hc-logo{width:80px;height:80px;background:var(--gold2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:800;color:var(--navy);margin:0 auto 20px;letter-spacing:-2px;}
+    .hc-name{text-align:center;color:var(--white);font-size:1rem;font-weight:700;letter-spacing:2px;margin-bottom:4px;}
+    .hc-sub{text-align:center;color:rgba(255,255,255,0.4);font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:28px;}
+    .hc-divider{height:1px;background:rgba(212,175,55,0.2);margin-bottom:24px;}
+    .hc-item{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+    .hci-dot{width:8px;height:8px;border-radius:50%;background:var(--gold2);flex-shrink:0;}
+    .hci-text{font-size:0.82rem;color:rgba(255,255,255,0.7);}
+    .hc-cta{display:block;text-align:center;background:var(--gold);color:var(--navy);padding:12px;border-radius:8px;text-decoration:none;font-size:0.82rem;font-weight:700;margin-top:24px;letter-spacing:0.5px;}
+
+    /* TICKER */
+    .ticker{background:var(--gold);overflow:hidden;padding:12px 0;}
+    .ti{display:inline-flex;animation:sc 22s linear infinite;white-space:nowrap;}
+    .ti span{font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--navy);padding:0 40px;font-weight:700;}
+    @keyframes sc{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* SERVICES */
+    .services{padding:100px 64px;background:var(--white);}
+    .sh{text-align:center;margin-bottom:64px;}
+    .sh .lbl{font-size:0.67rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;}
+    .sh h2{font-family:'Merriweather',serif;font-size:3rem;color:var(--navy);font-weight:700;}
+    .sh h2 em{font-style:italic;color:var(--gold);}
+    .sh p{font-size:0.9rem;color:var(--text2);max-width:500px;margin:16px auto 0;line-height:1.8;}
+    .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .sc{background:var(--gray);border-radius:16px;padding:32px 24px;border:2px solid transparent;transition:all 0.2s;position:relative;overflow:hidden;}
+    .sc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--navy),var(--gold));}
+    .sc:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 32px rgba(10,31,78,0.1);}
+    .sc-icon{font-size:2.5rem;margin-bottom:16px;}
+    .sc-badge{font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px;}
+    .sc-name{font-family:'Merriweather',serif;font-size:1.15rem;color:var(--navy);font-weight:700;margin-bottom:10px;}
+    .sc-desc{font-size:0.8rem;line-height:1.7;color:var(--text2);margin-bottom:20px;}
+    .sc-cta{display:inline-flex;align-items:center;gap:6px;color:var(--navy);font-size:0.78rem;font-weight:700;text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:2px;}
+
+    /* COVERAGE */
+    .coverage{background:var(--navy);padding:80px 64px;text-align:center;}
+    .cov-lbl{font-size:0.67rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px;}
+    .cov-h2{font-family:'Merriweather',serif;font-size:2.8rem;color:var(--white);margin-bottom:12px;}
+    .cov-h2 em{font-style:italic;color:var(--gold2);}
+    .cov-sub{font-size:0.88rem;color:rgba(255,255,255,0.5);max-width:500px;margin:0 auto 48px;}
+    .states-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:900px;margin:0 auto;}
+    .state-chip{background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.2);color:rgba(255,255,255,0.75);padding:8px 16px;border-radius:50px;font-size:0.75rem;font-weight:600;}
+    .state-chip.new{background:rgba(212,175,55,0.15);border-color:rgba(212,175,55,0.4);color:var(--gold3);}
+
+    /* REFERRAL */
+    .referral{background:var(--gold);padding:70px 64px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+    .ref-l .rl{font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;color:rgba(10,31,78,0.6);font-weight:700;margin-bottom:12px;}
+    .ref-l h2{font-family:'Merriweather',serif;font-size:2.5rem;color:var(--navy);font-weight:700;}
+    .ref-l h2 em{font-style:italic;}
+    .ref-l p{font-size:0.88rem;color:rgba(10,31,78,0.65);margin-top:10px;line-height:1.7;}
+    .ref-amount{text-align:center;}
+    .ref-big{font-family:'Merriweather',serif;font-size:5rem;color:var(--navy);font-weight:700;line-height:1;}
+    .ref-unit{font-size:0.78rem;letter-spacing:3px;text-transform:uppercase;color:rgba(10,31,78,0.55);margin-top:6px;}
+    .ref-sub{font-size:0.72rem;color:rgba(10,31,78,0.5);margin-top:4px;}
+
+    /* ABOUT */
+    .about{background:var(--white);padding:100px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .about-img{width:320px;height:320px;border-radius:20px;background:var(--gray);overflow:hidden;display:flex;align-items:center;justify-content:center;border:3px solid var(--gold2);}
+    .about-img-placeholder{font-size:5rem;opacity:0.3;}
+    .at .al{font-size:0.67rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;}
+    .at h2{font-family:'Merriweather',serif;font-size:2.8rem;color:var(--navy);font-weight:700;margin-bottom:20px;}
+    .at h2 em{font-style:italic;color:var(--gold);}
+    .at p{font-size:0.9rem;line-height:1.9;color:var(--text2);margin-bottom:14px;}
+    .at-name{font-family:'Merriweather',serif;font-size:1.6rem;color:var(--gold);font-style:italic;margin-top:20px;}
+    .at-title{font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--text2);opacity:0.6;margin-top:4px;}
+
+    /* CONTACT */
+    .contact{background:var(--navy);padding:100px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .con-l .cl{font-size:0.67rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;}
+    .con-l h2{font-family:'Merriweather',serif;font-size:3rem;color:var(--white);font-weight:700;margin-bottom:20px;}
+    .con-l h2 em{font-style:italic;color:var(--gold2);}
+    .con-l p{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:32px;}
+    .con-items{display:flex;flex-direction:column;gap:16px;}
+    .ci{display:flex;align-items:center;gap:16px;}
+    .ci-icon{width:44px;height:44px;background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+    .ci-val{font-size:0.9rem;color:var(--white);font-weight:600;}
+    .ci-sub{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:2px;}
+    .con-r{}
+    .cform{display:flex;flex-direction:column;gap:14px;}
+    .cform input,.cform select,.cform textarea{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:14px 16px;color:var(--white);font-size:0.85rem;font-family:'Montserrat',sans-serif;outline:none;transition:border-color 0.2s;}
+    .cform input:focus,.cform select:focus,.cform textarea:focus{border-color:rgba(212,175,55,0.5);}
+    .cform input::placeholder,.cform textarea::placeholder{color:rgba(255,255,255,0.3);}
+    .cform select option{background:var(--navy);color:var(--white);}
+    .cform textarea{resize:none;height:100px;}
+    .cform-btn{background:var(--gold);color:var(--navy);padding:14px;border-radius:8px;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;letter-spacing:0.5px;}
+
+    /* CTA STRIP */
+    .cta-strip{background:linear-gradient(135deg,var(--gold),var(--gold2));padding:60px 64px;text-align:center;}
+    .cta-strip h2{font-family:'Merriweather',serif;font-size:2.5rem;color:var(--navy);margin-bottom:12px;}
+    .cta-strip p{font-size:0.9rem;color:rgba(10,31,78,0.65);margin-bottom:32px;}
+    .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+    .ctab1{background:var(--navy);color:var(--gold2);padding:14px 40px;border-radius:4px;text-decoration:none;font-size:0.85rem;font-weight:700;}
+    .ctab2{background:transparent;border:2px solid rgba(10,31,78,0.3);color:var(--navy);padding:14px 32px;border-radius:4px;text-decoration:none;font-size:0.85rem;font-weight:600;}
+
+    /* FOOTER */
+    .footer-main{background:var(--navy);padding:48px 64px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;border-top:1px solid rgba(255,255,255,0.05);}
+    .fm-brand .nav-logo{margin-bottom:16px;width:56px;height:56px;font-size:1.3rem;}
+    .fm-brand p{font-size:0.82rem;color:rgba(255,255,255,0.4);line-height:1.8;max-width:280px;margin-top:12px;}
+    .fm-col h4{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px;}
+    .fm-col a{display:block;color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.82rem;margin-bottom:10px;}
+    .fm-col a:hover{color:var(--gold2);}
+    .footer-bot{background:#060E22;padding:18px 64px;display:flex;justify-content:space-between;font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    .footer-bot a{color:rgba(212,175,55,0.4);text-decoration:none;}
+
+    @media(max-width:768px){
+      nav{padding:0 20px;}.nc{display:none;}
+      .hero{grid-template-columns:1fr;}.hl{padding:80px 20px 40px;}h1{font-size:2.5rem;}
+      .hr{padding:20px;}.hero-card{max-width:100%;}
+      .services{padding:60px 20px;}.sgrid{grid-template-columns:1fr;}
+      .coverage{padding:60px 20px;}
+      .referral{grid-template-columns:1fr;padding:60px 20px;text-align:center;}
+      .about{grid-template-columns:1fr;padding:60px 20px;gap:32px;}
+      .contact{grid-template-columns:1fr;padding:60px 20px;gap:40px;}
+      .cta-strip{padding:60px 20px;}
+      .footer-main{grid-template-columns:1fr;padding:40px 20px;}
+      .footer-bot{flex-direction:column;gap:8px;padding:16px 20px;}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">LC</div>
+    <div class="nav-name">SEGUROS LA COLINA<span>Corp · Agencia de Seguros</span></div>
+  </div>
+  <div class="nc">
+    <a href="#servicios">Servicios</a>
+    <a href="#cobertura">Cobertura</a>
+    <a href="#referidos">Referidos</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="nav-cta">📲 Cotización Gratis</a>
+</nav>
+
+<section class="hero">
+  <div class="hl">
+    <div class="hero-badge">🇺🇸 Agencia de Seguros · 17 Estados</div>
+    <h1>Tu familia merece estar <em>protegida.</em></h1>
+    <p class="hero-sub">Te acompañamos y respaldamos siempre. <strong>Planes desde $0 mensuales.</strong> Obtén tu cotización gratuita hoy mismo.</p>
+    <div class="hbtns">
+      <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="hb1">📲 Cotización GRATUITA</a>
+      <a href="#servicios" class="hb2">Ver Servicios</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="sn">17</div><div class="sl">Estados USA</div></div>
+      <div class="hs"><div class="sn">$0</div><div class="sl">Desde al mes</div></div>
+      <div class="hs"><div class="sn">$25</div><div class="sl">Por referido</div></div>
+    </div>
+  </div>
+  <div class="hr">
+    <div class="hero-card">
+      <div class="hc-logo">LC</div>
+      <div class="hc-name">SEGUROS LA COLINA</div>
+      <div class="hc-sub">Corp · Est. 2024</div>
+      <div class="hc-divider"></div>
+      <div class="hc-item"><div class="hci-dot"></div><div class="hci-text">Obama Care · Planes desde $0</div></div>
+      <div class="hc-item"><div class="hci-dot"></div><div class="hci-text">Plan Médico Familiar</div></div>
+      <div class="hc-item"><div class="hci-dot"></div><div class="hci-text">Póliza Dental, Visual & Auditiva</div></div>
+      <div class="hc-item"><div class="hci-dot"></div><div class="hci-text">Seguro de Vida</div></div>
+      <div class="hc-item"><div class="hci-dot"></div><div class="hci-text">Asistencia al Viajero</div></div>
+      <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="hc-cta">📲 Cotizar Ahora — Es GRATIS</a>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ti">
+    <span>Obama Care</span><span>✦</span><span>Plan Médico</span><span>✦</span><span>Póliza Dental</span><span>✦</span><span>Seguro de Vida</span><span>✦</span><span>Asistencia al Viajero</span><span>✦</span><span>17 Estados</span><span>✦</span><span>Cotización Gratis</span><span>✦</span>
+    <span>Obama Care</span><span>✦</span><span>Plan Médico</span><span>✦</span><span>Póliza Dental</span><span>✦</span><span>Seguro de Vida</span><span>✦</span><span>Asistencia al Viajero</span><span>✦</span><span>17 Estados</span><span>✦</span><span>Cotización Gratis</span><span>✦</span>
+  </div>
+</div>
+
+<section class="services" id="servicios">
+  <div class="sh">
+    <div class="lbl">Lo que ofrecemos</div>
+    <h2>Nuestros <em>Seguros</em></h2>
+    <p>Planes para cada etapa de tu vida. Cobertura completa para ti y tu familia en los Estados Unidos.</p>
+  </div>
+  <div class="sgrid">
+    <div class="sc">
+      <div class="sc-icon">🏥</div>
+      <div class="sc-badge">Obama Care · ACA</div>
+      <div class="sc-name">Seguro de Salud</div>
+      <div class="sc-desc">Planes desde $0 mensuales. Protección médica completa para toda tu familia bajo la Ley del Cuidado de Salud Asequible.</div>
+      <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="sc-cta">Cotizar gratis →</a>
+    </div>
+    <div class="sc">
+      <div class="sc-icon">🦷</div>
+      <div class="sc-badge">Flexible Choice</div>
+      <div class="sc-name">Póliza Dental, Visual & Auditiva</div>
+      <div class="sc-desc">3 beneficios en una sola póliza. Cobertura dental, visual y auditiva para ti y tu núcleo familiar.</div>
+      <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="sc-cta">Cotizar gratis →</a>
+    </div>
+    <div class="sc">
+      <div class="sc-icon">❤️</div>
+      <div class="sc-badge">Póliza de Vida</div>
+      <div class="sc-name">Seguro de Vida</div>
+      <div class="sc-desc">Apuesta al respaldo y la tranquilidad que te otorga una póliza de vida. Protege el futuro de los que más amas.</div>
+      <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="sc-cta">Cotizar gratis →</a>
+    </div>
+    <div class="sc">
+      <div class="sc-icon">✈️</div>
+      <div class="sc-badge">Asistencia al Viajero</div>
+      <div class="sc-name">Seguro de Viaje</div>
+      <div class="sc-desc">Disfruta tu viaje bien protegido. Disponible en Argentina, Francia, Portugal, UK, EEUU, España, Italia, Brasil y Alemania.</div>
+      <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="sc-cta">Cotizar gratis →</a>
+    </div>
+    <div class="sc">
+      <div class="sc-icon">👨‍👩‍👧‍👦</div>
+      <div class="sc-badge">Plan Familiar</div>
+      <div class="sc-name">Plan Médico Familiar</div>
+      <div class="sc-desc">Cobertura médica completa diseñada para proteger a cada miembro de tu familia con los mejores planes disponibles.</div>
+      <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="sc-cta">Cotizar gratis →</a>
+    </div>
+    <div class="sc">
+      <div class="sc-icon">🐾</div>
+      <div class="sc-badge">Mascotas</div>
+      <div class="sc-name">Seguro para Mascotas</div>
+      <div class="sc-desc">Tu mascota también merece protección. Planes de salud para tus animales de compañía con cobertura veterinaria.</div>
+      <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="sc-cta">Cotizar gratis →</a>
+    </div>
+  </div>
+</section>
+
+<section class="coverage" id="cobertura">
+  <div class="cov-lbl">Dónde estamos</div>
+  <h2 class="cov-h2">Presentes en <em>17 estados</em> de los EEUU</h2>
+  <p class="cov-sub">Y seguimos creciendo. Contáctanos para verificar cobertura en tu estado.</p>
+  <div class="states-grid">
+    <div class="state-chip">Alabama</div><div class="state-chip">Florida</div><div class="state-chip">Georgia</div><div class="state-chip">Indiana</div><div class="state-chip">Illinois</div><div class="state-chip">New Jersey</div><div class="state-chip">Louisiana</div><div class="state-chip">Carolina del Norte</div><div class="state-chip">Ohio</div><div class="state-chip">Oklahoma</div><div class="state-chip">Pensilvania</div><div class="state-chip">Utah</div><div class="state-chip">Tennessee</div><div class="state-chip">Texas</div><div class="state-chip">Wisconsin</div><div class="state-chip new">Carolina del Sur ★</div><div class="state-chip new">Kansas ★</div>
+  </div>
+</section>
+
+<section class="referral" id="referidos">
+  <div class="ref-l">
+    <div class="rl">Programa de Referidos</div>
+    <h2>Recomiéndanos &amp; <em>gana dinero</em></h2>
+    <p>Por cada póliza firmada a través de tu referido, te pagamos $25 en efectivo. Sin límite de referidos — cuantos más compartas, más ganas.</p>
+  </div>
+  <div class="ref-amount">
+    <div class="ref-big">$25</div>
+    <div class="ref-unit">Por cada póliza</div>
+    <div class="ref-sub">Pagado en efectivo</div>
+  </div>
+</section>
+
+<section class="about">
+  <div style="display:flex;justify-content:center;">
+    <div class="about-img"><div class="about-img-placeholder">👩‍💼</div></div>
+  </div>
+  <div class="at">
+    <div class="al">Quiénes Somos</div>
+    <h2>Agente <em>Luizelys Güere</em></h2>
+    <p>Somos una agencia de seguros comprometida con tu bienestar y el de tu familia en los Estados Unidos. Te acompañamos y respaldamos en cada paso — desde encontrar el plan correcto hasta resolver cualquier duda.</p>
+    <p>Con presencia en 17 estados y creciendo, estamos aquí para que siempre estés protegido.</p>
+    <div class="at-name">Luizelys Güere</div>
+    <div class="at-title">Asesora de Seguros · Seguros La Colina Corp</div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="con-l">
+    <div class="cl">Contáctanos</div>
+    <h2>Obtén tu cotización <em>gratuita</em></h2>
+    <p>Escríbenos ahora mismo. Un asesor te responderá en minutos para ayudarte a encontrar el plan perfecto para ti y tu familia.</p>
+    <div class="con-items">
+      <div class="ci"><div class="ci-icon">📲</div><div><div class="ci-val">WhatsApp Directo</div><div class="ci-sub">wa.me/message/WBQJN7LOQQ5ZC1</div></div></div>
+      <div class="ci"><div class="ci-icon">📧</div><div><div class="ci-val">info@seguroslacolina.com</div><div class="ci-sub">Email profesional</div></div></div>
+      <div class="ci"><div class="ci-icon">📸</div><div><div class="ci-val">@seguroslacolinacorp</div><div class="ci-sub">Instagram · 1,280 seguidores</div></div></div>
+      <div class="ci"><div class="ci-icon">🌐</div><div><div class="ci-val">seguroslacolina.com</div><div class="ci-sub">Sitio oficial</div></div></div>
+    </div>
+  </div>
+  <div class="con-r">
+    <div class="cform">
+      <input type="text" placeholder="Tu nombre completo">
+      <input type="tel" placeholder="Número de teléfono">
+      <input type="email" placeholder="Correo electrónico">
+      <select>
+        <option value="" disabled selected>¿Qué seguro te interesa?</option>
+        <option>Obama Care / Seguro de Salud</option>
+        <option>Póliza Dental, Visual & Auditiva</option>
+        <option>Seguro de Vida</option>
+        <option>Seguro de Viaje</option>
+        <option>Plan Médico Familiar</option>
+        <option>Seguro para Mascotas</option>
+      </select>
+      <input type="text" placeholder="Estado donde vives">
+      <textarea placeholder="Mensaje adicional (opcional)"></textarea>
+      <button class="cform-btn" onclick="window.open('https://wa.me/message/WBQJN7LOQQ5ZC1','_blank')">📲 Enviar por WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <h2>La tranquilidad de estar protegido</h2>
+  <p>No esperes más. Tu cotización es gratuita y sin compromiso.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/message/WBQJN7LOQQ5ZC1" class="ctab1">📲 Cotizar por WhatsApp</a>
+    <a href="mailto:info@seguroslacolina.com" class="ctab2">✉️ Enviar Email</a>
+  </div>
+</section>
+
+<div class="footer-main">
+  <div class="fm-brand">
+    <div class="nav-logo">LC</div>
+    <div style="color:white;font-size:0.9rem;font-weight:700;letter-spacing:1px;">SEGUROS LA COLINA</div>
+    <p>Agencia de Seguros en los Estados Unidos 🇺🇸 Te Acompaña y Respalda Siempre. La tranquilidad de estar protegido.</p>
+  </div>
+  <div class="fm-col">
+    <h4>Servicios</h4>
+    <a href="#">Obama Care</a>
+    <a href="#">Plan Médico</a>
+    <a href="#">Póliza Dental</a>
+    <a href="#">Seguro de Vida</a>
+    <a href="#">Seguro de Viaje</a>
+  </div>
+  <div class="fm-col">
+    <h4>Contacto</h4>
+    <a href="https://wa.me/message/WBQJN7LOQQ5ZC1">WhatsApp</a>
+    <a href="mailto:info@seguroslacolina.com">Email</a>
+    <a href="https://instagram.com/seguroslacolinacorp">Instagram</a>
+    <a href="https://seguroslacolina.com">seguroslacolina.com</a>
+  </div>
+</div>
+<div class="footer-bot">
+  <span>© 2026 Seguros La Colina Corp · Todos los derechos reservados</span>
+  <a href="https://seguroslacolina.com">seguroslacolina.com</a>
+</div>
+
+</body>
+</html>
