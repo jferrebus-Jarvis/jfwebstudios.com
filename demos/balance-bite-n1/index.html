@@ -297,7 +297,6 @@
       const items = Object.keys(cart);
       const count = items.reduce((s,k) => s + cart[k], 0);
 
-      // Update cart count badge in nav
       const navCount = document.getElementById('nav-cart-count');
       if(navCount) navCount.textContent = count;
 
@@ -305,27 +304,28 @@
       const totalEl   = document.getElementById('cart-total');
 
       if(items.length === 0){
-        container.innerHTML = '<div class="cart-empty">Tu carrito está vacío 🌿</div>';
+        container.innerHTML = '<div class="cart-empty">Tu carrito est\u00e1 vac\u00edo \uD83C\uDF3F</div>';
         totalEl.style.display = 'none';
         document.getElementById('cart-wa-btn').href = '#';
         return;
       }
 
-      let html = ''; let subtotal = 0;
-      items.forEach(name => {
+      let subtotal = 0;
+      const rows = items.map(name => {
         const item = MENU[name]; const qty = cart[name];
         const sub = item.price * qty; subtotal += sub;
-        html += `<div class="cart-item">
+        const safeKey = encodeURIComponent(name);
+        return `<div class="cart-item" data-name="${safeKey}">
           <div class="cart-item-name">${name}</div>
           <div class="cart-item-qty">
-            <button class="qty-btn" onclick="changeQty('${name}',-1)">−</button>
+            <button class="qty-btn" data-action="minus" data-name="${safeKey}">&#8722;</button>
             <span>${qty} ${item.unit}</span>
-            <button class="qty-btn" onclick="changeQty('${name}',+1)">+</button>
+            <button class="qty-btn" data-action="plus" data-name="${safeKey}">+</button>
           </div>
           <div class="cart-item-price">$${sub.toFixed(2)}</div>
         </div>`;
       });
-      container.innerHTML = html;
+      container.innerHTML = rows.join('');
       totalEl.style.display = 'block';
 
       const tax = Math.round(subtotal * 0.0825 * 100) / 100;
@@ -335,16 +335,15 @@
       const taxEl = document.getElementById('cart-tax');
       if(taxEl) taxEl.textContent = 'Tax (8.25%): $' + tax.toFixed(2);
 
-      // Build pre-filled WhatsApp message
-      let msg = "🛒 *Hola Chef Yoly, quiero hacer un pedido:*\n\n";
+      let msg = "\uD83D\uDED2 *Hola Chef Yoly, quiero hacer un pedido:*\n\n";
       items.forEach(name => {
         const item = MENU[name]; const qty = cart[name];
-        msg += `• ${name} x${qty} ${item.unit} — $${(item.price*qty).toFixed(2)}\n`;
+        msg += `\u2022 ${name} x${qty} ${item.unit} \u2014 $${(item.price*qty).toFixed(2)}\n`;
       });
       msg += `\n*Subtotal: $${subtotal.toFixed(2)}*`;
       msg += `\n*Impuesto (8.25%): $${tax.toFixed(2)}*`;
       msg += `\n*Total: $${grandTotal.toFixed(2)}*`;
-      msg += `\n\n💳 *Pago por Zelle:* 832-540-2505\n\nGracias! 🙏`;
+      msg += `\n\n\uD83D\uDCB3 *Pago por Zelle:* 832-540-2505\n\nGracias! \uD83D\uDE4F`;
 
       const url = `https://wa.me/18325402505?text=${encodeURIComponent(msg)}`;
       document.getElementById('cart-wa-btn').href = url;
@@ -405,8 +404,18 @@
 
   <script>
     document.addEventListener('click', function(e){
-      if(e.target.classList.contains('mc-btn') && e.target.dataset.item){
-        addToCart(e.target.dataset.item);
+      const t = e.target;
+      // Add to cart buttons on menu
+      if(t.classList.contains('mc-btn') && t.dataset.item){
+        addToCart(t.dataset.item);
+        return;
+      }
+      // Qty +/- buttons inside cart drawer
+      if(t.classList.contains('qty-btn') && t.dataset.name){
+        const name = decodeURIComponent(t.dataset.name);
+        const delta = t.dataset.action === 'minus' ? -1 : 1;
+        changeQty(name, delta);
+        return;
       }
     });
   </script>
