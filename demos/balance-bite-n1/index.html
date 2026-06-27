@@ -139,15 +139,11 @@
   
     .about-badges{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 16px;}
     .abadge{background:rgba(58,107,53,0.1);border:1px solid rgba(58,107,53,0.25);color:var(--green-dark);padding:6px 14px;border-radius:50px;font-size:0.72rem;font-weight:700;letter-spacing:0.5px;}
-
-  
-    .icon-strip{display:flex;justify-content:center;align-items:center;gap:0;background:#fff;border-bottom:1px solid rgba(196,168,130,0.2);overflow-x:auto;padding:0;scrollbar-width:none;}
-    .icon-strip::-webkit-scrollbar{display:none;}
-    .istrip-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 20px;flex-shrink:0;border-right:1px solid rgba(196,168,130,0.2);}
+    
     .istrip-item:last-child{border-right:none;}
-    .istrip-icon{font-size:1.3rem;}
-    .istrip-label{font-size:0.6rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--green-dark);white-space:nowrap;}
-    @media(max-width:600px){.istrip-item{padding:12px 14px;}.istrip-label{font-size:0.55rem;}}
+    
+    
+    @media(max-width:600px){}
 
   
     
@@ -157,7 +153,7 @@
 
   
     .hr{display:flex;flex-direction:column;align-items:center;gap:20px;}
-    .hero-icons{display:flex;flex-direction:row;gap:20px;justify-content:center;flex-wrap:wrap;}
+    .hero-icons{display:flex;flex-direction:row;gap:24px;margin-top:28px;justify-content:flex-start;}
     .hico{display:flex;flex-direction:column;align-items:center;gap:4px;}
     .hico-emoji{font-size:1.4rem;}
     .hico-label{font-size:0.58rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--green-dark);white-space:nowrap;}
@@ -189,15 +185,16 @@
       <a href="https://wa.me/18325402505" class="btn-green" data-es="Hacer Pedido" data-en="Order Now">Hacer Pedido</a>
       <a href="#menu" class="btn-brown" data-es="Ver Menú" data-en="View Menu">Ver Menú</a>
     </div>
-  </div>
-  <div class="hr">
-    <div class="logo-wrap"><img src="logo.jpg" alt="The Balanced Bite"></div>
     <div class="hero-icons">
       <div class="hico"><span class="hico-emoji">🌾</span><span class="hico-label" data-es="Sin Gluten" data-en="Gluten Free">Sin Gluten</span></div>
       <div class="hico"><span class="hico-emoji">🌿</span><span class="hico-label" data-es="Orgánico" data-en="Organic">Orgánico</span></div>
       <div class="hico"><span class="hico-emoji">💪</span><span class="hico-label" data-es="Alto Proteína" data-en="High Protein">Alto Proteína</span></div>
       <div class="hico"><span class="hico-emoji">🥗</span><span class="hico-label" data-es="100% Natural" data-en="100% Natural">100% Natural</span></div>
     </div>
+  </div>
+  <div class="hr">
+    <div class="logo-wrap"><img src="logo.jpg" alt="The Balanced Bite"></div>
+  </div>
   </div>
 </section>
 
