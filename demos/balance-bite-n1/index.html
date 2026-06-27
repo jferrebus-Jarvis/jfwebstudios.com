@@ -131,6 +131,10 @@
     #rotating-word{transition:opacity 0.3s ease;}
     .badge{cursor:default;}
 
+  
+    .menu-section-label{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--brown-dark);font-weight:700;margin-bottom:6px;margin-top:12px;}
+    .menu-section-sub{font-size:0.85rem;color:#9A7B5A;margin-bottom:24px;line-height:1.6;}
+
   </style>
 </head>
 <body>
@@ -175,33 +179,33 @@
   <div class="sec-label">Lo que ofrecemos</div>
   <h2 class="sec-title">Nuestro <em>Menú</em></h2>
   <p class="sec-sub">Todo preparado a mano con ingredientes frescos y naturales</p>
+  <div class="menu-section-label">🌾 Nuestros Alimentos</div>
+  <p class="menu-section-sub">Arepas y tortillas sin gluten, hechas a mano con yuca fresca.</p>
   <div class="menu-grid">
     <div class="mc"><div class="mc-emoji">🫓</div><div class="mc-cat">Arepas · Sin Gluten</div><div class="mc-name">Arepas de Yuca con Chia</div><div class="mc-desc">Artesanales, ricas en fibra y antioxidantes. Perfectas para cualquier momento del día.</div><div class="mc-footer"><div class="mc-price">$15<small>/6pk</small></div><button class="mc-btn" onclick="addToCart('Arepas de Yuca con Chia')">+ Agregar</button></div></div>
     <div class="mc"><div class="mc-emoji">🍌</div><div class="mc-cat">Arepas · Sin Gluten</div><div class="mc-name">Arepas de Yuca y Plátano</div><div class="mc-desc">Dulce natural del plátano maduro. Sin azúcares añadidos, sabor venezolano auténtico.</div><div class="mc-footer"><div class="mc-price">$15<small>/6pk</small></div><button class="mc-btn" onclick="addToCart('Arepas de Yuca y Plátano')">+ Agregar</button></div></div>
     <div class="mc"><div class="mc-emoji">🌮</div><div class="mc-cat">Tortillas · Sin Gluten</div><div class="mc-name">Tortillas de Yuca y Plátano</div><div class="mc-desc">Versátiles y deliciosas. Para tacos, wraps, o snack saludable.</div><div class="mc-footer"><div class="mc-price">$15<small>/6pk</small></div><button class="mc-btn" onclick="addToCart('Tortillas de Yuca y Plátano')">+ Agregar</button></div></div>
-    <div class="mc"><div class="mc-emoji">🥩</div><div class="mc-cat">Proteína · Venezolana</div><div class="mc-name">Carne Mechada</div><div class="mc-desc">Res desmenuzada al estilo venezolano con especias naturales.</div><div class="mc-footer"><div class="mc-price">$25<small>/lb</small></div><button class="mc-btn" onclick="addToCart('Carne Mechada')">+ Agregar</button></div></div>
+  </div>
+
+  <div class="menu-section-label" style="margin-top:56px;">💪 Proteínas</div>
+  <p class="menu-section-sub">Carnes mechadas estilo venezolano. Solo proteína, sin rellenos ni conservantes.</p>
+  <div class="menu-grid">
+    <div class="mc"><div class="mc-emoji">🥩</div><div class="mc-cat">Proteína · Res</div><div class="mc-name">Carne Mechada</div><div class="mc-desc">Res desmenuzada al estilo venezolano con especias naturales. Rica en proteína y sabor.</div><div class="mc-footer"><div class="mc-price">$25<small>/lb</small></div><button class="mc-btn" onclick="addToCart('Carne Mechada')">+ Agregar</button></div></div>
     <div class="mc"><div class="mc-emoji">🍗</div><div class="mc-cat">Proteína · Lean</div><div class="mc-name">Pollo Mechado</div><div class="mc-desc">Pollo desmenuzado con sazón venezolana. Lean, limpio y lleno de sabor.</div><div class="mc-footer"><div class="mc-price">$20<small>/lb</small></div><button class="mc-btn" onclick="addToCart('Pollo Mechado')">+ Agregar</button></div></div>
     <div class="mc"><div class="mc-emoji">🦃</div><div class="mc-cat">Proteína · Magra</div><div class="mc-name">Pavo Mechado</div><div class="mc-desc">Proteína pura sin grasa. La opción perfecta para tus metas fitness.</div><div class="mc-footer"><div class="mc-price">$20<small>/lb</small></div><button class="mc-btn" onclick="addToCart('Pavo Mechado')">+ Agregar</button></div></div>
   </div>
+
 </section>
 
-<section class="about" id="nosotros">
-  <div style="display:flex;align-items:center;justify-content:center;"><img src="logo.jpg" alt="Chef Yoly" class="about-logo"></div>
-  <div class="about-content">
-    <h2>La historia de <em>Chef Yoly</em></h2>
-    <p>Detrás de cada plato hay una historia de amor. Chef Yoly lleva años perfeccionando recetas que nutren sin sacrificar el sabor — combinando la tradición venezolana con ingredientes modernos y saludables.</p>
-    <p>Cada producto es hecho a mano, con ingredientes frescos, pensando en tu bienestar y el de tu familia.</p>
-    <div class="sig">— Chef Yoly</div>
-  </div>
-</section>
+
 
 <section class="about-section" id="nosotros">
   <div class="about-photo"><img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/f66b1b1c0_imessage_media_d33829934f46.png" alt="Chef Yoly"></div>
   <div class="about-txt">
     <div class="about-label">Nuestra Historia</div>
-    <h2>By Yoly</h2>
-    <p>Detrás de cada plato está Yoly, una mujer apasionada por la cocina saludable y los sabores de su tierra. Su misión es sencilla: demostrarte que comer sano no significa sacrificar el sabor.</p>
-    <p>Cada receta es un abrazo de hogar, preparado con los mejores ingredientes y servido con todo el amor del mundo.</p>
+    <h2>Cocinado con amor.<br><em style="color:#C8922A;font-style:italic;">Por Chef Yoly.</em></h2>
+    <p>Detrás de cada plato hay una historia de amor. Yoly es una mujer apasionada por la cocina saludable y los sabores de su tierra venezolana — lleva años perfeccionando recetas que nutren sin sacrificar el sabor.</p>
+    <p>Su misión es sencilla: demostrarte que comer sano no significa sacrificar el placer. Cada producto es hecho a mano, con ingredientes frescos y naturales, pensando en tu bienestar y el de tu familia.</p>
     <div class="about-sig">— Chef Yoly</div>
   </div>
 </section>
@@ -362,5 +366,6 @@
 
 </body>
 </html>
+
 
 
