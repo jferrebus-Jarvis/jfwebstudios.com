@@ -38,9 +38,13 @@
     .btn-green{background:var(--green-dark);color:#fff;padding:14px 30px;border-radius:50px;font-weight:700;font-size:0.85rem;text-decoration:none;}
     .btn-brown{background:var(--brown);color:#fff;padding:14px 30px;border-radius:50px;font-weight:700;font-size:0.85rem;text-decoration:none;}
 
-    .hr{background:var(--beige2);display:flex;align-items:stretch;justify-content:stretch;position:relative;overflow:hidden;padding:0;}
-    .logo-wrap{width:100%;height:100%;min-height:88vh;display:flex;align-items:stretch;}
-    .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
+    .hr{background:var(--beige2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .hr::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,239,224,0.82) 0%,rgba(237,227,207,0.55) 40%,rgba(92,64,51,0.18) 100%);z-index:2;}
+    .logo-wrap{position:absolute;inset:0;z-index:1;}
+    .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.22;filter:sepia(30%) saturate(80%) brightness(0.9);}
+    .hr-emblem{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:60px 40px;text-align:center;}
+    .hr-ring{width:320px;height:320px;border-radius:50%;border:2px solid rgba(200,146,42,0.35);display:flex;align-items:center;justify-content:center;box-shadow:0 0 80px rgba(200,146,42,0.08);}
+    .hr-ring img{width:280px;height:280px;object-fit:contain;opacity:0.88;}
 
     .vals{display:grid;grid-template-columns:repeat(3,1fr);background:var(--brown-dark);}
     .val{padding:40px 32px;text-align:center;border-right:1px solid rgba(255,255,255,0.08);}
@@ -85,9 +89,9 @@
       .hero{grid-template-columns:1fr;}
       .hl{padding:60px 20px;}
       h1{font-size:3.2rem;}
-      .hr{height:320px;}
-      .logo-wrap{min-height:320px;}
-      .logo-wrap img{object-fit:cover;}
+      .hr{height:340px;min-height:340px;}
+      .hr-ring{width:200px;height:200px;}
+      .hr-ring img{width:170px;height:170px;}
       .vals{grid-template-columns:1fr;}
       .menu{padding:60px 20px;}
       .menu-grid{grid-template-columns:1fr;}
@@ -118,7 +122,10 @@
     </div>
   </div>
   <div class="hr">
-    <div class="logo-wrap"><img src="logo.jpg" alt="Logo"></div>
+    <div class="logo-wrap"><img src="logo.jpg" alt="backdrop"></div>
+    <div class="hr-emblem">
+      <div class="hr-ring"><img src="logo.jpg" alt="Logo"></div>
+    </div>
   </div>
 </section>
 
