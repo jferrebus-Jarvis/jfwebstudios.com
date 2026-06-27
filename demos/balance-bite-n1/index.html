@@ -389,16 +389,21 @@
     let currentLang = 'es';
     function setLang(lang){
       currentLang = lang;
+
+      // Handle data-key (old system)
       document.querySelectorAll('[data-key]').forEach(el=>{
         const key = el.getAttribute('data-key');
-        if(translations[key]) el.innerHTML = translations[key][lang];
+        if(translations[key] && translations[key][lang]) el.innerHTML = translations[key][lang];
       });
+
+      // Handle data-es / data-en (new system) — covers all text, buttons, labels
+      document.querySelectorAll('[data-es][data-en]').forEach(el=>{
+        el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-es');
+      });
+
+      // Nav toggle weight
       document.getElementById('lang-es').style.fontWeight = lang==='es'?'800':'400';
       document.getElementById('lang-en').style.fontWeight = lang==='en'?'800':'400';
-
-    // Update icon strip labels on lang change
-    document.querySelectorAll('.istrip-label, .hico-label, .ibar-label').forEach(el=>{
-      el.textContent = el.getAttribute('data-' + lang);
     });
 
     }
