@@ -272,88 +272,84 @@
     const PHONE = "18325402505";
     let cart = {};
 
-    const MENU = {
-      "Arepas de Yuca con Chia":    {price:15, unit:"6pk"},
-      "Arepas de Yuca y Plátano":   {price:15, unit:"6pk"},
-      "Tortillas de Yuca y Plátano":{price:15, unit:"6pk"},
-      "Carne Mechada":              {price:25, unit:"lb"},
-      "Pollo Mechado":              {price:20, unit:"lb"},
-      "Pavo Mechado":               {price:20, unit:"lb"},
-    };
-
     function addToCart(name){
-      cart[name] = (cart[name]||0)+1;
+      cart[name] = (cart[name]||0) + 1;
       updateCart();
       if(!document.getElementById('cart-drawer').classList.contains('open')) toggleCart();
     }
 
     function changeQty(name, delta){
-      cart[name] = (cart[name]||0)+delta;
-      if(cart[name]<=0) delete cart[name];
+      cart[name] = (cart[name]||0) + delta;
+      if(cart[name] <= 0) delete cart[name];
       updateCart();
+    }
+
+    function removeFromCart(name){
+      delete cart[name];
+      updateCart();
+    }
+
+    function toggleCart(){
+      document.getElementById('cart-drawer').classList.toggle('open');
     }
 
     function updateCart(){
       const items = Object.keys(cart);
-      const count = items.reduce((s,k)=>s+cart[k],0);
-      document.getElementById('cart-count').textContent = count;
-      const nc = document.getElementById('nav-cart-count'); if(nc) nc.textContent = count;
+      const count = items.reduce((s,k) => s + cart[k], 0);
+
+      // Update all cart count badges
+      ['cart-count','nav-cart-count'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.textContent = count;
+      });
 
       const container = document.getElementById('cart-items');
-      const emptyMsg = document.getElementById('cart-empty');
-      const totalEl = document.getElementById('cart-total');
+      const totalEl   = document.getElementById('cart-total');
 
-      if(items.length===0){
-        container.innerHTML='<div class="cart-empty" id="cart-empty">Tu carrito está vacío 🌿</div>';
-        totalEl.style.display='none';
-        document.getElementById('cart-wa-btn').href='#';
+      if(items.length === 0){
+        container.innerHTML = '<div class="cart-empty">Tu carrito está vacío 🌿</div>';
+        totalEl.style.display = 'none';
+        document.getElementById('cart-wa-btn').href = '#';
         return;
       }
 
-      emptyMsg && (emptyMsg.style.display='none');
-      let html=''; let total=0;
-      items.forEach(name=>{
-        const item=MENU[name]; const qty=cart[name];
-        const sub=item.price*qty; total+=sub;
-        html+=`<div class="cart-item">
-          <div>
-            <div class="cart-item-name">${name}</div>
-          </div>
+      let html = ''; let subtotal = 0;
+      items.forEach(name => {
+        const item = MENU[name]; const qty = cart[name];
+        const sub = item.price * qty; subtotal += sub;
+        html += `<div class="cart-item">
+          <div class="cart-item-name">${name}</div>
           <div class="cart-item-qty">
             <button class="qty-btn" onclick="changeQty('${name}',-1)">−</button>
             <span>${qty} ${item.unit}</span>
             <button class="qty-btn" onclick="changeQty('${name}',+1)">+</button>
           </div>
-          <div class="cart-item-price">$${sub}</div>
+          <div class="cart-item-price">$${sub.toFixed(2)}</div>
         </div>`;
       });
-      container.innerHTML=html;
-      totalEl.style.display='block';
-      const tax = Math.round(total * 0.0825 * 100) / 100;
-      const grandTotal = Math.round((total + tax) * 100) / 100;
-      document.getElementById('total-amount').textContent=grandTotal.toFixed(2);
-      // Update tax line if exists
-      let taxEl = document.getElementById('cart-tax');
+      container.innerHTML = html;
+      totalEl.style.display = 'block';
+
+      const tax = Math.round(subtotal * 0.0825 * 100) / 100;
+      const grandTotal = Math.round((subtotal + tax) * 100) / 100;
+
+      document.getElementById('total-amount').textContent = grandTotal.toFixed(2);
+      const taxEl = document.getElementById('cart-tax');
       if(taxEl) taxEl.textContent = 'Tax (8.25%): $' + tax.toFixed(2);
 
-      // Build WhatsApp message
-      let msg="🛒 *Hola Chef Yoly, quiero hacer un pedido:*\n\n";
-      items.forEach(name=>{
-        const item=MENU[name]; const qty=cart[name];
-        msg+=`• ${name} x${qty} ${item.unit} — $${item.price*qty}\n`;
+      // Build pre-filled WhatsApp message
+      let msg = "🛒 *Hola Chef Yoly, quiero hacer un pedido:*\n\n";
+      items.forEach(name => {
+        const item = MENU[name]; const qty = cart[name];
+        msg += `• ${name} x${qty} ${item.unit} — $${(item.price*qty).toFixed(2)}\n`;
       });
-      const tax = Math.round(total * 0.0825 * 100) / 100;
-      const grandTotal = Math.round((total + tax) * 100) / 100;
-      msg+=`\n*Subtotal: $${total}*`;
-      msg+=`\n*Impuesto (8.25%): $${tax.toFixed(2)}*`;
-      msg+=`\n*Total: $${grandTotal.toFixed(2)}*`;
-      msg+=`\n\n💳 *Pago por Zelle:* 832-540-2505\n\nGracias! 🙏`;
-      const url=`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
-      document.getElementById('cart-wa-btn').href=url;
-    }
+      msg += `\n*Subtotal: $${subtotal.toFixed(2)}*`;
+      msg += `\n*Impuesto (8.25%): $${tax.toFixed(2)}*`;
+      msg += `\n*Total: $${grandTotal.toFixed(2)}*`;
+      msg += `\n\n💳 *Pago por Zelle:* 832-540-2505\n\nGracias! 🙏`;
 
-    function toggleCart(){
-      document.getElementById('cart-drawer').classList.toggle('open');
+      const url = `https://wa.me/18325402505?text=${encodeURIComponent(msg)}`;
+      document.getElementById('cart-wa-btn').href = url;
     }
   </script>
 
