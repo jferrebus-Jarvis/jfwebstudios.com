@@ -114,6 +114,19 @@
       .cta{padding:60px 20px;}
       footer{flex-direction:column;gap:8px;padding:20px;}
     }
+  
+    /* ABOUT SECTION */
+    .about-section{background:#3B2A1A;padding:80px 60px;display:flex;gap:60px;align-items:center;flex-wrap:wrap;}
+    .about-photo{width:260px;height:340px;border-radius:20px;overflow:hidden;border:4px solid #C8922A;flex-shrink:0;box-shadow:0 20px 50px rgba(0,0,0,0.3);}
+    .about-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+    .about-txt .about-label{font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;color:#C8922A;font-weight:700;margin-bottom:10px;}
+    .about-txt h2{font-family:'Playfair Display',serif;font-size:2.8rem;color:#FDFAF4;margin-bottom:20px;font-style:normal;}
+    .about-txt p{color:rgba(253,250,244,0.75);font-size:0.95rem;line-height:1.9;margin-bottom:12px;}
+    .about-sig{font-family:'Playfair Display',serif;font-size:2rem;color:#C8922A;font-style:italic;margin-top:20px;}
+    @media(max-width:768px){
+      .about-section{padding:50px 20px;flex-direction:column;text-align:center;}
+      .about-photo{width:200px;height:260px;margin:0 auto;}
+    }
   </style>
 </head>
 <body>
@@ -171,10 +184,15 @@
   </div>
 </section>
 
-<section class="cta" id="pedido">
-  <h2>¿Listo para ordenar?</h2>
-  <p>Pickup y delivery disponible en Houston, TX</p>
-  <a href="https://wa.me/18325402505" class="btn-beige">📲 Ordenar por WhatsApp</a>
+<section class="about-section" id="nosotros">
+  <div class="about-photo"><img src="https://base44.app/api/apps/6a07ce0bd5944f632f6f429a/files/mp/public/6a07ce0bd5944f632f6f429a/f66b1b1c0_imessage_media_d33829934f46.png" alt="Chef Yoly"></div>
+  <div class="about-txt">
+    <div class="about-label">Nuestra Historia</div>
+    <h2>By Yoly</h2>
+    <p>Detrás de cada plato está Yoly, una mujer apasionada por la cocina saludable y los sabores de su tierra. Su misión es sencilla: demostrarte que comer sano no significa sacrificar el sabor.</p>
+    <p>Cada receta es un abrazo de hogar, preparado con los mejores ingredientes y servido con todo el amor del mundo.</p>
+    <div class="about-sig">— Chef Yoly</div>
+  </div>
 </section>
 
 <footer>
