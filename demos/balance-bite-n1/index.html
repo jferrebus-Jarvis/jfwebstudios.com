@@ -117,7 +117,7 @@
   
     /* ABOUT SECTION */
     .about-section{background:#3B2A1A;padding:80px 60px;display:flex;gap:60px;align-items:center;flex-wrap:wrap;}
-    .about-photo{width:260px;height:340px;border-radius:20px;overflow:hidden;border:4px solid #C8922A;flex-shrink:0;box-shadow:0 20px 50px rgba(0,0,0,0.3);}
+    .about-photo{width:320px;height:420px;border-radius:20px;overflow:hidden;border:4px solid #C8922A;flex-shrink:0;box-shadow:0 20px 50px rgba(0,0,0,0.3);}
     .about-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;}
     .about-txt .about-label{font-size:0.68rem;letter-spacing:4px;text-transform:uppercase;color:#C8922A;font-weight:700;margin-bottom:10px;}
     .about-txt h2{font-family:'Playfair Display',serif;font-size:2.8rem;color:#FDFAF4;margin-bottom:20px;font-style:normal;}
@@ -125,7 +125,7 @@
     .about-sig{font-family:'Playfair Display',serif;font-size:2rem;color:#C8922A;font-style:italic;margin-top:20px;}
     @media(max-width:768px){
       .about-section{padding:50px 20px;flex-direction:column;text-align:center;}
-      .about-photo{width:200px;height:260px;margin:0 auto;}
+      .about-photo{width:260px;height:340px;margin:0 auto;}
     }
   
     #rotating-word{transition:opacity 0.3s ease;}
@@ -148,6 +148,12 @@
     .istrip-icon{font-size:1.3rem;}
     .istrip-label{font-size:0.6rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--green-dark);white-space:nowrap;}
     @media(max-width:600px){.istrip-item{padding:12px 14px;}.istrip-label{font-size:0.55rem;}}
+
+  
+    .hero-icons{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px;}
+    .hico{display:flex;flex-direction:column;align-items:center;gap:4px;}
+    .hico span:first-child{font-size:1.5rem;}
+    .hico-label{font-size:0.6rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--beige);opacity:0.85;white-space:nowrap;}
 
   </style>
 </head>
@@ -180,6 +186,12 @@
   </div>
   <div class="hr">
     <div class="logo-wrap"><img src="logo.jpg" alt="The Balanced Bite"></div>
+    <div class="hero-icons">
+      <div class="hico"><span>🌾</span><span class="hico-label" data-es="Sin Gluten" data-en="Gluten Free">Sin Gluten</span></div>
+      <div class="hico"><span>🌿</span><span class="hico-label" data-es="Orgánico" data-en="Organic">Orgánico</span></div>
+      <div class="hico"><span>💪</span><span class="hico-label" data-es="Alto Proteína" data-en="High Protein">Alto Proteína</span></div>
+      <div class="hico"><span>🥗</span><span class="hico-label" data-es="100% Natural" data-en="100% Natural">100% Natural</span></div>
+    </div>
   </div>
 </section>
 
@@ -381,7 +393,7 @@
       document.getElementById('lang-en').style.fontWeight = lang==='en'?'800':'400';
 
     // Update icon strip labels on lang change
-    document.querySelectorAll('.istrip-label').forEach(el=>{
+    document.querySelectorAll('.istrip-label, .hico-label').forEach(el=>{
       el.textContent = el.getAttribute('data-' + lang);
     });
 
