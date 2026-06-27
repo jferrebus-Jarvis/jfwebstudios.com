@@ -140,6 +140,15 @@
     .about-badges{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 16px;}
     .abadge{background:rgba(58,107,53,0.1);border:1px solid rgba(58,107,53,0.25);color:var(--green-dark);padding:6px 14px;border-radius:50px;font-size:0.72rem;font-weight:700;letter-spacing:0.5px;}
 
+  
+    .icon-strip{display:flex;justify-content:center;align-items:center;gap:0;background:#fff;border-bottom:1px solid rgba(196,168,130,0.2);overflow-x:auto;padding:0;scrollbar-width:none;}
+    .icon-strip::-webkit-scrollbar{display:none;}
+    .istrip-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 20px;flex-shrink:0;border-right:1px solid rgba(196,168,130,0.2);}
+    .istrip-item:last-child{border-right:none;}
+    .istrip-icon{font-size:1.3rem;}
+    .istrip-label{font-size:0.6rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--green-dark);white-space:nowrap;}
+    @media(max-width:600px){.istrip-item{padding:12px 14px;}.istrip-label{font-size:0.55rem;}}
+
   </style>
 </head>
 <body>
@@ -370,6 +379,12 @@
       });
       document.getElementById('lang-es').style.fontWeight = lang==='es'?'800':'400';
       document.getElementById('lang-en').style.fontWeight = lang==='en'?'800':'400';
+
+    // Update icon strip labels on lang change
+    document.querySelectorAll('.istrip-label').forEach(el=>{
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+
     }
   </script>
 
