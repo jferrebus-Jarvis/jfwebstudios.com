@@ -206,17 +206,17 @@
   <div class="menu-section-label">🌾 Nuestros Alimentos</div>
   <p class="menu-section-sub">Arepas y tortillas sin gluten, hechas a mano con yuca fresca.</p>
   <div class="menu-grid">
-    <div class="mc"><div class="mc-emoji">🫓</div><div class="mc-cat">Arepas · Sin Gluten</div><div class="mc-name">Arepas de Yuca con Chia</div><div class="mc-desc">Artesanales, ricas en fibra y antioxidantes. Perfectas para cualquier momento del día.</div><div class="mc-footer"><div class="mc-price">$15<small>/6pk</small></div><button class="mc-btn" onclick="addToCart('Arepas de Yuca con Chia')">+ Agregar</button></div></div>
-    <div class="mc"><div class="mc-emoji">🍌</div><div class="mc-cat">Arepas · Sin Gluten</div><div class="mc-name">Arepas de Yuca y Plátano</div><div class="mc-desc">Dulce natural del plátano maduro. Sin azúcares añadidos, sabor venezolano auténtico.</div><div class="mc-footer"><div class="mc-price">$15<small>/6pk</small></div><button class="mc-btn" onclick="addToCart('Arepas de Yuca y Plátano')">+ Agregar</button></div></div>
-    <div class="mc"><div class="mc-emoji">🌮</div><div class="mc-cat">Tortillas · Sin Gluten</div><div class="mc-name">Tortillas de Yuca y Plátano</div><div class="mc-desc">Versátiles y deliciosas. Para tacos, wraps, o snack saludable.</div><div class="mc-footer"><div class="mc-price">$15<small>/6pk</small></div><button class="mc-btn" onclick="addToCart('Tortillas de Yuca y Plátano')">+ Agregar</button></div></div>
+    <div class="mc"><div class="mc-emoji">🫓</div><div class="mc-cat">Arepas · Sin Gluten</div><div class="mc-name">Arepas de Yuca con Chia</div><div class="mc-desc">Artesanales, ricas en fibra y antioxidantes. Perfectas para cualquier momento del día.</div><div class="mc-footer"><div class="mc-price">$15<small>/6pk</small></div><button class="mc-btn" data-item="Arepas de Yuca con Chia">+ Agregar</button></div></div>
+    <div class="mc"><div class="mc-emoji">🍌</div><div class="mc-cat">Arepas · Sin Gluten</div><div class="mc-name">Arepas de Yuca y Plátano</div><div class="mc-desc">Dulce natural del plátano maduro. Sin azúcares añadidos, sabor venezolano auténtico.</div><div class="mc-footer"><div class="mc-price">$15<small>/6pk</small></div><button class="mc-btn" data-item="Arepas de Yuca y Plátano">+ Agregar</button></div></div>
+    <div class="mc"><div class="mc-emoji">🌮</div><div class="mc-cat">Tortillas · Sin Gluten</div><div class="mc-name">Tortillas de Yuca y Plátano</div><div class="mc-desc">Versátiles y deliciosas. Para tacos, wraps, o snack saludable.</div><div class="mc-footer"><div class="mc-price">$15<small>/6pk</small></div><button class="mc-btn" data-item="Tortillas de Yuca y Plátano">+ Agregar</button></div></div>
   </div>
 
   <div class="menu-section-label" style="margin-top:56px;">💪 Proteínas</div>
   <p class="menu-section-sub">Carnes mechadas estilo venezolano. Solo proteína, sin rellenos ni conservantes.</p>
   <div class="menu-grid">
-    <div class="mc"><div class="mc-emoji">🥩</div><div class="mc-cat">Proteína · Res</div><div class="mc-name">Carne Mechada</div><div class="mc-desc">Res desmenuzada al estilo venezolano con especias naturales. Rica en proteína y sabor.</div><div class="mc-footer"><div class="mc-price">$25<small>/lb</small></div><button class="mc-btn" onclick="addToCart('Carne Mechada')">+ Agregar</button></div></div>
-    <div class="mc"><div class="mc-emoji">🍗</div><div class="mc-cat">Proteína · Lean</div><div class="mc-name">Pollo Mechado</div><div class="mc-desc">Pollo desmenuzado con sazón venezolana. Lean, limpio y lleno de sabor.</div><div class="mc-footer"><div class="mc-price">$20<small>/lb</small></div><button class="mc-btn" onclick="addToCart('Pollo Mechado')">+ Agregar</button></div></div>
-    <div class="mc"><div class="mc-emoji">🦃</div><div class="mc-cat">Proteína · Magra</div><div class="mc-name">Pavo Mechado</div><div class="mc-desc">Proteína pura sin grasa. La opción perfecta para tus metas fitness.</div><div class="mc-footer"><div class="mc-price">$20<small>/lb</small></div><button class="mc-btn" onclick="addToCart('Pavo Mechado')">+ Agregar</button></div></div>
+    <div class="mc"><div class="mc-emoji">🥩</div><div class="mc-cat">Proteína · Res</div><div class="mc-name">Carne Mechada</div><div class="mc-desc">Res desmenuzada al estilo venezolano con especias naturales. Rica en proteína y sabor.</div><div class="mc-footer"><div class="mc-price">$25<small>/lb</small></div><button class="mc-btn" data-item="Carne Mechada">+ Agregar</button></div></div>
+    <div class="mc"><div class="mc-emoji">🍗</div><div class="mc-cat">Proteína · Lean</div><div class="mc-name">Pollo Mechado</div><div class="mc-desc">Pollo desmenuzado con sazón venezolana. Lean, limpio y lleno de sabor.</div><div class="mc-footer"><div class="mc-price">$20<small>/lb</small></div><button class="mc-btn" data-item="Pollo Mechado">+ Agregar</button></div></div>
+    <div class="mc"><div class="mc-emoji">🦃</div><div class="mc-cat">Proteína · Magra</div><div class="mc-name">Pavo Mechado</div><div class="mc-desc">Proteína pura sin grasa. La opción perfecta para tus metas fitness.</div><div class="mc-footer"><div class="mc-price">$20<small>/lb</small></div><button class="mc-btn" data-item="Pavo Mechado">+ Agregar</button></div></div>
   </div>
 
 </section>
@@ -297,11 +297,9 @@
       const items = Object.keys(cart);
       const count = items.reduce((s,k) => s + cart[k], 0);
 
-      // Update all cart count badges
-      ['cart-count','nav-cart-count'].forEach(id => {
-        const el = document.getElementById(id);
-        if(el) el.textContent = count;
-      });
+      // Update cart count badge in nav
+      const navCount = document.getElementById('nav-cart-count');
+      if(navCount) navCount.textContent = count;
 
       const container = document.getElementById('cart-items');
       const totalEl   = document.getElementById('cart-total');
@@ -404,6 +402,14 @@
     }
   </script>
 
+
+  <script>
+    document.addEventListener('click', function(e){
+      if(e.target.classList.contains('mc-btn') && e.target.dataset.item){
+        addToCart(e.target.dataset.item);
+      }
+    });
+  </script>
 </body>
 </html>
 
