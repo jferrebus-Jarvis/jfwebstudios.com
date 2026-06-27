@@ -270,83 +270,100 @@
 
   <script>
     const PHONE = "18325402505";
+
+    const MENU = {
+      "Arepas de Yuca con Chia":     { price: 15, unit: "6pk" },
+      "Arepas de Yuca y Platano":    { price: 15, unit: "6pk" },
+      "Tortillas de Yuca y Platano": { price: 15, unit: "6pk" },
+      "Carne Mechada":               { price: 25, unit: "lb"  },
+      "Pollo Mechado":               { price: 20, unit: "lb"  },
+      "Pavo Mechado":                { price: 20, unit: "lb"  }
+    };
+
     let cart = {};
 
-    function addToCart(name){
-      cart[name] = (cart[name]||0) + 1;
-      updateCart();
-      if(!document.getElementById('cart-drawer').classList.contains('open')) toggleCart();
+    function addToCart(name) {
+      cart[name] = (cart[name] || 0) + 1;
+      renderCart();
+      const drawer = document.getElementById("cart-drawer");
+      if (!drawer.classList.contains("open")) drawer.classList.add("open");
     }
 
-    function changeQty(name, delta){
-      cart[name] = (cart[name]||0) + delta;
-      if(cart[name] <= 0) delete cart[name];
-      updateCart();
+    function changeQty(name, delta) {
+      if (!cart[name]) return;
+      cart[name] += delta;
+      if (cart[name] <= 0) delete cart[name];
+      renderCart();
     }
 
-    function removeFromCart(name){
-      delete cart[name];
-      updateCart();
+    function toggleCart() {
+      document.getElementById("cart-drawer").classList.toggle("open");
+      renderCart();
     }
 
-    function toggleCart(){
-      document.getElementById('cart-drawer').classList.toggle('open');
-    }
-
-    function updateCart(){
+    function renderCart() {
       const items = Object.keys(cart);
-      const count = items.reduce((s,k) => s + cart[k], 0);
+      const count = items.reduce((s, k) => s + cart[k], 0);
 
-      const navCount = document.getElementById('nav-cart-count');
-      if(navCount) navCount.textContent = count;
+      const badge = document.getElementById("nav-cart-count");
+      if (badge) badge.textContent = count;
 
-      const container = document.getElementById('cart-items');
-      const totalEl   = document.getElementById('cart-total');
+      const container = document.getElementById("cart-items");
+      const totalEl   = document.getElementById("cart-total");
+      const waBtn     = document.getElementById("cart-wa-btn");
 
-      if(items.length === 0){
-        container.innerHTML = '<div class="cart-empty">Tu carrito est\u00e1 vac\u00edo \uD83C\uDF3F</div>';
-        totalEl.style.display = 'none';
-        document.getElementById('cart-wa-btn').href = '#';
+      if (!container) return;
+
+      if (items.length === 0) {
+        container.innerHTML = "<p style=\"text-align:center;color:#aaa;padding:24px 0;\">Tu carrito est\u00e1 vac\u00edo \uD83C\uDF3F</p>";
+        if (totalEl) totalEl.style.display = "none";
+        if (waBtn)   waBtn.href = "#";
         return;
       }
 
       let subtotal = 0;
-      const rows = items.map(name => {
-        const item = MENU[name]; const qty = cart[name];
-        const sub = item.price * qty; subtotal += sub;
-        const safeKey = encodeURIComponent(name);
-        return `<div class="cart-item" data-name="${safeKey}">
-          <div class="cart-item-name">${name}</div>
-          <div class="cart-item-qty">
-            <button class="qty-btn" data-action="minus" data-name="${safeKey}">&#8722;</button>
-            <span>${qty} ${item.unit}</span>
-            <button class="qty-btn" data-action="plus" data-name="${safeKey}">+</button>
-          </div>
-          <div class="cart-item-price">$${sub.toFixed(2)}</div>
-        </div>`;
+      let html = "";
+      items.forEach(function(name) {
+        const item = MENU[name];
+        if (!item) return;
+        const qty = cart[name];
+        const sub = item.price * qty;
+        subtotal += sub;
+        const safe = encodeURIComponent(name);
+        html += "<div style=\"display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #F0E8D8;\">"
+          + "<div style=\"font-size:0.88rem;font-weight:600;color:#3B2A1A;flex:1;\">" + name + "</div>"
+          + "<div style=\"display:flex;align-items:center;gap:8px;\">"
+          + "<button style=\"background:#F0E8D8;border:none;width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;font-weight:700;\" data-action=\"minus\" data-name=\"" + safe + "\">&#8722;</button>"
+          + "<span style=\"font-size:0.85rem;\">" + qty + " " + item.unit + "</span>"
+          + "<button style=\"background:#F0E8D8;border:none;width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;font-weight:700;\" data-action=\"plus\" data-name=\"" + safe + "\">+</button>"
+          + "</div>"
+          + "<div style=\"font-size:0.88rem;font-weight:700;color:#3A6B35;min-width:48px;text-align:right;\">$" + sub.toFixed(2) + "</div>"
+          + "</div>";
       });
-      container.innerHTML = rows.join('');
-      totalEl.style.display = 'block';
+      container.innerHTML = html;
 
       const tax = Math.round(subtotal * 0.0825 * 100) / 100;
-      const grandTotal = Math.round((subtotal + tax) * 100) / 100;
+      const grand = Math.round((subtotal + tax) * 100) / 100;
 
-      document.getElementById('total-amount').textContent = grandTotal.toFixed(2);
-      const taxEl = document.getElementById('cart-tax');
-      if(taxEl) taxEl.textContent = 'Tax (8.25%): $' + tax.toFixed(2);
+      if (totalEl) {
+        totalEl.style.display = "block";
+        totalEl.innerHTML = "<div style=\"font-size:0.8rem;color:#888;\">Tax (8.25%): $" + tax.toFixed(2) + "</div>"
+          + "<div style=\"font-family:serif;font-size:1.05rem;font-weight:700;color:#3B2A1A;\">Total: $" + grand.toFixed(2) + "</div>"
+          + "<div style=\"font-size:0.75rem;color:#3A6B35;margin-top:4px;\">\uD83D\uDCB3 Zelle: 832-540-2505</div>";
+      }
 
-      let msg = "\uD83D\uDED2 *Hola Chef Yoly, quiero hacer un pedido:*\n\n";
-      items.forEach(name => {
-        const item = MENU[name]; const qty = cart[name];
-        msg += `\u2022 ${name} x${qty} ${item.unit} \u2014 $${(item.price*qty).toFixed(2)}\n`;
-      });
-      msg += `\n*Subtotal: $${subtotal.toFixed(2)}*`;
-      msg += `\n*Impuesto (8.25%): $${tax.toFixed(2)}*`;
-      msg += `\n*Total: $${grandTotal.toFixed(2)}*`;
-      msg += `\n\n\uD83D\uDCB3 *Pago por Zelle:* 832-540-2505\n\nGracias! \uD83D\uDE4F`;
-
-      const url = `https://wa.me/18325402505?text=${encodeURIComponent(msg)}`;
-      document.getElementById('cart-wa-btn').href = url;
+      if (waBtn) {
+        let msg = "\uD83D\uDED2 *Hola Chef Yoly, quiero hacer un pedido:*\n\n";
+        items.forEach(function(name) {
+          const item = MENU[name]; if (!item) return;
+          msg += "\u2022 " + name + " x" + cart[name] + " " + item.unit + " \u2014 $" + (item.price * cart[name]).toFixed(2) + "\n";
+        });
+        msg += "\n*Subtotal: $" + subtotal.toFixed(2) + "*";
+        msg += "\n*Impuesto (8.25%): $" + tax.toFixed(2) + "*";
+        msg += "\n*Total: $" + grand.toFixed(2) + "*";
+        msg += "\n\n\uD83D\uDCB3 *Pago por Zelle:* 832-540-2505\n\nGracias! \uD83D\uDE4F";
+        waBtn.href = "https://wa.me/18325402505?text=" + encodeURIComponent(msg);
+      }
     }
   </script>
 
@@ -403,17 +420,15 @@
 
 
   <script>
-    document.addEventListener('click', function(e){
-      const t = e.target;
-      // Add to cart buttons on menu
-      if(t.classList.contains('mc-btn') && t.dataset.item){
+    document.addEventListener("click", function(e) {
+      var t = e.target;
+      if (t.classList.contains("mc-btn") && t.dataset.item) {
         addToCart(t.dataset.item);
         return;
       }
-      // Qty +/- buttons inside cart drawer
-      if(t.classList.contains('qty-btn') && t.dataset.name){
-        const name = decodeURIComponent(t.dataset.name);
-        const delta = t.dataset.action === 'minus' ? -1 : 1;
+      if (t.dataset.action && t.dataset.name) {
+        var name = decodeURIComponent(t.dataset.name);
+        var delta = t.dataset.action === "minus" ? -1 : 1;
         changeQty(name, delta);
         return;
       }
