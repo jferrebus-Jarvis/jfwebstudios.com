@@ -21,11 +21,11 @@
     }
     body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);}
 
-    nav{padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:var(--beige);border-bottom:1px solid rgba(196,168,130,0.3);position:sticky;top:0;z-index:100;}
+    nav{padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:var(--green-dark);border-bottom:none;position:sticky;top:0;z-index:100;}
     .nav-logo img{height:52px;border-radius:50%;border:2px solid var(--brown);}
-    .nav-links a{margin-left:28px;text-decoration:none;color:var(--brown-dark);font-size:0.85rem;font-weight:600;}
+    .nav-links a{margin-left:28px;text-decoration:none;color:#fff;font-size:0.85rem;font-weight:600;}
     .nav-links a:hover{color:var(--green-dark);}
-    .nav-cta{background:var(--green-dark);color:#fff;padding:10px 22px;border-radius:50px;text-decoration:none;font-size:0.82rem;font-weight:700;}
+    .nav-cta{background:#fff;color:#fff;padding:10px 22px;border-radius:50px;text-decoration:none;font-size:0.82rem;font-weight:700;background:var(--green-dark);color:var(--green-dark);padding:10px 22px;border-radius:50px;text-decoration:none;font-size:0.82rem;font-weight:700;}
 
     .hero{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;background:var(--beige);gap:0;}
     .hl{padding:80px 60px;display:flex;flex-direction:column;justify-content:center;}
@@ -127,15 +127,26 @@
       .about-section{padding:50px 20px;flex-direction:column;text-align:center;}
       .about-photo{width:200px;height:260px;margin:0 auto;}
     }
+  
+    #rotating-word{transition:opacity 0.3s ease;}
+    .badge{cursor:default;}
+
   </style>
 </head>
 <body>
 <nav>
   <div class="nav-logo"><img src="logo.jpg" alt="The Balanced Bite"></div>
   <div class="nav-links">
-    <a href="#menu">Menú</a><a href="#nosotros">Nosotros</a><a href="#pedido">Pedido</a>
+    <a href="#menu" data-key="nav_menu">Menú</a><a href="#nosotros" data-key="nav_nosotros">Nosotros</a><a href="#pedido" data-key="nav_pedido">Pedido</a>
   </div>
-  <a href="https://wa.me/18325402505" class="nav-cta">📲 Ordenar</a>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <div style="display:flex;align-items:center;gap:6px;color:#fff;font-size:0.75rem;font-weight:600;">
+      <span id="lang-es" style="cursor:pointer;font-weight:800;opacity:1;" onclick="setLang('es')">ES</span>
+      <span style="opacity:0.5;">|</span>
+      <span id="lang-en" style="cursor:pointer;font-weight:400;opacity:0.7;" onclick="setLang('en')">EN</span>
+    </div>
+    <a href="https://wa.me/18325402505" class="nav-cta" data-key="nav_ordenar">📲 Ordenar</a>
+  </div>
 </nav>
 
 <section class="hero">
@@ -305,6 +316,46 @@
 
     function toggleCart(){
       document.getElementById('cart-drawer').classList.toggle('open');
+    }
+  </script>
+
+
+  <script>
+    // Rotating words
+    const words = ["🌿 Orgánico","💚 Saludable","🌾 Natural","🇻🇪 Venezolano","✨ Artesanal"];
+    let wi = 0;
+    function rotateWord(){
+      const el = document.getElementById('rotating-word');
+      if(!el) return;
+      el.style.opacity='0';
+      setTimeout(()=>{ wi=(wi+1)%words.length; el.textContent=words[wi]; el.style.opacity='1'; },300);
+    }
+    setInterval(rotateWord, 2000);
+
+    // Language toggle — default Spanish
+    const translations = {
+      nav_menu: {es:"Menú", en:"Menu"},
+      nav_nosotros: {es:"Nosotros", en:"About"},
+      nav_pedido: {es:"Pedido", en:"Order"},
+      nav_ordenar: {es:"📲 Ordenar", en:"📲 Order"},
+      hero_sub: {es:"El Bocado Balanceado by Chef Yoly", en:"The Balanced Bite by Chef Yoly"},
+      hero_desc: {es:"Ingredientes naturales, tradición venezolana y amor en cada plato. Preparado a mano para nutrir tu cuerpo y tu familia.", en:"Natural ingredients, Venezuelan tradition and love in every dish. Handmade to nourish your body and family."},
+      btn_pedido: {es:"Hacer Pedido", en:"Place Order"},
+      btn_menu: {es:"Ver Menú", en:"View Menu"},
+      menu_label: {es:"Lo que ofrecemos", en:"What we offer"},
+      menu_title: {es:"Nuestro Menú", en:"Our Menu"},
+      nosotros_label: {es:"Nuestra Historia", en:"Our Story"},
+      nosotros_title: {es:"By Yoly", en:"By Yoly"},
+    };
+    let currentLang = 'es';
+    function setLang(lang){
+      currentLang = lang;
+      document.querySelectorAll('[data-key]').forEach(el=>{
+        const key = el.getAttribute('data-key');
+        if(translations[key]) el.innerHTML = translations[key][lang];
+      });
+      document.getElementById('lang-es').style.fontWeight = lang==='es'?'800':'400';
+      document.getElementById('lang-en').style.fontWeight = lang==='en'?'800':'400';
     }
   </script>
 
