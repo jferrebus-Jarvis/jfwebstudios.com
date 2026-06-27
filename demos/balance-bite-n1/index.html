@@ -150,10 +150,17 @@
     @media(max-width:600px){.istrip-item{padding:12px 14px;}.istrip-label{font-size:0.55rem;}}
 
   
-    .hero-icons{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:24px;}
+    
+    
+    
+    
+
+  
+    .hr{display:flex;flex-direction:column;align-items:center;gap:20px;}
+    .hero-icons{display:flex;flex-direction:row;gap:20px;justify-content:center;flex-wrap:wrap;}
     .hico{display:flex;flex-direction:column;align-items:center;gap:4px;}
-    .hico span:first-child{font-size:1.5rem;}
-    .hico-label{font-size:0.6rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--beige);opacity:0.85;white-space:nowrap;}
+    .hico-emoji{font-size:1.4rem;}
+    .hico-label{font-size:0.58rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--green-dark);white-space:nowrap;}
 
   </style>
 </head>
@@ -175,22 +182,21 @@
 
 <section class="hero">
   <div class="hl">
-    
     <h1>The<br><em>Balanced</em><br>Bite</h1>
-    <div class="hero-sub">El Bocado Balanceado by Chef Yoly</div>
-    <p class="hero-p">Ingredientes naturales, tradición venezolana y amor en cada plato. Preparado a mano para nutrir tu cuerpo y tu familia.</p>
+    <div class="hero-sub" data-es="El Bocado Balanceado by Chef Yoly" data-en="The Balanced Bite by Chef Yoly">El Bocado Balanceado by Chef Yoly</div>
+    <p class="hero-p" data-es="Ingredientes naturales, tradición venezolana y amor en cada plato. Preparado a mano para nutrir tu cuerpo y tu familia." data-en="Natural ingredients, Venezuelan tradition and love in every dish. Handmade to nourish your body and your family.">Ingredientes naturales, tradición venezolana y amor en cada plato. Preparado a mano para nutrir tu cuerpo y tu familia.</p>
     <div class="hero-btns">
-      <a href="https://wa.me/18325402505" class="btn-green">Hacer Pedido</a>
-      <a href="#menu" class="btn-brown">Ver Menú</a>
+      <a href="https://wa.me/18325402505" class="btn-green" data-es="Hacer Pedido" data-en="Order Now">Hacer Pedido</a>
+      <a href="#menu" class="btn-brown" data-es="Ver Menú" data-en="View Menu">Ver Menú</a>
     </div>
   </div>
   <div class="hr">
     <div class="logo-wrap"><img src="logo.jpg" alt="The Balanced Bite"></div>
     <div class="hero-icons">
-      <div class="hico"><span>🌾</span><span class="hico-label" data-es="Sin Gluten" data-en="Gluten Free">Sin Gluten</span></div>
-      <div class="hico"><span>🌿</span><span class="hico-label" data-es="Orgánico" data-en="Organic">Orgánico</span></div>
-      <div class="hico"><span>💪</span><span class="hico-label" data-es="Alto Proteína" data-en="High Protein">Alto Proteína</span></div>
-      <div class="hico"><span>🥗</span><span class="hico-label" data-es="100% Natural" data-en="100% Natural">100% Natural</span></div>
+      <div class="hico"><span class="hico-emoji">🌾</span><span class="hico-label" data-es="Sin Gluten" data-en="Gluten Free">Sin Gluten</span></div>
+      <div class="hico"><span class="hico-emoji">🌿</span><span class="hico-label" data-es="Orgánico" data-en="Organic">Orgánico</span></div>
+      <div class="hico"><span class="hico-emoji">💪</span><span class="hico-label" data-es="Alto Proteína" data-en="High Protein">Alto Proteína</span></div>
+      <div class="hico"><span class="hico-emoji">🥗</span><span class="hico-label" data-es="100% Natural" data-en="100% Natural">100% Natural</span></div>
     </div>
   </div>
 </section>
