@@ -68,19 +68,19 @@
     #cart-fab{display:none;}
     #cart-fab:hover{transform:scale(1.05);}
     #cart-count{background:#C8922A;color:#fff;border-radius:50%;width:22px;height:22px;font-size:0.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
-    #cart-drawer{position:fixed;top:70px;right:24px;width:100%;max-width:400px;background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.15);z-index:1000;transform:translateY(-20px);opacity:0;pointer-events:none;transition:transform 0.25s cubic-bezier(0.4,0,0.2,1),opacity 0.25s ease;padding:24px 24px 32px;}
+    #cart-drawer{position:fixed;top:70px;right:16px;width:340px;max-width:calc(100vw - 32px);background:#FDFAF4;border-radius:20px;box-shadow:0 16px 60px rgba(0,0,0,0.18);z-index:1000;transform:translateY(-16px);opacity:0;pointer-events:none;transition:transform 0.28s cubic-bezier(0.4,0,0.2,1),opacity 0.28s ease;padding:20px 20px 24px;display:flex;flex-direction:column;max-height:calc(100vh - 100px);}
     #cart-drawer.open{transform:translateY(0);opacity:1;pointer-events:all;}
     .cart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
     .cart-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--brown-dark);font-weight:700;}
     .cart-close{background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--brown);}
-    .cart-items{max-height:280px;overflow-y:auto;margin-bottom:16px;}
-    .cart-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #F0E8D8;}
-    .cart-item-name{font-size:0.88rem;font-weight:600;color:var(--brown-dark);}
+    .cart-items{flex:1;overflow-y:auto;margin-bottom:12px;scrollbar-width:none;}
+    .cart-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #F0E8D8;gap:8px;}
+    .cart-item-name{font-size:0.82rem;font-weight:600;color:var(--brown-dark);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .cart-item-qty{display:flex;align-items:center;gap:10px;}
-    .qty-btn{background:var(--beige2);border:none;width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;font-weight:700;color:var(--brown-dark);}
+    .qty-btn{background:var(--beige2);border:none;width:24px;height:24px;border-radius:50%;font-size:0.85rem;cursor:pointer;font-weight:700;color:var(--brown-dark);flex-shrink:0;}
     .cart-item-price{font-size:0.88rem;font-weight:700;color:var(--green-dark);min-width:50px;text-align:right;}
     .cart-empty{text-align:center;color:#aaa;padding:30px 0;font-size:0.9rem;}
-    .cart-total{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--brown-dark);text-align:right;margin-bottom:16px;}
+    .cart-total{border-top:2px solid #F0E8D8;padding-top:10px;text-align:right;margin-bottom:14px;}
     .cart-wa-btn{display:block;width:100%;background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;letter-spacing:0.5px;}
     .mc-btn{background:var(--green-dark);color:#fff;padding:8px 18px;border-radius:50px;font-size:0.75rem;font-weight:700;border:none;cursor:pointer;}
 
@@ -346,8 +346,8 @@
 
       if (totalEl) {
         totalEl.style.display = "block";
-        totalEl.innerHTML = "<div style=\"font-size:0.8rem;color:#888;\">Tax (8.25%): $" + tax.toFixed(2) + "</div>"
-          + "<div style=\"font-family:serif;font-size:1.05rem;font-weight:700;color:#3B2A1A;\">Total: $" + grand.toFixed(2) + "</div>"
+        totalEl.innerHTML = "<div style=\"font-size:0.75rem;color:#999;margin-bottom:2px;\">Tax (8.25%): $" + tax.toFixed(2) + "</div>"
+          + "<div style=\"font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#3B2A1A;\">Total: $" + grand.toFixed(2) + "</div>"
           
       }
 
