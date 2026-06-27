@@ -212,7 +212,11 @@
     <div class="cart-items" id="cart-items">
       <div class="cart-empty" id="cart-empty">Tu carrito está vacío 🌿</div>
     </div>
-    <div class="cart-total" id="cart-total" style="display:none;">Total: $<span id="total-amount">0</span></div>
+    <div class="cart-total" id="cart-total" style="display:none;">
+      <div id="cart-tax" style="font-size:0.8rem;font-weight:500;color:#888;margin-bottom:4px;"></div>
+      <div>Total: $<span id="total-amount">0</span></div>
+      <div style="font-size:0.75rem;font-weight:500;color:#3A6B35;margin-top:6px;">💳 Zelle: 832-540-2505</div>
+    </div>
     <a id="cart-wa-btn" class="cart-wa-btn" href="#" target="_blank">📲 Enviar pedido por WhatsApp</a>
   </div>
 
@@ -276,7 +280,12 @@
       });
       container.innerHTML=html;
       totalEl.style.display='block';
-      document.getElementById('total-amount').textContent=total;
+      const tax = Math.round(total * 0.0825 * 100) / 100;
+      const grandTotal = Math.round((total + tax) * 100) / 100;
+      document.getElementById('total-amount').textContent=grandTotal.toFixed(2);
+      // Update tax line if exists
+      let taxEl = document.getElementById('cart-tax');
+      if(taxEl) taxEl.textContent = 'Tax (8.25%): $' + tax.toFixed(2);
 
       // Build WhatsApp message
       let msg="🛒 *Hola Chef Yoly, quiero hacer un pedido:*\n\n";
@@ -284,7 +293,12 @@
         const item=MENU[name]; const qty=cart[name];
         msg+=`• ${name} x${qty} ${item.unit} — $${item.price*qty}\n`;
       });
-      msg+=`\n*Total: $${total}*\n\nGracias! 🙏`;
+      const tax = Math.round(total * 0.0825 * 100) / 100;
+      const grandTotal = Math.round((total + tax) * 100) / 100;
+      msg+=`\n*Subtotal: $${total}*`;
+      msg+=`\n*Impuesto (8.25%): $${tax.toFixed(2)}*`;
+      msg+=`\n*Total: $${grandTotal.toFixed(2)}*`;
+      msg+=`\n\n💳 *Pago por Zelle:* 832-540-2505\n\nGracias! 🙏`;
       const url=`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
       document.getElementById('cart-wa-btn').href=url;
     }
