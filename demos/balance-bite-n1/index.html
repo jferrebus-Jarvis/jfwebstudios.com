@@ -166,6 +166,11 @@
     .ibar-label{font-size:0.6rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--green-dark);}
     @media(max-width:600px){.ibar-item{padding:0 14px;}.ibar-label{font-size:0.52rem;letter-spacing:0.6px;}}
 
+  
+    .hero-icons{display:flex;flex-direction:row;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
+    .hico{display:flex;flex-direction:column;align-items:center;gap:4px;}
+    .hico-emoji{font-size:1.3rem;}
+    .hico-label{font-size:0.56rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--green-dark);white-space:nowrap;}
   </style>
 </head>
 <body>
@@ -195,7 +200,13 @@
     </div>
   </div>
   <div class="hr">
-    <div class="logo-wrap"><img src="logo.jpg" alt="The Balanced Bite"></div></div>
+    <div class="logo-wrap"><img src="logo.jpg" alt="The Balanced Bite"></div>
+    <div class="hero-icons">
+      <div class="hico"><span class="hico-emoji">🌾</span><span class="hico-label" data-es="Sin Gluten" data-en="Gluten Free">Sin Gluten</span></div>
+      <div class="hico"><span class="hico-emoji">🌿</span><span class="hico-label" data-es="Orgánico" data-en="Organic">Orgánico</span></div>
+      <div class="hico"><span class="hico-emoji">💪</span><span class="hico-label" data-es="Alto Proteína" data-en="High Protein">Alto Proteína</span></div>
+      <div class="hico"><span class="hico-emoji">🥗</span><span class="hico-label" data-es="100% Natural" data-en="100% Natural">100% Natural</span></div>
+    </div>
   </div>
 </section>
 
@@ -223,32 +234,6 @@
 
 </section>
 
-<section class="menu-section" id="empanadas">
-  <div class="ms-label" data-es="Empanadas · Sin Gluten" data-en="Empanadas · Gluten Free">Empanadas · Sin Gluten</div>
-  <h2 class="ms-title" data-es="Empanadas" data-en="Empanadas">Empanadas</h2>
-  <div class="mc-grid">
-    <div class="mc">
-      <div class="mc-emoji">🥬</div>
-      <div class="mc-cat">Empanadas · Sin Gluten</div>
-      <div class="mc-name">Empanadas de Espinaca y Queso Cottage</div>
-      <div class="mc-desc" data-es="Rellenas de espinaca fresca y queso cottage. Ligeras, nutritivas y sin gluten." data-en="Filled with fresh spinach and cottage cheese. Light, nutritious and gluten free.">Rellenas de espinaca fresca y queso cottage. Ligeras, nutritivas y sin gluten.</div>
-      <div class="mc-footer">
-        <div class="mc-price">$15<small>/6pk</small></div>
-        <button class="mc-btn" data-item="emp-espinaca">+ Agregar</button>
-      </div>
-    </div>
-    <div class="mc">
-      <div class="mc-emoji">🥩</div>
-      <div class="mc-cat">Empanadas · Sin Gluten</div>
-      <div class="mc-name">Empanadas de Carne Mechada</div>
-      <div class="mc-desc" data-es="Rellenas con nuestra carne mechada artesanal. Sabor venezolano en cada bocado." data-en="Filled with our artisanal shredded beef. Venezuelan flavor in every bite.">Rellenas con nuestra carne mechada artesanal. Sabor venezolano en cada bocado.</div>
-      <div class="mc-footer">
-        <div class="mc-price">$20<small>/6pk</small></div>
-        <button class="mc-btn" data-item="emp-carne">+ Agregar</button>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 
