@@ -187,13 +187,15 @@
 </head>
 <body>
 <nav>
-  <div class="nav-logo"><img src="logo.jpg" alt="The Balanced Bite"></div>
+  <div class="nav-logo" style="display:flex;align-items:center;gap:14px;">
+    <img src="logo.jpg" alt="The Balanced Bite">
+    <button id="burger" onclick="toggleMobileMenu()" aria-label="Menu" style="flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;">
+      <span class="bline"></span><span class="bline"></span><span class="bline"></span>
+    </button>
+  </div>
   <div class="nav-links">
     <a href="#menu" data-key="nav_menu">Menú</a><a href="#nosotros" data-key="nav_nosotros">Nosotros</a><a href="https://wa.me/18325402505?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20de%20%2ACatering%2A%20con%20The%20Balanced%20Bite.%20%F0%9F%8D%BD%EF%B8%8F%0A%0A%E2%80%A2%20%C2%BFPara%20cu%C3%A1ntas%20personas%3A%0A%E2%80%A2%20%C2%BFFecha%20del%20evento%3A%0A%E2%80%A2%20%C2%BFQu%C3%A9%20productos%20desea%3A%0A%E2%80%A2%20%C2%BFLugar%20de%20entrega%3A%0A%0AGracias%21" target="_blank" data-key="nav_catering">Catering</a><a href="#" onclick="toggleCart();return false;" data-key="nav_pedido">Ver Carrito / Hacer Pedido</a>
   </div>
-  <button id="burger" onclick="toggleMobileMenu()" aria-label="Menu" style="flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:6px;">
-    <span class="bline"></span><span class="bline"></span><span class="bline"></span>
-  </button>
   <div style="display:flex;align-items:center;gap:16px;">
     <div style="display:flex;align-items:center;gap:6px;color:#fff;font-size:0.75rem;font-weight:600;">
       <span id="lang-es" style="cursor:pointer;font-weight:800;opacity:1;" onclick="setLang('es')">ES</span>
