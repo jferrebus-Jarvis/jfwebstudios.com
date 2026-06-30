@@ -349,7 +349,7 @@
         subtotal += sub;
         const safe = encodeURIComponent(name);
         html += "<div style=\"display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #F0E8D8;\">"
-          + "<div style=\"font-size:0.88rem;font-weight:600;color:#FDFAF4;flex:1;\">" + item.name + "</div>"
+          + "<div style=\"font-size:0.88rem;font-weight:600;color:var(--brown-dark);flex:1;\">" + item.name + "</div>"
           + "<div style=\"display:flex;align-items:center;gap:8px;\">"
           + "<button style=\"background:#F0E8D8;border:none;width:28px;height:28px;border-radius:50%;font-size:1rem;cursor:pointer;font-weight:700;\" data-action=\"minus\" data-name=\"" + safe + "\">&#8722;</button>"
           + "<span style=\"font-size:0.85rem;\">" + qty + " " + item.unit + "</span>"
@@ -366,7 +366,7 @@
       if (totalEl) {
         totalEl.style.display = "block";
         totalEl.innerHTML = "<div style=\"font-size:0.75rem;color:#999;margin-bottom:2px;\">Tax (8.25%): $" + tax.toFixed(2) + "</div>"
-          + "<div style=\"font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#FDFAF4;\">Total: $" + grand.toFixed(2) + "</div>"
+          + "<div style=\"font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--brown-dark);\">Total: $" + grand.toFixed(2) + "</div>"
           
       }
 
