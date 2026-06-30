@@ -474,9 +474,11 @@
         el.textContent = el.getAttribute('data-' + lang) || el.getAttribute('data-es');
       });
 
-      // Nav toggle weight
+      // Nav toggle weight + opacity (active = bold + full opacity, inactive = faded)
       document.getElementById('lang-es').style.fontWeight = lang==='es'?'800':'400';
+      document.getElementById('lang-es').style.opacity   = lang==='es'?'1':'0.45';
       document.getElementById('lang-en').style.fontWeight = lang==='en'?'800':'400';
+      document.getElementById('lang-en').style.opacity   = lang==='en'?'1':'0.45';
     }
   </script>
 
