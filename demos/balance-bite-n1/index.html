@@ -21,7 +21,7 @@
     }
     body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text);}
 
-    nav{padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:var(--green-dark);border-bottom:none;position:sticky;top:0;z-index:100;}
+    nav{padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:var(--green-dark);border-bottom:none;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
     .nav-logo img{height:52px;border-radius:50%;border:2px solid var(--brown);}
     .nav-links a{margin-left:28px;text-decoration:none;color:#fff;font-size:0.85rem;font-weight:600;}
     .nav-links a:hover{color:var(--green-dark);}
@@ -102,6 +102,7 @@
     @media(max-width:768px){
       nav{padding:14px 20px;}
       .nav-links{display:none;}
+      #burger{display:flex;}
       .hero{grid-template-columns:1fr;display:flex;flex-direction:column-reverse;}
       .hl{padding:40px 24px 20px;}
       h1{font-size:2.8rem;}
@@ -173,6 +174,15 @@
     .hico{display:flex;flex-direction:column;align-items:center;gap:4px;}
     .hico-emoji{font-size:1.3rem;}
     .hico-label{font-size:0.56rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:var(--green-dark);white-space:nowrap;}
+  
+    /* HAMBURGER MENU */
+    .bline{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s;}
+    #burger{display:none;}
+    .mobile-nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--green-dark);padding:16px 20px 20px;z-index:200;border-top:1px solid rgba(255,255,255,0.15);}
+    .mobile-nav a{color:#fff;text-decoration:none;font-size:1rem;font-weight:600;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:block;}
+    .mobile-nav a:last-child{border-bottom:none;}
+    .mobile-nav.open{display:flex;}
+
   </style>
 </head>
 <body>
@@ -190,6 +200,12 @@
     <button onclick="toggleCart()" style="background:#fff;color:var(--green-dark);border:none;border-radius:50px;padding:10px 20px;font-size:0.85rem;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;">🛒 <span id="nav-cart-count" style="background:var(--green-dark);color:#fff;border-radius:50%;width:22px;height:22px;font-size:0.7rem;display:flex;align-items:center;justify-content:center;">0</span></button>
   </div>
 </nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#menu" data-key="nav_menu" onclick="closeMobileMenu()">Menú</a>
+  <a href="#nosotros" data-key="nav_nosotros" onclick="closeMobileMenu()">Nosotros</a>
+  <a href="https://wa.me/18325402505?text=Hola%2C%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20de%20%2ACatering%2A%20con%20The%20Balanced%20Bite.%20%F0%9F%8D%BD%EF%B8%8F%0A%0A%E2%80%A2%20%C2%BFPara%20cu%C3%A1ntas%20personas%3A%0A%E2%80%A2%20%C2%BFFecha%20del%20evento%3A%0A%E2%80%A2%20%C2%BFQu%C3%A9%20productos%20desea%3A%0A%E2%80%A2%20%C2%BFLugar%20de%20entrega%3A%0A%0AGracias%21" target="_blank" data-key="nav_catering" onclick="closeMobileMenu()">Catering</a>
+  <a href="#" onclick="toggleCart();closeMobileMenu();return false;" data-key="nav_pedido">Ver Carrito / Hacer Pedido</a>
+</div>
 
 <section class="hero">
   <div class="hl">
@@ -472,6 +488,24 @@
         var delta = t.dataset.action === "minus" ? -1 : 1;
         changeQty(name, delta);
         return;
+      }
+    });
+  </script>
+
+  <script>
+    function toggleMobileMenu(){
+      const mn = document.getElementById('mobile-nav');
+      mn.classList.toggle('open');
+    }
+    function closeMobileMenu(){
+      document.getElementById('mobile-nav').classList.remove('open');
+    }
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e){
+      const burger = document.getElementById('burger');
+      const mn = document.getElementById('mobile-nav');
+      if(mn.classList.contains('open') && !mn.contains(e.target) && !burger.contains(e.target)){
+        mn.classList.remove('open');
       }
     });
   </script>
