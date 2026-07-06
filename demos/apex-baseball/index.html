@@ -9,14 +9,14 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
---navy:#0A1628;
---navy-light:#152540;
---orange:#FF6B1A;
---orange-dark:#E55A0E;
---gold:#C8922A;
+--navy:#012A2C;
+--navy-light:#015B60;
+--orange:#C15700;
+--orange-dark:#A04600;
+--gold:#D4822A;
 --white:#ffffff;
 --gray:#8B95A7;
---gray-light:#1E2D45;
+--gray-light:#013D40;
 --green:#00C853;
 }
 body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;line-height:1.6;}
@@ -28,17 +28,17 @@ img{max-width:100%;display:block;}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
-background:linear-gradient(135deg,rgba(10,22,40,0.92),rgba(10,22,40,0.75)),url('https://images.unsplash.com/photo-1508345225644-4a8e1f8c8e3c?w=1600&q=80') center/cover fixed no-repeat;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0%,rgba(10,22,40,0.4) 100%);}
+background:linear-gradient(135deg,rgba(1,42,44,0.92),rgba(1,42,44,0.75)),url('https://images.unsplash.com/photo-1508345225644-4a8e1f8c8e3c?w=1600&q=80') center/cover fixed no-repeat;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0%,rgba(1,42,44,0.4) 100%);}
 .hero-content{position:relative;z-index:2;max-width:800px;padding:0 20px;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,26,0.15);border:1px solid var(--orange);color:var(--orange);padding:8px 20px;border-radius:50px;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(193,87,0,0.15);border:1px solid var(--orange);color:var(--orange);padding:8px 20px;border-radius:50px;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
 .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,6.5rem);line-height:0.95;letter-spacing:3px;margin-bottom:20px;}
 .hero h1 span{color:var(--orange);}
 .hero p{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--gray);max-width:600px;margin:0 auto 36px;}
 .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:8px;font-weight:700;font-size:0.95rem;letter-spacing:0.5px;text-transform:uppercase;transition:all 0.3s;cursor:pointer;border:none;}
 .btn-primary{background:var(--orange);color:var(--white);}
-.btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,26,0.3);}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(193,87,0,0.3);}
 .btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.2);}
 .btn-outline:hover{border-color:var(--orange);color:var(--orange);}
 .hero-stats{display:flex;gap:40px;justify-content:center;margin-top:60px;flex-wrap:wrap;}
@@ -48,7 +48,7 @@ background:linear-gradient(135deg,rgba(10,22,40,0.92),rgba(10,22,40,0.75)),url('
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;}
-.nav.scrolled{background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);padding:12px 40px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.nav.scrolled{background:rgba(1,42,44,0.95);backdrop-filter:blur(10px);padding:12px 40px;border-bottom:1px solid rgba(255,255,255,0.05);}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;display:flex;align-items:center;gap:10px;}
 .nav-logo span{color:var(--orange);}
 .nav-links{display:flex;gap:32px;align-items:center;}
@@ -68,18 +68,18 @@ background:linear-gradient(135deg,rgba(10,22,40,0.92),rgba(10,22,40,0.75)),url('
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
 .service-card{background:var(--navy-light);border-radius:16px;padding:36px 28px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s;position:relative;overflow:hidden;}
 .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transition:transform 0.3s;}
-.service-card:hover{transform:translateY(-4px);border-color:rgba(255,107,26,0.2);}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(193,87,0,0.2);}
 .service-card:hover::before{transform:scaleX(1);}
 .service-icon{font-size:2.5rem;margin-bottom:20px;}
 .service-card h3{font-size:1.25rem;font-weight:700;margin-bottom:12px;}
 .service-card p{color:var(--gray);font-size:0.9rem;margin-bottom:16px;}
-.service-price{display:inline-block;background:rgba(255,107,26,0.1);color:var(--orange);padding:6px 16px;border-radius:6px;font-weight:600;font-size:0.85rem;}
+.service-price{display:inline-block;background:rgba(193,87,0,0.1);color:var(--orange);padding:6px 16px;border-radius:6px;font-weight:600;font-size:0.85rem;}
 
 /* COACHES */
 .coaches{background:var(--navy-light);}
 .coaches-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;}
 .coach-card{background:var(--navy);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s;}
-.coach-card:hover{transform:translateY(-4px);border-color:rgba(255,107,26,0.2);}
+.coach-card:hover{transform:translateY(-4px);border-color:rgba(193,87,0,0.2);}
 .coach-img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--gray-light);}
 .coach-info{padding:20px;}
 .coach-info h3{font-size:1.1rem;font-weight:700;margin-bottom:4px;}
@@ -89,7 +89,7 @@ background:linear-gradient(135deg,rgba(10,22,40,0.92),rgba(10,22,40,0.75)),url('
 .memberships{background:var(--navy);}
 .membership-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1000px;margin:0 auto;}
 .membership-card{background:var(--navy-light);border-radius:20px;padding:40px 32px;border:1px solid rgba(255,255,255,0.05);text-align:center;transition:all 0.3s;}
-.membership-card:hover{transform:translateY(-6px);border-color:rgba(255,107,26,0.3);}
+.membership-card:hover{transform:translateY(-6px);border-color:rgba(193,87,0,0.3);}
 .membership-card.featured{border:2px solid var(--orange);position:relative;}
 .membership-card.featured::after{content:'POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--white);padding:4px 16px;border-radius:20px;font-size:0.7rem;font-weight:700;letter-spacing:1px;}
 .membership-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:2px;margin-bottom:8px;}
@@ -112,7 +112,7 @@ background:linear-gradient(135deg,rgba(10,22,40,0.92),rgba(10,22,40,0.75)),url('
 .facility-features{list-style:none;}
 .facility-features li{padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;gap:16px;}
 .facility-features li:last-child{border-bottom:none;}
-.facility-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,107,26,0.1);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.facility-icon{width:48px;height:48px;border-radius:12px;background:rgba(193,87,0,0.1);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
 .facility-features h4{font-size:1rem;font-weight:600;margin-bottom:2px;}
 .facility-features p{font-size:0.85rem;color:var(--gray);}
 
@@ -132,7 +132,7 @@ background:linear-gradient(135deg,rgba(10,22,40,0.92),rgba(10,22,40,0.75)),url('
 .cta p{color:var(--gray);font-size:1.1rem;max-width:500px;margin:0 auto 36px;}
 
 /* FOOTER */
-.footer{background:#050D18;padding:60px 20px 30px;border-top:1px solid rgba(255,255,255,0.05);}
+.footer{background:#001617;padding:60px 20px 30px;border-top:1px solid rgba(255,255,255,0.05);}
 .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
 .footer-brand p{color:var(--gray);font-size:0.9rem;margin-top:12px;}
 .footer-col h4{font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;color:var(--orange);}
@@ -254,31 +254,31 @@ section{padding:60px 20px;}
 <p class="section-sub">Professional instructors with college and professional playing experience.</p>
 <div class="coaches-grid">
 <div class="coach-card">
-<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-img" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
 <div class="coach-info"><h3>Luis Pollorena</h3><div class="coach-role">Head Coach</div></div>
 </div>
 <div class="coach-card">
-<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-img" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
 <div class="coach-info"><h3>Seth Oliver</h3><div class="coach-role">Hitting Coach</div></div>
 </div>
 <div class="coach-card">
-<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-img" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
 <div class="coach-info"><h3>Jose Salgar</h3><div class="coach-role">Pitching Coach</div></div>
 </div>
 <div class="coach-card">
-<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-img" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
 <div class="coach-info"><h3>Eric Cuevas</h3><div class="coach-role">Infield Coach</div></div>
 </div>
 <div class="coach-card">
-<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-img" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
 <div class="coach-info"><h3>Sean Derbes</h3><div class="coach-role">Catching Coach</div></div>
 </div>
 <div class="coach-card">
-<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-img" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
 <div class="coach-info"><h3>Ryan Benavidez</h3><div class="coach-role">Outfield Coach</div></div>
 </div>
 <div class="coach-card">
-<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-img" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
 <div class="coach-info"><h3>Javier Valdez</h3><div class="coach-role">Softball Coach</div></div>
 </div>
 </div>
@@ -361,12 +361,12 @@ section{padding:60px 20px;}
 <h2 class="section-title">GALLERY</h2>
 <p class="section-sub">Take a look at our state-of-the-art training facility.</p>
 <div class="gallery-grid">
-<div class="gallery-item" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
-<div class="gallery-item" style="background:linear-gradient(135deg,#1E2D45,#152540);display:flex;align-items:center;justify-content:center;font-size:3rem;">🏠</div>
-<div class="gallery-item" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">🏆</div>
-<div class="gallery-item" style="background:linear-gradient(135deg,#1E2D45,#152540);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
-<div class="gallery-item" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">💪</div>
-<div class="gallery-item" style="background:linear-gradient(135deg,#1E2D45,#152540);display:flex;align-items:center;justify-content:center;font-size:3rem;">🥎</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#013D40,#015B60);display:flex;align-items:center;justify-content:center;font-size:3rem;">🏠</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">🏆</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#013D40,#015B60);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#015B60,#012A2C);display:flex;align-items:center;justify-content:center;font-size:3rem;">💪</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#013D40,#015B60);display:flex;align-items:center;justify-content:center;font-size:3rem;">🥎</div>
 </div>
 </div>
 </section>
