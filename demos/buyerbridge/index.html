@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuyerBridge.AI — The Smartest Way to Sell Land Deals</title>
+<meta name="description" content="AI-powered buyer matching for land investors. Match verified builders in seconds using real permit data. 10,000+ verified buyers nationwide.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+--aqua:#2DD4BF;
+--aqua-dark:#14B8A6;
+--aqua-light:#5EEAD4;
+--teal:#0D9488;
+--mint:#F7FFFE;
+--mint-dark:#ECFDF5;
+--ink:#0A0A0A;
+--ink-soft:#1A1A1A;
+--gray:#64748B;
+--gray-light:#E2E8F0;
+--gray-lighter:#F1F5F9;
+--white:#FFFFFF;
+--navy:#0F172A;
+--navy-light:#1E293B;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--mint);color:var(--ink);overflow-x:hidden;line-height:1.6;}
+.grotesk{font-family:'Space Grotesk',sans-serif;}
+section{padding:100px 24px;}
+.container{max-width:1140px;margin:0 auto;}
+a{color:inherit;text-decoration:none;}
+.gradient-text{background:linear-gradient(135deg,var(--aqua),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;background:rgba(247,255,254,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(45,212,191,0.08);}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;}
+.nav-logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--aqua),var(--teal));display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;}
+.nav-logo span{color:var(--teal);}
+.nav-links{display:flex;gap:36px;align-items:center;}
+.nav-links a{font-size:0.9rem;font-weight:500;color:var(--gray);transition:color 0.2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-right{display:flex;gap:20px;align-items:center;}
+.nav-login{font-size:0.9rem;font-weight:500;color:var(--gray);}
+.nav-login:hover{color:var(--ink);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;font-weight:700;font-size:0.9rem;transition:all 0.25s;cursor:pointer;border:none;font-family:inherit;}
+.btn-primary{background:linear-gradient(135deg,var(--aqua),var(--teal));color:var(--white);box-shadow:0 4px 20px rgba(45,212,191,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(45,212,191,0.4);}
+.btn-dark{background:var(--ink);color:var(--white);}
+.btn-dark:hover{background:var(--navy);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--ink);border:2px solid var(--gray-light);}
+.btn-outline:hover{border-color:var(--aqua);color:var(--teal);}
+.nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink);}
+
+/* HERO */
+.hero{padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;left:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(45,212,191,0.08),transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;top:20%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(20,184,166,0.06),transparent 70%);pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--mint-dark);border:1px solid rgba(45,212,191,0.2);color:var(--teal);padding:8px 20px;border-radius:50px;font-size:0.8rem;font-weight:600;margin-bottom:32px;position:relative;}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--aqua);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,5.5vw,4rem);font-weight:700;line-height:1.1;letter-spacing:-1.5px;max-width:900px;margin:0 auto 24px;position:relative;}
+.hero h1 .gradient-text{position:relative;}
+.hero p{font-size:clamp(1rem,2vw,1.25rem);color:var(--gray);max-width:600px;margin:0 auto 40px;position:relative;}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;margin-bottom:60px;}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;position:relative;}
+.stat{text-align:center;}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:2.5rem;font-weight:700;color:var(--teal);}
+.stat-label{font-size:0.8rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;font-weight:500;}
+
+/* DASHBOARD MOCK */
+.dashboard-mock{max-width:1000px;margin:40px auto 0;background:var(--ink);border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(15,23,42,0.15);border:1px solid rgba(255,255,255,0.05);}
+.dashboard-top{background:var(--navy);padding:16px 24px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.dashboard-dots{display:flex;gap:8px;}
+.dashboard-dots span{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.1);}
+.dashboard-dots span:nth-child(1){background:#FF5F57;}
+.dashboard-dots span:nth-child(2){background:#FEBC2E;}
+.dashboard-dots span:nth-child(3){background:#28C840;}
+.dashboard-url{color:rgba(255,255,255,0.3);font-size:0.8rem;margin-left:8px;}
+.dashboard-body{display:grid;grid-template-columns:220px 1fr;min-height:400px;}
+.dashboard-sidebar{background:var(--navy);padding:24px 16px;border-right:1px solid rgba(255,255,255,0.05);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:4px;transition:all 0.2s;}
+.sidebar-item.active{background:rgba(45,212,191,0.1);color:var(--aqua);}
+.sidebar-item:hover{background:rgba(255,255,255,0.03);}
+.sidebar-icon{width:18px;text-align:center;}
+.dashboard-main{padding:28px;background:var(--ink);}
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;}
+.dash-title{color:white;font-size:1.1rem;font-weight:600;}
+.dash-badge{background:rgba(45,212,191,0.15);color:var(--aqua);padding:4px 14px;border-radius:20px;font-size:0.75rem;font-weight:600;}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.match-card{background:var(--navy-light);border-radius:10px;padding:16px;border:1px solid rgba(255,255,255,0.05);}
+.match-card-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:8px;}
+.match-name{color:white;font-size:0.85rem;font-weight:600;}
+.match-score{background:rgba(45,212,191,0.15);color:var(--aqua);padding:2px 8px;border-radius:6px;font-size:0.7rem;font-weight:600;}
+.match-detail{color:rgba(255,255,255,0.4);font-size:0.75rem;margin-bottom:4px;}
+.match-bar{height:4px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden;margin-top:8px;}
+.match-bar-fill{height:100%;background:linear-gradient(90deg,var(--aqua),var(--teal));border-radius:2px;}
+
+/* PROBLEM SECTION */
+.problem{background:var(--white);text-align:center;}
+.problem h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-1px;margin-bottom:16px;}
+.problem p.sub{color:var(--gray);font-size:1.1rem;max-width:600px;margin:0 auto 60px;}
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;text-align:left;}
+.problem-card{background:var(--mint);border:1px solid var(--gray-light);border-radius:16px;padding:32px 28px;transition:all 0.3s;}
+.problem-card:hover{border-color:var(--aqua);box-shadow:0 8px 30px rgba(45,212,191,0.08);transform:translateY(-4px);}
+.problem-icon{width:48px;height:48px;border-radius:12px;background:var(--mint-dark);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;}
+.problem-card h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;}
+.problem-card p{font-size:0.9rem;color:var(--gray);}
+
+/* HOW IT WORKS */
+.howitworks{background:var(--ink);color:white;text-align:center;position:relative;overflow:hidden;}
+.howitworks::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(circle,rgba(45,212,191,0.06),transparent 70%);pointer-events:none;}
+.howitworks h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-1px;margin-bottom:16px;position:relative;}
+.howitworks h2 .gradient-text{background:linear-gradient(135deg,var(--aqua-light),var(--aqua));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.howitworks p.sub{color:rgba(255,255,255,0.5);font-size:1.1rem;max-width:600px;margin:0 auto 60px;position:relative;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative;max-width:1000px;margin:0 auto;}
+.step{position:relative;}
+.step-num{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--aqua),var(--teal));display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:white;margin:0 auto 24px;}
+.step h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;}
+.step p{color:rgba(255,255,255,0.5);font-size:0.9rem;}
+.step-arrow{position:absolute;top:28px;right:-20px;color:rgba(45,212,191,0.3);font-size:1.5rem;}
+
+/* FEATURES */
+.features{background:var(--mint);text-align:center;}
+.features h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-1px;margin-bottom:16px;}
+.features p.sub{color:var(--gray);font-size:1.1rem;max-width:600px;margin:0 auto 60px;}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;text-align:left;}
+.feature-card{background:var(--white);border:1px solid var(--gray-light);border-radius:16px;padding:32px 28px;transition:all 0.3s;}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(15,23,42,0.06);border-color:rgba(45,212,191,0.2);}
+.feature-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--aqua),var(--teal));display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;margin-bottom:20px;}
+.feature-card h3{font-size:1.1rem;font-weight:700;margin-bottom:10px;}
+.feature-card p{font-size:0.9rem;color:var(--gray);}
+
+/* PRICING */
+.pricing{background:var(--white);text-align:center;}
+.pricing h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-1px;margin-bottom:16px;}
+.pricing p.sub{color:var(--gray);font-size:1.1rem;max-width:600px;margin:0 auto 40px;}
+.pricing-toggle{display:inline-flex;background:var(--gray-lighter);border-radius:50px;padding:4px;margin-bottom:40px;}
+.pricing-toggle button{padding:10px 28px;border:none;background:transparent;font-weight:600;font-size:0.85rem;border-radius:50px;cursor:pointer;color:var(--gray);font-family:inherit;transition:all 0.2s;}
+.pricing-toggle button.active{background:var(--ink);color:white;}
+.pricing-card{max-width:520px;margin:0 auto;background:var(--mint);border:2px solid var(--aqua);border-radius:24px;padding:48px 40px;position:relative;}
+.pricing-card .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--aqua),var(--teal));color:white;padding:6px 20px;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:1px;}
+.pricing-card h3{font-size:0.85rem;text-transform:uppercase;letter-spacing:2px;color:var(--gray);margin-bottom:16px;}
+.pricing-price{font-family:'Space Grotesk',sans-serif;font-size:4rem;font-weight:700;color:var(--ink);line-height:1;}
+.pricing-price span{font-size:1rem;color:var(--gray);font-weight:400;}
+.pricing-features{list-style:none;margin:32px 0;text-align:left;}
+.pricing-features li{padding:12px 0;color:var(--ink-soft);font-size:0.95rem;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--gray-lighter);}
+.pricing-features li:last-child{border-bottom:none;}
+.pricing-features li::before{content:'✓';color:var(--aqua);font-weight:700;font-size:1.1rem;}
+.pricing-note{font-size:0.85rem;color:var(--gray);margin-top:20px;}
+
+/* STATS BANNER */
+.stats-banner{background:linear-gradient(135deg,var(--ink),var(--navy));padding:80px 24px;text-align:center;color:white;}
+.stats-banner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;max-width:900px;margin:0 auto;}
+.banner-stat-num{font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:700;background:linear-gradient(135deg,var(--aqua-light),var(--aqua));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.banner-stat-label{font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-top:8px;}
+
+/* FAQ */
+.faq{background:var(--mint);text-align:center;}
+.faq h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-1px;margin-bottom:16px;}
+.faq p.sub{color:var(--gray);font-size:1.1rem;max-width:600px;margin:0 auto 50px;}
+.faq-list{max-width:750px;margin:0 auto;text-align:left;}
+.faq-item{background:var(--white);border:1px solid var(--gray-light);border-radius:14px;margin-bottom:12px;overflow:hidden;transition:all 0.2s;}
+.faq-item:hover{border-color:rgba(45,212,191,0.2);}
+.faq-q{padding:20px 24px;font-weight:600;font-size:0.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s;}
+.faq-q:hover{background:var(--mint-dark);}
+.faq-q .arrow{color:var(--aqua);font-size:1.2rem;transition:transform 0.3s;}
+.faq-item.open .faq-q .arrow{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease;padding:0 24px;color:var(--gray);font-size:0.9rem;}
+.faq-item.open .faq-a{max-height:200px;padding:0 24px 20px;}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--aqua),var(--teal));text-align:center;padding:100px 24px;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;top:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,0.08),transparent 70%);pointer-events:none;}
+.cta h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:white;letter-spacing:-1px;margin-bottom:20px;position:relative;}
+.cta p{font-size:1.15rem;color:rgba(255,255,255,0.85);max-width:500px;margin:0 auto 36px;position:relative;}
+.cta .btn{background:white;color:var(--teal);font-size:1rem;padding:16px 40px;position:relative;}
+.cta .btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,0.15);}
+
+/* FOOTER */
+.footer{background:var(--ink);color:rgba(255,255,255,0.5);padding:60px 24px 30px;}
+.footer-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand{font-weight:800;font-size:1.2rem;color:white;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.footer-brand .nav-logo-icon{width:32px;height:32px;font-size:0.9rem;}
+.footer-brand p{font-size:0.85rem;color:rgba(255,255,255,0.4);margin-top:8px;font-weight:400;}
+.footer-col h4{font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;color:var(--aqua);margin-bottom:16px;font-weight:700;}
+.footer-col a{display:block;color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:10px;transition:color 0.2s;}
+.footer-col a:hover{color:white;}
+.footer-bottom{max-width:1140px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;font-size:0.8rem;}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav{padding:14px 20px;}
+.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--mint);flex-direction:column;justify-content:center;gap:24px;z-index:99;}
+.nav-links.open{display:flex;}
+.nav-toggle{display:block;z-index:101;}
+.nav-right .btn{display:none;}
+.nav-right .nav-login{display:none;}
+.hero h1{font-size:2.2rem;}
+.hero-stats{gap:24px;}
+.stat-num{font-size:1.8rem;}
+.steps{grid-template-columns:1fr;gap:40px;}
+.step-arrow{display:none;}
+.dashboard-body{grid-template-columns:1fr;}
+.dashboard-sidebar{display:none;}
+.match-grid{grid-template-columns:1fr;}
+.footer-grid{grid-template-columns:1fr;gap:30px;}
+section{padding:60px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="nav-logo">
+<div class="nav-logo-icon">🌉</div>
+BuyerBridge<span>.Ai</span>
+</div>
+<div class="nav-links" id="navLinks">
+<a href="#how">How It Works</a>
+<a href="#features">Features</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+</div>
+<div class="nav-right">
+<a href="#" class="nav-login">Login</a>
+<button class="btn btn-primary">Unlock Buyers →</button>
+</div>
+<button class="nav-toggle" id="navToggle">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero-badge"><span class="dot"></span> Trusted by 1,200+ land investors</div>
+<h1>AI-Powered Buyer Matching<br>From Real <span class="gradient-text">Builder Permit</span> Data<br>In Seconds.</h1>
+<p>10,000+ spec home builders with verified contact information. Stop guessing — start matching with real buyers actively purchasing land.</p>
+<div class="hero-btns">
+<button class="btn btn-primary">Unlock Buyers →</button>
+<button class="btn btn-outline">Watch Demo</button>
+</div>
+<div class="hero-stats">
+<div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Verified Builders</div></div>
+<div class="stat"><div class="stat-num">1,200+</div><div class="stat-label">Active Users</div></div>
+<div class="stat"><div class="stat-num">50+</div><div class="stat-label">States Covered</div></div>
+<div class="stat"><div class="stat-num">12s</div><div class="stat-label">Avg Match Time</div></div>
+</div>
+
+<!-- Dashboard Mock -->
+<div class="dashboard-mock">
+<div class="dashboard-top">
+<div class="dashboard-dots"><span></span><span></span><span></span></div>
+<div class="dashboard-url">app.buyerbridge.ai/matches</div>
+</div>
+<div class="dashboard-body">
+<div class="dashboard-sidebar">
+<div class="sidebar-item active"><span class="sidebar-icon">🎯</span> Matches</div>
+<div class="sidebar-item"><span class="sidebar-icon">📋</span> My Deals</div>
+<div class="sidebar-item"><span class="sidebar-icon">👥</span> Buyers</div>
+<div class="sidebar-item"><span class="sidebar-icon">🤝</span> JV Network</div>
+<div class="sidebar-item"><span class="sidebar-icon">📊</span> Analytics</div>
+<div class="sidebar-item"><span class="sidebar-icon">⚙️</span> Settings</div>
+</div>
+<div class="dashboard-main">
+<div class="dash-header">
+<div class="dash-title">AI Buyer Matches — 12.5 acres, Maricopa County</div>
+<div class="dash-badge">98% Match</div>
+</div>
+<div class="match-grid">
+<div class="match-card">
+<div class="match-card-top"><div class="match-name">Highland Homes LLC</div><div class="match-score">98%</div></div>
+<div class="match-detail">📍 Maricopa County, AZ</div>
+<div class="match-detail">🏗️ 47 permits filed (12mo)</div>
+<div class="match-detail">💰 Budget: $50K-$200K</div>
+<div class="match-bar"><div class="match-bar-fill" style="width:98%"></div></div>
+</div>
+<div class="match-card">
+<div class="match-card-top"><div class="match-name">Desert Sky Builders</div><div class="match-score">94%</div></div>
+<div class="match-detail">📍 Maricopa County, AZ</div>
+<div class="match-detail">🏗️ 31 permits filed (12mo)</div>
+<div class="match-detail">💰 Budget: $30K-$150K</div>
+<div class="match-bar"><div class="match-bar-fill" style="width:94%"></div></div>
+</div>
+<div class="match-card">
+<div class="match-card-top"><div class="match-name">Summit Construction</div><div class="match-score">89%</div></div>
+<div class="match-detail">📍 Pinal County, AZ</div>
+<div class="match-detail">🏗️ 22 permits filed (12mo)</div>
+<div class="match-detail">💰 Budget: $40K-$180K</div>
+<div class="match-bar"><div class="match-bar-fill" style="width:89%"></div></div>
+</div>
+<div class="match-card">
+<div class="match-card-top"><div class="match-name">Arrowhead Development</div><div class="match-score">85%</div></div>
+<div class="match-detail">📍 Maricopa County, AZ</div>
+<div class="match-detail">🏗️ 18 permits filed (12mo)</div>
+<div class="match-detail">💰 Budget: $25K-$100K</div>
+<div class="match-bar"><div class="match-bar-fill" style="width:85%"></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROBLEM SECTION -->
+<section class="problem" id="problem">
+<div class="container">
+<h2>The #1 Problem Stopping You<br>From Consistent Deal Flow</h2>
+<p class="sub">Most wholesalers struggle with the same bottlenecks. BuyerBridge becomes the infrastructure between your contract and your closing.</p>
+<div class="problem-grid">
+<div class="problem-card">
+<div class="problem-icon">🗺️</div>
+<h3>Finding a Market to Start</h3>
+<p>Most beginners don't know where to begin. BuyerBridge shows where real builders are actually buying — backed by permit data, not guesswork.</p>
+</div>
+<div class="problem-card">
+<div class="problem-icon">📈</div>
+<h3>Expanding to New Markets</h3>
+<p>Even advanced investors need new markets regularly. We provide permit-backed opportunities instantly — no more cold research.</p>
+</div>
+<div class="problem-card">
+<div class="problem-icon">🤝</div>
+<h3>Partnering With Other Users</h3>
+<p>Connect with wholesalers across the country and move deals together through our JV network.</p>
+</div>
+<div class="problem-card">
+<div class="problem-icon">📊</div>
+<h3>Tracking Deal Flow</h3>
+<p>Track every contract, every buyer, and every step of your sales cycle in one unified CRM hub.</p>
+</div>
+<div class="problem-card">
+<div class="problem-icon">📝</div>
+<h3>Automating Title Work</h3>
+<p>Never lose track of title again. Automatically send and organize title work for every deal.</p>
+</div>
+<div class="problem-card">
+<div class="problem-icon">✅</div>
+<h3>Real Permit Data</h3>
+<p>No guessing. No outdated lists. Real data from real permits filed in the past 12 months.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="howitworks" id="how">
+<div class="container">
+<h2>The Smartest Way to Sell<br><span class="gradient-text">Land Deals, Instantly.</span></h2>
+<p class="sub">It's like a dating app for investor deals. Every contract finds a buyer.</p>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<h3>Submit Your Deal</h3>
+<p>Address, acreage, and price. 30-second form. Upload your contract and let the AI go to work.</p>
+<div class="step-arrow">→</div>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<h3>AI Matchmaking</h3>
+<p>Instantly matches verified buyers by county, price range, and parcel size using real permit data.</p>
+<div class="step-arrow">→</div>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<h3>Close Faster</h3>
+<p>Keep your full spread with access to thousands of verified builders nationwide. Close in days, not weeks.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+<div class="container">
+<h2>Everything You Need to Be<br>in the <span class="gradient-text">Top 1%</span> of Wholesalers</h2>
+<p class="sub">Stop chasing dead leads. Start matching with verified buyers who are actively building.</p>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">🎯</div>
+<h3>AI-Powered Matching</h3>
+<p>Instantly ranks top buyers for your deals using 1,500+ data points per buyer. No more cold-calling random lists.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🏗️</div>
+<h3>10,000+ Verified Builders</h3>
+<p>Access builders actively filing permits nationwide. Real contact info, real buying history, real deals.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🤝</div>
+<h3>Joint Venture Deals</h3>
+<p>Partner with other users to co-wholesale deals. Share contracts, split profits, expand your reach.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📊</div>
+<h3>Central Deal Hub</h3>
+<p>Track deals, buyers, and outreach — all in one place. Full CRM with analytics, deal pipeline, and performance tracking.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📋</div>
+<h3>Permit-Backed Intelligence</h3>
+<p>Every buyer match is backed by real permit data filed in the last 12 months. No stale lists, no fake leads.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">⚡</div>
+<h3>Instant Market Search</h3>
+<p>Find new markets in seconds. Search any county and see which builders are actively purchasing land there.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATS BANNER -->
+<section class="stats-banner">
+<div class="container">
+<div class="stats-banner-grid">
+<div><div class="banner-stat-num">10,000+</div><div class="banner-stat-label">Verified Builders</div></div>
+<div><div class="banner-stat-num">1,200+</div><div class="banner-stat-label">Active Investors</div></div>
+<div><div class="banner-stat-num">50+</div><div class="banner-stat-label">States Covered</div></div>
+<div><div class="banner-stat-num">12s</div><div class="banner-stat-label">Avg Match Time</div></div>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+<div class="container">
+<h2>Get Access in Minutes.<br><span class="gradient-text">No Long-Term Contracts.</span></h2>
+<p class="sub">Cancel anytime. Full access, full speed, starting today.</p>
+<div class="pricing-toggle">
+<button class="active" id="monthlyBtn">Monthly</button>
+<button id="annualBtn">Annual (4 Months Free)</button>
+</div>
+<div class="pricing-card">
+<div class="badge">ELITE TIER</div>
+<h3>Full Platform Access</h3>
+<div class="pricing-price">$497<span id="pricePeriod">/mo</span></div>
+<ul class="pricing-features">
+<li>Unlimited AI Buyer Matches</li>
+<li>Access to 10,000+ Verified Builders</li>
+<li>Full CRM / Deal Tracking with Analytics</li>
+<li>Permit-Backed Buyer Intelligence</li>
+<li>Unlimited Custom Market Builder Searches</li>
+<li>Early Access to All New Features</li>
+<li>Full Access to Public & Private Buyers</li>
+</ul>
+<button class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px;">Unlock Buyers →</button>
+<p class="pricing-note">No long-term contracts. Cancel anytime.</p>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+<div class="container">
+<h2>Frequently Asked Questions</h2>
+<p class="sub">Everything you need to know before getting your next buyer.</p>
+<div class="faq-list">
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">I'm stuck in crowded wholesaling markets. Can BuyerBridge help me find new markets? <span class="arrow">+</span></div>
+<div class="faq-a">Yes. Our permit-backed market search shows you exactly which counties have active builders filing permits. You can identify untapped markets in seconds and start targeting buyers who are actually purchasing land there.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">How is this different from a JV partner or Facebook groups? <span class="arrow">+</span></div>
+<div class="faq-a">Facebook groups are full of unverified buyers and tire-kickers. BuyerBridge uses real permit data to verify that every buyer has actually purchased land and filed building permits. You're matching with proven buyers, not strangers.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">How fast can I get matched with buyers? <span class="arrow">+</span></div>
+<div class="faq-a">Instantly. Submit your deal details and our AI returns ranked buyer matches in under 15 seconds. No waiting, no manual research.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">Are the buyers actually verified? <span class="arrow">+</span></div>
+<div class="faq-a">Every buyer in our database is verified through real building permit filings within the past 12 months. We track 1,500+ data points per buyer including purchase history, permit activity, and buying preferences.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('open')">
+<div class="faq-q">Is this for new or experienced wholesalers? <span class="arrow">+</span></div>
+<div class="faq-a">Both. New wholesalers use BuyerBridge to find their first market and get matched with buyers instantly. Experienced investors use it to expand into new markets, manage JV deals, and scale their disposition process.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<div class="container">
+<h2>Ready to Find<br>Your Next Buyer?</h2>
+<p>Join 1,200+ land investors who are closing deals faster with verified buyers.</p>
+<button class="btn">Unlock Buyers →</button>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-grid">
+<div>
+<div class="footer-brand"><div class="nav-logo-icon">🌉</div>BuyerBridge<span style="color:var(--aqua)">.Ai</span></div>
+<p>AI-powered buyer matching for land investors. Find verified builders in seconds, close deals faster, and scale your wholesaling business.</p>
+</div>
+<div class="footer-col">
+<h4>Product</h4>
+<a href="#how">How It Works</a>
+<a href="#features">Features</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="#">About</a>
+<a href="#">Blog</a>
+<a href="#">Contact</a>
+</div>
+<div class="footer-col">
+<h4>Get Started</h4>
+<a href="#">Login</a>
+<a href="#">Sign Up</a>
+<a href="#">Terms & Conditions</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 BuyerBridge.AI. All rights reserved. Demo built by JF Web Studios.</p>
+</div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{const n=document.getElementById('nav');if(window.scrollY>30){n.style.boxShadow='0 4px 30px rgba(15,23,42,0.06)'}else{n.style.boxShadow='none'}});
+// Mobile toggle
+document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+// Pricing toggle
+const mBtn=document.getElementById('monthlyBtn'),aBtn=document.getElementById('annualBtn'),price=document.querySelector('.pricing-price');
+mBtn.addEventListener('click',()=>{mBtn.classList.add('active');aBtn.classList.remove('active');price.firstChild.textContent='$497';document.getElementById('pricePeriod').textContent='/mo'});
+aBtn.addEventListener('click',()=>{aBtn.classList.add('active');mBtn.classList.remove('active');price.firstChild.textContent='$3,310';document.getElementById('pricePeriod').textContent='/yr'});
+</script>
+</body>
+</html>
