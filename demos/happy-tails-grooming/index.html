@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Tails Grooming | Katy, TX — Family Pet Grooming</title>
+<meta name="description" content="Family-owned pet groomer in Katy, TX with 5+ years of loyal customers. Friendly service, great prices, and fast grooming. Book today!">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+--brown:#5C4033;
+--brown-light:#7A5C4A;
+--brown-dark:#3D2817;
+--orange:#F4843F;
+--orange-dark:#E07028;
+--cream:#FFF8F0;
+--cream-dark:#FAEED5;
+--green:#6BAA75;
+--green-dark:#4E8E57;
+--white:#FFFFFF;
+--gray:#8B7E70;
+--gray-light:#E8E0D8;
+--gray-lighter:#F5F0EB;
+}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--brown);overflow-x:hidden;line-height:1.6;}
+.caveat{font-family:'Caveat',cursive;}
+section{padding:90px 24px;}
+.container{max-width:1140px;margin:0 auto;}
+a{color:inherit;text-decoration:none;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;background:rgba(92,64,51,0.95);backdrop-filter:blur(10px);}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:white;}
+.nav-logo span{color:var(--orange);}
+.nav-links{display:flex;gap:30px;align-items:center;}
+.nav-links a{font-size:0.88rem;font-weight:600;color:rgba(255,255,255,0.7);transition:color 0.2s;}
+.nav-links a:hover{color:var(--orange);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;font-weight:700;font-size:0.88rem;transition:all 0.25s;cursor:pointer;border:none;font-family:inherit;}
+.btn-orange{background:var(--orange);color:white;}
+.btn-orange:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(244,132,63,0.3);}
+.btn-green{background:var(--green);color:white;}
+.btn-green:hover{background:var(--green-dark);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,0.2);}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange);}
+.nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:white;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;
+background:linear-gradient(135deg,rgba(92,64,51,0.92),rgba(61,40,23,0.8)),url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1600&q=80') center/cover no-repeat;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(244,132,63,0.12),transparent 60%);}
+.hero-content{position:relative;z-index:2;max-width:650px;padding:0 40px;margin-left:5%;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(244,132,63,0.15);border:1px solid var(--orange);color:var(--orange);padding:8px 20px;border-radius:50px;font-size:0.75rem;font-weight:700;margin-bottom:24px;}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:900;line-height:1.1;margin-bottom:20px;color:white;}
+.hero h1 span{color:var(--orange);}
+.hero .caveat{font-size:clamp(1.3rem,3vw,1.8rem);color:var(--orange);display:block;margin-bottom:12px;font-weight:700;}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:36px;max-width:500px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.hero-info{display:flex;gap:30px;margin-top:50px;flex-wrap:wrap;}
+.hero-info-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.6);font-size:0.85rem;}
+.hero-info-item strong{color:white;}
+
+/* TRUST BAR */
+.trust{background:var(--brown);padding:30px 24px;text-align:center;}
+.trust-grid{max-width:1000px;margin:0 auto;display:flex;justify-content:center;gap:50px;flex-wrap:wrap;}
+.trust-item{text-align:center;}
+.trust-num{font-size:2rem;font-weight:900;color:var(--orange);}
+.trust-label{font-size:0.78rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+
+/* SERVICES */
+.services{background:var(--white);}
+.section-label{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
+.section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:14px;line-height:1.15;}
+.section-sub{color:var(--gray);font-size:1.05rem;max-width:600px;margin-bottom:50px;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.service-card{background:var(--cream);border:1px solid var(--gray-light);border-radius:18px;padding:34px 28px;transition:all 0.3s;position:relative;overflow:hidden;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--orange);transform:scaleX(0);transition:transform 0.3s;transform-origin:left;}
+.service-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(92,64,51,0.08);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-icon{font-size:2.5rem;margin-bottom:18px;}
+.service-card h3{font-size:1.15rem;font-weight:800;margin-bottom:10px;}
+.service-card p{color:var(--gray);font-size:0.9rem;margin-bottom:14px;}
+.service-price{display:inline-block;background:rgba(244,132,63,0.08);color:var(--orange-dark);padding:6px 16px;border-radius:8px;font-weight:700;font-size:0.82rem;}
+
+/* WHY US */
+.why{background:var(--brown);color:white;}
+.why h2{color:white;}
+.why .section-sub{color:rgba(255,255,255,0.5);}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
+.why-card{text-align:center;padding:30px 20px;}
+.why-icon{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,var(--orange),var(--orange-dark));display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 18px;}
+.why-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;color:white;}
+.why-card p{font-size:0.85rem;color:rgba(255,255,255,0.5);}
+
+/* REVIEWS */
+.reviews{background:var(--cream-dark);text-align:center;}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;text-align:left;}
+.review-card{background:var(--white);border:1px solid var(--gray-light);border-radius:16px;padding:28px 26px;transition:all 0.3s;}
+.review-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(92,64,51,0.06);}
+.review-stars{color:var(--orange);font-size:1rem;margin-bottom:12px;letter-spacing:2px;}
+.review-text{font-size:0.92rem;color:var(--brown);margin-bottom:16px;font-style:italic;}
+.review-author{display:flex;align-items:center;gap:12px;}
+.review-avatar{width:42px;height:42px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.9rem;}
+.review-name{font-size:0.88rem;font-weight:700;}
+.review-date{font-size:0.75rem;color:var(--gray);}
+
+/* GALLERY */
+.gallery{background:var(--white);text-align:center;}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;}
+.gallery-item{aspect-ratio:1;border-radius:14px;overflow:hidden;background:var(--cream-dark);display:flex;align-items:center;justify-content:center;font-size:3rem;transition:transform 0.3s;}
+.gallery-item:hover{transform:scale(1.03);}
+
+/* LOCATION */
+.location{background:var(--cream-dark);}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+.location-info h2{margin-bottom:16px;}
+.location-info p{color:var(--gray);margin-bottom:20px;}
+.location-details{list-style:none;margin-top:24px;}
+.location-details li{padding:14px 0;border-bottom:1px solid var(--gray-lighter);display:flex;align-items:center;gap:14px;}
+.location-details li:last-child{border-bottom:none;}
+.location-icon{width:44px;height:44px;border-radius:12px;background:rgba(244,132,63,0.08);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.location-details h4{font-size:0.95rem;font-weight:700;}
+.location-details p{font-size:0.85rem;color:var(--gray);margin:0;}
+.location-map{aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--brown);}
+.location-map iframe{width:100%;height:100%;border:none;}
+
+/* REFERRAL */
+.referral{background:linear-gradient(135deg,var(--green),var(--green-dark));text-align:center;}
+.referral h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:14px;color:white;}
+.referral p{color:rgba(255,255,255,0.85);font-size:1.05rem;max-width:550px;margin:0 auto 30px;}
+.referral-steps{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin:36px 0;}
+.referral-step{max-width:200px;}
+.referral-step-num{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem;color:white;margin:0 auto 10px;}
+.referral-step p{font-size:0.85rem;color:rgba(255,255,255,0.7);}
+.referral .btn{background:white;color:var(--green-dark);}
+.referral .btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.1);}
+
+/* CTA */
+.cta{background:var(--brown);text-align:center;padding:100px 24px;position:relative;overflow:hidden;}
+.cta::before{content:'';position:absolute;top:-30%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(244,132,63,0.06),transparent 70%);pointer-events:none;}
+.cta h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:white;margin-bottom:18px;}
+.cta h2 span{color:var(--orange);}
+.cta p{color:rgba(255,255,255,0.5);font-size:1.1rem;max-width:500px;margin:0 auto 36px;}
+.cta .btn-orange{font-size:1rem;padding:16px 40px;}
+
+/* FOOTER */
+.footer{background:var(--brown-dark);padding:50px 24px 25px;}
+.footer-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:30px;}
+.footer-brand{font-weight:800;font-size:1.2rem;color:white;margin-bottom:10px;}
+.footer-brand span{color:var(--orange);}
+.footer-brand p{font-size:0.82rem;color:rgba(255,255,255,0.35);font-weight:400;margin-top:8px;}
+.footer-col h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:14px;font-weight:700;}
+.footer-col a,.footer-col p{display:block;color:rgba(255,255,255,0.4);font-size:0.83rem;margin-bottom:8px;transition:color 0.2s;}
+.footer-col a:hover{color:white;}
+.footer-bottom{max-width:1140px;margin:0 auto;padding-top:25px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;color:rgba(255,255,255,0.3);font-size:0.78rem;}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;z-index:99;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:transform 0.3s;}
+.whatsapp-float:hover{transform:scale(1.1);}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav{padding:14px 20px;}
+.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--brown);flex-direction:column;justify-content:center;gap:24px;z-index:99;}
+.nav-links.open{display:flex;}
+.nav-links a{font-size:1.1rem;}
+.nav-toggle{display:block;z-index:101;}
+.nav .btn{display:none;}
+.hero-content{margin:0 auto;text-align:center;padding:0 20px;}
+.hero-btns{justify-content:center;}
+.hero-info{justify-content:center;}
+.location-grid{grid-template-columns:1fr;gap:30px;}
+.footer-grid{grid-template-columns:1fr;gap:24px;}
+section{padding:60px 20px;}
+.trust-grid{gap:24px;}
+.referral-steps{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="nav-logo">🐾 Happy Tails<span>.Grooming</span></div>
+<div class="nav-links" id="navLinks">
+<a href="#services">Services</a>
+<a href="#reviews">Reviews</a>
+<a href="#why">Why Us</a>
+<a href="#location">Location</a>
+</div>
+<div style="display:flex;gap:14px;align-items:center;">
+<a href="https://wa.me/18323213166?text=Hi%20Happy%20Tails%20Grooming,%20I'd%20like%20to%20book%20an%20appointment" target="_blank" class="btn btn-orange">Book Now</a>
+</div>
+<button class="nav-toggle" id="navToggle">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-badge">⭐⭐⭐⭐⭐ 4.6 · 107 Google Reviews</div>
+<span class="caveat">Where your pup leaves wagging!</span>
+<h1>Happy Tails,<br><span>Happy Dogs</span><br>in Katy, TX</h1>
+<p>Family-owned grooming with 5+ years of loyal customers. Fast, friendly, and affordable — because your dog deserves the best without the long wait.</p>
+<div class="hero-btns">
+<a href="https://wa.me/18323213166?text=Hi%20Happy%20Tails%20Grooming,%20I'd%20like%20to%20book%20an%20appointment" target="_blank" class="btn btn-orange">📅 Book Appointment</a>
+<a href="tel:+18323213166" class="btn btn-outline">📞 (832) 321-3166</a>
+</div>
+<div class="hero-info">
+<div class="hero-info-item">📍 <strong>873 S Mason Rd #330, Katy, TX</strong></div>
+<div class="hero-info-item">🕘 <strong>Mon-Sat · 7AM-6PM</strong></div>
+</div>
+</div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust" style="padding:35px 24px;">
+<div class="trust-grid">
+<div class="trust-item"><div class="trust-num">4.6★</div><div class="trust-label">Google Rating</div></div>
+<div class="trust-item"><div class="trust-num">107+</div><div class="trust-label">Happy Reviews</div></div>
+<div class="trust-item"><div class="trust-num">2hr</div><div class="trust-label">Max Groom Time</div></div>
+<div class="trust-item"><div class="trust-num">5+</div><div class="trust-label">Years Loyal Customers</div></div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<div class="section-label">Our Services</div>
+<h2 class="section-title">Grooming with a<br>Personal Touch</h2>
+<p class="section-sub">Family-owned and operated. We treat every dog like our own — with care, speed, and great prices.</p>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">✂️</div>
+<h3>Full Groom</h3>
+<p>Bath, breed-specific haircut, nail trim, ear cleaning, and anal gland expression. Complete head-to-paw service.</p>
+<div class="service-price">From $55</div>
+</div>
+<div class="service-card">
+<div class="service-icon">🛁</div>
+<h3>Bath & Brush</h3>
+<p>Premium shampoo, blow dry, thorough brush out, and nail trim. Quick and fresh — perfect for between grooms.</p>
+<div class="service-price">From $35</div>
+</div>
+<div class="service-card">
+<div class="service-icon">🐶</div>
+<h3>Puppy's First Groom</h3>
+<p>Gentle, patient introduction to grooming for puppies. We make it a positive experience that sets them up for life.</p>
+<div class="service-price">From $45</div>
+</div>
+<div class="service-card">
+<div class="service-icon">💅</div>
+<h3>Nail Trimming</h3>
+<p>Quick, stress-free nail clipping. Walk-ins welcome — in and out in minutes.</p>
+<div class="service-price">From $12</div>
+</div>
+<div class="service-card">
+<div class="service-icon">🐩</div>
+<h3>Breed-Specific Styling</h3>
+<p>Poodle clips, breed-standard cuts, and custom styles. We know the standards and listen to what you want.</p>
+<div class="service-price">From $60</div>
+</div>
+<div class="service-card">
+<div class="service-icon">✨</div>
+<h3>De-Shedding Treatment</h3>
+<p>Reduces shedding by up to 90%. Special bath, blow-out, and undercoat removal. A game-changer for double-coated breeds.</p>
+<div class="service-price">From $50</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+<div class="container">
+<div class="section-label" style="color:var(--orange);">Why Happy Tails</div>
+<h2 class="section-title">Why Katy Loves Us</h2>
+<p class="section-sub">We're a family business — and we treat your dog like family too.</p>
+<div class="why-grid">
+<div class="why-card">
+<div class="why-icon">👨‍👩‍👧</div>
+<h3>Family Owned</h3>
+<p>A warm, family-run shop where the owners know your dog by name. Same friendly faces every visit.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">⚡</div>
+<h3>Fast Service</h3>
+<p>Most grooms done in under 2 hours. No leaving your dog all day — quick drop-off, quick pickup.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">💰</div>
+<h3>Best Prices</h3>
+<p>Great service doesn't have to be expensive. Our customers say we have the best prices in the area.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">❤️</div>
+<h3>5+ Years Loyal</h3>
+<p>Customers who've been with us for 5+ years and counting. That kind of loyalty speaks for itself.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+<div class="container">
+<div class="section-label" style="text-align:center;display:block;">What Pet Parents Say</div>
+<h2 class="section-title" style="text-align:center;">5 Years of<br>Happy Customers</h2>
+<div class="reviews-grid" style="margin-top:50px;">
+<div class="review-card">
+<div class="review-stars">⭐⭐⭐⭐⭐</div>
+<p class="review-text">"We have been using Happy Tails Grooming for 5+ years and have been very satisfied with our dogs hair cuts every single time! The staff is so warm and friendly. I can really tell they're passionate about providing excellent service."</p>
+<div class="review-author">
+<div class="review-avatar">K</div>
+<div><div class="review-name">Kendra Gonzalez</div><div class="review-date">1 month ago</div></div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">⭐⭐⭐⭐⭐</div>
+<p class="review-text">"My family and I have used Happy Tails for many years and we have never had a problem or bad experience. The owner is wonderful and both my parent's and my dogs love going to see him to be groomed. I highly recommend!"</p>
+<div class="review-author">
+<div class="review-avatar">C</div>
+<div><div class="review-name">Christopher Bomar</div><div class="review-date">3 months ago</div></div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">⭐⭐⭐⭐⭐</div>
+<p class="review-text">"The owners are wonderful people! They really care about your dog and make sure to give them the best experience possible. The most it's taken is 2 hrs. Plus my pooch looks great every time. I've been going to them for a year now."</p>
+<div class="review-author">
+<div class="review-avatar">Y</div>
+<div><div class="review-name">youreamonster2</div><div class="review-date">Local Guide · 26 reviews</div></div>
+</div>
+</div>
+<div class="review-card">
+<div class="review-stars">⭐⭐⭐⭐⭐</div>
+<p class="review-text">"Great service and prices. Very friendly, fast and experienced family with best price in area. Fantastic customer service, I highly recommend checking them out!"</p>
+<div class="review-author">
+<div class="review-avatar">G</div>
+<div><div class="review-name">Google Reviewer</div><div class="review-date">Verified Customer</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+<div class="container">
+<div class="section-label" style="text-align:center;display:block;">Our Work</div>
+<h2 class="section-title" style="text-align:center;">Fresh & Happy</h2>
+<div class="gallery-grid" style="margin-top:40px;">
+<div class="gallery-item">🐕</div>
+<div class="gallery-item">🐩</div>
+<div class="gallery-item">🦮</div>
+<div class="gallery-item">🐶</div>
+<div class="gallery-item">🐕‍🦺</div>
+<div class="gallery-item">🦊</div>
+<div class="gallery-item">🐾</div>
+<div class="gallery-item">✂️</div>
+</div>
+</div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+<div class="container">
+<div class="location-grid">
+<div class="location-info">
+<div class="section-label">Visit Us</div>
+<h2 class="section-title">Find Us in Katy</h2>
+<p>Conveniently located on South Mason Road. Easy access from I-10 and Westpark Tollway.</p>
+<ul class="location-details">
+<li><div class="location-icon">📍</div><div><h4>Address</h4><p>873 S Mason Rd #330, Katy, TX 77450</p></div></li>
+<li><div class="location-icon">📞</div><div><h4>Phone</h4><p>(832) 321-3166</p></div></li>
+<li><div class="location-icon">🕘</div><div><h4>Hours</h4><p>Mon-Sat: 7:00 AM - 6:00 PM</p><p>Sunday: Closed</p></div></li>
+<li><div class="location-icon">🐾</div><div><h4>Walk-Ins</h4><p>Nail trims welcome — call ahead for full grooms</p></div></li>
+</ul>
+<a href="https://wa.me/18323213166?text=Hi%20Happy%20Tails%20Grooming,%20I'd%20like%20to%20book%20an%20appointment" target="_blank" class="btn btn-orange" style="margin-top:24px;">📅 Book on WhatsApp</a>
+</div>
+<div class="location-map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.0!2d-95.7651!3d29.7559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zODczIFMgTWFzb24gUmQgIzMzMCwgS2F0eSwgVFggNzc0NTA!5e0!3m2!1sen!2sus!4v1625000000000!5m2!1sen!2sus" allowfullscreen loading="lazy" style="filter:grayscale(0.2);"></iframe>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REFERRAL -->
+<section class="referral">
+<div class="container">
+<h2>Refer a Friend, Get $10 Off</h2>
+<p>Love Happy Tails? Send a fellow dog parent and you both get $10 off your next groom.</p>
+<div class="referral-steps">
+<div class="referral-step"><div class="referral-step-num">1</div><p>Tell a friend about Happy Tails</p></div>
+<div class="referral-step"><div class="referral-step-num">2</div><p>They book their first groom</p></div>
+<div class="referral-step"><div class="referral-step-num">3</div><p>You both get $10 off!</p></div>
+</div>
+<a href="https://wa.me/18323213166?text=I'd%20like%20to%20refer%20a%20friend%20to%20Happy%20Tails%20Grooming" target="_blank" class="btn">Refer Now 🐾</a>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+<div class="container">
+<h2>Ready to Make<br>Your Dog <span>Happy?</span></h2>
+<p>Book your dog's next grooming appointment today. Fast, friendly, and affordable.</p>
+<a href="https://wa.me/18323213166?text=Hi%20Happy%20Tails%20Grooming,%20I'd%20like%20to%20book%20an%20appointment" target="_blank" class="btn btn-orange">📅 Book on WhatsApp</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-grid">
+<div>
+<div class="footer-brand">🐾 Happy Tails<span>.Grooming</span></div>
+<p>Family-owned pet grooming in Katy, TX. Fast, friendly, and affordable. Where your pup leaves wagging!</p>
+</div>
+<div class="footer-col">
+<h4>Services</h4>
+<a href="#services">Full Groom</a>
+<a href="#services">Bath & Brush</a>
+<a href="#services">Puppy's First Groom</a>
+<a href="#services">Nail Trimming</a>
+<a href="#services">De-Shedding</a>
+</div>
+<div class="footer-col">
+<h4>Visit</h4>
+<p>873 S Mason Rd #330</p>
+<p>Katy, TX 77450</p>
+<p>(832) 321-3166</p>
+</div>
+<div class="footer-col">
+<h4>Hours</h4>
+<p>Mon-Sat: 7AM-6PM</p>
+<p>Sunday: Closed</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Happy Tails Grooming. Demo built by JF Web Studios.</p>
+</div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/18323213166?text=Hi%20Happy%20Tails%20Grooming,%20I'd%20like%20to%20book%20an%20appointment" target="_blank" class="whatsapp-float">💬</a>
+
+<script>
+window.addEventListener('scroll',()=>{const n=document.getElementById('nav');n.style.boxShadow=window.scrollY>30?'0 4px 30px rgba(0,0,0,0.15)':'none'});
+document.getElementById('navToggle').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+</script>
+</body>
+</html>
