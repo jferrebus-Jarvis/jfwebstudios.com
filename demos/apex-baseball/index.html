@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Baseball & Softball Facility | Fulshear, TX</title>
+<meta name="description" content="Premier baseball and softball training facility in Fulshear, TX. Professional coaching, cage rentals, memberships, and player development programs.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+--navy:#0A1628;
+--navy-light:#152540;
+--orange:#FF6B1A;
+--orange-dark:#E55A0E;
+--gold:#C8922A;
+--white:#ffffff;
+--gray:#8B95A7;
+--gray-light:#1E2D45;
+--green:#00C853;
+}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;line-height:1.6;}
+.bebas{font-family:'Bebas Neue',sans-serif;letter-spacing:2px;}
+section{padding:100px 20px;}
+.container{max-width:1200px;margin:0 auto;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
+background:linear-gradient(135deg,rgba(10,22,40,0.92),rgba(10,22,40,0.75)),url('https://images.unsplash.com/photo-1508345225644-4a8e1f8c8e3c?w=1600&q=80') center/cover fixed no-repeat;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0%,rgba(10,22,40,0.4) 100%);}
+.hero-content{position:relative;z-index:2;max-width:800px;padding:0 20px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,26,0.15);border:1px solid var(--orange);color:var(--orange);padding:8px 20px;border-radius:50px;font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,10vw,6.5rem);line-height:0.95;letter-spacing:3px;margin-bottom:20px;}
+.hero h1 span{color:var(--orange);}
+.hero p{font-size:clamp(1rem,2.5vw,1.25rem);color:var(--gray);max-width:600px;margin:0 auto 36px;}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:8px;font-weight:700;font-size:0.95rem;letter-spacing:0.5px;text-transform:uppercase;transition:all 0.3s;cursor:pointer;border:none;}
+.btn-primary{background:var(--orange);color:var(--white);}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,26,0.3);}
+.btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.2);}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange);}
+.hero-stats{display:flex;gap:40px;justify-content:center;margin-top:60px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--orange);letter-spacing:1px;}
+.stat-label{font-size:0.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:2px;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;}
+.nav.scrolled{background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);padding:12px 40px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px;display:flex;align-items:center;gap:10px;}
+.nav-logo span{color:var(--orange);}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{font-size:0.85rem;font-weight:500;color:var(--gray);transition:color 0.2s;text-transform:uppercase;letter-spacing:1px;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:var(--orange);color:var(--white)!important;padding:10px 24px;border-radius:6px;font-weight:700;}
+.nav-cta:hover{background:var(--orange-dark);}
+.nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer;}
+
+/* SECTION HEADERS */
+.section-label{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:2px;line-height:1;margin-bottom:20px;}
+.section-sub{color:var(--gray);font-size:1.05rem;max-width:600px;margin-bottom:50px;}
+
+/* SERVICES */
+.services{background:var(--navy);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
+.service-card{background:var(--navy-light);border-radius:16px;padding:36px 28px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s;position:relative;overflow:hidden;}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transition:transform 0.3s;}
+.service-card:hover{transform:translateY(-4px);border-color:rgba(255,107,26,0.2);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-icon{font-size:2.5rem;margin-bottom:20px;}
+.service-card h3{font-size:1.25rem;font-weight:700;margin-bottom:12px;}
+.service-card p{color:var(--gray);font-size:0.9rem;margin-bottom:16px;}
+.service-price{display:inline-block;background:rgba(255,107,26,0.1);color:var(--orange);padding:6px 16px;border-radius:6px;font-weight:600;font-size:0.85rem;}
+
+/* COACHES */
+.coaches{background:var(--navy-light);}
+.coaches-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;}
+.coach-card{background:var(--navy);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s;}
+.coach-card:hover{transform:translateY(-4px);border-color:rgba(255,107,26,0.2);}
+.coach-img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--gray-light);}
+.coach-info{padding:20px;}
+.coach-info h3{font-size:1.1rem;font-weight:700;margin-bottom:4px;}
+.coach-role{color:var(--orange);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+
+/* MEMBERSHIPS */
+.memberships{background:var(--navy);}
+.membership-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1000px;margin:0 auto;}
+.membership-card{background:var(--navy-light);border-radius:20px;padding:40px 32px;border:1px solid rgba(255,255,255,0.05);text-align:center;transition:all 0.3s;}
+.membership-card:hover{transform:translateY(-6px);border-color:rgba(255,107,26,0.3);}
+.membership-card.featured{border:2px solid var(--orange);position:relative;}
+.membership-card.featured::after{content:'POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--white);padding:4px 16px;border-radius:20px;font-size:0.7rem;font-weight:700;letter-spacing:1px;}
+.membership-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:2px;margin-bottom:8px;}
+.membership-price{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--orange);margin:16px 0;}
+.membership-price span{font-size:1rem;color:var(--gray);}
+.membership-features{list-style:none;margin:24px 0;text-align:left;}
+.membership-features li{padding:8px 0;color:var(--gray);font-size:0.9rem;display:flex;align-items:center;gap:10px;}
+.membership-features li::before{content:'✓';color:var(--green);font-weight:700;}
+
+/* GALLERY */
+.gallery{background:var(--navy-light);}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+.gallery-item{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--gray-light);position:relative;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
+.gallery-item:hover img{transform:scale(1.08);}
+
+/* FACILITY */
+.facility{background:var(--navy);}
+.facility-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.facility-features{list-style:none;}
+.facility-features li{padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;gap:16px;}
+.facility-features li:last-child{border-bottom:none;}
+.facility-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,107,26,0.1);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;}
+.facility-features h4{font-size:1rem;font-weight:600;margin-bottom:2px;}
+.facility-features p{font-size:0.85rem;color:var(--gray);}
+
+/* REFERRAL */
+.referral{background:linear-gradient(135deg,var(--orange),var(--orange-dark));text-align:center;}
+.referral h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:2px;margin-bottom:16px;}
+.referral p{font-size:1.1rem;max-width:600px;margin:0 auto 30px;opacity:0.95;}
+.referral-steps{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin:40px 0;}
+.referral-step{max-width:200px;}
+.referral-step-num{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:1.5rem;margin:0 auto 12px;}
+.referral-step p{font-size:0.9rem;}
+
+/* CONTACT/CTA */
+.cta{background:var(--navy);text-align:center;padding:120px 20px;}
+.cta h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4rem);letter-spacing:2px;margin-bottom:20px;}
+.cta h2 span{color:var(--orange);}
+.cta p{color:var(--gray);font-size:1.1rem;max-width:500px;margin:0 auto 36px;}
+
+/* FOOTER */
+.footer{background:#050D18;padding:60px 20px 30px;border-top:1px solid rgba(255,255,255,0.05);}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+.footer-brand p{color:var(--gray);font-size:0.9rem;margin-top:12px;}
+.footer-col h4{font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;color:var(--orange);}
+.footer-col p,.footer-col a{color:var(--gray);font-size:0.85rem;display:block;margin-bottom:8px;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(255,255,255,0.05);text-align:center;color:var(--gray);font-size:0.8rem;}
+.footer-social{display:flex;gap:12px;margin-top:16px;}
+.footer-social a{width:40px;height:40px;border-radius:8px;background:var(--navy-light);display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+
+/* WHATSAPP FLOAT */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;z-index:99;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.3s;}
+.whatsapp-float:hover{transform:scale(1.1);}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav{padding:16px 20px;}
+.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--navy);flex-direction:column;justify-content:center;gap:24px;}
+.nav-links.open{display:flex;}
+.nav-toggle{display:block;z-index:101;}
+.nav-cta{width:100%;justify-content:center;}
+.hero h1{font-size:3rem;}
+.hero-stats{gap:24px;}
+.stat-num{font-size:2rem;}
+.facility-grid{grid-template-columns:1fr;gap:30px;}
+.footer-grid{grid-template-columns:1fr;gap:30px;}
+section{padding:60px 20px;}
+.hero{background-attachment:scroll;}
+.referral-steps{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+<div class="nav-logo">⚾ APEX <span>BASEBALL</span></div>
+<div class="nav-links" id="navLinks">
+<a href="#services">Services</a>
+<a href="#coaches">Coaches</a>
+<a href="#memberships">Memberships</a>
+<a href="#facility">Facility</a>
+<a href="#contact">Contact</a>
+<a href="https://wa.me/19562857379?text=Hi%20Apex%20Baseball,%20I'd%20like%20to%20book%20a%20session" class="nav-cta" target="_blank">Book Now</a>
+</div>
+<button class="nav-toggle" id="navToggle">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-badge">📍 Fulshear, Texas</div>
+<h1>TRAIN LIKE<br>A <span>CHAMPION</span></h1>
+<p>Premier baseball and softball training facility serving Fulshear, Katy, and West Houston. Professional coaching, elite cages, and year-round player development.</p>
+<div class="hero-btns">
+<a href="https://wa.me/19562857379?text=Hi%20Apex%20Baseball,%20I'd%20like%20to%20book%20a%20session" class="btn btn-primary" target="_blank">📅 Book a Session</a>
+<a href="#services" class="btn btn-outline">Explore Programs</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><div class="stat-num">7+</div><div class="stat-label">Pro Coaches</div></div>
+<div class="stat"><div class="stat-num">6</div><div class="stat-label">Batting Cages</div></div>
+<div class="stat"><div class="stat-num">500+</div><div class="stat-label">Players Trained</div></div>
+<div class="stat"><div class="stat-num">All</div><div class="stat-label">Ages Welcome</div></div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<div class="section-label">What We Offer</div>
+<h2 class="section-title">PROGRAMS & SERVICES</h2>
+<p class="section-sub">From beginner to elite — we develop every player with professional-grade coaching and facilities.</p>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">⚾</div>
+<h3>Private Lessons</h3>
+<p>1-on-1 coaching with our professional instructors. Hitting, pitching, fielding, and catching customized to your player's needs.</p>
+<div class="service-price">From $60/session</div>
+</div>
+<div class="service-card">
+<div class="service-icon">🏠</div>
+<h3>Cage Rentals</h3>
+<p>Premium batting cages available by the hour. Pitching machines, tee stations, and L-screens included.</p>
+<div class="service-price">From $40/hour</div>
+</div>
+<div class="service-card">
+<div class="service-icon">🏆</div>
+<h3>Team Training</h3>
+<p>Full-team development programs. Bring your whole roster for structured practice sessions with our coaching staff.</p>
+<div class="service-price">Custom Pricing</div>
+</div>
+<div class="service-card">
+<div class="service-icon">📈</div>
+<h3>Player Development</h3>
+<p>Year-round development plans with progress tracking. Off-season strength, speed, and skill building.</p>
+<div class="service-price">Monthly Programs</div>
+</div>
+<div class="service-card">
+<div class="service-icon">🥎</div>
+<h3>Softball Training</h3>
+<p>Dedicated softball instruction for all ages. Pitching, hitting, and position-specific coaching.</p>
+<div class="service-price">From $60/session</div>
+</div>
+<div class="service-card">
+<div class="service-icon">🎯</div>
+<h3>Camps & Clinics</h3>
+<p>Seasonal camps and specialized clinics. Multi-day intensive programs during school breaks.</p>
+<div class="service-price">Seasonal</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- COACHES -->
+<section class="coaches" id="coaches">
+<div class="container">
+<div class="section-label">Meet The Team</div>
+<h2 class="section-title">OUR COACHES</h2>
+<p class="section-sub">Professional instructors with college and professional playing experience.</p>
+<div class="coaches-grid">
+<div class="coach-card">
+<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-info"><h3>Luis Pollorena</h3><div class="coach-role">Head Coach</div></div>
+</div>
+<div class="coach-card">
+<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-info"><h3>Seth Oliver</h3><div class="coach-role">Hitting Coach</div></div>
+</div>
+<div class="coach-card">
+<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-info"><h3>Jose Salgar</h3><div class="coach-role">Pitching Coach</div></div>
+</div>
+<div class="coach-card">
+<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-info"><h3>Eric Cuevas</h3><div class="coach-role">Infield Coach</div></div>
+</div>
+<div class="coach-card">
+<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-info"><h3>Sean Derbes</h3><div class="coach-role">Catching Coach</div></div>
+</div>
+<div class="coach-card">
+<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-info"><h3>Ryan Benavidez</h3><div class="coach-role">Outfield Coach</div></div>
+</div>
+<div class="coach-card">
+<div class="coach-img" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="coach-info"><h3>Javier Valdez</h3><div class="coach-role">Softball Coach</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MEMBERSHIPS -->
+<section class="memberships" id="memberships">
+<div class="container">
+<div class="section-label">Join The Family</div>
+<h2 class="section-title">MEMBERSHIP PLANS</h2>
+<p class="section-sub">Unlock unlimited access and exclusive perks. Cancel anytime.</p>
+<div class="membership-grid">
+<div class="membership-card">
+<h3>ROOKIE</h3>
+<div class="membership-price">$99<span>/mo</span></div>
+<ul class="membership-features">
+<li>4 cage rentals per month</li>
+<li>1 group lesson per month</li>
+<li>10% off private lessons</li>
+<li>Pro shop discount</li>
+</ul>
+<a href="https://wa.me/19562857379?text=I'd%20like%20to%20sign%20up%20for%20the%20Rookie%20membership" class="btn btn-outline" target="_blank" style="width:100%;justify-content:center;">Get Started</a>
+</div>
+<div class="membership-card featured">
+<h3>ALL-STAR</h3>
+<div class="membership-price">$199<span>/mo</span></div>
+<ul class="membership-features">
+<li>Unlimited cage rentals</li>
+<li>4 private lessons per month</li>
+<li>Weekly group training</li>
+<li>15% off pro shop</li>
+<li>Priority booking</li>
+</ul>
+<a href="https://wa.me/19562857379?text=I'd%20like%20to%20sign%20up%20for%20the%20All-Star%20membership" class="btn btn-primary" target="_blank" style="width:100%;justify-content:center;">Get Started</a>
+</div>
+<div class="membership-card">
+<h3>ELITE</h3>
+<div class="membership-price">$349<span>/mo</span></div>
+<ul class="membership-features">
+<li>Everything in All-Star</li>
+<li>8 private lessons per month</li>
+<li>Custom development plan</li>
+<li>Video analysis sessions</li>
+<li>20% off pro shop</li>
+<li>Free camps & clinics</li>
+</ul>
+<a href="https://wa.me/19562857379?text=I'd%20like%20to%20sign%20up%20for%20the%20Elite%20membership" class="btn btn-outline" target="_blank" style="width:100%;justify-content:center;">Get Started</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FACILITY -->
+<section class="facility" id="facility">
+<div class="container">
+<div class="facility-grid">
+<div>
+<div class="section-label">Champion Facilities</div>
+<h2 class="section-title">OUR FACILITY</h2>
+<p class="section-sub">7,000+ square feet of premium training space designed for player development at every level.</p>
+<ul class="facility-features">
+<li><div class="facility-icon">🏠</div><div><h4>6 Indoor Batting Cages</h4><p>Premium netting, pitching machines, and L-screens</p></div></li>
+<li><div class="facility-icon">⚾</div><div><h4>Professional Pitching Lanes</h4><p>Dedicated mound space with regulation distances</p></div></li>
+<li><div class="facility-icon">💪</div><div><h4>Strength & Conditioning Area</h4><p>Baseball-specific training equipment</p></div></li>
+<li><div class="facility-icon">🎥</div><div><h4>Video Analysis Technology</h4><p>Slow-motion swing and pitching analysis</p></div></li>
+<li><div class="facility-icon">🛍️</div><div><h4>Pro Shop On Site</h4><<p>Gear, apparel, and equipment for all ages</p></div></li>
+<li><div class="facility-icon">🅿️</div><div><h4>Free Parking</h4><p>Easy access and ample parking for families</p></div></li>
+</ul>
+</div>
+<div style="aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,var(--navy-light),var(--navy));display:flex;align-items:center;justify-content:center;font-size:5rem;">🏟️</div>
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+<div class="container">
+<div class="section-label">Inside Apex</div>
+<h2 class="section-title">GALLERY</h2>
+<p class="section-sub">Take a look at our state-of-the-art training facility.</p>
+<div class="gallery-grid">
+<div class="gallery-item" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#1E2D45,#152540);display:flex;align-items:center;justify-content:center;font-size:3rem;">🏠</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">🏆</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#1E2D45,#152540);display:flex;align-items:center;justify-content:center;font-size:3rem;">⚾</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#152540,#0A1628);display:flex;align-items:center;justify-content:center;font-size:3rem;">💪</div>
+<div class="gallery-item" style="background:linear-gradient(135deg,#1E2D45,#152540);display:flex;align-items:center;justify-content:center;font-size:3rem;">🥎</div>
+</div>
+</div>
+</section>
+
+<!-- REFERRAL -->
+<section class="referral">
+<div class="container">
+<h2>REFER A PLAYER, EARN REWARDS</h2>
+<p>Love training at Apex? Bring a teammate and you both get a free private lesson.</p>
+<div class="referral-steps">
+<div class="referral-step"><div class="referral-step-num">1</div><p>Share Apex with a friend or teammate</p></div>
+<div class="referral-step"><div class="referral-step-num">2</div><p>They book their first session</p></div>
+<div class="referral-step"><div class="referral-step-num">3</div><p>You both get a FREE lesson</p></div>
+</div>
+<a href="https://wa.me/19562857379?text=I'd%20like%20to%20refer%20a%20player%20to%20Apex%20Baseball" class="btn btn-outline" target="_blank" style="border-color:rgba(255,255,255,0.4);color:white;">Refer Now</a>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+<div class="container">
+<h2>READY TO <span>ELEVATE</span><br>YOUR GAME?</h2>
+<p>Book your first session today and see why Apex is Fulshear's #1 baseball training facility.</p>
+<div class="hero-btns">
+<a href="https://wa.me/19562857379?text=Hi%20Apex%20Baseball,%20I'd%20like%20to%20book%20a%20session" class="btn btn-primary" target="_blank">📱 Book via WhatsApp</a>
+<a href="tel:+19562857379" class="btn btn-outline">📞 Call (956) 285-7379</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-grid">
+<div class="footer-brand">
+<div class="nav-logo" style="margin-bottom:12px;">⚾ APEX <span style="color:var(--orange);">BASEBALL</span></div>
+<p>Premier baseball and softball training facility in Fulshear, Texas. Building champion players and teams since day one.</p>
+<div class="footer-social">
+<a href="https://www.instagram.com/apexbaseballtx/" target="_blank">📷</a>
+<a href="https://www.facebook.com/people/Apex-Baseball/100094765901079/" target="_blank">👍</a>
+</div>
+</div>
+<div class="footer-col">
+<h4>Programs</h4>
+<a href="#services">Private Lessons</a>
+<a href="#services">Cage Rentals</a>
+<a href="#services">Team Training</a>
+<a href="#services">Camps & Clinics</a>
+</div>
+<div class="footer-col">
+<h4>Facility</h4>
+<p>6510 FM 359 S Unit 600</p>
+<p>Fulshear, TX 77441</p>
+<p>📞 (956) 285-7379</p>
+<p>✉️ apexbaseballtx@gmail.com</p>
+</div>
+<div class="footer-col">
+<h4>Hours</h4>
+<p>Mon-Fri: 3pm - 9pm</p>
+<p>Sat: 9am - 6pm</p>
+<p>Sun: 10am - 4pm</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Apex Baseball & Softball Facility. Built by JF Web Studios.</p>
+</div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/19562857379?text=Hi%20Apex%20Baseball,%20I'd%20like%20to%20book%20a%20session" class="whatsapp-float" target="_blank">💬</a>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll',()=>{const nav=document.getElementById('nav');if(window.scrollY>50){nav.classList.add('scrolled')}else{nav.classList.remove('scrolled')}});
+// Mobile toggle
+document.getElementById('navToggle').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('open')});
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+</script>
+</body>
+</html>
