@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVTODO | EV Charging Infrastructure & Turnkey Fleet Solutions</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. RESET & BASE STYLES (ChargePoint Corporate Minimal Style)
+           ========================================================================== */
+        :root {
+            --primary: #00b14f;
+            --primary-hover: #009643;
+            --primary-light: #e6f7ed;
+            --primary-glow: rgba(0, 177, 79, 0.15);
+            --dark: #0f172a;
+            --dark-muted: #334155;
+            --gray-text: #475569;
+            --gray-light: #f8fafc;
+            --gray-border: #e2e8f0;
+            --gray-border-hover: #cbd5e1;
+            --white: #ffffff;
+            --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-subtle: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+            --shadow-hover: 0 16px 32px -4px rgba(0, 177, 79, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Container utility */
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 96px 0;
+        }
+
+        .bg-light {
+            background-color: var(--gray-light);
+        }
+
+        /* Typography Utilities */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8125rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-text);
+            max-width: 680px;
+            line-height: 1.6;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center .section-subtitle {
+            margin: 0 auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(0, 177, 79, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 177, 79, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--dark);
+            border-color: var(--gray-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--dark);
+            background-color: var(--gray-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover .btn-icon {
+            transform: translateX(4px);
+        }
+
+        /* ==========================================================================
+           2. HEADER & NAVIGATION
+           ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gray-border);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -0.03em;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary) 0%, #00b14f 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(0, 177, 79, 0.25);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .tagline-sub {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-text);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: block;
+            margin-top: -4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-link {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--dark-muted);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .header-phone:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Hamburger Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--dark);
+        }
+
+        /* ==========================================================================
+           3. HERO SECTION (Split Layout)
+           ========================================================================== */
+        .hero-section {
+            padding: 80px 0 100px 0;
+            position: relative;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-heading {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--dark);
+            margin-bottom: 24px;
+        }
+
+        .hero-heading span {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            margin-bottom: 36px;
+            line-height: 1.65;
+            max-width: 580px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .hero-trust-bullets {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-border);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark-muted);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trust-icon {
+            color: var(--primary);
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .hero-media {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Hero Floating Badge */
+        .floating-stat-card {
+            position: absolute;
+            bottom: -24px;
+            left: -24px;
+            background-color: var(--white);
+            padding: 20px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px -5px rgba(15, 23, 42, 0.12);
+            border: 1px solid var(--gray-border);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 10;
+        }
+
+        .stat-icon-bg {
+            width: 48px;
+            height: 48px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-val {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1;
+        }
+
+        .stat-lbl {
+            font-size: 0.8125rem;
+            color: var(--gray-text);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* ==========================================================================
+           4. STATS BAR
+           ========================================================================== */
+        .stats-bar-section {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 48px 0;
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 0 16px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .stat-subtext {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 4px;
+        }
+
+        /* ==========================================================================
+           5. MARKETS SECTION (7 Cards Grid)
+           ========================================================================== */
+        .markets-section {
+            position: relative;
+        }
+
+        .markets-header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 56px;
+        }
+
+        .markets-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .market-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-border);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .market-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .market-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 177, 79, 0.3);
+        }
+
+        .market-card:hover::before {
+            height: 100%;
+        }
+
+        .market-icon-box {
+            width: 56px;
+            height: 56px;
+            background-color: var(--gray-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+
+        .market-card:hover .market-icon-box {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .market-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .market-desc {
+            font-size: 0.9375rem;
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .market-link {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+        }
+
+        /* Special 7th Card Span or Feature Card */
+        .market-card.featured-card {
+            grid-column: span 3;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--white);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            padding: 40px 48px;
+        }
+
+        .market-card.featured-card .market-title {
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .market-card.featured-card .market-desc {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin-bottom: 0;
+        }
+
+        .market-card.featured-card .market-icon-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--primary);
+        }
+
+        /* Banner Image Box inside Markets */
+        .markets-visual-banner {
+            margin-top: 48px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            height: 320px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .markets-visual-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.3) 100%);
+            display: flex;
+            align-items: center;
+            padding: 0 48px;
+            color: var(--white);
+        }
+
+        .banner-content {
+            max-width: 540px;
+        }
+
+        .banner-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        /* ==========================================================================
+           6. SERVICES SECTION (3 Core Pillars: Sales, Installation, Maintenance)
+           ========================================================================== */
+        .services-section {
+            background-color: var(--gray-light);
+            position: relative;
+        }
+
+        .services-top-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 64px;
+        }
+
+        .services-image-box {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 380px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--gray-border);
+        }
+
+        .services-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-border);
+            padding: 40px 32px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 177, 79, 0.3);
+        }
+
+        .service-badge-num {
+            font-size: 0.875rem;
+            font-weight: 800;
+            color: var(--primary);
+            background-color: var(--primary-light);
+            padding: 4px 12px;
+            border-radius: 100px;
+            align-self: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .service-list {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-border);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark-muted);
+        }
+
+        .check-icon {
+            color: var(--primary);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        /* ==========================================================================
+           7. BRAND PARTNERS
+           ========================================================================== */
+        .brands-section {
+            padding: 64px 0;
+            border-top: 1px solid var(--gray-border);
+            border-bottom: 1px solid var(--gray-border);
+            background-color: var(--white);
+        }
+
+        .brands-title {
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-text);
+            margin-bottom: 36px;
+        }
+
+        .brands-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .brand-logo-item {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--dark-muted);
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.75;
+            transition: var(--transition);
+            filter: grayscale(100%);
+        }
+
+        .brand-logo-item:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            color: var(--dark);
+        }
+
+        .brand-badge {
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            background-color: var(--gray-border);
+            border-radius: 4px;
+            color: var(--dark);
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           8. WHY EVTODO / CORPORATE ADVANTAGE
+           ========================================================================== */
+        .why-section {
+            position: relative;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-top: 36px;
+        }
+
+        .feature-box {
+            display: flex;
+            gap: 20px;
+        }
+
+        .feature-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-box-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .feature-box-desc {
+            font-size: 0.9375rem;
+            color: var(--gray-text);
+            line-height: 1.6;
+        }
+
+        .why-card-stack {
+            background-color: var(--dark);
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+            overflow: hidden;
+        }
+
+        .why-card-stack::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .stack-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .stack-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .stack-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 28px;
+        }
+
+        .highlight-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .highlight-val {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .highlight-lbl {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 4px;
+        }
+
+        /* ==========================================================================
+           9. CONTACT & PROPOSAL SECTION
+           ========================================================================== */
+        .contact-section {
+            background-color: var(--gray-light);
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .contact-info-panel {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: 40px;
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .info-block {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .info-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gray-text);
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .info-sub {
+            font-size: 0.875rem;
+            color: var(--gray-text);
+            margin-top: 2px;
+        }
+
+        /* Contact Form */
+        .contact-form-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            padding: 48px;
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .form-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .form-subtitle {
+            font-size: 0.9375rem;
+            color: var(--gray-text);
+            margin-bottom: 32px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            font-family: var(--font-family);
+            font-size: 0.9375rem;
+            color: var(--dark);
+            background-color: var(--white);
+            border: 1px solid var(--gray-border);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .form-notice {
+            font-size: 0.8125rem;
+            color: var(--gray-text);
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        /* Success Message Box */
+        .form-success {
+            display: none;
+            background-color: var(--primary-light);
+            border: 1px solid var(--primary);
+            color: var(--primary-hover);
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* ==========================================================================
+           10. FOOTER SECTION
+           ========================================================================== */
+        .site-footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 80px 0 32px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+
+        .footer-brand .brand-logo {
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-desc {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            max-width: 320px;
+        }
+
+        .footer-heading {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.65);
+            transition: var(--transition);
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+        }
+
+        .footer-address {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        /* ==========================================================================
+           11. RESPONSIVE DESIGN (CSS Media Queries)
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-heading {
+                font-size: 2.75rem;
+            }
+
+            .hero-image-wrapper img {
+                height: 400px;
+            }
+
+            .markets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .market-card.featured-card {
+                grid-column: span 2;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-top-split {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .stat-item {
+                border-right: none;
+                padding: 16px 0;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 64px 0;
+            }
+
+            .header-inner {
+                height: 70px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 32px;
+                gap: 20px;
+                border-bottom: 1px solid var(--gray-border);
+                box-shadow: var(--shadow-subtle);
+                transform: translateY(-150%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .header-phone {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-heading {
+                font-size: 2.25rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .markets-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .market-card.featured-card {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 32px 24px;
+            }
+
+            .floating-stat-card {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin-top: 16px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .brands-flex {
+                justify-content: center;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+         HEADER / NAVIGATION
+         ========================================================================== -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <!-- Brand Logo -->
+                <a href="#" class="brand-logo">
+                    <div class="logo-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        EVTODO<span>.</span>
+                        <span class="tagline-sub">Charging the Future</span>
+                    </div>
+                </a>
+
+                <!-- Main Navigation -->
+                <nav class="nav-menu" id="navMenu">
+                    <a href="#markets" class="nav-link">Markets</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#brands" class="nav-link">Brands</a>
+                    <a href="#about" class="nav-link">Why EVTODO</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <a href="tel:8326128050" class="header-phone">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        832-612-8050
+                    </a>
+                    <a href="#contact" class="btn btn-primary">
+                        Request Proposal
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         HERO SECTION (Split Layout)
+         ========================================================================== -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left Content Column -->
+                <div class="hero-content">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        Commercial EV Infrastructure Since 2019
+                    </div>
+                    <h1 class="hero-heading">
+                        Charging the Future of <span>Commercial Mobility</span>
+                    </h1>
+                    <p class="hero-description">
+                        Complete EV charging station solutions for fleets, transit agencies, dealerships, OEMs, and commercial hubs. Turnkey equipment sales, DC fast installation, and guaranteed uptime programs.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            Get Turnkey Quote
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#services" class="btn btn-secondary">
+                            View Services
+                        </a>
+                    </div>
+                    <div class="hero-trust-bullets">
+                        <div class="trust-item">
+                            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Guaranteed Uptime
+                        </div>
+                        <div class="trust-item">
+                            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Certified Field Techs
+                        </div>
+                        <div class="trust-item">
+                            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            DC Level 3 Fast
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Media Column -->
+                <div class="hero-media">
+                    <div class="hero-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1569234323816-a634a5c3e26f" alt="Commercial EV Charging Cable and Infrastructure" width="800" height="600">
+                    </div>
+                    <!-- Floating Stat Badge -->
+                    <div class="floating-stat-card">
+                        <div class="stat-icon-bg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="stat-val">99.5%+</div>
+                            <div class="stat-lbl">Guaranteed Fleet Uptime SLA</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         STATS BAR
+         ========================================================================== -->
+    <section class="stats-bar-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">2019</div>
+                    <div class="stat-label">Infrastructure Established</div>
+                    <div class="stat-subtext">Building charging networks nationwide</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7+</div>
+                    <div class="stat-label">Commercial Markets</div>
+                    <div class="stat-subtext">Transit, Fleets, School, Retail, Airports</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Certified Field Technicians</div>
+                    <div class="stat-subtext">Master electricians & factory certified</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">DC L3</div>
+                    <div class="stat-label">Ultra-Fast Infrastructure</div>
+                    <div class="stat-subtext">Megawatt-ready commercial power</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         MARKETS SECTION (7 Specialized Sector Cards)
+         ========================================================================== -->
+    <section class="markets-section section-padding" id="markets">
+        <div class="container">
+            <div class="markets-header-wrapper">
+                <div>
+                    <div class="badge">Target Sectors</div>
+                    <h2 class="section-title">Specialized EV Solutions for Every Market</h2>
+                    <p class="section-subtitle">
+                        From heavy-duty electric bus depots to high-traffic retail centers, EVTODO engineers custom infrastructure tailored to your exact operational requirements.
+                    </p>
+                </div>
+            </div>
+
+            <div class="markets-grid">
+                <!-- Market 1: School Buses -->
+                <div class="market-card">
+                    <div class="market-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                            <line x1="4" y1="22" x2="4" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 class="market-title">School & Education Fleets</h3>
+                    <p class="market-desc">
+                        Dedicated depot charging for electric school bus fleets. Managed overnight charging schedules, V2G integration, and EPA Clean School Bus grant compliance.
+                    </p>
+                    <a href="#contact" class="market-link">
+                        Explore School Solutions
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Market 2: Public Transit -->
+                <div class="market-card">
+                    <div class="market-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                            <path d="M3 9h18"></path>
+                            <path d="M9 21v-4"></path>
+                            <path d="M15 21v-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="market-title">Transit & Municipal Agencies</h3>
+                    <p class="market-desc">
+                        High-capacity pantograph and plug-in DC fast charging for municipal transit buses, federal passenger fleets, and regional transportation authorities.
+                    </p>
+                    <a href="#contact" class="market-link">
+                        Explore Transit Solutions
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Market 3: Shopping & Leisure -->
+                <div class="market-card">
+                    <div class="market-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </div>
+                    <h3 class="market-title">Shopping & Leisure Areas</h3>
+                    <p class="market-desc">
+                        Turnkey destination charging for shopping centers, entertainment venues, hotels, and retail developments to attract high-value EV drivers and increase dwell time.
+                    </p>
+                    <a href="#contact" class="market-link">
+                        Explore Retail Solutions
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Market 4: Auto Dealerships -->
+                <div class="market-card">
+                    <div class="market-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+                            <circle cx="7" cy="17" r="2"></circle>
+                            <circle cx="17" cy="17" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="market-title">Auto Dealerships & OEM Centers</h3>
+                    <p class="market-desc">
+                        OEM-mandated DC Level 3 charging hardware for dealership sales lots, service bays, and customer delivery suites with white-label branding options.
+                    </p>
+                    <a href="#contact" class="market-link">
+                        Explore Dealership Solutions
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Market 5: Trucks & Heavy Cargo -->
+                <div class="market-card">
+                    <div class="market-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                    </div>
+                    <h3 class="market-title">Trucks & Heavy Cargo</h3>
+                    <p class="market-desc">
+                        Megawatt-scale ultra-fast charging corridors designed for Class 7-8 electric semi-trucks, heavy cargo logistics, and regional drayage fleets.
+                    </p>
+                    <a href="#contact" class="market-link">
+                        Explore Heavy Cargo Solutions
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Market 6: Delivery Fleet -->
+                <div class="market-card">
+                    <div class="market-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="market-title">Delivery Fleet Depots</h3>
+                    <p class="market-desc">
+                        High-density Level 2 and DC fast charging for last-mile delivery vans, parcel carriers, and urban logistics distribution hubs with automated load balance.
+                    </p>
+                    <a href="#contact" class="market-link">
+                        Explore Fleet Solutions
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Market 7: Featured Card - Airports & Transit Hubs -->
+                <div class="market-card featured-card">
+                    <div>
+                        <div class="market-icon-box">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.7 5.2c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="market-title">Airports & Transportation Hubs</h3>
+                        <p class="market-desc">
+                            Scalable infrastructure for airport ground support equipment (GSE), rental car fleets, shuttle operations, and passenger long-term parking plazas.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="#contact" class="btn btn-primary" style="background-color: var(--white); color: var(--dark);">
+                            Contact Airport Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner Visual -->
+            <div class="markets-visual-banner">
+                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e93bab1f" alt="EV Charging Station Fleet Depot" width="1200" height="400">
+                <div class="banner-overlay">
+                    <div class="banner-content">
+                        <h3 class="banner-title">Need a Custom Commercial Site Plan?</h3>
+                        <p style="color: rgba(255,255,255,0.85); margin-bottom: 20px;">
+                            Our Houston engineering team conducts comprehensive site assessments, utility capacity modeling, and ROI projections.
+                        </p>
+                        <a href="#contact" class="btn btn-primary">Schedule Site Feasibility Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         SERVICES SECTION (3 Core Pillars: Sales, Installation, Maintenance)
+         ========================================================================== -->
+    <section class="services-section section-padding" id="services">
+        <div class="container">
+            <div class="services-top-split">
+                <div>
+                    <div class="badge">End-to-End Capabilities</div>
+                    <h2 class="section-title">Turnkey Services from Equipment to Maintenance</h2>
+                    <p class="section-subtitle">
+                        EVTODO delivers complete lifecycle management for commercial EV charging infrastructure. We source hardware, execute turnkey civil & electrical installations, and protect your investment with guaranteed uptime programs.
+                    </p>
+                </div>
+                <div class="services-image-box">
+                    <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7" alt="EV Fast Charging Installation and Technicians" width="600" height="400">
+                </div>
+            </div>
+
+            <div class="services-grid">
+                <!-- Pillar 1: Sales -->
+                <div class="service-card">
+                    <span class="service-badge-num">PILLAR 01</span>
+                    <h3 class="service-title">Equipment Sales</h3>
+                    <p class="service-desc">
+                        Direct access to premium commercial chargers from leading international manufacturers. Engineered for high durability and fleet performance.
+                    </p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            EVTech & Heliox Commercial Chargers
+                        </div>
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            AC Level 2 (7.6kW - 19.2kW)
+                        </div>
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            DC Level 3 Fast Chargers (50kW - 360kW+)
+                        </div>
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            OCPP Compliant & Smart Load Balancing
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Installation -->
+                <div class="service-card">
+                    <span class="service-badge-num">PILLAR 02</span>
+                    <h3 class="service-title">Turnkey Installation</h3>
+                    <p class="service-desc">
+                        Full EPC (Engineering, Procurement, Construction) execution. We handle permitting, utility grid interconnections, and commissioning.
+                    </p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Site Electrical Feasibility & Engineering
+                        </div>
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Utility Transformer Upgrades & Trenching
+                        </div>
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            DC Level 3 Charging Station Civil Works
+                        </div>
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Full Safety Inspection & Network Setup
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Maintenance -->
+                <div class="service-card">
+                    <span class="service-badge-num">PILLAR 03</span>
+                    <h3 class="service-title">Guaranteed Maintenance</h3>
+                    <p class="service-desc">
+                        Protect charger uptime with certified field technicians. Proactive maintenance programs and rapid corrective repair dispatch.
+                    </p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Guaranteed Uptime Service Level Agreements
+                        </div>
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Preventive Care Schedules & Diagnostics
+                        </div>
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Emergency Corrective Field Repairs
+                        </div>
+                        <div class="service-list-item">
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Certified Master Electrician Technicians
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         BRAND PARTNERS
+         ========================================================================== -->
+    <section class="brands-section" id="brands">
+        <div class="container">
+            <div class="brands-title">Trusted Hardware & Technology Ecosystem Partners</div>
+            <div class="brands-flex">
+                <div class="brand-logo-item">
+                    HELIOX
+                    <span class="brand-badge">Heavy Duty</span>
+                </div>
+                <div class="brand-logo-item">
+                    EVTech
+                    <span class="brand-badge">Fleet Systems</span>
+                </div>
+                <div class="brand-logo-item">
+                    BorgWarner
+                    <span class="brand-badge">Fast DC</span>
+                </div>
+                <div class="brand-logo-item">
+                    ABB
+                    <span class="brand-badge">Global Tier-1</span>
+                </div>
+                <div class="brand-logo-item">
+                    SIEMENS
+                    <span class="brand-badge">Grid Tech</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         WHY EVTODO / CORPORATE ADVANTAGE
+         ========================================================================== -->
+    <section class="why-section section-padding" id="about">
+        <div class="container">
+            <div class="why-grid">
+                <!-- Left Narrative -->
+                <div>
+                    <div class="badge">The EVTODO Difference</div>
+                    <h2 class="section-title">Built for Enterprise Reliability & Mission-Critical Charging</h2>
+                    <p class="section-subtitle">
+                        Since 2019, EVTODO has been at the forefront of Texas and national commercial fleet electrification. We combine deep electrical engineering expertise with guaranteed SLA response times.
+                    </p>
+
+                    <div class="features-list">
+                        <div class="feature-box">
+                            <div class="feature-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="feature-box-title">Certified Field Technicians</h4>
+                                <p class="feature-box-desc">
+                                    Our in-house master electricians and factory-trained technicians undergo continuous manufacturer certification on ABB, Siemens, and Heliox hardware.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="feature-box">
+                            <div class="feature-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="feature-box-title">Guaranteed Uptime SLA</h4>
+                                <p class="feature-box-desc">
+                                    Fleet downtime costs money. Our preventative maintenance schedules and guaranteed response programs keep your chargers running 24/7/365.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="feature-box">
+                            <div class="feature-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="feature-box-title">Full Turnkey Execution</h4>
+                                <p class="feature-box-desc">
+                                    From site power analysis and utility coordination to final concrete pad pour and cloud software onboarding, EVTODO handles every detail.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Highlight Box -->
+                <div class="why-card-stack">
+                    <h3 class="stack-title">Headquartered in Houston, TX</h3>
+                    <p class="stack-desc">
+                        Serving commercial, municipal, and fleet clients across Texas and North America with dedicated engineering personnel and immediate response capabilities.
+                    </p>
+                    <div style="background-color: rgba(255,255,255,0.08); padding: 20px; border-radius: 12px; margin-bottom: 28px; border: 1px solid rgba(255,255,255,0.1);">
+                        <div style="font-size: 0.8125rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 4px;">Main Office Address</div>
+                        <div style="font-size: 1.1rem; font-weight: 700; color: #fff;">6343 Skyline Drive, Suite 8</div>
+                        <div style="font-size: 0.95rem; color: rgba(255,255,255,0.8);">Houston, TX 77057</div>
+                        <div style="margin-top: 10px; font-weight: 700; color: #fff;">Direct: 832-612-8050</div>
+                    </div>
+                    <div class="stack-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-val">2019</span>
+                            <span class="highlight-lbl">Year Established</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-val">Turnkey</span>
+                            <span class="highlight-lbl">Engineering Model</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT & PROPOSAL SECTION
+         ========================================================================== -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 56px;">
+                <div class="badge">Start Your Project</div>
+                <h2 class="section-title">Get a Commercial EV Proposal</h2>
+                <p class="section-subtitle">
+                    Speak directly with an EVTODO charging infrastructure specialist. We will evaluate your fleet needs and deliver a complete turnkey proposal.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Left Info Panel -->
+                <div class="contact-info-panel">
+                    <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 24px;">Direct Contact Info</h3>
+
+                    <div class="info-block">
+                        <div class="info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="info-label">Corporate Office</div>
+                            <div class="info-value">EVTODO LLC</div>
+                            <div class="info-sub">6343 Skyline Drive, Suite 8<br>Houston, TX 77057</div>
+                        </div>
+                    </div>
+
+                    <div class="info-block">
+                        <div class="info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="info-label">Phone Support</div>
+                            <div class="info-value">832-612-8050</div>
+                            <div class="info-sub">Mon-Fri: 8:00 AM - 6:00 PM CST</div>
+                        </div>
+                    </div>
+
+                    <div class="info-block">
+                        <div class="info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="info-label">Inquiries & Quotes</div>
+                            <div class="info-value">info@evtodo.com</div>
+                            <div class="info-sub">Response within 1 business day</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px; padding: 20px; background-color: var(--primary-light); border-radius: var(--radius-sm); border: 1px solid rgba(0, 177, 79, 0.2);">
+                        <div style="font-weight: 700; color: var(--primary-hover); font-size: 0.9375rem; margin-bottom: 4px;">⚡ Emergency Field Technicians</div>
+                        <div style="font-size: 0.84rem; color: var(--gray-text);">Guaranteed uptime SLA contract holders receive 24/7 dedicated dispatch access.</div>
+                    </div>
+                </div>
+
+                <!-- Right Form Card -->
+                <div class="contact-form-card">
+                    <h3 class="form-title">Request a Custom Proposal</h3>
+                    <p class="form-subtitle">Fill out the form below to receive a detailed site assessment & equipment estimate.</p>
+
+                    <form id="proposalForm" onsubmit="event.preventDefault(); handleFormSubmit();">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName" class="form-label">Full Name *</label>
+                                <input type="text" id="fullName" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="companyName" class="form-label">Company / Agency *</label>
+                                <input type="text" id="companyName" class="form-input" placeholder="e.g. Houston Logistics Inc." required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="emailAddr" class="form-label">Work Email *</label>
+                                <input type="email" id="emailAddr" class="form-input" placeholder="sjenkins@company.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNum" class="form-label">Phone Number *</label>
+                                <input type="tel" id="phoneNum" class="form-input" placeholder="832-555-0199" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="marketSector" class="form-label">Market Sector *</label>
+                                <select id="marketSector" class="form-select" required>
+                                    <option value="" disabled selected>Select your sector</option>
+                                    <option value="school">School & Education (Buses)</option>
+                                    <option value="transit">Public Transit & Municipal</option>
+                                    <option value="retail">Shopping & Leisure Areas</option>
+                                    <option value="dealership">Auto Dealerships & OEM</option>
+                                    <option value="cargo">Trucks & Heavy Cargo</option>
+                                    <option value="fleet">Delivery Fleet Depot</option>
+                                    <option value="airport">Airports & Transit Hubs</option>
+                                    <option value="other">Other Commercial Facility</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceType" class="form-label">Service Needed *</label>
+                                <select id="serviceType" class="form-select" required>
+                                    <option value="" disabled selected>Select service type</option>
+                                    <option value="turnkey">Full Turnkey Project (Sales + Install + SLA)</option>
+                                    <option value="sales">Equipment Sales Only (EVTech, Heliox)</option>
+                                    <option value="installation">Installation & Engineering Only</option>
+                                    <option value="maintenance">Maintenance SLA & Repairs Only</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectDetails" class="form-label">Project Details & Estimated Port Count</label>
+                            <textarea id="projectDetails" class="form-textarea" placeholder="Tell us about your fleet size, site location, timeline, and current electrical capacity..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Submit Proposal Request
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+
+                        <div class="form-notice">
+                            🔒 Your information is confidential and used solely for EVTODO project estimation.
+                        </div>
+
+                        <div class="form-success" id="formSuccessMsg">
+                            ✓ Thank you! Your proposal request has been received. An EVTODO engineer will contact you shortly.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         FOOTER
+         ========================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <a href="#" class="brand-logo">
+                        <div class="logo-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <div class="logo-text">
+                            EVTODO<span>.</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">
+                        EVTODO provides complete EV charging station solutions for commercial fleets, OEM operators, dealerships, transit, and public venues.
+                    </p>
+                    <div style="font-size: 0.8125rem; font-weight: 700; color: var(--primary);">
+                        ⚡ Charging the Future Since 2019
+                    </div>
+                </div>
+
+                <!-- Markets Links -->
+                <div>
+                    <h4 class="footer-heading">Markets</h4>
+                    <div class="footer-links">
+                        <a href="#markets" class="footer-link">School Buses</a>
+                        <a href="#markets" class="footer-link">Public Transit</a>
+                        <a href="#markets" class="footer-link">Shopping & Leisure</a>
+                        <a href="#markets" class="footer-link">Auto Dealerships</a>
+                        <a href="#markets" class="footer-link">Trucks & Heavy Cargo</a>
+                        <a href="#markets" class="footer-link">Delivery Fleets</a>
+                        <a href="#markets" class="footer-link">Airports & Hubs</a>
+                    </div>
+                </div>
+
+                <!-- Services & Brands -->
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <div class="footer-links">
+                        <a href="#services" class="footer-link">Equipment Sales</a>
+                        <a href="#services" class="footer-link">Turnkey Installation</a>
+                        <a href="#services" class="footer-link">DC Level 3 Fast Charging</a>
+                        <a href="#services" class="footer-link">Preventive Maintenance</a>
+                        <a href="#services" class="footer-link">Uptime SLA Programs</a>
+                        <a href="#brands" class="footer-link">Heliox & EVTech</a>
+                        <a href="#brands" class="footer-link">BorgWarner & ABB</a>
+                    </div>
+                </div>
+
+                <!-- Corporate Info -->
+                <div>
+                    <h4 class="footer-heading">Houston Headquarters</h4>
+                    <div class="footer-address">
+                        EVTODO LLC<br>
+                        6343 Skyline Drive, Suite 8<br>
+                        Houston, TX 77057<br><br>
+                        <strong>Phone:</strong> 832-612-8050<br>
+                        <strong>Email:</strong> info@evtodo.com
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Legal Bar -->
+            <div class="footer-bottom">
+                <div>
+                    © 2026 EVTODO LLC. All rights reserved. Charging the Future.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Site Map</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         INLINE JAVASCRIPT (No external dependencies)
+         ========================================================================== -->
+    <script>
+        // Mobile Navigation Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when link is clicked
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Contact Form Interactivity
+        function handleFormSubmit() {
+            const successMsg = document.getElementById('formSuccessMsg');
+            if (successMsg) {
+                successMsg.style.display = 'block';
+                document.getElementById('proposalForm').reset();
+                setTimeout(() => {
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>
