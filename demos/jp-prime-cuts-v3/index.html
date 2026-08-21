@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JP Prime Cuts TX | Premium Meats, Cut to Perfection | Houston, TX</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. DESIGN SYSTEM & VARIABLES (WARM BUTCHER PREMIUM)
+           ========================================================================== */
+        :root {
+            /* Primary Warm Ivory Backgrounds */
+            --bg-ivory: #f9f4ed;
+            --bg-ivory-light: #ffffff;
+            --bg-ivory-warm: #f4ece1;
+            
+            /* Kraft Paper Tones */
+            --bg-kraft: #eae0d0;
+            --bg-kraft-card: #f2ebe0;
+            --bg-kraft-deep: #ded0ba;
+            --divider-kraft: #d4c4a8;
+            --border-kraft: #c2b093;
+
+            /* Steak Red Accents */
+            --red-primary: #8b2929;
+            --red-dark: #6b1d1d;
+            --red-light: #f7e8e8;
+            --red-badge: #782121;
+
+            /* Rich Brown Accents */
+            --brown-primary: #5c4033;
+            --brown-dark: #3d2817;
+            --brown-deep: #291a0e;
+            --brown-light: #8a6a57;
+            --brown-gold: #a67c52;
+
+            /* Text Colors */
+            --text-dark: #2c1e16;
+            --text-muted: #635147;
+            --text-light: #8c786c;
+            --text-cream: #f9f4ed;
+
+            /* Fonts */
+            --font-heading: 'Frank Ruhl Libre', Georgia, serif;
+            --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Shadows & Transitions */
+            --shadow-subtle: 0 4px 15px rgba(61, 40, 23, 0.05);
+            --shadow-medium: 0 8px 25px rgba(61, 40, 23, 0.08);
+            --shadow-hover: 0 12px 30px rgba(139, 41, 41, 0.12);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Paper Texture Noise Effect */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--bg-ivory);
+            background-image: 
+                radial-gradient(var(--divider-kraft) 0.65px, transparent 0.65px),
+                linear-gradient(to bottom, rgba(249, 244, 237, 0.96), rgba(249, 244, 237, 0.99)),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        /* ==========================================================================
+           2. TYPOGRAPHY & HEADINGS (Slight letter-spacing for premium feel)
+           ========================================================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--brown-dark);
+            margin-top: 0;
+            letter-spacing: 0.03em;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; }
+        h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); }
+        h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); }
+        h4 { font-size: 1.25rem; }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        a {
+            color: var(--red-primary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        a:hover {
+            color: var(--red-dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        
+        .section-tag {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.825rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--red-primary);
+            background-color: var(--red-light);
+            padding: 6px 16px;
+            border-radius: 4px;
+            border: 1px solid rgba(139, 41, 41, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            max-width: 680px;
+            margin: 0 auto 40px auto;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .divider-kraft-line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--divider-kraft), transparent);
+            border: none;
+            margin: 40px 0;
+        }
+
+        /* ==========================================================================
+           3. BUTTONS & UI ELEMENTS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 14px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+            text-decoration: none;
+            gap: 10px;
+        }
+
+        .btn-red {
+            background-color: var(--red-primary);
+            color: var(--bg-ivory);
+            box-shadow: 0 4px 12px rgba(139, 41, 41, 0.25);
+        }
+
+        .btn-red:hover {
+            background-color: var(--red-dark);
+            color: var(--bg-ivory);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(139, 41, 41, 0.35);
+        }
+
+        .btn-brown {
+            background-color: var(--brown-primary);
+            color: var(--bg-ivory);
+            box-shadow: 0 4px 12px rgba(92, 64, 51, 0.2);
+        }
+
+        .btn-brown:hover {
+            background-color: var(--brown-dark);
+            color: var(--bg-ivory);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(61, 40, 23, 0.3);
+        }
+
+        .btn-outline-brown {
+            background-color: transparent;
+            color: var(--brown-dark);
+            border-color: var(--brown-primary);
+        }
+
+        .btn-outline-brown:hover {
+            background-color: var(--brown-primary);
+            color: var(--bg-ivory);
+            transform: translateY(-2px);
+        }
+
+        .btn-cream {
+            background-color: var(--bg-ivory);
+            color: var(--red-primary);
+            border-color: var(--bg-ivory);
+        }
+
+        .btn-cream:hover {
+            background-color: var(--bg-kraft);
+            color: var(--red-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           4. TOP ANNOUNCEMENT BAR & HEADER NAV
+           ========================================================================== */
+        .top-bar {
+            background-color: var(--brown-dark);
+            color: var(--divider-kraft);
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(212, 196, 168, 0.2);
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-info span {
+            margin-right: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .header {
+            background-color: var(--bg-ivory-light);
+            border-bottom: 2px solid var(--divider-kraft);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(61, 40, 23, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            fill: var(--red-primary);
+        }
+
+        .logo-text-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--brown-dark);
+            letter-spacing: 0.05em;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .logo-sub {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--red-primary);
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 28px;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.925rem;
+            color: var(--brown-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--red-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--brown-dark);
+        }
+
+        /* ==========================================================================
+           5. HERO SECTION (WARM GRADIENT + COW CUT DIAGRAM)
+           ========================================================================== */
+        .hero {
+            background: linear-gradient(135deg, #f9f4ed 0%, #eee3d3 50%, #e3d5c1 100%);
+            border-bottom: 2px solid var(--divider-kraft);
+            padding: 60px 0 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(var(--brown-primary) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--bg-kraft);
+            border: 1px solid var(--border-kraft);
+            color: var(--brown-dark);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            color: var(--brown-dark);
+            font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+            margin-bottom: 20px;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto 36px auto;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        /* Cow Diagram Container */
+        .cow-diagram-wrapper {
+            background-color: var(--bg-ivory-light);
+            border: 2px solid var(--divider-kraft);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-medium);
+            max-width: 960px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .cow-diagram-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--divider-kraft);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .cow-diagram-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--brown-dark);
+            margin: 0;
+        }
+
+        .cow-diagram-hint {
+            font-size: 0.85rem;
+            color: var(--red-primary);
+            font-weight: 600;
+        }
+
+        .cow-svg-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Interactive Cut Regions */
+        .cut-region {
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            fill: #ebdcc8;
+            stroke: #5c4033;
+            stroke-width: 2;
+            stroke-linejoin: round;
+        }
+
+        .cut-region:hover, .cut-region.active {
+            fill: var(--red-primary) !important;
+            stroke: var(--brown-dark) !important;
+            stroke-width: 2.5;
+        }
+
+        .cut-label {
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 11px;
+            fill: var(--brown-dark);
+            pointer-events: none;
+            text-anchor: middle;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cut-region:hover + .cut-label,
+        .cut-region.active + .cut-label {
+            fill: var(--bg-ivory) !important;
+            font-weight: 800;
+        }
+
+        /* Interactive Info Box below Cow */
+        .cut-info-display {
+            margin-top: 24px;
+            background-color: var(--bg-kraft-card);
+            border: 1px solid var(--border-kraft);
+            border-left: 5px solid var(--red-primary);
+            border-radius: 6px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .cut-info-text {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .cut-info-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--brown-dark);
+            margin: 0 0 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cut-info-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .cut-info-cuts {
+            font-size: 0.85rem;
+            color: var(--red-primary);
+            font-weight: 700;
+            background-color: var(--bg-ivory);
+            padding: 6px 14px;
+            border-radius: 4px;
+            border: 1px solid var(--divider-kraft);
+        }
+
+        /* ==========================================================================
+           6. FEATURED CUTS (CARD GRID WITH KRAFT BACKGROUNDS & RED PRICE TAGS)
+           ========================================================================== */
+        .cuts-section {
+            padding: 90px 0;
+            background-color: var(--bg-ivory);
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 45px;
+        }
+
+        .filter-btn {
+            background-color: var(--bg-kraft);
+            border: 1px solid var(--border-kraft);
+            color: var(--brown-dark);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 10px 22px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--brown-primary);
+            color: var(--bg-ivory);
+            border-color: var(--brown-primary);
+        }
+
+        .cuts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .cut-card {
+            background-color: var(--bg-kraft-card);
+            border: 1px solid var(--border-kraft);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .cut-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--brown-primary);
+        }
+
+        .cut-card-header {
+            height: 160px;
+            background: linear-gradient(135deg, #ded0ba 0%, #cbbba3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--border-kraft);
+        }
+
+        .cut-card-svg {
+            width: 90px;
+            height: 90px;
+            fill: var(--brown-primary);
+            opacity: 0.85;
+            transition: var(--transition-smooth);
+        }
+
+        .cut-card:hover .cut-card-svg {
+            transform: scale(1.1);
+            fill: var(--red-primary);
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--red-primary);
+            color: var(--bg-ivory);
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(139, 41, 41, 0.3);
+            letter-spacing: 0.03em;
+        }
+
+        .grade-badge {
+            position: absolute;
+            bottom: 12px;
+            left: 15px;
+            background-color: var(--brown-dark);
+            color: var(--divider-kraft);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 3px;
+        }
+
+        .cut-card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .cut-title {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--brown-dark);
+        }
+
+        .cut-desc {
+            font-size: 0.925rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .cut-specs {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--divider-kraft);
+            font-size: 0.825rem;
+            color: var(--brown-primary);
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        /* ==========================================================================
+           7. SERVICES SECTION (4 SECTIONS WITH LARGE BROWN SVG ICONS)
+           ========================================================================== */
+        .services-section {
+            padding: 90px 0;
+            background-color: var(--bg-kraft);
+            border-top: 2px solid var(--divider-kraft);
+            border-bottom: 2px solid var(--divider-kraft);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--bg-ivory-light);
+            border: 1px solid var(--border-kraft);
+            border-radius: 8px;
+            padding: 36px 28px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--red-primary);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .service-icon-wrap {
+            width: 80px;
+            height: 80px;
+            background-color: var(--bg-kraft-card);
+            border: 2px solid var(--divider-kraft);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon-wrap {
+            background-color: var(--red-light);
+            border-color: var(--red-primary);
+        }
+
+        .service-icon {
+            width: 42px;
+            height: 42px;
+            fill: var(--brown-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-icon {
+            fill: var(--red-primary);
+        }
+
+        .service-title {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: var(--brown-dark);
+        }
+
+        .service-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* ==========================================================================
+           8. WHOLESALE BANNER (DEEP STEAK RED BACKGROUND + CREAM TEXT)
+           ========================================================================== */
+        .wholesale-banner {
+            background-color: var(--red-primary);
+            color: var(--bg-ivory);
+            padding: 70px 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid var(--red-dark);
+        }
+
+        .wholesale-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0, rgba(0,0,0,0.03) 10px, transparent 0, transparent 20px);
+            pointer-events: none;
+        }
+
+        .wholesale-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .wholesale-info {
+            max-width: 720px;
+        }
+
+        .wholesale-title {
+            color: var(--bg-ivory);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            margin-bottom: 16px;
+        }
+
+        .wholesale-desc {
+            color: rgba(249, 244, 237, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           9. ABOUT SECTION (IVORY + BROWN HEADING + WHEAT/COW SVG)
+           ========================================================================== */
+        .about-section {
+            padding: 90px 0;
+            background-color: var(--bg-ivory);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            color: var(--brown-dark);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+            padding-top: 24px;
+            border-top: 1px solid var(--divider-kraft);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--red-primary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--brown-primary);
+        }
+
+        .about-visual {
+            background-color: var(--bg-kraft-card);
+            border: 2px solid var(--border-kraft);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .about-svg-emblem {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            margin: 0 auto;
+            fill: var(--brown-primary);
+        }
+
+        /* ==========================================================================
+           10. GALLERY SECTION (ABSTRACT MEAT CUT SHAPES IN RED/BROWN TONES)
+           ========================================================================== */
+        .gallery-section {
+            padding: 90px 0;
+            background-color: var(--bg-kraft);
+            border-top: 2px solid var(--divider-kraft);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .gallery-card {
+            background-color: var(--bg-ivory-light);
+            border: 1px solid var(--border-kraft);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .gallery-card:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .gallery-art-wrap {
+            height: 220px;
+            background: linear-gradient(135deg, #4a2e1e 0%, #2b170c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .gallery-svg-art {
+            width: 100%;
+            height: 100%;
+            max-height: 180px;
+        }
+
+        .gallery-caption {
+            padding: 18px 20px;
+            background-color: var(--bg-kraft-card);
+            border-top: 1px solid var(--border-kraft);
+        }
+
+        .gallery-caption-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--brown-dark);
+            margin: 0 0 4px 0;
+        }
+
+        .gallery-caption-sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* ==========================================================================
+           11. CONTACT SECTION (KRAFT-PAPER COLORED FORM WITH BROWN BUTTON)
+           ========================================================================== */
+        .contact-section {
+            padding: 90px 0;
+            background-color: var(--bg-ivory);
+        }
+
+        .contact-wrapper {
+            background-color: var(--bg-kraft);
+            border: 2px solid var(--border-kraft);
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+        }
+
+        .contact-info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--brown-primary);
+            fill: var(--bg-ivory);
+            padding: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .info-details h4 {
+            margin: 0 0 4px 0;
+            color: var(--brown-dark);
+            font-size: 1.1rem;
+        }
+
+        .info-details p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .hours-table td {
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--divider-kraft);
+            color: var(--text-muted);
+        }
+
+        .hours-table td:last-child {
+            text-align: right;
+            font-weight: 700;
+            color: var(--brown-dark);
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--brown-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-dark);
+            background-color: var(--bg-ivory-light);
+            border: 1px solid var(--border-kraft);
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--brown-primary);
+            box-shadow: 0 0 0 3px rgba(92, 64, 51, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ==========================================================================
+           12. FOOTER (DEEP BROWN #3d2817 WITH CREAM TEXT)
+           ========================================================================== */
+        .footer {
+            background-color: var(--brown-dark);
+            color: var(--bg-ivory);
+            padding: 70px 0 30px 0;
+            border-top: 4px solid var(--red-primary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--bg-ivory);
+            margin: 0;
+        }
+
+        .footer-about {
+            color: rgba(249, 244, 237, 0.75);
+            font-size: 0.925rem;
+            line-height: 1.6;
+        }
+
+        .footer-heading {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--divider-kraft);
+            margin-bottom: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(249, 244, 237, 0.75);
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--bg-ivory);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 196, 168, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: rgba(249, 244, 237, 0.6);
+        }
+
+        /* ==========================================================================
+           13. INTERACTIVE TOAST NOTIFICATION
+           ========================================================================== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--brown-dark);
+            color: var(--bg-ivory);
+            border-left: 5px solid var(--red-primary);
+            padding: 16px 24px;
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Modal Popup */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(41, 26, 14, 0.8);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: var(--bg-kraft);
+            border: 2px solid var(--border-kraft);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 550px;
+            padding: 36px;
+            position: relative;
+            transform: scale(0.9);
+            transition: var(--transition-smooth);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--brown-dark);
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           14. RESPONSIVE MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--bg-ivory-light);
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 2px solid var(--divider-kraft);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .contact-wrapper {
+                padding: 24px;
+            }
+
+            .cuts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SVG DEEPER EMBEDS & SYMBOLS -->
+    <svg style="display: none;">
+        <!-- Butcher Cleaver Icon -->
+        <symbol id="icon-cleaver" viewBox="0 0 24 24">
+            <path d="M19.5,3.5 L12,3.5 C10.3,3.5 9,4.8 9,6.5 L9,10.5 L3.5,10.5 C2.7,10.5 2,11.2 2,12 C2,12.8 2.7,13.5 3.5,13.5 L9,13.5 L9,17.5 C9,19.2 10.3,20.5 12,20.5 L19.5,20.5 C20.3,20.5 21,19.8 21,19 L21,5 C21,4.2 20.3,3.5 19.5,3.5 Z M18,8 C17.2,8 16.5,7.3 16.5,6.5 C16.5,5.7 17.2,5 18,5 C18.8,5 19.5,5.7 19.5,6.5 C19.5,7.3 18.8,8 18,8 Z"/>
+        </symbol>
+        <!-- Delivery Truck Icon -->
+        <symbol id="icon-truck" viewBox="0 0 24 24">
+            <path d="M20,8 L17,8 L17,4 C17,3.4 16.6,3 16,3 L3,3 C2.4,3 2,3.4 2,4 L2,16 C2,16.6 2.4,17 3,17 L4,17 C4,18.7 5.3,20 7,20 C8.7,20 10,18.7 10,17 L14,17 C14,18.7 15.3,20 17,20 C18.7,20 20,18.7 20,17 L21,17 C21.6,17 22,16.6 22,16 L22,11 L20,8 Z M7,18.5 C6.2,18.5 5.5,17.8 5.5,17 C5.5,16.2 6.2,15.5 7,15.5 C7.8,15.5 8.5,16.2 8.5,17 C8.5,17.8 7.8,18.5 7,18.5 Z M17,18.5 C16.2,18.5 15.5,17.8 15.5,17 C15.5,16.2 16.2,15.5 17,15.5 C17.8,15.5 18.5,16.2 18.5,17 C18.5,17.8 17.8,18.5 17,18.5 Z M15.5,9.5 L19,9.5 L20.5,12 L15.5,12 L15.5,9.5 Z"/>
+        </symbol>
+        <!-- Fork & Knife Icon -->
+        <symbol id="icon-utensils" viewBox="0 0 24 24">
+            <path d="M11,9 L11,3 C11,2.4 10.6,2 10,2 C9.4,2 9,2.4 9,3 L9,9 C9,10.1 8.1,11 7,11 L7,3 C7,2.4 6.6,2 6,2 C5.4,2 5,2.4 5,3 L5,11 C3.9,11 3,10.1 3,9 L3,3 C3,2.4 2.6,2 2,2 C1.4,2 1,2.4 1,3 L1,9 C1,11.8 2.9,14.1 5.5,14.8 L5.5,21 C5.5,21.6 5.9,22 6.5,22 C7.1,22 7.5,21.6 7.5,21 L7.5,14.8 C10.1,14.1 12,11.8 12,9 L11,9 Z M21,2 C17.7,2 15,4.7 15,8 L15,13 L17,13 L17,21 C17,21.6 17.4,22 18,22 C18.6,22 19,21.6 19,21 L19,3 C19,2.4 19.4,2 20,2 Z"/>
+        </symbol>
+        <!-- Express Box Delivery Icon -->
+        <symbol id="icon-delivery" viewBox="0 0 24 24">
+            <path d="M20.5,5.2 L12.5,1.2 C12.2,1.1 11.8,1.1 11.5,1.2 L3.5,5.2 C3.2,5.4 3,5.7 3,6 L3,18 C3,18.3 3.2,18.6 3.5,18.8 L11.5,22.8 C11.7,22.9 11.8,23 12,23 C12.2,23 12.3,22.9 12.5,22.8 L20.5,18.8 C20.8,18.6 21,18.3 21,18 L21,6 C21,5.7 20.8,5.4 20.5,5.2 Z M12,3.3 L18,6.3 L15.5,7.5 L9.5,4.5 L12,3.3 Z M5,7 L11,10 L11,19.7 L5,16.7 L5,7 Z M13,19.7 L13,10 L19,7 L19,16.7 L13,19.7 Z"/>
+        </symbol>
+    </svg>
+
+    <!-- 1. TOP ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-info">
+                <span>📍 Houston, TX (Metro Area)</span>
+                <span>📞 <a href="tel:7135550100" style="color: inherit; text-decoration: none;">(713) 555-0100</a></span>
+            </div>
+            <div class="top-hours">
+                ⏰ Mon–Sat: 9:00am – 7:00pm | Sun: 10:00am – 4:00pm
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo-group">
+                <svg class="logo-icon"><use href="#icon-cleaver"/></svg>
+                <div class="logo-text-wrap">
+                    <span class="logo-title">JP PRIME CUTS</span>
+                    <span class="logo-sub">TEXAS • EST. 2018</span>
+                </div>
+            </a>
+
+            <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#cuts" class="nav-link">Featured Cuts</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#wholesale" class="nav-link">Wholesale</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <a href="#contact" class="btn btn-red" style="padding: 10px 20px; font-size: 0.85rem;">Inquire Cut</a>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION (WARM GRADIENT + COW CUT DIAGRAM) -->
+    <section class="hero" id="hero">
+        <div class="container hero-content text-center">
+            <div class="hero-badge">★ Texas Artisan Butcher Shop ★</div>
+            <h1 class="hero-title">PREMIUM MEATS,<br>CUT TO PERFECTION</h1>
+            <p class="hero-subtitle">
+                Hand-selected USDA Prime & Choice cuts, authentic Texas Wagyu, custom dry aging, and artisanal sausages. Master butcher craftsmanship delivered to your kitchen or restaurant.
+            </p>
+            <div class="hero-buttons">
+                <a href="#cuts" class="btn btn-red">Explore Featured Cuts</a>
+                <a href="#wholesale" class="btn btn-brown">Wholesale & Catering</a>
+            </div>
+
+            <!-- COW CUT DIAGRAM INTERACTIVE BLOCK -->
+            <div class="cow-diagram-wrapper">
+                <div class="cow-diagram-header">
+                    <h3 class="cow-diagram-title">Interactive Texas Beef Cut Guide</h3>
+                    <span class="cow-diagram-hint">Click any section to view cut specs & recommendations</span>
+                </div>
+
+                <!-- SVG Cow Outline with Sections -->
+                <svg class="cow-svg-container" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Cow Silhouette Base -->
+                    <g id="cow-cuts">
+                        <!-- Head & Neck -->
+                        <path class="cut-region" data-cut="neck" d="M 720,130 C 740,110 770,120 780,140 C 790,160 780,180 760,200 C 740,210 710,210 680,195 L 680,140 Z"/>
+                        
+                        <!-- Chuck -->
+                        <path class="cut-region active" data-cut="chuck" d="M 540,110 L 680,110 L 680,210 L 580,220 L 540,180 Z"/>
+                        <text x="610" y="155" class="cut-label">CHUCK</text>
+
+                        <!-- Rib -->
+                        <path class="cut-region" data-cut="rib" d="M 430,105 L 540,110 L 540,180 L 430,180 Z"/>
+                        <text x="485" y="145" class="cut-label">RIB</text>
+
+                        <!-- Short Loin -->
+                        <path class="cut-region" data-cut="loin" d="M 330,105 L 430,105 L 430,180 L 330,180 Z"/>
+                        <text x="380" y="145" class="cut-label">LOIN</text>
+
+                        <!-- Sirloin -->
+                        <path class="cut-region" data-cut="sirloin" d="M 230,110 L 330,105 L 330,180 L 230,190 Z"/>
+                        <text x="280" y="145" class="cut-label">SIRLOIN</text>
+
+                        <!-- Round -->
+                        <path class="cut-region" data-cut="round" d="M 100,130 C 120,110 180,105 230,110 L 230,190 L 160,260 L 110,240 C 90,200 90,160 100,130 Z"/>
+                        <text x="170" y="165" class="cut-label">ROUND</text>
+
+                        <!-- Brisket -->
+                        <path class="cut-region" data-cut="brisket" d="M 580,220 L 680,210 L 660,290 L 560,280 Z"/>
+                        <text x="620" y="255" class="cut-label">BRISKET</text>
+
+                        <!-- Plate (Short Plate) -->
+                        <path class="cut-region" data-cut="plate" d="M 430,180 L 540,180 L 580,220 L 560,280 L 430,270 Z"/>
+                        <text x="490" y="230" class="cut-label">PLATE</text>
+
+                        <!-- Flank -->
+                        <path class="cut-region" data-cut="flank" d="M 230,190 L 330,180 L 430,180 L 430,270 L 230,260 Z"/>
+                        <text x="330" y="230" class="cut-label">FLANK</text>
+
+                        <!-- Shank (Front & Rear Legs) -->
+                        <path class="cut-region" data-cut="shank" d="M 660,290 L 690,370 L 650,370 L 560,280 Z M 160,260 L 180,370 L 140,370 L 110,240 Z"/>
+                        <text x="640" y="330" class="cut-label">SHANK</text>
+
+                        <!-- Tail & Accents -->
+                        <path d="M 95,140 C 80,160 70,200 65,240" stroke="#5c4033" stroke-width="4" fill="none"/>
+                    </g>
+                </svg>
+
+                <!-- Cut Info Display -->
+                <div class="cut-info-display" id="cutInfoBox">
+                    <div class="cut-info-text">
+                        <h4 class="cut-info-title" id="cutTitle">Rib Section (Prime Ribeye & Tomahawk)</h4>
+                        <p class="cut-info-desc" id="cutDesc">Famous for rich marbling, juicy texture, and intense beef flavor. Best prepared with high-heat searing or grill roasting.</p>
+                    </div>
+                    <div class="cut-info-cuts" id="cutHighlights">
+                        Featured Cuts: USDA Prime Ribeye, Tomahawk Steak, Cowboy Cut
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FEATURED CUTS SECTION -->
+    <section class="cuts-section" id="cuts">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">Hand-Trimmed Selection</span>
+                <h2>FEATURED STEAKS & SPECIALTY MEATS</h2>
+                <p class="section-desc">Every cut is hand-selected by our master butchers from certified Texas ranches and portioned to exact specifications.</p>
+                
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" onclick="filterCuts('all')">All Cuts</button>
+                    <button class="filter-btn" onclick="filterCuts('steaks')">USDA Prime Steaks</button>
+                    <button class="filter-btn" onclick="filterCuts('wagyu')">Wagyu & Specialty</button>
+                    <button class="filter-btn" onclick="filterCuts('pork-poultry')">Pork & Poultry</button>
+                    <button class="filter-btn" onclick="filterCuts('marinated')">Marinated & Sausages</button>
+                </div>
+            </div>
+
+            <!-- Product Grid (12 Items) -->
+            <div class="cuts-grid" id="cutsGrid">
+                
+                <!-- Item 1: Ribeye -->
+                <div class="cut-card" data-category="steaks">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$34.99 / lb</span>
+                        <span class="grade-badge">USDA PRIME</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">USDA Prime Ribeye</h3>
+                        <p class="cut-desc">Abundant marbling yields supreme juiciness and rich, buttery beef flavor. Aged 28 days.</p>
+                        <div class="cut-specs">
+                            <span>Thickness: 1.5" - 2"</span>
+                            <span>Best: Cast Iron / Grill</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('USDA Prime Ribeye', '$34.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 2: Tomahawk -->
+                <div class="cut-card" data-category="steaks wagyu">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$48.99 / lb</span>
+                        <span class="grade-badge">SHOWSTOPPER</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Tomahawk Ribeye</h3>
+                        <p class="cut-desc">Thick-cut bone-in ribeye with a 10-inch french-trimmed bone. Unmatched table presentation.</p>
+                        <div class="cut-specs">
+                            <span>Weight: ~32-40 oz</span>
+                            <span>Best: Reverse Sear</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Tomahawk Ribeye', '$48.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 3: Wagyu -->
+                <div class="cut-card" data-category="wagyu">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$89.99 / lb</span>
+                        <span class="grade-badge">A5 WAGYU</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Texas Wagyu NY Strip</h3>
+                        <p class="cut-desc">Authentic Japanese genetics raised on Texas ranches. Unrivaled tenderness and dense marbling.</p>
+                        <div class="cut-specs">
+                            <span>BMS Score: 8-10</span>
+                            <span>Best: High Heat Sear</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Texas Wagyu NY Strip', '$89.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 4: Filet Mignon -->
+                <div class="cut-card" data-category="steaks">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$39.99 / lb</span>
+                        <span class="grade-badge">USDA PRIME</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Center-Cut Filet Mignon</h3>
+                        <p class="cut-desc">Ultra-tender tenderloin barrel cut. Hand-trimmed of all exterior fat for pure velvet texture.</p>
+                        <div class="cut-specs">
+                            <span>Portion: 8oz / 10oz</span>
+                            <span>Best: Pan Seared</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Center-Cut Filet Mignon', '$39.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 5: NY Strip -->
+                <div class="cut-card" data-category="steaks">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$29.99 / lb</span>
+                        <span class="grade-badge">USDA PRIME</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">New York Strip</h3>
+                        <p class="cut-desc">Classic steakhouse favorite boasting robust beef flavor and tight, fine-grained texture.</p>
+                        <div class="cut-specs">
+                            <span>Thickness: 1.25"</span>
+                            <span>Best: Outdoor Grill</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('New York Strip', '$29.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 6: Porterhouse -->
+                <div class="cut-card" data-category="steaks">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$36.99 / lb</span>
+                        <span class="grade-badge">DRY AGED</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Porterhouse Steak</h3>
+                        <p class="cut-desc">King of the T-bones. Combines a full NY Strip and a generous Filet Mignon on one bone.</p>
+                        <div class="cut-specs">
+                            <span>Aging: 30-Day Dry Aged</span>
+                            <span>Best: Broiler / Grill</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Porterhouse Steak', '$36.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 7: T-Bone -->
+                <div class="cut-card" data-category="steaks">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$31.99 / lb</span>
+                        <span class="grade-badge">USDA CHOICE+</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Texas T-Bone Steak</h3>
+                        <p class="cut-desc">Hearty steak cut from the short loin with bone-in flavor. Perfect balance of lean and marbling.</p>
+                        <div class="cut-specs">
+                            <span>Thickness: 1.5"</span>
+                            <span>Best: High Heat Grill</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Texas T-Bone Steak', '$31.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 8: Pork Chops -->
+                <div class="cut-card" data-category="pork-poultry">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$14.99 / lb</span>
+                        <span class="grade-badge">HERITAGE PORK</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Heritage Bone-In Pork Chops</h3>
+                        <p class="cut-desc">Thick 2-inch Berkshire pork chops, incredibly juicy and full of natural sweet pork flavor.</p>
+                        <div class="cut-specs">
+                            <span>Thickness: 2.0"</span>
+                            <span>Best: Brined & Grilled</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Heritage Pork Chops', '$14.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 9: Lamb Chops -->
+                <div class="cut-card" data-category="wagyu">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$26.99 / lb</span>
+                        <span class="grade-badge">LOCAL TEXAS</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Grass-Fed Lamb Chops</h3>
+                        <p class="cut-desc">Frenhed rack of lamb chops, tender and delicately flavored from Hill Country Texas pasture.</p>
+                        <div class="cut-specs">
+                            <span>Cut: Frenched Rack</span>
+                            <span>Best: Herb Roasted</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Grass-Fed Lamb Chops', '$26.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 10: Sausages -->
+                <div class="cut-card" data-category="marinated">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$11.99 / lb</span>
+                        <span class="grade-badge">HOUSE MADE</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Artisanal Smoked Sausages</h3>
+                        <p class="cut-desc">Smoked Jalapeño Cheddar and German Garlic Bratwurst stuffed in natural pork casings.</p>
+                        <div class="cut-specs">
+                            <span>Packaging: 1lb vacuum pack</span>
+                            <span>Best: Smoker / Skillet</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Artisanal Sausages', '$11.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 11: Poultry -->
+                <div class="cut-card" data-category="pork-poultry">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$8.99 / lb</span>
+                        <span class="grade-badge">ORGANIC</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Free-Range Texas Poultry</h3>
+                        <p class="cut-desc">Air-chilled organic whole chickens, spatchcocked or portioned breasts & thighs.</p>
+                        <div class="cut-specs">
+                            <span>Origin: Texas Organic Farm</span>
+                            <span>Best: Roasting / Smoker</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Free-Range Poultry', '$8.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+                <!-- Item 12: Marinated Meats -->
+                <div class="cut-card" data-category="marinated">
+                    <div class="cut-card-header">
+                        <span class="price-tag">$18.99 / lb</span>
+                        <span class="grade-badge">HOUSE SPECIALTY</span>
+                        <svg class="cut-card-svg"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <div class="cut-card-body">
+                        <h3 class="cut-title">Texas Bourbon Marinated Skirt</h3>
+                        <p class="cut-desc">Outside skirt steak steeped in our house oak-bourbon, garlic, and cracked pepper glaze.</p>
+                        <div class="cut-specs">
+                            <span>Marinade: Bourbon Garlic</span>
+                            <span>Best: Hot Grill Fajitas</span>
+                        </div>
+                        <button class="btn btn-outline-brown" onclick="openCutModal('Marinated Skirt Steak', '$18.99 / lb')">Inquire Cut</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SERVICES SECTION (4 SECTIONS WITH LARGE BROWN SVG ICONS) -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">Master Butcher Craft</span>
+                <h2>OUR SPECIALIZED SERVICES</h2>
+                <p class="section-desc">More than a retail counter—we provide tailored butchery solutions for enthusiasts, chefs, and event hosts.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <svg class="service-icon"><use href="#icon-cleaver"/></svg>
+                    </div>
+                    <h3 class="service-title">Custom Cuts & Aging</h3>
+                    <p class="service-text">
+                        Specify cut thickness, custom fat trimming, and Himalayan salt room dry aging from 21 to 45 days.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <svg class="service-icon"><use href="#icon-truck"/></svg>
+                    </div>
+                    <h3 class="service-title">Wholesale Supply</h3>
+                    <p class="service-text">
+                        Dedicated subprimal supply, custom portion control, and guaranteed grading for Houston restaurants and hotels.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <svg class="service-icon"><use href="#icon-utensils"/></svg>
+                    </div>
+                    <h3 class="service-title">Event Catering</h3>
+                    <p class="service-text">
+                        Live carving stations, Texas smoked BBQ feasts, and private steakhouse dining experiences for events.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon-wrap">
+                        <svg class="service-icon"><use href="#icon-delivery"/></svg>
+                    </div>
+                    <h3 class="service-title">Direct Fresh Delivery</h3>
+                    <p class="service-text">
+                        Temperature-controlled, refrigerated delivery boxes straight to your home or kitchen across Houston metro.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WHOLESALE BANNER (DEEP STEAK RED BACKGROUND + CREAM TEXT) -->
+    <section class="wholesale-banner" id="wholesale">
+        <div class="container">
+            <div class="wholesale-flex">
+                <div class="wholesale-info">
+                    <span style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--divider-kraft);">Restaurant & Commercial Supply</span>
+                    <h2 class="wholesale-title">ELEVATE YOUR RESTAURANT MENU WITH JP PRIME CUTS WHOLESALE</h2>
+                    <p class="wholesale-desc">
+                        Partner with Houston's premier meat distributor. We supply top-tier steakhouses, bistros, and caterers with consistent grading, custom aging specs, and dedicated delivery schedules.
+                    </p>
+                </div>
+                <div>
+                    <button class="btn btn-cream" onclick="openWholesaleModal()">Apply For Wholesale Account</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. ABOUT SECTION (IVORY + BROWN HEADING + WHEAT/COW EMBLEM) -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="section-tag">Our Texas Heritage</span>
+                    <h2 class="about-title">HONORING THE ART OF CLASSIC BUTCHERY</h2>
+                    <p>
+                        At JP Prime Cuts TX, butchery isn't just a business—it's a sacred Texas craft. Founded in Houston, our butcher shop was built on a simple commitment: bring back the personal trust, master skill, and uncompromised quality of traditional meat markets.
+                    </p>
+                    <p>
+                        We source exclusively from family-owned Texas ranches that practice ethical, grain-finished raising. Every subprimal that enters our shop is inspected, aged in our Himalayan salt tile room, and carved by hand with pride.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div>
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Texas Ranches</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">45 Days</div>
+                            <div class="stat-label">Max Dry Aging</div>
+                        </div>
+                        <div>
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Partner Chefs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-visual">
+                    <!-- Stylized SVG Wheat & Cow Emblem -->
+                    <svg class="about-svg-emblem" viewBox="0 0 300 300">
+                        <circle cx="150" cy="150" r="130" fill="none" stroke="#5c4033" stroke-width="3" stroke-dasharray="6,4"/>
+                        <circle cx="150" cy="150" r="118" fill="none" stroke="#8b2929" stroke-width="2"/>
+                        
+                        <!-- Wheat Ears SVG -->
+                        <path d="M 60,150 C 60,80 100,50 150,40 C 120,70 110,110 110,150 C 110,190 120,230 150,260 C 100,250 60,220 60,150 Z" fill="#d4c4a8" opacity="0.6"/>
+                        <path d="M 240,150 C 240,80 200,50 150,40 C 180,70 190,110 190,150 C 190,190 180,230 150,260 C 200,250 240,220 240,150 Z" fill="#d4c4a8" opacity="0.6"/>
+
+                        <!-- Center Steer Head Silhouette -->
+                        <path d="M 150,90 L 175,120 L 225,100 L 190,145 L 180,185 L 150,210 L 120,185 L 110,145 L 75,100 L 125,120 Z" fill="#5c4033"/>
+                        <circle cx="150" cy="140" r="8" fill="#8b2929"/>
+                        
+                        <!-- Star -->
+                        <polygon points="150,60 154,72 166,72 156,80 160,92 150,84 140,92 144,80 134,72 146,72" fill="#8b2929"/>
+                    </svg>
+                    <h4 style="margin-top: 20px; color: var(--brown-dark);">Master Butcher Guarantee</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">Inspected, graded, and cut fresh daily in Houston, Texas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. GALLERY SECTION (ABSTRACT MEAT CUT SHAPES IN RED/BROWN TONES) -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-tag">Visual Craftsmanship</span>
+                <h2>THE BUTCHER'S GALLERY</h2>
+                <p class="section-desc">Vector geometry and visual art representing our aging, marbling, and cut precision.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Gallery 1: Dry Aging Room -->
+                <div class="gallery-card">
+                    <div class="gallery-art-wrap">
+                        <svg class="gallery-svg-art" viewBox="0 0 200 140">
+                            <!-- Shelves & Hanging Cuts -->
+                            <line x1="20" y1="30" x2="180" y2="30" stroke="#d4c4a8" stroke-width="3"/>
+                            <line x1="20" y1="80" x2="180" y2="80" stroke="#d4c4a8" stroke-width="3"/>
+                            <!-- Hanging Rib subprimals -->
+                            <path d="M 50,30 L 50,45 C 50,65 75,65 75,45 L 75,30 Z" fill="#8b2929" stroke="#5c4033"/>
+                            <path d="M 100,30 L 100,50 C 100,70 125,70 125,50 L 125,30 Z" fill="#6b1d1d" stroke="#5c4033"/>
+                            <path d="M 145,30 L 145,42 C 145,60 165,60 165,42 L 165,30 Z" fill="#8b2929" stroke="#5c4033"/>
+                            <!-- Salt bricks pattern -->
+                            <rect x="30" y="95" width="30" height="15" fill="#f4ece1" stroke="#d4c4a8"/>
+                            <rect x="65" y="95" width="30" height="15" fill="#f4ece1" stroke="#d4c4a8"/>
+                            <rect x="100" y="95" width="30" height="15" fill="#f4ece1" stroke="#d4c4a8"/>
+                            <rect x="135" y="95" width="30" height="15" fill="#f4ece1" stroke="#d4c4a8"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4 class="gallery-caption-title">Himalayan Salt Dry Aging</h4>
+                        <p class="gallery-caption-sub">21 to 45 day humidity controlled aging chamber.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery 2: Tomahawk Vector -->
+                <div class="gallery-card">
+                    <div class="gallery-art-wrap">
+                        <svg class="gallery-svg-art" viewBox="0 0 200 140">
+                            <!-- Tomahawk Bone and Ribeye eye -->
+                            <path d="M 30,120 L 120,40" stroke="#eae0d0" stroke-width="12" stroke-linecap="round"/>
+                            <path d="M 110,60 C 140,20 185,40 175,80 C 165,115 120,110 100,85 Z" fill="#8b2929" stroke="#5c4033" stroke-width="2"/>
+                            <circle cx="140" cy="70" r="18" fill="#a83232"/>
+                            <!-- Marbling lines -->
+                            <path d="M 130,60 Q 140,75 155,65" stroke="#f9f4ed" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4 class="gallery-caption-title">Tomahawk Geometry</h4>
+                        <p class="gallery-caption-sub">French-trimmed bone with marbled ribeye core.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery 3: Wagyu Marbling Lattice -->
+                <div class="gallery-card">
+                    <div class="gallery-art-wrap">
+                        <svg class="gallery-svg-art" viewBox="0 0 200 140">
+                            <rect x="20" y="20" width="160" height="100" rx="10" fill="#9e2b2b"/>
+                            <!-- Intricate Marbling Veins -->
+                            <path d="M 30,40 Q 60,30 90,50 T 150,40 M 40,70 Q 80,90 120,60 T 170,80 M 30,100 Q 70,80 110,105 T 160,95" stroke="#f9f4ed" stroke-width="3" fill="none" opacity="0.85"/>
+                            <path d="M 50,50 Q 90,65 130,45 M 60,85 Q 100,70 140,90" stroke="#f9f4ed" stroke-width="1.5" fill="none" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4 class="gallery-caption-title">A5 Wagyu Intricate Marbling</h4>
+                        <p class="gallery-caption-sub">Dense intramuscular fat lattice for melt-in-mouth texture.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery 4: T-Bone Cut Geometry -->
+                <div class="gallery-card">
+                    <div class="gallery-art-wrap">
+                        <svg class="gallery-svg-art" viewBox="0 0 200 140">
+                            <!-- T Bone -->
+                            <path d="M 100,20 L 100,120 M 100,30 L 180,30" stroke="#eae0d0" stroke-width="8"/>
+                            <!-- Strip side -->
+                            <path d="M 105,35 C 150,35 180,60 160,110 C 130,120 105,110 105,35 Z" fill="#8b2929"/>
+                            <!-- Filet side -->
+                            <path d="M 95,35 C 60,35 30,60 45,100 C 70,110 95,90 95,35 Z" fill="#782121"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4 class="gallery-caption-title">T-Bone & Porterhouse Structure</h4>
+                        <p class="gallery-caption-sub">Dual cut divided by central spinal bone.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery 5: Cleaver & Block -->
+                <div class="gallery-card">
+                    <div class="gallery-art-wrap">
+                        <svg class="gallery-svg-art" viewBox="0 0 200 140">
+                            <!-- Wooden block base -->
+                            <rect x="20" y="85" width="160" height="35" fill="#5c4033" rx="4"/>
+                            <!-- Cleaver embedded -->
+                            <path d="M 80,30 L 130,30 L 130,85 L 70,85 Z" fill="#d4c4a8" stroke="#3d2817" stroke-width="2"/>
+                            <path d="M 60,20 L 80,30 L 70,85 L 50,75 Z" fill="#3d2817"/>
+                            <circle cx="115" cy="45" r="5" fill="#3d2817"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4 class="gallery-caption-title">Artisan Butcher Tools</h4>
+                        <p class="gallery-caption-sub">Traditional hand cleavers and end-grain block carving.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery 6: Smoked Brisket Bark -->
+                <div class="gallery-card">
+                    <div class="gallery-art-wrap">
+                        <svg class="gallery-svg-art" viewBox="0 0 200 140">
+                            <!-- Brisket cross section with smoke ring -->
+                            <rect x="30" y="30" width="140" height="80" rx="8" fill="#291a0e"/>
+                            <rect x="38" y="38" width="124" height="64" rx="5" fill="#b83b3b"/>
+                            <rect x="44" y="44" width="112" height="52" rx="3" fill="#6b1d1d"/>
+                            <!-- Render Fat layer -->
+                            <path d="M 38,38 Q 100,45 162,38" stroke="#f9f4ed" stroke-width="4" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="gallery-caption">
+                        <h4 class="gallery-caption-title">Texas Smoked Brisket Bark</h4>
+                        <p class="gallery-caption-sub">Deep dark pepper crust with vibrant smoke ring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CONTACT & ORDER INQUIRY SECTION (KRAFT FORM + BROWN BUTTON) -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-grid">
+                    
+                    <!-- Left: Info & Hours -->
+                    <div class="contact-info-box">
+                        <div>
+                            <span class="section-tag">Visit or Call</span>
+                            <h2 style="font-size: 2.2rem; color: var(--brown-dark);">CONNECT WITH OUR SHOP</h2>
+                            <p style="color: var(--text-muted);">Have questions about custom aging, special cut thickness, catering, or restaurant wholesale? Reach out to our master team.</p>
+                        </div>
+
+                        <div class="info-item">
+                            <svg class="info-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <div class="info-details">
+                                <h4>Shop Address</h4>
+                                <p>1234 Heritage Meats Way, Houston, TX 77002</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <svg class="info-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <div class="info-details">
+                                <h4>Direct Phone</h4>
+                                <p>(713) 555-0100</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <svg class="info-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <div class="info-details">
+                                <h4>Email Inquiries</h4>
+                                <p>orders@jpprimecutstx.com</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 style="margin-bottom: 8px; color: var(--brown-dark);">Counter Hours</h4>
+                            <table class="hours-table">
+                                <tr>
+                                    <td>Monday – Saturday</td>
+                                    <td>9:00 AM – 7:00 PM</td>
+                                </tr>
+                                <tr>
+                                    <td>Sunday</td>
+                                    <td>10:00 AM – 4:00 PM</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Right: Kraft Form -->
+                    <div>
+                        <h3 style="font-size: 1.8rem; color: var(--brown-dark); margin-bottom: 20px;">Submit Cut & Order Inquiry</h3>
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="fullName">Your Full Name</label>
+                                <input type="text" id="fullName" class="form-control" placeholder="John Doe" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="emailAddr">Email Address</label>
+                                <input type="email" id="emailAddr" class="form-control" placeholder="john@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="phoneNum">Phone Number</label>
+                                <input type="tel" id="phoneNum" class="form-control" placeholder="(713) 555-0100">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="inquiryType">Inquiry Type</label>
+                                <select id="inquiryType" class="form-control">
+                                    <option value="retail">Retail Cut Reserve Order</option>
+                                    <option value="custom">Custom Thickness / Dry Aging</option>
+                                    <option value="wholesale">Restaurant Wholesale Account</option>
+                                    <option value="catering">Event Catering Inquiry</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="msgText">Cut Specifications & Details</label>
+                                <textarea id="msgText" class="form-control" placeholder="Specify cuts, estimated lbs, dry aging preference, or event date..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-brown" style="width: 100%;">Submit Inquiry To Master Butcher</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FOOTER (DEEP BROWN #3d2817 WITH CREAM TEXT) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- Col 1: Brand -->
+                <div>
+                    <div class="footer-logo">
+                        <svg style="width: 36px; height: 36px; fill: var(--red-primary);"><use href="#icon-cleaver"/></svg>
+                        <h3 class="footer-logo-title">JP PRIME CUTS TX</h3>
+                    </div>
+                    <p class="footer-about">
+                        Texas' premier artisan butcher shop. Hand-selected USDA Prime & Choice cuts, Texas Wagyu, custom dry aging, and commercial restaurant supply.
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--divider-kraft);">
+                        📍 Houston, Texas Metro Area
+                    </p>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#cuts">Featured Prime Cuts</a></li>
+                        <li><a href="#services">Butcher Services</a></li>
+                        <li><a href="#wholesale">Wholesale Supply</a></li>
+                        <li><a href="#about">Our Texas Story</a></li>
+                        <li><a href="#contact">Contact & Hours</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Cuts -->
+                <div>
+                    <h4 class="footer-heading">Specialty Cuts</h4>
+                    <ul class="footer-links">
+                        <li><a href="#cuts">USDA Prime Ribeye</a></li>
+                        <li><a href="#cuts">Tomahawk Steak</a></li>
+                        <li><a href="#cuts">Texas A5 Wagyu</a></li>
+                        <li><a href="#cuts">Center-Cut Filet</a></li>
+                        <li><a href="#cuts">45-Day Dry Aged Strip</a></li>
+                        <li><a href="#cuts">House Smoked Sausage</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h4 class="footer-heading">The Butcher's Club</h4>
+                    <p style="font-size: 0.875rem; color: rgba(249,244,237,0.75);">
+                        Receive weekly notifications on fresh subprimal arrivals, rare Wagyu drops, and Texas BBQ guides.
+                    </p>
+                    <div style="display: flex; gap: 8px; margin-top: 15px;">
+                        <input type="email" placeholder="Your email..." class="form-control" style="padding: 10px; font-size: 0.875rem;">
+                        <button class="btn btn-red" style="padding: 10px 16px;" onclick="showToast('Subscribed to The Butcher's Club!')">Join</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    © 2026 JP Prime Cuts TX. Premium Meats, Cut to Perfection. All Rights Reserved.
+                </div>
+                <div>
+                    Houston, TX • USDA Inspected Facility
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE TOAST NOTIFICATION -->
+    <div class="toast" id="toast">
+        <svg width="24" height="24" fill="var(--divider-kraft)"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span id="toastMsg">Inquiry submitted successfully! Our butcher will call you.</span>
+    </div>
+
+    <!-- MODAL POPUP FOR QUICK CUT INQUIRY -->
+    <div class="modal-overlay" id="cutModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('cutModal')">&times;</button>
+            <h3 style="color: var(--brown-dark); margin-bottom: 6px;" id="modalCutTitle">Reserve Cut</h3>
+            <p style="color: var(--red-primary); font-weight: 700; margin-bottom: 20px;" id="modalCutPrice">$0.00</p>
+            
+            <div class="form-group">
+                <label class="form-label">Desired Quantity / Lbs</label>
+                <input type="number" class="form-control" value="2" min="1" max="50">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Thickness Preference</label>
+                <select class="form-control">
+                    <option>Standard (1.5 inches)</option>
+                    <option>Thick Cut (2.0 inches)</option>
+                    <option>Extra Thick (2.5+ inches)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Your Phone or Email</label>
+                <input type="text" class="form-control" placeholder="Contact info...">
+            </div>
+
+            <button class="btn btn-red" style="width: 100%;" onclick="submitModalInquiry()">Confirm Cut Reserve Request</button>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP FOR WHOLESALE ACCOUNT -->
+    <div class="modal-overlay" id="wholesaleModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('wholesaleModal')">&times;</button>
+            <h3 style="color: var(--brown-dark); margin-bottom: 6px;">Wholesale Account Application</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">For Restaurants, Hotels, and Commercial Kitchens in Houston & Surrounding Areas.</p>
+            
+            <div class="form-group">
+                <label class="form-label">Restaurant / Business Name</label>
+                <input type="text" class="form-control" placeholder="Houston Bistro & Grill">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Estimated Weekly Volume (lbs)</label>
+                <select class="form-control">
+                    <option>100 - 250 lbs / week</option>
+                    <option>250 - 500 lbs / week</option>
+                    <option>500+ lbs / week</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Contact Person & Phone</label>
+                <input type="text" class="form-control" placeholder="Chef Marcus - (713) 555-0199">
+            </div>
+
+            <button class="btn btn-brown" style="width: 100%;" onclick="submitWholesaleApp()">Request Price Sheet & Samples</button>
+        </div>
+    </div>
+
+    <!-- PURE INLINE JAVASCRIPT -->
+    <script>
+        // 1. Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        // 2. Cow Diagram Interactive Highlights
+        const cutData = {
+            chuck: {
+                title: "Chuck Section (Flat Iron, Denver & Roast)",
+                desc: "Located near the shoulder. Excellent deep beef flavor with good marbling. Great for braising, chuck roasts, or flat iron steaks.",
+                cuts: "Featured: Flat Iron Steak, Denver Cut, Chuck Eye Roast"
+            },
+            rib: {
+                title: "Rib Section (Prime Ribeye & Tomahawk)",
+                desc: "Famous for rich marbling, juicy texture, and intense beef flavor. Best prepared with high-heat searing or grill roasting.",
+                cuts: "Featured: USDA Prime Ribeye, Tomahawk Steak, Cowboy Cut"
+            },
+            loin: {
+                title: "Short Loin (T-Bone, Porterhouse & NY Strip)",
+                desc: "Home to the most tender steak cuts. Combines the rich flavor of NY Strip with the velvety softness of Tenderloin.",
+                cuts: "Featured: Porterhouse, T-Bone Steak, New York Strip"
+            },
+            sirloin: {
+                title: "Sirloin Section (Top Sirloin & Tri-Tip)",
+                desc: "Lean, hearty, and full of bold steak flavor. Perfect for grilling, steak skewers, or Texas Tri-Tip smoker roasts.",
+                cuts: "Featured: Center Cut Top Sirloin, Texas Tri-Tip Roast"
+            },
+            round: {
+                title: "Round Section (Rump Roast & Top Round)",
+                desc: "Lean cuts from the rear leg. High protein, best prepared by slow roasting, thin slicing for pit beef, or braising.",
+                cuts: "Featured: Top Round Steak, London Broil, Rump Roast"
+            },
+            brisket: {
+                title: "Texas Brisket Section (Point & Flat)",
+                desc: "The pinnacle of Texas Barbecue. Heavy connective tissue renders into decadent tenderness during low-and-slow smoking.",
+                cuts: "Featured: Whole Packer Brisket, Smoked Brisket Flat"
+            },
+            plate: {
+                title: "Short Plate (Skirt Steak & Short Ribs)",
+                desc: "Rich fat content and long grain structure. Produces intensely flavorful skirt steaks for fajita searing and tender short ribs.",
+                cuts: "Featured: Outside Skirt Steak, Dino Short Ribs"
+            },
+            flank: {
+                title: "Flank Section (Flank Steak)",
+                desc: "Lean and muscular with pronounced grain direction. Absorbs marinades exceptionally well and sears quickly.",
+                cuts: "Featured: Marinated Flank Steak, Carne Asada Cut"
+            },
+            shank: {
+                title: "Shank Section (Osso Buco)",
+                desc: "Rich in bone marrow and collagen. Perfect for traditional Osso Buco and slow-simmered beef stews.",
+                cuts: "Featured: Beef Shank Osso Buco, Stew Meat"
+            },
+            neck: {
+                title: "Neck & Trim",
+                desc: "Richly marbled trim used for our artisanal house burger blends and handmade smoked sausages.",
+                cuts: "Featured: Custom Prime Burger Blend, Artisanal Sausages"
+            }
+        };
+
+        document.querySelectorAll('.cut-region').forEach(region => {
+            region.addEventListener('click', function() {
+                document.querySelectorAll('.cut-region').forEach(r => r.classList.remove('active'));
+                this.classList.add('active');
+
+                const cutKey = this.getAttribute('data-cut');
+                if (cutData[cutKey]) {
+                    document.getElementById('cutTitle').innerText = cutData[cutKey].title;
+                    document.getElementById('cutDesc').innerText = cutData[cutKey].desc;
+                    document.getElementById('cutHighlights').innerText = cutData[cutKey].cuts;
+                }
+            });
+        });
+
+        // 3. Category Filter for Featured Cuts
+        function filterCuts(category) {
+            // Update button styles
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.cut-card');
+            cards.forEach(card => {
+                const cats = card.getAttribute('data-category');
+                if (category === 'all' || cats.includes(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 4. Modal Handlers
+        function openCutModal(title, price) {
+            document.getElementById('modalCutTitle').innerText = 'Reserve: ' + title;
+            document.getElementById('modalCutPrice').innerText = price;
+            document.getElementById('cutModal').classList.add('active');
+        }
+
+        function openWholesaleModal() {
+            document.getElementById('wholesaleModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function submitModalInquiry() {
+            closeModal('cutModal');
+            showToast('Cut reserve request submitted! Our butcher will confirm shortly.');
+        }
+
+        function submitWholesaleApp() {
+            closeModal('wholesaleModal');
+            showToast('Wholesale application received! Account manager will call today.');
+        }
+
+        // 5. Contact Form Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('fullName').value;
+            showToast(`Thank you ${name}! Your inquiry has been sent to our master butcher.`);
+            document.getElementById('contactForm').reset();
+        }
+
+        // 6. Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

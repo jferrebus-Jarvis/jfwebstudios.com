@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JP Prime Cuts TX — Premium Meats, Cut to Perfection</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           RESET & BASE STYLES - ELEGANT CREAM WITH GOLD ACCENTS
+           ========================================================================== */
+        :root {
+            --bg-cream: #fbf8f3;
+            --bg-cream-light: #fefcf8;
+            --bg-cream-card: #ffffff;
+            --gold-primary: #c9a96e;
+            --gold-light: #e5d2ac;
+            --gold-dark: #a68449;
+            --gold-subtle: rgba(201, 169, 110, 0.3);
+            --gold-glow: rgba(201, 169, 110, 0.15);
+            --espresso-primary: #3d2b1f;
+            --espresso-dark: #2a1c13;
+            --espresso-light: #5a4536;
+            --espresso-subtle: #806b5c;
+            
+            --font-heading: 'DM Serif Display', Georgia, serif;
+            --font-body: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            --shadow-subtle: 0 10px 30px rgba(61, 43, 31, 0.04);
+            --shadow-gold: 0 12px 35px rgba(201, 169, 110, 0.18);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--espresso-primary);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Typography Defaults */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--espresso-primary);
+            font-weight: 400;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--espresso-light);
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: var(--gold-dark);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        a:hover {
+            color: var(--gold-primary);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-gold { color: var(--gold-primary); }
+        .bg-light-cream { background-color: var(--bg-cream-light); }
+        .bg-pure-cream { background-color: var(--bg-cream); }
+
+        /* Section Wrappers */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            color: var(--espresso-primary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--espresso-light);
+            font-weight: 300;
+        }
+
+        /* ==========================================================================
+           GOLD DIVIDER / ORNAMENTAL SVG
+           ========================================================================== */
+        .gold-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem auto 2rem auto;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .gold-divider::before,
+        .gold-divider::after {
+            content: '';
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        .gold-flourish {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* ==========================================================================
+           BUTTONS & INTERACTIVE ELEMENTS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.25rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-gold {
+            background-color: var(--gold-primary);
+            color: var(--espresso-dark);
+            border-color: var(--gold-primary);
+            box-shadow: 0 4px 15px rgba(201, 169, 110, 0.3);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-dark);
+            border-color: var(--gold-dark);
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(166, 132, 73, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-gold {
+            background-color: transparent;
+            color: var(--gold-dark);
+            border: 1px solid var(--gold-primary);
+        }
+
+        .btn-outline-gold:hover {
+            background-color: var(--gold-primary);
+            color: var(--espresso-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 169, 110, 0.25);
+        }
+
+        .btn-sm {
+            padding: 0.65rem 1.35rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* ==========================================================================
+           TOP BANNER & HEADER NAVIGATION
+           ========================================================================== */
+        .top-banner {
+            background-color: var(--espresso-primary);
+            color: var(--bg-cream);
+            font-size: 0.825rem;
+            padding: 0.5rem 0;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+        }
+
+        .top-banner-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-banner-text {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .top-banner-contact {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .top-banner-contact a {
+            color: var(--gold-light);
+        }
+
+        .top-banner-contact a:hover {
+            color: #ffffff;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(251, 248, 243, 0.96);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gold-subtle);
+            padding: 1rem 0;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 46px;
+            height: 46px;
+        }
+
+        .brand-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.55rem;
+            color: var(--espresso-primary);
+            line-height: 1;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-dark);
+            font-weight: 700;
+            margin-top: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.25rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--espresso-primary);
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .cart-trigger {
+            position: relative;
+            background: transparent;
+            border: 1px solid var(--gold-subtle);
+            padding: 0.55rem 1.1rem;
+            border-radius: 2px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--espresso-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+        }
+
+        .cart-trigger:hover {
+            border-color: var(--gold-primary);
+            background-color: rgba(201, 169, 110, 0.08);
+        }
+
+        .cart-badge {
+            background-color: var(--gold-primary);
+            color: var(--espresso-dark);
+            font-size: 0.75rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .hero {
+            padding: 7rem 0 6rem 0;
+            background-color: var(--bg-cream);
+            text-align: center;
+            position: relative;
+            background-image: 
+                radial-gradient(circle at 50% 25%, rgba(201, 169, 110, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 10% 80%, rgba(201, 169, 110, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(201, 169, 110, 0.04) 0%, transparent 40%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1.25rem;
+            background-color: var(--bg-cream-light);
+            border: 1px solid var(--gold-subtle);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-dark);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .hero-flourish-top {
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 4.25rem;
+            line-height: 1.15;
+            color: var(--espresso-primary);
+            max-width: 950px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .hero-title-accent {
+            color: var(--gold-dark);
+            position: relative;
+            display: inline-block;
+            font-style: italic;
+        }
+
+        .hero-title-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 740px;
+            margin: 0 auto 2.75rem auto;
+            color: var(--espresso-light);
+            font-weight: 300;
+            line-height: 1.85;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gold-subtle);
+            max-width: 900px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--espresso-light);
+            font-weight: 400;
+        }
+
+        .hero-feature-icon {
+            width: 22px;
+            height: 22px;
+            color: var(--gold-primary);
+        }
+
+        /* ==========================================================================
+           STATS BAR
+           ========================================================================== */
+        .stats-section {
+            background-color: var(--bg-cream-light);
+            border-top: 1px solid var(--gold-subtle);
+            border-bottom: 1px solid var(--gold-subtle);
+            padding: 3.5rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            position: relative;
+            padding: 1rem;
+        }
+
+        .stat-card:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--gold-subtle), transparent);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3.75rem;
+            color: var(--gold-dark);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--espresso-light);
+            font-weight: 700;
+        }
+
+        /* ==========================================================================
+           FEATURED CUTS (THE CROWN JEWELS) - CORNER GOLD ACCENTS
+           ========================================================================== */
+        .featured-section {
+            background-color: var(--bg-cream);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        /* Card with Gold Corner Accents & Subtle Border */
+        .featured-card {
+            background-color: var(--bg-cream-card);
+            border: 1px solid var(--gold-subtle);
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .featured-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-gold);
+            border-color: rgba(201, 169, 110, 0.6);
+        }
+
+        /* L-Shaped Gold Corner Accents */
+        .corner-accent {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .corner-top-left {
+            top: -1px;
+            left: -1px;
+            border-top: 2px solid var(--gold-primary);
+            border-left: 2px solid var(--gold-primary);
+        }
+
+        .corner-top-right {
+            top: -1px;
+            right: -1px;
+            border-top: 2px solid var(--gold-primary);
+            border-right: 2px solid var(--gold-primary);
+        }
+
+        .corner-bottom-left {
+            bottom: -1px;
+            left: -1px;
+            border-bottom: 2px solid var(--gold-primary);
+            border-left: 2px solid var(--gold-primary);
+        }
+
+        .corner-bottom-right {
+            bottom: -1px;
+            right: -1px;
+            border-bottom: 2px solid var(--gold-primary);
+            border-right: 2px solid var(--gold-primary);
+        }
+
+        .featured-card:hover .corner-accent {
+            width: 28px;
+            height: 28px;
+            border-color: var(--gold-dark);
+        }
+
+        .featured-image-box {
+            height: 210px;
+            width: 100%;
+            background: linear-gradient(135deg, #f8f3ea 0%, #ede1d0 100%);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(201, 169, 110, 0.18);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--espresso-primary);
+            color: var(--gold-light);
+            font-size: 0.725rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.35rem 0.85rem;
+            font-weight: 700;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .featured-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--espresso-primary);
+        }
+
+        .featured-price-tag {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--gold-dark);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+
+        .featured-price-unit {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--espresso-light);
+            font-weight: 400;
+        }
+
+        .featured-desc {
+            font-size: 0.95rem;
+            color: var(--espresso-light);
+            margin-bottom: 1.75rem;
+            flex-grow: 1;
+            line-height: 1.7;
+        }
+
+        .featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--gold-subtle);
+        }
+
+        .featured-tag-item {
+            font-size: 0.75rem;
+            color: var(--espresso-primary);
+            background-color: var(--bg-cream-light);
+            padding: 0.25rem 0.65rem;
+            border-radius: 2px;
+            border: 1px solid rgba(201, 169, 110, 0.25);
+        }
+
+        /* ==========================================================================
+           PRODUCTS CATALOGUE (FILTERABLE)
+           ========================================================================== */
+        .products-section {
+            background-color: var(--bg-cream-light);
+        }
+
+        /* Category Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 3.5rem;
+        }
+
+        .filter-btn {
+            background-color: transparent;
+            border: 1px solid var(--gold-subtle);
+            color: var(--espresso-primary);
+            padding: 0.7rem 1.6rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border-radius: 2px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--gold-primary);
+            border-color: var(--gold-primary);
+            color: var(--espresso-dark);
+            box-shadow: 0 4px 12px rgba(201, 169, 110, 0.25);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        /* Product Card: Cream BG, Subtle Gold Border, Top Border Thickens on Hover */
+        .product-card {
+            background-color: var(--bg-cream-card);
+            border: 1px solid var(--gold-subtle);
+            border-top: 2px solid var(--gold-primary);
+            padding: 2.25rem 2rem;
+            position: relative;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            border-radius: 2px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .product-card:hover {
+            border-top-width: 6px;
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-gold);
+            border-color: var(--gold-primary);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+            gap: 1rem;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            color: var(--espresso-primary);
+            line-height: 1.25;
+        }
+
+        /* Small Rounded Gold Price Tag */
+        .price-tag {
+            background-color: rgba(201, 169, 110, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-dark);
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 700;
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover .price-tag {
+            background-color: var(--gold-primary);
+            color: var(--espresso-dark);
+        }
+
+        .product-icon-box {
+            height: 120px;
+            width: 100%;
+            background: linear-gradient(135deg, #fbf7f0 0%, #f3ebd9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            border-radius: 2px;
+            border: 1px solid rgba(201, 169, 110, 0.12);
+        }
+
+        .product-desc {
+            font-size: 0.925rem;
+            color: var(--espresso-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.65;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(201, 169, 110, 0.18);
+        }
+
+        .product-spec {
+            font-size: 0.8rem;
+            color: var(--espresso-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+        }
+
+        .btn-add-item {
+            background: transparent;
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-dark);
+            padding: 0.5rem 1.15rem;
+            font-size: 0.775rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-add-item:hover {
+            background-color: var(--gold-primary);
+            color: var(--espresso-dark);
+        }
+
+        /* ==========================================================================
+           CUSTOM CUT CALCULATOR / ESTIMATOR
+           ========================================================================== */
+        .calculator-section {
+            background-color: var(--bg-cream);
+        }
+
+        .calc-wrapper {
+            background-color: var(--bg-cream-card);
+            border: 1px solid var(--gold-primary);
+            box-shadow: var(--shadow-gold);
+            padding: 3.5rem 3rem;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .calc-control-group {
+            margin-bottom: 1.75rem;
+        }
+
+        .calc-label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--espresso-primary);
+            font-weight: 700;
+            margin-bottom: 0.65rem;
+        }
+
+        .calc-select, .calc-input {
+            width: 100%;
+            padding: 0.95rem 1.25rem;
+            background-color: var(--bg-cream);
+            border: 1px solid var(--gold-subtle);
+            color: var(--espresso-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border-radius: 2px;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .calc-select:focus, .calc-input:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 10px rgba(201, 169, 110, 0.25);
+        }
+
+        .calc-options-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .calc-opt-btn {
+            background-color: var(--bg-cream);
+            border: 1px solid var(--gold-subtle);
+            padding: 0.8rem 0.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--espresso-primary);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border-radius: 2px;
+        }
+
+        .calc-opt-btn.active, .calc-opt-btn:hover {
+            border-color: var(--gold-primary);
+            background-color: var(--gold-primary);
+            color: var(--espresso-dark);
+        }
+
+        .calc-summary-card {
+            background-color: var(--bg-cream-light);
+            border: 1px solid var(--gold-subtle);
+            padding: 2.75rem 2.25rem;
+            text-align: center;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .calc-summary-title {
+            font-size: 1.55rem;
+            color: var(--espresso-primary);
+            margin-bottom: 1rem;
+        }
+
+        .calc-price-display {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: var(--gold-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .calc-specs-list {
+            list-style: none;
+            margin: 1.5rem 0 2rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid var(--gold-subtle);
+            border-bottom: 1px solid var(--gold-subtle);
+            text-align: left;
+        }
+
+        .calc-specs-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.45rem 0;
+            font-size: 0.925rem;
+            color: var(--espresso-light);
+        }
+
+        .calc-specs-list li span:last-child {
+            font-weight: 700;
+            color: var(--espresso-primary);
+        }
+
+        /* ==========================================================================
+           SERVICES SECTION (GOLD NUMBERED BADGES 01-04)
+           ========================================================================== */
+        .services-section {
+            background-color: var(--bg-cream-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        /* Cream cards with thin gold left border & gold numbered badges */
+        .service-card {
+            background-color: var(--bg-cream-card);
+            border: 1px solid var(--gold-subtle);
+            border-left: 3px solid var(--gold-primary);
+            padding: 2.75rem 2.25rem;
+            position: relative;
+            transition: var(--transition-smooth);
+            display: flex;
+            gap: 1.75rem;
+            border-radius: 2px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-left-width: 6px;
+            box-shadow: var(--shadow-gold);
+            border-color: rgba(201, 169, 110, 0.5);
+        }
+
+        /* Gold Numbered Badge (01-04) */
+        .service-badge {
+            font-family: var(--font-heading);
+            font-size: 1.85rem;
+            color: var(--gold-dark);
+            background-color: rgba(201, 169, 110, 0.12);
+            border: 1px solid var(--gold-primary);
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: 700;
+            transition: var(--transition-smooth);
+        }
+
+        .service-card:hover .service-badge {
+            background-color: var(--gold-primary);
+            color: var(--espresso-dark);
+        }
+
+        .service-content h3 {
+            font-size: 1.65rem;
+            margin-bottom: 0.75rem;
+            color: var(--espresso-primary);
+        }
+
+        .service-content p {
+            font-size: 0.95rem;
+            color: var(--espresso-light);
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .service-link {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            color: var(--gold-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-link:hover {
+            color: var(--espresso-primary);
+        }
+
+        /* ==========================================================================
+           ABOUT SECTION (CREAM, ESPRESSO TEXT, GOLD DIVIDER, SERIF QUOTE)
+           ========================================================================== */
+        .about-section {
+            background-color: var(--bg-cream);
+            padding: 7rem 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-quote-box {
+            position: relative;
+            padding: 3.5rem 3rem;
+            background-color: var(--bg-cream-light);
+            border: 1px solid var(--gold-subtle);
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .about-quote {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            line-height: 1.5;
+            color: var(--espresso-primary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-author {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--gold-dark);
+            font-weight: 700;
+        }
+
+        .about-text-content p {
+            font-size: 1.125rem;
+            color: var(--espresso-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.85;
+            font-weight: 300;
+        }
+
+        /* ==========================================================================
+           CONTACT & INQUIRY FORM SECTION
+           ========================================================================== */
+        .contact-section {
+            background-color: var(--bg-cream-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+        }
+
+        /* Cream card with gold border */
+        .contact-card {
+            background-color: var(--bg-cream-card);
+            border: 1px solid var(--gold-primary);
+            padding: 3.5rem 3rem;
+            box-shadow: var(--shadow-gold);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--espresso-primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Espresso text inputs with gold focus border */
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.95rem 1.15rem;
+            background-color: var(--bg-cream);
+            border: 1px solid var(--gold-subtle);
+            color: var(--espresso-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            border-radius: 2px;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: var(--espresso-subtle);
+            opacity: 0.7;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: var(--gold-primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 12px rgba(201, 169, 110, 0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .contact-info-panel {
+            padding: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .info-block {
+            margin-bottom: 2.25rem;
+        }
+
+        .info-title {
+            font-size: 1.4rem;
+            color: var(--espresso-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .info-detail {
+            font-size: 1.05rem;
+            color: var(--espresso-light);
+            line-height: 1.7;
+        }
+
+        .hours-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed var(--gold-subtle);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           FOOTER (ESPRESSO BG WITH CREAM AND GOLD TEXT)
+           ========================================================================== */
+        .footer {
+            background-color: var(--espresso-primary);
+            color: var(--bg-cream);
+            padding: 5rem 0 2.5rem 0;
+            border-top: 2px solid var(--gold-primary);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo-title {
+            font-family: var(--font-heading);
+            font-size: 1.85rem;
+            color: var(--gold-light);
+            margin-bottom: 0.35rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-desc {
+            color: rgba(251, 248, 243, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-column-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background-color: var(--gold-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(251, 248, 243, 0.8);
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+            padding-left: 5px;
+        }
+
+        .newsletter-input-group {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            padding: 0.75rem 1rem;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            border-right: none;
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            border-radius: 2px 0 0 2px;
+            outline: none;
+            width: 100%;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--gold-primary);
+        }
+
+        .newsletter-btn {
+            background-color: var(--gold-primary);
+            color: var(--espresso-dark);
+            border: 1px solid var(--gold-primary);
+            padding: 0.75rem 1.25rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 0 2px 2px 0;
+            transition: var(--transition-smooth);
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(201, 169, 110, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: rgba(251, 248, 243, 0.5);
+        }
+
+        /* ==========================================================================
+           MODAL TOAST NOTIFICATION
+           ========================================================================== */
+        .toast-notification {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--espresso-primary);
+            color: var(--bg-cream);
+            border: 1px solid var(--gold-primary);
+            padding: 1.25rem 2rem;
+            box-shadow: var(--shadow-gold);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateY(150%);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 2px;
+        }
+
+        .toast-notification.active {
+            transform: translateY(0);
+        }
+
+        .toast-icon {
+            color: var(--gold-primary);
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .featured-grid, .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+            .stat-card:not(:last-child)::after {
+                display: none;
+            }
+            .calc-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.85rem;
+            }
+            .section-title {
+                font-size: 2.25rem;
+            }
+            .featured-grid, .products-grid, .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .top-banner-contact {
+                display: none;
+            }
+            .top-banner-content {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-cream);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--gold-subtle);
+                box-shadow: var(--shadow-subtle);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .calc-options-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div class="top-banner">
+        <div class="container top-banner-content">
+            <div class="top-banner-text">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <span>Complimentary Temperature-Controlled Delivery in Greater Houston on Orders $200+</span>
+            </div>
+            <div class="top-banner-contact">
+                <a href="tel:7135550100">Concierge: (713) 555-0100</a>
+                <span>|</span>
+                <span>Houston, TX</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <!-- SVG Crest Logo -->
+                <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="46" stroke="#c9a96e" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="42" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3 3"/>
+                    <path d="M30 42C30 35 38 28 50 28C62 28 70 35 70 42C70 52 62 58 50 68C38 58 30 52 30 42Z" stroke="#3d2b1f" stroke-width="2" fill="none"/>
+                    <path d="M38 38L62 38M50 28V68" stroke="#c9a96e" stroke-width="1.5"/>
+                    <path d="M42 74L50 78L58 74" stroke="#c9a96e" stroke-width="2"/>
+                </svg>
+                <div class="brand-text-wrapper">
+                    <span class="brand-name">JP PRIME CUTS</span>
+                    <span class="brand-tag">TEXAS &bull; EST. 2011</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#featured" class="nav-link">Featured Cuts</a></li>
+                <li><a href="#products" class="nav-link">Butcher Counter</a></li>
+                <li><a href="#custom-cut" class="nav-link">Custom Orders</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">Our Heritage</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="cart-trigger" onclick="openReserveModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span>Reserve</span>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileNav()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3d2b1f" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#c9a96e"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 12 2"/></svg>
+                Pure USDA Prime & Japanese A5 Wagyu
+            </div>
+
+            <!-- Small Gold Ornamental SVG Flourish -->
+            <svg class="hero-flourish-top" width="120" height="24" viewBox="0 0 120 24" fill="none">
+                <path d="M0 12H45M75 12H120" stroke="#c9a96e" stroke-width="1"/>
+                <circle cx="60" cy="12" r="4" fill="#c9a96e"/>
+                <path d="M50 12L56 6L60 12L56 18Z" fill="none" stroke="#c9a96e"/>
+                <path d="M70 12L64 6L60 12L64 18Z" fill="none" stroke="#c9a96e"/>
+            </svg>
+
+            <!-- Large Serif Heading with Gold Underline Accent -->
+            <h1 class="hero-title">
+                Texas’ Premier Purveyor of <span class="hero-title-accent">Artisan Cut</span> Premium Meats
+            </h1>
+
+            <p class="hero-subtitle">
+                Hand-selected USDA Prime, American & Japanese Wagyu, and custom 45-day salt-aged cuts crafted for discerning home chefs, private galas, and Texas’ finest dining rooms.
+            </p>
+
+            <!-- Elegant CTA Buttons -->
+            <div class="hero-cta-group">
+                <a href="#featured" class="btn btn-gold">
+                    <span>Explore Prime Collection</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <a href="#custom-cut" class="btn btn-outline-gold">
+                    <span>Request Custom Cut</span>
+                </a>
+            </div>
+
+            <div class="hero-features">
+                <div class="hero-feature-item">
+                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span>100% Certified USDA Prime</span>
+                </div>
+                <div class="hero-feature-item">
+                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    <span>45-Day Salt Dry Aging</span>
+                </div>
+                <div class="hero-feature-item">
+                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    <span>Houston Express Courier</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS COUNTER BAR -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years of Master Butchery</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45+</span>
+                    <span class="stat-label">Signature Cuts Available</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">120+</span>
+                    <span class="stat-label">Happy Restaurants</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Prime & Wagyu Certified</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PREMIUM CUTS (THE CROWN JEWELS - GOLD CORNER ACCENTS) -->
+    <section class="featured-section" id="featured">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Curated Masterpiece Selection</span>
+                <h2 class="section-title">The Master Reserve Cuts</h2>
+                <div class="gold-divider">
+                    <svg class="gold-flourish" width="18" height="18" viewBox="0 0 24 24" fill="#c9a96e"><polygon points="12 2 15 9 22 12 15 15 12 22 9 15 2 12 9 9 12 2"/></svg>
+                </div>
+                <p class="section-description">
+                    Hand-picked by our Chief Butcher for extraordinary intramuscular fat distribution, deep umami flavor notes, and melt-in-the-mouth tenderness.
+                </p>
+            </div>
+
+            <div class="featured-grid">
+                
+                <!-- FEATURED CARD 1: JAPANESE A5 WAGYU -->
+                <div class="featured-card">
+                    <!-- Corner Gold Accents -->
+                    <div class="corner-accent corner-top-left"></div>
+                    <div class="corner-accent corner-top-right"></div>
+                    <div class="corner-accent corner-bottom-left"></div>
+                    <div class="corner-accent corner-bottom-right"></div>
+
+                    <div class="featured-image-box">
+                        <span class="featured-badge">A5 BMS 11-12</span>
+                        <!-- SVG Meat Artwork -->
+                        <svg width="120" height="90" viewBox="0 0 120 90" fill="none">
+                            <path d="M15 45C15 25 35 15 65 15C95 15 105 30 105 50C105 70 85 75 55 75C25 75 15 65 15 45Z" fill="#3d2b1f" fill-opacity="0.08" stroke="#c9a96e" stroke-width="2"/>
+                            <path d="M25 40C35 30 50 35 60 25M35 55C45 45 65 50 80 40M45 65C60 55 75 62 90 52" stroke="#c9a96e" stroke-width="1.5" stroke-dasharray="2 2"/>
+                            <circle cx="60" cy="45" r="28" stroke="#a68449" stroke-width="1" stroke-dasharray="4 2"/>
+                        </svg>
+                    </div>
+
+                    <h3 class="featured-title">A5 Japanese Miyazaki Wagyu Ribcap</h3>
+                    <div class="featured-price-tag">
+                        $145.00 <span class="featured-price-unit">/ per 16oz cut</span>
+                    </div>
+
+                    <p class="featured-desc">
+                        Directly imported from Miyazaki Prefecture, Japan. Highly prized deckle cut featuring intricate snowflake marbling that melts effortlessly at room temperature.
+                    </p>
+
+                    <div class="featured-tags">
+                        <span class="featured-tag-item">Miyazaki Certified</span>
+                        <span class="featured-tag-item">Intense Marbling</span>
+                        <span class="featured-tag-item">Rare Reserve</span>
+                    </div>
+
+                    <button class="btn btn-outline-gold btn-sm" onclick="addToOrder('A5 Japanese Miyazaki Wagyu Ribcap', 145.00)">
+                        <span>Reserve Cut</span>
+                    </button>
+                </div>
+
+                <!-- FEATURED CARD 2: 45-DAY DRY-AGED TOMAHAWK -->
+                <div class="featured-card">
+                    <div class="corner-accent corner-top-left"></div>
+                    <div class="corner-accent corner-top-right"></div>
+                    <div class="corner-accent corner-bottom-left"></div>
+                    <div class="corner-accent corner-bottom-right"></div>
+
+                    <div class="featured-image-box">
+                        <span class="featured-badge">45-Day Dry Aged</span>
+                        <svg width="120" height="90" viewBox="0 0 120 90" fill="none">
+                            <path d="M20 70L80 20" stroke="#3d2b1f" stroke-width="8" stroke-linecap="round"/>
+                            <path d="M20 70L80 20" stroke="#c9a96e" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M60 40C70 25 95 30 95 50C95 65 75 70 60 55Z" fill="#3d2b1f" fill-opacity="0.08" stroke="#c9a96e" stroke-width="2"/>
+                        </svg>
+                    </div>
+
+                    <h3 class="featured-title">45-Day Dry-Aged Prime Tomahawk</h3>
+                    <div class="featured-price-tag">
+                        $125.00 <span class="featured-price-unit">/ 36 oz Bone-In</span>
+                    </div>
+
+                    <p class="featured-desc">
+                        A majestic 36 oz long bone-in ribeye aged in our custom pink Himalayan salt brick room. Concentrated nutty, buttery undertones with supreme juiciness.
+                    </p>
+
+                    <div class="featured-tags">
+                        <span class="featured-tag-item">Himalayan Salt Aged</span>
+                        <span class="featured-tag-item">French Trimmed</span>
+                        <span class="featured-tag-item">Showstopper</span>
+                    </div>
+
+                    <button class="btn btn-outline-gold btn-sm" onclick="addToOrder('45-Day Dry-Aged Prime Tomahawk', 125.00)">
+                        <span>Reserve Cut</span>
+                    </button>
+                </div>
+
+                <!-- FEATURED CARD 3: FILET MIGNON -->
+                <div class="featured-card">
+                    <div class="corner-accent corner-top-left"></div>
+                    <div class="corner-accent corner-top-right"></div>
+                    <div class="corner-accent corner-bottom-left"></div>
+                    <div class="corner-accent corner-bottom-right"></div>
+
+                    <div class="featured-image-box">
+                        <span class="featured-badge">USDA Prime Center-Cut</span>
+                        <svg width="120" height="90" viewBox="0 0 120 90" fill="none">
+                            <circle cx="60" cy="45" r="32" fill="#3d2b1f" fill-opacity="0.08" stroke="#c9a96e" stroke-width="2"/>
+                            <circle cx="60" cy="45" r="24" stroke="#c9a96e" stroke-width="1" stroke-dasharray="3 3"/>
+                            <path d="M48 45C52 38 68 38 72 45C68 52 52 52 48 45Z" fill="#c9a96e" fill-opacity="0.2"/>
+                        </svg>
+                    </div>
+
+                    <h3 class="featured-title">Reserve Center-Cut Filet Mignon</h3>
+                    <div class="featured-price-tag">
+                        $48.00 <span class="featured-price-unit">/ 10 oz Thick Cut</span>
+                    </div>
+
+                    <p class="featured-desc">
+                        Barrel-cut from the center of prime beef tenderloin. Exceptionally lean, buttery soft texture that cuts effortlessly with a butter knife.
+                    </p>
+
+                    <div class="featured-tags">
+                        <span class="featured-tag-item">Triple Trimmed</span>
+                        <span class="featured-tag-item">Ultra Tender</span>
+                        <span class="featured-tag-item">Sous-Vide Ready</span>
+                    </div>
+
+                    <button class="btn btn-outline-gold btn-sm" onclick="addToOrder('Reserve Center-Cut Filet Mignon', 48.00)">
+                        <span>Reserve Cut</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL PRODUCTS CATALOGUE SECTION -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Fresh Daily Cut Roster</span>
+                <h2 class="section-title">The Complete Butcher Counter</h2>
+                <div class="gold-divider">
+                    <svg class="gold-flourish" width="18" height="18" viewBox="0 0 24 24" fill="#c9a96e"><polygon points="12 2 15 9 22 12 15 15 12 22 9 15 2 12 9 9 12 2"/></svg>
+                </div>
+                <p class="section-description">
+                    All cuts are custom carved by hand upon order, vacuum-sealed with precision, and delivered fresh.
+                </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" onclick="filterCategory('all', this)">All Cuts</button>
+                <button class="filter-btn" onclick="filterCategory('beef', this)">USDA Prime Beef</button>
+                <button class="filter-btn" onclick="filterCategory('wagyu', this)">Wagyu & Reserve</button>
+                <button class="filter-btn" onclick="filterCategory('pork-lamb', this)">Pork & Lamb</button>
+                <button class="filter-btn" onclick="filterCategory('poultry-spec', this)">Poultry & Specialty</button>
+                <button class="filter-btn" onclick="filterCategory('marinated', this)">Marinated & BBQ</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+
+                <!-- Product 1: USDA Prime Ribeye -->
+                <div class="product-card" data-category="beef">
+                    <div class="product-header">
+                        <h3 class="product-title">USDA Prime Boneless Ribeye</h3>
+                        <div class="price-tag">$36.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Richly marbled with deep ribeye cap flavor. Excellent for high-heat skillet or wood-fire grill.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">Thickness: 1.5" Custom</span>
+                        <button class="btn-add-item" onclick="addToOrder('USDA Prime Boneless Ribeye', 36.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 2: New York Strip -->
+                <div class="product-card" data-category="beef">
+                    <div class="product-header">
+                        <h3 class="product-title">New York Strip Steak</h3>
+                        <div class="price-tag">$32.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="2"/><line x1="7" y1="6" x2="7" y2="18"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Robust beef flavor with a tight grain structure and pristine outer fat cap for basting.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">Aged: 28 Days</span>
+                        <button class="btn-add-item" onclick="addToOrder('New York Strip Steak', 32.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Porterhouse Steak -->
+                <div class="product-card" data-category="beef">
+                    <div class="product-header">
+                        <h3 class="product-title">Porterhouse Steak</h3>
+                        <div class="price-tag">$42.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><path d="M12 3v18M3 12h18M5 5l14 14M5 19L19 5"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        The ultimate duo cut featuring a full-sized filet mignon and a robust New York strip on the bone.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">24 oz+ Thick Cut</span>
+                        <button class="btn-add-item" onclick="addToOrder('Porterhouse Steak', 42.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 4: T-Bone Steak -->
+                <div class="product-card" data-category="beef">
+                    <div class="product-header">
+                        <h3 class="product-title">T-Bone Steak</h3>
+                        <div class="price-tag">$38.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><path d="M6 4h12v4H6zM10 8v12h4V8"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Bone-in favorite combining tenderloin tenderness with New York strip depth. Great for outdoor grilling.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">Custom Thickness</span>
+                        <button class="btn-add-item" onclick="addToOrder('T-Bone Steak', 38.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 5: Wagyu Steaks -->
+                <div class="product-card" data-category="wagyu">
+                    <div class="product-header">
+                        <h3 class="product-title">Texas Wagyu Strip & Ribeye</h3>
+                        <div class="price-tag">$95.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Crossbred Texas Wagyu featuring BMS 8+ marbling. Unbelievable rich butter finish with robust Texas beef notes.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">BMS 8-10 Reserve</span>
+                        <button class="btn-add-item" onclick="addToOrder('Texas Wagyu Strip & Ribeye', 95.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 6: Tomahawk Steaks -->
+                <div class="product-card" data-category="wagyu">
+                    <div class="product-header">
+                        <h3 class="product-title">Tomahawk Steaks</h3>
+                        <div class="price-tag">$125.00 / EA</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><path d="M4 20L18 6M18 6h-6M18 6v6"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Impressive 36 oz long-bone ribeye steak with magnificent visual appeal and intense marbling.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">36 oz Individual</span>
+                        <button class="btn-add-item" onclick="addToOrder('Tomahawk Steaks', 125.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 7: Filet Mignon -->
+                <div class="product-card" data-category="beef">
+                    <div class="product-header">
+                        <h3 class="product-title">Filet Mignon</h3>
+                        <div class="price-tag">$48.00 / EA</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5" stroke-dasharray="2 2"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Center-cut tenderloin barrel, hand-trimmed with zero surface fat for pure melt-in-the-mouth luxury.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">10 oz Barrel Cut</span>
+                        <button class="btn-add-item" onclick="addToOrder('Filet Mignon', 48.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 8: Pork Chops -->
+                <div class="product-card" data-category="pork-lamb">
+                    <div class="product-header">
+                        <h3 class="product-title">Kurobuta Pork Chops</h3>
+                        <div class="price-tag">$22.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2V7h2z"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Japanese Black Berkshire heritage pork chops. Unmatched moisture retention, dark reddish tone, and sweet flavor.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">2" Thick Bone-In</span>
+                        <button class="btn-add-item" onclick="addToOrder('Kurobuta Pork Chops', 22.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 9: Lamb -->
+                <div class="product-card" data-category="pork-lamb">
+                    <div class="product-header">
+                        <h3 class="product-title">Colorado Rack of Lamb</h3>
+                        <div class="price-tag">$45.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Frenched 8-rib rack of domestic Colorado lamb. Mild, delicate herbaceous flavor with pristine fat cap.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">Frenched 8-Rib</span>
+                        <button class="btn-add-item" onclick="addToOrder('Colorado Rack of Lamb', 45.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 10: Chicken -->
+                <div class="product-card" data-category="poultry-spec">
+                    <div class="product-header">
+                        <h3 class="product-title">Organic Free-Range Chicken</h3>
+                        <div class="price-tag">$12.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Pasture-raised Texas poultry, air-chilled for crispier skin and superior natural juices. Spatchcock option available.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">Air-Chilled Whole</span>
+                        <button class="btn-add-item" onclick="addToOrder('Organic Free-Range Chicken', 12.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 11: Sausages -->
+                <div class="product-card" data-category="poultry-spec">
+                    <div class="product-header">
+                        <h3 class="product-title">Artisan House Sausages</h3>
+                        <div class="price-tag">$16.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><path d="M5 12c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7-7-3.13-7-7z"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Hand-stuffed coarse ground prime brisket trim with aged Texas yellow cheddar, jalapeños, or garlic herbs.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">Natural Casing Links</span>
+                        <button class="btn-add-item" onclick="addToOrder('Artisan House Sausages', 16.00)">Add To Order</button>
+                    </div>
+                </div>
+
+                <!-- Product 12: Marinated Meats -->
+                <div class="product-card" data-category="marinated">
+                    <div class="product-header">
+                        <h3 class="product-title">Marinated Specialty Meats</h3>
+                        <div class="price-tag">$28.00 / lb</div>
+                    </div>
+                    <div class="product-icon-box">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>
+                    </div>
+                    <p class="product-desc">
+                        Prime skirt steaks & rib tips steeped in oak-barrel Texas bourbon, roasted ancho chiles, and garlic herb oil.
+                    </p>
+                    <div class="product-footer">
+                        <span class="product-spec">Vacuum Marinated</span>
+                        <button class="btn-add-item" onclick="addToOrder('Marinated Specialty Meats', 28.00)">Add To Order</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE CUSTOM CUT CALCULATOR -->
+    <section class="calculator-section" id="custom-cut">
+        <div class="container">
+            <div class="calc-wrapper">
+                <div class="calc-grid">
+                    <div>
+                        <span class="section-subtitle">Precision Butchery Tool</span>
+                        <h2 class="section-title" style="font-size: 2.25rem;">Custom Cut Estimator</h2>
+                        <p style="margin-bottom: 2rem;">
+                            Configure your desired beef cut, precise thickness, dry-aging period, and order quantity. Receive instant custom estimates.
+                        </p>
+
+                        <div class="calc-control-group">
+                            <label class="calc-label">1. Select Prime Cut Base</label>
+                            <select class="calc-select" id="calcMeat" onchange="updateCalculator()">
+                                <option value="ribeye" data-price="36">USDA Prime Boneless Ribeye ($36/lb)</option>
+                                <option value="tomahawk" data-price="42">USDA Prime Bone-In Tomahawk ($42/lb)</option>
+                                <option value="ny-strip" data-price="32">USDA Prime New York Strip ($32/lb)</option>
+                                <option value="filet" data-price="48">USDA Prime Filet Mignon ($48/lb)</option>
+                                <option value="wagyu-strip" data-price="95">Texas Wagyu A5 Strip ($95/lb)</option>
+                            </select>
+                        </div>
+
+                        <div class="calc-control-group">
+                            <label class="calc-label">2. Target Cut Thickness</label>
+                            <div class="calc-options-grid">
+                                <button class="calc-opt-btn" onclick="setThickness(1.0, this)">1.0 Inch</button>
+                                <button class="calc-opt-btn active" onclick="setThickness(1.5, this)">1.5 Inch</button>
+                                <button class="calc-opt-btn" onclick="setThickness(2.0, this)">2.0 Inch</button>
+                                <button class="calc-opt-btn" onclick="setThickness(2.5, this)">2.5 Inch</button>
+                            </div>
+                        </div>
+
+                        <div class="calc-control-group">
+                            <label class="calc-label">3. Dry Aging Duration</label>
+                            <select class="calc-select" id="calcAging" onchange="updateCalculator()">
+                                <option value="0">Fresh Cut (0 Days Aging)</option>
+                                <option value="21">21-Day Himalayan Salt Aged (+$5/lb)</option>
+                                <option value="35">35-Day Himalayan Salt Aged (+$10/lb)</option>
+                                <option value="45" selected>45-Day Himalayan Salt Aged (+$15/lb)</option>
+                            </select>
+                        </div>
+
+                        <div class="calc-control-group">
+                            <label class="calc-label">4. Number of Cuts / Steaks</label>
+                            <input type="number" class="calc-input" id="calcQty" value="4" min="1" max="50" onchange="updateCalculator()" onkeyup="updateCalculator()">
+                        </div>
+                    </div>
+
+                    <div class="calc-summary-card">
+                        <h3 class="calc-summary-title">Estimated Custom Order</h3>
+                        <div class="calc-price-display" id="calcPriceDisplay">$296.00</div>
+                        <p style="font-size: 0.85rem; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 1px;">Includes Custom Packaging & Vacuum Seal</p>
+
+                        <ul class="calc-specs-list">
+                            <li><span>Selected Cut:</span> <span id="specCut">Prime Boneless Ribeye</span></li>
+                            <li><span>Thickness:</span> <span id="specThickness">1.5 Inches (~18 oz ea)</span></li>
+                            <li><span>Aging Vault:</span> <span id="specAging">45-Day Salt Aged</span></li>
+                            <li><span>Total Weight:</span> <span id="specWeight">~4.5 lbs Total</span></li>
+                        </ul>
+
+                        <button class="btn btn-gold" style="width: 100%;" onclick="submitCustomCalc()">
+                            <span>Request This Custom Cut</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION (GOLD NUMBERED BADGES 01-04) -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Tailored Butchery Solutions</span>
+                <h2 class="section-title">Bespoke Services</h2>
+                <div class="gold-divider">
+                    <svg class="gold-flourish" width="18" height="18" viewBox="0 0 24 24" fill="#c9a96e"><polygon points="12 2 15 9 22 12 15 15 12 22 9 15 2 12 9 9 12 2"/></svg>
+                </div>
+                <p class="section-description">
+                    From private dry aging lockers to full-service catering and daily restaurant wholesale logistics.
+                </p>
+            </div>
+
+            <div class="services-grid">
+
+                <!-- SERVICE 01 -->
+                <div class="service-card">
+                    <div class="service-badge">01</div>
+                    <div class="service-content">
+                        <h3>Custom Cuts & Dry Aging Vault</h3>
+                        <p>
+                            Reserve your own primal beef slab in our Himalayan salt tile dry-aging room. Choose custom thickness and your aging duration from 21 to 90 days.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            <span>Reserve Aging Locker</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SERVICE 02 -->
+                <div class="service-card">
+                    <div class="service-badge">02</div>
+                    <div class="service-content">
+                        <h3>Wholesale for Restaurants</h3>
+                        <p>
+                            Direct supply line for Executive Chefs across Houston and Texas. Consistent weight specs, custom trim protocols, and dependable daily refrigerated delivery.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            <span>Apply For Wholesale</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SERVICE 03 -->
+                <div class="service-card">
+                    <div class="service-badge">03</div>
+                    <div class="service-content">
+                        <h3>Event Catering</h3>
+                        <p>
+                            Bring our master pitmasters and live charcoal carving stations to your private estate event, corporate gala, or wedding. Custom multi-course steakhouse menus.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            <span>Inquire Event Dates</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SERVICE 04 -->
+                <div class="service-card">
+                    <div class="service-badge">04</div>
+                    <div class="service-content">
+                        <h3>White-Glove Delivery</h3>
+                        <p>
+                            Temperature-monitored refrigerated courier service across Greater Houston. Vacuum sealed in eco-insulated gift boxes with dry ice for absolute freshness.
+                        </p>
+                        <a href="#contact" class="service-link">
+                            <span>View Delivery Details</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION (CREAM, ESPRESSO TEXT, GOLD DIVIDER, SERIF QUOTE) -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <span class="section-subtitle">Uncompromising Craftsmanship</span>
+                <h2 class="section-title">The JP Prime Cuts Standard</h2>
+                
+                <div class="gold-divider">
+                    <svg class="gold-flourish" width="18" height="18" viewBox="0 0 24 24" fill="#c9a96e"><polygon points="12 2 15 9 22 12 15 15 12 22 9 15 2 12 9 9 12 2"/></svg>
+                </div>
+
+                <div class="about-quote-box">
+                    <blockquote class="about-quote">
+                        &ldquo;Our philosophy is simple: source only the top 1% of American and Japanese beef, honor traditional artisanal butchery, and deliver an unmatched culinary experience to Texas tables.&rdquo;
+                    </blockquote>
+                    <div class="about-author">&mdash; Julian Perez, Founder & Master Butcher</div>
+                </div>
+
+                <div class="about-text-content">
+                    <p>
+                        Founded in Houston, Texas, JP Prime Cuts TX was established with a single vision: to elevate butchery from a routine trade to an extraordinary culinary craft. We partner exclusively with sustainable, family-owned ranches in Texas, the Midwest, and Miyazaki Prefecture who share our dedication to ethical animal care, grain feeding, and natural growth.
+                    </p>
+                    <p>
+                        Inside our state-of-the-art facility, every carcass is evaluated for muscle tone, fat color, and intramuscular marbling. Our flagship dry-aging vault is lined with pure pink Himalayan salt bricks, controlling humidity and temperature to transform primal cuts into rich, deeply fragrant masterpieces.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & CUSTOM ORDER INQUIRY FORM -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Direct Concierge Service</span>
+                <h2 class="section-title">Place An Inquiry or Reserve</h2>
+                <div class="gold-divider">
+                    <svg class="gold-flourish" width="18" height="18" viewBox="0 0 24 24" fill="#c9a96e"><polygon points="12 2 15 9 22 12 15 15 12 22 9 15 2 12 9 9 12 2"/></svg>
+                </div>
+                <p class="section-description">
+                    Our master butcher concierge is at your service for personal cut consultations, event catering, or restaurant wholesale setup.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info Panel -->
+                <div class="contact-info-panel">
+                    <div>
+                        <div class="info-block">
+                            <h3 class="info-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Flagship Butcher Shop
+                            </h3>
+                            <div class="info-detail">
+                                4800 Post Oak Blvd, Suite 100<br>
+                                Houston, TX 77056
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <h3 class="info-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                Direct Telephone & Concierge
+                            </h3>
+                            <div class="info-detail">
+                                Retail & Orders: 713-555-0100<br>
+                                Wholesale Desk: 713-555-0199
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <h3 class="info-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Operating Hours
+                            </h3>
+                            <ul class="hours-list">
+                                <li><span>Mon-Sat</span> <span>9:00 AM &ndash; 7:00 PM</span></li>
+                                <li><span>Sun</span> <span>10:00 AM &ndash; 4:00 PM</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="padding-top: 1.5rem; border-top: 1px solid var(--gold-subtle);">
+                        <p style="font-size: 0.9rem; color: var(--espresso-light);">
+                            <strong style="color: var(--gold-dark);">Same-Day Pickup:</strong> Orders placed before 2:00 PM are prepared for evening pickup at our Houston location.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Form Card -->
+                <div class="contact-card">
+                    <form id="inquiryForm" onsubmit="handleInquirySubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-input" placeholder="e.g. Sterling Archer" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-input" placeholder="713-555-0100" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" placeholder="sterling@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Inquiry Type</label>
+                            <select class="form-select" id="inquiryType">
+                                <option value="retail">Personal Meat Reserve Order</option>
+                                <option value="custom">Custom Cuts Request</option>
+                                <option value="wholesale">Wholesale for Restaurants</option>
+                                <option value="catering">Event Catering</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Specific Cut or Request Details</label>
+                            <textarea class="form-textarea" rows="4" placeholder="Mention preferred thickness, weight, aging preferences, or event date..." id="inquiryNotes"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold" style="width: 100%;">
+                            <span>Send Concierge Request</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (ESPRESSO BG WITH CREAM & GOLD TEXT) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo-title">JP PRIME CUTS TX</div>
+                    <div class="footer-tagline">Premium Meats, Cut to Perfection</div>
+                    <p class="footer-desc">
+                        Texas' premier artisan butcher shop delivering hand-selected USDA Prime beef, Japanese A5 Wagyu, heritage pork, and custom salt-aged cuts.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="footer-column-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#featured">Featured Master Cuts</a></li>
+                        <li><a href="#products">Butcher Counter</a></li>
+                        <li><a href="#custom-cut">Custom Cut Estimator</a></li>
+                        <li><a href="#services">Wholesale & Catering</a></li>
+                        <li><a href="#about">Our Heritage</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-column-title">Hours & Location</h4>
+                    <p style="font-size: 0.9rem; color: rgba(251, 248, 243, 0.8); margin-bottom: 0.5rem;">
+                        Houston, TX
+                    </p>
+                    <p style="font-size: 0.85rem; color: var(--gold-light);">
+                        Mon-Sat 9am-7pm<br>
+                        Sun 10am-4pm
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="footer-column-title">Prime Reserve Club</h4>
+                    <p style="font-size: 0.85rem; color: rgba(251, 248, 243, 0.7);">
+                        Subscribe for private allocations of rare Japanese Wagyu and seasonal dry-aged releases.
+                    </p>
+                    <div class="newsletter-input-group">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email...">
+                        <button class="newsletter-btn" onclick="subscribeNewsletter()">Join</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 JP Prime Cuts TX. All Rights Reserved. Houston, Texas.</div>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#" style="color: rgba(251,248,243,0.5);">Privacy Policy</a>
+                    <a href="#" style="color: rgba(251,248,243,0.5);">Terms of Service</a>
+                    <a href="#" style="color: rgba(251,248,243,0.5);">Food Safety & Sourcing</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-notification" id="toastNotification">
+        <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div>
+            <div style="font-weight: 700; color: var(--gold-light); font-size: 0.95rem;" id="toastTitle">Added To Reserve</div>
+            <div style="font-size: 0.85rem; color: var(--bg-cream);" id="toastMessage">Item has been added to your reservation inquiry.</div>
+        </div>
+    </div>
+
+    <!-- INLINE INTERACTIVE JAVASCRIPT -->
+    <script>
+        // State variables
+        let cartItems = [];
+        let currentThickness = 1.5;
+
+        // Mobile Nav Toggle
+        function toggleMobileNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Add Item To Reserve
+        function addToOrder(itemName, price) {
+            cartItems.push({ name: itemName, price: price });
+            document.getElementById('cartCount').innerText = cartItems.length;
+            showToast('Cut Reserved', `${itemName} ($${price.toFixed(2)}) added to your reserve inquiry.`);
+        }
+
+        // Open Reserve Modal / Alert
+        function openReserveModal() {
+            if (cartItems.length === 0) {
+                showToast('Reserve List Empty', 'Please select cuts from our counter to request a reservation.');
+            } else {
+                let total = cartItems.reduce((sum, item) => sum + item.price, 0);
+                let list = cartItems.map(i => i.name + " ($" + i.price.toFixed(2) + ")").join('
+• ');
+                alert(`Your Selected Reserve List (${cartItems.length} items):
+
+• ${list}
+
+Estimated Subtotal: $${total.toFixed(2)}
+
+Scroll down to the Contact form to submit your reservation to our Concierge!`);
+            }
+        }
+
+        // Filter Categories
+        function filterCategory(category, btnElement) {
+            // Toggle active button
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            // Filter products grid
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Custom Calculator Thickness Setter
+        function setThickness(val, btnElement) {
+            currentThickness = val;
+            const buttons = document.querySelectorAll('.calc-opt-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+            updateCalculator();
+        }
+
+        // Update Calculator
+        function updateCalculator() {
+            const selectMeat = document.getElementById('calcMeat');
+            const selectedOption = selectMeat.options[selectMeat.selectedIndex];
+            const basePriceLb = parseFloat(selectedOption.getAttribute('data-price'));
+            
+            const agingVal = parseFloat(document.getElementById('calcAging').value);
+            const qty = parseInt(document.getElementById('calcQty').value) || 1;
+
+            // Estimated weight per steak based on thickness
+            const weightPerSteakLb = currentThickness * 0.75; 
+            const totalWeight = weightPerSteakLb * qty;
+
+            const pricePerLb = basePriceLb + (agingVal * 0.35); // aging adjustment
+            const totalPrice = totalWeight * pricePerLb;
+
+            // Update UI
+            document.getElementById('calcPriceDisplay').innerText = '$' + totalPrice.toFixed(2);
+            document.getElementById('specCut').innerText = selectedOption.text.split(' ($')[0];
+            document.getElementById('specThickness').innerText = currentThickness.toFixed(1) + ' Inches (~' + Math.round(weightPerSteakLb * 16) + ' oz ea)';
+            document.getElementById('specAging').innerText = agingVal === 0 ? 'Fresh Cut (Unaged)' : agingVal + '-Day Salt Aged';
+            document.getElementById('specWeight').innerText = '~' + totalWeight.toFixed(1) + ' lbs Total';
+        }
+
+        // Submit Custom Calculator
+        function submitCustomCalc() {
+            const cutName = document.getElementById('specCut').innerText;
+            const price = document.getElementById('calcPriceDisplay').innerText;
+            document.getElementById('inquiryNotes').value = `Custom Order Request: ${cutName}, ${document.getElementById('specThickness').innerText}, ${document.getElementById('specAging').innerText}. Estimated Total: ${price}`;
+            
+            // Scroll to contact
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            showToast('Estimate Loaded', 'Your custom cut details have been copied into the concierge form below.');
+        }
+
+        // Handle Inquiry Submit
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            showToast('Request Received', 'Thank you! Our master butcher concierge will phone you shortly.');
+            document.getElementById('inquiryForm').reset();
+        }
+
+        // Newsletter Subscribe
+        function subscribeNewsletter() {
+            showToast('Subscribed to Reserve', 'Welcome to the JP Prime Cuts Reserve Club.');
+        }
+
+        // Toast Notification System
+        function showToast(title, msg) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastTitle').innerText = title;
+            document.getElementById('toastMessage').innerText = msg;
+            toast.classList.add('active');
+            setTimeout(() => {
+                toast.classList.remove('active');
+            }, 4000);
+        }
+
+        // Initial Calculator calculation
+        window.onload = function() {
+            updateCalculator();
+        };
+    </script>
+</body>
+</html>
