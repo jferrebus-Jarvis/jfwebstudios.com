@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVTODO | Charging the Future - Commercial EV Infrastructure Solutions</title>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS RESET & VARIABLES */
+        :root {
+            --bg-white: #ffffff;
+            --bg-tint: #f0faf4;
+            --bg-tint-subtle: #f7fbf8;
+            --primary-green: #00b14f;
+            --primary-green-hover: #008e3f;
+            --primary-green-light: #e6f7ed;
+            --border-light: #e2ede6;
+            --border-green: #00b14f;
+            --text-dark: #111827;
+            --text-muted: #4b5563;
+            --text-light: #6b7280;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 4px 12px 0 rgba(0, 177, 79, 0.08);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 177, 79, 0.12);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+            --transition: all 0.25s ease-in-out;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-dark);
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 400; }
+        h3 { font-size: 1.35rem; font-weight: 600; }
+        h4 { font-size: 1.1rem; font-weight: 600; }
+
+        p {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-green-hover);
+        }
+
+        /* CONTAINER & LAYOUT */
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5.5rem 0;
+            position: relative;
+        }
+
+        .section-tint {
+            background-color: var(--bg-tint);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section-tint-subtle {
+            background-color: var(--bg-tint-subtle);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .max-w-700 { max-width: 700px; }
+        .max-w-800 { max-width: 800px; }
+
+        /* HEADER & NAV */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1.25rem 0;
+            transition: var(--transition);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-white);
+            border: 1.5px solid var(--primary-green);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-brand {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--text-dark);
+            line-height: 1;
+        }
+
+        .logo-brand span {
+            color: var(--primary-green);
+        }
+
+        .logo-tagline {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.25rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .phone-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 0.5rem 0.9rem;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+        }
+
+        .phone-link:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            background-color: var(--primary-green-light);
+        }
+
+        .phone-link svg {
+            stroke: var(--primary-green);
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-green-hover);
+            color: var(--bg-white);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            border-color: var(--primary-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-green-light);
+            color: var(--primary-green);
+            transform: translateY(-1px);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 6.5rem 0 5.5rem;
+            background-color: var(--bg-white);
+            text-align: center;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background-color: var(--bg-tint);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-full);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 1.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-green);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+        }
+
+        .hero h1 strong {
+            font-weight: 700;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .green-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .green-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--primary-green);
+            border-radius: 2px;
+            opacity: 0.85;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-graphic {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: var(--bg-tint-subtle);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .hero-graphic-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .hero-graphic-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            background-color: var(--bg-white);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -1rem;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: var(--border-light);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-feature-settings: "tnum";
+        }
+
+        .stat-label {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-subtext {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-tag {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .section-title {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* SERVICES SECTION (3 COLUMNS) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-green);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .service-icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-md);
+            background-color: var(--bg-tint);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.75rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon-box {
+            background-color: var(--primary-green);
+            border-color: var(--primary-green);
+        }
+
+        .service-card:hover .service-icon-box svg {
+            stroke: var(--bg-white);
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: auto;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1.25rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+
+        .check-icon {
+            width: 16px;
+            height: 16px;
+            stroke: var(--primary-green);
+            flex-shrink: 0;
+        }
+
+        /* 7 MARKETS GRID */
+        .markets-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        /* Span 12 or 7 markets nicely: 3-3-1 or 3-4 layout */
+        .market-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .market-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background-color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .market-card:hover {
+            border-color: var(--primary-green);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .market-card:hover::before {
+            height: 100%;
+        }
+
+        .market-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .market-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            background-color: var(--bg-tint);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .market-card:hover .market-icon {
+            border-color: var(--primary-green);
+            background-color: var(--primary-green-light);
+        }
+
+        .market-card h4 {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+        }
+
+        .market-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .market-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            background-color: var(--bg-tint);
+            padding: 0.25rem 0.6rem;
+            border-radius: var(--radius-sm);
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        .markets-grid-featured {
+            grid-column: span 3;
+            background-color: var(--bg-tint);
+            border: 1px solid var(--border-green);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 2rem 2.5rem;
+        }
+
+        /* BRANDS PARTNERSHIP */
+        .brands-section {
+            background-color: var(--bg-white);
+            padding: 4rem 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .brands-title {
+            text-align: center;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .brands-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .brand-logo-card {
+            padding: 0.85rem 1.75rem;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            background-color: var(--bg-white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: -0.01em;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .brand-logo-card:hover {
+            border-color: var(--primary-green);
+            box-shadow: var(--shadow-sm);
+            color: var(--primary-green);
+        }
+
+        .brand-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary-green);
+            border-radius: 50%;
+        }
+
+        /* WHY CHOOSE EVTODO / INFRASTRUCTURE */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .feature-box {
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+        }
+
+        .feature-box:hover {
+            border-color: var(--primary-green);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-md);
+            background-color: var(--bg-tint);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-content h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-content p {
+            font-size: 0.95rem;
+        }
+
+        /* CALCULATOR SECTION */
+        .calc-wrapper {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-green);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .calc-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-label-value {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+        .calc-range {
+            width: 100%;
+            height: 6px;
+            background: var(--border-light);
+            border-radius: 3px;
+            outline: none;
+            -webkit-appearance: none;
+            accent-color: var(--primary-green);
+        }
+
+        .calc-select, .form-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .calc-select:focus, .form-input:focus, textarea.form-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(0, 177, 79, 0.15);
+        }
+
+        .calc-results {
+            background-color: var(--bg-tint);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 2.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .calc-res-item {
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1rem;
+        }
+
+        .calc-res-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .calc-res-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .calc-res-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            line-height: 1.1;
+        }
+
+        .calc-res-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* CONTACT FORM SECTION */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 3.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            background-color: var(--bg-tint);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-detail h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-detail p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .contact-form-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-form-card:hover {
+            border-color: var(--border-green);
+        }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--bg-white);
+            border-top: 2px solid var(--primary-green);
+            padding: 4.5rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-brand p {
+            margin-top: 1rem;
+            font-size: 0.92rem;
+            max-width: 320px;
+        }
+
+        .footer-col h5 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-dark);
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-bottom-links a {
+            color: var(--text-light);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-green);
+        }
+
+        /* MOBILE MENU TOGGLE */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        /* RESPONSIVE MEDIA QUERIES */
+        @media (max-width: 1024px) {
+            .services-grid, .markets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .markets-grid-featured {
+                grid-column: span 2;
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            .stat-item:nth-child(2)::after {
+                display: none;
+            }
+            .calc-wrapper {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .phone-link {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .services-grid, .markets-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .markets-grid-featured {
+                grid-column: span 1;
+                padding: 1.5rem;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stat-item::after {
+                display: none;
+            }
+            .brands-grid {
+                gap: 1rem;
+            }
+            .form-grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            section {
+                padding: 3.5rem 0;
+            }
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION HEADER -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo" aria-label="EVTODO Home">
+                <div class="logo-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-brand">EV<span>TODO</span></span>
+                    <span class="logo-tagline">Charging the Future</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#markets">7 Markets</a></li>
+                    <li><a href="#brands">Brands</a></li>
+                    <li><a href="#infrastructure">Infrastructure</a></li>
+                    <li><a href="#calculator">Fleet Calculator</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="tel:8326128050" class="phone-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    832-612-8050
+                </a>
+                <a href="#contact" class="btn btn-primary btn-sm">Get Fleet Quote</a>
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE DROPDOWN -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul class="mobile-nav-links">
+                <li><a href="#services" onclick="closeMobileMenu()">Services</a></li>
+                <li><a href="#markets" onclick="closeMobileMenu()">7 Markets</a></li>
+                <li><a href="#brands" onclick="closeMobileMenu()">Brands & Partners</a></li>
+                <li><a href="#infrastructure" onclick="closeMobileMenu()">Infrastructure & SLA</a></li>
+                <li><a href="#calculator" onclick="closeMobileMenu()">Fleet Savings Calculator</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact Us</a></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;" onclick="closeMobileMenu()">Request Fleet Quote</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container max-w-800">
+            <div class="badge-pill">
+                <span class="badge-dot"></span>
+                Commercial EV Charging Solutions • Est. 2019 • Houston, TX
+            </div>
+            
+            <h1>
+                Powering Next-Generation Fleet Electrification with <span class="green-underline">Zero Downtime</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                EVTODO engineers, installs, and maintains high-power DC fast charging infrastructure for commercial fleets, transit agencies, dealerships, and OEM operators nationwide.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">
+                    Schedule Technical Consultation
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="#markets" class="btn btn-outline">Explore 7 Key Markets</a>
+            </div>
+
+            <div class="hero-graphic">
+                <div class="hero-graphic-item">
+                    <div class="hero-graphic-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <span>Turnkey Hardware & Sales</span>
+                </div>
+                <div class="hero-graphic-item">
+                    <div class="hero-graphic-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <span>Civil & Utility Engineering</span>
+                </div>
+                <div class="hero-graphic-item">
+                    <div class="hero-graphic-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <span>Guaranteed Uptime SLAs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">99.2%</div>
+                    <div class="stat-label">Guaranteed Uptime</div>
+                    <div class="stat-subtext">Preventive & SLA Maintenance</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2019</div>
+                    <div class="stat-label">Building Since</div>
+                    <div class="stat-subtext">Pioneering EV Infrastructure</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">MW Power Deployed</div>
+                    <div class="stat-subtext">Across Commercial Fleet Depots</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Field Technician Support</div>
+                    <div class="stat-subtext">Certified Heliox & EVTech Techs</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION (3 COLUMNS) -->
+    <section id="services" class="section-tint">
+        <div class="container">
+            <div class="section-header text-center mx-auto max-w-700">
+                <span class="section-tag">Core Competencies</span>
+                <h2 class="section-title">End-to-End EV Charging Infrastructure Services</h2>
+                <p class="section-description">
+                    From initial power site planning and utility interconnection to equipment distribution and rapid field maintenance.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1: Sales -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3>1. Hardware Sales & Distribution</h3>
+                    <p>
+                        Authorized distributor of industry-leading commercial DC Fast Chargers, Level 2 systems, and high-capacity depot charging cabinets.
+                    </p>
+                    <ul class="service-features">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Direct supply of EVTech & Heliox systems
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            DC Level 3 Fast Chargers (50kW to 360kW+)
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Heavy-duty depot pantograph dispensers
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Hardware selection matched to fleet duty cycles
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: Installation -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <h3>2. Full Turnkey Installation</h3>
+                    <p>
+                        Complete civil, structural, electrical engineering, utility coordination, transformer placement, and commissioning.
+                    </p>
+                    <ul class="service-features">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Utility power upgrades & interconnect engineering
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Concrete pads, bollards, & conduit trenching
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Medium-voltage transformer & switchgear setup
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Final safety inspection & network commissioning
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3: Maintenance -->
+                <div class="service-card">
+                    <div class="service-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>3. Maintenance & Uptime Programs</h3>
+                    <p>
+                        Guaranteed uptime SLA programs backed by certified field technicians, 24/7 remote monitoring, and rapid site dispatch.
+                    </p>
+                    <ul class="service-features">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Preventive inspection & thermal imaging audits
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Corrective field repair & OEM component replacement
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            4-hour on-site dispatch emergency response
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            OCPP cloud software integration & diagnostics
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7 MARKETS GRID SECTION -->
+    <section id="markets">
+        <div class="container">
+            <div class="section-header text-center mx-auto max-w-700">
+                <span class="section-tag">Target Sectors</span>
+                <h2 class="section-title">Purpose-Built Infrastructure Across 7 Markets</h2>
+                <p class="section-description">
+                    EVTODO custom designs charging ecosystems tailored to the unique operational demands, power requirements, and schedules of 7 distinct commercial sectors.
+                </p>
+            </div>
+
+            <div class="markets-grid">
+                <!-- Market 1: School -->
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Electric School Buses</h4>
+                            <span class="market-tag">K-12 & School Districts</span>
+                        </div>
+                    </div>
+                    <p>
+                        Turnkey depot charging solutions for electric school bus fleets. Scheduled overnight power management and Vehicle-to-Grid (V2G) bi-directional capability to support district energy resilience.
+                    </p>
+                </div>
+
+                <!-- Market 2: Transit -->
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75">
+                                <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                                <path d="M7 17h10M7 12h10M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Public Transit & Shuttles</h4>
+                            <span class="market-tag">Federal & Municipal Agencies</span>
+                        </div>
+                    </div>
+                    <p>
+                        High-power DC fast charging and automated pantographs for municipal bus transit systems. Designed to keep transit fleets operating seamlessly on strict schedule headways.
+                    </p>
+                </div>
+
+                <!-- Market 3: Shopping & Leisure -->
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Shopping & Leisure</h4>
+                            <span class="market-tag">Retail, Hotels & Venues</span>
+                        </div>
+                    </div>
+                    <p>
+                        Customer-facing Level 2 and DC Fast Charging stations for shopping malls, lifestyle centers, resorts, and entertainment complexes to increase dwell time and visitor revenue.
+                    </p>
+                </div>
+
+                <!-- Market 4: Dealerships -->
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75">
+                                <rect x="1" y="3" width="15" height="13" rx="2"></rect>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Auto Dealerships</h4>
+                            <span class="market-tag">OEM Franchises & Service Bays</span>
+                        </div>
+                    </div>
+                    <p>
+                        OEM-compliant high-voltage charging infrastructure for dealership showrooms, prep bays, and customer staging areas. Tailored to support brand electrification mandates.
+                    </p>
+                </div>
+
+                <!-- Market 5: Trucks & Heavy Cargo -->
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75">
+                                <path d="M10 17h4M12 15v4"></path>
+                                <rect x="2" y="4" width="20" height="12" rx="2"></rect>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Trucks & Heavy Cargo</h4>
+                            <span class="market-tag">Class 8 Freight & Drayage</span>
+                        </div>
+                    </div>
+                    <p>
+                        Megawatt-scale charging stations engineered for Class 8 electric semi-trucks, port drayage operators, and heavy logistics centers requiring rapid turnaround times.
+                    </p>
+                </div>
+
+                <!-- Market 6: Delivery Fleet -->
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75">
+                                <rect x="1" y="3" width="15" height="13"></rect>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Delivery Fleets</h4>
+                            <span class="market-tag">Last-Mile Logistics</span>
+                        </div>
+                    </div>
+                    <p>
+                        High-density commercial van charging hubs for last-mile delivery providers. Smart load-balancing ensures full fleet readiness every morning without oversubscribing utility grid ties.
+                    </p>
+                </div>
+
+                <!-- Market 7: Airports -->
+                <div class="market-card">
+                    <div class="market-header">
+                        <div class="market-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="1.75">
+                                <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3.5c-.5-.5-2.5 0-4 1.5L13 8.5 4.8 6.7c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.1 5.2c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Airports & GSE</h4>
+                            <span class="market-tag">Aviation & Rental Fleets</span>
+                        </div>
+                    </div>
+                    <p>
+                        Specialized charging for airport Ground Support Equipment (GSE), passenger shuttle vans, rental car turnaround facilities, and long-term traveler parking areas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND PARTNERSHIPS -->
+    <section id="brands" class="brands-section section-tint-subtle">
+        <div class="container">
+            <div class="brands-title">Authorized Hardware Sales & Certified Service Partners</div>
+            <div class="brands-grid">
+                <div class="brand-logo-card">
+                    <span class="brand-dot"></span>
+                    Heliox
+                </div>
+                <div class="brand-logo-card">
+                    <span class="brand-dot"></span>
+                    EVTech
+                </div>
+                <div class="brand-logo-card">
+                    <span class="brand-dot"></span>
+                    BorgWarner
+                </div>
+                <div class="brand-logo-card">
+                    <span class="brand-dot"></span>
+                    ABB
+                </div>
+                <div class="brand-logo-card">
+                    <span class="brand-dot"></span>
+                    Siemens
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFRASTRUCTURE ADVANTAGES -->
+    <section id="infrastructure">
+        <div class="container">
+            <div class="section-header text-center mx-auto max-w-700">
+                <span class="section-tag">Engineering Standard</span>
+                <h2 class="section-title">Why Leading Fleet Operators Trust EVTODO</h2>
+                <p class="section-description">
+                    We combine elite engineering talent with direct OEM factory certifications to build long-term, high-reliability charging assets.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <polyline points="17 11 19 13 23 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Direct Factory-Certified Field Technicians</h4>
+                        <p>
+                            Our technicians complete rigorous direct training with Heliox and EVTech. We carry genuine OEM spare parts on service vehicles for immediate, single-visit repairs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Contractual 99%+ Uptime SLA</h4>
+                        <p>
+                            Fleet operations cannot tolerate down chargers. We provide contractually backed SLA response times with proactive remote network monitoring and preventative maintenance cycles.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Smart Dynamic Load Management</h4>
+                        <p>
+                            Optimize site power consumption by dynamically balancing electrical loads across chargers. Prevent costly utility demand charges while ensuring full charge delivery before shift departures.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h4>Headquartered in Houston, Operating Nationally</h4>
+                        <p>
+                            Based at 6343 Skyline Drive in Houston, TX, EVTODO brings Texas-sized energy engineering capability to fleet projects across the entire United States.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE FLEET SAVINGS CALCULATOR -->
+    <section id="calculator" class="section-tint">
+        <div class="container">
+            <div class="section-header text-center mx-auto max-w-700">
+                <span class="section-tag">ROI & Feasibility</span>
+                <h2 class="section-title">Fleet Electrification Savings Calculator</h2>
+                <p class="section-description">
+                    Estimate annual fuel cost reductions and carbon emission savings by switching your commercial fleet to EVTODO charging infrastructure.
+                </p>
+            </div>
+
+            <div class="calc-wrapper">
+                <div class="calc-inputs">
+                    <div class="form-group">
+                        <label class="form-label">
+                            Fleet Size (Vehicles):
+                            <span class="form-label-value" id="fleetVal">25 Vehicles</span>
+                        </label>
+                        <input type="range" class="calc-range" id="fleetInput" min="5" max="200" value="25" oninput="updateCalc()">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Average Daily Miles Per Vehicle:
+                            <span class="form-label-value" id="milesVal">80 Miles</span>
+                        </label>
+                        <input type="range" class="calc-range" id="milesInput" min="20" max="250" value="80" step="5" oninput="updateCalc()">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            Current Diesel / Gasoline Price ($/Gal):
+                            <span class="form-label-value" id="gasVal">$3.80 / gal</span>
+                        </label>
+                        <input type="range" class="calc-range" id="gasInput" min="2.50" max="6.00" value="3.80" step="0.10" oninput="updateCalc()">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Primary Fleet Sector</label>
+                        <select class="calc-select" id="sectorSelect" onchange="updateCalc()">
+                            <option value="school">Electric School Buses</option>
+                            <option value="transit">Public Transit Buses</option>
+                            <option value="delivery">Delivery & Cargo Vans</option>
+                            <option value="dealership">Dealership Fleet & Demo</option>
+                            <option value="trucks">Class 8 Heavy Duty Trucks</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="calc-results">
+                    <div class="calc-res-item">
+                        <div class="calc-res-label">Estimated Annual Fuel Savings</div>
+                        <div class="calc-res-value" id="savingsRes">$118,250</div>
+                        <div class="calc-res-desc">Based on average commercial electricity tariffs vs fossil fuels.</div>
+                    </div>
+
+                    <div class="calc-res-item">
+                        <div class="calc-res-label">Annual CO2 Emissions Offset</div>
+                        <div class="calc-res-value" id="co2Res">328 Metric Tons</div>
+                        <div class="calc-res-desc">Equivalent to planting ~5,400 mature trees annually.</div>
+                    </div>
+
+                    <div class="calc-res-item">
+                        <div class="calc-res-label">Recommended EVTODO Charging Setup</div>
+                        <div class="calc-res-value" style="font-size: 1.25rem; color: var(--text-dark);" id="setupRes">
+                            12x EVTech 120kW DC Fast Chargers
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn btn-primary" style="width: 100%;">Get Custom Fleet Feasibility Study</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM & LOCATION SECTION -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header text-center mx-auto max-w-700">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Start Your EV Infrastructure Project Today</h2>
+                <p class="section-description">
+                    Contact our commercial engineering team in Houston to discuss site evaluations, charger quotes, or uptime service agreements.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="info-detail">
+                            <h4>Corporate Headquarters</h4>
+                            <p>EVTODO</p>
+                            <p>6343 Skyline Drive, Suite 8</p>
+                            <p>Houston, TX 77057</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="info-detail">
+                            <h4>Phone & Support</h4>
+                            <p>Direct Sales & Engineering: <a href="tel:8326128050" style="font-weight: 600;">832-612-8050</a></p>
+                            <p>24/7 Field Tech SLA Dispatch</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="info-detail">
+                            <h4>Hours of Operation</h4>
+                            <p>Monday - Friday: 7:00 AM - 6:00 PM CST</p>
+                            <p>24/7 Emergency SLA Field Dispatch Active</p>
+                        </div>
+                    </div>
+
+                    <div style="padding: 1.5rem; background-color: var(--bg-tint); border: 1px solid var(--border-light); border-radius: var(--radius-md);">
+                        <div style="font-weight: 600; font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.25rem;">Guaranteed SLA Response</div>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">
+                            All technical inquiries submitted below are routed directly to our senior site engineers in Houston for response within 2 business hours.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-form-card">
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <div class="form-grid-2" style="margin-bottom: 1.25rem;">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name *</label>
+                                <input type="text" id="firstName" class="form-input" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" class="form-input" placeholder="Smith" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2" style="margin-bottom: 1.25rem;">
+                            <div class="form-group">
+                                <label class="form-label" for="email">Work Email *</label>
+                                <input type="email" id="email" class="form-input" placeholder="john@company.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="832-612-8050" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1.25rem;">
+                            <div class="form-group">
+                                <label class="form-label" for="company">Company / Organization *</label>
+                                <input type="text" id="company" class="form-input" placeholder="School District, Transit Agency, Fleet Name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid-2" style="margin-bottom: 1.25rem;">
+                            <div class="form-group">
+                                <label class="form-label" for="market">Target Market Sector</label>
+                                <select id="market" class="calc-select">
+                                    <option value="school">School (Electric School Buses)</option>
+                                    <option value="transit">Public Transit & Shuttles</option>
+                                    <option value="shopping">Shopping & Leisure</option>
+                                    <option value="dealership">Auto Dealerships</option>
+                                    <option value="trucks">Trucks & Heavy Cargo</option>
+                                    <option value="delivery">Delivery Fleet</option>
+                                    <option value="airports">Airports & GSE</option>
+                                    <option value="other">Other Commercial Fleet</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="serviceNeeded">Service Required</label>
+                                <select id="serviceNeeded" class="calc-select">
+                                    <option value="turnkey">Full Turnkey Project (Sales + Install + Maintenance)</option>
+                                    <option value="hardware">Hardware Sales (EVTech / Heliox)</option>
+                                    <option value="install">Installation & Engineering Only</option>
+                                    <option value="maintenance">Maintenance & Uptime SLA Program</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label class="form-label" for="message">Project Details / Message</label>
+                            <textarea id="message" class="form-input" rows="4" placeholder="Tell us about your vehicle fleet size, timeline, and current power infrastructure..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Submit Technical Request
+                        </button>
+                    </form>
+
+                    <div id="formSuccess" style="display: none; padding: 2rem; text-align: center; background-color: var(--bg-tint); border: 1px solid var(--border-green); border-radius: var(--radius-md); margin-top: 1rem;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2" style="margin-bottom: 0.75rem;">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h4 style="color: var(--text-dark); margin-bottom: 0.5rem;">Request Received!</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-muted);">
+                            Thank you. An EVTODO commercial site engineer will review your fleet requirements and contact you at the provided email/phone within 2 business hours.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00b14f" stroke-width="2.2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-brand">EV<span>TODO</span></span>
+                            <span class="logo-tagline">Charging the Future</span>
+                        </div>
+                    </a>
+                    <p>
+                        Comprehensive EV charging infrastructure solutions for commercial fleets, transit agencies, dealerships, and state/federal operators. Building since 2019.
+                    </p>
+                    <p style="margin-top: 0.75rem; font-weight: 500; color: var(--text-dark);">
+                        6343 Skyline Drive, Suite 8, Houston, TX 77057<br>
+                        Phone: <a href="tel:8326128050" style="color: var(--primary-green);">832-612-8050</a>
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="#services">Hardware Sales</a></li>
+                        <li><a href="#services">Turnkey Installation</a></li>
+                        <li><a href="#services">DC Fast Charging (Level 3)</a></li>
+                        <li><a href="#services">Preventive Maintenance</a></li>
+                        <li><a href="#services">Corrective Repair SLA</a></li>
+                        <li><a href="#services">Utility Power Interconnect</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>7 Markets</h5>
+                    <ul>
+                        <li><a href="#markets">School Buses</a></li>
+                        <li><a href="#markets">Public Transit</a></li>
+                        <li><a href="#markets">Shopping & Leisure</a></li>
+                        <li><a href="#markets">Auto Dealerships</a></li>
+                        <li><a href="#markets">Trucks & Heavy Cargo</a></li>
+                        <li><a href="#markets">Delivery Fleets</a></li>
+                        <li><a href="#markets">Airports & GSE</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Hardware Brands</h5>
+                    <ul>
+                        <li><a href="#brands">Heliox Chargers</a></li>
+                        <li><a href="#brands">EVTech Infrastructure</a></li>
+                        <li><a href="#brands">BorgWarner</a></li>
+                        <li><a href="#brands">ABB Fast Chargers</a></li>
+                        <li><a href="#brands">Siemens eMobility</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    © 2026 EVTODO, Inc. All rights reserved. Charging the Future since 2019.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Uptime SLA Guarantee</a>
+                    <a href="#contact">Houston HQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- EMBEDDED JAVASCRIPT -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+        }
+
+        function closeMobileMenu() {
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+            }
+        }
+
+        // Fleet Savings Calculator Logic
+        function updateCalc() {
+            const fleetSize = parseInt(document.getElementById('fleetInput').value);
+            const dailyMiles = parseInt(document.getElementById('milesInput').value);
+            const gasPrice = parseFloat(document.getElementById('gasInput').value);
+            const sector = document.getElementById('sectorSelect').value;
+
+            // Update Labels
+            document.getElementById('fleetVal').innerText = fleetSize + " Vehicles";
+            document.getElementById('milesVal').innerText = dailyMiles + " Miles";
+            document.getElementById('gasVal').innerText = "$" + gasPrice.toFixed(2) + " / gal";
+
+            // Calculation assumptions
+            // Gas/Diesel efficiency: average ~8 mpg for fleet/bus/delivery, electric ~1.2 kWh/mile
+            let mpg = 8.5;
+            if (sector === 'trucks') mpg = 5.5;
+            if (sector === 'school') mpg = 7.0;
+            if (sector === 'transit') mpg = 4.5;
+            if (sector === 'delivery') mpg = 11.0;
+
+            const annualMilesPerVehicle = dailyMiles * 260; // 260 operating days per year
+            const totalAnnualMiles = annualMilesPerVehicle * fleetSize;
+
+            const annualGallons = totalAnnualMiles / mpg;
+            const annualFossilCost = annualGallons * gasPrice;
+
+            // Electric cost: avg $0.13 per kWh, avg 1.1 kWh/mile
+            const kwhNeeded = totalAnnualMiles * 1.1;
+            const annualElectricCost = kwhNeeded * 0.13;
+
+            const annualSavings = Math.round(annualFossilCost - annualElectricCost);
+            const co2Offset = Math.round((annualGallons * 10.18) / 1000); // ~10.18 kg CO2 per gallon diesel
+
+            // Format results
+            document.getElementById('savingsRes').innerText = "$" + annualSavings.toLocaleString();
+            document.getElementById('co2Res').innerText = co2Offset.toLocaleString() + " Metric Tons";
+
+            // Recommendation
+            let chargerCount = Math.max(2, Math.ceil(fleetSize / 2));
+            let chargerType = "EVTech 120kW DC Fast Chargers";
+            if (sector === 'trucks') chargerType = "Heliox 180kW-360kW Mega-Fast Chargers";
+            if (sector === 'school') chargerType = "EVTech Level 3 Depot Chargers (V2G Ready)";
+            if (sector === 'transit') chargerType = "Heliox Pantograph & Heavy Depot Chargers";
+
+            document.getElementById('setupRes').innerText = chargerCount + "x " + chargerType;
+        }
+
+        // Contact Form Submission Handler
+        function submitForm(event) {
+            event.preventDefault();
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        }
+
+        // Initialize calculator on load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCalc();
+        });
+    </script>
+</body>
+</html>
